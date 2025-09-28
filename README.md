@@ -32,7 +32,7 @@ Guidelines and rules for consistency (big brother will be watching you :expressi
     - dev
       - Reserved for completed and tested features, integration pending
   - Feature branches
-    - Branch created for each feature, always branching off dev
+    - Branch created for each feature, always branching off of dev
     - e.g. `observer-attach`  
 - Review PRs
   - At least 1 preferrably 2 reviewers per PR.
