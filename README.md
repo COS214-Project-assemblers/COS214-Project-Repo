@@ -2,7 +2,7 @@
 ## Hallo all :smirk:
 Welcome to our FINAL PROJECT for 214 :confetti_ball:
 
-**Below are some action points that we should clarify before jumping in. Everything mentioned is purely a suggestion and a foundation to build on. The floor is open for discussion and debate, this just gives us something concrete to work off of* *
+***Below are some action points that we should clarify before jumping in. Everything mentioned is purely a suggestion and a foundation to build on. The floor is open for discussion and debate, this just gives us something concrete to work off of***
 
 Guidelines and rules for consistency (big brother will be watching you :expressionless:)
 - Meetings
