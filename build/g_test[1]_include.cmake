@@ -1,0 +1,5 @@
+if(EXISTS "/home/gerard/Documents/COS214/project/COS214-Project-Repo/build/g_test[1]_tests.cmake")
+  include("/home/gerard/Documents/COS214/project/COS214-Project-Repo/build/g_test[1]_tests.cmake")
+else()
+  add_test(g_test_NOT_BUILT g_test_NOT_BUILT)
+endif()
