@@ -1,0 +1,25 @@
+name: C/C++ CI Automatic Testing
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Make buid directory
+      run: cmake -S . -B build
+    - name: Build
+      run: cmake --build build
+    - name: Run tests
+      run: cd build && ctest
