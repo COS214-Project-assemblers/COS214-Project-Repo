@@ -18,8 +18,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Make buid directory
-      run: cmake -S . -B build
+      run: cmake -S . -B build_test
     - name: Build
-      run: cmake --build build
+      run: cmake --build build_test
     - name: Run tests
       run: cd build && ctest
