@@ -16,7 +16,7 @@ class Plant
     
     public:
         Plant(string plantType, float costPrice, float salePrice);
-        Plant(Plant& original);
+        Plant(const Plant& original);
         virtual ~Plant();
         
         virtual Plant* clone() = 0;
