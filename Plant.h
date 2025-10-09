@@ -16,6 +16,7 @@ class Plant
     
     public:
         Plant(string plantType, float costPrice, float salePrice);
+        virtual Plant* clone() = 0;
 };
 
 #endif
