@@ -1,14 +1,8 @@
 #include "Succulent.h"
 
-Succulent::Succulent(string plantType) : Plant(plantType)
-{
+Succulent::Succulent(string plantType) : Plant(plantType) {}
 
-}
-
-Succulent::~Succulent()
-{
-
-}
+Succulent::~Succulent() {}
 
 Plant* Succulent::clone()
 {
