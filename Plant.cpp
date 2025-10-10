@@ -1,44 +1,22 @@
 #include "Plant.h"
 
-Plant::Plant(string plantType, float costPrice, float salePrice)
+map<string, float> Plant::plantCosts = 
 {
-    bool valid = false;
+    {"Daisy", 5.0},
+    {"Rose", 10.0},
+    {"Sunflower", 8.5},
+    {"Cactus", 12.0},
+    {"Lemon", 15.0},
+    {"Banana", 20.0},
+    {"Apple", 25.0}
+};
 
-    for (int i = 0; i < validPlants->size(); i++)
-    {
-        if(plantType == validPlants[i])
-        {
-            valid = true;
-        }
-    }
-    
-    if(valid)
-    {
-        this->plantType = plantType;
-    }
-    else
-    {
-        this->plantType = "Not valid";
-    }
+Plant::Plant(string plantType)
+{
+    this->plantType = plantType;
 
-    if(costPrice > 0)
-    {
-        this->costPrice = costPrice;
-    }
-    else
-    {
-        this->costPrice = 1.00;
-    }
-
-    if(salePrice > 0)
-    {
-        this->salePrice = costPrice;
-    }
-    else
-    {
-        this->salePrice = 2.00;
-    }
-
+    costPrice = plantCosts[plantType];
+    salePrice = costPrice * 1.5;
 }
 
 Plant::Plant(const Plant& original)

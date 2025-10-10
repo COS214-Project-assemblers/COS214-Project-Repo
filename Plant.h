@@ -2,6 +2,7 @@
 #define PLANT_H
 
 #include <string>
+#include <map>
 using namespace std;
 
 class Plant
@@ -11,11 +12,10 @@ class Plant
         float costPrice;
         float salePrice;
 
-        const string validPlants[20] = 
-        {"Daisy", "Rose", "Sunflower", "Cactus", "Lemon", "Banana", "Apple"};
+        static map<string, float> plantCosts;
     
     public:
-        Plant(string plantType, float costPrice, float salePrice);
+        Plant(string plantType);
         Plant(const Plant& original);
         virtual ~Plant();
         
