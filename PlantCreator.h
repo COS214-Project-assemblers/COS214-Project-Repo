@@ -9,7 +9,7 @@ class PlantCreator
         Plant* plant;
 
     protected:
-        virtual Plant* createPlant() = 0;
+        virtual Plant* createPlant(string type) = 0;
 
     public:
         PlantCreator();
