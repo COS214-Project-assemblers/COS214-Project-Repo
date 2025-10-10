@@ -14,7 +14,7 @@ class PlantCreator
     public:
         PlantCreator();
         virtual ~PlantCreator();
-        void anOperation();
+        void anOperation(string type);
         Plant* clonePlant();
 };
 

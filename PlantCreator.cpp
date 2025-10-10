@@ -7,9 +7,9 @@ PlantCreator::~PlantCreator()
     // might delete plant, but might not?
 }
 
-void PlantCreator::anOperation()
+void PlantCreator::anOperation(string type)
 {
-    plant = createPlant();
+    plant = createPlant(type);
 }
 
 Plant* PlantCreator::clonePlant()
