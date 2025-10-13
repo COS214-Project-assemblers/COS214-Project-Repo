@@ -27,8 +27,8 @@ class Plant
         string getPlantVariety();
         float getCostPrice();
         float getSalePrice();
-        
-        virtual void display();
+
+        void display();
 };
 
 #endif
