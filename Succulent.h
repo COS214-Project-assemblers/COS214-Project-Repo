@@ -6,7 +6,7 @@
 class Succulent : public Plant
 {
     public:
-        Succulent(string plantType);
+        Succulent(string variety);
         ~Succulent();
 
         Plant* clone();

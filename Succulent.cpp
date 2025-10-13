@@ -1,10 +1,10 @@
 #include "Succulent.h"
 
-Succulent::Succulent(string plantType) : Plant(plantType) {}
+Succulent::Succulent(string variety) : Plant("Succulent", variety) {}
 
 Succulent::~Succulent() {}
 
 Plant* Succulent::clone()
 {
-
+    return new Succulent(*this);
 }

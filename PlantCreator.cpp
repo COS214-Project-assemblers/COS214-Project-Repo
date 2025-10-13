@@ -4,7 +4,8 @@ PlantCreator::PlantCreator() {}
 
 PlantCreator::~PlantCreator()
 {
-    // might delete plant, but might not?
+    // WATCH OUT, IF SEG THEN REMOVE THIS
+    delete plant;
 }
 
 void PlantCreator::anOperation(string type)
@@ -20,4 +21,19 @@ Plant* PlantCreator::clonePlant()
     }
 
     return nullptr;
+}
+
+bool PlantCreator::hasPlant()
+{ 
+    if(plant)
+    {
+        return true;
+    }
+    
+    return false;
+}
+
+Plant* PlantCreator::getPlant()
+{ 
+    return plant; 
 }
