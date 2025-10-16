@@ -8,7 +8,7 @@ PlantCreator::~PlantCreator()
     delete plant;
 }
 
-void PlantCreator::anOperation(string type)
+void PlantCreator::makePlant(string type)
 {
     plant = createPlant(type);
 }
