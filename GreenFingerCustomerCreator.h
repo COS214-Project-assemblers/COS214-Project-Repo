@@ -2,6 +2,7 @@
 #define GREENFINGERCUSTOMERCREATOR_H
 
 #include "CustomerCreator.h"
+#include "GreenFingerCustomer.h"
 
 class GreenFingerCustomerCreator: public CustomerCreator
 {
