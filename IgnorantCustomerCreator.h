@@ -5,7 +5,11 @@
 
 class IgnorantCustomerCreator: public CustomerCreator
 {
+    public:
+        IgnorantCustomerCreator();
+        ~IgnorantCustomerCreator();
 
+        Customer* createCustomer();
 };
 
 #endif

@@ -5,7 +5,11 @@
 
 class GreenFingerCustomerCreator: public CustomerCreator
 {
+    public:
+        GreenFingerCustomerCreator();
+        ~GreenFingerCustomerCreator();
 
+        Customer* createCustomer();
 };
 
 #endif

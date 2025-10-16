@@ -5,7 +5,11 @@
 
 class AverageCustomerCreator: public CustomerCreator
 {
+    public:
+        AverageCustomerCreator();
+        ~AverageCustomerCreator();
 
+        Customer* createCustomer();
 };
 
 #endif
