@@ -13,5 +13,5 @@ IgnorantCustomerCreator::~IgnorantCustomerCreator()
 
 Customer* IgnorantCustomerCreator::createCustomer()
 {
-    
+    return new IgnorantCustomer();
 }

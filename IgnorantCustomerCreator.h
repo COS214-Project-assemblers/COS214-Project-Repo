@@ -2,6 +2,7 @@
 #define IGNORANTCUSTOMERCREATOR_H
 
 #include "CustomerCreator.h"
+#include "IgnorantCustomer.h"
 
 class IgnorantCustomerCreator: public CustomerCreator
 {
