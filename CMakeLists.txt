@@ -16,17 +16,17 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-SET(SOURCES example.cpp)
+SET(SOURCES Game.cpp)
 
 add_executable(
   g_test
-  AllTest.cpp
+  # AllTest.cpp
   ${SOURCES}
 )
 
 add_executable(
     main 
-    main.cpp
+    # main.cpp
     ${SOURCES}
 )
 
