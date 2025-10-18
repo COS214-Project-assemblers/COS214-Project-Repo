@@ -23,7 +23,7 @@ class MenuOption {
          */
         MenuOption(Game* game, Logger* logger = nullptr);
         virtual void execute() = 0;
-        ~MenuOption() = default;
+        virtual ~MenuOption() = default;
 };
 
 #endif // M_OPTION

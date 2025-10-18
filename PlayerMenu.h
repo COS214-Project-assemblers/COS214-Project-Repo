@@ -22,7 +22,7 @@ class PlayerMenu {
 	 *  set in setMenuOption method
 	 *  used in executeOption to invoke MenuOption execute method
 	 */
-        MenuOption* menuOption;
+        MenuOption* menuOption = nullptr;
     public:
 	/**
 	 * @brief Setter for menuOption attribute
