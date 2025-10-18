@@ -11,40 +11,79 @@ jobs:
     outputs:
       final_message: ${{ steps.run_codex.outputs.final-message }}
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout PR merge ref with full history
+        uses: actions/checkout@v5
         with:
-          # Explicitly check out the PR's merge commit.
           ref: refs/pull/${{ github.event.pull_request.number }}/merge
+          fetch-depth: 0
 
-      - name: Pre-fetch base and head refs for the PR
+      - name: Ensure base/head refs are present
         run: |
           git fetch --no-tags origin \
             ${{ github.event.pull_request.base.ref }} \
             +refs/pull/${{ github.event.pull_request.number }}/head
 
-      # If you want Codex to build and run code, install any dependencies that
-      # need to be downloaded before the "Run Codex" step because Codex's
-      # default sandbox disables network access.
+      - name: Prepare PR context for Codex (no git inside sandbox)
+        id: prep
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+
+          # Helpful in GitHub's containerized checkout
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+          # Use a unique delimiter so accidental 'EOF' in content can't break outputs
+          DELIM="GHOUT_$(date +%s)_$RANDOM"
+
+          {
+            echo "FILES<<$DELIM"
+            git diff --name-status "$BASE..$HEAD"
+            echo "$DELIM"
+
+            echo "COMMITS<<$DELIM"
+            git log --oneline "$BASE..$HEAD"
+            echo "$DELIM"
+
+            echo "DIFF<<$DELIM"
+            # Unified=0 shows only changed lines; trim to keep prompt size reasonable
+            git diff --unified=0 "$BASE..$HEAD" | head -n 4000
+            echo "$DELIM"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Run Codex
         id: run_codex
         uses: openai/codex-action@v1
         with:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
-          model: gpt-4o-mini
+          # model: gpt-4o-mini   # uncomment to pin a model
           prompt: |
             This is PR #${{ github.event.pull_request.number }} for ${{ github.repository }}.
             Base SHA: ${{ github.event.pull_request.base.sha }}
             Head SHA: ${{ github.event.pull_request.head.sha }}
 
-            Review ONLY the changes introduced by the PR.
-            Suggest any improvements, potential bugs, or issues.
-            Be concise and specific in your feedback.
+            Review ONLY the changes introduced by this PR.
+            Focus on correctness, potential bugs, edge cases, clarity, and testability.
+            Be concise and specific. If the diff is truncated, say what else you'd want to inspect.
 
             Pull request title and body:
             ----
             ${{ github.event.pull_request.title }}
             ${{ github.event.pull_request.body }}
+
+            Files changed (name-status):
+            ----
+            ${{ steps.prep.outputs.FILES }}
+
+            Commits in PR:
+            ----
+            ${{ steps.prep.outputs.COMMITS }}
+
+            Unified diff (truncated to first ~4000 lines):
+            ----
+            ${{ steps.prep.outputs.DIFF }}
 
   post_feedback:
     runs-on: ubuntu-latest
