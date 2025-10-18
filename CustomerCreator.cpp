@@ -14,3 +14,8 @@ void CustomerCreator::makeCustomer()
 {
     customer = createCustomer();
 }
+
+Customer* CustomerCreator::getCustomer()
+{
+    return customer;
+}

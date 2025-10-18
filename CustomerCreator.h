@@ -16,6 +16,7 @@ class CustomerCreator
         virtual ~CustomerCreator();
         
         void makeCustomer();
+        Customer* getCustomer();
 };
 
 #endif

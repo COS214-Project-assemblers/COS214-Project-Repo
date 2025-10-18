@@ -5,14 +5,14 @@
 
 class AverageCustomer : public Customer
 {
-private:
-    void showDialog();
-    vector<string> compileOptions();
-    void processChoice(int choice);
+    private:
+        void showDialog();
+        vector<string> compileOptions();
+        void processChoice(int choice);
 
-public:
-    AverageCustomer();
-    ~AverageCustomer();
+    public:
+        AverageCustomer();
+        ~AverageCustomer();
 };
 
 #endif

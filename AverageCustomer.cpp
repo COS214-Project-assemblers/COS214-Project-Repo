@@ -12,9 +12,9 @@ AverageCustomer::~AverageCustomer()
 
 void AverageCustomer::showDialog()
 {
-    cout << "Customer: \"Hello! I'm looking to expand my plant collection.\"\n";
-    cout << "Customer: \"I have some experience and can handle moderate care requirements.\"\n";
-    cout << "Customer: \"What would be a good addition to my collection?\"\n\n";
+    cout << "Average Customer: \"Hello! I'm looking to expand my plant collection.\"\n";
+    cout << "Average Customer: \"I have some experience and can handle moderate care requirements.\"\n";
+    cout << "Average Customer: \"What would be a good addition to my collection?\"\n\n";
 }
 
 vector<string> AverageCustomer::compileOptions()
@@ -32,16 +32,16 @@ void AverageCustomer::processChoice(int choice)
     switch (choice)
     {
         case 1:
-            cout << "Customer: \"Daisies are lovely! They'd look great in my garden. I'll take them!\"\n";
+            cout << "\nAverage Customer: \"Daisies are lovely! They'd look great in my garden. I'll take them!\"\n";
             break;
         case 2:
-            cout << "Customer: \"Aloe is practical and nice looking. Good suggestion!\"\n";
+            cout << "\nAverage Customer: \"Aloe is practical and nice looking. Good suggestion!\"\n";
             break;
         case 3:
-            cout << "Customer: \"A banana tree? My yard might be too small for that...\"\n";
+            cout << "\nAverage Customer: \"A banana tree? My yard might be too small for that...\"\n";
             break;
         default:
-            cout << "Customer: \"I'm not convinced that's what I'm looking for...\"\n";
+            cout << "\nAverage Customer: \"I'm not convinced that's what I'm looking for...\"\n";
             break;
     }
 }
