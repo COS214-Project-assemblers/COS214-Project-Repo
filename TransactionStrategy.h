@@ -6,7 +6,7 @@
 class TransactionStrategy{
     public:
         TransactionStrategy();
-        virtual ~TransactionStrategy()=0;
+        virtual ~TransactionStrategy();
         virtual double execute(double v, double b)=0;
         virtual std::string getType()=0;
 };

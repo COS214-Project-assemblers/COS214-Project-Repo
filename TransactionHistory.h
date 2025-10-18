@@ -11,7 +11,7 @@ class TransactionHistory{
         TransactionHistory();
         ~TransactionHistory();
         void setTransactionMem(TransactionMem tM);
-        TransactionMem getTransactionMem();
+        TransactionMem getTransactionMem(int index);
         void print();
 };
 #endif
