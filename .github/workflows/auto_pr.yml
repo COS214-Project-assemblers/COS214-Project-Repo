@@ -25,32 +25,40 @@ jobs:
 
       - name: Prepare PR context for Codex (no git inside sandbox)
         id: prep
+        shell: bash
         run: |
+          set -euo pipefail
+
           BASE="${{ github.event.pull_request.base.sha }}"
           HEAD="${{ github.event.pull_request.head.sha }}"
 
-          # Helpful when running in GitHub’s container
+          # Helpful in GitHub's containerized checkout
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
-          echo "FILES<<EOF" >> "$GITHUB_OUTPUT"
-          git diff --name-status "$BASE..$HEAD"
-          echo "EOF" >> "$GITHUB_OUTPUT"
+          # Use a unique delimiter so accidental 'EOF' in content can't break outputs
+          DELIM="GHOUT_$(date +%s)_$RANDOM"
 
-          echo "COMMITS<<EOF" >> "$GITHUB_OUTPUT"
-          git log --oneline "$BASE..$HEAD"
-          echo "EOF" >> "$GITHUB_OUTPUT"
+          {
+            echo "FILES<<$DELIM"
+            git diff --name-status "$BASE..$HEAD"
+            echo "$DELIM"
 
-          # Unified=0: only changed lines; truncate to keep prompt manageable
-          echo "DIFF<<'EOF'" >> "$GITHUB_OUTPUT"
-          git diff --unified=0 "$BASE..$HEAD" | head -n 4000
-          echo "EOF" >> "$GITHUB_OUTPUT"
+            echo "COMMITS<<$DELIM"
+            git log --oneline "$BASE..$HEAD"
+            echo "$DELIM"
+
+            echo "DIFF<<$DELIM"
+            # Unified=0 shows only changed lines; trim to keep prompt size reasonable
+            git diff --unified=0 "$BASE..$HEAD" | head -n 4000
+            echo "$DELIM"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Run Codex
         id: run_codex
         uses: openai/codex-action@v1
         with:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
-          # model: gpt-4o-mini
+          # model: gpt-4o-mini   # uncomment to pin a model
           prompt: |
             This is PR #${{ github.event.pull_request.number }} for ${{ github.repository }}.
             Base SHA: ${{ github.event.pull_request.base.sha }}
