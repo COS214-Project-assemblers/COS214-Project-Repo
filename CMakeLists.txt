@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.20)
 project(my_project)
 
 # GoogleTest requires at least C++17
@@ -16,9 +16,11 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+find_package(oatpp 1.4.0 REQUIRED)
+
 enable_testing()
 
-SET(SOURCES Game.cpp)
+SET(SOURCES APIDto.h APIController.h APIController.cpp APIComponent.h APIComponent.cpp API.h API.cpp)
 
 add_executable(
   g_test
@@ -28,14 +30,16 @@ add_executable(
 
 add_executable(
     main 
-    # main.cpp
+    main.cpp
     ${SOURCES}
 )
 
-target_link_libraries(
-  g_test
-  GTest::gtest_main
-)
+target_include_directories(main  PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(g_test PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(main PRIVATE oatpp::oatpp)
+
+target_link_libraries(g_test PRIVATE oatpp::oatpp GTest::gtest_main)
 
 include(GoogleTest)
 gtest_discover_tests(g_test)
