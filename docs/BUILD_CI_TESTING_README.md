@@ -6,7 +6,8 @@ This assumes that you are using a Debian based (i.e. Ubuntu) distro. WSL is fine
 Installing CMake and Ninja 
 
 ```sh
-sudo apt install -y cmake && ninja-build
+sudo apt install -y cmake
+sudo apt install -y ninja-build
 ```
 
 Done!
