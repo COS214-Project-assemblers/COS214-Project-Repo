@@ -4,9 +4,11 @@
 #include <string>
 #include <map>
 #include <iostream>
-#include "PlantState.h"
-#include "GreenhouseStaff.h"
 #include "NotSellable.h"
+
+class PlantState;
+class GreenhouseStaff;
+
 using namespace std;
 
 class Plant

@@ -8,7 +8,7 @@ using namespace std;
 class GreenhouseStaff {
     public:
         virtual void update(string& careType, Plant* plant) = 0;
-        virtual ~GreenhouseStaff(){}
+        virtual ~GreenhouseStaff() = default;
 };
 
 #endif

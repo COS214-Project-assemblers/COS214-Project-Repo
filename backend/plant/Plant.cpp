@@ -52,7 +52,6 @@ Plant::Plant(const Plant& original)
 
 Plant::~Plant() {
     delete plantState;
-    plantState = nullptr;
 }
 
 string Plant::getPlantCategory()
@@ -103,8 +102,10 @@ std::string Plant::getCareType() {
 }
 
 void Plant::setState(PlantState *plantState_) {
-    delete plantState;
-    plantState = plantState_;
+    if(plantState != plantState_) {
+        delete plantState;
+        plantState = plantState_;
+    }
 }
 
 void Plant::request() {
