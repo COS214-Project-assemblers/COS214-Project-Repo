@@ -3,7 +3,12 @@
 
 #include <string>
 #include <map>
+#include <vector>
 #include <iostream>
+
+class PlantState;
+class GreenhouseStaff;
+
 using namespace std;
 
 class Plant
@@ -14,7 +19,12 @@ class Plant
         float costPrice;
         float salePrice;
 
+        PlantState* plantState;
+        string careType;
+
         static map<string, float> plantCosts;
+
+        vector<GreenhouseStaff*> observerList;
     
     public:
         Plant(string category, string variety);
@@ -29,6 +39,14 @@ class Plant
         float getSalePrice();
 
         void display();
+
+        PlantState* getState();
+        void attach(GreenhouseStaff* ob);
+        void detach(GreenhouseStaff* ob);
+        void notify(string& careType);
+        string getCareType();
+        void setState(PlantState* plantState);
+        void request();
 };
 
 #endif
