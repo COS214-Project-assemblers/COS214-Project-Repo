@@ -4,6 +4,7 @@
 #include <string>
 #include "Plant.h"
 #include "GreenhouseStaff.h"
+using namespace std;
 
 class PruningStaff : public GreenhouseStaff {
     public:

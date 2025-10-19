@@ -42,11 +42,18 @@ Plant::Plant(const Plant& original)
     this->costPrice = original.costPrice;
     this->salePrice = original.salePrice;
 
-    this->plantState = original.plantState;
+    if(original.plantState != nullptr) { 
+        this->plantState = original.plantState->clone(); 
+    } else { 
+        this->plantState = nullptr; 
+    }
     this->careType = original.careType;
 }
 
-Plant::~Plant() {}
+Plant::~Plant() {
+    delete plantState;
+    plantState = nullptr;
+}
 
 string Plant::getPlantCategory()
 {
@@ -95,8 +102,9 @@ std::string Plant::getCareType() {
     return careType;
 }
 
-void Plant::setState(PlantState *plantState) {
-    this->plantState = plantState;
+void Plant::setState(PlantState *plantState_) {
+    delete plantState;
+    plantState = plantState_;
 }
 
 void Plant::request() {

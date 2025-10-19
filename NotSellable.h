@@ -6,6 +6,7 @@
 class NotSellable : public PlantState {
     public:
         void handle(Plant* plant);
+        PlantState* clone() const override;
 };
 
 #endif

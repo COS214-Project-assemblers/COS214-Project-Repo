@@ -1,5 +1,5 @@
 #include "PruningStaff.h"
 
-void PruningStaff::update(std::string &careType, Plant *plant) {
+void PruningStaff::update(string &careType, Plant *plant) {
     
 }

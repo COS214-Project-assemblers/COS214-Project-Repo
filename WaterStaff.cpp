@@ -1,5 +1,5 @@
 #include "WaterStaff.h"
 
-void WaterStaff::update(std::string &careType, Plant *plant) {
+void WaterStaff::update(string &careType, Plant *plant) {
     
 }
