@@ -1,0 +1,11 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: config/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./CMakeLists.txt:/app/CMakeLists.txt:ro
+      - ./backend:/app/backend
+    command: [/usr/local/bin/dev.sh]
