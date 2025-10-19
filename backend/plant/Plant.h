@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <vector>
 #include <iostream>
 
 class PlantState;
@@ -22,6 +23,8 @@ class Plant
         string careType;
 
         static map<string, float> plantCosts;
+
+        vector<GreenhouseStaff*> observerList;
     
     public:
         Plant(string category, string variety);
