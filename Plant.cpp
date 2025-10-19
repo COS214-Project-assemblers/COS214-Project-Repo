@@ -20,6 +20,9 @@ Plant::Plant(string category, string variety)
     this->plantCategory = category;
     this->plantVariety = variety;
 
+    this->careType = "";
+    this->plantState = new NotSellable();
+
     if(plantCosts[variety])
     {
         costPrice = plantCosts[variety];
@@ -38,6 +41,9 @@ Plant::Plant(const Plant& original)
     this->plantVariety = original.plantVariety;
     this->costPrice = original.costPrice;
     this->salePrice = original.salePrice;
+
+    this->plantState = original.plantState;
+    this->careType = original.careType;
 }
 
 Plant::~Plant() {}
@@ -65,4 +71,34 @@ float Plant::getSalePrice()
 void Plant::display()
 {
     cout << plantCategory << " - " << plantVariety << ", Cost: R" << costPrice << ", Sale: R" << salePrice << endl;
+}
+
+
+
+PlantState *Plant::getState() {
+    return plantState;
+}
+
+void Plant::attach(GreenhouseStaff *ob) {
+
+}
+
+void Plant::detach(GreenhouseStaff *ob) {
+
+}
+
+void Plant::notify(std::string& careType) {
+
+}
+
+std::string Plant::getCareType() {
+    return careType;
+}
+
+void Plant::setState(PlantState *plantState) {
+    this->plantState = plantState;
+}
+
+void Plant::request() {
+
 }

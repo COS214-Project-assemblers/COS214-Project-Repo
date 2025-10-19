@@ -4,6 +4,9 @@
 #include <string>
 #include <map>
 #include <iostream>
+#include "PlantState.h"
+#include "GreenhouseStaff.h"
+#include "NotSellable.h"
 using namespace std;
 
 class Plant
@@ -13,6 +16,9 @@ class Plant
         string plantVariety;
         float costPrice;
         float salePrice;
+
+        PlantState* plantState;
+        string careType;
 
         static map<string, float> plantCosts;
     
@@ -29,6 +35,14 @@ class Plant
         float getSalePrice();
 
         void display();
+
+        PlantState* getState();
+        void attach(GreenhouseStaff* ob);
+        void detach(GreenhouseStaff* ob);
+        void notify(string& careType);
+        string getCareType();
+        void setState(PlantState* plantState);
+        void request();
 };
 
 #endif
