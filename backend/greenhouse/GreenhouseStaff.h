@@ -2,7 +2,9 @@
 #define GREENHOUSESTAFF_H
 
 #include <string>
-#include "Plant.h"
+
+class Plant;
+
 using namespace std;
 
 class GreenhouseStaff {
