@@ -2,24 +2,35 @@ name: C/C++ CI Automatic Testing
 
 on:
   push:
-    branches:
-      - main
-      - dev
+    branches: [main, dev]
   pull_request:
-    branches:
-      - main
-      - dev
+    branches: [main, dev]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Make buid directory
-      run: cmake -S . -B build_test
-    - name: Build
-      run: cmake --build build_test
-    - name: Run tests
-      run: cd build_test && ctest
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies and Oat++
+        run: |
+          set -euxo pipefail
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake git
+          # Build & install Oat++ to /usr/local so find_package(oatpp) works
+          git clone https://github.com/oatpp/oatpp.git "$HOME/oatpp"
+          cmake -S "$HOME/oatpp" -B "$HOME/oatpp/build"
+          sudo cmake --build "$HOME/oatpp/build" --config Release --parallel
+          sudo cmake --install "$HOME/oatpp/build"
+          # Ensure runtime linker sees new libs (if any)
+          sudo ldconfig
+
+      - name: Configure (create build directory)
+        run: cmake -S . -B build_test -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build_test --config Release --parallel
+
+      - name: Run tests
+        run: cd build_test && ctest --output-on-failure
