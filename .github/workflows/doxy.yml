@@ -22,5 +22,8 @@ jobs:
       - name: Build doxygen files
         run: doxygen Doxyfile
 
+      - name: FTP Config
+        run: echo "set ftp:ssl-allow false" | sudo tee -a /etc/lftp.conf
+
       - name: FTP to server
         run: lftp -u '{{ secrets.FTP_USERNAME }}','{{ secrets.FTP_PASSWORD }}' -e "mirror --reverse html/ /assemblers-documentation/" {{ secrets.FTP_URL }}
