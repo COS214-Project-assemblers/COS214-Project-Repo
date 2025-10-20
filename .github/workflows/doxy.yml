@@ -1,0 +1,26 @@
+name: Doxygen Deployment
+
+on:
+  push:
+    branches: 
+      - dev
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies, doxygen, lftp
+        run: |
+          set -euxo pipefail
+          sudo apt-get update
+          sudo apt-get install -y build-essential doxygen ftp lftp
+
+      - name: Build doxygen files
+        run: doxygen Doxyfile
+
+      - name: FTP to server
+        run: lftp -u '{{ secrets.FTP_USERNAME }}','{{ secrets.FTP_PASSWORD }}' -e "mirror --reverse html/ /assemblers-documentation/" {{ secrets.FTP_URL }}
