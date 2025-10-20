@@ -4,13 +4,12 @@ Game::Game() {
     // Nothing yet
 }
 
-void Game::createNewGame() {}
-
 void Game::setGreenhouse(Greenhouse* greenhouse) {}
 
 void Game::setFactories(vector<PlantCreator*> factories) {}
 
 void Game::createNewGame() {
+    // try 
     cout << "Creating new game..." << endl;
 }
 

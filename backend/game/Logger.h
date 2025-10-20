@@ -8,6 +8,9 @@
 #define LOGGER
 
 #include <string>
+#include <iostream>
+
+using namespace std;
 
 class Logger {
     private:
@@ -20,7 +23,7 @@ class Logger {
          * @brief Loads and sets Log File filename from environment variables
          */
         Logger();
-        void newLog(std::string message);
+        void newLog(string message);
 };
 
 #endif // LOGGER

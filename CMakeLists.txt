@@ -29,6 +29,16 @@ set(SOURCES
   backend/API/APIComponent.cpp
   backend/API/API.h
   backend/API/API.cpp
+  backend/game/Game.cpp
+  backend/game/Game.h
+  backend/game/MenuOption.cpp
+  backend/game/MenuOption.h
+  backend/game/NewGameOption.h
+  backend/game/NewGameOption.cpp
+  backend/game/PlayerMenu.h
+  backend/game/PlayerMenu.cpp
+  backend/game/Logger.h
+  backend/game/Logger.cpp
 )
 
 add_executable(g_test

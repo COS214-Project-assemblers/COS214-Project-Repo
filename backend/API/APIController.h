@@ -19,6 +19,7 @@
 
 #include <stdexcept>
 #include <memory>
+#include <iostream>
 
 #include OATPP_CODEGEN_BEGIN(ApiController) //<-- Begin Codegen
 
@@ -52,20 +53,23 @@ public:
     return createDtoResponse(Status::CODE_200, dto);
   }
   
-  ENDPOINT("GET", "/new-game", newGame) {
-    auto playerMenu = std::make_unique<PlayerMenu>();
-    auto newGame = std::make_unique<NewGameOption>(game);
+  ENDPOINT("GET", "/new-game", newGameEndp) {
+    PlayerMenu* playerMenu = new PlayerMenu();
+    NewGameOption* newGame = new NewGameOption(game);
     
-    playerMenu->setMenuOption(newGame.get());
+    playerMenu->setMenuOption(newGame);
 
     auto dto = APIDto::createShared();
 
     try {
       playerMenu->executeOption();
+      // Deleting playerMenu also frees newGame
+      delete playerMenu;
       dto->statusCode = 200;
       dto->message = "Game Created";
       return createDtoResponse(Status::CODE_200, dto);
     } catch (const std::exception &e) {
+      delete playerMenu;
       dto->statusCode = 500;
       dto->message = "Failed to create Game";
       return createDtoResponse(Status::CODE_500, dto);
