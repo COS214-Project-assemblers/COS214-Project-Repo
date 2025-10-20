@@ -2,9 +2,7 @@ name: Doxygen Deployment
 
 on:
   push:
-    branches: 
-      - dev
-      - main
+    branches: [dev, main]
 
 jobs:
   build:
@@ -13,17 +11,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install dependencies, doxygen, lftp
+      - name: Install dependencies
         run: |
           set -euxo pipefail
           sudo apt-get update
-          sudo apt-get install -y build-essential doxygen ftp lftp
+          sudo apt-get install -y doxygen lftp
 
       - name: Build doxygen files
         run: doxygen Doxyfile
 
-      - name: FTP Config
-        run: echo "set ftp:ssl-allow false" | sudo tee -a /etc/lftp.conf
-
-      - name: FTP to server
-        run: lftp -u '{{ secrets.FTP_USERNAME }}','{{ secrets.FTP_PASSWORD }}' -e "mirror --reverse html/ /assemblers-documentation/" {{ secrets.FTP_URL }}
+      - name: Upload docs via FTP
+        env:
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_URL: ${{ secrets.FTP_URL }}
+        run: |
+          set -euxo pipefail
+          echo "set ftp:ssl-allow false" > ~/.lftprc
+          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" "$FTP_URL" -e "mirror --reverse --verbose=3 html/ /assemblers-documentation/; quit"
