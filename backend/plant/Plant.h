@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <algorithm>
 #include <iostream>
 
 class PlantState;
@@ -82,7 +83,7 @@ class Plant
          * @param careType The type of care the plant requires
          */
         void notify(string& careType);
-        
+
         string getCareType();
 
         /**

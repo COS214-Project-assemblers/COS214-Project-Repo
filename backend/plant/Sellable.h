@@ -1,6 +1,8 @@
 #ifndef SELLABLE_H
 #define SELLABLE_H
 
+#include <iostream>
+#include <string>
 #include "PlantState.h"
 
 /**
@@ -9,7 +11,7 @@
  * 
  * This class represents the state where a plant has matured sufficiently and
  * meets all quality criteria to be sold to customers. In this state, the plant
- * can moved to the SalesFloor.
+ * can be moved to the SalesFloor.
  */
 class Sellable : public PlantState {
     public:

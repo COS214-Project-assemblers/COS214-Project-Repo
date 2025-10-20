@@ -88,11 +88,7 @@ void Plant::attach(GreenhouseStaff *ob) {
 }
 
 void Plant::detach(GreenhouseStaff *ob) {
-    for (int i = 0; i < observerList.size(); i++){
-        if(observerList[i] == ob){
-            observerList.erase(observerList.begin() + i);
-        }
-    }
+    observerList.erase(std::remove(observerList.begin(), observerList.end(), ob), observerList.end());
 }
 
 void Plant::notify(std::string& careType) {
