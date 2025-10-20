@@ -2,6 +2,7 @@
 #define NOTSELLABLE_H
 
 #include "PlantState.h"
+#include <string>
 
 /**
  * @class NotSellable

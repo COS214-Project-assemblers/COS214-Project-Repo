@@ -1,5 +1,6 @@
 #include "Plant.h"
 #include "NotSellable.h"
+#include "GreenhouseStaff.h"
 
 map<string, float> Plant::plantCosts = 
 {
@@ -87,15 +88,21 @@ PlantState *Plant::getState() {
 }
 
 void Plant::attach(GreenhouseStaff *ob) {
-
+    observerList.push_back(ob);
 }
 
 void Plant::detach(GreenhouseStaff *ob) {
-
+    for (int i = 0; i < observerList.size(); i++){
+        if(observerList[i] == ob){
+            observerList.erase(observerList.begin() + i);
+        }
+    }
 }
 
 void Plant::notify(std::string& careType) {
-
+    for(GreenhouseStaff* observer : observerList) {
+        observer->update(careType, this);
+    }
 }
 
 std::string Plant::getCareType() {
@@ -110,5 +117,5 @@ void Plant::setState(PlantState *plantState_) {
 }
 
 void Plant::request() {
-
+    plantState->handle(this);
 }

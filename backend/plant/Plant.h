@@ -82,6 +82,7 @@ class Plant
          * @param careType The type of care the plant requires
          */
         void notify(string& careType);
+        
         string getCareType();
 
         /**
@@ -93,8 +94,8 @@ class Plant
         void setState(PlantState* plantState);
 
         /**
-         * @brief Requests the plant's state to handle its current behavior.
-         * Delegates behavior to the current PlantState by calling its handle() method.
+         * @brief Requests the plant's state to handle its current behaviour.
+         * Delegates behaviour to the current PlantState by calling its handle() method.
          */
         void request();
 };
