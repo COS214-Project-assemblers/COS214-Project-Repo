@@ -9,7 +9,3 @@ void Sellable::handle(Plant *plant) {
         - Update plant as available in inventory?
     */
 }
-
-PlantState *Sellable::clone() const {
-    return new Sellable(*this);
-}

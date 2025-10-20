@@ -44,11 +44,7 @@ Plant::Plant(const Plant& original)
     this->costPrice = original.costPrice;
     this->salePrice = original.salePrice;
 
-    if(original.plantState != nullptr) { 
-        this->plantState = original.plantState->clone(); 
-    } else { 
-        this->plantState = nullptr; 
-    }
+    this->plantState = new NotSellable();
     this->careType = original.careType;
 }
 

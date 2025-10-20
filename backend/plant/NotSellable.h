@@ -21,12 +21,6 @@ class NotSellable : public PlantState {
          * @param plant Pointer to the plant being handled
          */
         void handle(Plant* plant);
-
-        /**
-         * @brief Creates a deep copy of this NotSellable state.
-         * @return Pointer to a newly allocated copy of this NotSellable state
-         */
-        PlantState* clone() const override;
 };
 
 #endif

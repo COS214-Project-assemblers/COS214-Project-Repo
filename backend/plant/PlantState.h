@@ -26,12 +26,6 @@ class PlantState {
         virtual void handle(Plant* plant) = 0;
 
         /**
-         * @brief Creates a deep copy of the current state.
-         * @return Pointer to a newly allocated copy of this state
-         */
-        virtual PlantState* clone() const = 0;
-
-        /**
          * @brief Virtual destructor for proper cleanup of derived classes.
          */
         virtual ~PlantState() = default;

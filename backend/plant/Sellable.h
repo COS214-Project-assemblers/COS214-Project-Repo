@@ -19,12 +19,6 @@ class Sellable : public PlantState {
          * @param plant Pointer to the plant being handled
          */
         void handle(Plant* plant);
-
-        /**
-         * @brief Creates a deep copy of this Sellable state.
-         * @return Pointer to a newly allocated copy of this Sellable state
-         */
-        PlantState* clone() const override;
 };
 
 #endif
