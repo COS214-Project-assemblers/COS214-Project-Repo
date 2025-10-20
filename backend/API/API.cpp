@@ -1,5 +1,7 @@
 #include "API.h"
 
+API::API(Game* game) : game(game) {}
+
 // Inspiration from https://github.com/oatpp/oatpp-starter/blob/master/src/App.cpp
 void API::run()
 {
@@ -9,7 +11,7 @@ void API::run()
     OATPP_COMPONENT(std::shared_ptr<oatpp::web::server::HttpRouter>, router);
 
     /* Create MyController and add all of its endpoints to router */
-    router->addController(std::make_shared<APIController>());
+    router->addController(APIController::createShared(game));
 
     /* Get connection handler component */
     OATPP_COMPONENT(std::shared_ptr<oatpp::network::ConnectionHandler>, connectionHandler);

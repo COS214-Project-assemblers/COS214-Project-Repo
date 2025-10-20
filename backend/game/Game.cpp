@@ -1,5 +1,6 @@
-// Temp main
+#include "Game.h"
 
-int main() {
-    return 0;
+Game::Game() {
+    // Nothing yet
 }
+
