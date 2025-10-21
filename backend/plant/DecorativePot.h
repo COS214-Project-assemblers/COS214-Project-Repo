@@ -7,7 +7,7 @@ class DecorativePot : public PlantDecorator {
     private:
         float potPrice = 119.99 ; ///< Fixed cost for the wrapper decoration
     public:
-        DecorativePot(const Plant& original);
+        DecorativePot(Plant* original);
         virtual ~DecorativePot();
         float getSalePrice() override;
 };

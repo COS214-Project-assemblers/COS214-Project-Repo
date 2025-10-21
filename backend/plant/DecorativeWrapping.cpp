@@ -1,5 +1,5 @@
 #include "DecorativeWrapping.h"
-DecorativeWrapping::DecorativeWrapping(const Plant& original)   : PlantDecorator(original) {}
+DecorativeWrapping::DecorativeWrapping(Plant* original)   : PlantDecorator(original) {}
 
 DecorativeWrapping::~DecorativeWrapping() {}
 

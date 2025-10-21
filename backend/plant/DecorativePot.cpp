@@ -1,5 +1,5 @@
 #include "DecorativePot.h"
-DecorativePot::DecorativePot(const Plant& original) : PlantDecorator(original) {}
+DecorativePot::DecorativePot(Plant* original) : PlantDecorator(original) {}
 
 DecorativePot::~DecorativePot() {}
 

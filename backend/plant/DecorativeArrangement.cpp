@@ -1,6 +1,6 @@
 #include "DecorativeArrangement.h"
 
-DecorativeArrangement::DecorativeArrangement(const Plant& original) : PlantDecorator(original) {}
+DecorativeArrangement::DecorativeArrangement(Plant* original) : PlantDecorator(original) {}
 
 DecorativeArrangement::~DecorativeArrangement() {}
 
