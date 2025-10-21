@@ -17,15 +17,14 @@ void Game::createNewGame() {
     // try 
     try {
         // Create new factories
-        // vector<PlantCreator*> factories;
-        // factories.push_back(new SucculentCreator());
-        // factories.push_back(new FlowerCreator());
-        // factories.push_back(new TreeCreator());
+        vector<PlantCreator*> factories;
+        factories.push_back(new SucculentCreator());
+        factories.push_back(new FlowerCreator());
+        factories.push_back(new TreeCreator());
 
-        // setFactories(factories);
+        setFactories(factories);
         
-        // Factories dont compile, placeholder
-        cout << "Creating factories" << endl;
+        cout << "Created factories" << endl;
     } catch (...) { // More specific error handling required
         throw runtime_error("Failed to create factories for unknown reason"); // Reason is unknown since using catch(...)
     }
@@ -45,4 +44,8 @@ void Game::loadExistingGame() {}
 
 void Game::saveGame() {}
 
-Game::~Game() {}
+Game::~Game() {
+    for (PlantCreator* factory : factories) {
+        delete factory;
+    }
+}

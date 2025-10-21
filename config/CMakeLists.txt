@@ -28,22 +28,26 @@ set(SOURCES
   backend/game/PlayerMenu.cpp
   backend/game/Logger.h
   # backend/game/Logger.cpp
+  backend/plant/Plant.h
+  backend/plant/Plant.cpp
   backend/game/BasicLogger.h
   backend/game/BasicLogger.cpp
-  # backend/plant/PlantCreator.h
-  # backend/plant/PlantCreator.cpp
-  # backend/plant/FlowerCreator.h
-  # backend/plant/FlowerCreator.cpp
-  # backend/plant/SucculentCreator.h
-  # backend/plant/SucculentCreator.cpp
-  # backend/plant/TreeCreator.h
-  # backend/plant/TreeCreator.cpp
-  # backend/plant/Flower.h
-  # backend/plant/Flower.cpp
-  # backend/plant/Succulent.h
-  # backend/plant/Succulent.cpp
-  # backend/plant/Tree.h
-  # backend/plant/Tree.cpp
+  backend/plant/PlantCreator.h
+  backend/plant/PlantCreator.cpp
+  backend/plant/FlowerCreator.h
+  backend/plant/FlowerCreator.cpp
+  backend/plant/SucculentCreator.h
+  backend/plant/SucculentCreator.cpp
+  backend/plant/TreeCreator.h
+  backend/plant/TreeCreator.cpp
+  backend/plant/Flower.h
+  backend/plant/Flower.cpp
+  backend/plant/Succulent.h
+  backend/plant/Succulent.cpp
+  backend/plant/Tree.h
+  backend/plant/Tree.cpp
+  backend/plant/NotSellable.h
+  backend/plant/NotSellable.cpp
 )
 
 add_executable(main
