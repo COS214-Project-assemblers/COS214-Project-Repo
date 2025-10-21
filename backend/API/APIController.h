@@ -12,10 +12,11 @@
 #include "oatpp/web/server/api/ApiController.hpp"
 #include "oatpp/macro/codegen.hpp"
 #include "oatpp/macro/component.hpp"
-#include "../game/Game.h"
-#include "../game/PlayerMenu.h"
-#include "../game/NewGameOption.h"
-#include "../game/ContinueGameOption.h"
+#include "Game.h"
+#include "PlayerMenu.h"
+#include "NewGameOption.h"
+#include "ContinueGameOption.h"
+#include "BasicLogger.h"
 
 #include <stdexcept>
 #include <memory>
@@ -66,7 +67,8 @@ public:
      * }
      */
     PlayerMenu* playerMenu = new PlayerMenu();
-    NewGameOption* newGame = new NewGameOption(game);
+    BasicLogger* logger = new BasicLogger();
+    NewGameOption* newGame = new NewGameOption(game, logger);
     
     playerMenu->setMenuOption(newGame);
 
@@ -76,11 +78,13 @@ public:
       playerMenu->executeOption();
       // Deleting playerMenu also frees newGame
       delete playerMenu;
+      delete logger;
       dto->statusCode = 200;
       dto->message = "Game Created";
       return createDtoResponse(Status::CODE_200, dto);
     } catch (const std::exception &e) { // Catches any exception thrown, adds exception message to response
       delete playerMenu;
+      delete logger;
       dto->statusCode = 500;
       dto->message = "Failed to create Game: " + *e.what();
       return createDtoResponse(Status::CODE_500, dto);
