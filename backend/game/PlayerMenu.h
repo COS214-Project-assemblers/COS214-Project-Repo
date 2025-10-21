@@ -8,6 +8,8 @@
 #ifndef P_MENU
 #define P_MENU
 
+#include <stdexcept>
+
 // Forward declaration, ok to do so since using MenuOption*
 class MenuOption;
 

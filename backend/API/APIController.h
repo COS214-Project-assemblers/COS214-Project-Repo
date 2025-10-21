@@ -12,6 +12,15 @@
 #include "oatpp/web/server/api/ApiController.hpp"
 #include "oatpp/macro/codegen.hpp"
 #include "oatpp/macro/component.hpp"
+#include "Game.h"
+#include "PlayerMenu.h"
+#include "NewGameOption.h"
+#include "ContinueGameOption.h"
+#include "BasicLogger.h"
+
+#include <stdexcept>
+#include <memory>
+#include <iostream>
 
 #include OATPP_CODEGEN_BEGIN(ApiController) //<-- Begin Codegen
 
@@ -21,14 +30,21 @@
  * @brief Sample Api Controller.
  */
 class APIController : public oatpp::web::server::api::ApiController {
+  private:
+    Game* game;
 public:
   /**
    * @brief Constructor with object mapper.
    * @param apiContentMappers - mappers used to serialize/deserialize DTOs.
    */
-  APIController(OATPP_COMPONENT(std::shared_ptr<oatpp::web::mime::ContentMappers>, apiContentMappers))
-    : oatpp::web::server::api::ApiController(apiContentMappers)
+  APIController(std::shared_ptr<oatpp::web::mime::ContentMappers>& apiContentMappers, Game* game)
+    : oatpp::web::server::api::ApiController(apiContentMappers), game(game)
   {}
+
+  static std::shared_ptr<APIController> createShared(Game* game) {
+    OATPP_COMPONENT(std::shared_ptr<oatpp::web::mime::ContentMappers>, apiContentMappers);
+    return std::make_shared<APIController>(apiContentMappers, game);
+  }
 public:
   
   ENDPOINT("GET", "/", root) {
@@ -36,6 +52,43 @@ public:
     dto->statusCode = 200;
     dto->message = "Hello World!";
     return createDtoResponse(Status::CODE_200, dto);
+  }
+  
+  /**
+   * @brief Executes NewGameOption Command
+   */
+  ENDPOINT("GET", "/new-game", newGameEndp) {
+    /**
+     * Response structure
+     * 
+     * {
+     *  message: <game-status>,
+     *  statusCode: <HTTP status code, 200/500>
+     * }
+     */
+    PlayerMenu* playerMenu = new PlayerMenu();
+    BasicLogger* logger = new BasicLogger();
+    NewGameOption* newGame = new NewGameOption(game, logger);
+    
+    playerMenu->setMenuOption(newGame);
+
+    auto dto = APIDto::createShared();
+
+    try {
+      playerMenu->executeOption();
+      // Deleting playerMenu also frees newGame
+      delete playerMenu;
+      delete logger;
+      dto->statusCode = 200;
+      dto->message = "Game Created";
+      return createDtoResponse(Status::CODE_200, dto);
+    } catch (const std::exception &e) { // Catches any exception thrown, adds exception message to response
+      delete playerMenu;
+      delete logger;
+      dto->statusCode = 500;
+      dto->message = "Failed to create Game: " + *e.what();
+      return createDtoResponse(Status::CODE_500, dto);
+    }   
   }
   
   // Further Endpoints

@@ -12,7 +12,7 @@ while true; do
       echo ">> Rebuilding..."
       if cmake --build /app/build -j; then
         echo ">> Build OK. (Re)starting server"
-        exec /app/build/main
+        /app/build/main
       else
         echo ">> Build failed. Waiting for changes..."
         sleep 0.5

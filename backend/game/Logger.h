@@ -1,6 +1,6 @@
 /**
  * @file Logger.h
- * @brief Header file for Logger class
+ * @brief Header for Strategy Logger
  * @author Gerard Jordaan
  */
 
@@ -8,19 +8,18 @@
 #define LOGGER
 
 #include <string>
-using namespace std;
 
+/**
+ * @class Logger
+ * @brief Interface for concrete Log strategies to implement
+ */
 class Logger {
-    private:
-        /**
-         * @brief Filename of Log File, set in Logger constructor
-         */
-        string fileName;
     public:
         /**
-         * @brief Loads and sets Log File filename from environment variables
+         * @brief Pure virtual function that acts as the algorithm the concrete strategies are to implement
+         * @param[in] message Content of log message
          */
-        Logger();
+        virtual void newLog(std::string message) = 0;
 };
 
 #endif // LOGGER

@@ -6,6 +6,8 @@ RUN apt-get update && \
 
 # clone oatpp modules
 RUN git clone https://github.com/oatpp/oatpp.git /oatpp && cd /oatpp && cmake . && make install
+# Dotenv library
+RUN mkdir -p /var/log/greenfingers && touch /var/log/greenfingers/log.txt && chmod 666 /var/log/greenfingers/log.txt
 
 WORKDIR /app
 COPY backend/dev.sh /usr/local/bin/dev.sh
