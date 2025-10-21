@@ -1,3 +1,8 @@
+/**
+ * @file PlantCreator.cpp
+ * @brief Implements the functionality defined in the PlantCreator class.
+ */
+
 #include "PlantCreator.h"
 
 PlantCreator::PlantCreator() {}
