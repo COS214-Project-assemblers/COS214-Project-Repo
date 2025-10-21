@@ -3,7 +3,6 @@
 
 #include "Plant.h"
 
-<<<<<<< HEAD
 #include <vector>
 #include <string>
 
@@ -17,21 +16,6 @@ class Inventory{
         std::vector<Plant*> findByPrice(double min, double max) const;
         bool commitSale(Plant& plant);
         bool restock(Plant& plant);
-=======
-class Inventory
-{
-    private:
-        vector<Plant*>* plants;
-    
-    public:
-        Inventory();
-        ~Inventory();
-
-        /**
-         * @brief Function that will be used for adding a Plant to the Inventory
-         */
-        void addPlant(Plant* p);
->>>>>>> dev
 };
 
 #endif
