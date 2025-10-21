@@ -9,6 +9,7 @@
 
 #include "APIController.h"
 #include "APIComponent.h"
+#include "Game.h"
 
 #include "oatpp/network/Server.hpp"
 #include <iostream>
@@ -18,7 +19,14 @@
  * @brief Bootstraps (starts) public facing API
  */
 class API {
+    private:
+        Game* game;
     public:
+        /**
+         * @brief Conctructor that holds reference to Game object to execute API actions
+         * @param[in] game reference to Game object to call methods on
+         */
+        API(Game* game);
         void run();
         void bootstrap();
 };

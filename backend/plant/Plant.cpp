@@ -1,5 +1,11 @@
+/**
+ * @file Plant.cpp
+ * @brief Implements the functionality defined in the Plant class.
+ */
+
 #include "Plant.h"
 #include "NotSellable.h"
+#include "GreenhouseStaff.h"
 
 map<string, float> Plant::plantCosts = 
 {
@@ -43,11 +49,7 @@ Plant::Plant(const Plant& original)
     this->costPrice = original.costPrice;
     this->salePrice = original.salePrice;
 
-    if(original.plantState != nullptr) { 
-        this->plantState = original.plantState->clone(); 
-    } else { 
-        this->plantState = nullptr; 
-    }
+    this->plantState = new NotSellable();
     this->careType = original.careType;
 }
 
@@ -87,15 +89,17 @@ PlantState *Plant::getState() {
 }
 
 void Plant::attach(GreenhouseStaff *ob) {
-
+    observerList.push_back(ob);
 }
 
 void Plant::detach(GreenhouseStaff *ob) {
-
+    observerList.erase(std::remove(observerList.begin(), observerList.end(), ob), observerList.end());
 }
 
 void Plant::notify(std::string& careType) {
-
+    for(GreenhouseStaff* observer : observerList) {
+        observer->update(careType, this);
+    }
 }
 
 std::string Plant::getCareType() {
@@ -110,5 +114,5 @@ void Plant::setState(PlantState *plantState_) {
 }
 
 void Plant::request() {
-
+    plantState->handle(this);
 }

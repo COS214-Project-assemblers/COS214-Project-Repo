@@ -1,3 +1,8 @@
+/**
+ * @file FlowerCreator.cpp
+ * @brief Implements the functionality defined in the FlowerCreator class.
+ */
+
 #include "FlowerCreator.h"
 
 FlowerCreator::FlowerCreator() : PlantCreator() {}

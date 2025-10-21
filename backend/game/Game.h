@@ -8,6 +8,8 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
+#include <stdexcept>
 
 using namespace std;
 

@@ -1,0 +1,21 @@
+#ifndef GREENHOUSE_H
+#define GREENHOUSE_H
+
+#include "Inventory.h"
+
+class Greenhouse
+{
+    private:
+        Inventory* inventory;
+
+    public:
+        Greenhouse();
+        ~Greenhouse();
+
+        /**
+         * @brief This function will be used to add a Plant into the inventory of the Greenhouse
+         */
+        void addPlant(Plant* p);
+};
+
+#endif
