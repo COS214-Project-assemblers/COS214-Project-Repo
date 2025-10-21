@@ -31,6 +31,6 @@ class TransactionStrategy{
          * @brief Returns the Type of the transaction
          * @return The Type of the transaction
          */
-        virtual std::string getType()=0;
+        virtual std::string getType()const =0;
 };
 #endif

@@ -32,6 +32,6 @@ class Sale:public TransactionStrategy{
          * @brief Returns the Type of the transaction as a Sale
          * @return "Sale"
          */
-        std::string getType() override;
+        std::string getType()const override;
 };
 #endif

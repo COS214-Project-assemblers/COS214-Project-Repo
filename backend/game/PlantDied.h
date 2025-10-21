@@ -32,6 +32,6 @@ class PlantDied:public TransactionStrategy{
          * @brief Returns the Type of the transaction as a plant Died
          * @return "PlantDied"
          */
-        std::string getType() override;
+        std::string getType()const override;
 };
 #endif

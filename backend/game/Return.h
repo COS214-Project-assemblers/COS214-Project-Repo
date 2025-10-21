@@ -32,6 +32,6 @@ class Return:public TransactionStrategy{
          * @brief Returns the Type of the transaction as a Return
          * @return "Return"
          */
-        std::string getType() override;
+        std::string getType()const override;
 };
 #endif
