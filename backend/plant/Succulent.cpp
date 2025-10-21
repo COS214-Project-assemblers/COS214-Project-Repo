@@ -1,5 +1,5 @@
 /**
- * @file Plant.cpp
+ * @file Succulent.cpp
  * @brief Implements the functionality defined in the Succulent class.
  */
 
