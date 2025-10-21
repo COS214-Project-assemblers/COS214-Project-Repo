@@ -6,12 +6,13 @@
 #include "../backend/game/NewGameOption.h"
 #include "../backend/game/PlayerMenu.h"
 #include "../backend/game/MenuOption.h"
+#include "../backend/game/BasicLogger.h"
 
 void testNewGame() {
     // Set up environment Game, PlayerMenu
     Game* game = new Game;
     PlayerMenu* playerMenu = new PlayerMenu();
-    Logger* logger = new Logger();
+    BasicLogger* logger = new BasicLogger();
     NewGameOption* newGameOption = new NewGameOption(game, logger);
 
     // Perform actions
@@ -26,6 +27,5 @@ void testNewGame() {
 }
 
 int main(int argc, char **argv) {
-    std::cout << std::getenv("LOG_FILE") << std::endl;
     testNewGame();
 }

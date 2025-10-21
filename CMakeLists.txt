@@ -38,7 +38,9 @@ set(SOURCES
   backend/game/PlayerMenu.h
   backend/game/PlayerMenu.cpp
   backend/game/Logger.h
-  backend/game/Logger.cpp
+  # backend/game/Logger.cpp
+  backend/game/BasicLogger.h
+  backend/game/BasicLogger.cpp
 )
 
 add_executable(g_test
