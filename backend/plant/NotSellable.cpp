@@ -2,7 +2,7 @@
 
 void NotSellable::handle(Plant *plant) {
     std::cout << plant->getPlantVariety() << "(" << plant->getPlantCategory()
-    << ") still needs care to reach a Sellable state."<< std::endl;
+    << ") still needs care to reach a Sellable state." << std::endl;
     
     /*  Potential behaviours to be added here:
         
