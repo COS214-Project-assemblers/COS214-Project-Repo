@@ -6,7 +6,6 @@
 #include "../backend/game/NewGameOption.h"
 #include "../backend/game/PlayerMenu.h"
 #include "../backend/game/MenuOption.h"
-#include "../backend/game/SetEnv.h"
 
 void testNewGame() {
     // Set up environment Game, PlayerMenu
@@ -27,8 +26,6 @@ void testNewGame() {
 }
 
 int main(int argc, char **argv) {
-    SetEnv setGameEnv;
-    
     std::cout << std::getenv("LOG_FILE") << std::endl;
     testNewGame();
 }
