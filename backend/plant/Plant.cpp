@@ -1,3 +1,8 @@
+/**
+ * @file Plant.cpp
+ * @brief Implementation for the Plant class
+ */
+
 #include "Plant.h"
 #include "NotSellable.h"
 
