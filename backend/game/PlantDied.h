@@ -1,26 +1,26 @@
 /**
- * @file Refund.h
+ * @file PlantDied.h
  */
-#ifndef REFUND_H
-#define REFUND_H
+#ifndef PLANTDIED_H
+#define PLANTDIED_H
 
 #include "TransactionStrategy.h"
 #include <string>
 
 /**
- * @class Refund
- * @brief Will handle the transaction as a refund
+ * @class PlantDied
+ * @brief Will handle the transaction as if a plant died after it was not cared for properly
  */
-class Refund:public TransactionStrategy{
+class PlantDied:public TransactionStrategy{
     public:
         /**
          * @brief Default constructor.
          */
-        Refund();
+        PlantDied();
         /**
          * @brief Deconstructor.
          */
-        ~Refund();
+        ~PlantDied();
         /**
          * @brief Executes a transactions financial logic to update the balance.
          * @param v Value of the transaction.
@@ -29,8 +29,8 @@ class Refund:public TransactionStrategy{
          */
         double execute(double v, double b) override;
         /**
-         * @brief Returns the Type of the transaction as a Refund
-         * @return "Refund"
+         * @brief Returns the Type of the transaction as a plant Died
+         * @return "PlantDied"
          */
         std::string getType();
 };

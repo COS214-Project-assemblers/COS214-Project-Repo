@@ -1,5 +1,5 @@
 /**
- * @file TransactionStrategy.h
+ * @file Sale.h
  */
 #ifndef SALE_H
 #define SALE_H
@@ -9,7 +9,7 @@
 
 /**
  * @class Sale
- * @brief
+ * @brief Will handle the transaction as a sale
  */
 class Sale:public TransactionStrategy{
     public:
@@ -21,7 +21,7 @@ class Sale:public TransactionStrategy{
          * @brief Deconstructor
          */
         ~Sale();
-         /**
+        /**
          * @brief Executes a transactions financial logic to update the balance.
          * @param v Value of the transaction.
          * @param b Value of the current balance
