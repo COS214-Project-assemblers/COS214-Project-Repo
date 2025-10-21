@@ -1,5 +1,23 @@
 #include "Inventory.h"
 
+Inventory::Inventory()
+{
+    plants = new vector<Plant*>();
+}
+
+Inventory::~Inventory()
+{
+    // might not delete??
+    
+    for (auto p : *plants) 
+    {
+        delete p;
+    }
+
+    delete plants;
+}
+
+
 std::vector<Plant*> Inventory::all() const{
 
 }
@@ -8,14 +26,15 @@ std::vector<Plant*> Inventory::findByCategory(std::string cat) const{
 
 }
 
+
 std::vector<Plant*> Inventory::findByPrice(double min, double max) const{
 
 }
 
-bool Inventory::commitSale(Plant& plant){
+void Inventory::commitSale(Plant* plant){
 
 }
 
-bool Inventory::restock(Plant& plant){
-
+void Inventory::restock(Plant* plant){
+    plants->push_back(plant);
 }
