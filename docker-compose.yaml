@@ -8,7 +8,8 @@ services:
     volumes:
       - ./config/CMakeLists.txt:/app/CMakeLists.txt:ro
       - ./backend:/app/backend
-      - ./config/.env:/app/.env
+    env_file:
+      - config/.env
     command: [/usr/local/bin/dev.sh]
 
   nginx:
