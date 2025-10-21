@@ -9,7 +9,7 @@
 
 #include "APIController.h"
 #include "APIComponent.h"
-#include "../game/Game.h"
+#include "Game.h"
 
 #include "oatpp/network/Server.hpp"
 #include <iostream>

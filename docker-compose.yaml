@@ -6,10 +6,10 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./CMakeLists.txt:/app/CMakeLists.txt:ro
+      - ./config/CMakeListsDocker.txt:/app/CMakeLists.txt:ro
       - ./backend:/app/backend
       - ./config/.env:/app/.env
-    command: [dotenvx run -f /app/.env -- /usr/local/bin/dev.sh]
+    command: [/usr/local/bin/dev.sh]
 
   nginx:
     image: nginx:latest

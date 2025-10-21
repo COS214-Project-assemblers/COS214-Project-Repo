@@ -1,12 +1,12 @@
 
 #include <gtest/gtest.h>
 #include <iostream>
-#include "../backend/API/API.h"
-#include "../backend/game/Game.h"
-#include "../backend/game/NewGameOption.h"
-#include "../backend/game/PlayerMenu.h"
-#include "../backend/game/MenuOption.h"
-#include "../backend/game/BasicLogger.h"
+#include "API.h"
+#include "Game.h"
+#include "NewGameOption.h"
+#include "PlayerMenu.h"
+#include "MenuOption.h"
+#include "BasicLogger.h"
 
 void testNewGame() {
     // Set up environment Game, PlayerMenu
