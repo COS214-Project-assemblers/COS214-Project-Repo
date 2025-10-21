@@ -1,6 +1,6 @@
 /**
  * @file Plant.cpp
- * @brief Implementation for the Plant class
+ * @brief Implements the functionality defined in the Plant class.
  */
 
 #include "Plant.h"

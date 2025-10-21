@@ -1,6 +1,6 @@
 /**
  * @file Plant.h
- * @brief Header file for the Plant class
+ * @brief Defines the abstract base class for all Plant objects used in the system.
  */
 
 #ifndef PLANT_H
@@ -18,30 +18,33 @@ using namespace std;
 
 /**
  * @class Plant
- * @brief Abstract class for the Plant objects
+ * @brief Abstract base class representing a plant entity in the greenhouse simulation.
+ * 
+ * This class serves as the foundation for all specific plant types (e.g., Succulent, Flower, Tree).
+ * It provides common attributes such as category, variety, pricing, and state management, 
+ * and defines an interface for cloning and observer interaction.
  */
 class Plant
 {
     private:
         /**
-         * @brief The category of plants available for creation, e.g., "Succulent", "Flower", "Tree"
+         * @brief The broad category of the plant, such as "Succulent", "Flower", or "Tree".
          */
         string plantCategory;
 
         /**
-         * @brief The specific variety of the plant category, e.g., "Daisy", "Cactus", "Lemon"
+         * @brief The specific variety within the plant category, such as "Daisy", "Cactus", or "Lemon".
          */
         string plantVariety;
 
         /**
-         * @brief The price that the Plant costs for the player to buy it, 
-         * so that it can be planted in the Greenhouse
+         * @brief The cost to the player when purchasing the plant for cultivation in the greenhouse.
          */
         float costPrice;
 
         /**
-         * @brief The price that the Customer has to pay to be able to buy the plant from the player's Greenhouse
-         * @details This price is calculated with 50% revenue (can be discussed if it needs to change)
+         * @brief The retail price at which the plant can be sold to customers.
+         * @details This is typically calculated as the cost price plus a 50% markup (subject to adjustment).
          */
         float salePrice;
 
@@ -49,7 +52,7 @@ class Plant
         string careType;
 
         /**
-         * @brief A map used for getting the specific costPrice for the variety of the Plant object
+         * @brief A static map linking specific plant varieties to their respective cost prices.
          */
         static map<string, float> plantCosts;
 
@@ -57,53 +60,59 @@ class Plant
     
     public:
         /**
-         * @brief Abstract Plant constructor
-         * @details The specific Plant object is created using the given parameters
-         * @param [in] category The specific category of Plant objects
-         * @param [in] variety The specific variety of the Plant category
+         * @brief Constructs a Plant object with the specified category and variety.
+         * @details Used as a base constructor for all specific Plant subclasses.
+         * @param [in] category The general category of the plant.
+         * @param [in] variety The specific variety within that category.
          */
         Plant(string category, string variety);
 
         /**
-         * @brief Copy constructor
-         * @details This copy constructor is used for the Prototype design pattern to enable cloning 
-         * @param [in] original Reference to the Plant object that is being copied from 
+         * @brief Copy constructor used for the Prototype design pattern.
+         * @details Enables cloning of existing Plant objects.
+         * @param [in] original Reference to the Plant object being duplicated.
          */
         Plant(const Plant& original);
 
         /**
-         * @brief Virtual destructor for polymorphism
+         * @brief Virtual destructor to ensure proper cleanup in derived classes.
          */
         virtual ~Plant();
         
         /**
-         * @brief Pure virtual function that enables cloning for the Prototype design pattern, must be implemented by the subclasses
+         * @brief Creates and returns a clone of the current Plant instance.
+         * @details This pure virtual function must be implemented by all derived classes.
+         * @return A pointer to the newly cloned Plant object.
          */
         virtual Plant* clone() = 0;
 
         /**
-         * @brief Getter for the Category member variable
+         * @brief Retrieves the category of the plant.
+         * @return The category name as a string.
          */
         string getPlantCategory();
 
         /**
-         * @brief Getter for the Variety member variable
+         * @brief Retrieves the variety of the plant.
+         * @return The variety name as a string.
          */
         string getPlantVariety();
 
         /**
-         * @brief Getter for the costPrice member variable
+         * @brief Retrieves the purchase cost of the plant.
+         * @return The cost price as a floating-point value.
          */
         float getCostPrice();
 
         /**
-         * @brief Getter for the salePrice member variable
+         * @brief Retrieves the selling price of the plant.
+         * @return The sale price as a floating-point value.
          */
         float getSalePrice();
 
         /**
-         * @brief Helper function for testing
-         * @details This function only displays the details about the Plant object to the console, for testing / validation purposes
+         * @brief Displays the plant’s details to the console for testing and debugging.
+         * @details This method is intended for validation and developer testing purposes only.
          */
         void display();
 
