@@ -16,11 +16,11 @@ class Sale:public TransactionStrategy{
         /**
          * @brief Default constructor
          */
-        Sale();
+        Sale()=default;
         /**
          * @brief Deconstructor
          */
-        ~Sale();
+        ~Sale()=default;
         /**
          * @brief Executes a transactions financial logic to update the balance.
          * @param v Value of the transaction.
@@ -32,6 +32,6 @@ class Sale:public TransactionStrategy{
          * @brief Returns the Type of the transaction as a Sale
          * @return "Sale"
          */
-        std::string getType();
+        std::string getType() override;
 };
 #endif

@@ -16,11 +16,11 @@ class Return:public TransactionStrategy{
         /**
          * @brief Default constructor.
          */
-        Return();
+        Return()=default;
         /**
          * @brief Deconstructor.
          */
-        ~Return();
+        ~Return()=default;
         /**
          * @brief Executes a transactions financial logic to update the balance.
          * @param v Value of the transaction.
@@ -32,6 +32,6 @@ class Return:public TransactionStrategy{
          * @brief Returns the Type of the transaction as a Return
          * @return "Return"
          */
-        std::string getType();
+        std::string getType() override;
 };
 #endif

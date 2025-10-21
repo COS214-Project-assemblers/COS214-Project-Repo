@@ -16,11 +16,11 @@ class PlantDied:public TransactionStrategy{
         /**
          * @brief Default constructor.
          */
-        PlantDied();
+        PlantDied()=default;
         /**
          * @brief Deconstructor.
          */
-        ~PlantDied();
+        ~PlantDied()=default;
         /**
          * @brief Executes a transactions financial logic to update the balance.
          * @param v Value of the transaction.
@@ -32,6 +32,6 @@ class PlantDied:public TransactionStrategy{
          * @brief Returns the Type of the transaction as a plant Died
          * @return "PlantDied"
          */
-        std::string getType();
+        std::string getType() override;
 };
 #endif

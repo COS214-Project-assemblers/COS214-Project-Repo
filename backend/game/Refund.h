@@ -16,11 +16,11 @@ class Refund:public TransactionStrategy{
         /**
          * @brief Default constructor.
          */
-        Refund();
+        Refund()=default;
         /**
          * @brief Deconstructor.
          */
-        ~Refund();
+        ~Refund()=default;
         /**
          * @brief Executes a transactions financial logic to update the balance.
          * @param v Value of the transaction.
@@ -32,6 +32,6 @@ class Refund:public TransactionStrategy{
          * @brief Returns the Type of the transaction as a Refund
          * @return "Refund"
          */
-        std::string getType();
+        std::string getType()override;
 };
 #endif
