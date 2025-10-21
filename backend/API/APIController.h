@@ -53,7 +53,18 @@ public:
     return createDtoResponse(Status::CODE_200, dto);
   }
   
+  /**
+   * @brief Executes NewGameOption Command
+   */
   ENDPOINT("GET", "/new-game", newGameEndp) {
+    /**
+     * Response structure
+     * 
+     * {
+     *  message: <game-status>,
+     *  statusCode: <HTTP status code, 200/500>
+     * }
+     */
     PlayerMenu* playerMenu = new PlayerMenu();
     NewGameOption* newGame = new NewGameOption(game);
     
@@ -68,10 +79,10 @@ public:
       dto->statusCode = 200;
       dto->message = "Game Created";
       return createDtoResponse(Status::CODE_200, dto);
-    } catch (const std::exception &e) {
+    } catch (const std::exception &e) { // Catches any exception thrown, adds exception message to response
       delete playerMenu;
       dto->statusCode = 500;
-      dto->message = "Failed to create Game";
+      dto->message = "Failed to create Game: " + *e.what();
       return createDtoResponse(Status::CODE_500, dto);
     }   
   }
