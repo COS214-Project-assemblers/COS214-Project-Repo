@@ -2,13 +2,13 @@
 
 Greenhouse::Greenhouse()
 {
-
+    inventory = new Inventory();
 }
 
 Greenhouse::~Greenhouse()
 {
     // might not delete??
-    
+
     delete inventory;
 }
  
