@@ -1,7 +1,6 @@
 
 #include <gtest/gtest.h>
 #include <iostream>
-#include "API.h"
 #include "Game.h"
 #include "NewGameOption.h"
 #include "PlayerMenu.h"

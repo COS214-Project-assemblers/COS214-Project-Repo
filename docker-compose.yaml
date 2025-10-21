@@ -6,7 +6,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./config/CMakeListsDocker.txt:/app/CMakeLists.txt:ro
+      - ./config/CMakeLists.txt:/app/CMakeLists.txt:ro
       - ./backend:/app/backend
       - ./config/.env:/app/.env
     command: [/usr/local/bin/dev.sh]
