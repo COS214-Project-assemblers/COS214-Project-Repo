@@ -5,5 +5,15 @@ Logger::Logger() {
 }
 
 void Logger::newLog(string message) {
-    cout << message << endl;
+    cout << "[" + timestamp() + "] " + message << endl;
+}
+
+string Logger::timestamp() {
+    std::time_t timestamp = std::time(nullptr);
+
+    // Convert to a human-readable string (local time)
+    char* time_str = std::ctime(&timestamp);
+    time_str[strlen(time_str) - 1] = '\0';
+
+    return time_str; 
 }

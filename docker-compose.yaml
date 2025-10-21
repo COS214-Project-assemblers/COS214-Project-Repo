@@ -8,7 +8,8 @@ services:
     volumes:
       - ./CMakeLists.txt:/app/CMakeLists.txt:ro
       - ./backend:/app/backend
-    command: [/usr/local/bin/dev.sh]
+      - ./config/.env:/app/.env
+    command: [dotenvx run -f /app/.env -- /usr/local/bin/dev.sh]
 
   nginx:
     image: nginx:latest

@@ -42,7 +42,7 @@ set(SOURCES
 )
 
 add_executable(g_test
-  # AllTest.cpp
+  tests/unitTests.cpp
   ${SOURCES}
 )
 

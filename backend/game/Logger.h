@@ -9,6 +9,8 @@
 
 #include <string>
 #include <iostream>
+#include <ctime>
+#include <cstring>
 
 using namespace std;
 
@@ -24,6 +26,10 @@ class Logger {
          */
         Logger();
         void newLog(string message);
+        /**
+         * @brief Returns current timestamp
+         */
+        string timestamp();
 };
 
 #endif // LOGGER
