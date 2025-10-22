@@ -22,10 +22,11 @@ map<string, float> Plant::plantCosts =
     {"Apple", 25.0}
 };
 
-Plant::Plant(string category, string variety)
+Plant::Plant(string category, string variety, string diffictlty)
 {
     this->plantCategory = category;
     this->plantVariety = variety;
+    this->difficulty=diffictlty;
 
     this->careType = "";
     this->plantState = new NotSellable();
@@ -115,4 +116,8 @@ void Plant::setState(PlantState *plantState_) {
 
 void Plant::request() {
     plantState->handle(this);
+}
+
+string Plant::getDifficulty(){
+    return this->difficulty;
 }

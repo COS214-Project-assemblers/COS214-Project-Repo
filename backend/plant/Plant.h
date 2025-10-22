@@ -69,15 +69,21 @@ class Plant
          * @brief List of greenhouse staff observers attached to this plant.
          */
         vector<GreenhouseStaff*> observerList;
-    
+
+        /**
+         * @brief Dificult level of care of plant
+         * Can either be "Easy","Medium","Hard"
+         */
+        std::string difficulty;
     public:
         /**
-         * @brief Constructs a Plant object with the specified category and variety.
+         * @brief Constructs a Plant object with the specified category and variety and difficulty.
          * @details Used as a base constructor for all specific Plant subclasses.
          * @param [in] category The general category of the plant.
          * @param [in] variety The specific variety within that category.
+         * @param [in] difficulty The level of care difficulty.
          */
-        Plant(string category, string variety);
+        Plant(string category, string variety,string difficulty);
 
         /**
          * @brief Copy constructor used for the Prototype design pattern.
@@ -175,6 +181,12 @@ class Plant
          * Delegates behaviour to the current PlantState by calling its handle() method.
          */
         void request();
+
+        /**
+         * @brief Getter for difficulty type
+         * @return Level of Difficulty
+         */
+        string getDifficulty();
 };
 
 #endif
