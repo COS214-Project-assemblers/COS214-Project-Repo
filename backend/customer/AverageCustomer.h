@@ -13,6 +13,8 @@ class AverageCustomer : public Customer
     public:
         AverageCustomer();
         ~AverageCustomer();
+        void accept(CustomerVisitor& cV) override;
+        const Plant* considerOptions(const std::vector<const Plant*> offers)const override;
 };
 
 #endif
