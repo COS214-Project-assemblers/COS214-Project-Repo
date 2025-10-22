@@ -3,29 +3,20 @@
 Transaction::Transaction(TransactionStrategy* tS,double v){
     this->tS=tS;
     this->value=v;
-    //idk what to do with the balance becuase it almost needs to be elsewhere????
 }
 
-Transaction::~Transaction(){
-
+TransactionMem Transaction::createTransactionMem(Ledger& ledger)const{
+    double b4=ledger.getBalance();
+    double after=this->tS->execute(this->value,b4);
+    ledger.setBalance(after);
+    return TransactionMem(this->tS->getType(),this->value,b4,after);
 }
 
-TransactionMem Transaction::createTransactionMem(){
 
-}
-
-void Transaction::setTransactionMem(TransactionMem tM){
-
-}
-
-double Transaction::getValue(){
+double Transaction::getValue()const{
     return this->value;
 }
 
-double Transaction::getBalance(){
-
-}
-
-std::string Transaction::getType(){
+std::string Transaction::getType()const{
     return this->tS->getType();
 }
