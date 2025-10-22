@@ -1,9 +1,9 @@
 #include "Game.h"
-#include "../greenhouse/Greenhouse.h"
-#include "../plant/PlantCreator.h"
-#include "../plant/FlowerCreator.h"
-#include "../plant/SucculentCreator.h"
-#include "../plant/TreeCreator.h"
+#include "Greenhouse.h"
+#include "PlantCreator.h"
+#include "FlowerCreator.h"
+#include "SucculentCreator.h"
+#include "TreeCreator.h"
 
 Game::Game() {
     // Nothing yet
@@ -24,15 +24,14 @@ void Game::createNewGame() {
 
         setFactories(factories);
         
-        cout << "Created factories" << endl;
+        cout << "+ Created factories" << endl;
     } catch (...) { // More specific error handling required
         throw runtime_error("Failed to create factories for unknown reason"); // Reason is unknown since using catch(...)
     }
     
     try {
-        // setGreenhouse(new Greenhouse());
-        // Greenhouse not defined yet
-        cout << "Creating greenhouse" << endl;
+        setGreenhouse(new Greenhouse());
+        cout << "+ Creating greenhouse" << endl;
     } catch (...) {
         throw runtime_error("Failed to create greenhouse for unknown reason");
     }

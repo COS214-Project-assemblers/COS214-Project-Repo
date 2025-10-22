@@ -27,23 +27,20 @@ set(SOURCES
   backend/game/PlayerMenu.h
   backend/game/PlayerMenu.cpp
   backend/game/Logger.h
-  backend/game/Logger.cpp
   backend/game/TransactionStrategy.h
   backend/game/TransactionStrategy.cpp
   backend/game/Sale.h
   backend/game/Sale.cpp
   backend/game/Return.h
   backend/game/Return.cpp
-  backend/game/Restock.h
-  backend/game/Restock.cpp
   backend/game/PlantDied.h
   backend/game/PlantDied.cpp
-  backend/game/Transaction.h
-  backend/game/Transaction.cpp
-  backend/game/TransactionMem.h
-  backend/game/TransactionMem.cpp
-  backend/game/TransactionHistory.h
-  backend/game/TransactionHistory.cpp
+  # backend/game/Transaction.h
+  # backend/game/Transaction.cpp
+  # backend/game/TransactionMem.h
+  # backend/game/TransactionMem.cpp
+  # backend/game/TransactionHistory.h
+  # backend/game/TransactionHistory.cpp
   backend/plant/Plant.h
   backend/plant/Plant.cpp
   backend/game/BasicLogger.h
@@ -64,6 +61,10 @@ set(SOURCES
   backend/plant/Tree.cpp
   backend/plant/NotSellable.h
   backend/plant/NotSellable.cpp
+  backend/greenhouse/Greenhouse.h
+  backend/greenhouse/Greenhouse.cpp
+  backend/greenhouse/Inventory.h
+  backend/greenhouse/Inventory.cpp
   # backend/customer/Customer.h
   # backend/customer/Customer.cpp
   # backend/customer/AverageCustomer.h

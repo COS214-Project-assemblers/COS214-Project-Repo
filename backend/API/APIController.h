@@ -32,6 +32,10 @@
  */
 class APIController : public oatpp::web::server::api::ApiController {
   private:
+  /**
+   * @brief Via this member variable, access to private members of the API class (such as "game" member var)
+   *  is obtained
+   */
     API& apiToControl;
 public:
   /**
