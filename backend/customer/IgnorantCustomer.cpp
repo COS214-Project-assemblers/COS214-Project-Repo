@@ -32,15 +32,32 @@ void IgnorantCustomer::accept(CustomerVisitor& v)
 }
 
 const Plant* IgnorantCustomer::considerOptions(const std::vector<const Plant*> offers)const{
-
+    // this is where the user is prompted with offers and has to choose one to offer to the customer
 }
 
 void IgnorantCustomer::reactToRecommendations() 
 {
-    cout << "Ignorant Customer: \"Oh wow, those sound perfect for someone like me!\"\n";
+    if (plantAccepted && chosenPlant) 
+    {
+        cout << "Ignorant Customer: \"Perfect! This seems manageable!\"\n";
+    } 
+    else 
+    {
+        cout << "Ignorant Customer: \"I'm not sure about these options... "
+             << "Maybe I should look elsewhere.\"\n";
+    }
+    // can maybe add satisfaction score (added functionality that is not so importnat rn)
+    // with the current implementation, the customer just "leaves" when the wrong option is chosen
 }
 
 void IgnorantCustomer::thankAndExit() 
 {
-    cout << "Ignorant Customer: \"Thanks! I hope I don't mess this up!\"\n";
+    if (plantAccepted) 
+    {
+        cout << "Ignorant Customer: \"Thanks! I hope I don't mess this up!\"\n";
+    } 
+    else 
+    {
+        cout << "Ignorant Customer: \"Thanks anyway, I'll try another store.\"\n";
+    }
 }

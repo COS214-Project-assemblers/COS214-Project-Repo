@@ -17,7 +17,7 @@ class IgnorantCustomer : public Customer
         ~IgnorantCustomer();
         
         void accept(CustomerVisitor& v) override;
-        const Plant* considerOptions(const std::vector<const Plant*> offers)const override;
+        const Plant* considerOptions(const vector<const Plant*> offers)const override;
 };
 
 #endif
