@@ -9,14 +9,14 @@ class IgnorantCustomer : public Customer
         void introduce();
         void expressPreferences();
         void askForRecommendations();
-        void receiveRecommendations(CustomerVisitor& visitor);
         void reactToRecommendations();
         void thankAndExit();
 
     public:
         IgnorantCustomer();
         ~IgnorantCustomer();
-        void accept(CustomerVisitor& cV) override;
+        
+        void accept(CustomerVisitor& v) override;
         const Plant* considerOptions(const std::vector<const Plant*> offers)const override;
 };
 

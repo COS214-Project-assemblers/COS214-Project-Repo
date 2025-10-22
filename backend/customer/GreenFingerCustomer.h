@@ -6,13 +6,16 @@
 class GreenFingerCustomer : public Customer
 {
     private:
-        void showDialog();
-        vector<string> compileOptions();
-        void processChoice(int choice);
+        void introduce();
+        void expressPreferences();
+        void askForRecommendations();
+        void reactToRecommendations();
+        void thankAndExit();
 
     public:
         GreenFingerCustomer();
         ~GreenFingerCustomer();
+        
         void accept(CustomerVisitor& cV) override;
         const Plant* considerOptions(const std::vector<const Plant*> offers)const override;
 };
