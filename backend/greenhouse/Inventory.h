@@ -15,7 +15,7 @@
 
 class Inventory{
     private:
-        std::vector<Plant*>* plants;
+        std::vector<Plant*> plants;
     public:
         Inventory();
         ~Inventory();
@@ -24,19 +24,25 @@ class Inventory{
          * @return A vector containing pointers to all Plant objects in the inventory
          */
         std::vector<Plant*> all() const;
+        // /**
+        //  * @brief returns all plants in a specific category in the inventory
+        //  * @param cat -> The category to search for
+        //  * @return A vector containing pointers to all Plant objects in a specific category in the inventory
+        //  */
+        // std::vector<Plant*> findByCategory(std::string cat) const;
+        // /**
+        //  * @brief returns all plants within a price range in the inventory
+        //  * @param min The minimum price
+        //  * @param max The maximum price
+        //  * @return A vector containing pointers to all Plant objects within a price range in the inventory
+        //  */
+        // std::vector<Plant*> findByPrice(double min, double max) const;
         /**
-         * @brief returns all plants in a specific category in the inventory
-         * @param cat -> The category to search for
-         * @return A vector containing pointers to all Plant objects in a specific category in the inventory
+         * @brief returns all plants of a specific care level
+         * @param d The level of dificulty you are looking for
+         * @return Vector of all those plants
          */
-        std::vector<Plant*> findByCategory(std::string cat) const;
-        /**
-         * @brief returns all plants within a price range in the inventory
-         * @param min The minimum price
-         * @param max The maximum price
-         * @return A vector containing pointers to all Plant objects within a price range in the inventory
-         */
-        std::vector<Plant*> findByPrice(double min, double max) const;
+        std::vector<Plant*> findByDifficulty(std::string d);
         /**
          * @brief Commits a sale by removing the plant from the inventory
          * @param plant Reference to the Plant being sold
