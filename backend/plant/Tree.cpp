@@ -5,7 +5,7 @@
 
 #include "Tree.h"
 
-Tree::Tree(string variety) : Plant("Tree", variety) {}
+Tree::Tree(string variety, string difficulty) : Plant("Tree", variety, difficulty) {}
 
 Tree::~Tree() {}
 
