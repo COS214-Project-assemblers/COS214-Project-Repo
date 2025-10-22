@@ -1,12 +1,12 @@
-#ifndef VISITLOWSPENDCUSTOMER_H
-#define VISITLOWSPENDCUSTOMER_h
+#ifndef VISITHIGHCUSTOMER_H
+#define VISITHIGHCUSTOMER_h
 
 #include "CustomerVisitor.h"
 
-class VisitLowSpendCustomer:public CustomerVisitor{
+class VisitHighCustomer:public CustomerVisitor{
     public:
-        VisitLowSpendCustomer();
-        ~VisitLowSpendCustomer()=default;
+        VisitHighCustomer();
+        ~VisitHighCustomer()=default;
         void visitIgnorantCustomer(IgnorantCustomer& cust)override;
         void visitAverageCustomer(AverageCustomer& cust)override;
         void visitGreenfingerCustomer(GreenFingerCustomer& cust)override;
