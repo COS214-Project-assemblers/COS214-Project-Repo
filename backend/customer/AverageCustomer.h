@@ -6,15 +6,18 @@
 class AverageCustomer : public Customer
 {
     private:
-        void showDialog();
-        vector<string> compileOptions();
-        void processChoice(int choice);
+        void introduce();
+        void expressPreferences();
+        void askForRecommendations();
+        void reactToRecommendations();
+        void thankAndExit();
 
     public:
         AverageCustomer();
         ~AverageCustomer();
-        void accept(CustomerVisitor& cV) override;
-        const Plant* considerOptions(const std::vector<const Plant*> offers)const override;
+
+        void accept(CustomerVisitor& v) override;
+        const Plant* considerOptions(const vector<const Plant*> offers)const override;
 };
 
 #endif

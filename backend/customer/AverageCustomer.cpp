@@ -10,46 +10,50 @@ AverageCustomer::~AverageCustomer()
     
 }
 
-void AverageCustomer::showDialog()
+void AverageCustomer::introduce() 
 {
     cout << "Average Customer: \"Hello! I'm looking to expand my plant collection.\"\n";
+}
+
+void AverageCustomer::expressPreferences() 
+{
     cout << "Average Customer: \"I have some experience and can handle moderate care requirements.\"\n";
-    cout << "Average Customer: \"What would be a good addition to my collection?\"\n\n";
 }
 
-vector<string> AverageCustomer::compileOptions()
+void AverageCustomer::askForRecommendations() 
 {
-    return
-    {
-        "Buy a Daisy - cheerful flowers with moderate care needs",
-        "Buy an Aloe plant - medicinal and relatively easy to grow",
-        "Buy a Banana Tree - tropical look but needs lots of space"
-    };
+    cout << "Average Customer: \"What would be a good addition to my collection?\"\n";
 }
 
-void AverageCustomer::processChoice(int choice)
+void AverageCustomer::accept(CustomerVisitor& v)
 {
-    switch (choice)
-    {
-        case 1:
-            cout << "\nAverage Customer: \"Daisies are lovely! They'd look great in my garden. I'll take them!\"\n";
-            break;
-        case 2:
-            cout << "\nAverage Customer: \"Aloe is practical and nice looking. Good suggestion!\"\n";
-            break;
-        case 3:
-            cout << "\nAverage Customer: \"A banana tree? My yard might be too small for that...\"\n";
-            break;
-        default:
-            cout << "\nAverage Customer: \"I'm not convinced that's what I'm looking for...\"\n";
-            break;
-    }
-}
-
-void AverageCustomer::accept(CustomerVisitor& cV){
-
+    v.visitAverageCustomer(*this);
 }
 
 const Plant* AverageCustomer::considerOptions(const std::vector<const Plant*> offers)const{
+// this is where the user is prompted with offers and has to choose one to offer to the customer
+}
 
+void AverageCustomer::reactToRecommendations() 
+{
+    if (plantAccepted && chosenPlant) 
+    {
+        cout << "Average Customer: \"Great! This will be a nice addition to my collection!\"\n";
+    } 
+    else 
+    {
+        cout << "Average Customer: \"I'm not convinced that's what I'm looking for...\"\n";
+    }
+}
+
+void AverageCustomer::thankAndExit() 
+{
+    if (plantAccepted) 
+    {
+        cout << "Average Customer: \"Thanks for the help!\"\n";
+    } 
+    else 
+    {
+        cout << "Average Customer: \"I'll think about it. Thanks anyway.\"\n";
+    }
 }
