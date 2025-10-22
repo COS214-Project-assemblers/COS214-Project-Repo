@@ -20,6 +20,7 @@ class Customer;
 class Manager{
     private:
         SalesFloor& floor;///<Reference to salesFloor object that is managed by the Manager.
+
     public:
         /**
          * @brief Constructs a Manager associated with a given SalesFloor.
@@ -60,6 +61,14 @@ class Manager{
          * @param reason The rason as to why the customer didnt make the purchase
          */
         void recordLostSale(Customer& cust,std::string reason);
+        /**
+         * @brief Difficulty mix
+         * @param cust Customer who the dificultymix is for
+         * @param e Number of easy plants given
+         * @param m Number of medium plants given
+         * @param h Number of hard plants given
+         */
+        void difficultyMix(Customer& cust,int e,int m, int h);
 };
 
 #endif

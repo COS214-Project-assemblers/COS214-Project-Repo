@@ -8,6 +8,7 @@
 #include "Customer.h"
 
 #include <vector>
+#include <stdexcept>
 /**
  * @class SalesFloor
  * @brief Manages Customer flow and provides access to the inventory for the Manager during sales interactions.
@@ -16,7 +17,7 @@
  */
 class SalesFloor{
     private:
-        Inventory* inventory;///<Pointer to Inventory object
+        Inventory* inv;///<Pointer to Inventory object
         std::vector<Customer*> customers;///<Vector of customers in the "queue"
         std::vector<Customer*> custHist;///<Vector of customers that have moved out of the "queue" and is just a history
     public:
@@ -63,7 +64,7 @@ class SalesFloor{
          * @brief Provides read only access to the Manager
          * @return Constant reference to the Inventory object managed by the salesFloor.
          */
-        const Inventory& inventory();
+        const Inventory& inventory()const;
         /**
          * @brief Simulates the process of returns based on a given probability.
          * @param prob Probability that a customer decides to return a product.
