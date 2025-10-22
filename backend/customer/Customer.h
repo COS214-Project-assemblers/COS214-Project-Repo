@@ -93,6 +93,9 @@ class Customer
 
         /**
          * @brief Set the plants offered by the visitor
+         * This function will be called inside the visitIgnorantCustomer(IgnorantCustomer& cust) (or any of the other child classes' functions) 
+         * So the visitor will get plants from the database and build an offers vector, then call this function on the 
+         * customer parameter inside the visitor function, e.g., cust.setOfferedPlants(offers);
          */
         void setOfferedPlants(const vector<const Plant*>& plants);
 
