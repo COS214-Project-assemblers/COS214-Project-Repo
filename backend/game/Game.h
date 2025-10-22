@@ -47,10 +47,18 @@ class Game {
          */
         void setGreenhouse(Greenhouse* greenhouse);
         /**
+         * @brief Getter for testing purposes
+         */
+        Greenhouse* getGreenhouse();
+        /**
          * @brief Setter for factories
          * @param[in] factories Vector of PlantCreator object references, these are the "factories"
          */
         void setFactories(vector<PlantCreator*> factories);
+        /**
+         * @brief Getter for testing purposes
+         */
+        vector<PlantCreator*> getFactories();
         /**
          * @brief Operations associated with creating a new game, i.e. creating greenhouse and factories
          */

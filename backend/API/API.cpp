@@ -4,7 +4,7 @@
 API::API(Game* game) : game(game) {}
 
 // Inspiration from https://github.com/oatpp/oatpp-starter/blob/master/src/App.cpp
-void API::run()
+void API::bootstrap()
 {
     APIComponent components;
 
@@ -30,10 +30,10 @@ void API::run()
     server.run();
 }
 
-void API::bootstrap() {
+void API::run() {
     oatpp::Environment::init();
 
-  run();
+  bootstrap();
   
   /* Print how much objects were created during app running, and what have left-probably leaked */
   /* Disable object counting for release builds using '-D OATPP_DISABLE_ENV_OBJECT_COUNTERS' flag for better performance */

@@ -28,9 +28,21 @@ class API {
          * @param[in] game reference to Game object to call methods on
          */
         API(Game* game);
-        void run();
+        /**
+         * @brief Bootstrap (https://en.wikipedia.org/wiki/Bootstrapping) API server
+         */
         void bootstrap();
-
+        /**
+         * @brief Allows the client to start API server, calls bootstrapper
+         */
+        void run();
+        /**
+         * @brief Declare APIController as friend class of API such that APIController can have access
+         *  to private member variables like the "game" member variable.
+         *  This is done to ensure extensibility, client interacts with API, API with APIController, if
+         *  ever APIController needs more context client can pass to API to store in state, APIController
+         *  has access to API state.
+         */
         friend class APIController;
 };
 

@@ -9,9 +9,21 @@ Game::Game() {
     // Nothing yet
 }
 
-void Game::setGreenhouse(Greenhouse* greenhouse) {}
+void Game::setGreenhouse(Greenhouse* greenhouse) {
+    this->greenhouse = greenhouse;
+}
 
-void Game::setFactories(vector<PlantCreator*> factories) {}
+Greenhouse* Game::getGreenhouse() {
+    return greenhouse;
+}
+
+void Game::setFactories(vector<PlantCreator*> factories) {
+    this->factories = factories;
+}
+
+vector<PlantCreator*> Game::getFactories() {
+    return factories;
+}
 
 void Game::createNewGame() {
     // try 
