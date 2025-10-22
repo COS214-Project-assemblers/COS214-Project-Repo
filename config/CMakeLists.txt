@@ -27,7 +27,23 @@ set(SOURCES
   backend/game/PlayerMenu.h
   backend/game/PlayerMenu.cpp
   backend/game/Logger.h
-  # backend/game/Logger.cpp
+  backend/game/Logger.cpp
+  backend/game/TransactionStrategy.h
+  backend/game/TransactionStrategy.cpp
+  backend/game/Sale.h
+  backend/game/Sale.cpp
+  backend/game/Return.h
+  backend/game/Return.cpp
+  backend/game/Restock.h
+  backend/game/Restock.cpp
+  backend/game/PlantDied.h
+  backend/game/PlantDied.cpp
+  backend/game/Transaction.h
+  backend/game/Transaction.cpp
+  backend/game/TransactionMem.h
+  backend/game/TransactionMem.cpp
+  backend/game/TransactionHistory.h
+  backend/game/TransactionHistory.cpp
   backend/plant/Plant.h
   backend/plant/Plant.cpp
   backend/game/BasicLogger.h
@@ -48,6 +64,16 @@ set(SOURCES
   backend/plant/Tree.cpp
   backend/plant/NotSellable.h
   backend/plant/NotSellable.cpp
+  # backend/customer/Customer.h
+  # backend/customer/Customer.cpp
+  # backend/customer/AverageCustomer.h
+  # backend/customer/AverageCustomer.cpp
+  # backend/customer/IgnorantCustomer.h
+  # backend/customer/IgnorantCustomer.cpp
+  # backend/customer/GreenFingerCustomer.h
+  # backend/customer/GreenFingerCustomer.cpp
+  # backend/customer/CustomerVisitor.h
+  # backend/customer/CustomerVisitor.cpp
 )
 
 add_executable(main
@@ -56,7 +82,7 @@ add_executable(main
 )
 
 # Includes: add the API dir to both targets
-target_include_directories(main  PRIVATE backend backend/API backend/game backend/plant backend/customer backend/greenhouse backend/transaction)
+target_include_directories(main  PRIVATE backend backend/API backend/game backend/plant backend/customer backend/greenhouse backend/Transaction)
 
 # Link libs
 target_link_libraries(main  PRIVATE oatpp::oatpp)
