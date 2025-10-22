@@ -1,3 +1,8 @@
+/**
+ * @file Plant.cpp
+ * @brief Implements the functionality defined in the Plant class.
+ */
+
 #include "Plant.h"
 #include "NotSellable.h"
 #include "GreenhouseStaff.h"

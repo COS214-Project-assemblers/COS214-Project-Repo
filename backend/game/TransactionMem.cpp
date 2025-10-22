@@ -1,22 +1,25 @@
 #include "TransactionMem.h"
 
 //maybe include the balance to store the state of the balance at that time?
-TransactionMem::TransactionMem(TransactionStrategy* tS,double v){
-
+TransactionMem::TransactionMem(std::string t,double v,double b4, double after){
+    this->type=t;
+    this->value=v;
+    this->balanceB4=b4;
+    this->balanceAfter=after;
 }
 
-TransactionMem::~TransactionMem(){
-
-}
-
-double TransactionMem::getValue(){
+const double TransactionMem::getValue()const{
     return this->value;
 }
 
-double TransactionMem::getBalance(){
-
+const double TransactionMem::getBalanceB4()const{
+    return this->balanceB4;
 }
 
-std::string TransactionMem::getType(){
-    return this->tS->getType();
+const double TransactionMem::getBalenceAfter()const{
+    return this->balanceAfter;
+}
+
+const std::string TransactionMem::getType()const{
+    return this->type;
 }

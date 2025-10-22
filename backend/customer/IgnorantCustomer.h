@@ -13,6 +13,8 @@ class IgnorantCustomer : public Customer
     public:
         IgnorantCustomer();
         ~IgnorantCustomer();
+        void accept(CustomerVisitor& cV) override;
+        const Plant* considerOptions(const std::vector<const Plant*> offers)const override;
 };
 
 #endif

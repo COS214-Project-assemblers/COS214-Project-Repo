@@ -45,3 +45,11 @@ void GreenFingerCustomer::processChoice(int choice)
             break;
     }
 }
+
+void GreenFingerCustomer::accept(CustomerVisitor& cV){
+
+}
+
+const Plant* GreenFingerCustomer::considerOptions(const std::vector<const Plant*> offers)const{
+
+}
