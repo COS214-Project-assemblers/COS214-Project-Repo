@@ -15,57 +15,69 @@ using namespace std;
 
 /**
  * @class Customer
- * @brief Abstract base class defining interface and shared behavior of Customer
+ * @brief Abstract base class defining the interface and shared behavior for all customer types.
  * 
- * The Customer class defines the interation methods with the sales floor that is used by all the customer types, 
- * such as displaying dialogue, and choosing to make purchases.
+ * The Customer class implements the Template Method pattern, defining the skeleton of the customer
+ * interaction algorithm while allowing subclasses to override specific steps. It also serves as
+ * an Element in the Visitor pattern for plant recommendation handling.
+ * 
+ * @note This class follows the Template Method design pattern for the interaction flow
+ * and participates in the Visitor pattern for plant recommendations.
  * 
  * @see IgnorantCustomer
  * @see AverageCustomer
  * @see GreenFingerCustomer
+ * @see CustomerVisitor
  */
 
 class Customer
 {
     private:
         /**
-         * @brief primitiveOperation1()
-         * Displays the customer's introductory dialog that is unique to each Customer
+         * @brief Displays the customer's introductory dialogue (Template Method Step 1).
+         * Pure Virtual function to be implemented by derived classes.
          */
         virtual void introduce() = 0;
 
         /**
-         * @brief primitiveOperation2()
-         * Displays the customer's preference in plants and what their living situation is
+         * @brief Expresses the customer's plant preferences and living situation (Template Method Step 2).
+         * Pure Virtual function to be implemented by derived classes.
          */
         virtual void expressPreferences() = 0;
 
         /**
-         * @brief primitiveOperation3()
-         * Displays the customer's question to ask for plant recommendations
+         * @brief Asks the manager for plant recommendations (Template Method Step 3).
+         * Pure Virtual function to be implemented by derived classes.
          */
         virtual void askForRecommendations() = 0;
 
         /**
-         * @brief primitiveOperation5()
-         * Displays the customer's reactions to the plant recommendation
-         * Currently the customer only accepts the plant, but this is probably where the logic of the 
-         * correct / wrong chosen plant recommendation will be implemented
+         * @brief Reacts to the plant recommendations offered (Template Method Step 5).
+         * Pure Virtual function to be implemented by derived classes.
          */
         virtual void reactToRecommendations() = 0;
 
         /**
-         * @brief primitiveOperation6()
-         * Displays the exit message for each customer
+         * @brief Displays the customer's exit message (Template Method Step 6).
+         * Pure Virtual function to be implemented by derived classes.
          */
         virtual void thankAndExit() = 0;
 
     protected:
+        /**
+         * @brief Pointer to the plant chosen by the customer
+         */
         const Plant* chosenPlant = nullptr;
-        bool plantAccepted = false;
-        std::vector<const Plant*> offeredPlants;
 
-        std::string generateRejectionDialogue();
+        /**
+         * @brief Flag indicating whether a plant was accepted
+         */
+        bool plantAccepted = false;
+
+        /**
+         * @brief List of plants offered by the visitor
+         */
+        vector<const Plant*> offeredPlants;
 
     public:
         /**
@@ -74,35 +86,58 @@ class Customer
         Customer();
 
         /**
-         * @brief virtual deconstructor
+         * @brief Virtual destructor for proper polymorphic destruction.
          */
         virtual ~Customer();
 
         /**
-         * @brief primitiveOperation4()
-         * This is where the visitor comes in and gives the customer plant options based on what type of customer they are
+         * @brief Accepts a visitor to handle plant recommendations (Template Method Step 4).
+         * 
+         * This method implements the Element side of the Visitor pattern, allowing the
+         * CustomerVisitor to offer appropriate plants based on customer type.
+         * 
+         * @param v Reference to the CustomerVisitor that will offer plants.
+         * Pure Virtual function to be implemented by derived classes.
          */
         virtual void accept(CustomerVisitor& v) = 0;
 
-        /**
-         * @brief Allows for customer to evaluate and consider offered plants.
-         * @param offers A vector of pointers to Plant objects of the plants on offer.
-         * @return A pointer to the chosen Plant or NULL if none are chosen.
+         /**
+         * @brief Evaluates and selects from the offered plants.
+         * 
+         * This method presents the offered plants to the user and allows them to select one.
+         * The customer will accept or reject based on whether the selection matches their preferences.
+         * 
+         * @param offers Vector of pointers to Plant objects available for selection.
+         * @return Pointer to the chosen Plant, or nullptr if no suitable plant is selected.
+         * Pure Virtual function to be implemented by derived classes.
          */
         virtual const Plant* considerOptions(const vector<const Plant*> offers) const = 0;
 
-        /**
-         * @brief Set the plants offered by the visitor
-         * This function will be called inside the visitIgnorantCustomer(IgnorantCustomer& cust) (or any of the other child classes' functions) 
-         * So the visitor will get plants from the database and build an offers vector, then call this function on the 
-         * customer parameter inside the visitor function, e.g., cust.setOfferedPlants(offers);
+         /**
+         * @brief Sets the plants offered by the visitor.
+         * 
+         * Called by CustomerVisitor implementations to provide the list of plants
+         * that the customer will consider.
+         * 
+         * @param plants Vector of pointers to Plant objects being offered.
          */
         void setOfferedPlants(const vector<const Plant*>& plants);
 
         /**
-         * @brief Template method
-         * This function initiates the customer interaction flow (sequence of primitive operations)
-         * @param [in] v Visitor object that is needed for the accept() method
+         * @brief Template method defining the customer interaction workflow.
+         * 
+         * Implements the Template Method pattern by defining the fixed sequence of
+         * customer interactions while delegating specific behaviors to primitive operations.
+         * 
+         * The interaction flow:
+         * 1. Customer introduction
+         * 2. Preference expression
+         * 3. Request for recommendations
+         * 4. Visitor offers plants (Visitor pattern)
+         * 5. Customer reaction to offers
+         * 6. Exit dialogue
+         * 
+         * @param v Reference to the CustomerVisitor that will handle plant recommendations.
          */
         void interact(CustomerVisitor& v);
 };
