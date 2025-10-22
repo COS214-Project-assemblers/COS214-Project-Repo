@@ -17,7 +17,7 @@ class GreenFingerCustomer : public Customer
         ~GreenFingerCustomer();
         
         void accept(CustomerVisitor& cV) override;
-        const Plant* considerOptions(const std::vector<const Plant*> offers)const override;
+        const Plant* considerOptions(const vector<const Plant*> offers)const override;
 };
 
 #endif

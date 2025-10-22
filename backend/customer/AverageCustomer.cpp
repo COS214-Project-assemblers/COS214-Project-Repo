@@ -32,6 +32,7 @@ void AverageCustomer::accept(CustomerVisitor& v)
 
 const Plant* AverageCustomer::considerOptions(const std::vector<const Plant*> offers)const{
 // this is where the user is prompted with offers and has to choose one to offer to the customer
+// if the user chose the correct option, return the plant, otherwise return nullptr
 }
 
 void AverageCustomer::reactToRecommendations() 
