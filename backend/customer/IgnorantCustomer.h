@@ -6,9 +6,12 @@
 class IgnorantCustomer : public Customer
 {
     private:
-        void showDialog();
-        vector<string> compileOptions();
-        void processChoice(int choice);
+        void introduce();
+        void expressPreferences();
+        void askForRecommendations();
+        void receiveRecommendations(CustomerVisitor& visitor);
+        void reactToRecommendations();
+        void thankAndExit();
 
     public:
         IgnorantCustomer();

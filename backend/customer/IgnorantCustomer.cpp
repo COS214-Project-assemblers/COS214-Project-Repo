@@ -11,21 +11,14 @@ IgnorantCustomer::~IgnorantCustomer()
 }
 
 
-void IgnorantCustomer::showDialog()
+void IgnorantCustomer::introduce() 
 {
-    cout << "Ignorant Customer: \"Hi there! I want to buy my first plant but I'm terrible with them...\"\n";
-    cout << "Ignorant Customer: \"My apartment doesn't get much sunlight and I sometimes forget to water.\"\n";
-    cout << "Ignorant Customer: \"What plant should I buy that I won't kill?\"\n\n";
+    cout << "Ignorant Customer: \"Hi! I'm new to plants and pretty clueless.\"\n";
 }
 
-vector<string> IgnorantCustomer::compileOptions()
+void IgnorantCustomer::expressPreferences() 
 {
-    return
-    {
-        "Buy a Rose - beautiful flowers that need lots of care",
-        "Buy a Cactus - very low maintenance and hard to kill", 
-        "Buy a Lemon Tree - grows fruit but needs lots of space and care"
-    };
+    cout << "Ignorant Customer: \"I need something that won't die if I forget to water it!\"\n";
 }
 
 void IgnorantCustomer::processChoice(int choice)
