@@ -5,7 +5,7 @@
 
 #include "Flower.h"
 
-Flower::Flower(string variety) : Plant("Flower", variety) {}
+Flower::Flower(string variety,string difficulty) : Plant("Flower", variety,difficulty) {}
 
 Flower::~Flower() {}
 
