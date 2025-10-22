@@ -1,26 +1,26 @@
 /**
- * @file Refund.h
+ * @file Return.h
  */
-#ifndef REFUND_H
-#define REFUND_H
+#ifndef RETURN_H
+#define RETURN_H
 
 #include "TransactionStrategy.h"
 #include <string>
 
 /**
- * @class Refund
- * @brief Will handle the transaction as a refund
+ * @class Return
+ * @brief Will handle the transaction as a Return
  */
-class Refund:public TransactionStrategy{
+class Return:public TransactionStrategy{
     public:
         /**
          * @brief Default constructor.
          */
-        Refund()=default;
+        Return()=default;
         /**
          * @brief Deconstructor.
          */
-        ~Refund()=default;
+        ~Return()=default;
         /**
          * @brief Executes a transactions financial logic to update the balance.
          * @param v Value of the transaction.
@@ -29,8 +29,8 @@ class Refund:public TransactionStrategy{
          */
         double execute(double v, double b) override;
         /**
-         * @brief Returns the Type of the transaction as a Refund
-         * @return "Refund"
+         * @brief Returns the Type of the transaction as a Return
+         * @return "Return"
          */
         std::string getType()const override;
 };
