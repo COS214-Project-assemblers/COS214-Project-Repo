@@ -7,12 +7,13 @@
 #ifndef API_H
 #define API_H
 
-#include "APIController.h"
 #include "APIComponent.h"
 #include "Game.h"
 
 #include "oatpp/network/Server.hpp"
 #include <iostream>
+
+class APIController;
 
 /**
  * @class API
@@ -29,6 +30,8 @@ class API {
         API(Game* game);
         void run();
         void bootstrap();
+
+        friend class APIController;
 };
 
 #endif // API_H
