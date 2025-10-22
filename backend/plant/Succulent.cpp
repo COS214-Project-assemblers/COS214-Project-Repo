@@ -5,7 +5,7 @@
 
 #include "Succulent.h"
 
-Succulent::Succulent(string variety) : Plant("Succulent", variety) {}
+Succulent::Succulent(string variety,string difficulty) : Plant("Succulent", variety, difficulty) {}
 
 Succulent::~Succulent() {}
 

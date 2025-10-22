@@ -22,7 +22,7 @@ class Succulent : public Plant
          * @brief Constructs a Succulent object of a specific variety.
          * @param [in] variety The name of the succulent variety (e.g., "Cactus", "Aloe").
          */
-        Succulent(string variety);
+        Succulent(string variety,string difficulty);
 
         /**
          * @brief Destroys the Succulent object.
