@@ -17,7 +17,7 @@ const double TransactionMem::getBalanceB4()const{
 }
 
 const double TransactionMem::getBalenceAfter()const{
-    this->balanceAfter;
+    return this->balanceAfter;
 }
 
 const std::string TransactionMem::getType()const{
