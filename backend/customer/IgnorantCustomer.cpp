@@ -1,3 +1,8 @@
+/**
+ * @file IgnorantCustomer.cpp
+ * @brief Implements the functionality defined in the IgnorantCustomer class.
+ */
+
 #include "IgnorantCustomer.h"
 
 IgnorantCustomer::IgnorantCustomer() : Customer()
@@ -11,46 +16,54 @@ IgnorantCustomer::~IgnorantCustomer()
 }
 
 
-void IgnorantCustomer::showDialog()
+void IgnorantCustomer::introduce() 
 {
-    cout << "Ignorant Customer: \"Hi there! I want to buy my first plant but I'm terrible with them...\"\n";
-    cout << "Ignorant Customer: \"My apartment doesn't get much sunlight and I sometimes forget to water.\"\n";
-    cout << "Ignorant Customer: \"What plant should I buy that I won't kill?\"\n\n";
+    cout << "Ignorant Customer: \"Hi! I'm new to plants and pretty clueless.\"\n";
 }
 
-vector<string> IgnorantCustomer::compileOptions()
+void IgnorantCustomer::expressPreferences() 
 {
-    return
-    {
-        "Buy a Rose - beautiful flowers that need lots of care",
-        "Buy a Cactus - very low maintenance and hard to kill", 
-        "Buy a Lemon Tree - grows fruit but needs lots of space and care"
-    };
+    cout << "Ignorant Customer: \"I need something that won't die if I forget to water it!\"\n";
 }
 
-void IgnorantCustomer::processChoice(int choice)
+void IgnorantCustomer::askForRecommendations() 
 {
-    switch (choice)
-    {
-        case 2:
-            cout << "\nIgnorant Customer: \"A cactus! That sounds perfect for me! I can't kill something that needs so little care!\"\n";
-            break;
-        case 1:
-            cout << "\nIgnorant Customer: \"Roses need so much care... I'd probably kill it in a week.\"\n";
-            break;
-        case 3:
-            cout << "\nIgnorant Customer: \"A lemon tree? That sounds way too advanced for my small apartment.\"\n";
-            break;
-        default:
-            cout << "\nIgnorant Customer: \"I'm not sure about that recommendation...\"\n";
-            break;
-    }
+    cout << "Ignorant Customer: \"Can you recommend something impossible to kill?\"\n";
 }
 
-void IgnorantCustomer::accept(CustomerVisitor& cV){
-
+void IgnorantCustomer::accept(CustomerVisitor& v)
+{
+    v.visitIgnorantCustomer(*this);
 }
 
 const Plant* IgnorantCustomer::considerOptions(const std::vector<const Plant*> offers)const{
+    // this is where the user is prompted with offers and has to choose one to offer to the customer
+    // if the user chose the correct option, return the plant, otherwise return nullptr
+}
 
+void IgnorantCustomer::reactToRecommendations() 
+{
+    if (plantAccepted && chosenPlant) 
+    {
+        cout << "Ignorant Customer: \"Perfect! This seems manageable!\"\n";
+    } 
+    else 
+    {
+        cout << "Ignorant Customer: \"I'm not sure about these options... "
+             << "Maybe I should look elsewhere.\"\n";
+    }
+    // can maybe add satisfaction score (added functionality that is not so importnat rn)
+    // with the current implementation, the customer just "leaves" when the wrong option is chosen
+}
+
+void IgnorantCustomer::thankAndExit() 
+{
+    if (plantAccepted) 
+    {
+        cout << "Ignorant Customer: \"Thanks! I hope I don't mess this up!\"\n";
+    } 
+    else 
+    {
+        cout << "Ignorant Customer: \"Thanks anyway, I'll try another store.\"\n";
+    }
 }

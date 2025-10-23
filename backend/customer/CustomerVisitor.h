@@ -2,7 +2,7 @@
  * @file CustomerVisitor.hs
  */
 #ifndef CUSTOMERVISITOR_H
-#define CUSTOMERVISITOR_h
+#define CUSTOMERVISITOR_H
 
 //forward declarations of concrete customers
 class IgnorantCustomer;
