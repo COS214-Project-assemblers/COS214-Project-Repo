@@ -10,6 +10,10 @@
 #include <string>
 #include <iostream>
 #include <stdexcept>
+#include <cstdlib>
+
+
+#include "GameConfiguration.h"
 
 using namespace std;
 
@@ -35,12 +39,14 @@ class Game {
          * @brief maintains reference to plant creators for the game
          */
         vector<PlantCreator*> factories;
+
+        GameConfiguraton* config;
     public:
         /**
          * @brief Game initialization tasks that are not creating/loading game.
          *  Wil problably init DB connection etc here
          */
-        Game();
+        Game(string configPath);
         /**
          * @brief Setter for greenhouse attribute
          * @param[in] greenhouse Greenhouse reference

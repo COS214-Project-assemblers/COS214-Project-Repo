@@ -4,9 +4,21 @@
 #include "../plant/FlowerCreator.h"
 #include "../plant/SucculentCreator.h"
 #include "../plant/TreeCreator.h"
+#include "JSONGameConfiguration.h"
 
-Game::Game() {
-    // Nothing yet
+Game::Game(string configPath) {
+    try {
+        config = new JSONGameConfiguration(configPath);
+    } catch (const runtime_error& e) {
+        cout << e.what() << endl;
+        exit(EXIT_FAILURE);
+    } catch (const out_of_range& e) {
+        cout << e.what() << endl;
+        exit(EXIT_FAILURE);
+    } catch (...) {
+        cout << "Failed to init config for unknown reason" << endl;
+        exit(EXIT_FAILURE);
+    }
 }
 
 void Game::setGreenhouse(Greenhouse* greenhouse) {}
@@ -17,13 +29,15 @@ void Game::createNewGame() {
     // try 
     try {
         // Create new factories
-        vector<PlantCreator*> factories;
-        factories.push_back(new SucculentCreator());
-        factories.push_back(new FlowerCreator());
-        factories.push_back(new TreeCreator());
-
-        setFactories(factories);
+        map<string, vector<string>> varieties;
         
+        varieties = config->getPlantVarieties();
+        for (const auto& [category, variants] : varieties) {
+            std::cout << category << ": ";
+            for (const auto& v : variants) std::cout << v << " ";
+            std::cout << "\n";
+        }
+
         cout << "Created factories" << endl;
     } catch (...) { // More specific error handling required
         throw runtime_error("Failed to create factories for unknown reason"); // Reason is unknown since using catch(...)
