@@ -1,3 +1,8 @@
+/**
+ * @file GreenFingerCustomer.cpp
+ * @brief Implements the functionality defined in the GreenFingerCustomer class.
+ */
+
 #include "GreenFingerCustomer.h"
 
 GreenFingerCustomer::GreenFingerCustomer() : Customer() 
@@ -10,46 +15,51 @@ GreenFingerCustomer::~GreenFingerCustomer()
     
 }
 
-void GreenFingerCustomer::showDialog()
+void GreenFingerCustomer::introduce() 
 {
-    cout << "Green Finger Customer: \"Good afternoon. I'm an experienced gardener looking for something special.\"\n";
-    cout << "Green Finger Customer: \"I have extensive knowledge and can handle any level of care complexity.\"\n";
-    cout << "Green Finger Customer: \"What rare or challenging plant would you recommend?\"\n\n";
+    cout << "Green Finger Customer: \"Greetings! I'm an experienced plant enthusiast.\"\n";
 }
 
-vector<string> GreenFingerCustomer::compileOptions()
+void GreenFingerCustomer::expressPreferences() 
 {
-    return
-    {
-        "Buy a Sunflower - beautiful but quite common",
-        "Buy a Jade plant - elegant succulent but relatively easy",
-        "Buy an Apple Tree - requires skill to fruit well and takes years to mature"
-    };
+    cout << "Green Finger Customer: \"I'm looking for challenging plants that require expert care.\"\n";
 }
 
-void GreenFingerCustomer::processChoice(int choice)
+void GreenFingerCustomer::askForRecommendations() 
 {
-    switch (choice)
-    {
-        case 3:
-            cout << "\nGreen Finger Customer: \"An apple tree! Now that's a proper challenge. I'd love to cultivate one!\"\n";
-            break;
-        case 2:
-            cout << "\nGreen Finger Customer: \"Jade plants are nice, but I already have several varieties.\"\n";
-            break;
-        case 1:
-            cout << "\nGreen Finger Customer: \"Sunflowers are too basic for my collection.\"\n";
-            break;
-        default:
-            cout << "\nGreen Finger Customer: \"That doesn't match what I'm looking for.\"\n";
-            break;
-    }
+    cout << "Green Finger Customer: \"What rare or difficult plants do you have?\"\n";
 }
 
-void GreenFingerCustomer::accept(CustomerVisitor& cV){
-
+void GreenFingerCustomer::accept(CustomerVisitor& v)
+{
+    v.visitGreenfingerCustomer(*this);
 }
 
 const Plant* GreenFingerCustomer::considerOptions(const std::vector<const Plant*> offers)const{
+// this is where the user is prompted with offers and has to choose one to offer to the customer
+// if the user chose the correct option, return the plant, otherwise return nullptr
+}
 
+void GreenFingerCustomer::reactToRecommendations() 
+{
+    if (plantAccepted && chosenPlant) 
+    {
+        cout << "Green Finger Customer: \"Excellent! This will be a magnificent addition to my conservatory!\"\n";
+    } 
+    else 
+    {
+        cout << "Green Finger Customer: \"I was hoping for more challenging plants...\"\n";
+    }
+}
+
+void GreenFingerCustomer::thankAndExit() 
+{
+    if (plantAccepted) 
+    {
+        cout << "Green Finger Customer: \"I'm excited to add this to my collection. Thank you!\"\n";
+    } 
+    else 
+    {
+        cout << "Green Finger Customer: \"I'll check back later for new arrivals.\"\n";
+    }
 }

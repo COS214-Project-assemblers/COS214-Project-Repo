@@ -63,6 +63,22 @@ set(SOURCES
   backend/greenhouse/Greenhouse.cpp
   backend/greenhouse/Inventory.h
   backend/greenhouse/Inventory.cpp
+  backend/customer/Customer.h
+  backend/customer/Customer.cpp
+  backend/customer/IgnorantCustomer.h
+  backend/customer/IgnorantCustomer.cpp
+  backend/customer/AverageCustomer.h
+  backend/customer/AverageCustomer.cpp
+  backend/customer/GreenFingerCustomer.h
+  backend/customer/GreenFingerCustomer.cpp
+  backend/customer/CustomerVisitor.h
+  backend/customer/CustomerVisitor.cpp
+  backend/customer/VisitAverageSpendCustomer.h
+  backend/customer/VisitAverageSpendCustomer.cpp
+  backend/customer/VisitBigSpendCustomer.h
+  backend/customer/VisitBigSpendCustomer.cpp
+  backend/customer/VisitLowSpendCustomer.h
+  backend/customer/VisitLowSpendCustomer.cpp
 )
 
 add_executable(g_test
