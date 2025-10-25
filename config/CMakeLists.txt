@@ -9,6 +9,8 @@ add_compile_options(-Wall -Wextra -pedantic)
 
 # Oat++
 find_package(oatpp 1.4.0 REQUIRED)
+# JSON Parsing
+find_package(nlohmann_json 3.10 REQUIRED)
 
 set(SOURCES
   backend/API/APIDto.h
@@ -27,15 +29,12 @@ set(SOURCES
   backend/game/PlayerMenu.h
   backend/game/PlayerMenu.cpp
   backend/game/Logger.h
-  backend/game/Logger.cpp
   backend/game/TransactionStrategy.h
   backend/game/TransactionStrategy.cpp
   backend/game/Sale.h
   backend/game/Sale.cpp
   backend/game/Return.h
   backend/game/Return.cpp
-  backend/game/Restock.h
-  backend/game/Restock.cpp
   backend/game/PlantDied.h
   backend/game/PlantDied.cpp
   backend/game/Transaction.h
@@ -64,6 +63,9 @@ set(SOURCES
   backend/plant/Tree.cpp
   backend/plant/NotSellable.h
   backend/plant/NotSellable.cpp
+  backend/game/GameConfiguration.h
+  backend/game/JSONGameConfiguration.h
+  backend/game/JSONGameConfiguration.cpp
   # backend/customer/Customer.h
   # backend/customer/Customer.cpp
   # backend/customer/AverageCustomer.h
@@ -85,4 +87,4 @@ add_executable(main
 target_include_directories(main  PRIVATE backend backend/API backend/game backend/plant backend/customer backend/greenhouse backend/Transaction)
 
 # Link libs
-target_link_libraries(main  PRIVATE oatpp::oatpp)
+target_link_libraries(main  PRIVATE oatpp::oatpp nlohmann_json::nlohmann_json)

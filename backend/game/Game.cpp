@@ -29,13 +29,15 @@ void Game::createNewGame() {
     // try 
     try {
         // Create new factories
-        vector<PlantCreator*> factories;
-        factories.push_back(new SucculentCreator());
-        factories.push_back(new FlowerCreator());
-        factories.push_back(new TreeCreator());
-
-        setFactories(factories);
+        map<string, vector<string>> varieties;
         
+        varieties = config->getPlantVarieties();
+        for (const auto& [category, variants] : varieties) {
+            std::cout << category << ": ";
+            for (const auto& v : variants) std::cout << v << " ";
+            std::cout << "\n";
+        }
+
         cout << "Created factories" << endl;
     } catch (...) { // More specific error handling required
         throw runtime_error("Failed to create factories for unknown reason"); // Reason is unknown since using catch(...)
