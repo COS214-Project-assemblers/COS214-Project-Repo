@@ -4,9 +4,21 @@
 #include "../plant/FlowerCreator.h"
 #include "../plant/SucculentCreator.h"
 #include "../plant/TreeCreator.h"
+#include "JSONGameConfiguration.h"
 
-Game::Game() {
-    // Nothing yet
+Game::Game(string configPath) {
+    try {
+        config = new JSONGameConfiguration(configPath);
+    } catch (const runtime_error& e) {
+        cout << e.what() << endl;
+        exit(EXIT_FAILURE);
+    } catch (const out_of_range& e) {
+        cout << e.what() << endl;
+        exit(EXIT_FAILURE);
+    } catch (...) {
+        cout << "Failed to init config for unknown reason" << endl;
+        exit(EXIT_FAILURE);
+    }
 }
 
 void Game::setGreenhouse(Greenhouse* greenhouse) {}
