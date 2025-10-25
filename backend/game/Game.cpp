@@ -4,9 +4,21 @@
 #include "FlowerCreator.h"
 #include "SucculentCreator.h"
 #include "TreeCreator.h"
+#include "JSONGameConfiguration.h"
 
-Game::Game() {
-    // Nothing yet
+Game::Game(string configPath) {
+    try {
+        config = new JSONGameConfiguration(configPath);
+    } catch (const runtime_error& e) {
+        cout << e.what() << endl;
+        exit(EXIT_FAILURE);
+    } catch (const out_of_range& e) {
+        cout << e.what() << endl;
+        exit(EXIT_FAILURE);
+    } catch (...) {
+        cout << "Failed to init config for unknown reason" << endl;
+        exit(EXIT_FAILURE);
+    }
 }
 
 void Game::setGreenhouse(Greenhouse* greenhouse) {
@@ -29,24 +41,16 @@ void Game::createNewGame() {
     // try 
     try {
         // Create new factories
-        map<string,PlantCreator*> factories;
-
-        // Get plants from database? Simulate that only now
-        SucculentCreator* cactusCreator = new SucculentCreator();
-        cactusCreator->makePlant("Cactus");
-        factories["cactus"] = cactusCreator;
-
-        FlowerCreator* dandelionCreator = new FlowerCreator();
-        dandelionCreator->makePlant("Dandelion");
-        factories["dandelion"] = dandelionCreator;
-
-        TreeCreator* oakCreator = new TreeCreator();
-        oakCreator->makePlant("Oak");
-        factories["oak"] = oakCreator;
-
-        setFactories(factories);
+        map<string, vector<string>> varieties;
         
-        cout << "+ Created factories" << endl;
+        varieties = config->getPlantVarieties();
+        for (const auto& [category, variants] : varieties) {
+            std::cout << category << ": ";
+            for (const auto& v : variants) std::cout << v << " ";
+            std::cout << "\n";
+        }
+
+        cout << "Created factories" << endl;
     } catch (...) { // More specific error handling required
         throw runtime_error("Failed to create factories for unknown reason"); // Reason is unknown since using catch(...)
     }

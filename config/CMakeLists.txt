@@ -9,6 +9,8 @@ add_compile_options(-Wall -Wextra -pedantic)
 
 # Oat++
 find_package(oatpp 1.4.0 REQUIRED)
+# JSON Parsing
+find_package(nlohmann_json 3.10 REQUIRED)
 
 set(SOURCES
   backend/API/APIDto.h
@@ -65,6 +67,9 @@ set(SOURCES
   backend/greenhouse/Greenhouse.cpp
   backend/greenhouse/Inventory.h
   backend/greenhouse/Inventory.cpp
+  backend/game/GameConfiguration.h
+  backend/game/JSONGameConfiguration.h
+  backend/game/JSONGameConfiguration.cpp
   # backend/customer/Customer.h
   # backend/customer/Customer.cpp
   # backend/customer/AverageCustomer.h
@@ -86,4 +91,4 @@ add_executable(main
 target_include_directories(main  PRIVATE backend backend/API backend/game backend/plant backend/customer backend/greenhouse backend/Transaction)
 
 # Link libs
-target_link_libraries(main  PRIVATE oatpp::oatpp)
+target_link_libraries(main  PRIVATE oatpp::oatpp nlohmann_json::nlohmann_json)

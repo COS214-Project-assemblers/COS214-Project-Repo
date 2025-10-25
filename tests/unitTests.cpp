@@ -17,7 +17,7 @@
 
 TEST(GameTests, NewGameExecutesProperly) {
     // Set up environment
-    Game* game = new Game;
+    Game* game = new Game("../config/GameConfig.json");
     PlayerMenu* playerMenu = new PlayerMenu();
     BasicLogger* logger = new BasicLogger();
     NewGameOption* newGameOption = new NewGameOption(game, logger);

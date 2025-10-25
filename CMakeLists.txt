@@ -16,8 +16,8 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE) # Windows
 FetchContent_MakeAvailable(googletest)
 
-# Oat++
-# find_package(oatpp 1.4.0 REQUIRED)
+# JSON parsing library https://github.com/nlohmann/json?tab=readme-ov-file#package-managers
+find_package(nlohmann_json 3.10 REQUIRED)
 
 enable_testing()
 
@@ -79,6 +79,9 @@ set(SOURCES
   backend/customer/VisitBigSpendCustomer.cpp
   backend/customer/VisitLowSpendCustomer.h
   backend/customer/VisitLowSpendCustomer.cpp
+  backend/game/GameConfiguration.h
+  backend/game/JSONGameConfiguration.h
+  backend/game/JSONGameConfiguration.cpp
 )
 
 add_executable(g_test
@@ -97,7 +100,7 @@ target_include_directories(g_test PRIVATE backend tests backend/API backend/game
 
 # Link libs
 # target_link_libraries(main PRIVATE)
-target_link_libraries(g_test PRIVATE GTest::gtest_main)
+target_link_libraries(g_test PRIVATE GTest::gtest_main nlohmann_json::nlohmann_json)
 
 include(GoogleTest)
 gtest_discover_tests(g_test)
