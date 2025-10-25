@@ -5,7 +5,8 @@
 
 #include "PlantCreator.h"
 
-PlantCreator::PlantCreator() {}
+PlantCreator::PlantCreator() {
+}
 
 PlantCreator::~PlantCreator()
 {

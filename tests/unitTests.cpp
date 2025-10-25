@@ -2,6 +2,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <vector>
+#include <map>
 
 #include "Game.h"
 #include "NewGameOption.h"
@@ -28,18 +29,21 @@ TEST(GameTests, NewGameExecutesProperly) {
     // Verify expected outcomes
 
     // Get Factories
-    vector<PlantCreator*> factories = game->getFactories();
-    for (PlantCreator* factory : factories) {
-        EXPECT_TRUE(factory->hasPlant()) << "Each factory should return true when the hasPlant() method is called";
+    map<string, PlantCreator*> factories = game->getFactories();
+
+    for (auto it = factories.begin(); it != factories.end(); ++it) {
+        EXPECT_TRUE(it->second->hasPlant());
     }
 
     // Test factories creation
-    for (PlantCreator* factory : factories) {
-        Plant* factPlant = factory->clonePlant();
+    for (auto it = factories.begin(); it != factories.end(); ++it) {
+        Plant* factPlant = it->second->clonePlant();
         EXPECT_NE(factPlant, nullptr) << "Test each factory by calling clonePlant(), returning nullptr indicates failure";
         delete factPlant;
     }
 
+    // Test Buy Plant
+    
     // Cleanup
     delete game;
     delete playerMenu;

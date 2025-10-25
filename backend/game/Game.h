@@ -6,7 +6,7 @@
 #ifndef GAME_HDR
 #define GAME_HDR
 
-#include <vector>
+#include <map>
 #include <string>
 #include <iostream>
 #include <stdexcept>
@@ -34,7 +34,7 @@ class Game {
         /**
          * @brief maintains reference to plant creators for the game
          */
-        vector<PlantCreator*> factories;
+        map<string, PlantCreator*> factories;
     public:
         /**
          * @brief Game initialization tasks that are not creating/loading game.
@@ -54,11 +54,11 @@ class Game {
          * @brief Setter for factories
          * @param[in] factories Vector of PlantCreator object references, these are the "factories"
          */
-        void setFactories(vector<PlantCreator*> factories);
+        void setFactories(map<string, PlantCreator*> factories);
         /**
          * @brief Getter for testing purposes
          */
-        vector<PlantCreator*> getFactories();
+        map<string, PlantCreator*> getFactories();
         /**
          * @brief Operations associated with creating a new game, i.e. creating greenhouse and factories
          */

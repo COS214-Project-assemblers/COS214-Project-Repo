@@ -17,11 +17,11 @@ Greenhouse* Game::getGreenhouse() {
     return greenhouse;
 }
 
-void Game::setFactories(vector<PlantCreator*> factories) {
+void Game::setFactories(map<string, PlantCreator*> factories) {
     this->factories = factories;
 }
 
-vector<PlantCreator*> Game::getFactories() {
+map<string, PlantCreator*> Game::getFactories() {
     return factories;
 }
 
@@ -29,10 +29,20 @@ void Game::createNewGame() {
     // try 
     try {
         // Create new factories
-        vector<PlantCreator*> factories;
-        factories.push_back(new SucculentCreator());
-        factories.push_back(new FlowerCreator());
-        factories.push_back(new TreeCreator());
+        map<string,PlantCreator*> factories;
+
+        // Get plants from database? Simulate that only now
+        SucculentCreator* cactusCreator = new SucculentCreator();
+        cactusCreator->makePlant("Cactus");
+        factories["cactus"] = cactusCreator;
+
+        FlowerCreator* dandelionCreator = new FlowerCreator();
+        dandelionCreator->makePlant("Dandelion");
+        factories["dandelion"] = dandelionCreator;
+
+        TreeCreator* oakCreator = new TreeCreator();
+        oakCreator->makePlant("Oak");
+        factories["oak"] = oakCreator;
 
         setFactories(factories);
         
@@ -56,7 +66,10 @@ void Game::loadExistingGame() {}
 void Game::saveGame() {}
 
 Game::~Game() {
-    for (PlantCreator* factory : factories) {
-        delete factory;
+    // for (PlantCreator* factory : factories) {
+    //     delete factory;
+    // }
+    for (auto it = factories.begin(); it != factories.end(); ++it) {
+        delete it->second;
     }
 }
