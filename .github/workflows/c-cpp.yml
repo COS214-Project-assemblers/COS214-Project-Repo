@@ -29,20 +29,20 @@ jobs:
         run: cd build_test && ctest --output-on-failure
       
       #- name: Run g_test under Valgrind
-      - name: Valgrind
-        shell: bash
-        run: |
-          valgrind \
-            --leak-check=full \
-            --show-leak-kinds=all \
-            --track-origins=yes \
-            --error-exitcode=0 \
-            ./build/g_test 2> >(tee build/valgrind.log >&2)
-          # Extract summary text
-          {
-            echo "### 🧠 Valgrind Leak Summary"
-            echo '```'
-            awk '/LEAK SUMMARY:/,0' build/valgrind.log || true
-            grep -E 'ERROR SUMMARY:' build/valgrind.log || true
-            echo '```'
-          } > build/valgrind-summary.txt
+      # - name: Valgrind
+      #   shell: bash
+      #   run: |
+      #     valgrind \
+      #       --leak-check=full \
+      #       --show-leak-kinds=all \
+      #       --track-origins=yes \
+      #       --error-exitcode=0 \
+      #       ./build/g_test 2> >(tee build/valgrind.log >&2)
+      #     # Extract summary text
+      #     {
+      #       echo "### 🧠 Valgrind Leak Summary"
+      #       echo '```'
+      #       awk '/LEAK SUMMARY:/,0' build/valgrind.log || true
+      #       grep -E 'ERROR SUMMARY:' build/valgrind.log || true
+      #       echo '```'
+      #     } > build/valgrind-summary.txt

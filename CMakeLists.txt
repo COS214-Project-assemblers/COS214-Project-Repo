@@ -112,5 +112,10 @@ target_include_directories(g_test PRIVATE backend tests backend/API backend/game
 # target_link_libraries(main PRIVATE)
 target_link_libraries(g_test PRIVATE GTest::gtest_main nlohmann_json::nlohmann_json)
 
+target_compile_definitions(g_test PRIVATE
+    ROOT_BUILD_DIR="${CMAKE_BINARY_DIR}"
+    ROOT_SOURCE_DIR="${CMAKE_SOURCE_DIR}"
+)
+
 include(GoogleTest)
 gtest_discover_tests(g_test)
