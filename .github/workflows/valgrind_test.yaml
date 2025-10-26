@@ -29,6 +29,7 @@ jobs:
             --leak-check=full \
             --show-leak-kinds=all \
             --track-origins=yes \
+            --error-exitcode=0 \
             ./build/g_test 2> >(tee build/valgrind.log >&2)
           # Extract summary text
           {
