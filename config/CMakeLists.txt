@@ -61,6 +61,8 @@ set(SOURCES
   backend/plant/Succulent.cpp
   backend/plant/Tree.h
   backend/plant/Tree.cpp
+  backend/plant/PlantHealth.h
+  backend/plant/PlantHealth.cpp
   backend/plant/NotSellable.h
   backend/plant/NotSellable.cpp
   backend/game/GameConfiguration.h
