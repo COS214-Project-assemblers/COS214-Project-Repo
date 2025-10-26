@@ -97,6 +97,54 @@ public:
   }
   
   // Further Endpoints
+
+  ENDPOINT("POST", "/buy-plants", buyPlants,
+         QUERY(String, plant, "plant"),
+         QUERY(Int32, num, "num")) {
+    /**
+     * Response structure
+     * 
+     * {
+     *  message: <operation-status>,
+     *  statusCode: <HTTP status code, 200/400/500>
+     * }
+     */
+    auto dto = APIDto::createShared();
+
+    // Input validation
+    if (plant == nullptr || plant->empty()) 
+    {
+      dto->statusCode = 400;
+      dto->message = "Plant variety parameter is required";
+      
+      return createDtoResponse(Status::CODE_400, dto);
+    }
+
+    if (num == nullptr || *num <= 0) 
+    {
+      dto->statusCode = 400;
+      dto->message = "Number of plants must be a positive integer";
+
+      return createDtoResponse(Status::CODE_400, dto);
+    }
+
+    try 
+    {
+      apiToControl.game->buyPlants(*plant, *num);
+      
+      dto->statusCode = 200;
+      dto->message = "Successfully bought " + std::to_string(*num) + " " + *plant + " plants using cloning";
+
+      return createDtoResponse(Status::CODE_200, dto);
+    } 
+    catch (const std::exception &e) 
+    {
+      dto->statusCode = 500;
+      dto->message = "Failed to buy plants: " + std::string(e.what());
+
+      return createDtoResponse(Status::CODE_500, dto);
+    }
+  }
   
 };
 

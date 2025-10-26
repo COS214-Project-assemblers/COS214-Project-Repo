@@ -110,7 +110,52 @@ void Game::createNewGame()
     }
 }
 
-void Game::buyPlants(string plant, int num) {}
+void Game::buyPlants(string plant, int num) 
+{
+    if (num <= 0) 
+    {
+        throw runtime_error("Number of plants must be positive, got: " + to_string(num));
+    }
+    
+    if (greenhouse == nullptr) 
+    {
+        throw runtime_error("Greenhouse not initialized. Please create a new game first.");
+    }
+    
+    if (factories.empty()) 
+    {
+        throw runtime_error("No plant factories available. Please create a new game first.");
+    }
+
+    auto factoryIt = factories.find(plant);
+
+    if (factoryIt == factories.end()) 
+    {
+        string availablePlants = "Available plants: ";
+        for (const auto& [variety, creator] : factories) 
+        {
+            availablePlants += variety + " ";
+        }
+
+        throw runtime_error("Plant variety '" + plant + "' not found. " + availablePlants);
+    }
+    
+    PlantCreator* factory = factoryIt->second;
+    
+    for (int i = 0; i < num; i++) 
+    {
+        Plant* clonedPlant = factory->clonePlant();
+
+        if (clonedPlant != nullptr) 
+        {
+            greenhouse->addPlant(clonedPlant);
+        } 
+        else 
+        {
+            throw runtime_error("Failed to clone plant: " + plant);
+        }
+    }
+}
 
 void Game::loadExistingGame() {}
 
@@ -132,4 +177,21 @@ Game::~Game()
     {
         delete greenhouse;
     }
+}
+
+string Game::getCategoryForVariety(string variety) 
+{
+    auto it = varietyToCategory.find(variety);
+
+    if (it == varietyToCategory.end()) 
+    {
+        throw runtime_error("Plant variety '" + variety + "' not found in configuration");
+    }
+
+    return it->second;
+}
+
+map<string, vector<string>> Game::getAvailablePlantVarieties() 
+{
+    return config->getPlantVarieties();
 }
