@@ -79,4 +79,12 @@ Game::~Game() {
     for (auto it = factories.begin(); it != factories.end(); ++it) {
         delete it->second;
     }
+
+    if (config != nullptr) {
+        delete config;
+    }
+
+    if (greenhouse != nullptr) {
+        delete greenhouse;
+    }
 }

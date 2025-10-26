@@ -28,6 +28,8 @@ class GameConfiguraton {
          *  i.e. ["succulent", ["cactus", "other-succulent"]]
          */
         virtual std::map<std::string, std::vector<std::string>> getPlantVarieties() = 0;
+
+        virtual ~GameConfiguraton() {}
 };
 
 #endif // GAMECONFIG
