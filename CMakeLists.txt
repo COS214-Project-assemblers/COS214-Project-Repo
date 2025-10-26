@@ -59,6 +59,8 @@ set(SOURCES
   backend/plant/Tree.cpp
   backend/plant/NotSellable.h
   backend/plant/NotSellable.cpp
+  backend/plant/PlantHealth.h
+  backend/plant/PlantHealth.cpp
   backend/customer/Customer.h
   backend/customer/Customer.cpp
   backend/customer/IgnorantCustomer.h
