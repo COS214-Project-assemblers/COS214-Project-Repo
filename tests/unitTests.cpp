@@ -348,12 +348,12 @@ TEST(GameTests, BuyPlantsFunctionality)
     
     // Test 1: Buy single plant
     EXPECT_NO_THROW({
-        game->buyPlants("Cactus", 1);
+        game->buyPlants("cactus", 1);
     }) << "Should be able to buy a single plant";
     
     // Test 2: Buy multiple plants
     EXPECT_NO_THROW({
-        game->buyPlants("Rose", 3);
+        game->buyPlants("rose", 3);
     }) << "Should be able to buy multiple plants";
     
     // Test 3: Verify plants were added to inventory
@@ -440,14 +440,25 @@ TEST(GameTests, PlantVarietyMapping)
     
     Game* game = new Game("../config/GameConfig.json");
     
-    // Test that variety-to-category mapping works
+    // First, let's see what's in the configuration
     map<string, vector<string>> varieties = game->getAvailablePlantVarieties();
+    std::cout << "Loaded varieties from config:" << std::endl;
+    for (const auto& [category, varietiesList] : varieties) {
+        std::cout << "  " << category << ": ";
+        for (const auto& variety : varietiesList) {
+            std::cout << variety << " ";
+        }
+        std::cout << std::endl;
+    }
     
+    // Now test the mapping
     for (const auto& [expectedCategory, varietiesList] : varieties) {
         for (const auto& variety : varietiesList) {
+            std::cout << "Testing variety: '" << variety << "' -> expected category: '" << expectedCategory << "'" << std::endl;
             string actualCategory = game->getCategoryForVariety(variety);
             EXPECT_EQ(actualCategory, expectedCategory) 
                 << "Variety '" << variety << "' should map to category '" << expectedCategory << "'";
+            std::cout << "  ✓ " << variety << " correctly maps to " << actualCategory << std::endl;
         }
     }
     

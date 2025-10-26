@@ -112,7 +112,7 @@ public:
     auto dto = APIDto::createShared();
 
     // Input validation
-    if (plant == nullptr || plant->empty()) 
+    if (!plant || plant->empty())
     {
       dto->statusCode = 400;
       dto->message = "Plant variety parameter is required";
@@ -120,7 +120,7 @@ public:
       return createDtoResponse(Status::CODE_400, dto);
     }
 
-    if (num == nullptr || *num <= 0) 
+    if (!num || num->getValue() <= 0) 
     {
       dto->statusCode = 400;
       dto->message = "Number of plants must be a positive integer";
@@ -130,7 +130,7 @@ public:
 
     try 
     {
-      apiToControl.game->buyPlants(*plant, *num);
+      apiToControl.game->buyPlants(plant->std_str(), num->getValue());
       
       dto->statusCode = 200;
       dto->message = "Successfully bought " + std::to_string(*num) + " " + *plant + " plants using cloning";

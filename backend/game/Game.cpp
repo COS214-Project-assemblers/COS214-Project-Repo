@@ -11,6 +11,16 @@ Game::Game(string configPath)
     try
     {
         config = new JSONGameConfiguration(configPath);
+
+        map<string, vector<string>> varieties = config->getPlantVarieties();
+        for (const auto &[category, variants] : varieties)
+        {
+            for (const auto &variety : variants)
+            {
+                varietyToCategory[variety] = category;
+                cout << "✓ Mapped variety '" << variety << "' to category '" << category << "'" << endl;
+            }
+        }
     }
     catch (const runtime_error &e)
     {
