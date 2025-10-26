@@ -50,3 +50,6 @@ build/
 .vscode/
 
 log*
+
+.env
+.env*

@@ -9,6 +9,8 @@
 #include <string>
 #include <stdexcept>
 #include <cstdlib>
+#include <fstream>
+#include <iostream>
 
 using namespace std;
 
@@ -21,14 +23,14 @@ using namespace std;
  * of sensitive data like DB usernames and passwords. This class aims to 
  * centralize/abstract that task for our system
  */
-class EnvironmenntInitializer {
+class EnvironmentInitializer {
     private:
         string envFilePath;
     public:
         /**
          * @brief Setter for envFilePath member variable
          */
-        EnvironmenntInitializer(string envFilePath);
+        EnvironmentInitializer(string envFilePath);
         /**
          * @brief Reads file, sets env vars
          * @throws std::ios_base::failure if the file could not be opened
