@@ -178,6 +178,8 @@ TEST(PlantFactoryTests, AllPlantTypesHaveCorrectCategories)
     std::cout << "  - Succulent: " << succulent->getPlantCategory() << " (" << succulent->getPlantVariety() << ")" << std::endl;
     std::cout << "  - Flower: " << flower->getPlantCategory() << " (" << flower->getPlantVariety() << ")" << std::endl;
     std::cout << "  - Tree: " << tree->getPlantCategory() << " (" << tree->getPlantVariety() << ")" << std::endl;
+
+    std::cout << std::endl;
 }
 
 TEST(PlantFactoryTests, FactoryCloneMethodWorksCorrectly)
@@ -206,6 +208,8 @@ TEST(PlantFactoryTests, FactoryCloneMethodWorksCorrectly)
               << " (" << clonedPlant->getPlantVariety() << ")" << std::endl;
     
     delete clonedPlant;
+
+    std::cout << std::endl;
 }
 
 TEST(PlantFactoryTests, EmptyFactoryBehavior)
@@ -249,6 +253,8 @@ TEST(PlantFactoryTests, MultiplePlantCreationsReplacePrevious)
     EXPECT_EQ(secondPlant->getPlantVariety(), "Tulip") << "Second plant should be Tulip (replaced Rose)";
     
     std::cout << "✓ Second plant replaced first: " << secondPlant->getPlantVariety() << std::endl;
+
+    std::cout << std::endl;
 }
 
 TEST(PlantFactoryTests, ComprehensiveFactoryAndPrototypeIntegration)
@@ -297,4 +303,6 @@ TEST(PlantFactoryTests, ComprehensiveFactoryAndPrototypeIntegration)
         delete clone2;
         delete creator;
     }
+
+    std::cout << std::endl;
 }
