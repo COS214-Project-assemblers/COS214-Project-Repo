@@ -17,6 +17,7 @@
 #include "NewGameOption.h"
 #include "ContinueGameOption.h"
 #include "BasicLogger.h"
+#include "API.h"
 
 #include <stdexcept>
 #include <memory>
@@ -31,19 +32,23 @@
  */
 class APIController : public oatpp::web::server::api::ApiController {
   private:
-    Game* game;
+  /**
+   * @brief Via this member variable, access to private members of the API class (such as "game" member var)
+   *  is obtained
+   */
+    API& apiToControl;
 public:
   /**
    * @brief Constructor with object mapper.
    * @param apiContentMappers - mappers used to serialize/deserialize DTOs.
    */
-  APIController(std::shared_ptr<oatpp::web::mime::ContentMappers>& apiContentMappers, Game* game)
-    : oatpp::web::server::api::ApiController(apiContentMappers), game(game)
+  APIController(std::shared_ptr<oatpp::web::mime::ContentMappers>& apiContentMappers, API& inApi)
+    : oatpp::web::server::api::ApiController(apiContentMappers), apiToControl(inApi)
   {}
 
-  static std::shared_ptr<APIController> createShared(Game* game) {
+  static std::shared_ptr<APIController> createShared(API& inApi) {
     OATPP_COMPONENT(std::shared_ptr<oatpp::web::mime::ContentMappers>, apiContentMappers);
-    return std::make_shared<APIController>(apiContentMappers, game);
+    return std::make_shared<APIController>(apiContentMappers, inApi);
   }
 public:
   
@@ -68,7 +73,7 @@ public:
      */
     PlayerMenu* playerMenu = new PlayerMenu();
     BasicLogger* logger = new BasicLogger();
-    NewGameOption* newGame = new NewGameOption(game, logger);
+    NewGameOption* newGame = new NewGameOption(apiToControl.game, logger);
     
     playerMenu->setMenuOption(newGame);
 

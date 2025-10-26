@@ -48,6 +48,9 @@ build/
 
 .vscode
 .vscode/
+.vscode/*
+
+.env
 
 log*
 

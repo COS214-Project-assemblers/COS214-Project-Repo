@@ -2,6 +2,8 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <cstdlib>
+#include <vector>
+#include <map>
 
 #include "Game.h"
 #include "NewGameOption.h"
@@ -9,9 +11,14 @@
 #include "MenuOption.h"
 #include "BasicLogger.h"
 #include "EnvironmentInitializer.h"
+#include "PlantCreator.h"
+#include "SucculentCreator.h"
+#include "FlowerCreator.h"
+#include "TreeCreator.h"
+#include "Plant.h"
 
-void testNewGame() {
-    // Set up environment Game, PlayerMenu
+TEST(GameTests, NewGameExecutesProperly) {
+    // Set up environment
     Game* game = new Game("../config/GameConfig.json");
     PlayerMenu* playerMenu = new PlayerMenu();
     BasicLogger* logger = new BasicLogger();
@@ -21,28 +28,27 @@ void testNewGame() {
     playerMenu->setMenuOption(newGameOption);
     playerMenu->executeOption();
 
-    // Free memory
+    // Verify expected outcomes
+
+    // Get Factories
+    map<string, PlantCreator*> factories = game->getFactories();
+
+    for (auto it = factories.begin(); it != factories.end(); ++it) {
+        EXPECT_TRUE(it->second->hasPlant());
+    }
+
+    // Test factories creation
+    for (auto it = factories.begin(); it != factories.end(); ++it) {
+        Plant* factPlant = it->second->clonePlant();
+        EXPECT_NE(factPlant, nullptr) << "Test each factory by calling clonePlant(), returning nullptr indicates failure";
+        delete factPlant;
+    }
+
+    // Test Buy Plant
+    
+    // Cleanup
     delete game;
     delete playerMenu;
     delete logger;
-    // delete newGameOption; !!! Freeing option mem on deletion of PlayerMenu, not sure if that is right move !!!
+    // Note: don't delete newGameOption if PlayerMenu takes ownership
 }
-
-// TEST(UtilTests, TestSetEnv) {
-//     EnvironmentInitializer* envInitializer = new EnvironmentInitializer("../config/.env.local");
-//     envInitializer->initEnv();
-
-//     const char* logEnv = getenv("LOG_FILE");
-//     ASSERT_NE(logEnv, nullptr);
-//     cout << logEnv << endl;
-
-//     const char* gameConfEnv = getenv("GAME_CONFIG_PATH");
-//     ASSERT_NE(gameConfEnv, nullptr);
-//     cout << gameConfEnv << endl;
-
-//     delete envInitializer;
-// }
-
-// int main(int argc, char **argv) {
-//     testNewGame();
-// }
