@@ -20,6 +20,7 @@ PlantCreator::~PlantCreator()
 
 void PlantCreator::makePlant(string type)
 {
+    if (plant != nullptr) delete plant;
     plant = createPlant(type);
 }
 
