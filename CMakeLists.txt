@@ -82,6 +82,8 @@ set(SOURCES
   backend/game/GameConfiguration.h
   backend/game/JSONGameConfiguration.h
   backend/game/JSONGameConfiguration.cpp
+  backend/game/EnvironmentInitializer.h
+  backend/game/EnvironmentInitializer.cpp
 )
 
 add_executable(g_test
