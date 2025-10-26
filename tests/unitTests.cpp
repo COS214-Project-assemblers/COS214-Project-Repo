@@ -225,3 +225,76 @@ TEST(PlantFactoryTests, EmptyFactoryBehavior)
 
     std::cout << std::endl;
 }
+
+TEST(PlantFactoryTests, MultiplePlantCreationsReplacePrevious)
+{
+    std::cout << "\n=== Testing Multiple Creations ===" << std::endl;
+    
+    FlowerCreator creator;
+    
+    // First creation
+    creator.makePlant("Rose");
+    EXPECT_TRUE(creator.hasPlant()) << "Creator should have plant after first makePlant()";
+    Plant* firstPlant = creator.getPlant();
+    EXPECT_NE(firstPlant, nullptr) << "First plant should not be null";
+    EXPECT_EQ(firstPlant->getPlantVariety(), "Rose") << "First plant should be Rose";
+    
+    std::cout << "✓ First plant created: " << firstPlant->getPlantVariety() << std::endl;
+    
+    // Second creation should replace the first
+    creator.makePlant("Tulip");
+    EXPECT_TRUE(creator.hasPlant()) << "Creator should still have plant after second makePlant()";
+    Plant* secondPlant = creator.getPlant();
+    EXPECT_NE(secondPlant, nullptr) << "Second plant should not be null";
+    EXPECT_EQ(secondPlant->getPlantVariety(), "Tulip") << "Second plant should be Tulip (replaced Rose)";
+    
+    std::cout << "✓ Second plant replaced first: " << secondPlant->getPlantVariety() << std::endl;
+}
+
+TEST(PlantFactoryTests, ComprehensiveFactoryAndPrototypeIntegration)
+{
+    std::cout << "\n=== Comprehensive Factory + Prototype Test ===" << std::endl;
+    
+    // Test all factories in sequence
+    std::vector<std::pair<std::string, PlantCreator*>> factories = {
+        {"Succulent", new SucculentCreator()},
+        {"Flower", new FlowerCreator()},
+        {"Tree", new TreeCreator()}
+    };
+    
+    std::vector<std::string> varieties = {"Jade Plant", "Orchid", "Maple"};
+    
+    for (size_t i = 0; i < factories.size(); ++i) 
+    {
+        auto& [factoryName, creator] = factories[i];
+        std::string variety = varieties[i];
+        
+        creator->makePlant(variety);
+        EXPECT_TRUE(creator->hasPlant()) << factoryName << " creator should have plant";
+        
+        Plant* original = creator->getPlant();
+        EXPECT_NE(original, nullptr) << factoryName << " plant should not be null";
+        
+        // Test cloning through both methods
+        Plant* clone1 = original->clone();
+        Plant* clone2 = creator->clonePlant();
+        
+        EXPECT_NE(clone1, nullptr) << factoryName << " clone via plant method should not be null";
+        EXPECT_NE(clone2, nullptr) << factoryName << " clone via factory method should not be null";
+        EXPECT_NE(original, clone1) << factoryName << " clone should be different object";
+        EXPECT_NE(original, clone2) << factoryName << " factory clone should be different object";
+        
+        // All should have same properties
+        EXPECT_EQ(original->getPlantCategory(), clone1->getPlantCategory());
+        EXPECT_EQ(original->getPlantVariety(), clone1->getPlantVariety());
+        EXPECT_EQ(original->getPlantCategory(), clone2->getPlantCategory());
+        EXPECT_EQ(original->getPlantVariety(), clone2->getPlantVariety());
+        
+        std::cout << "✓ " << factoryName << " factory: " << original->getPlantCategory() 
+                  << " (" << original->getPlantVariety() << ") - cloning works both ways" << std::endl;
+        
+        delete clone1;
+        delete clone2;
+        delete creator;
+    }
+}
