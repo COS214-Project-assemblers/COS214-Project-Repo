@@ -34,13 +34,13 @@ class Game {
         /**
          * @brief attribute that maintains reference to the game's greenhouse object
          */
-        Greenhouse* greenhouse;
+        Greenhouse* greenhouse = nullptr;
         /**
          * @brief maintains reference to plant creators for the game
          */
         map<string, PlantCreator*> factories;
 
-        GameConfiguraton* config;
+        GameConfiguraton* config = nullptr;
     public:
         /**
          * @brief Game initialization tasks that are not creating/loading game.
