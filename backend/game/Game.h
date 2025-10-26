@@ -12,7 +12,7 @@
 #include <stdexcept>
 #include <cstdlib>
 
-
+#include "Logger.h"
 #include "GameConfiguration.h"
 
 using namespace std;
@@ -41,6 +41,11 @@ class Game {
         map<string, PlantCreator*> factories;
 
         GameConfiguraton* config = nullptr;
+
+        /**
+         * @brief Used to log all game events
+         */
+        Logger* logger = nullptr;
     public:
         /**
          * @brief Game initialization tasks that are not creating/loading game.

@@ -8,6 +8,8 @@
 #define LOGGER
 
 #include <string>
+#include <iostream>
+#include <stdexcept>
 
 /**
  * @class Logger
@@ -20,7 +22,6 @@ class Logger {
          * @param[in] message Content of log message
          */
         virtual void newLog(std::string message) = 0;
-
         virtual ~Logger() {};
 };
 
