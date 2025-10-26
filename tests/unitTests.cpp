@@ -141,3 +141,41 @@ TEST(PlantFactoryTests, TreeCreationAndCloning)
 
     std::cout << std::endl;
 }
+
+TEST(PlantFactoryTests, AllPlantTypesHaveCorrectCategories)
+{
+    std::cout << "\n=== Testing All Plant Factory Categories ===" << std::endl;
+    
+    // Test that each creator creates the correct type of plant
+    SucculentCreator succulentCreator;
+    FlowerCreator flowerCreator;
+    TreeCreator treeCreator;
+    
+    // Test plant creation with different varieties
+    succulentCreator.makePlant("Aloe");
+    flowerCreator.makePlant("Daisy");
+    treeCreator.makePlant("Oak");
+    
+    EXPECT_TRUE(succulentCreator.hasPlant()) << "Succulent creator should have plant";
+    EXPECT_TRUE(flowerCreator.hasPlant()) << "Flower creator should have plant";
+    EXPECT_TRUE(treeCreator.hasPlant()) << "Tree creator should have plant";
+    
+    // Test that we can get the plants
+    Plant* succulent = succulentCreator.getPlant();
+    Plant* flower = flowerCreator.getPlant();
+    Plant* tree = treeCreator.getPlant();
+    
+    EXPECT_NE(succulent, nullptr) << "Succulent should not be null";
+    EXPECT_NE(flower, nullptr) << "Flower should not be null";
+    EXPECT_NE(tree, nullptr) << "Tree should not be null";
+    
+    // Test categories
+    EXPECT_EQ(succulent->getPlantCategory(), "Succulent") << "Succulent category mismatch";
+    EXPECT_EQ(flower->getPlantCategory(), "Flower") << "Flower category mismatch";
+    EXPECT_EQ(tree->getPlantCategory(), "Tree") << "Tree category mismatch";
+    
+    std::cout << "✓ All factories created correct plant types:" << std::endl;
+    std::cout << "  - Succulent: " << succulent->getPlantCategory() << " (" << succulent->getPlantVariety() << ")" << std::endl;
+    std::cout << "  - Flower: " << flower->getPlantCategory() << " (" << flower->getPlantVariety() << ")" << std::endl;
+    std::cout << "  - Tree: " << tree->getPlantCategory() << " (" << tree->getPlantVariety() << ")" << std::endl;
+}
