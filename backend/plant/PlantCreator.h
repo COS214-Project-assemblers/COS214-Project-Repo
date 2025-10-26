@@ -24,7 +24,7 @@ class PlantCreator
         /**
          * @brief Pointer to a Plant object managed by the creator.
          */
-        Plant* plant;
+        Plant* plant = nullptr;
 
     protected:
         /**
