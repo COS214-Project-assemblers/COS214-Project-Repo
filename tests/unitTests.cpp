@@ -1,6 +1,7 @@
 
 #include <gtest/gtest.h>
 #include <iostream>
+#include <cstdlib>
 #include <vector>
 #include <map>
 
@@ -9,6 +10,7 @@
 #include "PlayerMenu.h"
 #include "MenuOption.h"
 #include "BasicLogger.h"
+#include "EnvironmentInitializer.h"
 #include "PlantCreator.h"
 #include "SucculentCreator.h"
 #include "FlowerCreator.h"
