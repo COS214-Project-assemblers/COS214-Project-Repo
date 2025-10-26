@@ -33,7 +33,7 @@ class EnvironmentInitializer {
         EnvironmentInitializer(string envFilePath);
         /**
          * @brief Reads file, sets env vars
-         * @throws std::ios_base::failure if the file could not be opened
+         * @throws std::invalid_argument if the file could not be opened
          * @throws std::invalid_argument if the file could be opened, but the env vars
          *  could not be initialized
          */

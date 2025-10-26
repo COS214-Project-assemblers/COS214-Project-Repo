@@ -5,8 +5,10 @@ EnvironmentInitializer::EnvironmentInitializer(string envFilePath) : envFilePath
 void EnvironmentInitializer::initEnv()
 {
     ifstream f;
-    f.exceptions(std::ios::badbit);
     f.open(envFilePath);
+    if (!f.is_open()) {
+        throw invalid_argument("Could not open file");
+    }
 
     string line;
     while (getline(f, line)) {

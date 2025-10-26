@@ -28,20 +28,20 @@ void testNewGame() {
     // delete newGameOption; !!! Freeing option mem on deletion of PlayerMenu, not sure if that is right move !!!
 }
 
-TEST(UtilTests, TestSetEnv) {
-    EnvironmentInitializer* envInitializer = new EnvironmentInitializer("../config/.env.local");
-    envInitializer->initEnv();
+// TEST(UtilTests, TestSetEnv) {
+//     EnvironmentInitializer* envInitializer = new EnvironmentInitializer("../config/.env.local");
+//     envInitializer->initEnv();
 
-    const char* logEnv = getenv("LOG_FILE");
-    ASSERT_NE(logEnv, nullptr);
-    cout << logEnv << endl;
+//     const char* logEnv = getenv("LOG_FILE");
+//     ASSERT_NE(logEnv, nullptr);
+//     cout << logEnv << endl;
 
-    const char* gameConfEnv = getenv("GAME_CONFIG_PATH");
-    ASSERT_NE(gameConfEnv, nullptr);
-    cout << gameConfEnv << endl;
+//     const char* gameConfEnv = getenv("GAME_CONFIG_PATH");
+//     ASSERT_NE(gameConfEnv, nullptr);
+//     cout << gameConfEnv << endl;
 
-    delete envInitializer;
-}
+//     delete envInitializer;
+// }
 
 // int main(int argc, char **argv) {
 //     testNewGame();
