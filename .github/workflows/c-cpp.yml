@@ -28,7 +28,6 @@ jobs:
       - name: Run tests
         run: cd build_test && ctest --output-on-failure
       
-      #- name: Run g_test under Valgrind
       # - name: Valgrind
       #   shell: bash
       #   run: |
