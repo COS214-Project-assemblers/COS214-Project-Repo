@@ -1,9 +1,9 @@
 #include "Game.h"
-#include "../greenhouse/Greenhouse.h"
-#include "../plant/PlantCreator.h"
-#include "../plant/FlowerCreator.h"
-#include "../plant/SucculentCreator.h"
-#include "../plant/TreeCreator.h"
+#include "Greenhouse.h"
+#include "PlantCreator.h"
+#include "FlowerCreator.h"
+#include "SucculentCreator.h"
+#include "TreeCreator.h"
 #include "JSONGameConfiguration.h"
 
 Game::Game(string configPath) {
@@ -11,19 +11,34 @@ Game::Game(string configPath) {
         config = new JSONGameConfiguration(configPath);
     } catch (const runtime_error& e) {
         cout << e.what() << endl;
+        cout << "Exiting..." << endl;
         exit(EXIT_FAILURE);
     } catch (const out_of_range& e) {
         cout << e.what() << endl;
+        cout << "Exiting..." << endl;
         exit(EXIT_FAILURE);
     } catch (...) {
         cout << "Failed to init config for unknown reason" << endl;
+        cout << "Exiting..." << endl;
         exit(EXIT_FAILURE);
     }
 }
 
-void Game::setGreenhouse(Greenhouse* greenhouse) {}
+void Game::setGreenhouse(Greenhouse* greenhouse) {
+    this->greenhouse = greenhouse;
+}
 
-void Game::setFactories(vector<PlantCreator*> factories) {}
+Greenhouse* Game::getGreenhouse() {
+    return greenhouse;
+}
+
+void Game::setFactories(map<string, PlantCreator*> factories) {
+    this->factories = factories;
+}
+
+map<string, PlantCreator*> Game::getFactories() {
+    return factories;
+}
 
 void Game::createNewGame() {
     // try 
@@ -44,9 +59,8 @@ void Game::createNewGame() {
     }
     
     try {
-        // setGreenhouse(new Greenhouse());
-        // Greenhouse not defined yet
-        cout << "Creating greenhouse" << endl;
+        setGreenhouse(new Greenhouse());
+        cout << "+ Creating greenhouse" << endl;
     } catch (...) {
         throw runtime_error("Failed to create greenhouse for unknown reason");
     }
@@ -59,7 +73,10 @@ void Game::loadExistingGame() {}
 void Game::saveGame() {}
 
 Game::~Game() {
-    for (PlantCreator* factory : factories) {
-        delete factory;
+    // for (PlantCreator* factory : factories) {
+    //     delete factory;
+    // }
+    for (auto it = factories.begin(); it != factories.end(); ++it) {
+        delete it->second;
     }
 }

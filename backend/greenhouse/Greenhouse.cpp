@@ -14,5 +14,5 @@ Greenhouse::~Greenhouse()
  
 void Greenhouse::addPlant(Plant* p)
 {
-    inventory->addPlant(p);
+    inventory->restock(p);
 }
