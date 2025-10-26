@@ -111,41 +111,35 @@ public:
      */
     auto dto = APIDto::createShared();
 
-    // Input validation
-    if (!plant || plant->empty())
+    if (!plant || plant->size() == 0) 
     {
       dto->statusCode = 400;
       dto->message = "Plant variety parameter is required";
-      
       return createDtoResponse(Status::CODE_400, dto);
     }
 
-    if (!num || num->getValue() <= 0) 
+    if (!num || *num <= 0) 
     {
       dto->statusCode = 400;
       dto->message = "Number of plants must be a positive integer";
-
       return createDtoResponse(Status::CODE_400, dto);
     }
 
     try 
     {
-      apiToControl.game->buyPlants(plant->std_str(), num->getValue());
+      apiToControl.game->buyPlants(std::string(plant->c_str()), *num);
       
       dto->statusCode = 200;
-      dto->message = "Successfully bought " + std::to_string(*num) + " " + *plant + " plants using cloning";
-
+      dto->message = "Successfully bought " + std::to_string(*num) + " " + std::string(plant->c_str()) + " plants using cloning";
       return createDtoResponse(Status::CODE_200, dto);
     } 
     catch (const std::exception &e) 
     {
       dto->statusCode = 500;
       dto->message = "Failed to buy plants: " + std::string(e.what());
-
       return createDtoResponse(Status::CODE_500, dto);
     }
   }
-  
 };
 
 #include OATPP_CODEGEN_END(ApiController) //<-- End Codegen
