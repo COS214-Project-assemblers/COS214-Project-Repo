@@ -5,13 +5,15 @@
 
 #include "PlantCreator.h"
 
-PlantCreator::PlantCreator() {
+PlantCreator::PlantCreator() 
+{
+    plant = nullptr;
 }
 
 PlantCreator::~PlantCreator()
 {
     // WATCH OUT, IF SEG THEN REMOVE THIS
-    // delete plant;
+    delete plant;
 }
 
 void PlantCreator::makePlant(string type)
