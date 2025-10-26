@@ -13,11 +13,14 @@ PlantCreator::PlantCreator()
 PlantCreator::~PlantCreator()
 {
     // WATCH OUT, IF SEG THEN REMOVE THIS
-    delete plant;
+    if (plant != nullptr) {
+        delete plant;
+    }
 }
 
 void PlantCreator::makePlant(string type)
 {
+    if (plant != nullptr) delete plant;
     plant = createPlant(type);
 }
 
