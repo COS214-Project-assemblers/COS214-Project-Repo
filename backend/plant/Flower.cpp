@@ -4,8 +4,10 @@
  */
 
 #include "Flower.h"
-
-Flower::Flower(string variety) : Plant("Flower", variety) {}
+#include "PlantHealth.h"
+Flower::Flower(string variety) : Plant("Flower", variety) {
+    this->health = new Health() ;
+}
 
 Flower::~Flower() {}
 

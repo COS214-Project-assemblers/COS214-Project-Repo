@@ -4,8 +4,10 @@
  */
 
 #include "Succulent.h"
-
-Succulent::Succulent(string variety) : Plant("Succulent", variety) {}
+#include "PlantHealth.h"
+Succulent::Succulent(string variety) : Plant("Succulent", variety) {
+    this->health = new Health(2.0, 2.0, 2.0, 0) ;
+}
 
 Succulent::~Succulent() {}
 

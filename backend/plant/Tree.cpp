@@ -4,8 +4,10 @@
  */
 
 #include "Tree.h"
-
-Tree::Tree(string variety) : Plant("Tree", variety) {}
+#include "PlantHealth.h"
+Tree::Tree(string variety) : Plant("Tree", variety) {
+    this->health = new Health(2.0, 2.0, 1.0, 0) ;
+}
 
 Tree::~Tree() {}
 
