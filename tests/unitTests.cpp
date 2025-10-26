@@ -78,6 +78,8 @@ TEST(PlantFactoryTests, SucculentCreationAndCloning)
     std::cout << "✓ Succulent cloning successful - original and clone are different objects with same properties" << std::endl;
     
     delete clonedSucculent;
+
+    std::cout << std::endl;
 }
 
 TEST(PlantFactoryTests, FlowerCreationAndCloning)
@@ -106,4 +108,36 @@ TEST(PlantFactoryTests, FlowerCreationAndCloning)
     std::cout << "✓ Flower cloning successful - original and clone are different objects with same properties" << std::endl;
     
     delete clonedFlower;
+
+    std::cout << std::endl;
+}
+
+TEST(PlantFactoryTests, TreeCreationAndCloning)
+{
+    // Test Tree creation through factory
+    TreeCreator treeCreator;
+    treeCreator.makePlant("Lemon");
+    
+    EXPECT_TRUE(treeCreator.hasPlant()) << "Tree creator should have a plant after makePlant()";
+    
+    Plant* tree = treeCreator.getPlant();
+    EXPECT_NE(tree, nullptr) << "getPlant() should return non-null pointer for Tree";
+    EXPECT_EQ(tree->getPlantCategory(), "Tree") << "Tree plant should have category 'Tree'";
+    EXPECT_EQ(tree->getPlantVariety(), "Lemon") << "Tree variety should be 'Lemon'";
+    
+    std::cout << "✓ Tree factory created plant with category: " << tree->getPlantCategory() 
+              << ", variety: " << tree->getPlantVariety() << std::endl;
+    
+    // Test cloning functionality
+    Plant* clonedTree = tree->clone();
+    EXPECT_NE(clonedTree, nullptr) << "clone() should return non-null pointer";
+    EXPECT_NE(tree, clonedTree) << "Clone should be a different object from original";
+    EXPECT_EQ(clonedTree->getPlantCategory(), "Tree") << "Cloned tree should have same category";
+    EXPECT_EQ(clonedTree->getPlantVariety(), "Lemon") << "Cloned tree should have same variety";
+    
+    std::cout << "✓ Tree cloning successful - original and clone are different objects with same properties" << std::endl;
+    
+    delete clonedTree;
+
+    std::cout << std::endl;
 }
