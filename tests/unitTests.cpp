@@ -179,3 +179,49 @@ TEST(PlantFactoryTests, AllPlantTypesHaveCorrectCategories)
     std::cout << "  - Flower: " << flower->getPlantCategory() << " (" << flower->getPlantVariety() << ")" << std::endl;
     std::cout << "  - Tree: " << tree->getPlantCategory() << " (" << tree->getPlantVariety() << ")" << std::endl;
 }
+
+TEST(PlantFactoryTests, FactoryCloneMethodWorksCorrectly)
+{
+    std::cout << "\n=== Testing Factory Clone Method ===" << std::endl;
+    
+    // Test the clonePlant method from PlantCreator
+    SucculentCreator succulentCreator;
+    succulentCreator.makePlant("Cactus");
+    
+    EXPECT_TRUE(succulentCreator.hasPlant()) << "Creator should have plant before cloning";
+    
+    // Test cloning through the creator's clonePlant method
+    Plant* clonedPlant = succulentCreator.clonePlant();
+    EXPECT_NE(clonedPlant, nullptr) << "clonePlant() should return non-null pointer";
+    EXPECT_NE(succulentCreator.getPlant(), clonedPlant) << "Cloned plant should be different object from factory's plant";
+    
+    // Verify cloned plant has same properties
+    EXPECT_EQ(clonedPlant->getPlantCategory(), "Succulent") << "Cloned plant category should match";
+    EXPECT_EQ(clonedPlant->getPlantVariety(), "Cactus") << "Cloned plant variety should match";
+    
+    std::cout << "✓ Factory clonePlant() method works correctly" << std::endl;
+    std::cout << "  Original: " << succulentCreator.getPlant()->getPlantCategory() 
+              << " (" << succulentCreator.getPlant()->getPlantVariety() << ")" << std::endl;
+    std::cout << "  Clone: " << clonedPlant->getPlantCategory() 
+              << " (" << clonedPlant->getPlantVariety() << ")" << std::endl;
+    
+    delete clonedPlant;
+}
+
+TEST(PlantFactoryTests, EmptyFactoryBehavior)
+{
+    std::cout << "\n=== Testing Empty Factory Behavior ===" << std::endl;
+    
+    // Test behavior when no plant has been created
+    SucculentCreator* creator = new SucculentCreator();
+    
+    EXPECT_FALSE(creator->hasPlant()) << "New creator should not have plant initially";
+    EXPECT_EQ(creator->getPlant(), nullptr) << "getPlant() should return nullptr for empty creator";
+    EXPECT_EQ(creator->clonePlant(), nullptr) << "clonePlant() should return nullptr for empty creator";
+    
+    std::cout << "✓ Empty factory behavior correct - all methods return expected null values" << std::endl;
+
+    delete creator;
+
+    std::cout << std::endl;
+}
