@@ -25,7 +25,6 @@ jobs:
         id: valgrind
         shell: bash
         run: |
-          set -euo pipefail
           valgrind \
             --leak-check=full \
             --show-leak-kinds=all \
