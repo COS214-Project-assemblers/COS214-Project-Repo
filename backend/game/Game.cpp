@@ -11,12 +11,15 @@ Game::Game(string configPath) {
         config = new JSONGameConfiguration(configPath);
     } catch (const runtime_error& e) {
         cout << e.what() << endl;
+        cout << "Exiting..." << endl;
         exit(EXIT_FAILURE);
     } catch (const out_of_range& e) {
         cout << e.what() << endl;
+        cout << "Exiting..." << endl;
         exit(EXIT_FAILURE);
     } catch (...) {
         cout << "Failed to init config for unknown reason" << endl;
+        cout << "Exiting..." << endl;
         exit(EXIT_FAILURE);
     }
 }
