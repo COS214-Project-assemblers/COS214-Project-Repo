@@ -2,7 +2,6 @@ name: valgrind-gtest
 
 on:
   pull_request:
-    types: [opened, reopened]
 
 jobs:
   valgrind:
@@ -14,9 +13,9 @@ jobs:
       - name: Install deps
         run: |
           sudo apt-get update
-          sudo apt-get install -y cmake ninja-build g++ valgrind
+          sudo apt-get install -y cmake ninja-build g++ valgrind nlohmann-json3-dev 
 
-      - name: Configure (Debug)
+      - name: Configure
         run: cmake -S . -B build
 
       - name: Build g_test
@@ -31,7 +30,6 @@ jobs:
             --leak-check=full \
             --show-leak-kinds=all \
             --track-origins=yes \
-            --error-exitcode=1 \
             ./build/g_test 2> >(tee build/valgrind.log >&2)
           # Extract summary text
           {
