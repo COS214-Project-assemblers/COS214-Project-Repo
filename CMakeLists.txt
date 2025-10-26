@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 add_compile_options(-Wall -Wextra -pedantic)
 
+include (CTest)
+
 # GoogleTest
 include(FetchContent)
 FetchContent_Declare(
@@ -89,10 +91,16 @@ add_executable(g_test
   ${SOURCES}
 )
 
-# add_executable(main
-#   backend/main.cpp
-#   ${SOURCES}
-# )
+set(MEMORYCHECK_COMMAND "valgrind")
+set(MEMORYCHECK_COMMAND_OPTIONS
+    "--leak-check=full --show-leak-kinds=all --track-origins=yes --error-exitcode=1")
+
+add_custom_target(memcheck
+  COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure --test-action MemCheck
+  DEPENDS g_test
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+  COMMENT "CTest MemCheck (Valgrind) on all tests"
+)
 
 # Includes: add the API dir to both targets
 # target_include_directories(main  PRIVATE backend backend/API backend/game backend/plant backend/customer backend/greenhouse backend/transaction)
