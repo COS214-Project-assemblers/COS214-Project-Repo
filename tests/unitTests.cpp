@@ -19,7 +19,8 @@
 
 TEST(GameTests, NewGameExecutesProperly) {
     // Set up environment
-    Game* game = new Game("../config/GameConfig.json");
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    Game* game = new Game(configPath); // VSCode will shout, dont worry
     PlayerMenu* playerMenu = new PlayerMenu();
     BasicLogger* logger = new BasicLogger();
     NewGameOption* newGameOption = new NewGameOption(game, logger);
