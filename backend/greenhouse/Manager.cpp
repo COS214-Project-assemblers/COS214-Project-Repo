@@ -16,6 +16,23 @@ void Manager::addRandomPlants(std::vector<Plant*>& source, int count, std::vecto
     }
 }
 
+void Manager::topUpRandomPlants(const std::vector<Plant*>& source, int need, std::vector<Plant*>& offerList){
+    if(need<=0){
+        return;
+    }
+    std::vector<Plant*> copy=source;
+    std::random_shuffle(copy.begin(),copy.end());
+    for(auto* p:copy){
+        if(need==0){
+            break;
+        }
+        if(std::find(offerList.begin(),offerList.end(),p)==offerList.end()){
+            offerList.push_back(p);
+            --need;
+        }
+    }
+}
+
 std::vector<Plant*> Manager::buildOffer(const Customer& cust){
     //use inventory find by difficulty func to generate vectors of "easy","medium", and "hard" plants
     std::vector<Plant*> easy=floor.inventory().findByDifficulty("Easy");
@@ -36,6 +53,11 @@ std::vector<Plant*> Manager::buildOffer(const Customer& cust){
         addRandomPlants(hard,1,offer);
 
     }
+    if(offer.size()<5){
+        topUpRandomPlants(floor.inventory().all(),static_cast<int>(5-offer.size()),offer);
+    }
+    //shiffle plants so that user doesnt know ther order of the plants on offer in the order of easy,med,hard
+    std::random_shuffle(offer.begin(),offer.end());
     return offer;
 }
 

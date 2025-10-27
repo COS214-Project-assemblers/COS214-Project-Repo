@@ -13,6 +13,7 @@
 
 #include <vector>
 #include <string>
+#include <algorithm>
 
 class Plant;
 class Customer;
@@ -38,6 +39,13 @@ class Manager{
          * @param offersList Vector to add plantd to be offered to the user to pick from and then offer to the customer
          */
         void addRandomPlants(std::vector<Plant*>& source, int count, std::vector<Plant*>& offerList);
+        /**
+         * @brief Adds random plants from any dificulty level
+         * @param source Source of the vector from whcih plants may randomly be chosen
+         * @param need Number of plants to add to the offersList vector
+         * @param offersList Vector to add needed plants to
+         */
+        void topUpRandomPlants(const std::vector<Plant*>& source, int need, std::vector<Plant*>& offerList);
         /**
          * @brief Builds a list of plant offers based on this customer.
          * @param cust The customer for whom you are creating the offer.
