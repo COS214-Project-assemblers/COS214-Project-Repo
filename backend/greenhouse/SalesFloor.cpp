@@ -57,6 +57,13 @@ const Inventory& SalesFloor::inventory()const{
     return *this->inv;
 }
 
+Inventory& SalesFloor::inventoryMut(){
+    if(!this->inv){
+        throw std::runtime_error("SalesFloor::inventory() called before inventory is set");
+    }
+    return *this->inv;
+}
+
 void SalesFloor::processReturns(double prob){
     //need to impliment
     if(prob<=0.0){

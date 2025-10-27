@@ -21,7 +21,8 @@ class Customer;
 class Manager{
     private:
         SalesFloor& floor;///<Reference to salesFloor object that is managed by the Manager.
-
+        Ledger ledger;
+        TransactionHistory hist;
     public:
         /**
          * @brief Constructs a Manager associated with a given SalesFloor.

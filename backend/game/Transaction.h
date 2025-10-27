@@ -32,9 +32,10 @@ class Transaction{
         /**
          * @brief Applies the transaction to a ledger and returns a snapshot
          * @param ledger Reference to current Ledger
+         * @param plant Plant item from transaction
          * @return A TransactionMem snapshot
          */
-        TransactionMem createTransactionMem(Ledger& ledger)const;
+        TransactionMem createTransactionMem(Ledger& ledger,Plant* plant)const;
         /**
          * @brief Restores the Transaction From memento
          * @param tM TransacionMem obj

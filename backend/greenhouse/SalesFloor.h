@@ -61,10 +61,15 @@ class SalesFloor{
          */
         Customer* popCust();
         /**
-         * @brief Provides read only access to the Manager
+         * @brief Provides read only access
          * @return Constant reference to the Inventory object managed by the salesFloor.
          */
         const Inventory& inventory()const;
+        /**
+         * @brief non-const access for manager.
+         * @return returns mutateable ref to Inventory.
+         */
+        Inventory& inventoryMut();
         /**
          * @brief Simulates the process of returns based on a given probability.
          * @param prob Probability that a customer decides to return a product.

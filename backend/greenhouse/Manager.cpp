@@ -1,4 +1,9 @@
 #include "Manager.h"
+#include "Transaction.h"
+#include "TransactionMem.h"
+#include "TransactionHistory.h"
+#include "ledger.h"
+#include "Sale.h"
 #include "Customer.h"
 #include "IgnorantCustomer.h"
 #include "AverageCustomer.h"
@@ -36,8 +41,12 @@ bool Manager::assistNextCust(){
 }
 
 void Manager::recordSale(Customer& cust, Plant& p,double revenue){
-    
-
+    floor.inventoryMut().commitSale(&p);
+    Transaction saleT(new Sale(),revenue);
+    TransactionMem snap=saleT.createTransactionMem(ledger);
+    hist.setTransactionMem(snap);
+    //notifu gui
+    floor.moveToCustHist(&cust);
 }
 
 void Manager::recordLostSale(Customer& cust,std::string reason){
