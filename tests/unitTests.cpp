@@ -373,7 +373,7 @@ TEST(GameTests, BuyPlantsFunctionality)
 {
     std::cout << "\n=== Testing Buy Plants Functionality ===" << std::endl;
     
-    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
     Game* game = new Game(configPath);
     game->createNewGame();
     
@@ -397,7 +397,7 @@ TEST(GameTests, BuyPlantsErrorCases)
 {
     std::cout << "\n=== Testing Buy Plants Error Cases ===" << std::endl;
     
-    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
     Game* game = new Game(configPath);
     game->createNewGame();
     
@@ -422,7 +422,7 @@ TEST(GameTests, BuyPlantsFactoryMethodIntegration)
 {
     std::cout << "\n=== Testing Factory Method Integration ===" << std::endl;
     
-    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
     Game* game = new Game(configPath);
     game->createNewGame();
     
@@ -447,7 +447,7 @@ TEST(GameTests, PlantVarietyMapping)
 {
     std::cout << "\n=== Testing Plant Variety Mapping ===" << std::endl;
     
-    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
     Game* game = new Game(configPath);
     
     map<string, vector<string>> varieties = game->getAvailablePlantVarieties();
