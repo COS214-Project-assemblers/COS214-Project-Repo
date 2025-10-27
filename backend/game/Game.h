@@ -79,7 +79,7 @@ class Game {
         /**
          * @brief This is used by the user to be able to buy plants to add to the Greenhouse.
          *  Uses Factory Method pattern to find correct plant creator and Prototype pattern to clone plants.
-         * @param plant The specific plant variety to buy (e.g., "Cactus", "Rose", "Lemon")
+         * @param plant The specific plant variety to buy (e.g., "cactus", "rose", "lemon")
          * @param num The number of plants to buy
          * @throws runtime_error if plant variety not found or greenhouse not initialized
          */
