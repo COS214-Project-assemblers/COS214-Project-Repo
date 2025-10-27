@@ -260,18 +260,39 @@ void Game::addCustomers(string customerType, int num)
         throw runtime_error("Customer type '" + customerType + "' not found. " + availableTypes);
     }
 
+    // Get customer data from configuration
+    auto customerTypes = getAvailableCustomerTypes();
+    auto customerTypeData = customerTypes.find(customerType);
+    
+    if (customerTypeData == customerTypes.end() || customerTypeData->second.empty()) 
+    {
+        throw runtime_error("No customer data found for type: " + customerType);
+    }
+
     CustomerCreator* factory = factoryIt->second;
     
     for (int i = 0; i < num; i++) 
     {
-        factory->makeCustomer();
-
+        const auto& customerRawData = customerTypeData->second[i % customerTypeData->second.size()];
+        
+        CustomerData customerData;
+        customerData.name = customerRawData.at("name");
+        customerData.introduce = customerRawData.at("introduce");
+        customerData.preferences = customerRawData.at("preferences");
+        customerData.recommendations = customerRawData.at("recommendations");
+        customerData.accept = customerRawData.at("accept");
+        customerData.reject = customerRawData.at("reject");
+        customerData.acceptExit = customerRawData.at("acceptExit");
+        customerData.rejectExit = customerRawData.at("rejectExit");
+        customerData.type = customerType;
+        
+        factory->makeCustomer(customerData);
         Customer* newCustomer = factory->getCustomer();
         
         if (newCustomer != nullptr) 
         {
             customers.push_back(newCustomer);
-            cout << "+ Added " << customerType << " customer" << endl;
+            cout << "+ Added " << customerType << " customer: " << customerData.name << endl;
         } 
         else 
         {
