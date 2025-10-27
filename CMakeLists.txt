@@ -86,6 +86,14 @@ set(SOURCES
   backend/game/JSONGameConfiguration.cpp
   backend/game/EnvironmentInitializer.h
   backend/game/EnvironmentInitializer.cpp
+  backend/customer/CustomerCreator.h
+  backend/customer/CustomerCreator.cpp
+  backend/customer/IgnorantCustomerCreator.h
+  backend/customer/IgnorantCustomerCreator.cpp
+  backend/customer/AverageCustomerCreator.h
+  backend/customer/AverageCustomerCreator.cpp
+  backend/customer/GreenFingerCustomerCreator.h
+  backend/customer/GreenFingerCustomerCreator.cpp
 )
 
 add_executable(g_test
