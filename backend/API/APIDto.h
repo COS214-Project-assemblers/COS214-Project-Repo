@@ -40,6 +40,18 @@ class BuyPlantDTO : public oatpp::DTO
   
 };
 
+/**
+ * @class AddCustomersDTO
+ * @brief Data Transfer Object for adding customers request
+ */
+class AddCustomersDTO : public oatpp::DTO 
+{
+  DTO_INIT(AddCustomersDTO, DTO)
+  
+  DTO_FIELD(String, customerType);  // Customer type to add
+  DTO_FIELD(Int32, numToAdd);       // Number of customers to add
+};
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif // DTOS
