@@ -283,3 +283,7 @@ vector<Customer*> Game::getCustomers()
     return customers;
 }
 
+map<string, vector<map<string, string>>> Game::getAvailableCustomerTypes()
+{
+    return config->getCustomerTypes();
+}

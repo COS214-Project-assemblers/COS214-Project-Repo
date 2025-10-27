@@ -33,3 +33,8 @@ std::map<std::string, std::vector<std::string>> JSONGameConfiguration::getPlantV
     
     return plantVarieties;
 }
+
+std::map<std::string, std::vector<std::map<std::string, std::string>>> getCustomerTypes()
+{
+    // not really sure what to do here
+}

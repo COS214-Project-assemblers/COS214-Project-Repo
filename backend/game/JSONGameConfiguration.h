@@ -37,6 +37,13 @@ class JSONGameConfiguration : public GameConfiguraton {
          * @throws std::out_of_range
          */
         virtual std::map<std::string, std::vector<std::string>> getPlantVarieties() override;
+
+        /**
+         * @brief Extracts customer types and their data from loadedConfig
+         * @return Map of customer types to their data
+         * @throws std::out_of_range
+         */
+        virtual std::map<std::string, std::vector<std::map<std::string, std::string>>> getCustomerTypes() override;
 };
 
 #endif // JSONCONF
