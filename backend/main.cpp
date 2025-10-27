@@ -2,11 +2,12 @@
 #include "Game.h"
 #include <cstdlib>
 #include <string>
+#include <thread>
+#include "WS.h"
 
 using namespace std;
 
-int main() {
-    
+void startGameApi() {
     char* gameConfigPath = getenv("GAME_CONFIG_PATH");
     if (gameConfigPath == nullptr) {
         cout << "GAME_CONFIG_PATH environment variable not set, exiting..." << endl;
@@ -14,5 +15,18 @@ int main() {
     }
     API myApi = API(new Game(gameConfigPath));
     myApi.bootstrap();
+}
+
+void startGreenSock() {
+    GreenSock ws = GreenSock();
+    ws.bootstrap();
+}
+
+int main() {
+    std::thread gameApi(startGameApi);
+    std::thread greenSock(startGreenSock);
+
+    gameApi.join();
+    greenSock.join();
     return 0;
 }
