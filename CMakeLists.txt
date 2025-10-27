@@ -61,6 +61,8 @@ set(SOURCES
   backend/plant/Tree.cpp
   backend/plant/NotSellable.h
   backend/plant/NotSellable.cpp
+  backend/plant/PlantHealth.h
+  backend/plant/PlantHealth.cpp
   backend/greenhouse/Greenhouse.h
   backend/greenhouse/Greenhouse.cpp
   backend/greenhouse/Inventory.h
