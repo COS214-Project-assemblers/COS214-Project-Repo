@@ -26,6 +26,20 @@ class APIDto : public oatpp::DTO {
   
 };
 
+/**
+ * @class BuyPlantDTO
+ * @brief Data Transfer Object for buying plants request
+ * Uses POST request body instead of query parameters for security
+ */
+class BuyPlantDTO : public oatpp::DTO 
+{
+  DTO_INIT(BuyPlantDTO, DTO)
+  
+  DTO_FIELD(String, plant);    // Plant variety to buy
+  DTO_FIELD(Int32, numToBuy);  // Number of plants to buy
+  
+};
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif // DTOS
