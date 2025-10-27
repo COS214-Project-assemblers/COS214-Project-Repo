@@ -14,9 +14,8 @@
 #include <vector>
 
 #include "GameConfiguration.h"
-#include "IgnorantCustomerCreator.h"
-#include "AverageCustomerCreator.h"
-#include "GreenFingerCustomerCreator.h"
+#include "Customer.h"
+#include "CustomerCreator.h"
 
 using namespace std;
 

@@ -4,7 +4,11 @@
 #include "FlowerCreator.h"
 #include "SucculentCreator.h"
 #include "TreeCreator.h"
+#include "CustomerCreator.h"
 #include "JSONGameConfiguration.h"
+#include "IgnorantCustomerCreator.h"
+#include "AverageCustomerCreator.h"
+#include "GreenFingerCustomerCreator.h"
 
 Game::Game(string configPath)
 {

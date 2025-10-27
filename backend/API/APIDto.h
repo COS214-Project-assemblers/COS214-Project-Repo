@@ -46,7 +46,7 @@ class BuyPlantDTO : public oatpp::DTO
  */
 class AddCustomerDTO : public oatpp::DTO 
 {
-  DTO_INIT(AddCustomersDTO, DTO)
+  DTO_INIT(AddCustomerDTO, DTO)
   
   DTO_FIELD(String, customerType);  // Customer type to add
   DTO_FIELD(Int32, numToAdd);       // Number of customers to add

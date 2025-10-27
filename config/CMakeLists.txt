@@ -70,16 +70,24 @@ set(SOURCES
   backend/game/GameConfiguration.h
   backend/game/JSONGameConfiguration.h
   backend/game/JSONGameConfiguration.cpp
-  # backend/customer/Customer.h
-  # backend/customer/Customer.cpp
-  # backend/customer/AverageCustomer.h
-  # backend/customer/AverageCustomer.cpp
-  # backend/customer/IgnorantCustomer.h
-  # backend/customer/IgnorantCustomer.cpp
-  # backend/customer/GreenFingerCustomer.h
-  # backend/customer/GreenFingerCustomer.cpp
-  # backend/customer/CustomerVisitor.h
-  # backend/customer/CustomerVisitor.cpp
+  backend/customer/Customer.h
+  backend/customer/Customer.cpp
+  backend/customer/AverageCustomer.h
+  backend/customer/AverageCustomer.cpp
+  backend/customer/IgnorantCustomer.h
+  backend/customer/IgnorantCustomer.cpp
+  backend/customer/GreenFingerCustomer.h
+  backend/customer/GreenFingerCustomer.cpp
+  backend/customer/CustomerVisitor.h
+  backend/customer/CustomerVisitor.cpp
+  backend/customer/CustomerCreator.h
+  backend/customer/CustomerCreator.cpp
+  backend/customer/IgnorantCustomerCreator.h
+  backend/customer/IgnorantCustomerCreator.cpp
+  backend/customer/AverageCustomerCreator.h
+  backend/customer/AverageCustomerCreator.cpp
+  backend/customer/GreenFingerCustomerCreator.h
+  backend/customer/GreenFingerCustomerCreator.cpp
 )
 
 add_executable(main
