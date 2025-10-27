@@ -90,6 +90,9 @@ class Plant
          * @details Used as a base constructor for all specific Plant subclasses.
          * @param [in] category The general category of the plant.
          * @param [in] variety The specific variety within that category.
+         * @section memory_management Thread-related Memory Management
+         * The Dynamic Health Attribute should only be Created in the concrete Products
+         * because, the type of plant determines how much water/fertilizer/pruning is required
          */
         Plant(string category, string variety);
 

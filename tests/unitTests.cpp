@@ -39,6 +39,7 @@ int main(int argc, char **argv) {
 */
 TEST(TestSuiteName, TestName) {
     // Setup
+    
     Health h(1.0f, 1.0f, 1.0f, 0);
 
     // Action

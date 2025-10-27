@@ -41,7 +41,7 @@ Plant::Plant(string category, string variety)
 
     salePrice = costPrice * 1.5;
 
-    this->health = new Health() ;
+    // this->health = new Health() ; // concrete plants assign this uniquely 
     this->decayIndex = 0        ;
     this->alive = true          ;
 }
@@ -62,6 +62,9 @@ Plant::Plant(const Plant& original)
 }
 
 Plant::~Plant() {
+    std::cout << "Plant::~Plant() " <<std::endl ;
+
+
     delete plantState;
 
     if (health){
@@ -146,6 +149,7 @@ void Plant::start() {
 }
 
 void Plant::join() {
+    std::cout << "[join] Stopping plant thread...\n";
     if (thread.joinable()) {
         thread.join();
     }
