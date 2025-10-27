@@ -32,13 +32,12 @@ class Manager{
          */
         ~Manager()=default;
         /**
-         * @brief Difficulty mix
-         * @param cust Customer who the dificultymix is for
-         * @param e Number of easy plants given
-         * @param m Number of medium plants given
-         * @param h Number of hard plants given
+         * @brief Adds random plants to the offersList
+         * @param source Source of the vector from which plants may randomly be chosen
+         * @param count Number of plants to add to the offersList vector
+         * @param offersList Vector to add plantd to be offered to the user to pick from and then offer to the customer
          */
-        void difficultyMix(Customer& cust,int& e,int& m, int& );
+        void addRandomPlants(std::vector<Plant*>& source, int count, std::vector<Plant*>& offerList);
         /**
          * @brief Builds a list of plant offers based on this customer.
          * @param cust The customer for whom you are creating the offer.

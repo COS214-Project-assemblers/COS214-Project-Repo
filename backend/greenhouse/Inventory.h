@@ -43,7 +43,7 @@ class Inventory{
          * @param d The level of dificulty you are looking for
          * @return Vector of all those plants
          */
-        std::vector<Plant*> findByDifficulty(std::string d);
+        std::vector<Plant*> findByDifficulty(std::string d)const;
         /**
          * @brief Commits a sale by removing the plant from the inventory
          * @param plant Reference to the Plant being sold

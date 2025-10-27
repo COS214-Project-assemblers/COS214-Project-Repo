@@ -6,27 +6,37 @@
 
 Manager::Manager(SalesFloor& f):floor(f){}
 
-void Manager::difficultyMix(Customer& cust,int& e,int& m, int& h){
-    if(dynamic_cast<const IgnorantCustomer*>(&cust)){
-        e=3;
-        m=1;
-        h=1;
+void Manager::addRandomPlants(std::vector<Plant*>& source, int count, std::vector<Plant*>& offerList){
+    if(source.empty()){
         return;
     }
-    if(dynamic_cast<const AverageCustomer*>(&cust)){
-        e=2;
-        m=2;
-        h=1;
-        return;
+    std::random_shuffle(source.begin(),source.end());
+    for(int i=0;i<count && i<(int)source.size();i++){
+        offerList.push_back(source[i]);
     }
-    //deafult to GreenFinger
-    e=4;
-    m=0;
-    h=1;
 }
 
 std::vector<Plant*> Manager::buildOffer(const Customer& cust){
-    //need to impliment
+    //use inventory find by difficulty func to generate vectors of "easy","medium", and "hard" plants
+    std::vector<Plant*> easy=floor.inventory().findByDifficulty("Easy");
+    std::vector<Plant*> medium=floor.inventory().findByDifficulty("Medium");
+    std::vector<Plant*> hard=floor.inventory().findByDifficulty("Hard");
+    //vector of offers
+    std::vector<Plant*> offer;
+    if(dynamic_cast<const IgnorantCustomer*>(&cust)){
+        addRandomPlants(easy,3,offer);
+        addRandomPlants(medium,1,offer);
+        addRandomPlants(hard,1,offer);
+    }else if(dynamic_cast<const AverageCustomer*>(&cust)){
+        addRandomPlants(easy,2,offer);
+        addRandomPlants(medium,2,offer);
+        addRandomPlants(hard,1,offer);
+    }else{
+        addRandomPlants(easy,4,offer);
+        addRandomPlants(hard,1,offer);
+
+    }
+    return offer;
 }
 
 bool Manager::offerPlants(Customer& cust){
