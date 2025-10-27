@@ -34,7 +34,21 @@ std::map<std::string, std::vector<std::string>> JSONGameConfiguration::getPlantV
     return plantVarieties;
 }
 
-std::map<std::string, std::vector<std::map<std::string, std::string>>> getCustomerTypes()
+std::map<std::string, std::vector<std::map<std::string, std::string>>> JSONGameConfiguration::getCustomerTypes()
 {
-    // not really sure what to do here
+    std::map<std::string, std::vector<std::map<std::string, std::string>>> customerTypes;
+    
+    try 
+    {
+        for (auto& [category, customers] : loadedConfig["customers"].items()) 
+        {
+            customerTypes[category] = customers.get<std::vector<std::map<std::string, std::string>>>();
+        }
+    } 
+    catch (const nlohmann::json::out_of_range& e) 
+    {
+        throw std::out_of_range("Invalid JSON configuration, could not load customer types");
+    }
+    
+    return customerTypes;
 }
