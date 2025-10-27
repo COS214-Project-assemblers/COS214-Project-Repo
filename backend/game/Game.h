@@ -51,6 +51,8 @@ class Game {
          */
         map<string, string> varietyToCategory;
 
+        vector<Customer*> customers;
+
          /**
          * @brief Map of customer creators for different customer types
          */

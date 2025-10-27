@@ -222,3 +222,48 @@ void Game::createCustomerFactories()
     }
 }
 
+void Game::addCustomers(string customerType, int num)
+{
+    if (num <= 0) 
+    {
+        throw runtime_error("Number of customers must be positive, got: " + to_string(num));
+    }
+
+    if (customerFactories.empty()) 
+    {
+        throw runtime_error("No customer factories available. Please create customer factories first.");
+    }
+
+    auto factoryIt = customerFactories.find(customerType);
+    if (factoryIt == customerFactories.end()) 
+    {
+        string availableTypes = "Available customer types: ";
+        for (const auto& [type, creator] : customerFactories) 
+        {
+            availableTypes += type + " ";
+        }
+
+        throw runtime_error("Customer type '" + customerType + "' not found. " + availableTypes);
+    }
+
+    CustomerCreator* factory = factoryIt->second;
+    
+    for (int i = 0; i < num; i++) 
+    {
+        factory->makeCustomer();
+
+        Customer* newCustomer = factory->getCustomer();
+        
+        if (newCustomer != nullptr) 
+        {
+            customers.push_back(newCustomer);
+            cout << "+ Added " << customerType << " customer" << endl;
+        } 
+        else 
+        {
+            throw runtime_error("Failed to create customer of type: " + customerType);
+        }
+    }
+    
+    cout << "+ Successfully added " << num << " " << customerType << " customers" << endl;
+}
