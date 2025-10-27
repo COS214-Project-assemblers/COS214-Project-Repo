@@ -85,7 +85,7 @@ bool Manager::assistNextCust(){
 }
 
 void Manager::recordSale(Customer& cust, Plant& p,double revenue){
-    //need to impliment
+    
 
 }
 

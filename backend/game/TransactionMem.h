@@ -4,6 +4,8 @@
 #ifndef TRANSACTIONMEM_H
 #define TRANSACTIONMEM_H
 
+#include "Plant.h"
+
 #include <string>
 
 /**
@@ -16,6 +18,7 @@ class TransactionMem{
         double balanceB4;///<value of balance befoe transaction
         double balanceAfter;///<Value of balance after Transaction
         std::string type;///<Type of transaction
+        Plant* plant;///<Plant from transaction
     public:
         /**
          * @brief Constructor
@@ -24,7 +27,7 @@ class TransactionMem{
          * @param b4 Balance before Transactrion was commited
          * @param after Balance after Transaction was commited
          */
-        TransactionMem(std::string t,double v,double b4, double after);
+        TransactionMem(std::string t,double v,double b4, double after, Plant* p);
         /**
          * @brief Default constructor
          */
@@ -33,21 +36,26 @@ class TransactionMem{
          * @brief Getter of Value
          * @return Value of the Transaction
          */
-        const double getValue()const;
+        double getValue()const;
         /**
          * @brief Getter for balance before the Transaction
          * @return balance before the Transaction was executed
          */
-        const double getBalanceB4()const;
+        double getBalanceB4()const;
         /**
          * @brief Getter for balance after the Transaction
          * @return balance after the Transaction was executed
          */
-        const double getBalenceAfter()const;
+        double getBalenceAfter()const;
         /**
          * @brief Getter for type of transaction
          * @return the type of transaction e.g "Sale"
          */
-        const std::string getType()const;
+        std::string getType()const;
+        /**
+         * @brief getter for plant from transaction
+         * @return the plant from the transaction
+         */
+        Plant* getPlant()const;
 };
 #endif
