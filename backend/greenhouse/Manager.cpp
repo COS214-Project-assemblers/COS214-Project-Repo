@@ -40,8 +40,17 @@ std::vector<Plant*> Manager::buildOffer(const Customer& cust){
 }
 
 bool Manager::offerPlants(Customer& cust){
-    //if successful offer move to hist, otherwise move to back of queue if decide to return process return and move to hist
-    //need to impliment
+    std::vector<Plant*> offer=buildOffer(cust);
+    //needs display offer -> for gui
+    // int choiceIdx=getPlayerChoice();
+    // Plant* chosen=offer[choice];
+    // if(cust.isSatisfied(*chosen)){
+        // recordSale(cust,*chosen,chosen->getSalePrice());
+        // return true;
+    // }else{
+        // recordLostSale(cust,"Wrong PLantOffered");//need to add implimentation for the reason to be from the type of cust
+        // return true;
+    // }
 }
 
 bool Manager::assistNextCust(){
