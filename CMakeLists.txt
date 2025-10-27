@@ -88,6 +88,10 @@ set(SOURCES
   backend/game/JSONGameConfiguration.cpp
   backend/game/EnvironmentInitializer.h
   backend/game/EnvironmentInitializer.cpp
+  backend/game/LogDecorator.h
+  backend/game/LogDecorator.cpp
+  backend/game/CoutAndLog.h
+  backend/game/CoutAndLog.cpp
 )
 
 add_executable(g_test

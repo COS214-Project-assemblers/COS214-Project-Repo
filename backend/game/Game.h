@@ -11,6 +11,8 @@
 #include <iostream>
 #include <stdexcept>
 #include <cstdlib>
+
+#include "Logger.h"
 #include <vector>
 
 #include "GameConfiguration.h"
@@ -43,6 +45,10 @@ class Game {
         GameConfiguraton* config = nullptr;
 
         /**
+         * @brief Used to log all game events
+         */
+        Logger* logger = nullptr;
+        /** 
          * @brief Maps plant varieties to their categories for easy lookup during plant purchases
          * This enables the Factory Method pattern to find the correct creator for each plant type
          */

@@ -5,11 +5,19 @@
 #include "SucculentCreator.h"
 #include "TreeCreator.h"
 #include "JSONGameConfiguration.h"
+#include "BasicLogger.h"
+#include "LogDecorator.h"
+#include "CoutAndLog.h"
 
 Game::Game(string configPath)
 {
+    CoutAndLog* logDec = new CoutAndLog();
+    logDec->setBaseLogger(new BasicLogger());
+    logger = logDec;
+
     try
     {
+        logger->newLog("Attempting to load JSON game configuration " + configPath);
         config = new JSONGameConfiguration(configPath);
 
         map<string, vector<string>> varieties = config->getPlantVarieties();
@@ -25,18 +33,21 @@ Game::Game(string configPath)
     catch (const runtime_error &e)
     {
         cout << e.what() << endl;
+        logger->newLog(string(e.what()) + "\nEXITING WITH EXIT CODE 1");
         cout << "Exiting..." << endl;
         exit(EXIT_FAILURE);
     }
     catch (const out_of_range &e)
     {
         cout << e.what() << endl;
+        logger->newLog(string(e.what()) + "\nEXITING WITH EXIT CODE 1");
         cout << "Exiting..." << endl;
         exit(EXIT_FAILURE);
     }
     catch (...)
     {
         cout << "Failed to init config for unknown reason" << endl;
+        logger->newLog("Failed to init config for unknown reason \nEXITING WITH EXIT CODE 1");
         cout << "Exiting..." << endl;
         exit(EXIT_FAILURE);
     }
@@ -62,7 +73,7 @@ map<string, PlantCreator *> Game::getFactories()
     return factories;
 }
 
-void createFactoriesHelper(string category, vector<string> variants, map<string, PlantCreator *>& factories)
+void createFactoriesHelper(string category, vector<string> variants, map<string, PlantCreator *>& factories, Logger* logger)
 {
     for (const auto &v : variants)
     {
@@ -80,7 +91,8 @@ void createFactoriesHelper(string category, vector<string> variants, map<string,
         }
 
         newPlantCreator->makePlant(v);
-        cout << "+ Made " + category + " factory for variety [" + v + "]" << endl;
+        string message = "+ Made " + category + " factory for variety [" + v + "]";
+        logger->newLog(message);
         factories[v] = newPlantCreator;
     }
 }
@@ -97,12 +109,12 @@ void Game::createNewGame()
         varieties = config->getPlantVarieties();
         for (const auto &[category, variants] : varieties)
         {
-            createFactoriesHelper(category, variants, factories);
+            createFactoriesHelper(category, variants, factories, logger);
         }
 
         setFactories(factories);
 
-        cout << "+ Created factories" << endl;
+        logger->newLog("+ Created factories");
     }
     catch (...)
     {                                                                         // More specific error handling required
@@ -112,7 +124,7 @@ void Game::createNewGame()
     try
     {
         setGreenhouse(new Greenhouse());
-        cout << "+ Created greenhouse" << endl;
+        logger->newLog("+ Created greenhouse");
     }
     catch (...)
     {
@@ -173,6 +185,9 @@ void Game::saveGame() {}
 
 Game::~Game()
 {
+    if (logger != nullptr) {
+        delete logger;
+    }
     for (auto it = factories.begin(); it != factories.end(); ++it)
     {
         delete it->second;
