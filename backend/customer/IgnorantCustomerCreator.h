@@ -10,7 +10,7 @@ class IgnorantCustomerCreator: public CustomerCreator
         IgnorantCustomerCreator();
         ~IgnorantCustomerCreator();
 
-        Customer* createCustomer();
+        Customer* createCustomer(const CustomerData& data);
 };
 
 #endif

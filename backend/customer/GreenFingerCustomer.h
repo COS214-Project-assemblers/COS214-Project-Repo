@@ -31,6 +31,8 @@ class GreenFingerCustomer : public Customer
          */
         GreenFingerCustomer();
 
+        GreenFingerCustomer(const CustomerData& data);
+
         /**
          * @brief Destroys the GreenFingerCustomer object.
          */        

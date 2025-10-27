@@ -10,6 +10,11 @@ AverageCustomer::AverageCustomer() : Customer()
 
 }
 
+AverageCustomer::AverageCustomer(const CustomerData& data) : Customer(data)
+{
+    
+}
+
 AverageCustomer::~AverageCustomer() 
 {
     

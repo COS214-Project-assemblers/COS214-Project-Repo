@@ -10,7 +10,7 @@ class AverageCustomerCreator: public CustomerCreator
         AverageCustomerCreator();
         ~AverageCustomerCreator();
 
-        Customer* createCustomer();
+        Customer* createCustomer(const CustomerData& data);
 };
 
 #endif

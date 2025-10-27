@@ -10,7 +10,7 @@ AverageCustomerCreator::~AverageCustomerCreator()
 
 }
 
-Customer* AverageCustomerCreator::createCustomer()
+Customer* AverageCustomerCreator::createCustomer(const CustomerData& data)
 {
-    return new AverageCustomer();
+    return new AverageCustomer(data);
 }

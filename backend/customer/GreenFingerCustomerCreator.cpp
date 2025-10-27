@@ -10,7 +10,7 @@ GreenFingerCustomerCreator::~GreenFingerCustomerCreator()
 
 }
 
-Customer* GreenFingerCustomerCreator::createCustomer()
+Customer* GreenFingerCustomerCreator::createCustomer(const CustomerData& data)
 {
-    return new GreenFingerCustomer();
+    return new GreenFingerCustomer(data);
 }

@@ -11,7 +11,7 @@ IgnorantCustomerCreator::~IgnorantCustomerCreator()
 
 }
 
-Customer* IgnorantCustomerCreator::createCustomer()
+Customer* IgnorantCustomerCreator::createCustomer(const CustomerData& data)
 {
-    return new IgnorantCustomer();
+    return new IgnorantCustomer(data);
 }

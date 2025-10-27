@@ -10,6 +10,11 @@ GreenFingerCustomer::GreenFingerCustomer() : Customer()
 
 }
 
+GreenFingerCustomer::GreenFingerCustomer(const CustomerData& data) : Customer(data)
+{
+    
+}
+
 GreenFingerCustomer::~GreenFingerCustomer() 
 {
     

@@ -10,7 +10,7 @@ class GreenFingerCustomerCreator: public CustomerCreator
         GreenFingerCustomerCreator();
         ~GreenFingerCustomerCreator();
 
-        Customer* createCustomer();
+        Customer* createCustomer(const CustomerData& data);
 };
 
 #endif

@@ -31,6 +31,8 @@ class AverageCustomer : public Customer
          */
         AverageCustomer();
 
+        AverageCustomer(const CustomerData& data);
+
         /**
          * @brief Destroys the AverageCustomer object.
          */
