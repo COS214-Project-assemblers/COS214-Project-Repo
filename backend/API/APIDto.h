@@ -44,7 +44,7 @@ class BuyPlantDTO : public oatpp::DTO
  * @class AddCustomersDTO
  * @brief Data Transfer Object for adding customers request
  */
-class AddCustomersDTO : public oatpp::DTO 
+class AddCustomerDTO : public oatpp::DTO 
 {
   DTO_INIT(AddCustomersDTO, DTO)
   
