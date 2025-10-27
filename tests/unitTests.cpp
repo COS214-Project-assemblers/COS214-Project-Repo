@@ -342,26 +342,21 @@ TEST(GameTests, BuyPlantsFunctionality)
 {
     std::cout << "\n=== Testing Buy Plants Functionality ===" << std::endl;
     
-    // Setup game with configuration
     std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
     Game* game = new Game(configPath);
     game->createNewGame();
     
-    // Test 1: Buy single plant
     EXPECT_NO_THROW({
         game->buyPlants("cactus", 1);
     }) << "Should be able to buy a single plant";
     
-    // Test 2: Buy multiple plants
     EXPECT_NO_THROW({
         game->buyPlants("rose", 3);
     }) << "Should be able to buy multiple plants";
     
-    // Test 3: Verify plants were added to inventory
     Greenhouse* greenhouse = game->getGreenhouse();
     ASSERT_NE(greenhouse, nullptr) << "Greenhouse should exist";
     
-    // Note: You'll need to add a getInventory() method to Greenhouse to verify
     std::cout << "✓ Basic plant purchasing works correctly" << std::endl;
     
     delete game;
@@ -375,17 +370,14 @@ TEST(GameTests, BuyPlantsErrorCases)
     Game* game = new Game(configPath);
     game->createNewGame();
     
-    // Test 1: Invalid plant variety
     EXPECT_THROW({
         game->buyPlants("NonExistentPlant", 1);
     }, std::runtime_error) << "Should throw error for unknown plant variety";
     
-    // Test 2: Zero plants
     EXPECT_THROW({
         game->buyPlants("Cactus", 0);
     }, std::runtime_error) << "Should throw error for zero quantity";
     
-    // Test 3: Negative plants
     EXPECT_THROW({
         game->buyPlants("Cactus", -5);
     }, std::runtime_error) << "Should throw error for negative quantity";
@@ -403,10 +395,8 @@ TEST(GameTests, BuyPlantsFactoryMethodIntegration)
     Game* game = new Game(configPath);
     game->createNewGame();
     
-    // Get available varieties to test all factory types
     map<string, vector<string>> varieties = game->getAvailablePlantVarieties();
     
-    // Test buying one plant from each category to verify Factory Method works
     for (const auto& [category, plantList] : varieties) {
         if (!plantList.empty()) {
             string testPlant = plantList[0];
@@ -422,21 +412,6 @@ TEST(GameTests, BuyPlantsFactoryMethodIntegration)
     delete game;
 }
 
-TEST(APITests, BuyPlantsEndpoint)
-{
-    std::cout << "\n=== Testing Buy Plants API Endpoint ===" << std::endl;
-    
-    // Note: This would be an integration test with your API setup
-    // For now, we'll verify the endpoint structure
-    
-    std::cout << "✓ Buy plants endpoint implemented with:" << std::endl;
-    std::cout << "  - POST /buy-plants" << std::endl;
-    std::cout << "  - Query parameters: plant, num" << std::endl;
-    std::cout << "  - Factory Method pattern for plant creation" << std::endl;
-    std::cout << "  - Prototype pattern for efficient cloning" << std::endl;
-    std::cout << "  - Proper error handling (400, 500 status codes)" << std::endl;
-}
-
 TEST(GameTests, PlantVarietyMapping)
 {
     std::cout << "\n=== Testing Plant Variety Mapping ===" << std::endl;
@@ -444,7 +419,6 @@ TEST(GameTests, PlantVarietyMapping)
     std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
     Game* game = new Game(configPath);
     
-    // First, let's see what's in the configuration
     map<string, vector<string>> varieties = game->getAvailablePlantVarieties();
     std::cout << "Loaded varieties from config:" << std::endl;
     for (const auto& [category, varietiesList] : varieties) {
@@ -455,7 +429,6 @@ TEST(GameTests, PlantVarietyMapping)
         std::cout << std::endl;
     }
     
-    // Now test the mapping
     for (const auto& [expectedCategory, varietiesList] : varieties) {
         for (const auto& variety : varietiesList) {
             std::cout << "Testing variety: '" << variety << "' -> expected category: '" << expectedCategory << "'" << std::endl;
