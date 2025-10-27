@@ -32,6 +32,14 @@ class Manager{
          */
         ~Manager()=default;
         /**
+         * @brief Difficulty mix
+         * @param cust Customer who the dificultymix is for
+         * @param e Number of easy plants given
+         * @param m Number of medium plants given
+         * @param h Number of hard plants given
+         */
+        void difficultyMix(Customer& cust,int& e,int& m, int& );
+        /**
          * @brief Builds a list of plant offers based on this customer.
          * @param cust The customer for whom you are creating the offer.
          * @return A vector of Plant ptrs represnting the reccomended plants.
@@ -61,14 +69,6 @@ class Manager{
          * @param reason The rason as to why the customer didnt make the purchase
          */
         void recordLostSale(Customer& cust,std::string reason);
-        /**
-         * @brief Difficulty mix
-         * @param cust Customer who the dificultymix is for
-         * @param e Number of easy plants given
-         * @param m Number of medium plants given
-         * @param h Number of hard plants given
-         */
-        void difficultyMix(Customer& cust,int e,int m, int h);
 };
 
 #endif

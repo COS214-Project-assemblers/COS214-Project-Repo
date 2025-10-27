@@ -1,6 +1,29 @@
 #include "Manager.h"
+#include "Customer.h"
+#include "IgnorantCustomer.h"
+#include "AverageCustomer.h"
+#include "GreenFingerCustomer.h"
 
 Manager::Manager(SalesFloor& f):floor(f){}
+
+void Manager::difficultyMix(Customer& cust,int& e,int& m, int& h){
+    if(dynamic_cast<const IgnorantCustomer*>(&cust)){
+        e=3;
+        m=1;
+        h=1;
+        return;
+    }
+    if(dynamic_cast<const AverageCustomer*>(&cust)){
+        e=2;
+        m=2;
+        h=1;
+        return;
+    }
+    //deafult to GreenFinger
+    e=4;
+    m=0;
+    h=1;
+}
 
 std::vector<Plant*> Manager::buildOffer(const Customer& cust){
     //need to impliment
