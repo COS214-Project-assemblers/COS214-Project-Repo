@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 add_compile_options(-Wall -Wextra -pedantic)
 
+include (CTest)
+
 # GoogleTest
 include(FetchContent)
 FetchContent_Declare(
@@ -80,6 +82,8 @@ set(SOURCES
   backend/game/GameConfiguration.h
   backend/game/JSONGameConfiguration.h
   backend/game/JSONGameConfiguration.cpp
+  backend/game/EnvironmentInitializer.h
+  backend/game/EnvironmentInitializer.cpp
 )
 
 add_executable(g_test
@@ -87,10 +91,16 @@ add_executable(g_test
   ${SOURCES}
 )
 
-# add_executable(main
-#   backend/main.cpp
-#   ${SOURCES}
-# )
+set(MEMORYCHECK_COMMAND "valgrind")
+set(MEMORYCHECK_COMMAND_OPTIONS
+    "--leak-check=full --show-leak-kinds=all --track-origins=yes --error-exitcode=1")
+
+add_custom_target(memcheck
+  COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure --test-action MemCheck
+  DEPENDS g_test
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+  COMMENT "CTest MemCheck (Valgrind) on all tests"
+)
 
 # Includes: add the API dir to both targets
 # target_include_directories(main  PRIVATE backend backend/API backend/game backend/plant backend/customer backend/greenhouse backend/transaction)
@@ -99,6 +109,11 @@ target_include_directories(g_test PRIVATE backend tests backend/API backend/game
 # Link libs
 # target_link_libraries(main PRIVATE)
 target_link_libraries(g_test PRIVATE GTest::gtest_main nlohmann_json::nlohmann_json)
+
+target_compile_definitions(g_test PRIVATE
+    ROOT_BUILD_DIR="${CMAKE_BINARY_DIR}"
+    ROOT_SOURCE_DIR="${CMAKE_SOURCE_DIR}"
+)
 
 include(GoogleTest)
 gtest_discover_tests(g_test)

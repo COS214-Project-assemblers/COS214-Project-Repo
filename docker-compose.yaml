@@ -8,6 +8,7 @@ services:
     volumes:
       - ./config/CMakeLists.txt:/app/CMakeLists.txt:ro
       - ./backend:/app/backend
+      - ./config/GameConfig.json:/app/GameConfig.json:ro
     env_file:
       - config/.env
     command: [/usr/local/bin/dev.sh]

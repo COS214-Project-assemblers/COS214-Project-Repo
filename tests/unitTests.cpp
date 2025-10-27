@@ -1,6 +1,10 @@
 
 #include <gtest/gtest.h>
 #include <iostream>
+#include <cstdlib>
+#include <vector>
+#include <map>
+
 #include "Game.h"
 #include "NewGameOption.h"
 #include "PlayerMenu.h"
@@ -21,11 +25,12 @@ void testNewGame() {
     playerMenu->setMenuOption(newGameOption);
     playerMenu->executeOption();
 
-    // Free memory
+    // Cleanup
     delete game;
     delete playerMenu;
     delete logger;
-    // delete newGameOption; !!! Freeing option mem on deletion of PlayerMenu, not sure if that is right move !!!
+    // Note: don't delete newGameOption if PlayerMenu takes ownership
+    std::cout << std::endl;
 }
 
 int main(int argc, char **argv) {

@@ -37,12 +37,12 @@ set(SOURCES
   backend/game/Return.cpp
   backend/game/PlantDied.h
   backend/game/PlantDied.cpp
-  backend/game/Transaction.h
-  backend/game/Transaction.cpp
-  backend/game/TransactionMem.h
-  backend/game/TransactionMem.cpp
-  backend/game/TransactionHistory.h
-  backend/game/TransactionHistory.cpp
+  # backend/game/Transaction.h
+  # backend/game/Transaction.cpp
+  # backend/game/TransactionMem.h
+  # backend/game/TransactionMem.cpp
+  # backend/game/TransactionHistory.h
+  # backend/game/TransactionHistory.cpp
   backend/plant/Plant.h
   backend/plant/Plant.cpp
   backend/game/BasicLogger.h
@@ -65,6 +65,10 @@ set(SOURCES
   backend/plant/PlantHealth.cpp
   backend/plant/NotSellable.h
   backend/plant/NotSellable.cpp
+  backend/greenhouse/Greenhouse.h
+  backend/greenhouse/Greenhouse.cpp
+  backend/greenhouse/Inventory.h
+  backend/greenhouse/Inventory.cpp
   backend/game/GameConfiguration.h
   backend/game/JSONGameConfiguration.h
   backend/game/JSONGameConfiguration.cpp
