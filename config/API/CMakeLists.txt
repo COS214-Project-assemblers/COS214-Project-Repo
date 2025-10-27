@@ -23,7 +23,7 @@ set(SOURCES
   backend/API/APIComponent.cpp
   backend/API/API.h
   backend/API/API.cpp
-  backend/WS/WS.cpp
+  backend/WS/GreenSock.cpp
   backend/game/Game.cpp
   backend/game/Game.h
   backend/game/MenuOption.cpp

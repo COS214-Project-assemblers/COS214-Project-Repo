@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <string>
 #include <thread>
-#include "WS.h"
+#include "GreenSock.h"
 
 using namespace std;
 
