@@ -14,6 +14,9 @@
 #include <vector>
 
 #include "GameConfiguration.h"
+#include "IgnorantCustomerCreator.h"
+#include "AverageCustomerCreator.h"
+#include "GreenFingerCustomerCreator.h"
 
 using namespace std;
 
@@ -47,6 +50,11 @@ class Game {
          * This enables the Factory Method pattern to find the correct creator for each plant type
          */
         map<string, string> varietyToCategory;
+
+         /**
+         * @brief Map of customer creators for different customer types
+         */
+        map<string, CustomerCreator*> customerFactories;
     public:
         /**
          * @brief Game initialization tasks that are not creating/loading game.
@@ -110,6 +118,31 @@ class Game {
          * @return Map of categories to plant varieties
          */
         map<string, vector<string>> getAvailablePlantVarieties();
+
+        /**
+         * @brief Creates and adds customers to the game
+         * @param customerType The type of customer to add ("ignorant", "average", "greenfinger")
+         * @param num The number of customers to add
+         * @throws runtime_error if customer creation fails
+         */
+        void addCustomers(string customerType, int num);
+
+        /**
+         * @brief Getter for customers vector
+         * @return Vector of Customer pointers
+         */
+        vector<Customer*> getCustomers();
+
+        /**
+         * @brief Creates customer factories based on configuration
+         */
+        void createCustomerFactories();
+
+        /**
+         * @brief Get available customer types from configuration
+         * @return Map of customer types to their definitions
+         */
+        map<string, vector<map<string, string>>> getAvailableCustomerTypes();
 };
 
 #endif // GAME_HDR

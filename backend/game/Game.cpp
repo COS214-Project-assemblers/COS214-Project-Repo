@@ -205,3 +205,20 @@ map<string, vector<string>> Game::getAvailablePlantVarieties()
 {
     return config->getPlantVarieties();
 }
+
+void Game::createCustomerFactories()
+{
+    try
+    {
+        customerFactories["ignorant"] = new IgnorantCustomerCreator();
+        customerFactories["average"] = new AverageCustomerCreator();
+        customerFactories["greenfinger"] = new GreenFingerCustomerCreator();
+        
+        cout << "+ Created customer factories" << endl;
+    }
+    catch (...)
+    {
+        throw runtime_error("Failed to create customer factories for unknown reason");
+    }
+}
+
