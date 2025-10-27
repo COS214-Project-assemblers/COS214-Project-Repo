@@ -61,6 +61,8 @@ set(SOURCES
   backend/plant/Succulent.cpp
   backend/plant/Tree.h
   backend/plant/Tree.cpp
+  backend/plant/PlantHealth.h
+  backend/plant/PlantHealth.cpp
   backend/plant/NotSellable.h
   backend/plant/NotSellable.cpp
   backend/greenhouse/Greenhouse.h
@@ -70,6 +72,10 @@ set(SOURCES
   backend/game/GameConfiguration.h
   backend/game/JSONGameConfiguration.h
   backend/game/JSONGameConfiguration.cpp
+  backend/game/LogDecorator.h
+  backend/game/LogDecorator.cpp
+  backend/game/CoutAndLog.h
+  backend/game/CoutAndLog.cpp
   # backend/customer/Customer.h
   # backend/customer/Customer.cpp
   # backend/customer/AverageCustomer.h

@@ -12,6 +12,8 @@
 #include <stdexcept>
 #include <cstdlib>
 
+#include "Logger.h"
+#include <vector>
 
 #include "GameConfiguration.h"
 
@@ -41,6 +43,16 @@ class Game {
         map<string, PlantCreator*> factories;
 
         GameConfiguraton* config = nullptr;
+
+        /**
+         * @brief Used to log all game events
+         */
+        Logger* logger = nullptr;
+        /** 
+         * @brief Maps plant varieties to their categories for easy lookup during plant purchases
+         * This enables the Factory Method pattern to find the correct creator for each plant type
+         */
+        map<string, string> varietyToCategory;
     public:
         /**
          * @brief Game initialization tasks that are not creating/loading game.
@@ -69,10 +81,13 @@ class Game {
          * @brief Operations associated with creating a new game, i.e. creating greenhouse and factories
          */
         void createNewGame();
+
         /**
-         * @brief The following is taken from the notion board, @Megan thought of this function
-         *  This is used by the user to be able to buy plants to add to the Greenhouse.
-         *  Calls the Plant method makePlant() to create the plants.
+         * @brief This is used by the user to be able to buy plants to add to the Greenhouse.
+         *  Uses Factory Method pattern to find correct plant creator and Prototype pattern to clone plants.
+         * @param plant The specific plant variety to buy (e.g., "Cactus", "Rose", "Lemon")
+         * @param num The number of plants to buy
+         * @throws runtime_error if plant variety not found or greenhouse not initialized
          */
         void buyPlants(string plant, int num);
         /**
@@ -87,6 +102,20 @@ class Game {
          * @brief Frees greenhouse, plant creators memory. Closes DB connection.
          */
         ~Game();
+
+        /**
+         * @brief Helper method to get category for a plant variety
+         * @param variety The plant variety to look up
+         * @return The category name
+         * @throws runtime_error if variety not found in configuration
+         */
+        string getCategoryForVariety(string variety);
+        
+        /**
+         * @brief Get all available plant varieties from configuration
+         * @return Map of categories to plant varieties
+         */
+        map<string, vector<string>> getAvailablePlantVarieties();
 };
 
 #endif // GAME_HDR

@@ -10,12 +10,43 @@
 #include "PlayerMenu.h"
 #include "MenuOption.h"
 #include "BasicLogger.h"
+#include "PlantHealth.h"
+#include "Plant.h"
+#include "Succulent.h"
 #include "EnvironmentInitializer.h"
 #include "PlantCreator.h"
 #include "SucculentCreator.h"
 #include "FlowerCreator.h"
 #include "TreeCreator.h"
 #include "Plant.h"
+
+TEST(TestSuiteName, TestName) {
+    // Setup
+    
+    Health h(1.0f, 1.0f, 1.0f, 0);
+
+    // Action
+    h.decay(0);
+
+    // Check results
+    EXPECT_LT(h.healthScore(), 3.0f);  // after decay, total health should drop (should be Less Than (LT))
+}
+
+TEST(PlantDynamicTest, HealthChangesOverTime) {
+    Plant* myPlant = new Succulent("Aloe");
+
+    float initialScore = myPlant->healthScore();
+
+    myPlant->start();
+    std::this_thread::sleep_for(std::chrono::seconds(10)); // let decay happen
+    myPlant->stop(); // force the thread to stop
+    myPlant->join();
+
+    float laterScore = myPlant->healthScore();
+
+    EXPECT_LT(laterScore, initialScore) << "Health should decay over time!";
+    delete myPlant;
+}
 
 TEST(GameCreationTests, NewGameOptionExecutesProperly) {
     // Set up environment
@@ -336,4 +367,110 @@ TEST(GameCreationTests, TestFactoriesPlantCreation) {
     delete game;
     delete playerMenu;
     delete logger;
+}
+
+TEST(GameTests, BuyPlantsFunctionality)
+{
+    std::cout << "\n=== Testing Buy Plants Functionality ===" << std::endl;
+    
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    Game* game = new Game(configPath);
+    game->createNewGame();
+    
+    EXPECT_NO_THROW({
+        game->buyPlants("cactus", 1);
+    }) << "Should be able to buy a single plant";
+    
+    EXPECT_NO_THROW({
+        game->buyPlants("rose", 3);
+    }) << "Should be able to buy multiple plants";
+    
+    Greenhouse* greenhouse = game->getGreenhouse();
+    ASSERT_NE(greenhouse, nullptr) << "Greenhouse should exist";
+    
+    std::cout << "✓ Basic plant purchasing works correctly" << std::endl;
+    
+    delete game;
+}
+
+TEST(GameTests, BuyPlantsErrorCases)
+{
+    std::cout << "\n=== Testing Buy Plants Error Cases ===" << std::endl;
+    
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    Game* game = new Game(configPath);
+    game->createNewGame();
+    
+    EXPECT_THROW({
+        game->buyPlants("NonExistentPlant", 1);
+    }, std::runtime_error) << "Should throw error for unknown plant variety";
+    
+    EXPECT_THROW({
+        game->buyPlants("Cactus", 0);
+    }, std::runtime_error) << "Should throw error for zero quantity";
+    
+    EXPECT_THROW({
+        game->buyPlants("Cactus", -5);
+    }, std::runtime_error) << "Should throw error for negative quantity";
+    
+    std::cout << "✓ Error handling works correctly" << std::endl;
+    
+    delete game;
+}
+
+TEST(GameTests, BuyPlantsFactoryMethodIntegration)
+{
+    std::cout << "\n=== Testing Factory Method Integration ===" << std::endl;
+    
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    Game* game = new Game(configPath);
+    game->createNewGame();
+    
+    map<string, vector<string>> varieties = game->getAvailablePlantVarieties();
+    
+    for (const auto& [category, plantList] : varieties) {
+        if (!plantList.empty()) {
+            string testPlant = plantList[0];
+            EXPECT_NO_THROW({
+                game->buyPlants(testPlant, 1);
+            }) << "Should buy " << testPlant << " from " << category << " category";
+            
+            std::cout << "✓ Factory Method correctly created " << testPlant 
+                      << " (" << category << ")" << std::endl;
+        }
+    }
+    
+    delete game;
+}
+
+TEST(GameTests, PlantVarietyMapping)
+{
+    std::cout << "\n=== Testing Plant Variety Mapping ===" << std::endl;
+    
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    Game* game = new Game(configPath);
+    
+    map<string, vector<string>> varieties = game->getAvailablePlantVarieties();
+    std::cout << "Loaded varieties from config:" << std::endl;
+    for (const auto& [category, varietiesList] : varieties) {
+        std::cout << "  " << category << ": ";
+        for (const auto& variety : varietiesList) {
+            std::cout << variety << " ";
+        }
+        std::cout << std::endl;
+    }
+    
+    for (const auto& [expectedCategory, varietiesList] : varieties) {
+        for (const auto& variety : varietiesList) {
+            std::cout << "Testing variety: '" << variety << "' -> expected category: '" << expectedCategory << "'" << std::endl;
+            string actualCategory = game->getCategoryForVariety(variety);
+            EXPECT_EQ(actualCategory, expectedCategory) 
+                << "Variety '" << variety << "' should map to category '" << expectedCategory << "'";
+            std::cout << "  ✓ " << variety << " correctly maps to " << actualCategory << std::endl;
+        }
+    }
+    
+    std::cout << "✓ Plant variety mapping works correctly" << std::endl;
+    
+    delete game;
 }

@@ -61,6 +61,8 @@ set(SOURCES
   backend/plant/Tree.cpp
   backend/plant/NotSellable.h
   backend/plant/NotSellable.cpp
+  backend/plant/PlantHealth.h
+  backend/plant/PlantHealth.cpp
   backend/greenhouse/Greenhouse.h
   backend/greenhouse/Greenhouse.cpp
   backend/greenhouse/Inventory.h
@@ -86,6 +88,10 @@ set(SOURCES
   backend/game/JSONGameConfiguration.cpp
   backend/game/EnvironmentInitializer.h
   backend/game/EnvironmentInitializer.cpp
+  backend/game/LogDecorator.h
+  backend/game/LogDecorator.cpp
+  backend/game/CoutAndLog.h
+  backend/game/CoutAndLog.cpp
 )
 
 add_executable(g_test
