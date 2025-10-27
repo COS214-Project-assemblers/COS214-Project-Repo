@@ -178,6 +178,16 @@ Game::~Game()
         delete it->second;
     }
 
+    for (auto it = customerFactories.begin(); it != customerFactories.end(); ++it)
+    {
+        delete it->second;
+    }
+
+    for (auto customer : customers)
+    {
+        delete customer;
+    }
+
     if (config != nullptr)
     {
         delete config;
@@ -267,3 +277,9 @@ void Game::addCustomers(string customerType, int num)
     
     cout << "+ Successfully added " << num << " " << customerType << " customers" << endl;
 }
+
+vector<Customer*> Game::getCustomers()
+{
+    return customers;
+}
+
