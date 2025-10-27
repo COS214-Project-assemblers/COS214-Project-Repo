@@ -1,7 +1,53 @@
 {
-    "plantVarieties": {
+    "plantVarieties": 
+    {
         "succulents": ["cactus", "aloe", "jade"],
         "flowers": ["rose", "tulip", "daisy"],
         "trees": ["lemon", "apple", "oak"]
+    },
+
+    "customers": 
+    {
+        "ignorant": 
+        [
+            {
+                "name": "Clueless McDirt",
+                "introduce": "Heyyy… so… plants don’t scream if I forget to water them, right?",
+                "preferences": "I need a plant that survives on good vibes and accidental neglect.",
+                "recommendations": "Got anything that refuses to die no matter what I do?",
+                "accept": "Nice! Even I can’t mess this up. Probably.",
+                "reject": "Whoa, that sounds like effort. Hard pass.",
+                "acceptExit": "Thanks! If it dies, I’ll just blame the sun!",
+                "rejectExit": "Cool, I’ll try another shop that believes in miracles."
+            }
+        ],
+
+        "average": 
+        [
+            {
+                "name": "Patty Potplant",
+                "introduce": "Hey there! My house is half jungle, half chaos — and I love it!",
+                "preferences": "Looking for something cute but not dramatic. No divas allowed.",
+                "recommendations": "Got any plants that thrive on medium chaos?",
+                "accept": "Perfect! It’ll look amazing next to the one I almost overwatered!",
+                "reject": "Hmm, it’s nice… but it doesn’t *speak* to my windowsill.",
+                "acceptExit": "Awesome, thanks! My plants are gonna gossip about this one.",
+                "rejectExit": "I’ll think about it. My vibe detector needs a recharge."
+            }
+        ],
+
+        "greenfinger": 
+        [
+            {
+                "name": "Sir Leafsalot",
+                "introduce": "Salutations! The legend of chlorophyll welcomes you!",
+                "preferences": "I desire a plant that challenges my mighty watering can!",
+                "recommendations": "Show me something rare… something that fears neither drought nor doom!",
+                "accept": "Exquisite! A worthy rival for my bonsai army!",
+                "reject": "Bah! Too simple. I seek a plant that mocks my hubris!",
+                "acceptExit": "Marvelous! I shall name it after myself immediately!",
+                "rejectExit": "Farewell! I ride toward greener, riskier pastures!"
+            }
+        ]
     }
 }
