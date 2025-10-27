@@ -30,6 +30,8 @@ class IgnorantCustomer : public Customer
          */
         IgnorantCustomer();
 
+        IgnorantCustomer(const CustomerData& data);
+
         /**
          * @brief Destroys the IgnorantCustomer object.
          */

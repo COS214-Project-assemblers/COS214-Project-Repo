@@ -14,6 +14,38 @@ using namespace std;
 #include "Plant.h"
 
 /**
+ * @struct CustomerData
+ * @brief Contains all customer attributes from JSON configuration
+ */
+struct CustomerData 
+{
+    string name;
+    string introduce;
+    string preferences;
+    string recommendations;
+    string accept;
+    string reject;
+    string acceptExit;
+    string rejectExit;
+    string type;  // "ignorant", "average", "greenfinger"
+    
+    CustomerData() = default;
+
+    CustomerData(const map<string, string>& data, const string& customerType) 
+    {
+        name = data.at("name");
+        introduce = data.at("introduce");
+        preferences = data.at("preferences");
+        recommendations = data.at("recommendations");
+        accept = data.at("accept");
+        reject = data.at("reject");
+        acceptExit = data.at("acceptExit");
+        rejectExit = data.at("rejectExit");
+        type = customerType;
+    }
+};
+
+/**
  * @class Customer
  * @brief Abstract base class defining the interface and shared behavior for all customer types.
  * 
@@ -79,11 +111,15 @@ class Customer
          */
         vector<const Plant*> offeredPlants;
 
+        CustomerData data;
+
     public:
         /**
          * @brief Default constructor
          */
         Customer();
+
+        Customer(const CustomerData& customerData);
 
         /**
          * @brief Virtual destructor for proper polymorphic destruction.
@@ -140,6 +176,14 @@ class Customer
          * @param v Reference to the CustomerVisitor that will handle plant recommendations.
          */
         void interact(CustomerVisitor& v);
+
+        CustomerData getCustomerData();
+
+        string getName();
+
+        string getType();
+
+        void setCustomerData(const CustomerData& customerData);
 };
 
 #endif

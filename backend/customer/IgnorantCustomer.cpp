@@ -10,11 +10,15 @@ IgnorantCustomer::IgnorantCustomer() : Customer()
 
 }
 
-IgnorantCustomer::~IgnorantCustomer()
+IgnorantCustomer::IgnorantCustomer(const CustomerData& data) : Customer(data)
 {
 
 }
 
+IgnorantCustomer::~IgnorantCustomer()
+{
+
+}
 
 void IgnorantCustomer::introduce() 
 {

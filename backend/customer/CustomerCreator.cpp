@@ -2,17 +2,20 @@
 
 CustomerCreator::CustomerCreator()
 {
-
+    customer = nullptr;
 }
 
 CustomerCreator::~CustomerCreator()
 {
-
+    if (customer != nullptr) 
+    {
+        delete customer;
+    }
 }
 
-void CustomerCreator::makeCustomer()
+void CustomerCreator::makeCustomer(const CustomerData& data)
 {
-    customer = createCustomer();
+    customer = createCustomer(data);
 }
 
 Customer* CustomerCreator::getCustomer()

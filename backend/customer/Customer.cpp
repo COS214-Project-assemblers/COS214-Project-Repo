@@ -10,6 +10,11 @@ Customer::Customer()
 
 }
 
+Customer::Customer(const CustomerData& customerData)
+{
+    data = customerData;
+}
+
 Customer::~Customer()
 {
 
@@ -41,4 +46,24 @@ void Customer::interact(CustomerVisitor& visitor)
 
     reactToRecommendations();       // Step 5: Customer reacts
     thankAndExit();                 // Step 6: Customer leaves
+}
+
+CustomerData Customer::getCustomerData()
+{ 
+    return data; 
+}
+
+string Customer::getName()
+{ 
+    return data.name; 
+}
+
+string Customer::getType()
+{ 
+    return data.type; 
+}
+
+void Customer::setCustomerData(const CustomerData& customerData)
+{
+    data = customerData;
 }

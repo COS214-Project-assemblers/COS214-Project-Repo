@@ -9,13 +9,13 @@ class CustomerCreator
         Customer* customer;
     
     protected:
-        virtual Customer* createCustomer() = 0;
+        virtual Customer* createCustomer(const CustomerData& data) = 0;
 
     public:
         CustomerCreator();
         virtual ~CustomerCreator();
         
-        void makeCustomer();
+        void makeCustomer(const CustomerData& data);
         Customer* getCustomer();
 };
 
