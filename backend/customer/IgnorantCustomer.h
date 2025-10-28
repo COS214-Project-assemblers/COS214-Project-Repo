@@ -18,11 +18,7 @@
 class IgnorantCustomer : public Customer
 {
     private:
-        void introduce();
-        void expressPreferences();
-        void askForRecommendations();
-        void reactToRecommendations();
-        void thankAndExit();
+        string type = "ignorant";
 
     public:
         /**
@@ -30,33 +26,10 @@ class IgnorantCustomer : public Customer
          */
         IgnorantCustomer();
 
-        IgnorantCustomer(const CustomerData& data);
-
         /**
          * @brief Destroys the IgnorantCustomer object.
          */
         ~IgnorantCustomer();
-        
-        /**
-         * @brief Accepts a visitor for plant recommendations.
-         * 
-         * Implements the Element side of Visitor pattern by dispatching to the
-         * appropriate visitor method for ignorant customers.
-         * 
-         * @param v Reference to the CustomerVisitor offering plants.
-         */
-        void accept(CustomerVisitor& v) override;
-
-        /**
-         * @brief Presents plant options to user and validates selection.
-         * 
-         * The user must select an easy-care plant for this customer to accept.
-         * Plants with "Moderate" or "Expert" care levels will be rejected.
-         * 
-         * @param offers Vector of Plant pointers available for selection.
-         * @return Pointer to chosen Plant if easy-care, nullptr otherwise.
-         */
-        const Plant* considerOptions(const vector<const Plant*> offers)const override;
 };
 
 #endif
