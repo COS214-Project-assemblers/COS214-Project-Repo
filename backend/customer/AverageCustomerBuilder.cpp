@@ -164,3 +164,9 @@ void AverageCustomerBuilder::buildPlantOptions(const vector<Plant*>& plants)
 {
     customer->setOfferedPlants(plants);
 }
+
+void AverageCustomerBuilder::accept(CustomerVisitor& v)
+{
+    // The visitor will visit this specific builder type
+    v.visit(*this);
+}

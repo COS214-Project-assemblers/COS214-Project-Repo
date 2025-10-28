@@ -2,6 +2,7 @@
 #define DIRECTOR_H
 
 #include "CustomerBuilder.h"
+#include "CustomerVisitor.h"
 
 class Director
 {
@@ -13,7 +14,7 @@ class Director
         ~Director();
 
         void setBuilder(CustomerBuilder* b);
-        Customer* construct();
+        Customer* construct(CustomerVisitor& v);
 };
 
 #endif

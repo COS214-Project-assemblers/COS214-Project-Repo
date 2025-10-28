@@ -15,7 +15,7 @@ void Director::setBuilder(CustomerBuilder* b)
     builder = b;
 }
 
-Customer* Director::construct() // this is where the parameters of each buildPart will come from the json pool to get one fro the parameter
+Customer* Director::construct(CustomerVisitor& v)
 {
     if (!builder) 
     {
@@ -31,8 +31,7 @@ Customer* Director::construct() // this is where the parameters of each buildPar
     builder->buildAcceptExitDialogue("Default Accept Exit");
     builder->buildRejectExitDialogue("Default Reject Exit");
     
-    // needs to take in the plant options that the visitor will give for the customer, so that it can be converted to a string
-    // builder->buildPlantOptions();
+    builder->accept(v);
 
     return builder->getCustomer();
 }

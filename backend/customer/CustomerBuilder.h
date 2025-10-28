@@ -2,6 +2,7 @@
 #define CUSTOMERBUILDER_H
 
 #include "Customer.h"
+#include "CustomerVisitor.h"
 
 class CustomerBuilder
 {

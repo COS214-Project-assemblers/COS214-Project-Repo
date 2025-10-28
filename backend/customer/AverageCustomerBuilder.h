@@ -32,10 +32,9 @@ class AverageCustomerBuilder : public CustomerBuilder
         void buildRejectDialogue(string r);
         void buildAcceptExitDialogue(string a);
         void buildRejectExitDialogue(string r);
-        
         void buildPlantOptions(const vector<Plant*>& plants);
 
-        //accept function for visitor
+        void accept(CustomerVisitor& v);
 };
 
 #endif
