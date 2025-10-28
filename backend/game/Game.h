@@ -17,7 +17,7 @@
 
 #include "GameConfiguration.h"
 #include "Customer.h"
-#include "CustomerCreator.h"
+#include "CustomerBuilder.h"
 
 using namespace std;
 
@@ -58,10 +58,6 @@ class Game {
 
         vector<Customer*> customers;
 
-         /**
-         * @brief Map of customer creators for different customer types
-         */
-        map<string, CustomerCreator*> customerFactories;
     public:
         /**
          * @brief Game initialization tasks that are not creating/loading game.
@@ -143,13 +139,13 @@ class Game {
         /**
          * @brief Creates customer factories based on configuration
          */
-        void createCustomerFactories();
+        void createCustomers(string type, int num);
 
         /**
          * @brief Get available customer types from configuration
          * @return Map of customer types to their definitions
          */
-        map<string, vector<map<string, string>>> getAvailableCustomerTypes();
+        map<string, map<string, vector<string>>> getAvailableCustomerTypes();
 };
 
 #endif // GAME_HDR

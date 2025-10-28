@@ -1,17 +1,22 @@
 #include "Game.h"
 #include "Greenhouse.h"
-#include "PlantCreator.h"
-#include "FlowerCreator.h"
-#include "SucculentCreator.h"
-#include "TreeCreator.h"
-#include "CustomerCreator.h"
 #include "JSONGameConfiguration.h"
-#include "IgnorantCustomerCreator.h"
-#include "AverageCustomerCreator.h"
-#include "GreenFingerCustomerCreator.h"
 #include "BasicLogger.h"
 #include "LogDecorator.h"
 #include "CoutAndLog.h"
+
+#include "FlowerCreator.h"
+#include "SucculentCreator.h"
+#include "TreeCreator.h"
+
+#include "AverageCustomerBuilder.h"
+// #include "IgnorantCustomerBuilder.h"
+// #include "GreenFingerCustomerBuilder.h"
+#include "Director.h"
+#include "VisitEasyCustomer.h"
+#include "VisitMediumCustomer.h"
+#include "VisitHighCustomer.h"
+#include "Inventory.h"
 
 Game::Game(string configPath)
 {
@@ -197,11 +202,6 @@ Game::~Game()
         delete it->second;
     }
 
-    for (auto it = customerFactories.begin(); it != customerFactories.end(); ++it)
-    {
-        delete it->second;
-    }
-
     for (auto customer : customers)
     {
         delete customer;
@@ -235,87 +235,86 @@ map<string, vector<string>> Game::getAvailablePlantVarieties()
     return config->getPlantVarieties();
 }
 
-void Game::createCustomerFactories()
-{
-    try
-    {
-        customerFactories["ignorant"] = new IgnorantCustomerCreator();
-        customerFactories["average"] = new AverageCustomerCreator();
-        customerFactories["greenfinger"] = new GreenFingerCustomerCreator();
-        
-        cout << "+ Created customer factories" << endl;
-    }
-    catch (...)
-    {
-        throw runtime_error("Failed to create customer factories for unknown reason");
-    }
-}
-
-void Game::addCustomers(string customerType, int num)
+void Game::createCustomers(string type, int num)
 {
     if (num <= 0) 
     {
         throw runtime_error("Number of customers must be positive, got: " + to_string(num));
     }
-
-    if (customerFactories.empty()) 
+    
+    if (greenhouse == nullptr) 
     {
-        throw runtime_error("No customer factories available. Please create customer factories first.");
+        throw runtime_error("Greenhouse not initialized. Please create a new game first.");
     }
 
-    auto factoryIt = customerFactories.find(customerType);
-    if (factoryIt == customerFactories.end()) 
+    // Validate customer type exists in configuration
+    auto availableCustomerTypes = getAvailableCustomerTypes();
+    if (availableCustomerTypes.find(type) == availableCustomerTypes.end()) 
     {
         string availableTypes = "Available customer types: ";
-        for (const auto& [type, creator] : customerFactories) 
+
+        for (const auto& [customerType, data] : availableCustomerTypes) 
         {
-            availableTypes += type + " ";
+            availableTypes += customerType + " ";
         }
 
-        throw runtime_error("Customer type '" + customerType + "' not found. " + availableTypes);
+        throw runtime_error("Customer type '" + type + "' not found. " + availableTypes);
     }
 
-    // Get customer data from configuration
-    auto customerTypes = getAvailableCustomerTypes();
-    auto customerTypeData = customerTypes.find(customerType);
-    
-    if (customerTypeData == customerTypes.end() || customerTypeData->second.empty()) 
-    {
-        throw runtime_error("No customer data found for type: " + customerType);
-    }
+    Inventory* allPlants = greenhouse->getInventory();
 
-    CustomerCreator* factory = factoryIt->second;
-    
+    // Make a visitor object so that the visitor can be passed to the construct method of the relevant builder
+
+    Director director;
+
+    CustomerBuilder* builder = nullptr;
+    CustomerVisitor* visitor = nullptr;
+
     for (int i = 0; i < num; i++) 
     {
-        const auto& customerRawData = customerTypeData->second[i % customerTypeData->second.size()];
-        
-        CustomerData customerData;
-        customerData.name = customerRawData.at("name");
-        customerData.introduce = customerRawData.at("introduce");
-        customerData.preferences = customerRawData.at("preferences");
-        customerData.recommendations = customerRawData.at("recommendations");
-        customerData.accept = customerRawData.at("accept");
-        customerData.reject = customerRawData.at("reject");
-        customerData.acceptExit = customerRawData.at("acceptExit");
-        customerData.rejectExit = customerRawData.at("rejectExit");
-        customerData.type = customerType;
-        
-        factory->makeCustomer(customerData);
-        Customer* newCustomer = factory->getCustomer();
-        
-        if (newCustomer != nullptr) 
+        if(builder)
         {
-            customers.push_back(newCustomer);
-            cout << "+ Added " << customerType << " customer: " << customerData.name << endl;
+            delete builder;
+            builder = nullptr;
+        }
+        
+        if(visitor)
+        {
+            delete visitor;
+            visitor = nullptr;
+        }
+        
+        // Create appropriate builder based on type
+        if (type == "average") 
+        {
+            builder = new AverageCustomerBuilder(config);
+            visitor = new VisitEasyCustomer(*allPlants);
+        } 
+        else if (type == "ignorant") 
+        {
+            builder = new IgnorantCustomerBuilder(config);
+            visitor = new VisitMediumCustomer(*allPlants);
+        } 
+        else if (type == "greenfinger") 
+        {
+            builder = new GreenFingerCustomerBuilder(config);
+            visitor = new VisitHighCustomer(*allPlants);
         } 
         else 
         {
-            throw runtime_error("Failed to create customer of type: " + customerType);
+            throw runtime_error("Unknown customer type: " + type);
         }
+        
+        director.setBuilder(builder);
+        director.construct(*visitor);
+        
+        // customers.push_back(customer);
+        // currently the construct function doesn't return a Customer*
+        
+        delete builder;
     }
-    
-    cout << "+ Successfully added " << num << " " << customerType << " customers" << endl;
+
+    logger->newLog("+ Created " + to_string(num) + " " + type + " customers");
 }
 
 vector<Customer*> Game::getCustomers()
@@ -323,7 +322,7 @@ vector<Customer*> Game::getCustomers()
     return customers;
 }
 
-map<string, vector<map<string, string>>> Game::getAvailableCustomerTypes()
+map<string, map<string, vector<string>>> Game::getAvailableCustomerTypes()
 {
     return config->getCustomerTypes();
 }
