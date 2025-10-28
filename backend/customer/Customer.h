@@ -7,6 +7,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -54,6 +55,8 @@ class Customer
          * @brief Getter for the type of Customer
          */
         string getType();
+
+        string Customer::escapeJsonString(const string& input);
 
         void setIntroductionDialogue(string i);
         void setPreferencesDialogue(string p);

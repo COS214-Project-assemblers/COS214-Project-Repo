@@ -52,7 +52,48 @@ void Customer::setRejectExitDialogue(string r)
 
 void Customer::setOfferedPlants(const vector<Plant*>& plants)
 {
-    // turn that vector into some json string structure and set that result to the offeredPlants member variable
+    stringstream plantsJson;
+    plantsJson << "[";
+    
+    for (size_t i = 0; i < plants.size(); ++i) 
+    {
+        if (i > 0) 
+        {
+            plantsJson << ",";
+        }
+        
+        plantsJson << "{";
+        plantsJson << "\"name\":\"" << escapeJsonString(plants[i]->getName()) << "\",";
+        plantsJson << "\"type\":\"" << escapeJsonString(plants[i]->getType()) << "\",";
+        plantsJson << "\"careLevel\":\"" << escapeJsonString(plants[i]->getCareLevel()) << "\",";
+        plantsJson << "\"price\":" << plants[i]->getPrice();
+        plantsJson << "}";
+    }
+    
+    plantsJson << "]";
+    offeredPlants = plantsJson.str();
+}
+
+string Customer::escapeJsonString(const std::string& input) 
+{
+    std::string output;
+    
+    for (char c : input) 
+    {
+        switch (c) 
+        {
+            case '"':  output += "\\\""; break;
+            case '\\': output += "\\\\"; break;
+            case '\b': output += "\\b"; break;
+            case '\f': output += "\\f"; break;
+            case '\n': output += "\\n"; break;
+            case '\r': output += "\\r"; break;
+            case '\t': output += "\\t"; break;
+            default:   output += c; break;
+        }
+    }
+
+    return output;
 }
 
 string Customer::getStructure()
