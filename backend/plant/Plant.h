@@ -128,7 +128,9 @@ class Plant
          */
         void display();
 
-
+        ///////////////////////////////
+        // also need to add a getCareLevel() function which will return the added careLevel member variable
+        //////////////////////////////
 
         /**
          * @brief Gets the current state of the plant.

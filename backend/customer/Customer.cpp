@@ -63,10 +63,9 @@ void Customer::setOfferedPlants(const vector<Plant*>& plants)
         }
         
         plantsJson << "{";
-        plantsJson << "\"name\":\"" << escapeJsonString(plants[i]->getName()) << "\",";
-        plantsJson << "\"type\":\"" << escapeJsonString(plants[i]->getType()) << "\",";
-        plantsJson << "\"careLevel\":\"" << escapeJsonString(plants[i]->getCareLevel()) << "\",";
-        plantsJson << "\"price\":" << plants[i]->getPrice();
+        plantsJson << "\"category\":\"" << escapeJsonString(plants[i]->getPlantCategory()) << "\",";
+        plantsJson << "\"variety\":\"" << escapeJsonString(plants[i]->getPlantVariety()) << "\",";
+        plantsJson << "\"careLevel\":\"" << escapeJsonString(plants[i]->getCareLevel()) << "\","; // this will have to be implemented in the Plant class
         plantsJson << "}";
     }
     
@@ -77,7 +76,7 @@ void Customer::setOfferedPlants(const vector<Plant*>& plants)
 string Customer::escapeJsonString(const std::string& input) 
 {
     std::string output;
-    
+
     for (char c : input) 
     {
         switch (c) 
