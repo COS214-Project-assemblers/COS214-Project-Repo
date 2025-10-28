@@ -22,11 +22,11 @@ map<string, float> Plant::plantCosts =
     {"Apple", 25.0}
 };
 
-Plant::Plant(string category, string variety, string diffictlty)
+Plant::Plant(string category, string variety)
 {
     this->plantCategory = category;
     this->plantVariety = variety;
-    this->difficulty=diffictlty;
+    // this->difficulty=diffictlty;
 
     this->careType = "";
     this->plantState = new NotSellable();

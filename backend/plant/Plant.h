@@ -78,6 +78,7 @@ class Plant
         std::atomic<bool> alive;
         std::thread thread;
 
+
     protected:
         /**
          *  @brief Pointer to the Health component representing the plant’s overall well-being.
@@ -94,7 +95,8 @@ class Plant
          * The Dynamic Health Attribute should only be Created in the concrete Products
          * because, the type of plant determines how much water/fertilizer/pruning is required
          */
-        Plant(string category, string variety,string difficulty);
+        // Plant(string category, string variety,string difficulty);
+        Plant(string category, string variety);
 
         /**
          * @brief Copy constructor used for the Prototype design pattern.
