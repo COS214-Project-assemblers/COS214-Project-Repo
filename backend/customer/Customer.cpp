@@ -1,3 +1,8 @@
+/**
+ * @file Customer.cpp
+ * @brief Implements the functionality defined in the Customer class.
+ */
+
 #include "Customer.h"
 
 Customer::Customer()
@@ -10,41 +15,30 @@ Customer::~Customer()
 
 }
 
-void Customer::helpCustomer()
+void Customer::setOfferedPlants(const vector<const Plant*>& plants)
 {
-    showDialog();
-    
-    vector<string> options = compileOptions();
-
-    cout << "\nChoose an option:\n";
-    for (size_t i = 0; i < options.size(); ++i) 
-    {
-        cout << (i + 1) << ". " << options[i] << "\n";
-    }
-    
-    int choice = getPlayerChoice(options);
-    
-    processChoice(choice);
+    offeredPlants = plants;
 }
 
-int Customer::getPlayerChoice(vector<string> options) 
+void Customer::interact(CustomerVisitor& visitor) 
 {
-    int choice;
+    introduce();                    // Step 1: Customer intro
+    expressPreferences();           // Step 2: Customer preferences
+    askForRecommendations();        // Step 3: Customer asks for help
+    accept(visitor);                // Step 4: Manager offers plants (VISITOR!)
 
-    while (true) 
+    // After visitor offers plants, customer considers them
+    chosenPlant = considerOptions(offeredPlants);
+
+    if(chosenPlant != nullptr)
     {
-        cout << "Enter your choice (1-" << options.size() << "): ";
-        cin >> choice;
-        
-        if (choice < 1 || choice > static_cast<int>(options.size())) 
-        {
-            cout << "Invalid choice. Please try again.\n";
-        } 
-        else 
-        {
-            break;
-        }
+        plantAccepted = true;
+    }
+    else
+    {
+        plantAccepted = false;
     }
 
-    return choice;
+    reactToRecommendations();       // Step 5: Customer reacts
+    thankAndExit();                 // Step 6: Customer leaves
 }

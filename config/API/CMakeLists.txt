@@ -9,6 +9,8 @@ add_compile_options(-Wall -Wextra -pedantic)
 
 # Oat++
 find_package(oatpp 1.4.0 REQUIRED)
+# JSON Parsing
+find_package(nlohmann_json 3.10 REQUIRED)
 
 set(SOURCES
   backend/API/APIDto.h
@@ -27,23 +29,20 @@ set(SOURCES
   backend/game/PlayerMenu.h
   backend/game/PlayerMenu.cpp
   backend/game/Logger.h
-  backend/game/Logger.cpp
   backend/game/TransactionStrategy.h
   backend/game/TransactionStrategy.cpp
   backend/game/Sale.h
   backend/game/Sale.cpp
   backend/game/Return.h
   backend/game/Return.cpp
-  backend/game/Restock.h
-  backend/game/Restock.cpp
   backend/game/PlantDied.h
   backend/game/PlantDied.cpp
-  backend/game/Transaction.h
-  backend/game/Transaction.cpp
-  backend/game/TransactionMem.h
-  backend/game/TransactionMem.cpp
-  backend/game/TransactionHistory.h
-  backend/game/TransactionHistory.cpp
+  # backend/game/Transaction.h
+  # backend/game/Transaction.cpp
+  # backend/game/TransactionMem.h
+  # backend/game/TransactionMem.cpp
+  # backend/game/TransactionHistory.h
+  # backend/game/TransactionHistory.cpp
   backend/plant/Plant.h
   backend/plant/Plant.cpp
   backend/game/BasicLogger.h
@@ -62,8 +61,21 @@ set(SOURCES
   backend/plant/Succulent.cpp
   backend/plant/Tree.h
   backend/plant/Tree.cpp
+  backend/plant/PlantHealth.h
+  backend/plant/PlantHealth.cpp
   backend/plant/NotSellable.h
   backend/plant/NotSellable.cpp
+  backend/greenhouse/Greenhouse.h
+  backend/greenhouse/Greenhouse.cpp
+  backend/greenhouse/Inventory.h
+  backend/greenhouse/Inventory.cpp
+  backend/game/GameConfiguration.h
+  backend/game/JSONGameConfiguration.h
+  backend/game/JSONGameConfiguration.cpp
+  backend/game/LogDecorator.h
+  backend/game/LogDecorator.cpp
+  backend/game/CoutAndLog.h
+  backend/game/CoutAndLog.cpp
   # backend/customer/Customer.h
   # backend/customer/Customer.cpp
   # backend/customer/AverageCustomer.h
@@ -85,4 +97,4 @@ add_executable(main
 target_include_directories(main  PRIVATE backend backend/API backend/game backend/plant backend/customer backend/greenhouse backend/Transaction)
 
 # Link libs
-target_link_libraries(main  PRIVATE oatpp::oatpp)
+target_link_libraries(main  PRIVATE oatpp::oatpp nlohmann_json::nlohmann_json)

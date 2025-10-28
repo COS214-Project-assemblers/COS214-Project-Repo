@@ -1,0 +1,7 @@
+{
+    "plantVarieties": {
+        "succulents": ["cactus", "aloe", "jade"],
+        "flowers": ["rose", "tulip", "daisy"],
+        "trees": ["lemon", "apple", "oak"]
+    }
+}

@@ -24,8 +24,6 @@ void BasicLogger::newLog(string message) {
     if (file) {
         file << logEntry << endl;
     } 
-
-    cout << logEntry << endl;
 }
 
 string BasicLogger::timestamp() {

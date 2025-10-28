@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 add_compile_options(-Wall -Wextra -pedantic)
 
+include (CTest)
+
 # GoogleTest
 include(FetchContent)
 FetchContent_Declare(
@@ -16,8 +18,8 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE) # Windows
 FetchContent_MakeAvailable(googletest)
 
-# Oat++
-# find_package(oatpp 1.4.0 REQUIRED)
+# JSON parsing library https://github.com/nlohmann/json?tab=readme-ov-file#package-managers
+find_package(nlohmann_json 3.10 REQUIRED)
 
 enable_testing()
 
@@ -59,6 +61,37 @@ set(SOURCES
   backend/plant/Tree.cpp
   backend/plant/NotSellable.h
   backend/plant/NotSellable.cpp
+  backend/plant/PlantHealth.h
+  backend/plant/PlantHealth.cpp
+  backend/greenhouse/Greenhouse.h
+  backend/greenhouse/Greenhouse.cpp
+  backend/greenhouse/Inventory.h
+  backend/greenhouse/Inventory.cpp
+  backend/customer/Customer.h
+  backend/customer/Customer.cpp
+  backend/customer/IgnorantCustomer.h
+  backend/customer/IgnorantCustomer.cpp
+  backend/customer/AverageCustomer.h
+  backend/customer/AverageCustomer.cpp
+  backend/customer/GreenFingerCustomer.h
+  backend/customer/GreenFingerCustomer.cpp
+  backend/customer/CustomerVisitor.h
+  backend/customer/CustomerVisitor.cpp
+  backend/customer/VisitAverageSpendCustomer.h
+  backend/customer/VisitAverageSpendCustomer.cpp
+  backend/customer/VisitBigSpendCustomer.h
+  backend/customer/VisitBigSpendCustomer.cpp
+  backend/customer/VisitLowSpendCustomer.h
+  backend/customer/VisitLowSpendCustomer.cpp
+  backend/game/GameConfiguration.h
+  backend/game/JSONGameConfiguration.h
+  backend/game/JSONGameConfiguration.cpp
+  backend/game/EnvironmentInitializer.h
+  backend/game/EnvironmentInitializer.cpp
+  backend/game/LogDecorator.h
+  backend/game/LogDecorator.cpp
+  backend/game/CoutAndLog.h
+  backend/game/CoutAndLog.cpp
 )
 
 add_executable(g_test
@@ -66,10 +99,16 @@ add_executable(g_test
   ${SOURCES}
 )
 
-# add_executable(main
-#   backend/main.cpp
-#   ${SOURCES}
-# )
+set(MEMORYCHECK_COMMAND "valgrind")
+set(MEMORYCHECK_COMMAND_OPTIONS
+    "--leak-check=full --show-leak-kinds=all --track-origins=yes --error-exitcode=1")
+
+add_custom_target(memcheck
+  COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure --test-action MemCheck
+  DEPENDS g_test
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+  COMMENT "CTest MemCheck (Valgrind) on all tests"
+)
 
 # Includes: add the API dir to both targets
 # target_include_directories(main  PRIVATE backend backend/API backend/game backend/plant backend/customer backend/greenhouse backend/transaction)
@@ -77,7 +116,12 @@ target_include_directories(g_test PRIVATE backend tests backend/API backend/game
 
 # Link libs
 # target_link_libraries(main PRIVATE)
-target_link_libraries(g_test PRIVATE GTest::gtest_main)
+target_link_libraries(g_test PRIVATE GTest::gtest_main nlohmann_json::nlohmann_json)
+
+target_compile_definitions(g_test PRIVATE
+    ROOT_BUILD_DIR="${CMAKE_BINARY_DIR}"
+    ROOT_SOURCE_DIR="${CMAKE_SOURCE_DIR}"
+)
 
 include(GoogleTest)
 gtest_discover_tests(g_test)

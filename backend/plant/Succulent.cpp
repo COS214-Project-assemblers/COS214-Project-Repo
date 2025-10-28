@@ -4,10 +4,14 @@
  */
 
 #include "Succulent.h"
+#include "PlantHealth.h"
+Succulent::Succulent(string variety) : Plant("Succulent", variety) {
+    this->health = new Health(2.0, 2.0, 2.0, 0) ;
+}
 
-Succulent::Succulent(string variety,string difficulty) : Plant("Succulent", variety, difficulty) {}
+Succulent::~Succulent() {
 
-Succulent::~Succulent() {}
+}
 
 Plant* Succulent::clone()
 {

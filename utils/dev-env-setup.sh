@@ -7,6 +7,8 @@ sudo whoami &> /dev/null
 # with default dir (~/oatpp) - $ sudo ./oatpp-install.sh
 # with custom dir OATPP_DIR=custom_dir $ sudo ./oatpp-install.sh
 
+sudo apt-get -y install nlohmann-json3-dev
+
 # Directory where Oat++ will be cloned
 OATPP_DIR="${OATPP_DIR:-$HOME/oatpp}"  # default: ~/oatpp if not set externally
 

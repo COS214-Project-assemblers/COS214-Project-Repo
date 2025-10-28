@@ -2,21 +2,21 @@ services:
   api:
     build:
       context: .
-      dockerfile: config/Dockerfile
+      dockerfile: config/API/Dockerfile
     ports:
       - "8000:8000"
     volumes:
-      - ./config/CMakeLists.txt:/app/CMakeLists.txt:ro
+      - ./config/API/CMakeLists.txt:/app/CMakeLists.txt:ro
       - ./backend:/app/backend
+      - ./config/API/GameConfig.json:/app/GameConfig.json:ro
     env_file:
-      - config/.env
+      - config/API/.env
     command: [/usr/local/bin/dev.sh]
 
-  nginx:
-    image: nginx:latest
-    container_name: nginx_server
+  greenfingers-react:
+    container_name: react-x-nginx
+    build: 
+      context: .
+      dockerfile: config/frontend/Dockerfile
     ports:
       - "8080:80"
-    volumes:
-      - ./frontend:/usr/share/nginx/html:ro
-      - ./config/default.conf:/etc/nginx/conf.d/default.conf:ro

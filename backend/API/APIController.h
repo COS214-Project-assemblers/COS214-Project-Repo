@@ -17,6 +17,7 @@
 #include "NewGameOption.h"
 #include "ContinueGameOption.h"
 #include "BasicLogger.h"
+#include "API.h"
 
 #include <stdexcept>
 #include <memory>
@@ -31,19 +32,23 @@
  */
 class APIController : public oatpp::web::server::api::ApiController {
   private:
-    Game* game;
+  /**
+   * @brief Via this member variable, access to private members of the API class (such as "game" member var)
+   *  is obtained
+   */
+    API& apiToControl;
 public:
   /**
    * @brief Constructor with object mapper.
    * @param apiContentMappers - mappers used to serialize/deserialize DTOs.
    */
-  APIController(std::shared_ptr<oatpp::web::mime::ContentMappers>& apiContentMappers, Game* game)
-    : oatpp::web::server::api::ApiController(apiContentMappers), game(game)
+  APIController(std::shared_ptr<oatpp::web::mime::ContentMappers>& apiContentMappers, API& inApi)
+    : oatpp::web::server::api::ApiController(apiContentMappers), apiToControl(inApi)
   {}
 
-  static std::shared_ptr<APIController> createShared(Game* game) {
+  static std::shared_ptr<APIController> createShared(API& inApi) {
     OATPP_COMPONENT(std::shared_ptr<oatpp::web::mime::ContentMappers>, apiContentMappers);
-    return std::make_shared<APIController>(apiContentMappers, game);
+    return std::make_shared<APIController>(apiContentMappers, inApi);
   }
 public:
   
@@ -68,7 +73,7 @@ public:
      */
     PlayerMenu* playerMenu = new PlayerMenu();
     BasicLogger* logger = new BasicLogger();
-    NewGameOption* newGame = new NewGameOption(game, logger);
+    NewGameOption* newGame = new NewGameOption(apiToControl.game, logger);
     
     playerMenu->setMenuOption(newGame);
 
@@ -92,7 +97,59 @@ public:
   }
   
   // Further Endpoints
-  
+
+  ENDPOINT("POST", "/buy-plants", buyPlants, BODY_DTO(oatpp::Object<BuyPlantDTO>, body)) 
+  {
+    /**
+     * Response structure
+     * 
+     * {
+     *  message: <operation-status>,
+     *  statusCode: <HTTP status code, 200/400/500>
+     * }
+     */
+    auto dto = APIDto::createShared();
+
+    // Input validation using the request body DTO
+    if (!body) {
+      dto->statusCode = 400;
+      dto->message = "Request body is required";
+      return createDtoResponse(Status::CODE_400, dto);
+    }
+
+    if (!body->plant || body->plant->empty()) 
+    {
+      dto->statusCode = 400;
+      dto->message = "Plant variety parameter is required in request body";
+      return createDtoResponse(Status::CODE_400, dto);
+    }
+
+    if (!body->numToBuy || *body->numToBuy <= 0) 
+    {
+      dto->statusCode = 400;
+      dto->message = "Number of plants must be a positive integer in request body";
+      return createDtoResponse(Status::CODE_400, dto);
+    }
+
+    try 
+    {
+      // Extract values from the request body DTO
+      std::string plantStr = body->plant->c_str();
+      int numValue = *body->numToBuy;
+      
+      apiToControl.game->buyPlants(plantStr, numValue);
+      
+      dto->statusCode = 200;
+      dto->message = "Successfully bought " + std::to_string(numValue) + " " + plantStr + " plants using cloning";
+      return createDtoResponse(Status::CODE_200, dto);
+    } 
+    catch (const std::exception &e) 
+    {
+      dto->statusCode = 500;
+      dto->message = "Failed to buy plants: " + std::string(e.what());
+      return createDtoResponse(Status::CODE_500, dto);
+    }
+  }
 };
 
 #include OATPP_CODEGEN_END(ApiController) //<-- End Codegen

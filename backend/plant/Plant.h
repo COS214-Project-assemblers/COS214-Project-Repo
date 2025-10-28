@@ -12,6 +12,10 @@
 #include <algorithm>
 #include <iostream>
 
+#include <thread>
+#include <atomic>
+
+class Health ;
 class PlantState;
 class GreenhouseStaff;
 
@@ -20,9 +24,9 @@ using namespace std;
 /**
  * @class Plant
  * @brief Abstract base class representing a plant entity in the greenhouse simulation.
- * 
+ *
  * This class serves as the foundation for all specific plant types (e.g., Succulent, Flower, Tree).
- * It provides common attributes such as category, variety, pricing, and state management, 
+ * It provides common attributes such as category, variety, pricing, and state management,
  * and defines an interface for cloning and observer interaction.
  */
 class Plant
@@ -70,18 +74,25 @@ class Plant
          */
         vector<GreenhouseStaff*> observerList;
 
+        int decayIndex;
+        std::atomic<bool> alive;
+        std::thread thread;
+
+    protected:
         /**
-         * @brief Dificult level of care of plant
-         * Can either be "Easy","Medium","Hard"
-         */
-        std::string difficulty;
+         *  @brief Pointer to the Health component representing the plant’s overall well-being.
+         * */
+        Health* health ;
+
     public:
         /**
          * @brief Constructs a Plant object with the specified category and variety and difficulty.
          * @details Used as a base constructor for all specific Plant subclasses.
          * @param [in] category The general category of the plant.
          * @param [in] variety The specific variety within that category.
-         * @param [in] difficulty The level of care difficulty.
+         * @section memory_management Thread-related Memory Management
+         * The Dynamic Health Attribute should only be Created in the concrete Products
+         * because, the type of plant determines how much water/fertilizer/pruning is required
          */
         Plant(string category, string variety,string difficulty);
 
@@ -94,9 +105,12 @@ class Plant
 
         /**
          * @brief Virtual destructor to ensure proper cleanup in derived classes.
-         */
+         * NOTE - Additional Clean Up functionality for Thread Behaviour:
+         *  - Deletes the dynamically allocated Health object.
+         *  - Safely stops and joins the internal background thread to prevent dangling execution.
+        */
         virtual ~Plant();
-        
+
         /**
          * @brief Creates and returns a clone of the current Plant instance.
          * @details This pure virtual function must be implemented by all derived classes.
@@ -183,10 +197,52 @@ class Plant
         void request();
 
         /**
-         * @brief Getter for difficulty type
-         * @return Level of Difficulty
+         * @brief Starts the background thread that manages the plant’s lifecycle.
+         * Launches the thread running the `run()` method, which periodically decays
+         * the plant's health attributes and triggers observer notifications when care is needed.
          */
-        string getDifficulty();
+        void start()    ;  // start the thread
+
+        /**
+         * @brief Waits for the background thread to finish execution.
+         * Ensures that any running thread is safely joined before object destruction,
+         * preventing undefined behaviour or resource leaks.
+         */
+        void join()     ;   // join the thread
+
+        /**
+         * @brief Signals the plant's background thread to stop execution.
+         * Sets the `alive` flag to false, allowing the `run()` loop to terminate gracefully.
+         *  Typically followed by a call to `join()` to ensure the thread fully exits.
+         */
+        void stop()     ;   // signal the thread to stop
+
+
+        /**
+         * @brief Main loop executed by the plant’s background thread.
+         * Periodically decreases water, fertilizer, and pruning values (simulating decay).
+         * If any health parameter falls below a threshold, notifies greenhouse staff observers.
+         * Continues running until the plant dies or `stop()` is called.
+         */
+        void run()      ;
+
+
+        /**
+         * @brief Retrieves the Health object associated with this plant.
+         * This allows the greenhouse staff to make use of the appropriate handle
+         * functions in the Health Class
+         * @return Pointer to the plant’s Health component.
+         */
+        Health* getHealth()  ;
+
+        /**
+         * @brief Computes the plant’s overall health score.
+         * The score is calculated as the sum of normalized water, fertilizer,
+         * and pruning values. A lower score indicates declining health.
+         * @return A floating-point value representing the plant’s current health.
+         */
+        float healthScore() ;
+
 };
 
 #endif
