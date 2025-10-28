@@ -24,6 +24,7 @@ class AverageCustomerBuilder : public CustomerBuilder
 
         string getRandomElement(const vector<string>& v);
 
+        void buildName(string n);
         void buildIntroDialogue(string i);
         void buildPreferencesDialogue(string p);
         void buildRecommendationsDialogue(string r);

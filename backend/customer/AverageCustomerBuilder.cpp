@@ -25,6 +25,22 @@ string AverageCustomerBuilder::getRandomElement(const vector<string>& v)
     return v[dist(rng)];
 }
 
+void AverageCustomerBuilder::buildName(string n)
+{
+    try 
+    {
+        auto customerTypes = config->getCustomerTypes();
+        auto& averageData = customerTypes["average"];
+        auto& nameOptions = averageData["name"];
+        string selectedName = getRandomElement(nameOptions);
+        customer->setName(selectedName);
+    } 
+    catch (const std::exception& e) 
+    {
+        customer->setName(n);
+    }
+}
+
 void AverageCustomerBuilder::buildIntroDialogue(string i)
 {
     try 

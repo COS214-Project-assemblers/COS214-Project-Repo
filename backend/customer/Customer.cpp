@@ -15,6 +15,11 @@ Customer::~Customer()
 
 }
 
+void Customer::setName(string n)
+{
+    name = n;
+}
+
 void Customer::setIntroductionDialogue(string i)
 {
     introductionDialogue = i;
@@ -97,6 +102,23 @@ string Customer::escapeJsonString(const std::string& input)
 
 string Customer::getStructure()
 {
+    stringstream jsonStream;
+
+    jsonStream << "{";
+    jsonStream << "\"name\":\"" << escapeJsonString(name) << "\",";
+    jsonStream << "\"type\":\"" << escapeJsonString(type) << "\",";
+    jsonStream << "\"introduction\":\"" << escapeJsonString(introductionDialogue) << "\",";
+    jsonStream << "\"preferences\":\"" << escapeJsonString(preferencesDialogue) << "\",";
+    jsonStream << "\"recommendations\":\"" << escapeJsonString(recommendationsDialogue) << "\",";
+    jsonStream << "\"accept\":\"" << escapeJsonString(acceptDialogue) << "\",";
+    jsonStream << "\"reject\":\"" << escapeJsonString(rejectDialogue) << "\",";
+    jsonStream << "\"acceptExit\":\"" << escapeJsonString(acceptExitDialogue) << "\",";
+    jsonStream << "\"rejectExit\":\"" << escapeJsonString(rejectExitDialogue) << "\",";
+    jsonStream << "\"offeredPlants\":" << offeredPlants;
+    jsonStream << "}";
+    
+    jsonStructure = jsonStream.str();
+    
     return jsonStructure;
 }
 

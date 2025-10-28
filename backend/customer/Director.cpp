@@ -22,6 +22,7 @@ Customer* Director::construct() // this is where the parameters of each buildPar
         throw runtime_error("Builder not set in Director");
     }
 
+    builder->buildName("Default Customer");
     builder->buildIntroDialogue("Default Introduction");
     builder->buildPreferencesDialogue("Default Preferences");
     builder->buildRecommendationsDialogue("Default Recommendations");

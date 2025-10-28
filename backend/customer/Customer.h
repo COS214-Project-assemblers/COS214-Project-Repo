@@ -25,6 +25,7 @@ class Customer
         string jsonStructure;
 
         string type;
+        string name;
         string introductionDialogue;
         string preferencesDialogue;
         string recommendationsDialogue;
@@ -58,6 +59,7 @@ class Customer
 
         string escapeJsonString(const string& input);
 
+        void setName(string n);
         void setIntroductionDialogue(string i);
         void setPreferencesDialogue(string p);
         void setRecommendationsDialogue(string r);

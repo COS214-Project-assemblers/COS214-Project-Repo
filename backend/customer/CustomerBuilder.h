@@ -12,6 +12,7 @@ class CustomerBuilder
         CustomerBuilder();
         virtual ~CustomerBuilder();
 
+        virtual void buildName(string n) = 0;
         virtual void buildIntroDialogue(string i) = 0;
         virtual void buildPreferencesDialogue(string p) = 0;
         virtual void buildRecommendationsDialogue(string r) = 0;

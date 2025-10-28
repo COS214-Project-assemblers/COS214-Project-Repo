@@ -10,6 +10,15 @@
     {
         "ignorant": 
         {
+            "name": 
+            [
+                "Forgetful Fred",
+                "Neglectful Nancy", 
+                "Clueless Carl",
+                "Absent-minded Alice",
+                "Distracted Dave"
+            ],
+
             "introduce": 
             [
                 "Heyyy... so... plants don't scream if I forget to water them, right?",
@@ -68,6 +77,15 @@
 
         "average": 
         {
+            "name": 
+            [
+                "Moderate Mike",
+                "Balanced Brenda",
+                "Reasonable Rachel",
+                "Sensible Steve",
+                "Average Amy"
+            ],
+
             "introduce": 
             [
                 "Hey there! My house is half jungle, half chaos — and I love it!",
@@ -126,6 +144,14 @@
 
         "greenfinger": 
         {
+            "name": 
+            [
+                "Expert Evelyn",
+                "Master Gardener Greg",
+                "Plant Professor Pete",
+                "Botanical Boss Brenda",
+                "Green Thumb Theo"
+            ],
             "introduce": 
             [
                 "Salutations! The legend of chlorophyll welcomes you!",
