@@ -13,6 +13,7 @@
 
 #include <vector>
 #include <string>
+#include <algorithm>
 
 class Plant;
 class Customer;
@@ -20,6 +21,8 @@ class Customer;
 class Manager{
     private:
         SalesFloor& floor;///<Reference to salesFloor object that is managed by the Manager.
+        Ledger ledger;
+        TransactionHistory hist;
     public:
         /**
          * @brief Constructs a Manager associated with a given SalesFloor.
@@ -30,12 +33,6 @@ class Manager{
          * @brief Deafult destructer
          */
         ~Manager()=default;
-        /**
-         * @brief Builds a list of plant offers based on this customer.
-         * @param cust The customer for whom you are creating the offer.
-         * @return A vector of Plant ptrs represnting the reccomended plants.
-         */
-        std::vector<Plant*> buildOffer(const Customer& cust);
         /**
          * @brief Presents the builded offer of plants.
          * @param cust Reference to the customer being created.

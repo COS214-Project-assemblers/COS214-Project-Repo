@@ -2,7 +2,7 @@ FROM ubuntu:24.04
 
 # install build tools
 RUN apt-get update && \
-    apt-get install -y cmake build-essential git entr nlohmann-json3-dev
+    apt-get install -y cmake build-essential git entr nlohmann-json3-dev libwebsocketpp-dev libboost-all-dev
 
 # clone oatpp modules
 RUN git clone https://github.com/oatpp/oatpp.git /oatpp && cd /oatpp && cmake . && make install

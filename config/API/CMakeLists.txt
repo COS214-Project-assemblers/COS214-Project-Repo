@@ -12,6 +12,9 @@ find_package(oatpp 1.4.0 REQUIRED)
 # JSON Parsing
 find_package(nlohmann_json 3.10 REQUIRED)
 
+find_package(Boost REQUIRED COMPONENTS system)
+find_path(WEBSOCKETPP_INCLUDE_DIR websocketpp/config/asio_no_tls.hpp REQUIRED)
+
 set(SOURCES
   backend/API/APIDto.h
   backend/API/APIController.h
@@ -20,6 +23,7 @@ set(SOURCES
   backend/API/APIComponent.cpp
   backend/API/API.h
   backend/API/API.cpp
+  backend/WS/GreenSock.cpp
   backend/game/Game.cpp
   backend/game/Game.h
   backend/game/MenuOption.cpp
@@ -61,6 +65,8 @@ set(SOURCES
   backend/plant/Succulent.cpp
   backend/plant/Tree.h
   backend/plant/Tree.cpp
+  backend/plant/PlantHealth.h
+  backend/plant/PlantHealth.cpp
   backend/plant/NotSellable.h
   backend/plant/NotSellable.cpp
   backend/greenhouse/Greenhouse.h
@@ -70,6 +76,7 @@ set(SOURCES
   backend/game/GameConfiguration.h
   backend/game/JSONGameConfiguration.h
   backend/game/JSONGameConfiguration.cpp
+<<<<<<< HEAD:config/CMakeLists.txt
   backend/customer/Customer.h
   backend/customer/Customer.cpp
   backend/customer/AverageCustomer.h
@@ -88,6 +95,22 @@ set(SOURCES
   backend/customer/AverageCustomerCreator.cpp
   backend/customer/GreenFingerCustomerCreator.h
   backend/customer/GreenFingerCustomerCreator.cpp
+=======
+  backend/game/LogDecorator.h
+  backend/game/LogDecorator.cpp
+  backend/game/CoutAndLog.h
+  backend/game/CoutAndLog.cpp
+  # backend/customer/Customer.h
+  # backend/customer/Customer.cpp
+  # backend/customer/AverageCustomer.h
+  # backend/customer/AverageCustomer.cpp
+  # backend/customer/IgnorantCustomer.h
+  # backend/customer/IgnorantCustomer.cpp
+  # backend/customer/GreenFingerCustomer.h
+  # backend/customer/GreenFingerCustomer.cpp
+  # backend/customer/CustomerVisitor.h
+  # backend/customer/CustomerVisitor.cpp
+>>>>>>> megan-visitor:config/API/CMakeLists.txt
 )
 
 add_executable(main
@@ -96,7 +119,7 @@ add_executable(main
 )
 
 # Includes: add the API dir to both targets
-target_include_directories(main  PRIVATE backend backend/API backend/game backend/plant backend/customer backend/greenhouse backend/Transaction)
+target_include_directories(main  PRIVATE ${WEBSOCKETPP_INCLUDE_DIR} backend backend/API backend/WS backend/game backend/plant backend/customer backend/greenhouse backend/Transaction)
 
 # Link libs
-target_link_libraries(main  PRIVATE oatpp::oatpp nlohmann_json::nlohmann_json)
+target_link_libraries(main  PRIVATE oatpp::oatpp nlohmann_json::nlohmann_json Boost::system)

@@ -6,6 +6,7 @@ void WaterStaff::update(string &careType, Plant *plant) {
     if (careType == "water") {
         std::cout << "WaterStaff: Watering " << plant->getPlantVariety() << " (" << plant->getPlantCategory() << ")...\n";
         plant->setState(new NotSellable()); // or progress toward Sellable
+        plant->getHealth()->handleWater() ;
     }
 }
 

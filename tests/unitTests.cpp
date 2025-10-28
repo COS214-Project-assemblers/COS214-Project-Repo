@@ -10,6 +10,9 @@
 #include "PlayerMenu.h"
 #include "MenuOption.h"
 #include "BasicLogger.h"
+#include "PlantHealth.h"
+#include "Plant.h"
+#include "Succulent.h"
 #include "EnvironmentInitializer.h"
 #include "PlantCreator.h"
 #include "SucculentCreator.h"
@@ -17,9 +20,37 @@
 #include "TreeCreator.h"
 #include "Plant.h"
 
+TEST(TestSuiteName, TestName) {
+    // Setup
+    
+    Health h(1.0f, 1.0f, 1.0f, 0);
+
+    // Action
+    h.decay(0);
+
+    // Check results
+    EXPECT_LT(h.healthScore(), 3.0f);  // after decay, total health should drop (should be Less Than (LT))
+}
+
+TEST(PlantDynamicTest, HealthChangesOverTime) {
+    Plant* myPlant = new Succulent("Aloe");
+
+    float initialScore = myPlant->healthScore();
+
+    myPlant->start();
+    std::this_thread::sleep_for(std::chrono::seconds(10)); // let decay happen
+    myPlant->stop(); // force the thread to stop
+    myPlant->join();
+
+    float laterScore = myPlant->healthScore();
+
+    EXPECT_LT(laterScore, initialScore) << "Health should decay over time!";
+    delete myPlant;
+}
+
 TEST(GameCreationTests, NewGameOptionExecutesProperly) {
     // Set up environment
-    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
     Game* game = new Game(configPath); // VSCode will shout, dont worry
     PlayerMenu* playerMenu = new PlayerMenu();
     BasicLogger* logger = new BasicLogger();
@@ -293,7 +324,7 @@ TEST(PlantFactoryTests, ComprehensiveFactoryAndPrototypeIntegration)
 }
 
 TEST(GameCreationTests, TestFactoriesNotNull) {
-    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
     Game* game = new Game(configPath); 
     PlayerMenu* playerMenu = new PlayerMenu();
     BasicLogger* logger = new BasicLogger();
@@ -315,7 +346,7 @@ TEST(GameCreationTests, TestFactoriesNotNull) {
 }
 
 TEST(GameCreationTests, TestFactoriesPlantCreation) {
-    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
     Game* game = new Game(configPath); 
     PlayerMenu* playerMenu = new PlayerMenu();
     BasicLogger* logger = new BasicLogger();
@@ -342,7 +373,11 @@ TEST(GameTests, BuyPlantsFunctionality)
 {
     std::cout << "\n=== Testing Buy Plants Functionality ===" << std::endl;
     
+<<<<<<< HEAD
     std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+=======
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
+>>>>>>> megan-visitor
     Game* game = new Game(configPath);
     game->createNewGame();
     
@@ -366,7 +401,7 @@ TEST(GameTests, BuyPlantsErrorCases)
 {
     std::cout << "\n=== Testing Buy Plants Error Cases ===" << std::endl;
     
-    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
     Game* game = new Game(configPath);
     game->createNewGame();
     
@@ -391,7 +426,7 @@ TEST(GameTests, BuyPlantsFactoryMethodIntegration)
 {
     std::cout << "\n=== Testing Factory Method Integration ===" << std::endl;
     
-    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
     Game* game = new Game(configPath);
     game->createNewGame();
     
@@ -416,7 +451,7 @@ TEST(GameTests, PlantVarietyMapping)
 {
     std::cout << "\n=== Testing Plant Variety Mapping ===" << std::endl;
     
-    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/GameConfig.json";
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
     Game* game = new Game(configPath);
     
     map<string, vector<string>> varieties = game->getAvailablePlantVarieties();
@@ -443,6 +478,7 @@ TEST(GameTests, PlantVarietyMapping)
     
     delete game;
 }
+<<<<<<< HEAD
 
 TEST(CustomerTests, AddCustomersFunctionality)
 {
@@ -560,3 +596,5 @@ TEST(CustomerTests, GetAvailableCustomerTypes)
     
     delete game;
 }
+=======
+>>>>>>> megan-visitor
