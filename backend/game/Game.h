@@ -123,21 +123,16 @@ class Game {
         map<string, vector<string>> getAvailablePlantVarieties();
 
         /**
-         * @brief Creates and adds customers to the game
-         * @param customerType The type of customer to add ("ignorant", "average", "greenfinger")
-         * @param num The number of customers to add
-         * @throws runtime_error if customer creation fails
-         */
-        void addCustomers(string customerType, int num);
-
-        /**
          * @brief Getter for customers vector
          * @return Vector of Customer pointers
          */
         vector<Customer*> getCustomers();
 
         /**
-         * @brief Creates customer factories based on configuration
+         * @brief Creates and adds customers to the game
+         * @param type The type of customer to add ("ignorant", "average", "greenfinger")
+         * @param num The number of customers to add
+         * @throws runtime_error if customer creation fails
          */
         void createCustomers(string type, int num);
 
@@ -146,6 +141,12 @@ class Game {
          * @return Map of customer types to their definitions
          */
         map<string, map<string, vector<string>>> getAvailableCustomerTypes();
+
+        /**
+         * @brief Get all customers as a JSON array string
+         * @return JSON string containing all customers
+         */
+        string getCustomersAsJson();
 };
 
 #endif // GAME_HDR

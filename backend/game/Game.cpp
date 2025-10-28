@@ -263,8 +263,6 @@ void Game::createCustomers(string type, int num)
 
     Inventory* allPlants = greenhouse->getInventory();
 
-    // Make a visitor object so that the visitor can be passed to the construct method of the relevant builder
-
     Director director;
 
     CustomerBuilder* builder = nullptr;
@@ -324,4 +322,24 @@ vector<Customer*> Game::getCustomers()
 map<string, map<string, vector<string>>> Game::getAvailableCustomerTypes()
 {
     return config->getCustomerTypes();
+}
+
+string Game::getCustomersAsJson()
+{
+    stringstream jsonArray;
+    jsonArray << "[";
+    
+    for (size_t i = 0; i < customers.size(); ++i) 
+    {
+        if (i > 0) 
+        {
+            jsonArray << ",";
+        }
+
+        jsonArray << customers[i]->getStructure();
+    }
+    
+    jsonArray << "]";
+    
+    return jsonArray.str();
 }
