@@ -3,6 +3,10 @@
 
 #include "Customer.h"
 #include "CustomerVisitor.h"
+#include "JSONGameConfiguration.h"
+
+#include <random>
+#include <chrono>
 
 class CustomerBuilder
 {

@@ -1,10 +1,10 @@
-#ifndef GREENFINGERCUSTOMERBUILDER_H
-#define GREENFINGERCUSTOMERBUILDER_H
+#ifndef IGNORANTCUSTOMERBUILDER_H
+#define IGNORANTCUSTOMERBUILDER_H
 
-#include "GreenFingerCustomer.h"
 #include "CustomerBuilder.h"
+#include "IgnorantCustomer.h"
 
-class GreenFingerCustomerBuilder: public CustomerBuilder
+class IgnorantCustomerBuilder: public CustomerBuilder
 {
     private:
         JSONGameConfiguration* config;
@@ -15,8 +15,8 @@ class GreenFingerCustomerBuilder: public CustomerBuilder
         mt19937 rng;
 
     public:
-        GreenFingerCustomerBuilder(JSONGameConfiguration* config);
-        ~GreenFingerCustomerBuilder();
+        IgnorantCustomerBuilder(JSONGameConfiguration* config);
+        ~IgnorantCustomerBuilder();
 
         string getRandomElement(const vector<string>& v);
 

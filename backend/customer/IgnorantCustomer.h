@@ -17,9 +17,6 @@
  */
 class IgnorantCustomer : public Customer
 {
-    private:
-        string type = "ignorant";
-
     public:
         /**
          * @brief Constructs a new IgnorantCustomer object.

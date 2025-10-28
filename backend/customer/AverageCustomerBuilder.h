@@ -3,10 +3,6 @@
 
 #include "AverageCustomer.h"
 #include "CustomerBuilder.h"
-#include "JSONGameConfiguration.h"
-
-#include <random>
-#include <chrono>
 
 class AverageCustomerBuilder : public CustomerBuilder
 {
