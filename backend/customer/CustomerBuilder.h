@@ -20,6 +20,8 @@ class CustomerBuilder
         virtual void buildAcceptExitDialogue() = 0;
         virtual void buildRejectExitDialogue() = 0;
 
+        Customer* getCustomer();
+
         // this is maybe where the visitor comes to recommend plants to the customer
         // needs to build the plants part of the jsonStructure of the Customer
         virtual void accept(CustomerVisitor& v) = 0;

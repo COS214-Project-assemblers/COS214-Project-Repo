@@ -35,6 +35,15 @@ class Customer
     private:
        string jsonStructure;
 
+       string introductionDialogue;
+       string preferencesDialogue;
+       string recommendationsDialogue;
+       string acceptDialogue;
+       string rejectDialogue;
+       string acceptExitDialogue;
+       string rejectExitDialogue;
+       string plantOptions;
+
     protected:
         /**
          * @brief List of plants offered by the visitor

@@ -12,3 +12,8 @@ CustomerBuilder::~CustomerBuilder()
         delete customer;
     }
 }
+
+Customer* CustomerBuilder::getCustomer()
+{
+    return customer;
+}
