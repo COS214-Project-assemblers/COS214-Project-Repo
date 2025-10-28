@@ -37,12 +37,8 @@ void testGreenSock() {
 void startThreads() {
     std::thread gameApi(startGameApi);
     std::thread greenSock(startGreenSock);
-    std::thread testSocket1(testGreenSock);
-    std::thread testSocket2(testGreenSock);
 
     gameApi.join();
-    testSocket1.join();
-    testSocket2.join();
     greenSock.join();
 }
 

@@ -1,6 +1,9 @@
 #include "GreenSock.h"
 
 GreenSock::GreenSock() {
+  s.clear_access_channels(websocketpp::log::alevel::all);
+  s.set_access_channels(websocketpp::log::alevel::connect);
+  s.set_access_channels(websocketpp::log::alevel::disconnect);
   s.init_asio();
   onMessage();
   onOpen();
@@ -23,7 +26,10 @@ void GreenSock::onMessage() {
 
 void GreenSock::onClose() {
   s.set_close_handler([&](websocketpp::connection_hdl) {
-    std::cout << "close\n";
+    if (client_hdl) {
+      delete client_hdl;
+      client_hdl = NULL;
+    }
   });
 }
 
@@ -34,6 +40,7 @@ void GreenSock::onFail() {
 }
 
 void GreenSock::sendMessage(std::string message) {
+    std::lock_guard<std::mutex> lock(mx); // Lock gets released when method returns (lock_guard), lock ensures serial sending of messages
     if (client_hdl) {
       websocketpp::connection_hdl hdl_copy = *client_hdl;
       std::string msg_copy = message;
@@ -53,4 +60,10 @@ void GreenSock::bootstrap() {
     s.listen(8001);
     s.start_accept();
     s.run();
+}
+
+GreenSock::~GreenSock() {
+  if (client_hdl != nullptr) {
+    delete client_hdl;
+  }
 }
