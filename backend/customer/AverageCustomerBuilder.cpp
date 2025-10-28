@@ -33,6 +33,7 @@ void AverageCustomerBuilder::buildIntroDialogue(string i)
         auto& averageData = customerTypes["average"];
         auto& introOptions = averageData["introduce"];
         string selectedDialogue = getRandomElement(introOptions);
+
         customer->setIntroductionDialogue(selectedDialogue);
     } 
     catch (const exception& e) 
@@ -49,6 +50,7 @@ void AverageCustomerBuilder::buildPreferencesDialogue(string p)
         auto& averageData = customerTypes["average"];
         auto& prefOptions = averageData["preferences"];
         string selectedDialogue = getRandomElement(prefOptions);
+
         customer->setPreferencesDialogue(selectedDialogue);
     } 
     catch (const exception& e) 
@@ -65,6 +67,7 @@ void AverageCustomerBuilder::buildRecommendationsDialogue(string r)
         auto& averageData = customerTypes["average"];
         auto& recOptions = averageData["recommendations"];
         string selectedDialogue = getRandomElement(recOptions);
+
         customer->setRecommendationsDialogue(selectedDialogue);
     } 
     catch (const exception& e) 
@@ -81,6 +84,7 @@ void AverageCustomerBuilder::buildAcceptDialogue(string a)
         auto& averageData = customerTypes["average"];
         auto& acceptOptions = averageData["accept"];
         string selectedDialogue = getRandomElement(acceptOptions);
+
         customer->setAcceptDialogue(selectedDialogue);
     } 
     catch (const std::exception& e) 
@@ -97,6 +101,7 @@ void AverageCustomerBuilder::buildRejectDialogue(string r)
         auto& averageData = customerTypes["average"];
         auto& rejectOptions = averageData["reject"];
         string selectedDialogue = getRandomElement(rejectOptions);
+
         customer->setRejectDialogue(selectedDialogue);
     } 
     catch (const exception& e) 
@@ -113,6 +118,7 @@ void AverageCustomerBuilder::buildAcceptExitDialogue(string a)
         auto& averageData = customerTypes["average"];
         auto& acceptExitOptions = averageData["acceptExit"];
         string selectedDialogue = getRandomElement(acceptExitOptions);
+
         customer->setAcceptExitDialogue(selectedDialogue);
     } 
     catch (const exception& e) 
@@ -129,6 +135,7 @@ void AverageCustomerBuilder::buildRejectExitDialogue(string r)
         auto& averageData = customerTypes["average"];
         auto& rejectExitOptions = averageData["rejectExit"];
         string selectedDialogue = getRandomElement(rejectExitOptions);
+        
         customer->setRejectExitDialogue(selectedDialogue);
     } 
     catch (const exception& e) 

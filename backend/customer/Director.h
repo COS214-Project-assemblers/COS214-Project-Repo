@@ -12,6 +12,7 @@ class Director
         Director();
         ~Director();
 
+        void setBuilder(CustomerBuilder* b);
         Customer* construct();
 };
 
