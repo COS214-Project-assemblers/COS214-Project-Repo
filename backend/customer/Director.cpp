@@ -15,7 +15,7 @@ void Director::setBuilder(CustomerBuilder* b)
     builder = b;
 }
 
-void Director::construct(CustomerVisitor& v)
+Customer* Director::construct(CustomerVisitor& v)
 {
     if (!builder) 
     {
@@ -34,6 +34,8 @@ void Director::construct(CustomerVisitor& v)
     vector<Plant*> recommendedPlants = builder->accept(v);
     
     builder->buildPlantOptions(recommendedPlants);
+
+    return builder->getCustomer();
 }
 
 string Director::getCustomerJsonStructure()

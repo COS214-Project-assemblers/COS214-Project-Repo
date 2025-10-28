@@ -14,7 +14,7 @@ class Director
         ~Director();
 
         void setBuilder(CustomerBuilder* b);
-        void construct(CustomerVisitor& v);
+        Customer* construct(CustomerVisitor& v);
 
         string getCustomerJsonStructure();
 };

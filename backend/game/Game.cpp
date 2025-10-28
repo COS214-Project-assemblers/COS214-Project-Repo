@@ -306,10 +306,9 @@ void Game::createCustomers(string type, int num)
         }
         
         director.setBuilder(builder);
-        director.construct(*visitor);
+        Customer* customer = director.construct(*visitor);
         
-        // customers.push_back(customer);
-        // currently the construct function doesn't return a Customer*
+        customers.push_back(customer);
         
         delete builder;
     }
