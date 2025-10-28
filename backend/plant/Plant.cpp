@@ -76,6 +76,11 @@ Plant::~Plant() {
     join() ;
 }
 
+string Plant::getCareLevel()
+{
+    return careLevel;
+}
+
 string Plant::getPlantCategory()
 {
     return plantCategory;

@@ -23,6 +23,7 @@ class APIDto : public oatpp::DTO {
   
   DTO_FIELD(Int32, statusCode); // HTTP status code
   DTO_FIELD(String, message); // JSON message
+  DTO_FIELD(Any, data);
   
 };
 
@@ -50,6 +51,15 @@ class AddCustomerDTO : public oatpp::DTO
   
   DTO_FIELD(String, customerType);  // Customer type to add
   DTO_FIELD(Int32, numToAdd);       // Number of customers to add
+};
+
+class CustomerResponseDTO : public oatpp::DTO 
+{
+  DTO_INIT(CustomerResponseDTO, DTO)
+  
+  DTO_FIELD(Int32, statusCode);
+  DTO_FIELD(String, message);
+  DTO_FIELD(String, customersJson); // Specific field for customer JSON
 };
 
 #include OATPP_CODEGEN_END(DTO)
