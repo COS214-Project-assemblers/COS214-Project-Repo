@@ -1,0 +1,33 @@
+{
+  "name": "cos214-project",
+  "version": "1.0.0",
+  "main": "frontend/src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack && babel backend/server.js -d backend/dist",
+    "start": "npm run build && node backend/dist/server.js"
+  },
+  "author": "33-24565068",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "css-loader": "^7.1.2",
+    "express": "^5.1.0",
+    "node-polyfill-webpack-plugin": "^4.1.0",
+    "path": "^0.12.7",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "style-loader": "^4.0.0",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.28.3",
+    "@babel/core": "^7.28.4",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-react": "^7.27.1",
+    "babel-loader": "^10.0.0",
+    "webpack": "^5.102.0",
+    "webpack-cli": "^6.0.1"
+  }
+}
