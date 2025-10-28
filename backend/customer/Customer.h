@@ -56,7 +56,7 @@ class Customer
          */
         string getType();
 
-        string Customer::escapeJsonString(const string& input);
+        string escapeJsonString(const string& input);
 
         void setIntroductionDialogue(string i);
         void setPreferencesDialogue(string p);
