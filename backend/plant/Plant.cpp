@@ -26,6 +26,7 @@ Plant::Plant(string category, string variety)
 {
     this->plantCategory = category;
     this->plantVariety = variety;
+    // this->difficulty=diffictlty;
 
     this->careType = "";
     this->plantState = new NotSellable();
