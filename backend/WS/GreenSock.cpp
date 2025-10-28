@@ -34,15 +34,19 @@ void GreenSock::onFail() {
 }
 
 void GreenSock::sendMessage(std::string message) {
-  if (client_hdl) {
-    websocketpp::connection_hdl hdl_copy = *client_hdl;
-    std::string msg_copy = message;
-    s.get_io_service().post([this, hdl_copy, msg_copy]() {
-        this->s.send(hdl_copy, msg_copy, websocketpp::frame::opcode::text);
-    });
-  } else {
-    std::cout << "Client not yet connected\n";
-  }
+    if (client_hdl) {
+      websocketpp::connection_hdl hdl_copy = *client_hdl;
+      std::string msg_copy = message;
+      s.get_io_service().post([this, hdl_copy, msg_copy]() {
+          websocketpp::lib::error_code ec;
+          this->s.send(hdl_copy, msg_copy, websocketpp::frame::opcode::text, ec);
+          if (ec == websocketpp::error::bad_connection) {
+            // Do nothing
+          }
+      });
+    } else {
+      std::cout << "Client not yet connected\n";
+    }
 }
 
 void GreenSock::bootstrap() {

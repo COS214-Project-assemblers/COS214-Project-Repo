@@ -14,10 +14,10 @@ services:
       - config/API/.env
     command: [/usr/local/bin/dev.sh]
 
-  greenfingers-react:
-    container_name: react-x-nginx
-    build: 
-      context: .
-      dockerfile: config/frontend/Dockerfile
-    ports:
-      - "8080:80"
+  # greenfingers-react:
+  #   container_name: react-x-nginx
+  #   build: 
+  #     context: .
+  #     dockerfile: config/frontend/Dockerfile
+  #   ports:
+  #     - "8080:80"
