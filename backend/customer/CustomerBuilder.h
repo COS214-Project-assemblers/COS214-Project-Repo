@@ -12,13 +12,15 @@ class CustomerBuilder
         CustomerBuilder();
         virtual ~CustomerBuilder();
 
-        virtual void buildIntroDialogue() = 0;
-        virtual void buildPreferencesDialogue() = 0;
-        virtual void buildRecommendationsDialogue() = 0;
-        virtual void buildAcceptDialogue() = 0;
-        virtual void buildRejectDialogue() = 0;
-        virtual void buildAcceptExitDialogue() = 0;
-        virtual void buildRejectExitDialogue() = 0;
+        virtual void buildIntroDialogue(string i) = 0;
+        virtual void buildPreferencesDialogue(string p) = 0;
+        virtual void buildRecommendationsDialogue(string r) = 0;
+        virtual void buildAcceptDialogue(string a) = 0;
+        virtual void buildRejectDialogue(string r) = 0;
+        virtual void buildAcceptExitDialogue(string a) = 0;
+        virtual void buildRejectExitDialogue(string r) = 0;
+        
+        virtual void buildPlantOptions(vector<Plant*> p) = 0;
 
         Customer* getCustomer();
 

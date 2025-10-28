@@ -11,9 +11,8 @@ class Director
     public:
         Director();
         ~Director();
-        
+
         Customer* construct();
-        string getProduct();
 };
 
 #endif
