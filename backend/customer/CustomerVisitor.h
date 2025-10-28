@@ -11,10 +11,10 @@
 class Inventory;
 class Plant;
 
-//forward declarations of concrete customers
-class IgnorantCustomer;
-class AverageCustomer;
-class GreenFingerCustomer;
+//forward declarations of concrete builders
+class AverageCustomerBuilder;
+class IgnorantCustomerBuilder;
+class GreenFingerCustomerBuilder;
 /**
  * @class CustomerVisitor
  * @brief This is the abstract base class for defining operations for the concreteVisitors
@@ -62,20 +62,20 @@ class CustomerVisitor{
         const std::vector<Plant*>& getOffer()const;
     //visitors
         /**
-         * @brief Visit an IgnorantCustmer object.
-         * @param cust Reference to the IgnorantCustomer being visited.
+         * @brief Visit an IgnorantCustomerBuilder object.
+         * @param builder Reference to the IgnorantCustomerBuilder being visited.
          */
-        virtual void visitIgnorantCustomer(IgnorantCustomer& cust)=0;
+        virtual vector<Plant*> visit(IgnorantCustomerBuilder& builder)=0;
         /**
-         * @brief Visit an AverageCustomer object.
-         * @param cust Reference to the AverageCustomer being visited.
+         * @brief Visit an AverageCustomerBuilder object.
+         * @param builder Reference to the AverageCustomerBuilder being visited.
          */
-        virtual void visitAverageCustomer(AverageCustomer& cust)=0;
+        virtual vector<Plant*> visit(AverageCustomerBuilder& builder)=0;
         /**
-         * @brief Visit an GreenFingerCustomer object.
-         * @param cust Reference to the GreenFingerCustomer being visited.
+         * @brief Visit a GreenFingerCustomerBuilder object.
+         * @param builder Reference to the GreenFingerCustomerBuilder being visited.
          */
-        virtual void visitGreenfingerCustomer(GreenFingerCustomer& cust)=0;
+        virtual vector<Plant*> visit(GreenFingerCustomerBuilder& builder)=0;
 };      
 
 #endif

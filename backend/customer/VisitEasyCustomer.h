@@ -22,20 +22,20 @@ class VisitEasyCustomer:public CustomerVisitor{
          */
         ~VisitEasyCustomer()=default;
         /**
-         * @brief Visit ignorant cust
-         * @param cust Customer to visit
+         * @brief Visit IgnorantCustomerBuilder
+         * @param builder Builder to visit
          */
-        void visitIgnorantCustomer(IgnorantCustomer& cust)override;
+        vector<Plant*> visit(IgnorantCustomerBuilder& builder);
         /**
-         * @brief Visit Average cust
-         * @param cust Customer to visit
+         * @brief Visit AverageCustomerBuilder
+         * @param builder Builder to visit
          */
-        void visitAverageCustomer(AverageCustomer& cust)override;
+        vector<Plant*> visit(AverageCustomerBuilder& builder);
         /**
-         * @brief Visit greenFinger cust
-         * @param cust Customer to visit
+         * @brief Visit GreenFingerCustomerBuilder
+         * @param builder Builder to visit
          */
-        void visitGreenfingerCustomer(GreenFingerCustomer& cust)override;
+        vector<Plant*> visit(GreenFingerCustomerBuilder& builder);
 };      
 
 #endif

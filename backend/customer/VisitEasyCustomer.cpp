@@ -3,7 +3,8 @@
 
 VisitEasyCustomer::VisitEasyCustomer(const Inventory& inv):CustomerVisitor(inv){}
 
-void VisitEasyCustomer::visitIgnorantCustomer(IgnorantCustomer& cust){
+vector<Plant*> VisitEasyCustomer::visit(IgnorantCustomerBuilder& builder)
+{
     std::vector<Plant*> easy=inv.findByDifficulty("Easy");
     std::vector<Plant*> med=inv.findByDifficulty("Medium");
     std::vector<Plant*> hard=inv.findByDifficulty("Hard");
@@ -11,9 +12,12 @@ void VisitEasyCustomer::visitIgnorantCustomer(IgnorantCustomer& cust){
     addRandomPlants(med,1,offer);
     addRandomPlants(hard,1,offer);
     finalizeOffer();
+
+    return offer;
 }
 
-void VisitEasyCustomer::visitAverageCustomer(AverageCustomer& cust){
+vector<Plant*> VisitEasyCustomer::visit(AverageCustomerBuilder& builder)
+{
     std::vector<Plant*> easy=inv.findByDifficulty("Easy");
     std::vector<Plant*> med=inv.findByDifficulty("Medium");
     std::vector<Plant*> hard=inv.findByDifficulty("Hard");
@@ -21,12 +25,17 @@ void VisitEasyCustomer::visitAverageCustomer(AverageCustomer& cust){
     addRandomPlants(med,2,offer);
     addRandomPlants(hard,1,offer);
     finalizeOffer();
+
+    return offer;
 }
 
-void VisitEasyCustomer::visitGreenfingerCustomer(GreenFingerCustomer& cust){
+vector<Plant*> VisitEasyCustomer::visit(GreenFingerCustomerBuilder& builder)
+{
     std::vector<Plant*> easy=inv.findByDifficulty("Easy");
     std::vector<Plant*> hard=inv.findByDifficulty("Hard");
     addRandomPlants(easy,4,offer);
     addRandomPlants(hard,1,offer);
     finalizeOffer();
+
+    return offer;
 }
