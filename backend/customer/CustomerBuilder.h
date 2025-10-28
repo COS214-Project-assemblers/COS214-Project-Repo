@@ -26,6 +26,8 @@ class CustomerBuilder
 
         Customer* getCustomer();
 
+        // The visitor will visit this specific builder type
+        // then it will return the Plants that the visitor want to offer to the customer
         virtual vector<Plant*> accept(CustomerVisitor& visitor) = 0;
 };
 

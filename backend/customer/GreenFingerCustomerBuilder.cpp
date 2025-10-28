@@ -1,19 +1,24 @@
-#include "AverageCustomerBuilder.h"
+#include "GreenFingerCustomerBuilder.h"
 
-AverageCustomerBuilder::AverageCustomerBuilder(JSONGameConfiguration* c) : CustomerBuilder()
+GreenFingerCustomerBuilder::GreenFingerCustomerBuilder(JSONGameConfiguration* c) : CustomerBuilder()
 {
-    customer = new AverageCustomer();
+    customer = new GreenFingerCustomer();
     config = c;
 
     rng.seed(chrono::system_clock::now().time_since_epoch().count());
 }
 
-AverageCustomerBuilder::~AverageCustomerBuilder()
+GreenFingerCustomerBuilder::~GreenFingerCustomerBuilder()
 {
     
 }
 
-string AverageCustomerBuilder::getRandomElement(const vector<string>& v) 
+GreenFingerCustomerBuilder::~GreenFingerCustomerBuilder()
+{
+    
+}
+
+string GreenFingerCustomerBuilder::getRandomElement(const vector<string>& v) 
 {
     if (v.empty()) 
     {
@@ -25,13 +30,13 @@ string AverageCustomerBuilder::getRandomElement(const vector<string>& v)
     return v[dist(rng)];
 }
 
-void AverageCustomerBuilder::buildName(string n)
+void GreenFingerCustomerBuilder::buildName(string n)
 {
     try 
     {
         auto customerTypes = config->getCustomerTypes();
-        auto& averageData = customerTypes["average"];
-        auto& nameOptions = averageData["name"];
+        auto& GreenFingerData = customerTypes["greenfinger"];
+        auto& nameOptions = GreenFingerData["name"];
         string selectedName = getRandomElement(nameOptions);
         customer->setName(selectedName);
     } 
@@ -41,13 +46,13 @@ void AverageCustomerBuilder::buildName(string n)
     }
 }
 
-void AverageCustomerBuilder::buildIntroDialogue(string i)
+void GreenFingerCustomerBuilder::buildIntroDialogue(string i)
 {
     try 
     {
         auto customerTypes = config->getCustomerTypes();
-        auto& averageData = customerTypes["average"];
-        auto& introOptions = averageData["introduce"];
+        auto& GreenFingerData = customerTypes["greenfinger"];
+        auto& introOptions = GreenFingerData["introduce"];
         string selectedDialogue = getRandomElement(introOptions);
 
         customer->setIntroductionDialogue(selectedDialogue);
@@ -58,13 +63,13 @@ void AverageCustomerBuilder::buildIntroDialogue(string i)
     }
 }
 
-void AverageCustomerBuilder::buildPreferencesDialogue(string p)
+void GreenFingerCustomerBuilder::buildPreferencesDialogue(string p)
 {
     try 
     {
         auto customerTypes = config->getCustomerTypes();
-        auto& averageData = customerTypes["average"];
-        auto& prefOptions = averageData["preferences"];
+        auto& GreenFingerData = customerTypes["greenfinger"];
+        auto& prefOptions = GreenFingerData["preferences"];
         string selectedDialogue = getRandomElement(prefOptions);
 
         customer->setPreferencesDialogue(selectedDialogue);
@@ -75,13 +80,13 @@ void AverageCustomerBuilder::buildPreferencesDialogue(string p)
     }
 }
 
-void AverageCustomerBuilder::buildRecommendationsDialogue(string r)
+void GreenFingerCustomerBuilder::buildRecommendationsDialogue(string r)
 {
     try 
     {
         auto customerTypes = config->getCustomerTypes();
-        auto& averageData = customerTypes["average"];
-        auto& recOptions = averageData["recommendations"];
+        auto& GreenFingerData = customerTypes["greenfinger"];
+        auto& recOptions = GreenFingerData["recommendations"];
         string selectedDialogue = getRandomElement(recOptions);
 
         customer->setRecommendationsDialogue(selectedDialogue);
@@ -92,13 +97,13 @@ void AverageCustomerBuilder::buildRecommendationsDialogue(string r)
     }
 }
 
-void AverageCustomerBuilder::buildAcceptDialogue(string a)
+void GreenFingerCustomerBuilder::buildAcceptDialogue(string a)
 {
     try 
     {
         auto customerTypes = config->getCustomerTypes();
-        auto& averageData = customerTypes["average"];
-        auto& acceptOptions = averageData["accept"];
+        auto& GreenFingerData = customerTypes["greenfinger"];
+        auto& acceptOptions = GreenFingerData["accept"];
         string selectedDialogue = getRandomElement(acceptOptions);
 
         customer->setAcceptDialogue(selectedDialogue);
@@ -109,13 +114,13 @@ void AverageCustomerBuilder::buildAcceptDialogue(string a)
     }
 }
 
-void AverageCustomerBuilder::buildRejectDialogue(string r)
+void GreenFingerCustomerBuilder::buildRejectDialogue(string r)
 {
     try 
     {
         auto customerTypes = config->getCustomerTypes();
-        auto& averageData = customerTypes["average"];
-        auto& rejectOptions = averageData["reject"];
+        auto& GreenFingerData = customerTypes["greenfinger"];
+        auto& rejectOptions = GreenFingerData["reject"];
         string selectedDialogue = getRandomElement(rejectOptions);
 
         customer->setRejectDialogue(selectedDialogue);
@@ -126,13 +131,13 @@ void AverageCustomerBuilder::buildRejectDialogue(string r)
     }
 }
 
-void AverageCustomerBuilder::buildAcceptExitDialogue(string a)
+void GreenFingerCustomerBuilder::buildAcceptExitDialogue(string a)
 {
     try 
     {
         auto customerTypes = config->getCustomerTypes();
-        auto& averageData = customerTypes["average"];
-        auto& acceptExitOptions = averageData["acceptExit"];
+        auto& GreenFingerData = customerTypes["greenfinger"];
+        auto& acceptExitOptions = GreenFingerData["acceptExit"];
         string selectedDialogue = getRandomElement(acceptExitOptions);
 
         customer->setAcceptExitDialogue(selectedDialogue);
@@ -143,13 +148,13 @@ void AverageCustomerBuilder::buildAcceptExitDialogue(string a)
     }
 }
 
-void AverageCustomerBuilder::buildRejectExitDialogue(string r)
+void GreenFingerCustomerBuilder::buildRejectExitDialogue(string r)
 {
     try 
     {
         auto customerTypes = config->getCustomerTypes();
-        auto& averageData = customerTypes["average"];
-        auto& rejectExitOptions = averageData["rejectExit"];
+        auto& GreenFingerData = customerTypes["greenfinger"];
+        auto& rejectExitOptions = GreenFingerData["rejectExit"];
         string selectedDialogue = getRandomElement(rejectExitOptions);
         
         customer->setRejectExitDialogue(selectedDialogue);
@@ -160,12 +165,12 @@ void AverageCustomerBuilder::buildRejectExitDialogue(string r)
     }
 }
 
-void AverageCustomerBuilder::buildPlantOptions(const vector<Plant*>& plants)
+void GreenFingerCustomerBuilder::buildPlantOptions(const vector<Plant*>& plants)
 {
     customer->setOfferedPlants(plants);
 }
 
-vector<Plant*> AverageCustomerBuilder::accept(CustomerVisitor& visitor)
+vector<Plant*> GreenFingerCustomerBuilder::accept(CustomerVisitor& visitor)
 {
     return visitor.visit(*this);
 }

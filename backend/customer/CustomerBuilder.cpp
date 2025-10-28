@@ -7,10 +7,7 @@ CustomerBuilder::CustomerBuilder()
 
 CustomerBuilder::~CustomerBuilder()
 {
-    if (customer != nullptr) 
-    {
-        delete customer;
-    }
+    // customers will be deleted in Game.cpp
 }
 
 Customer* CustomerBuilder::getCustomer()
