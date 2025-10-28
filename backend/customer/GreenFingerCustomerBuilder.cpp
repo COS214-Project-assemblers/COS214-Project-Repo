@@ -1,6 +1,6 @@
 #include "GreenFingerCustomerBuilder.h"
 
-GreenFingerCustomerBuilder::GreenFingerCustomerBuilder(JSONGameConfiguration* c) : CustomerBuilder()
+GreenFingerCustomerBuilder::GreenFingerCustomerBuilder(GameConfiguraton* c) : CustomerBuilder()
 {
     customer = new GreenFingerCustomer();
     config = c;

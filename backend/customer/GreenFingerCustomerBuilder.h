@@ -7,7 +7,7 @@
 class GreenFingerCustomerBuilder: public CustomerBuilder
 {
     private:
-        JSONGameConfiguration* config;
+        GameConfiguraton* config;
 
         /**
          * @brief Used to get a random dialogue option in the pool of options
@@ -15,7 +15,7 @@ class GreenFingerCustomerBuilder: public CustomerBuilder
         mt19937 rng;
 
     public:
-        GreenFingerCustomerBuilder(JSONGameConfiguration* config);
+        GreenFingerCustomerBuilder(GameConfiguraton* config);
         ~GreenFingerCustomerBuilder();
 
         string getRandomElement(const vector<string>& v);

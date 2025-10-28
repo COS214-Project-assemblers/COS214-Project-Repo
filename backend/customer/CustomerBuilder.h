@@ -26,7 +26,7 @@ class CustomerBuilder
         virtual void buildAcceptExitDialogue(string a) = 0;
         virtual void buildRejectExitDialogue(string r) = 0;
         
-        virtual void buildPlantOptions(vector<Plant*> p) = 0;
+        virtual void buildPlantOptions(const vector<Plant*>& plants) = 0;
 
         Customer* getCustomer();
 

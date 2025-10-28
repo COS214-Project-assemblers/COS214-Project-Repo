@@ -7,7 +7,7 @@
 class IgnorantCustomerBuilder: public CustomerBuilder
 {
     private:
-        JSONGameConfiguration* config;
+        GameConfiguraton* config;
 
         /**
          * @brief Used to get a random dialogue option in the pool of options
@@ -15,7 +15,7 @@ class IgnorantCustomerBuilder: public CustomerBuilder
         mt19937 rng;
 
     public:
-        IgnorantCustomerBuilder(JSONGameConfiguration* config);
+        IgnorantCustomerBuilder(GameConfiguraton* config);
         ~IgnorantCustomerBuilder();
 
         string getRandomElement(const vector<string>& v);

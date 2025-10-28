@@ -1,6 +1,6 @@
 #include "AverageCustomerBuilder.h"
 
-AverageCustomerBuilder::AverageCustomerBuilder(JSONGameConfiguration* c) : CustomerBuilder()
+AverageCustomerBuilder::AverageCustomerBuilder(GameConfiguraton* c) : CustomerBuilder()
 {
     customer = new AverageCustomer();
     config = c;

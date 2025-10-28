@@ -10,8 +10,8 @@
 #include "TreeCreator.h"
 
 #include "AverageCustomerBuilder.h"
-// #include "IgnorantCustomerBuilder.h"
-// #include "GreenFingerCustomerBuilder.h"
+#include "IgnorantCustomerBuilder.h"
+#include "GreenFingerCustomerBuilder.h"
 #include "Director.h"
 #include "VisitEasyCustomer.h"
 #include "VisitMediumCustomer.h"

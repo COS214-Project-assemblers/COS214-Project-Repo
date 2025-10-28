@@ -7,7 +7,7 @@
 class AverageCustomerBuilder : public CustomerBuilder
 {
     private:
-        JSONGameConfiguration* config;
+        GameConfiguraton* config;
 
         /**
          * @brief Used to get a random dialogue option in the pool of options
@@ -15,7 +15,7 @@ class AverageCustomerBuilder : public CustomerBuilder
         mt19937 rng;
 
     public:
-        AverageCustomerBuilder(JSONGameConfiguration* config);
+        AverageCustomerBuilder(GameConfiguraton* config);
         ~AverageCustomerBuilder();
 
         string getRandomElement(const vector<string>& v);

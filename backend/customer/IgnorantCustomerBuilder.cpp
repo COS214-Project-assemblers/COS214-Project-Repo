@@ -1,6 +1,6 @@
 #include "IgnorantCustomerBuilder.h"
 
-IgnorantCustomerBuilder::IgnorantCustomerBuilder(JSONGameConfiguration* c) : CustomerBuilder()
+IgnorantCustomerBuilder::IgnorantCustomerBuilder(GameConfiguraton* c) : CustomerBuilder()
 {
     customer = new IgnorantCustomer();
     config = c;
