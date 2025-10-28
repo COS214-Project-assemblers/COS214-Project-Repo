@@ -59,3 +59,8 @@ string Customer::getStructure()
 {
     return jsonStructure;
 }
+
+string Customer::getType()
+{
+    return type;
+}

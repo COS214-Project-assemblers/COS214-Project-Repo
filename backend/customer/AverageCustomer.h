@@ -18,9 +18,6 @@
 
 class AverageCustomer : public Customer
 {
-    private:
-       string type = "average";
-
     public:
         /**
          * @brief Constructs a new AverageCustomer object.

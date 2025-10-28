@@ -35,14 +35,15 @@ class Customer
     protected:
         string jsonStructure;
 
-       string introductionDialogue;
-       string preferencesDialogue;
-       string recommendationsDialogue;
-       string acceptDialogue;
-       string rejectDialogue;
-       string acceptExitDialogue;
-       string rejectExitDialogue;
-       string offeredPlants;
+        string type;
+        string introductionDialogue;
+        string preferencesDialogue;
+        string recommendationsDialogue;
+        string acceptDialogue;
+        string rejectDialogue;
+        string acceptExitDialogue;
+        string rejectExitDialogue;
+        string offeredPlants;
 
     public:
         /**
@@ -60,6 +61,8 @@ class Customer
          * @returns The jsonStructure as a string for the API endpoint
          */
         string getStructure();
+
+        string getType();
 
         void setIntroductionDialogue(string i);
         void setPreferencesDialogue(string p);
