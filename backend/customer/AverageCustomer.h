@@ -19,11 +19,7 @@
 class AverageCustomer : public Customer
 {
     private:
-        void introduce();
-        void expressPreferences();
-        void askForRecommendations();
-        void reactToRecommendations();
-        void thankAndExit();
+       string type = "average";
 
     public:
         /**

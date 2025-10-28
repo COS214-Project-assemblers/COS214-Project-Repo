@@ -32,8 +32,8 @@ using namespace std;
 
 class Customer
 {
-    private:
-       string jsonStructure;
+    protected:
+        string jsonStructure;
 
        string introductionDialogue;
        string preferencesDialogue;
@@ -42,13 +42,7 @@ class Customer
        string rejectDialogue;
        string acceptExitDialogue;
        string rejectExitDialogue;
-       string plantOptions;
-
-    protected:
-        /**
-         * @brief List of plants offered by the visitor
-         */
-        // vector<const Plant*> offeredPlants; // needs to be converted to a json structure so that it can be added to jsonString
+       string offeredPlants;
 
     public:
         /**
@@ -66,6 +60,15 @@ class Customer
          * @returns The jsonStructure as a string for the API endpoint
          */
         string getStructure();
+
+        void setIntroductionDialogue(string i);
+        void setPreferencesDialogue(string p);
+        void setRecommendationsDialogue(string r);
+        void setAcceptDialogue(string a);
+        void setRejectDialogue(string r);
+        void setAcceptExitDialogue(string a);
+        void setRejectExitDialogue(string r);
+        void setOfferedPlants(const vector<const Plant*>& plants);
 
         /////////////////////////////////////
         // The following functions might need to be moved to the builders
