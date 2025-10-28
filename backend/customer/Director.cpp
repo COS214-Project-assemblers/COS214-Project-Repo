@@ -15,7 +15,7 @@ void Director::setBuilder(CustomerBuilder* b)
     builder = b;
 }
 
-Customer* Director::construct(CustomerVisitor& v)
+void Director::construct(CustomerVisitor& v)
 {
     if (!builder) 
     {
@@ -32,7 +32,11 @@ Customer* Director::construct(CustomerVisitor& v)
     builder->buildRejectExitDialogue("Default Reject Exit");
     
     vector<Plant*> recommendedPlants = builder->accept(v);
+    
     builder->buildPlantOptions(recommendedPlants);
+}
 
-    return builder->getCustomer();
+string Director::getCustomerJsonStructure()
+{
+    return builder->getCustomer()->getStructure();
 }
