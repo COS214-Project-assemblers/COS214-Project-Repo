@@ -16,18 +16,6 @@ using namespace std;
 /**
  * @class Customer
  * @brief Abstract base class defining the interface and shared behavior for all customer types.
- * 
- * The Customer class implements the Template Method pattern, defining the skeleton of the customer
- * interaction algorithm while allowing subclasses to override specific steps. It also serves as
- * an Element in the Visitor pattern for plant recommendation handling.
- * 
- * @note This class follows the Template Method design pattern for the interaction flow
- * and participates in the Visitor pattern for plant recommendations.
- * 
- * @see IgnorantCustomer
- * @see AverageCustomer
- * @see GreenFingerCustomer
- * @see CustomerVisitor
  */
 
 class Customer
@@ -62,6 +50,9 @@ class Customer
          */
         string getStructure();
 
+        /**
+         * @brief Getter for the type of Customer
+         */
         string getType();
 
         void setIntroductionDialogue(string i);
