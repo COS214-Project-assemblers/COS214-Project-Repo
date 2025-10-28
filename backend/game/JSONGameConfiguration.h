@@ -43,7 +43,7 @@ class JSONGameConfiguration : public GameConfiguraton {
          * @return Map of customer types to their data
          * @throws std::out_of_range
          */
-        virtual std::map<std::string, std::vector<std::map<std::string, std::string>>> getCustomerTypes() override;
+        virtual std::map<std::string, std::map<std::string, std::vector<std::string>>> getCustomerTypes() override;
 };
 
 #endif // JSONCONF

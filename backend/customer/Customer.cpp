@@ -50,7 +50,7 @@ void Customer::setRejectExitDialogue(string r)
     rejectExitDialogue = r;
 }
 
-void Customer::setOfferedPlants(const vector<const Plant*>& plants)
+void Customer::setOfferedPlants(const vector<Plant*>& plants)
 {
     // turn that vector into some json string structure and set that result to the offeredPlants member variable
 }

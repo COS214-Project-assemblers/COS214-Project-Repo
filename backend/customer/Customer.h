@@ -62,7 +62,7 @@ class Customer
         void setRejectDialogue(string r);
         void setAcceptExitDialogue(string a);
         void setRejectExitDialogue(string r);
-        void setOfferedPlants(const vector<const Plant*>& plants);
+        void setOfferedPlants(const vector<Plant*>& plants);
 
         /////////////////////////////////////
         // The following functions might need to be moved to the builders

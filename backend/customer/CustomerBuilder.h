@@ -5,7 +5,7 @@
 
 class CustomerBuilder
 {
-    private:
+    protected:
         Customer* customer;
 
     public:
