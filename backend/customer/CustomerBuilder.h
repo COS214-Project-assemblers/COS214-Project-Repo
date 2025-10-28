@@ -26,13 +26,7 @@ class CustomerBuilder
 
         Customer* getCustomer();
 
-        // this is maybe where the visitor comes to recommend plants to the customer
-        // needs to build the plants part of the jsonStructure of the Customer
-        virtual void accept(CustomerVisitor& v) = 0;
-
-        // considerOptions, like if the customer rejects/accepts the plant, will have to be frontend logic
-        // const Plant* considerOptions(const vector<const Plant*> offers)const override;
-       
+        virtual vector<Plant*> accept(CustomerVisitor& visitor) = 0;
 };
 
 #endif

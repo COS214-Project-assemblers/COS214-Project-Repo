@@ -31,7 +31,8 @@ Customer* Director::construct(CustomerVisitor& v)
     builder->buildAcceptExitDialogue("Default Accept Exit");
     builder->buildRejectExitDialogue("Default Reject Exit");
     
-    builder->accept(v);
+    vector<Plant*> recommendedPlants = builder->accept(v);
+    builder->buildPlantOptions(recommendedPlants);
 
     return builder->getCustomer();
 }
