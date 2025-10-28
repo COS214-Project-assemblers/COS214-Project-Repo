@@ -18,9 +18,6 @@
 
 class GreenFingerCustomer : public Customer
 {
-    private:
-       string type = "greenfinger";
-
     public:
         /**
          * @brief Constructs a new GreenFingerCustomer object.
