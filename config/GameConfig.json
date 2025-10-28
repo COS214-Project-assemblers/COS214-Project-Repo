@@ -51,3 +51,6 @@
         ]
     }
 }
+
+// create a pool ofintroductions/ parameters for each type of custoemr and then select on in the template method
+// maybe builder

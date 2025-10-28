@@ -31,29 +31,10 @@ class AverageCustomer : public Customer
          */
         AverageCustomer();
 
-        AverageCustomer(const CustomerData& data);
-
         /**
          * @brief Destroys the AverageCustomer object.
          */
         ~AverageCustomer();
-
-        /**
-         * @brief Accepts a visitor for plant recommendations.
-         * 
-         * @param v Reference to the CustomerVisitor offering plants.
-         */
-        void accept(CustomerVisitor& v) override;
-
-        /**
-         * @brief Evaluates plant options favoring moderate-care plants.
-         * 
-         * Prefers plants with "Moderate" care level but will accept "Easy" plants.
-         * 
-         * @param offers Vector of Plant pointers available for selection.
-         * @return Pointer to chosen Plant if suitable, nullptr if rejected.
-         */
-        const Plant* considerOptions(const vector<const Plant*> offers)const override;
 };
 
 #endif
