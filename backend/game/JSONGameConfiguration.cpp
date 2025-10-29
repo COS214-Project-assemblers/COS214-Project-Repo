@@ -20,16 +20,25 @@ JSONGameConfiguration::JSONGameConfiguration(std::string configPath)
     }
 }
 
-std::map<std::string, std::vector<std::string>> JSONGameConfiguration::getPlantVarieties()
+std::vector<PlantStruct*> JSONGameConfiguration::getPlantVarieties()
 {
-    std::map<std::string, std::vector<std::string>> plantVarieties;
+    std::vector<PlantStruct*> returnStructVec;
     try {
-        for (auto& [category, variants] : loadedConfig["plantVarieties"].items()) {
-            plantVarieties[category] = variants.get<std::vector<std::string>>();
+        for (auto& [categoryName, categoryValue] : loadedConfig["plantCategories"].items()) {
+            for (auto& [varietyName, varietyValue] : categoryValue.items()) {
+                PlantStruct* newStruct = new PlantStruct;
+
+                newStruct->category = categoryName;
+                newStruct->variety = varietyName;
+                newStruct->costPrice = varietyValue["costPrice"];
+                newStruct->salePrice = varietyValue["salePrice"];
+
+                returnStructVec.push_back(newStruct);
+            }
         }
     } catch (const nlohmann::json::out_of_range& e) {
          throw std::out_of_range("Invalid JSON configuration, could not load plant variants");
     }
     
-    return plantVarieties;
+    return returnStructVec;
 }
