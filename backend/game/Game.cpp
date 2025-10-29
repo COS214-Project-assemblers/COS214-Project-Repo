@@ -102,6 +102,16 @@ void createFactoriesHelper(string category, string variant, map<string, PlantCre
     
 }
 
+void Game::setManager(Manager* manager)
+{
+    this->manager = manager;
+}
+
+Manager* Game::getManager()
+{
+    return this->manager;
+}
+
 void Game::createNewGame()
 {
     // try
@@ -136,6 +146,7 @@ void Game::createNewGame()
     {
         throw runtime_error("Failed to create greenhouse for unknown reason");
     }
+    //need to create manager
 }
 
 void Game::buyPlants(string plant, int num) 
