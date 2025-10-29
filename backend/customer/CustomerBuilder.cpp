@@ -1,3 +1,8 @@
+/**
+ * @file CustomerBuilder.cpp
+ * @brief Implements the CustomerBuilder base class functionality.
+ */
+
 #include "CustomerBuilder.h"
 
 CustomerBuilder::CustomerBuilder()
