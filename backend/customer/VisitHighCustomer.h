@@ -15,17 +15,17 @@ class VisitHighCustomer:public CustomerVisitor{
          * @brief Visit ignorant cust
          * @param cust Customer to visit
          */
-        void visitIgnorantCustomer(IgnorantCustomer& cust)override;
+        vector<Plant*> visit(IgnorantCustomerBuilder& builder);
         /**
          * @brief Visit Average cust
          * @param cust Customer to visit
          */
-        void visitAverageCustomer(AverageCustomer& cust)override;
+        vector<Plant*> visit(AverageCustomerBuilder& builder);
         /**
          * @brief Visit greenFinger cust
          * @param cust Customer to visit
          */
-        void visitGreenfingerCustomer(GreenFingerCustomer& cust)override;
+        vector<Plant*> visit(GreenFingerCustomerBuilder& builder);
 };      
 
 #endif

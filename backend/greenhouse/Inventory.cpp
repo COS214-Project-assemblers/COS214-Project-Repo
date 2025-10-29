@@ -38,7 +38,7 @@ std::vector<Plant*> Inventory::all() const{
 std::vector<Plant*> Inventory::findByDifficulty(std::string d)const{
     std::vector<Plant*> out;
     for(auto* p:plants){
-        if(p->getDifficulty()==d){
+        if(p->getCareLevel()==d){
             out.push_back(p);
         }
     }
