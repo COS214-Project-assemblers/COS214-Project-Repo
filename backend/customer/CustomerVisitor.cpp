@@ -50,3 +50,8 @@ void CustomerVisitor::markCorrectPlants(const std::vector<Plant*>& source, int c
         correct.push_back(source[i]);
     }
 }
+//if accept no -> sale lost
+//if accept yes and no return -> sale committed
+//if accept yes and return -> return 
+
+//need endpoint for yes and return
