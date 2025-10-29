@@ -7,6 +7,8 @@
 #include "NotSellable.h"
 #include "GreenhouseStaff.h"
 #include "PlantHealth.h"
+#include <sstream>
+#include <nlohmann/json.hpp>
 map<string, float> Plant::plantCosts =
 {
     {"Rose", 10.0},
@@ -41,7 +43,7 @@ Plant::Plant(string category, string variety)
 
     salePrice = costPrice * 1.5;
 
-    // this->health = new Health() ; // concrete plants assign this uniquely 
+    // this->health = new Health() ; // concrete plants assign this uniquely
     this->decayIndex = 0        ;
     this->alive = true          ;
 }
@@ -176,14 +178,17 @@ void Plant::run() {
         if (health->water < 0.3f) {
             std::string careType = "water" ;    // I had to declare a variable like this
             this->notify(careType) ;            // then pass it in here because of the data type notify(std::string& careType)
+            alert(careType, socket) ;
         }
         if (health->fertalizer < 0.3f) {
             std::string careType = "fertilizer" ;
             this->notify(careType) ;
+            alert(careType, socket) ;
         }
         if (health->pruning < 0.3f) {
             std::string careType = "pruning" ;
             this->notify(careType) ;
+            alert(careType, socket) ;
         }
         if (healthScore() <= 0) {
             this->alive = false ;
@@ -196,4 +201,31 @@ void Plant::run() {
     }
     float currentHealth = health->healthScore()  ;
     std::cout << "[State] Current health score: " << currentHealth << std::endl;
+}
+
+void Plant::alert(string& careType, GreenSock* sock) {
+    if (!socket) {
+        std::cerr << "[Error] GreenSock socket not available, cannot send alert.\n";
+        return;
+    }
+    nlohmann::json alert ;
+
+        // Unique identifier (stringified memory address)
+        std::ostringstream oss;
+        oss << static_cast<const void*>(this);
+        std::string plantId = oss.str();
+
+        // Construct JSON alert payload
+        alert = {
+            {"type", "alert"},
+            {"plant_id", plantId},
+            {"category", getPlantCategory()},
+            {"variety", getPlantVariety()},
+            {"care_needed", careType},
+            {"health_score", health->healthScore()}
+        };
+
+        // Convert JSON to string and send via WebSocket
+        socket->sendMessage(alert.dump());
+
 }

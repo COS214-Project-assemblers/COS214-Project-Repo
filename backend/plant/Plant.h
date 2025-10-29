@@ -85,7 +85,7 @@ class Plant
          *  @brief Pointer to the Health component representing the plant’s overall well-being.
          * */
         Health* health ;
-        GreenSock* socket ; 
+        GreenSock* socket ;
 
     public:
         /**
@@ -245,6 +245,8 @@ class Plant
          * @return A floating-point value representing the plant’s current health.
          */
         float healthScore() ;
+
+        void alert(string& careType, GreenSock* sock) ;
 
 };
 
