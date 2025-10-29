@@ -1,3 +1,8 @@
+/**
+ * @file GreenFingerCustomerBuilder.cpp
+ * @brief Implements the GreenFingerCustomerBuilder class functionality.
+ */
+
 #include "GreenFingerCustomerBuilder.h"
 
 GreenFingerCustomerBuilder::GreenFingerCustomerBuilder(GameConfiguraton* c) : CustomerBuilder()

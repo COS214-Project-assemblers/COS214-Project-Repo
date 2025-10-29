@@ -1,3 +1,8 @@
+/**
+ * @file IgnorantCustomerBuilder.cpp
+ * @brief Implements the IgnorantCustomerBuilder class functionality.
+ */
+
 #include "IgnorantCustomerBuilder.h"
 
 IgnorantCustomerBuilder::IgnorantCustomerBuilder(GameConfiguraton* c) : CustomerBuilder()

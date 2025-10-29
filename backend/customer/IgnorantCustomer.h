@@ -13,7 +13,13 @@
  * @brief Represents a customer with minimal plant knowledge who needs easy-care plants.
  * 
  * This customer type prefers plants that are hard to kill and require minimal maintenance.
- * They will only accept plants with "Easy" care level and will reject complex plants.
+ * They have simple dialogue patterns reflecting their lack of plant knowledge and seek
+ * plants that can survive with minimal attention.
+ * 
+ * Inherits from Customer base class and implements the ignorant customer type
+ * with specific dialogue patterns and plant preferences.
+ * 
+ * @see Customer
  */
 class IgnorantCustomer : public Customer
 {

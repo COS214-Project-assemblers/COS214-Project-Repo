@@ -7,7 +7,7 @@
 
 GreenFingerCustomer::GreenFingerCustomer() : Customer() 
 {
-    type = "average";
+    
 }
 
 GreenFingerCustomer::~GreenFingerCustomer() 
