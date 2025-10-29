@@ -5,17 +5,13 @@
 //     plants = new std::vector<Plant*>();
 // }
 
-// Inventory::~Inventory()
-// {
-//     // might not delete??
-    
-//     for (auto p : *plants) 
-//     {
-//         delete p;
-//     }
-
-//     delete plants;
-// }
+Inventory::~Inventory()
+{
+    for (Plant* p : plants) {
+        delete p;
+    }
+    plants.clear();
+}
 
 
 std::vector<Plant*> Inventory::all() const{
