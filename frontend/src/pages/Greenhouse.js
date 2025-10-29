@@ -1,12 +1,17 @@
 /* Ane' Burger 24565068 */
 
 import React, { useState } from "react";
+import Navbar from '../components/Navbar';
+import SoilGrid from '../components/SoilGrid';
+import BuyPlants from '../components/BuyPlants';
 
 const Greenhouse = () => {
 
     return (
         <div className="greenhouseBody">
-            <h1>Greenhouse</h1>
+            <Navbar/>
+            <SoilGrid/>
+            <BuyPlants/>
         </div>
     );
 }

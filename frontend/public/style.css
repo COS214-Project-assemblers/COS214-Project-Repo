@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
 
-
-.landingBody {
+.landingBody, .greenhouseBody, .salesfloorBody, .tutorialBody, .gameOverBody, .endOfDayBody {
     background-image: url(./assets/images/Greenhouse.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -13,21 +14,41 @@
     bottom: 0;
 }
 
-#title {
+#title, #game-over-title, #end-of-day-title {
     width: 60em;
     margin: auto;
-    margin-left: 16.5em;
-    margin-top: 5em;
+    margin-top: 9em;
 }
 
-#new-game-button {
+#title img, #game-over-title img, #end-of-day-title img {
+    width: 60em;
+}
+
+#new-game-button, #exit-day-button2, #new-game-button2, #exit-day-button3, #new-game-button3 {
     background-color: transparent;
     border: 1px solid transparent;
 }
 
+#new-game-button2 img, #new-game-button3 img {
+    width: 22em;
+    margin-left: 12em;
+}
+
+#exit-day-button2 img, #exit-day-button3 img {
+    width: 17em;
+    margin-left: 3.5em;
+}
+
+#new-game-button2 img:hover, #new-game-button3 img:hover {
+    cursor: pointer;
+}
+
+#exit-day-button2 img:hover, #exit-day-button3 img:hover {
+    cursor: pointer;
+}
+
 #new-game-button img {
     width: 22em;
-    margin-left: 20.6em;
     margin-top: 3em;
 }
 
@@ -53,6 +74,467 @@
     margin-left: 3em;
 }
 
+#landing-buttons-div, #endOfDay-buttons-div, #gameOver-buttons-div {
+    margin: auto;
+    width: 60em;
+}
+
 #landing-buttons-div button img:hover {
     cursor: pointer;
+}
+
+
+
+#tut {
+    margin: auto;
+    width: 40em;
+    margin-top: 4em;
+}
+
+#tut img {
+    width: 40em;
+}
+
+#home-button {
+    width: 13em;
+    position: absolute;
+    margin-left: 3em;
+    margin-top: 3em;
+}
+
+#home-button:hover {
+    cursor: pointer;
+}
+
+#nav button {
+    background-color: transparent;
+    border: 1px solid transparent;
+    width: 18em;
+}
+
+#quit-game-button img {
+    width: 20em;
+}
+
+#quit-game-button img:hover {
+    cursor: pointer;
+} 
+
+#go-to-sales img {
+    width: 22em;
+}
+
+#go-to-sales img:hover {
+    cursor: pointer;
+}
+
+#balance {
+    width: 9em;
+    float: inline-end;
+    margin-top: 3em;
+    margin-right: 3em;
+}
+
+#b-value {
+    font-family: 'Freckle Face';
+    color: #612e18;
+    font-size: 2.8em;
+    float: inline-end;
+    margin-top: 1.05em;
+    right: 0;
+    position: absolute;
+    margin-right: 1.5em;
+}
+
+
+
+#soilGrid img {
+    width: 9.5em;
+}
+
+#soilGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 28.5em;
+    margin: auto;
+    margin-top: 2em;
+}
+
+#buyPlantsButton {
+    width: 22em;
+    margin: auto;
+}
+
+
+#buy-plants {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#buy-plants img {
+    width: 22em;
+    margin-left: 1em;
+}
+
+#buy-plants img:hover {
+    cursor: pointer;
+}
+
+
+
+#menu {
+    width: 40em;
+}
+
+#menuDiv {
+    width: 40em;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    margin: auto;
+    margin-top: 8em;
+    left: 0;
+    margin-left: 27em;
+}
+
+
+#cancelBuy, #buy {
+    background-color: transparent;
+    border: 1pc solid transparent;
+}
+
+#cancel-cross {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    margin-top: 12em;
+    margin-left: 27.5em;
+}
+
+
+#buy img {
+    width: 10em;
+}
+
+#buy img:hover {
+   cursor: pointer;
+}
+
+
+#buy {
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+    width: 9.6em;
+    left: 0;
+    margin-left: 38em;
+    margin-bottom: 4.5em;
+}
+
+#cancel-cross:hover {
+    cursor: pointer;
+}
+
+
+
+#plant1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    position: absolute;
+}
+
+#plant1 img {
+    width: 7em;
+    margin-left: 1.3em;
+    margin-top: 0.4em;
+}
+
+
+#wood {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    height: 9em;
+    z-index: 8;
+}
+
+#wood img {
+    width: 140em;
+    margin-left: 0em;
+}
+
+
+#ignorant-customer img {
+    width: 44em;
+}
+
+#medium-customer img {
+    width: 24em;
+    margin-left: 9em;
+}
+
+#greenfinger-customer img {
+    width: 24em;
+    margin-left: 9em;
+}
+
+#greenfinger-customer img {
+    width: 17em;
+    margin-left: 14em;
+}
+
+
+#dialogue-board img {
+    width: 40em;
+}
+
+#dialogue-board {
+    width: 40em;
+    z-index: 20;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    margin-left: 33em;
+    margin-top: 11em;
+}
+
+
+
+#next {
+    background-color: transparent;
+    border: 1px solid transparent;
+    width: 9em;
+    position: absolute;
+    margin-left: 74em;
+    z-index: 40;
+    top: 0;
+    margin-top: 33em;
+}
+
+#next img {
+    width: 9em;
+}
+
+#next img:hover {
+    cursor: pointer;
+}
+
+
+#customer-name {
+    top: 0;
+    position: absolute;
+    z-index: 70;
+    margin-left: 44.5em;
+    margin-top: 8.8em;
+}
+
+#customer-name p {
+    font-family: 'Freckle Face';
+    color: #fff7e8;
+    font-size: 2.5em;
+}
+
+
+#customer-dialogue p {
+    font-family: 'Delius';
+    font-size: 2em;
+    color: #612e18;
+}
+
+#customer-dialogue {
+    top: 0;
+    position: absolute;
+    margin-left: 38em;
+    margin-top: 16em;
+    z-index: 90;
+    width: 30em;
+}
+
+
+#suggest-board img {
+    width: 35em;
+}
+
+#suggest-board {
+    top: 0;
+    position: fixed;
+    right: 0;
+    margin-top: 6em;
+    margin-right: 25.4em;
+    z-index: 100;
+}
+
+
+#suggest {
+    position: fixed;
+    background-color: transparent;
+    border-color: transparent;
+    z-index: 200;
+    bottom: 0;
+    margin-left: 68em;
+    margin-bottom: 8.5em;
+}
+
+#suggest img {
+    width: 11em;
+}
+
+#suggest img:hover {
+    cursor: pointer;
+}
+
+
+
+
+#suggestGrid {
+    display: grid;
+    z-index: 300;
+    position: fixed;
+    top: 0;
+    margin: auto;
+    width: 26em;
+    margin-left: 40em;
+    margin-top: 16em;
+    height: 23em;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#suggestGrid div {
+    grid-column: 1 / 2;
+    width: 25.3em;
+    border-bottom: 1px solid #9d715e;
+}
+
+#suggestGrid div p {
+    font-family: 'Freckle Face';
+    color: #612e18;
+    font-size: 1.6em;
+    margin-bottom: 0em;
+    margin-top: 0.8em;
+}
+
+
+
+#zero-balance {
+    top: 0;
+    right: 0;
+    position: fixed;
+    width: 10em;
+    margin-right: 3em;
+    margin-top: 3em;
+}
+
+#zero-b-value {
+    z-index: 400;
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-size: 3em;
+    font-family: 'Freckle Face';
+    color: #ed0000;
+    margin-right: 2em;
+    margin-top: 1em;
+}
+
+
+#flowerAmountGrid {
+    top: 0;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-top: 18.35em;
+    z-index: 800;
+    margin-left: 10em;
+}
+
+#flowerAmountGrid input {
+    width: 2.6em;
+    background-color: #fff7e8;
+    border: 1px solid #9c6600;
+    border-radius: 7px;
+    padding: 5px;
+    font-family: 'Delius';
+    color: #9c6600;
+    margin-bottom: 0.5em;
+}
+
+#flowerAmountGrid input::placeholder {
+    color: #9c6600;
+}
+
+
+
+
+
+
+#succAmountGrid {
+    top: 0;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-top: 27.05em;
+    z-index: 800;
+    margin-left: 10em;
+}
+
+#succAmountGrid input {
+    width: 2.6em;
+    background-color: #fff7e8;
+    border: 1px solid #9c6600;
+    border-radius: 7px;
+    padding: 5px;
+    font-family: 'Delius';
+    color: #9c6600;
+    margin-bottom: 0.5em;
+}
+
+#succAmountGrid input::placeholder {
+    color: #9c6600;
+}
+
+
+
+
+
+
+#treeAmountGrid {
+    top: 0;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-top: 36em;
+    z-index: 800;
+    margin-left: 10em;
+}
+
+#treeAmountGrid input {
+    width: 2.6em;
+    background-color: #fff7e8;
+    border: 1px solid #9c6600;
+    border-radius: 7px;
+    padding: 5px;
+    font-family: 'Delius';
+    color: #9c6600;
+    margin-bottom: 0.5em;
+}
+
+#treeAmountGrid input::placeholder {
+    color: #9c6600;
+}
+
+
+#totalBalance {
+    bottom: 0;
+    position: fixed;
+    margin-left: 10.2em;
+    margin-bottom: 3.2em;
+    z-index: 1000;
+    font-family: 'Freckle Face';
+    font-size: 2em;
+    color: #0d6d00;
 }
