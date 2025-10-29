@@ -19,7 +19,7 @@ class Inventory{
     public:
         //no need to construct/deconstruct manually
         Inventory()=default;
-        ~Inventory()=default;
+        ~Inventory();
         /**
          * @brief returns all plants in the inventory
          * @return A vector containing pointers to all Plant objects in the inventory

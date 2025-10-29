@@ -3,34 +3,39 @@
 
 VisitEasyCustomer::VisitEasyCustomer(const Inventory& inv):CustomerVisitor(inv){}
 
-void VisitEasyCustomer::visitIgnorantCustomer(IgnorantCustomer& cust){
-    //create vectors of each difficulty
-    std::vector<Plant*> easy=inv.findByDifficulty("Easy");
-    std::vector<Plant*> med=inv.findByDifficulty("Medium");
-    std::vector<Plant*> hard=inv.findByDifficulty("Hard");
-    //this is the easy level, so there are 3 correct plants for this customer type
-    addRandomPlants(easy,3,offer);//correct answers for user
+vector<Plant*> VisitEasyCustomer::visit(IgnorantCustomerBuilder& builder)
+{
+    std::vector<Plant*> easy=inv.findByDifficulty("easy");
+    std::vector<Plant*> med=inv.findByDifficulty("medium");
+    std::vector<Plant*> hard=inv.findByDifficulty("hard");
+    addRandomPlants(easy,3,offer);
     addRandomPlants(med,1,offer);
     addRandomPlants(hard,1,offer);
     finalizeOffer();
+
+    return offer;
 }
 
-void VisitEasyCustomer::visitAverageCustomer(AverageCustomer& cust){
-    std::vector<Plant*> easy=inv.findByDifficulty("Easy");
-    std::vector<Plant*> med=inv.findByDifficulty("Medium");
-    std::vector<Plant*> hard=inv.findByDifficulty("Hard");
-    addRandomPlants(easy,1,offer);
-    addRandomPlants(med,3,offer);//correct answers for user
+vector<Plant*> VisitEasyCustomer::visit(AverageCustomerBuilder& builder)
+{
+    std::vector<Plant*> easy=inv.findByDifficulty("easy");
+    std::vector<Plant*> med=inv.findByDifficulty("medium");
+    std::vector<Plant*> hard=inv.findByDifficulty("hard");
+    addRandomPlants(easy,2,offer);
+    addRandomPlants(med,2,offer);
     addRandomPlants(hard,1,offer);
     finalizeOffer();
+
+    return offer;
 }
 
-void VisitEasyCustomer::visitGreenfingerCustomer(GreenFingerCustomer& cust){
-    std::vector<Plant*> easy=inv.findByDifficulty("Easy");
-    std::vector<Plant*> med=inv.findByDifficulty("Medium");
-    std::vector<Plant*> hard=inv.findByDifficulty("Hard");
-    addRandomPlants(easy,1,offer);
-    addRandomPlants(med,1,offer);    
-    addRandomPlants(hard,3,offer);//correct answer for user
+vector<Plant*> VisitEasyCustomer::visit(GreenFingerCustomerBuilder& builder)
+{
+    std::vector<Plant*> easy=inv.findByDifficulty("easy");
+    std::vector<Plant*> hard=inv.findByDifficulty("hard");
+    addRandomPlants(easy,4,offer);
+    addRandomPlants(hard,1,offer);
     finalizeOffer();
+
+    return offer;
 }

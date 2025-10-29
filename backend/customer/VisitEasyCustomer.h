@@ -1,5 +1,6 @@
 /**
  * @file VisitEasyCustomer.h
+ * @brief Visitor for creating plant recommendations for easy-maintenance customers
  */
 #ifndef VISITEASYCUSTOMER_H
 #define VISITEASYCUSTOMER_H
@@ -8,7 +9,10 @@
 
 /**
  * @class VisitEasyCustomer
- * @brief EasyCustomer Visitor
+ * @brief Visitor implementation for customers preferring easy-to-maintain plants
+ * 
+ * This visitor creates plant recommendations with a focus on easy-maintenance plants
+ * while including some medium and hard difficulty plants based on customer type.
  */
 class VisitEasyCustomer:public CustomerVisitor{
     public:
@@ -21,21 +25,27 @@ class VisitEasyCustomer:public CustomerVisitor{
          * @brief default constructor
          */
         ~VisitEasyCustomer()=default;
+
         /**
-         * @brief Visit ignorant cust
-         * @param cust Customer to visit
+         * @brief Create plant recommendation for ignorant customers
+         * @param builder The customer builder being visited
+         * @return Vector of recommended plants
          */
-        void visitIgnorantCustomer(IgnorantCustomer& cust)override;
+        vector<Plant*> visit(IgnorantCustomerBuilder& builder);
+
         /**
-         * @brief Visit Average cust
-         * @param cust Customer to visit
+         * @brief Create plant recommendation for average customers
+         * @param builder The customer builder being visited
+         * @return Vector of recommended plants
          */
-        void visitAverageCustomer(AverageCustomer& cust)override;
+        vector<Plant*> visit(AverageCustomerBuilder& builder);
+
         /**
-         * @brief Visit greenFinger cust
-         * @param cust Customer to visit
+         * @brief Create plant recommendation for expert (green finger) customers
+         * @param builder The customer builder being visited
+         * @return Vector of recommended plants
          */
-        void visitGreenfingerCustomer(GreenFingerCustomer& cust)override;
+        vector<Plant*> visit(GreenFingerCustomerBuilder& builder);
 };      
 
 #endif

@@ -32,6 +32,7 @@ using namespace std;
 class Plant
 {
     private:
+        string careLevel;
         /**
          * @brief The broad category of the plant, such as "Succulent", "Flower", or "Tree".
          */
@@ -121,6 +122,7 @@ class Plant
          */
         virtual Plant* clone() = 0;
 
+        string getCareLevel();
         /**
          * @brief Retrieves the category of the plant.
          * @return The category name as a string.
@@ -157,7 +159,9 @@ class Plant
          */
         void display();
 
-
+        ///////////////////////////////
+        // also need to add a getCareLevel() function which will return the added careLevel member variable
+        //////////////////////////////
 
         /**
          * @brief Gets the current state of the plant.

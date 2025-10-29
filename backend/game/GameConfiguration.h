@@ -36,6 +36,13 @@ class GameConfiguraton {
          */
         virtual std::vector<PlantStruct*> getPlantVarieties() = 0;
 
+        /**
+         * @brief Extracts customer types and their data from loadedConfig
+         * @return Map of customer types to their data
+         * @throws std::out_of_range
+         */
+        virtual std::map<std::string, std::map<std::string, std::vector<std::string>>> getCustomerTypes() = 0;
+
         virtual ~GameConfiguraton() {}
 };
 

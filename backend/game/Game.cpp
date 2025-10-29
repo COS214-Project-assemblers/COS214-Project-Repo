@@ -1,13 +1,22 @@
 #include "Game.h"
 #include "Greenhouse.h"
-#include "PlantCreator.h"
-#include "FlowerCreator.h"
-#include "SucculentCreator.h"
-#include "TreeCreator.h"
 #include "JSONGameConfiguration.h"
 #include "BasicLogger.h"
 #include "LogDecorator.h"
 #include "CoutAndLog.h"
+
+#include "FlowerCreator.h"
+#include "SucculentCreator.h"
+#include "TreeCreator.h"
+
+#include "AverageCustomerBuilder.h"
+#include "IgnorantCustomerBuilder.h"
+#include "GreenFingerCustomerBuilder.h"
+#include "Director.h"
+#include "VisitEasyCustomer.h"
+#include "VisitMediumCustomer.h"
+#include "VisitHighCustomer.h"
+#include "Inventory.h"
 
 Game::Game(string configPath)
 {
@@ -141,10 +150,10 @@ void Game::buyPlants(string plant, int num)
         throw runtime_error("Greenhouse not initialized. Please create a new game first.");
     }
     
-    if (factories.empty()) 
-    {
-        throw runtime_error("No plant factories available. Please create a new game first.");
-    }
+    // if (factories.empty()) 
+    // {
+    //     throw runtime_error("No plant factories available. Please create a new game first.");
+    // }
 
     auto factoryIt = factories.find(plant);
 
@@ -190,6 +199,11 @@ Game::~Game()
         delete it->second;
     }
 
+    for (auto customer : customers)
+    {
+        delete customer;
+    }
+
     if (config != nullptr)
     {
         delete config;
@@ -216,4 +230,116 @@ string Game::getCategoryForVariety(string variety)
 vector<PlantStruct*> Game::getAvailablePlantVarieties() 
 {
     return config->getPlantVarieties();
+}
+
+void Game::createCustomers(string type, int num)
+{
+    if (num <= 0) 
+    {
+        throw runtime_error("Number of customers must be positive, got: " + to_string(num));
+    }
+    
+    if (greenhouse == nullptr) 
+    {
+        throw runtime_error("Greenhouse not initialized. Please create a new game first.");
+    }
+
+    // Validate customer type exists in configuration
+    auto availableCustomerTypes = getAvailableCustomerTypes();
+    if (availableCustomerTypes.find(type) == availableCustomerTypes.end()) 
+    {
+        string availableTypes = "Available customer types: ";
+
+        for (const auto& [customerType, data] : availableCustomerTypes) 
+        {
+            availableTypes += customerType + " ";
+        }
+
+        throw runtime_error("Customer type '" + type + "' not found. " + availableTypes);
+    }
+
+    Inventory* allPlants = greenhouse->getInventory();
+
+    Director director;
+
+    CustomerBuilder* builder = nullptr;
+    CustomerVisitor* visitor = nullptr;
+
+    for (int i = 0; i < num; i++) 
+    {
+        if(builder)
+        {
+            delete builder;
+            builder = nullptr;
+        }
+        
+        if(visitor)
+        {
+            delete visitor;
+            visitor = nullptr;
+        }
+        
+        // Create appropriate builder based on type
+        if (type == "average") 
+        {
+            builder = new AverageCustomerBuilder(config);
+            visitor = new VisitEasyCustomer(*allPlants);
+        } 
+        else if (type == "ignorant") 
+        {
+            builder = new IgnorantCustomerBuilder(config);
+            visitor = new VisitMediumCustomer(*allPlants);
+        } 
+        else if (type == "greenfinger") 
+        {
+            builder = new GreenFingerCustomerBuilder(config);
+            visitor = new VisitHighCustomer(*allPlants);
+        } 
+        else 
+        {
+            throw runtime_error("Unknown customer type: " + type);
+        }
+        
+        director.setBuilder(builder);
+        Customer* customer = director.construct(*visitor);
+        
+        customers.push_back(customer);
+        
+        if(builder)
+        {
+            delete builder;
+        }
+    }
+
+    logger->newLog("+ Created " + to_string(num) + " " + type + " customers");
+}
+
+vector<Customer*> Game::getCustomers()
+{
+    return customers;
+}
+
+map<string, map<string, vector<string>>> Game::getAvailableCustomerTypes()
+{
+    return config->getCustomerTypes();
+}
+
+string Game::getCustomersAsJson()
+{
+    stringstream jsonArray;
+    jsonArray << "[";
+    
+    for (size_t i = 0; i < customers.size(); ++i) 
+    {
+        if (i > 0) 
+        {
+            jsonArray << ",";
+        }
+
+        jsonArray << customers[i]->getStructure();
+    }
+    
+    jsonArray << "]";
+    
+    return jsonArray.str();
 }

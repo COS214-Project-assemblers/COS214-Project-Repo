@@ -12,19 +12,17 @@
  * @class GreenFingerCustomer
  * @brief Represents an experienced plant enthusiast who seeks challenging specimens.
  * 
- * This customer type exclusively prefers plants with "Expert" care level and
- * will reject easy or moderate plants as too simple for their advanced skills.
+ * This customer type prefers plants with higher difficulty levels and has sophisticated
+ * dialogue patterns reflecting their expertise. They are knowledgeable about plant care
+ * and seek specimens that match their advanced gardening skills.
+ * 
+ * Inherits from Customer base class and implements specific dialogue patterns and plant preferences.
+ * 
+ * @see Customer
  */
 
 class GreenFingerCustomer : public Customer
 {
-    private:
-        void introduce();
-        void expressPreferences();
-        void askForRecommendations();
-        void reactToRecommendations();
-        void thankAndExit();
-
     public:
         /**
          * @brief Constructs a new GreenFingerCustomer object.
@@ -35,24 +33,6 @@ class GreenFingerCustomer : public Customer
          * @brief Destroys the GreenFingerCustomer object.
          */        
         ~GreenFingerCustomer();
-        
-        /**
-         * @brief Accepts a visitor for plant recommendations.
-         * 
-         * @param v Reference to the CustomerVisitor offering plants.
-         */
-        void accept(CustomerVisitor& cV) override;
-
-        /**
-         * @brief Evaluates plant options requiring expert-level care.
-         * 
-         * Only accepts plants with "Expert" care level. Rejects all other
-         * plants as insufficiently challenging.
-         * 
-         * @param offers Vector of Plant pointers available for selection.
-         * @return Pointer to chosen Plant if expert-level, nullptr if rejected.
-         */
-        const Plant* considerOptions(const vector<const Plant*> offers)const override;
 };
 
 #endif

@@ -1,12 +1,15 @@
 /**
  * @file Customer.h
+ * @brief Abstract base class for all customer types in the plant shop game.
  */
+
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
 #include <vector>
 #include <string>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -17,71 +20,82 @@ using namespace std;
  * @class Customer
  * @brief Abstract base class defining the interface and shared behavior for all customer types.
  * 
- * The Customer class implements the Template Method pattern, defining the skeleton of the customer
- * interaction algorithm while allowing subclasses to override specific steps. It also serves as
- * an Element in the Visitor pattern for plant recommendation handling.
+ * This class serves as the base for all specific customer types (Ignorant, Average, GreenFinger).
+ * It maintains customer dialogue, preferences, and plant offerings, and provides functionality
+ * to serialize the customer data to JSON format for API communication.
  * 
- * @note This class follows the Template Method design pattern for the interaction flow
- * and participates in the Visitor pattern for plant recommendations.
+ * The class provides the data structure that gets built by the Builder pattern.
  * 
  * @see IgnorantCustomer
  * @see AverageCustomer
  * @see GreenFingerCustomer
+ * @see CustomerBuilder
  * @see CustomerVisitor
  */
-
 class Customer
 {
-    private:
-        /**
-         * @brief Displays the customer's introductory dialogue (Template Method Step 1).
-         * Pure Virtual function to be implemented by derived classes.
-         */
-        virtual void introduce() = 0;
-
-        /**
-         * @brief Expresses the customer's plant preferences and living situation (Template Method Step 2).
-         * Pure Virtual function to be implemented by derived classes.
-         */
-        virtual void expressPreferences() = 0;
-
-        /**
-         * @brief Asks the manager for plant recommendations (Template Method Step 3).
-         * Pure Virtual function to be implemented by derived classes.
-         */
-        virtual void askForRecommendations() = 0;
-
-        /**
-         * @brief Reacts to the plant recommendations offered (Template Method Step 5).
-         * Pure Virtual function to be implemented by derived classes.
-         */
-        virtual void reactToRecommendations() = 0;
-
-        /**
-         * @brief Displays the customer's exit message (Template Method Step 6).
-         * Pure Virtual function to be implemented by derived classes.
-         */
-        virtual void thankAndExit() = 0;
-
     protected:
         /**
-         * @brief Pointer to the plant chosen by the customer
+         * @brief Complete JSON representation of the customer
          */
-        const Plant* chosenPlant = nullptr;
+        string jsonStructure;
+        
+        /**
+         * @brief Customer type identifier ("ignorant", "average", "greenfinger")
+         */
+        string type;
 
         /**
-         * @brief Flag indicating whether a plant was accepted
+         * @brief Customer's randomly selected name
          */
-        bool plantAccepted = false;
+        string name;
 
         /**
-         * @brief List of plants offered by the visitor
+         * @brief Initial greeting dialogue
          */
-        vector<const Plant*> offeredPlants;
+        string introductionDialogue;
+
+        /**
+         * @brief Customer's plant preferences description
+         */
+        string preferencesDialogue;
+
+        /**
+         * @brief Request for plant recommendations
+         */
+        string recommendationsDialogue;
+
+        /**
+         * @brief Dialogue when accepting a plant
+         */
+        string acceptDialogue;
+
+        /**
+         * @brief Dialogue when rejecting a plant
+         */
+        string rejectDialogue;
+
+        /**
+         * @brief Exit dialogue after accepting
+         */
+        string acceptExitDialogue;
+
+        /**
+         * @brief Exit dialogue after rejecting
+         */
+        string rejectExitDialogue;
+
+        /**
+         * @brief JSON string of plants offered to the customer
+         */
+        string offeredPlants;
 
     public:
         /**
          * @brief Default constructor
+         * 
+         * Initializes a new Customer instance with empty dialogue fields.
+         * Derived classes should set the specific customer type.
          */
         Customer();
 
@@ -91,55 +105,48 @@ class Customer
         virtual ~Customer();
 
         /**
-         * @brief Accepts a visitor to handle plant recommendations (Template Method Step 4).
+         * @brief Getter for the jsonStructure member variable 
+         * @return The jsonStructure as a string for the API endpoint
          * 
-         * This method implements the Element side of the Visitor pattern, allowing the
-         * CustomerVisitor to offer appropriate plants based on customer type.
-         * 
-         * @param v Reference to the CustomerVisitor that will offer plants.
-         * Pure Virtual function to be implemented by derived classes.
+         * Constructs and returns a complete JSON representation of the customer
+         * including all dialogues and offered plants.
          */
-        virtual void accept(CustomerVisitor& v) = 0;
-
-         /**
-         * @brief Evaluates and selects from the offered plants.
-         * 
-         * This method presents the offered plants to the user and allows them to select one.
-         * The customer will accept or reject based on whether the selection matches their preferences.
-         * 
-         * @param offers Vector of pointers to Plant objects available for selection.
-         * @return Pointer to the chosen Plant, or nullptr if no suitable plant is selected.
-         * Pure Virtual function to be implemented by derived classes.
-         */
-        virtual const Plant* considerOptions(const vector<const Plant*> offers) const = 0;
-
-         /**
-         * @brief Sets the plants offered by the visitor.
-         * 
-         * Called by CustomerVisitor implementations to provide the list of plants
-         * that the customer will consider.
-         * 
-         * @param plants Vector of pointers to Plant objects being offered.
-         */
-        void setOfferedPlants(const vector<const Plant*>& plants);
+        string getStructure();
 
         /**
-         * @brief Template method defining the customer interaction workflow.
-         * 
-         * Implements the Template Method pattern by defining the fixed sequence of
-         * customer interactions while delegating specific behaviors to primitive operations.
-         * 
-         * The interaction flow:
-         * 1. Customer introduction
-         * 2. Preference expression
-         * 3. Request for recommendations
-         * 4. Visitor offers plants (Visitor pattern)
-         * 5. Customer reaction to offers
-         * 6. Exit dialogue
-         * 
-         * @param v Reference to the CustomerVisitor that will handle plant recommendations.
+         * @brief Getter for the type of Customer
+         * @return Customer type as string
          */
-        void interact(CustomerVisitor& v);
+        string getType();
+
+        /**
+         * @brief Escapes special JSON characters in a string
+         * @param input The string to escape
+         * @return Escaped string safe for JSON inclusion
+         * 
+         * Handles escaping of quotes, backslashes, and control characters
+         * to ensure valid JSON output.
+         */
+        string escapeJsonString(const string& input);
+
+        // Setters for customer properties
+        void setName(string n);
+        void setIntroductionDialogue(string i);
+        void setPreferencesDialogue(string p);
+        void setRecommendationsDialogue(string r);
+        void setAcceptDialogue(string a);
+        void setRejectDialogue(string r);
+        void setAcceptExitDialogue(string a);
+        void setRejectExitDialogue(string r);
+
+        /**
+         * @brief Sets the plants offered to the customer
+         * @param plants Vector of Plant pointers to offer
+         * 
+         * Converts the plant vector to JSON format and stores it as a string
+         * for inclusion in the customer's JSON structure.
+         */
+        void setOfferedPlants(const vector<Plant*>& plants);
 };
 
 #endif
