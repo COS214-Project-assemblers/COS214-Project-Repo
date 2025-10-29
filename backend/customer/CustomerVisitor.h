@@ -30,6 +30,7 @@ class CustomerVisitor{
     protected:
         const Inventory& inv;///<Read only inventory for building offers
         std::vector<Plant*> offer;///<Filled by concreteVisitors
+        std::vector<Plant*> correct;///<subset of plants that are correct for the customer
     public:
         /**
          * @brief Constructor.
@@ -59,7 +60,22 @@ class CustomerVisitor{
          * @param target Number to aim for the offers vector
          */
         void finalizeOffer(std::size_t target=5);
+        /**
+         * @brief retrieves the offer vector.
+         * @return The vector of Plant pointers being offered to the customer.
+         */
         const std::vector<Plant*>& getOffer()const;
+        /**
+         * @brief retrieves the correct plant for the customer.
+         * @return Pointer to the correct Plant for the customer.
+         */
+        const std::vector<Plant*>& getCorrectPlant()const;
+        /**
+         * @brief Marks the correct plant for the customer.
+         * @param source Vector of Plant pointers containing the correct plants for the customer.
+         * @param count Number of correct plants to mark.
+         */
+        void markCorrectPlants(const std::vector<Plant*>& source, int count);
     //visitors
         /**
          * @brief Visit an IgnorantCustmer object.

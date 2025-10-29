@@ -91,6 +91,12 @@ class SalesFloor{
          */
         //Ally - could maybe also use visitor for this to return the probabilty based on the type of customer.
         void processReturns(double prob,TransactionHistory& hist);
+        /**
+         * @brief Finds all plants in the inventory based on their level of care dificulty.
+         * @param d The level of dificulty you are looking for
+         * @return Vector of all those plants
+         */
+        std::vector<Plant*> findByDifficulty(std::string d)const;
 };
 
 #endif

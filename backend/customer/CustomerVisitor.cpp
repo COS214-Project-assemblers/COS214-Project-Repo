@@ -1,7 +1,7 @@
 #include "CustomerVisitor.h"
 #include "Inventory.h"
 
-CustomerVisitor::CustomerVisitor(const Inventory& inv):inv(inv){}
+CustomerVisitor::CustomerVisitor(const Inventory& inv):inv(inv), correct(NULL){}
 
 void CustomerVisitor::addRandomPlants(std::vector<Plant*>& source, int count, std::vector<Plant*>& offerList){
     if(source.empty()){
@@ -39,4 +39,14 @@ void CustomerVisitor::finalizeOffer(std::size_t target){
 
 const std::vector<Plant*>& CustomerVisitor::getOffer()const{
     return this->offer;
+}
+
+const std::vector<Plant*>& CustomerVisitor::getCorrectPlant()const{
+    return this->correct;
+}
+
+void CustomerVisitor::markCorrectPlants(const std::vector<Plant*>& source, int count){
+    for(int i=0;i<count && i<(int)source.size();i++){
+        correct.push_back(source[i]);
+    }
 }
