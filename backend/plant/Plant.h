@@ -65,13 +65,15 @@ class Plant
         string careType;
 
         /**
-         * @brief A static map linking specific plant varieties to their respective cost prices.
+         * @brief A static map linking specific plant varieties to their respective cost prices. Now, brace yourself,
+         *  this is not only a declaration but a definition. This avoids linker errors and ensures that there is only
+         *  a single definition of this static member 
          * @note Using integer (as opposed to float or double) for cost prices to avoid floating point rounding errors
          * 
          * vector[0] = costPrice
          * vector[1] = salePrice
          */
-        static map<string, vector<int>> plantCosts;
+        inline static std::map<std::string, std::vector<int>> plantCosts{};
 
         /**
          * @brief List of greenhouse staff observers attached to this plant.
@@ -257,6 +259,18 @@ class Plant
          * @param[in] plantCosts maps the plant variety to it's integer price
          */
         static void setPlantCosts(map<string, vector<int>> plantCosts);
+
+        /**
+         * @brief Used to stub plantCosts static variable when testing plants
+         *  without creating game, ensuring that there are no invalid reads, variable
+         *  instantiated before use
+         */
+        static void stubPlant();
+
+        /**
+         * @brief return plantCosts for testing purposes
+         */
+        static map<string, vector<int>> getPlantCosts();
 };
 
 #endif

@@ -71,6 +71,8 @@ TEST(GameCreationTests, NewGameOptionExecutesProperly) {
 TEST(PlantFactoryTests, SucculentCreationAndCloning)
 {
     // Test Succulent creation through factory
+    Plant::stubPlant();
+
     SucculentCreator succulentCreator;
     succulentCreator.makePlant("Cactus");
     
@@ -100,6 +102,8 @@ TEST(PlantFactoryTests, SucculentCreationAndCloning)
 
 TEST(PlantFactoryTests, FlowerCreationAndCloning)
 {
+    Plant::stubPlant();
+
     // Test Flower creation through factory
     FlowerCreator flowerCreator;
     flowerCreator.makePlant("Rose");
@@ -130,6 +134,8 @@ TEST(PlantFactoryTests, FlowerCreationAndCloning)
 
 TEST(PlantFactoryTests, TreeCreationAndCloning)
 {
+    Plant::stubPlant();
+
     // Test Tree creation through factory
     TreeCreator treeCreator;
     treeCreator.makePlant("Lemon");
@@ -482,15 +488,11 @@ TEST(GameCreationTests, PlantCostTests)
     Game* game = new Game(configPath);
     game->createNewGame();
 
-    vector<PlantStruct*> plants;
+    map<string, vector<int>> plantCosts = Plant::getPlantCosts(); 
 
-    EXPECT_NO_FATAL_FAILURE(
-        plants = game->getAvailablePlantVarieties();
-    );
-
-    for (PlantStruct* p : plants) {
-        EXPECT_GT(p->costPrice, 0);
-        EXPECT_GT(p->salePrice, 0);
+    for (auto it = plantCosts.begin(); it != plantCosts.end(); ++it) {
+        EXPECT_GT((it->second)[0], 0);
+        EXPECT_GT((it->second)[1], 0);
     }
 
     delete game;

@@ -8,9 +8,6 @@
 #include "GreenhouseStaff.h"
 #include "PlantHealth.h"
 
-// Seems if you use static member need to init it at least once out of class
-map<string, vector<int>> Plant::plantCosts = {};
-
 Plant::Plant(string category, string variety)
 {
     this->plantCategory = category;
@@ -22,7 +19,7 @@ Plant::Plant(string category, string variety)
     
     // Game needs to be initialized (prices fetched from JSON) before
     // plant costs can be set. If game not initialized, plant costs not set.
-    if(!plantCosts.empty() && !(plantCosts[variety].size() == 2))
+    if(!plantCosts.empty() && plantCosts[variety].size() == 2)
     {
         costPrice = plantCosts[variety][0];
         salePrice = plantCosts[variety][1];
@@ -198,4 +195,12 @@ void Plant::run() {
 void Plant::setPlantCosts(map<string, vector<int>> plantCosts)
 {
     Plant::plantCosts = plantCosts;
+}
+
+void Plant::stubPlant() {
+    plantCosts = {};
+}
+
+map<string, vector<int>> Plant::getPlantCosts() {
+    return plantCosts;
 }
