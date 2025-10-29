@@ -1,3 +1,8 @@
+/**
+ * @file AverageCustomerBuilder.cpp
+ * @brief Implements the AverageCustomerBuilder class functionality.
+ */
+
 #include "AverageCustomerBuilder.h"
 
 AverageCustomerBuilder::AverageCustomerBuilder(GameConfiguraton* c) : CustomerBuilder()
