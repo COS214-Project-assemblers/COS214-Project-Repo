@@ -12,6 +12,9 @@ find_package(oatpp 1.4.0 REQUIRED)
 # JSON Parsing
 find_package(nlohmann_json 3.10 REQUIRED)
 
+find_package(Boost REQUIRED COMPONENTS system)
+find_path(WEBSOCKETPP_INCLUDE_DIR websocketpp/config/asio_no_tls.hpp REQUIRED)
+
 set(SOURCES
   backend/API/APIDto.h
   backend/API/APIController.h
@@ -20,6 +23,7 @@ set(SOURCES
   backend/API/APIComponent.cpp
   backend/API/API.h
   backend/API/API.cpp
+  backend/WS/GreenSock.cpp
   backend/game/Game.cpp
   backend/game/Game.h
   backend/game/MenuOption.cpp
@@ -94,7 +98,7 @@ add_executable(main
 )
 
 # Includes: add the API dir to both targets
-target_include_directories(main  PRIVATE backend backend/API backend/game backend/plant backend/customer backend/greenhouse backend/Transaction)
+target_include_directories(main  PRIVATE ${WEBSOCKETPP_INCLUDE_DIR} backend backend/API backend/WS backend/game backend/plant backend/customer backend/greenhouse backend/Transaction)
 
 # Link libs
-target_link_libraries(main  PRIVATE oatpp::oatpp nlohmann_json::nlohmann_json)
+target_link_libraries(main  PRIVATE oatpp::oatpp nlohmann_json::nlohmann_json Boost::system)
