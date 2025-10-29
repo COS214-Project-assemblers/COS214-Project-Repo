@@ -43,9 +43,10 @@ bool Manager::assistNextCust(){
 void Manager::recordSale(Customer& cust, Plant& p,double revenue){
     floor.inventoryMut().commitSale(&p);
     Transaction saleT(new Sale(),revenue);
-    TransactionMem snap=saleT.createTransactionMem(ledger);
+    TransactionMem snap=saleT.createTransactionMem(ledger,&p);
     hist.setTransactionMem(snap);
     //notifu gui
+    
     floor.moveToCustHist(&cust);
 }
 

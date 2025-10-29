@@ -1,4 +1,4 @@
-#include "ledger.h"
+#include "Ledger.h"
 
 Ledger::Ledger(){
     this->balance=0;//initial bal is set to 0
