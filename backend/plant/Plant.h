@@ -15,6 +15,8 @@
 #include <thread>
 #include <atomic>
 
+#include "GreenSock.h"
+
 class Health ;
 class PlantState;
 class GreenhouseStaff;
@@ -83,6 +85,7 @@ class Plant
          *  @brief Pointer to the Health component representing the plant’s overall well-being.
          * */
         Health* health ;
+        GreenSock* socket ; 
 
     public:
         /**
