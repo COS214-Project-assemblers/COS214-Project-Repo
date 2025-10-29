@@ -75,27 +75,34 @@ set(SOURCES
   backend/customer/AverageCustomer.cpp
   backend/customer/GreenFingerCustomer.h
   backend/customer/GreenFingerCustomer.cpp
+
   backend/customer/CustomerVisitor.h
   backend/customer/CustomerVisitor.cpp
-  backend/customer/VisitAverageSpendCustomer.h
-  backend/customer/VisitAverageSpendCustomer.cpp
-  backend/customer/VisitBigSpendCustomer.h
-  backend/customer/VisitBigSpendCustomer.cpp
-  backend/customer/VisitLowSpendCustomer.h
-  backend/customer/VisitLowSpendCustomer.cpp
+  backend/customer/VisitEasyCustomer.h
+  backend/customer/VisitEasyCustomer.cpp
+  backend/customer/VisitMediumCustomer.h
+  backend/customer/VisitMediumCustomer.cpp
+  backend/customer/VisitHighCustomer.h
+  backend/customer/VisitHighCustomer.cpp
+
   backend/game/GameConfiguration.h
   backend/game/JSONGameConfiguration.h
   backend/game/JSONGameConfiguration.cpp
   backend/game/EnvironmentInitializer.h
   backend/game/EnvironmentInitializer.cpp
-  backend/customer/CustomerCreator.h
-  backend/customer/CustomerCreator.cpp
-  backend/customer/IgnorantCustomerCreator.h
-  backend/customer/IgnorantCustomerCreator.cpp
-  backend/customer/AverageCustomerCreator.h
-  backend/customer/AverageCustomerCreator.cpp
-  backend/customer/GreenFingerCustomerCreator.h
-  backend/customer/GreenFingerCustomerCreator.cpp
+
+  backend/customer/CustomerBuilder.h
+  backend/customer/CustomerBuilder.cpp
+  backend/customer/IgnorantCustomerBuilder.h
+  backend/customer/IgnorantCustomerBuilder.cpp
+  backend/customer/AverageCustomerBuilder.h
+  backend/customer/AverageCustomerBuilder.cpp
+  backend/customer/GreenFingerCustomerBuilder.h
+  backend/customer/GreenFingerCustomerBuilder.cpp
+
+  backend/customer/Director.h
+  backend/customer/Director.cpp
+
   backend/game/LogDecorator.h
   backend/game/LogDecorator.cpp
   backend/game/CoutAndLog.h
