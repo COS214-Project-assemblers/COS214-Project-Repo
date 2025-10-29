@@ -1,24 +1,51 @@
-function initDB() {
+let db;
+
+function openDB() {
+  return new Promise((resolve, reject) => {
     const request = indexedDB.open("plantDB", 1);
 
     request.onupgradeneeded = (event) => {
-        const db = event.target.result;
-        db.createObjectStore("plants", { keyPath: "plantId" });
+      const db = event.target.result;
+      if (!db.objectStoreNames.contains("plants")) {
+        const store = db.createObjectStore("plants", { keyPath: "plantId" });
+        store.createIndex("byCategory", "plantCategory", { unique: false });
+        store.createIndex("byVariety", "plantVariety", { unique: false });
+      }
     };
+
+    request.onsuccess = (event) => {
+      db = event.target.result;
+      resolve(db);
+    };
+
+    request.onerror = () => reject(request.error);
+  });
 }
 
 function addDBRecord(record) {
-    const request = indexedDB.open("plantDB", 1);
-    request.onsuccess = (event) => {
-      const db = event.target.result;
-      const tx = db.transaction("plants", "readwrite");
-      const store = tx.objectStore("plants");
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(["plants"], "readwrite");
+    const store = tx.objectStore("plants");
+    const req = store.put(record); 
 
-      store.put(record);
-
-      tx.oncomplete = () => db.close();
-    };
+    req.onerror = () => reject(req.error);
+    tx.oncomplete = () => resolve(); 
+    tx.onerror = () => reject(tx.error);
+  });
 }
+
+
+function getPlantRecord(plantId) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(["plants"], "readonly");
+    const store = tx.objectStore("plants");
+    const req = store.get(plantId);
+
+    req.onsuccess = () => resolve(req.result ?? null);
+    req.onerror = () => reject(req.error);
+  });
+}
+
 
 function initSocket() {
     const wsUri = "ws://localhost:8001"
@@ -33,6 +60,8 @@ function initSocket() {
     });
 
     websocket.addEventListener("message", (e) => {
+        // Here the message will be parsed and then stored in IndexedDB and if applicable update
+        // plant elements
         console.log(`RECEIVED: ${e.data}`);
         try {
             JSON.parse(e.data);
@@ -46,13 +75,15 @@ function initSocket() {
     });
 }
 
-function initShit() {
-    document.getElementById("regular-shit").addEventListener("click", () => {
-        randoItem = document.createElement("li");
-        randoItem.textContent = "hihi";
-        document.getElementById("rando-list").appendChild(randoItem); 
-    });
-}
+openDB()
+  .then(() => addDBRecord({ plantId: 1, plantCategory: "test", plantVariety: "test" }))
+  .then(() => getPlantRecord(1))
+  .then((rec) => {
+    if (rec) {
+      console.log("Plant found:", rec);
+    } else {
+      console.log("Plant not found");
+    }
+  })
+  .catch((err) => console.error("DB error:", err));
 
-initShit();
-initSocket();
