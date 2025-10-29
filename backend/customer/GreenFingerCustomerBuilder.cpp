@@ -18,11 +18,6 @@ GreenFingerCustomerBuilder::~GreenFingerCustomerBuilder()
     
 }
 
-GreenFingerCustomerBuilder::~GreenFingerCustomerBuilder()
-{
-    
-}
-
 string GreenFingerCustomerBuilder::getRandomElement(const vector<string>& v) 
 {
     if (v.empty()) 

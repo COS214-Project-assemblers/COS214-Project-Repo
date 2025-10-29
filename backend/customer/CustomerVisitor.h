@@ -9,7 +9,8 @@
 #include <cstddef>
 
 class Inventory;
-class Plant;
+// class Plant;
+#include "Plant.h"
 
 //forward declarations of concrete builders
 class AverageCustomerBuilder;

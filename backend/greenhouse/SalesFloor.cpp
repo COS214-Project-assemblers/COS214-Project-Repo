@@ -20,15 +20,15 @@ void SalesFloor::moveToCustHist(Customer* cust){
     custHist.push_back(cust);
 }
 
-void SalesFloor::accept(CustomerVisitor& v){
-    if(customers.empty()){
-        return;
-    }
-    Customer* c=customers.front();
-    c->accept(v);
-    customers.erase(customers.begin());
-    custHist.push_back(c);
-}
+// void SalesFloor::accept(CustomerVisitor& v){
+//     if(customers.empty()){
+//         return;
+//     }
+//     Customer* c=customers.front();
+//     c->accept(v);
+//     customers.erase(customers.begin());
+//     custHist.push_back(c);
+// }
 
 bool SalesFloor::hasCustomers(){
     return !this->customers.empty();
