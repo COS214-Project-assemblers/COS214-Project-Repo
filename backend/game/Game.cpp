@@ -20,14 +20,12 @@ Game::Game(string configPath)
         logger->newLog("Attempting to load JSON game configuration " + configPath);
         config = new JSONGameConfiguration(configPath);
 
-        map<string, vector<string>> varieties = config->getPlantVarieties();
-        for (const auto &[category, variants] : varieties)
+        vector<PlantStruct*> plants = config->getPlantVarieties();
+        for (PlantStruct* p : plants)
         {
-            for (const auto &variety : variants)
-            {
-                varietyToCategory[variety] = category;
-                cout << "✓ Mapped variety '" << variety << "' to category '" << category << "'" << endl;
-            }
+            varietyToCategory[p->variety] = p->category;
+            cout << "✓ Mapped variety '" << p->variety << "' to category '" << p->category << "'" << endl;
+            delete p;
         }
     }
     catch (const runtime_error &e)
@@ -73,10 +71,8 @@ map<string, PlantCreator *> Game::getFactories()
     return factories;
 }
 
-void createFactoriesHelper(string category, vector<string> variants, map<string, PlantCreator *>& factories, Logger* logger)
+void createFactoriesHelper(string category, string variant, map<string, PlantCreator *>& factories, Logger* logger)
 {
-    for (const auto &v : variants)
-    {
         // Not optimal, but at least centralized
         PlantCreator* newPlantCreator;
         if (category == "succulents") {
@@ -90,11 +86,11 @@ void createFactoriesHelper(string category, vector<string> variants, map<string,
             return;
         }
 
-        newPlantCreator->makePlant(v);
-        string message = "+ Made " + category + " factory for variety [" + v + "]";
+        newPlantCreator->makePlant(variant);
+        string message = "+ Made " + category + " factory for variety [" + variant + "]";
         logger->newLog(message);
-        factories[v] = newPlantCreator;
-    }
+        factories[variant] = newPlantCreator;
+    
 }
 
 void Game::createNewGame()
@@ -103,15 +99,16 @@ void Game::createNewGame()
     try
     {
         // Create new factories
+        vector<PlantStruct*> plants;
         map<string, vector<string>> varieties;
         map<string, PlantCreator *> factories;
 
-        varieties = config->getPlantVarieties();
-        for (const auto &[category, variants] : varieties)
-        {
-            createFactoriesHelper(category, variants, factories, logger);
-        }
+        plants = config->getPlantVarieties();
 
+        for (PlantStruct* plant : plants) {
+            createFactoriesHelper(plant->category, plant->variety, factories, logger);
+            delete plant;
+        }
         setFactories(factories);
 
         logger->newLog("+ Created factories");
@@ -216,7 +213,7 @@ string Game::getCategoryForVariety(string variety)
     return it->second;
 }
 
-map<string, vector<string>> Game::getAvailablePlantVarieties() 
+vector<PlantStruct*> Game::getAvailablePlantVarieties() 
 {
     return config->getPlantVarieties();
 }

@@ -115,7 +115,7 @@ class Game {
          * @brief Get all available plant varieties from configuration
          * @return Map of categories to plant varieties
          */
-        map<string, vector<string>> getAvailablePlantVarieties();
+        vector<PlantStruct*> getAvailablePlantVarieties();
 };
 
 #endif // GAME_HDR

@@ -36,7 +36,7 @@ class JSONGameConfiguration : public GameConfiguraton {
          * @brief Extracts plant varieties from loadedConfig
          * @throws std::out_of_range
          */
-        virtual std::map<std::string, std::vector<std::string>> getPlantVarieties() override;
+        virtual std::vector<PlantStruct*> getPlantVarieties() override;
 };
 
 #endif // JSONCONF

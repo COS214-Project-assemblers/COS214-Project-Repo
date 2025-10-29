@@ -1,7 +1,46 @@
 {
-    "plantVarieties": {
-        "succulents": ["cactus", "aloe", "jade"],
-        "flowers": ["rose", "tulip", "daisy"],
-        "trees": ["lemon", "apple", "oak"]
+    "plantCategories": {
+        "succulents": {
+            "cactus": {
+                "costPrice": 12.00,
+                "salePrice": 15.00
+            },
+            "aloe": {
+                "costPrice": 9.00,
+                "salePrice": 11.00
+            },
+            "jade": {
+                "costPrice": 7.50,
+                "salePrice": 9.00
+            }
+        },
+        "flowers": {
+            "rose": {
+                "costPrice": 10.00,
+                "salePrice": 13.00
+            },
+            "daisy": {
+                "costPrice": 5,
+                "salePrice": 7
+            },
+            "sunflower": {
+                "costPrice": 9,
+                "salePrice": 12
+            }
+        },
+        "trees": {
+            "lemon": {
+                "costPrice": 15.00,
+                "salePrice": 20.00
+            },
+            "banana": {
+                "costPrice": 20,
+                "salePrice": 30
+            },
+            "apple": {
+                "costPrice": 25,
+                "salePrice": 40
+            }
+        }
     }
 }
