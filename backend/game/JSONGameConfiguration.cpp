@@ -42,3 +42,29 @@ std::vector<PlantStruct*> JSONGameConfiguration::getPlantVarieties()
     
     return returnStructVec;
 }
+
+std::map<std::string, std::map<std::string, std::vector<std::string>>> JSONGameConfiguration::getCustomerTypes()
+{
+    std::map<std::string, std::map<std::string, std::vector<std::string>>> customerTypes;
+
+    try
+    {
+        for (auto& [customerType, categories] : loadedConfig["customers"].items())
+        {
+            std::map<std::string, std::vector<std::string>> categoryMap;
+
+            for (auto& [categoryName, valueArray] : categories.items())
+            {
+                categoryMap[categoryName] = valueArray.get<std::vector<std::string>>();
+            }
+
+            customerTypes[customerType] = std::move(categoryMap);
+        }
+    }
+    catch (const nlohmann::json::exception& e)
+    {
+        throw std::runtime_error(std::string("Error loading customer types: ") + e.what());
+    }
+
+    return customerTypes;
+}

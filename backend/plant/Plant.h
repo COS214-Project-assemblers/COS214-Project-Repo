@@ -32,6 +32,7 @@ using namespace std;
 class Plant
 {
     private:
+        string careLevel;
         /**
          * @brief The broad category of the plant, such as "Succulent", "Flower", or "Tree".
          */
@@ -78,6 +79,7 @@ class Plant
         std::atomic<bool> alive;
         std::thread thread;
 
+
     protected:
         /**
          *  @brief Pointer to the Health component representing the plant’s overall well-being.
@@ -86,7 +88,7 @@ class Plant
 
     public:
         /**
-         * @brief Constructs a Plant object with the specified category and variety.
+         * @brief Constructs a Plant object with the specified category and variety and difficulty.
          * @details Used as a base constructor for all specific Plant subclasses.
          * @param [in] category The general category of the plant.
          * @param [in] variety The specific variety within that category.
@@ -94,6 +96,7 @@ class Plant
          * The Dynamic Health Attribute should only be Created in the concrete Products
          * because, the type of plant determines how much water/fertilizer/pruning is required
          */
+        // Plant(string category, string variety,string difficulty);
         Plant(string category, string variety);
 
         /**
@@ -118,6 +121,7 @@ class Plant
          */
         virtual Plant* clone() = 0;
 
+        string getCareLevel();
         /**
          * @brief Retrieves the category of the plant.
          * @return The category name as a string.
@@ -148,7 +152,9 @@ class Plant
          */
         void display();
 
-
+        ///////////////////////////////
+        // also need to add a getCareLevel() function which will return the added careLevel member variable
+        //////////////////////////////
 
         /**
          * @brief Gets the current state of the plant.

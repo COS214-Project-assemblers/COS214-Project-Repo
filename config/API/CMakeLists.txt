@@ -23,7 +23,9 @@ set(SOURCES
   backend/API/APIComponent.cpp
   backend/API/API.h
   backend/API/API.cpp
+
   backend/WS/GreenSock.cpp
+
   backend/game/Game.cpp
   backend/game/Game.h
   backend/game/MenuOption.cpp
@@ -47,10 +49,25 @@ set(SOURCES
   # backend/game/TransactionMem.cpp
   # backend/game/TransactionHistory.h
   # backend/game/TransactionHistory.cpp
-  backend/plant/Plant.h
-  backend/plant/Plant.cpp
   backend/game/BasicLogger.h
   backend/game/BasicLogger.cpp
+  backend/game/GameConfiguration.h
+  backend/game/JSONGameConfiguration.h
+  backend/game/JSONGameConfiguration.cpp
+  backend/game/LogDecorator.h
+  backend/game/LogDecorator.cpp
+  backend/game/CoutAndLog.h
+  backend/game/CoutAndLog.cpp
+
+  backend/plant/Plant.h
+  backend/plant/Plant.cpp
+  backend/plant/Flower.h
+  backend/plant/Flower.cpp
+  backend/plant/Succulent.h
+  backend/plant/Succulent.cpp
+  backend/plant/Tree.h
+  backend/plant/Tree.cpp
+
   backend/plant/PlantCreator.h
   backend/plant/PlantCreator.cpp
   backend/plant/FlowerCreator.h
@@ -59,37 +76,46 @@ set(SOURCES
   backend/plant/SucculentCreator.cpp
   backend/plant/TreeCreator.h
   backend/plant/TreeCreator.cpp
-  backend/plant/Flower.h
-  backend/plant/Flower.cpp
-  backend/plant/Succulent.h
-  backend/plant/Succulent.cpp
-  backend/plant/Tree.h
-  backend/plant/Tree.cpp
+
   backend/plant/PlantHealth.h
   backend/plant/PlantHealth.cpp
   backend/plant/NotSellable.h
   backend/plant/NotSellable.cpp
+
   backend/greenhouse/Greenhouse.h
   backend/greenhouse/Greenhouse.cpp
   backend/greenhouse/Inventory.h
   backend/greenhouse/Inventory.cpp
-  backend/game/GameConfiguration.h
-  backend/game/JSONGameConfiguration.h
-  backend/game/JSONGameConfiguration.cpp
-  backend/game/LogDecorator.h
-  backend/game/LogDecorator.cpp
-  backend/game/CoutAndLog.h
-  backend/game/CoutAndLog.cpp
-  # backend/customer/Customer.h
-  # backend/customer/Customer.cpp
-  # backend/customer/AverageCustomer.h
-  # backend/customer/AverageCustomer.cpp
-  # backend/customer/IgnorantCustomer.h
-  # backend/customer/IgnorantCustomer.cpp
-  # backend/customer/GreenFingerCustomer.h
-  # backend/customer/GreenFingerCustomer.cpp
-  # backend/customer/CustomerVisitor.h
-  # backend/customer/CustomerVisitor.cpp
+
+  backend/customer/Customer.h
+  backend/customer/Customer.cpp
+  backend/customer/AverageCustomer.h
+  backend/customer/AverageCustomer.cpp
+  backend/customer/IgnorantCustomer.h
+  backend/customer/IgnorantCustomer.cpp
+  backend/customer/GreenFingerCustomer.h
+  backend/customer/GreenFingerCustomer.cpp
+
+  backend/customer/CustomerVisitor.h
+  backend/customer/CustomerVisitor.cpp
+  backend/customer/VisitEasyCustomer.h
+  backend/customer/VisitEasyCustomer.cpp
+  backend/customer/VisitMediumCustomer.h
+  backend/customer/VisitMediumCustomer.cpp
+  backend/customer/VisitHighCustomer.h
+  backend/customer/VisitHighCustomer.cpp
+
+  backend/customer/CustomerBuilder.h
+  backend/customer/CustomerBuilder.cpp
+  backend/customer/IgnorantCustomerBuilder.h
+  backend/customer/IgnorantCustomerBuilder.cpp
+  backend/customer/AverageCustomerBuilder.h
+  backend/customer/AverageCustomerBuilder.cpp
+  backend/customer/GreenFingerCustomerBuilder.h
+  backend/customer/GreenFingerCustomerBuilder.cpp
+
+  backend/customer/Director.h
+  backend/customer/Director.cpp
 )
 
 add_executable(main

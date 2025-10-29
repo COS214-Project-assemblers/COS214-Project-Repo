@@ -16,3 +16,8 @@ void Greenhouse::addPlant(Plant* p)
 {
     inventory->restock(p);
 }
+
+Inventory* Greenhouse::getInventory()
+{
+    return inventory;
+}
