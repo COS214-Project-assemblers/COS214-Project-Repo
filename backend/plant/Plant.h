@@ -77,7 +77,7 @@ class Plant
         int decayIndex;
         std::atomic<bool> alive;
         std::thread thread;
-
+        std::string difficulty;///< The difficulty level of caring for the plant.
 
     protected:
         /**
@@ -91,12 +91,13 @@ class Plant
          * @details Used as a base constructor for all specific Plant subclasses.
          * @param [in] category The general category of the plant.
          * @param [in] variety The specific variety within that category.
+         * @param [in] difficulty The difficulty level of caring for the plant.
          * @section memory_management Thread-related Memory Management
          * The Dynamic Health Attribute should only be Created in the concrete Products
          * because, the type of plant determines how much water/fertilizer/pruning is required
          */
-        // Plant(string category, string variety,string difficulty);
-        Plant(string category, string variety);
+        Plant(string category, string variety,string difficulty);
+        // Plant(string category, string variety);
 
         /**
          * @brief Copy constructor used for the Prototype design pattern.
@@ -143,6 +144,12 @@ class Plant
          * @return The sale price as a floating-point value.
          */
         float getSalePrice();
+
+        /**
+         * @brief Retrieves the difficulty level of caring for the plant.
+         * @return The difficulty level as a string.
+         */
+        std::string getDifficulty();
 
         /**
          * @brief Displays the plant’s details to the console for testing and debugging.
