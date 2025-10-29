@@ -472,3 +472,26 @@ TEST(GameTests, PlantVarietyMapping)
     
     delete game;
 }
+
+TEST(GameCreationTests, PlantCostTests)
+{
+    // Initialize environment
+    std::cout << "\n=== Testing Cost Extraction ===" << std::endl;
+    
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
+    Game* game = new Game(configPath);
+    game->createNewGame();
+
+    vector<PlantStruct*> plants;
+
+    EXPECT_NO_FATAL_FAILURE(
+        plants = game->getAvailablePlantVarieties();
+    );
+
+    for (PlantStruct* p : plants) {
+        EXPECT_GT(p->costPrice, 0);
+        EXPECT_GT(p->salePrice, 0);
+    }
+
+    delete game;
+}

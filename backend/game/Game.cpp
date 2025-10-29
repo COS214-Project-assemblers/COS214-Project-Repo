@@ -29,13 +29,23 @@ Game::Game(string configPath)
         logger->newLog("Attempting to load JSON game configuration " + configPath);
         config = new JSONGameConfiguration(configPath);
 
-        vector<PlantStruct*> plants = config->getPlantVarieties();
-        for (PlantStruct* p : plants)
+        map<string, vector<int>> plantCosts;
+        vector<PlantStruct*> plants = config->getPlantVarieties();        for (PlantStruct* p : plants)
         {
-            varietyToCategory[p->variety] = p->category;
-            cout << "✓ Mapped variety '" << p->variety << "' to category '" << p->category << "'" << endl;
+            string variety = p->variety;
+            varietyToCategory[variety] = p->category;
+            string mapMessage = "✓ Mapped variety '" + variety + "' to category '" + p->category + "'";
+            logger->newLog(mapMessage);
+            vector<int> costs = {p->costPrice, p->salePrice};
+            plantCosts[variety] = costs;
+            string costMessage =  "✓ Saved cost price of " + variety + ": " + to_string(costs[0]);
+            logger->newLog(costMessage);
+            costMessage = "✓ Saved sale price of " + variety + ": " + to_string(costs[1]);
+            logger->newLog(costMessage);
             delete p;
         }
+
+        Plant::setPlantCosts(plantCosts);
     }
     catch (const runtime_error &e)
     {

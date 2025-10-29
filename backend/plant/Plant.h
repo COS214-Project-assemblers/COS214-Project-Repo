@@ -46,13 +46,12 @@ class Plant
         /**
          * @brief The cost to the player when purchasing the plant for cultivation in the greenhouse.
          */
-        float costPrice;
+        int costPrice = 0;
 
         /**
          * @brief The retail price at which the plant can be sold to customers.
-         * @details This is typically calculated as the cost price plus a 50% markup (subject to adjustment).
          */
-        float salePrice;
+        int salePrice = 0;
 
         /**
          * @brief Pointer to the current state of the plant.
@@ -67,8 +66,12 @@ class Plant
 
         /**
          * @brief A static map linking specific plant varieties to their respective cost prices.
+         * @note Using integer (as opposed to float or double) for cost prices to avoid floating point rounding errors
+         * 
+         * vector[0] = costPrice
+         * vector[1] = salePrice
          */
-        static map<string, float> plantCosts;
+        static map<string, vector<int>> plantCosts;
 
         /**
          * @brief List of greenhouse staff observers attached to this plant.
@@ -136,15 +139,15 @@ class Plant
 
         /**
          * @brief Retrieves the purchase cost of the plant.
-         * @return The cost price as a floating-point value.
+         * @return The cost price as an integer value.
          */
-        float getCostPrice();
+        int getCostPrice();
 
         /**
          * @brief Retrieves the selling price of the plant.
-         * @return The sale price as a floating-point value.
+         * @return The sale price as an integer value.
          */
-        float getSalePrice();
+        int getSalePrice();
 
         /**
          * @brief Displays the plant’s details to the console for testing and debugging.
@@ -249,6 +252,11 @@ class Plant
          */
         float healthScore() ;
 
+        /**
+         * @brief Static method to set static member variable plantCosts
+         * @param[in] plantCosts maps the plant variety to it's integer price
+         */
+        static void setPlantCosts(map<string, vector<int>> plantCosts);
 };
 
 #endif
