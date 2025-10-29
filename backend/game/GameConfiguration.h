@@ -13,6 +13,13 @@
 #include <stdexcept>
 #include <map>
 
+struct PlantStruct {
+    std::string category;
+    std::string variety;
+    int costPrice;
+    int salePrice;
+};
+
 /**
  * @class GameConfiguration
  * @brief Interface that provides unified interface to clients wanting to read
@@ -27,7 +34,7 @@ class GameConfiguraton {
          * @returns std::map that maps the plant category to a list of its variants
          *  i.e. ["succulent", ["cactus", "other-succulent"]]
          */
-        virtual std::map<std::string, std::vector<std::string>> getPlantVarieties() = 0;
+        virtual std::vector<PlantStruct*> getPlantVarieties() = 0;
 
         /**
          * @brief Extracts customer types and their data from loadedConfig

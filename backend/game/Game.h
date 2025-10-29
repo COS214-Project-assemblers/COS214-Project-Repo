@@ -116,11 +116,11 @@ class Game {
          */
         string getCategoryForVariety(string variety);
         
-        /**
-         * @brief Get all available plant varieties from configuration
-         * @return Map of categories to plant varieties
-         */
-        map<string, vector<string>> getAvailablePlantVarieties();
+        // /**
+        //  * @brief Get all available plant varieties from configuration
+        //  * @return Map of categories to plant varieties
+        //  */
+        // map<string, vector<string>> getAvailablePlantVarieties();
 
         /**
          * @brief Getter for customers vector
@@ -147,6 +147,9 @@ class Game {
          * @return JSON string containing all customers
          */
         string getCustomersAsJson();
+
+        
+        vector<PlantStruct*> getAvailablePlantVarieties();
 };
 
 #endif // GAME_HDR

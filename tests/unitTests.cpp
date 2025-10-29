@@ -426,18 +426,19 @@ TEST(GameTests, BuyPlantsFactoryMethodIntegration)
     Game* game = new Game(configPath);
     game->createNewGame();
     
-    map<string, vector<string>> varieties = game->getAvailablePlantVarieties();
+    vector<PlantStruct*> plants = game->getAvailablePlantVarieties();
     
-    for (const auto& [category, plantList] : varieties) {
-        if (!plantList.empty()) {
-            string testPlant = plantList[0];
+    for (PlantStruct* pStruct : plants) {
+        if (pStruct->variety != "") {
+            string testPlant = pStruct->variety;
             EXPECT_NO_THROW({
                 game->buyPlants(testPlant, 1);
-            }) << "Should buy " << testPlant << " from " << category << " category";
+            }) << "Should buy " << testPlant << " from " << pStruct->category << " category";
             
             std::cout << "✓ Factory Method correctly created " << testPlant 
-                      << " (" << category << ")" << std::endl;
+                      << " (" << pStruct->category << ")" << std::endl;
         }
+        delete pStruct;
     }
     
     delete game;
@@ -450,26 +451,23 @@ TEST(GameTests, PlantVarietyMapping)
     std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
     Game* game = new Game(configPath);
     
-    map<string, vector<string>> varieties = game->getAvailablePlantVarieties();
+    vector<PlantStruct*> plants = game->getAvailablePlantVarieties();
     std::cout << "Loaded varieties from config:" << std::endl;
-    for (const auto& [category, varietiesList] : varieties) {
-        std::cout << "  " << category << ": ";
-        for (const auto& variety : varietiesList) {
-            std::cout << variety << " ";
-        }
+    for (PlantStruct* p : plants) {
+        std::cout << "  " << p->category << ": ";
+        std::cout << p->variety << " ";
         std::cout << std::endl;
     }
     
-    for (const auto& [expectedCategory, varietiesList] : varieties) {
-        for (const auto& variety : varietiesList) {
-            std::cout << "Testing variety: '" << variety << "' -> expected category: '" << expectedCategory << "'" << std::endl;
-            string actualCategory = game->getCategoryForVariety(variety);
-            EXPECT_EQ(actualCategory, expectedCategory) 
-                << "Variety '" << variety << "' should map to category '" << expectedCategory << "'";
-            std::cout << "  ✓ " << variety << " correctly maps to " << actualCategory << std::endl;
-        }
+    for (PlantStruct* p : plants) {
+        std::cout << "Testing variety: '" << p->variety << "' -> expected category: '" << p->category << "'" << std::endl;
+        string actualCategory = game->getCategoryForVariety(p->variety);
+        EXPECT_EQ(actualCategory, p->category) 
+                 << "Variety '" << p->variety << "' should map to category '" << p->category << "'";
+        std::cout << "  ✓ " << p->variety << " correctly maps to " << p->category << std::endl;    
+        delete p;    
     }
-    
+
     std::cout << "✓ Plant variety mapping works correctly" << std::endl;
     
     delete game;
