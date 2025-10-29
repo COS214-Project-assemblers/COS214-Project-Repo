@@ -305,7 +305,10 @@ void Game::createCustomers(string type, int num)
         
         customers.push_back(customer);
         
-        delete builder;
+        if(builder)
+        {
+            delete builder;
+        }
     }
 
     logger->newLog("+ Created " + to_string(num) + " " + type + " customers");
