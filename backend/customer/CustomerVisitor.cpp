@@ -1,3 +1,8 @@
+/**
+ * @file CustomerVisitor.cpp
+ * @brief Implements the CustomerVisitor base class functionality.
+ */
+
 #include "CustomerVisitor.h"
 #include "Inventory.h"
 

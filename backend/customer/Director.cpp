@@ -1,3 +1,8 @@
+/**
+ * @file Director.cpp
+ * @brief Implements the Director class functionality.
+ */
+
 #include "Director.h"
 
 Director::Director()
