@@ -199,7 +199,8 @@
                 "Until next time - may your soil be rich and your leaves unbitten!",
                 "I go, but the hunt continues!"
             ]
-        }, 
+       }
+    },
     "plantCategories": {
         "succulents": {
             "cactus": {
@@ -244,5 +245,4 @@
             }
         }
     }
-}
 }
