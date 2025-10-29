@@ -1,0 +1,58 @@
+
+
+.landingBody {
+    background-image: url(./assets/images/Greenhouse.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#title {
+    width: 60em;
+    margin: auto;
+    margin-left: 16.5em;
+    margin-top: 5em;
+}
+
+#new-game-button {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+#new-game-button img {
+    width: 22em;
+    margin-left: 20.6em;
+    margin-top: 3em;
+}
+
+#tutorial-button {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+#tutorial-button img {
+    width: 22em;
+    margin-top: 3em;
+    margin-left: 0.8em;
+}
+
+#exit-button {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+#exit-button img {
+    width: 17em;
+    margin-top: 3em;
+    margin-left: 3em;
+}
+
+#landing-buttons-div button img:hover {
+    cursor: pointer;
+}
