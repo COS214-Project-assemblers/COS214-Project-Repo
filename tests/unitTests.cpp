@@ -71,8 +71,9 @@ TEST(GameCreationTests, NewGameOptionExecutesProperly) {
 TEST(PlantFactoryTests, SucculentCreationAndCloning)
 {
     // Test Succulent creation through factory
-    Plant::stubPlant();
+    cout << "here" << endl;
 
+    Plant::stubPlant();
     SucculentCreator succulentCreator;
     succulentCreator.makePlant("Cactus");
     
@@ -90,6 +91,7 @@ TEST(PlantFactoryTests, SucculentCreationAndCloning)
     Plant* clonedSucculent = succulent->clone();
     EXPECT_NE(clonedSucculent, nullptr) << "clone() should return non-null pointer";
     EXPECT_NE(succulent, clonedSucculent) << "Clone should be a different object from original";
+    EXPECT_NE(clonedSucculent->getId(), "");
     EXPECT_EQ(clonedSucculent->getPlantCategory(), "Succulent") << "Cloned succulent should have same category";
     EXPECT_EQ(clonedSucculent->getPlantVariety(), "Cactus") << "Cloned succulent should have same variety";
     
@@ -121,6 +123,7 @@ TEST(PlantFactoryTests, FlowerCreationAndCloning)
     // Test cloning functionality
     Plant* clonedFlower = flower->clone();
     EXPECT_NE(clonedFlower, nullptr) << "clone() should return non-null pointer";
+    EXPECT_NE(clonedFlower->getId(), "") << "Plant id creation";
     EXPECT_NE(flower, clonedFlower) << "Clone should be a different object from original";
     EXPECT_EQ(clonedFlower->getPlantCategory(), "Flower") << "Cloned flower should have same category";
     EXPECT_EQ(clonedFlower->getPlantVariety(), "Rose") << "Cloned flower should have same variety";
@@ -155,6 +158,7 @@ TEST(PlantFactoryTests, TreeCreationAndCloning)
     EXPECT_NE(clonedTree, nullptr) << "clone() should return non-null pointer";
     EXPECT_NE(tree, clonedTree) << "Clone should be a different object from original";
     EXPECT_EQ(clonedTree->getPlantCategory(), "Tree") << "Cloned tree should have same category";
+    EXPECT_NE(clonedTree->getId(), "") << "Plant id creation";
     EXPECT_EQ(clonedTree->getPlantVariety(), "Lemon") << "Cloned tree should have same variety";
     
     std::cout << "✓ Tree cloning successful - original and clone are different objects with same properties" << std::endl;

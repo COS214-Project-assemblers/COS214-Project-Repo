@@ -46,6 +46,7 @@ Game::Game(string configPath)
         }
 
         Plant::setPlantCosts(plantCosts);
+        Plant::setLogger(logger);
     }
     catch (const runtime_error &e)
     {
@@ -160,10 +161,10 @@ void Game::buyPlants(string plant, int num)
         throw runtime_error("Greenhouse not initialized. Please create a new game first.");
     }
     
-    // if (factories.empty()) 
-    // {
-    //     throw runtime_error("No plant factories available. Please create a new game first.");
-    // }
+    if (factories.empty()) 
+    {
+        throw runtime_error("No plant factories available. Please create a new game first.");
+    }
 
     auto factoryIt = factories.find(plant);
 
