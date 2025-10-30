@@ -70,7 +70,7 @@ void Customer::setOfferedPlants(const vector<Plant*>& plants)
         plantsJson << "{";
         plantsJson << "\"category\":\"" << escapeJsonString(plants[i]->getPlantCategory()) << "\",";
         plantsJson << "\"variety\":\"" << escapeJsonString(plants[i]->getPlantVariety()) << "\",";
-        plantsJson << "\"careLevel\":\"" << escapeJsonString(plants[i]->getCareLevel()) << "\",";
+        plantsJson << "\"acceptable\":\"" << escapeJsonString(plants[i]->()) << "\",";
         plantsJson << "}";
         
         // returnable: plants[i]->getReturnable();

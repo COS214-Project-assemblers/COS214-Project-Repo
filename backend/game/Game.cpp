@@ -200,8 +200,6 @@ void Game::buyPlants(string plant, int num)
 
         if (clonedPlant != nullptr) 
         {
-            // add transaction here
-            // something like manager -> salesFloor -> transaction -> ledger
             manager->recordRestock(*clonedPlant);
             greenhouse->addPlant(clonedPlant);
         } 

@@ -11,5 +11,5 @@ SucculentCreator::~SucculentCreator() {}
 
 Plant* SucculentCreator::createPlant(string type)
 {
-    return new Succulent(type);
+    return new Succulent(type, "easy");
 }
