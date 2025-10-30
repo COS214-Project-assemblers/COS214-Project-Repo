@@ -52,7 +52,7 @@ Plant::Plant(const Plant& original)
 
     generateId();
     if (logger) {
-        logger->newLog("Created plant " + id);
+        logger->newLog("Created [" + getPlantCategory() + "] " + getPlantVariety() + " with unique ID: " + id);
     }
 }
 
