@@ -208,7 +208,7 @@ void Plant::run() {
 
 }
 
-boolean Plant::isSellabl() {
+bool Plant::isSellable() {
     if (health->isAlive() && (health->mature==3) ){
         return true ; 
     }
@@ -236,10 +236,10 @@ void Plant::alert(string& careType, GreenSock* sock) {
             {"plantCategory", getPlantCategory()},
             {"plantVariety", getPlantVariety()},
             {"healthScore", health->healthScore()},
-            {"waterScore", heath->getWater()},
-            {"pruningScore", heath->healthPrune()},
-            {"fertilizerScore", heath->getFertilizer()},
-            {"sellable", health->isSellabl()()},
+            {"waterScore", health->getWater()},
+            {"pruningScore", health->healthPrune()},
+            {"fertilizerScore", health->getFertilizer()},
+            {"sellable", isSellable()},
             {"died", health->isAlive()}
         };
 

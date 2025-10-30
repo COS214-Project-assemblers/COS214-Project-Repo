@@ -63,8 +63,8 @@ float Health::healthPrune(){
 
  }
 
- boolean Health::isAlive() {
-    return (healthScore > 0) ; 
+ bool Health::isAlive() {
+    return (healthScore() > 0) ; 
  }
 
 

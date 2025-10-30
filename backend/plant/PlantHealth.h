@@ -109,7 +109,7 @@ class Health {
          * - 2 = pruning
          */
         void decay(int decayIndex)  ;
-        boolean isAlive() ; 
+        bool isAlive() ; 
 
 } ;
 

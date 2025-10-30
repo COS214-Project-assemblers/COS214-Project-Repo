@@ -1,4 +1,4 @@
-#!/home/morgan/Documents/COS214-Project-Repo/utils/venv/bin/python3
+#!/home/morgan/COS214-Project-Repo/utils/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

@@ -250,7 +250,7 @@ class Plant
 
         void alert(string& careType, GreenSock* sock) ;
        
-        boolean isSellabl() ; 
+        bool isSellable() ; 
 
 };
 

@@ -40,17 +40,17 @@ void startThreads() {
     std::thread gameApi(startGameApi);
     std::thread greenSock(startGreenSock);
 
-    Plant* myPlant = new Succulent("Aloe")      ;
-    myPlant->setSocket(&greenSock)              ;
-    std::string careType = "TESTING" ;
-    myPlant->alert(string& careType, greenSock)    ; 
+    // Plant* myPlant = new Succulent("Aloe")      ;
+    // myPlant->setSocket(&greenSock)              ;
+    // std::string careType = "TESTING" ;
+    // myPlant->alert(string& careType, greenSock)    ; 
 
-    delete myPlant;
+    // delete myPlant;
 
     gameApi.join();
     greenSock.join();
 }
-
+/*
 void succulentDecayAndAlert() {
     std::cout << "[System] Bootstrapping GreenSock...\n";
     std::thread socketThread([]() {
@@ -64,7 +64,7 @@ void succulentDecayAndAlert() {
     std::this_thread::sleep_for(std::chrono::seconds(2));
 
     std::cout << "[System] Creating test plant...\n";
-    Plant* myPlant = new Succulent("Aloe");
+    Plant* myPlant = new Succulent("cactus");
 
     // Link the websocket to the plant
     myPlant->setSocket(&greenSock);
@@ -96,7 +96,7 @@ void succulentDecayAndAlert() {
     gameApi.join();
     greenSock.join();
 }
-
+*/
 
 int main() {
     startThreads();
