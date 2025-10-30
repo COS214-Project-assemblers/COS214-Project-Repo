@@ -83,7 +83,8 @@ class Plant
         int decayIndex;
         std::atomic<bool> alive;
         std::thread thread;
-
+        std::string difficulty;///< The difficulty level of caring for the plant.
+        bool returnable;///< Whether the plant is returnable by customers.
 
     protected:
         /**
@@ -97,12 +98,13 @@ class Plant
          * @details Used as a base constructor for all specific Plant subclasses.
          * @param [in] category The general category of the plant.
          * @param [in] variety The specific variety within that category.
+         * @param [in] difficulty The difficulty level of caring for the plant.
          * @section memory_management Thread-related Memory Management
          * The Dynamic Health Attribute should only be Created in the concrete Products
          * because, the type of plant determines how much water/fertilizer/pruning is required
          */
-        // Plant(string category, string variety,string difficulty);
-        Plant(string category, string variety);
+        Plant(string category, string variety,string difficulty);
+        // Plant(string category, string variety);
 
         /**
          * @brief Copy constructor used for the Prototype design pattern.
@@ -149,7 +151,13 @@ class Plant
          * @brief Retrieves the selling price of the plant.
          * @return The sale price as an integer value.
          */
-        int getSalePrice();
+        float getSalePrice();
+
+        /**
+         * @brief Retrieves the difficulty level of caring for the plant.
+         * @return The difficulty level as a string.
+         */
+        std::string getDifficulty();
 
         /**
          * @brief Displays the plant’s details to the console for testing and debugging.
@@ -253,24 +261,16 @@ class Plant
          * @return A floating-point value representing the plant’s current health.
          */
         float healthScore() ;
-
         /**
-         * @brief Static method to set static member variable plantCosts
-         * @param[in] plantCosts maps the plant variety to it's integer price
+         * @brief Sets whether the plant is returnable by customers.
+         * @param returnable Boolean indicating if the plant is returnable.
          */
-        static void setPlantCosts(map<string, vector<int>> plantCosts);
-
+        void setReturnable(bool returnable);
         /**
-         * @brief Used to stub plantCosts static variable when testing plants
-         *  without creating game, ensuring that there are no invalid reads, variable
-         *  instantiated before use
+         * @brief Checks if the plant is returnable by customers.
+         * @return True if the plant is returnable, false otherwise.
          */
-        static void stubPlant();
-
-        /**
-         * @brief return plantCosts for testing purposes
-         */
-        static map<string, vector<int>> getPlantCosts();
+        bool isReturnable();
 };
 
 #endif

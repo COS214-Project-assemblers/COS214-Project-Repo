@@ -112,6 +112,16 @@ void createFactoriesHelper(string category, string variant, map<string, PlantCre
     
 }
 
+// void Game::setManager(Manager* manager)
+// {
+//     this->manager = manager;
+// }
+
+// Manager* Game::getManager()
+// {
+//     return this->manager;
+// }
+
 void Game::createNewGame()
 {
     // try
@@ -146,6 +156,8 @@ void Game::createNewGame()
     {
         throw runtime_error("Failed to create greenhouse for unknown reason");
     }
+
+    manager = new Manager();
 }
 
 void Game::buyPlants(string plant, int num) 
@@ -268,7 +280,16 @@ void Game::createCustomers(string type, int num)
         throw runtime_error("Customer type '" + type + "' not found. " + availableTypes);
     }
 
-    Inventory* allPlants = greenhouse->getInventory();
+    // manager tells visitor to make plant offering
+    // then accept method allows visitors to go to the customers
+    // the manager's accept method will return the plant offering
+    // this will then be in the construct's parameter to then builder->buildPlantOptions(vector<Plant*> p)
+    // then customer->setOfferedPlants(plants)
+    // then customer will take that vector and turn into json string (already implemented)
+    // Inventory allPlants = greenhouse->getInventory();
+    // Inventory* i = manager->getPlants();
+
+    const Inventory* inventory = manager->getSaleInventory();
 
     Director director;
 
@@ -290,20 +311,21 @@ void Game::createCustomers(string type, int num)
         }
         
         // Create appropriate builder based on type
+        // add randomized visitor selection
         if (type == "average") 
         {
             builder = new AverageCustomerBuilder(config);
-            visitor = new VisitEasyCustomer(*allPlants);
+            visitor = new VisitEasyCustomer(*inventory);
         } 
         else if (type == "ignorant") 
         {
             builder = new IgnorantCustomerBuilder(config);
-            visitor = new VisitMediumCustomer(*allPlants);
+            visitor = new VisitMediumCustomer(*inventory);
         } 
         else if (type == "greenfinger") 
         {
             builder = new GreenFingerCustomerBuilder(config);
-            visitor = new VisitHighCustomer(*allPlants);
+            visitor = new VisitHighCustomer(*inventory);
         } 
         else 
         {

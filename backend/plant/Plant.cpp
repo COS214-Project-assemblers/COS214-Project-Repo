@@ -8,11 +8,11 @@
 #include "GreenhouseStaff.h"
 #include "PlantHealth.h"
 
-Plant::Plant(string category, string variety)
+Plant::Plant(string category, string variety,string difficulty)
 {
     this->plantCategory = category;
     this->plantVariety = variety;
-    // this->difficulty=diffictlty;
+    this->difficulty=difficulty;
 
     this->careType = "";
     this->plantState = new NotSellable();
@@ -41,6 +41,7 @@ Plant::Plant(const Plant& original)
     this->plantVariety = original.plantVariety;
     this->costPrice = original.costPrice;
     this->salePrice = original.salePrice;
+    this->difficulty=original.difficulty;
 
     this->plantState = new NotSellable();
     this->careType = original.careType;
@@ -89,9 +90,14 @@ int Plant::getSalePrice()
     return salePrice;
 }
 
+std::string Plant::getDifficulty()
+{
+    return difficulty;
+}
+
 void Plant::display()
 {
-    cout << plantCategory << " - " << plantVariety << ", Cost: R" << costPrice << ", Sale: R" << salePrice << endl;
+    cout << plantCategory << " - " << plantVariety << ", Cost: R" << costPrice << ", Sale: R" << salePrice <<", Difficulty: "<<difficulty<< endl;
 }
 
 
@@ -192,15 +198,10 @@ void Plant::run() {
     std::cout << "[State] Current health score: " << currentHealth << std::endl;
 }
 
-void Plant::setPlantCosts(map<string, vector<int>> plantCosts)
-{
-    Plant::plantCosts = plantCosts;
+void Plant::setReturnable(bool returnable){
+    this->returnable=returnable;
 }
 
-void Plant::stubPlant() {
-    plantCosts = {};
-}
-
-map<string, vector<int>> Plant::getPlantCosts() {
-    return plantCosts;
+bool Plant::isReturnable(){
+    return this->returnable;
 }

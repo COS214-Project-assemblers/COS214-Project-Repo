@@ -72,6 +72,7 @@ void Customer::setOfferedPlants(const vector<Plant*>& plants)
         plantsJson << "\"variety\":\"" << escapeJsonString(plants[i]->getPlantVariety()) << "\",";
         plantsJson << "\"careLevel\":\"" << escapeJsonString(plants[i]->getCareLevel()) << "\",";
         plantsJson << "}";
+        // add yes/ no
     }
     
     plantsJson << "]";

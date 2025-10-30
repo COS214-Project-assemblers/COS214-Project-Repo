@@ -1,7 +1,7 @@
 #include "Transaction.h"
 #include "Sale.h"
 #include "Return.h"
-#include "Refund.h"
+#include "SaleLoss.h"
 #include "PlantDied.h"
 
 Transaction::Transaction(TransactionStrategy* tS,double v):tS(tS), value(v){
