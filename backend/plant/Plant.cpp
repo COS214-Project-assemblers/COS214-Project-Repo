@@ -221,7 +221,7 @@ void Plant::setReturnable(bool returnable){
     this->returnable=returnable;
 }
 
-bool Plant::isReturnable(){ // like getReturnable()
+bool Plant::isReturnable(){
     return this->returnable;
 }
 
