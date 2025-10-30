@@ -40,10 +40,8 @@ async def main():
         echo_handler,
         HOST,
         PORT,
-        # Common testing options:
         ping_interval=20,      # keepalive pings
         ping_timeout=20,
-        max_size=2**20,        # 1 MiB messages
     ):
         print(f"WebSocket server listening on ws://{HOST}:{PORT}")
         await asyncio.Future()  # run forever
