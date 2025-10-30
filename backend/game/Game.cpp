@@ -258,7 +258,14 @@ void Game::createCustomers(string type, int num)
         throw runtime_error("Customer type '" + type + "' not found. " + availableTypes);
     }
 
+    // manager tells visitor to make plant offering
+    // then accept method allows visitors to go to the customers
+    // the manager's accept method will return the plant offering
+    // this will then be in the construct's parameter to then builder->buildPlantOptions(vector<Plant*> p)
+    // then customer->setOfferedPlants(plants)
+    // then customer will take that vector and turn into json string (already implemented)
     Inventory* allPlants = greenhouse->getInventory();
+    // Inventory* i = manager->getPlants();
 
     Director director;
 
@@ -280,6 +287,7 @@ void Game::createCustomers(string type, int num)
         }
         
         // Create appropriate builder based on type
+        // add randomized visitor selection
         if (type == "average") 
         {
             builder = new AverageCustomerBuilder(config);

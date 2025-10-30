@@ -18,6 +18,7 @@
 #include "GameConfiguration.h"
 #include "Customer.h"
 #include "CustomerBuilder.h"
+#include "Manager.h"
 
 using namespace std;
 
