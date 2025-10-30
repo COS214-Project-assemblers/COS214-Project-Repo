@@ -7,25 +7,6 @@
 #include "NotSellable.h"
 #include "GreenhouseStaff.h"
 #include "PlantHealth.h"
-<<<<<<< HEAD
-#include <sstream>
-#include <nlohmann/json.hpp>
-map<string, float> Plant::plantCosts =
-{
-    {"Rose", 10.0},
-    {"Daisy", 5.0},
-    {"Sunflower", 8.5},
-
-    {"Cactus", 12.0},
-    {"Aloe", 9.0},
-    {"Jade", 7.5},
-
-    {"Lemon", 15.0},
-    {"Banana", 20.0},
-    {"Apple", 25.0}
-};
-=======
->>>>>>> dev
 
 Plant::Plant(string category, string variety)
 {
@@ -49,13 +30,7 @@ Plant::Plant(string category, string variety)
         costPrice = 10.00;
     }
 
-<<<<<<< HEAD
-    salePrice = costPrice * 1.5;
-
-    // this->health = new Health() ; // concrete plants assign this uniquely
-=======
     // this->health = new Health() ; // concrete plants assign this uniquely 
->>>>>>> dev
     this->decayIndex = 0        ;
     this->alive = true          ;
 

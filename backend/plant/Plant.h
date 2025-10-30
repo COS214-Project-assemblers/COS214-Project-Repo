@@ -15,7 +15,7 @@
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>
-
+#include <nlohmann/json.hpp>
 #include <thread>
 #include <atomic>
 
@@ -274,14 +274,12 @@ class Plant
          */
         string getId();
 
-<<<<<<< HEAD
         void setSocket(GreenSock* sock) ; 
 
         void alert(string& careType, GreenSock* sock) ;
        
         bool isSellable() ; 
 
-=======
         /**
          * @brief Static method to set static member variable plantCosts
          * @param[in] plantCosts maps the plant variety to it's integer price
@@ -313,7 +311,6 @@ class Plant
          * @brief Adds specific plant log message, includes plant ID
          */
         void newPlantLog(string message);
->>>>>>> dev
 };
 
 #endif
