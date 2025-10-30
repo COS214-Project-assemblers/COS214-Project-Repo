@@ -21,48 +21,48 @@ const Inventory* Manager::getSaleInventory()
     return floor->inventory();
 }
 //classic non-json flow
-bool Manager::offerPlants(Customer& cust){
-    // use a random nuber generator to pick from 1 to 3 which will then pick the visitor in a switch statement
-    static std::mt19937 rng(std::random_device{}());
-    std::uniform_int_distribution<int> dist(1,3);
-    int i=dist(rng);
-    std::unique_ptr<CustomerVisitor> v;
-    switch (i)
-    {
-    case 1:
-        v=std::make_unique<VisitEasyCustomer>(floor.inventory());
-        break;
-    case 2:
-        v=std::make_unique<VisitMediumCustomer>(floor.inventory());
-        break;
-    default
-        v=std::make_unique<VisitHighCustomer>(floor.inventory());
-        break;
-    }
-    cust.accept(v);
-    const auto& offer=v.getOffer();//then show offer->player picks->recordSale/loss
-    if(offer.empty()){
-        return
-    }
-    //needs display offer -> for gui
-    int choiceIdx=getPlayerChoice();
-    if(choiceIdx<0 || choiceIdx>=(int)offer.size()){
-        return false;
-    }
-    Plant* chosen=offer[choice];
-    const bool correct=v.isCorrect(chosen);
-    const bool returnable=v.isReturnable(chosen);
-    if(correct && !returnable){//satisfied with offer, no return
-        recordSale(cust,*chosen,chosen->getSalePrice());
-        return true;
-    }else if(correct && returnable){//satisfied with offer, but return
-        floor.inventoryMut().restock(*chosen);
+// bool Manager::offerPlants(Customer& cust){
+//     // use a random nuber generator to pick from 1 to 3 which will then pick the visitor in a switch statement
+//     static std::mt19937 rng(std::random_device{}());
+//     std::uniform_int_distribution<int> dist(1,3);
+//     int i=dist(rng);
+//     std::unique_ptr<CustomerVisitor> v;
+//     switch (i)
+//     {
+//     case 1:
+//         v=std::make_unique<VisitEasyCustomer>(floor.inventory());
+//         break;
+//     case 2:
+//         v=std::make_unique<VisitMediumCustomer>(floor.inventory());
+//         break;
+//     default
+//         v=std::make_unique<VisitHighCustomer>(floor.inventory());
+//         break;
+//     }
+//     cust.accept(v);
+//     const auto& offer=v.getOffer();//then show offer->player picks->recordSale/loss
+//     if(offer.empty()){
+//         return
+//     }
+//     //needs display offer -> for gui
+//     int choiceIdx=getPlayerChoice();
+//     if(choiceIdx<0 || choiceIdx>=(int)offer.size()){
+//         return false;
+//     }
+//     Plant* chosen=offer[choice];
+//     const bool correct=v.isCorrect(chosen);
+//     const bool returnable=v.isReturnable(chosen);
+//     if(correct && !returnable){//satisfied with offer, no return
+//         recordSale(cust,*chosen,chosen->getSalePrice());
+//         return true;
+//     }else if(correct && returnable){//satisfied with offer, but return
+//         floor.inventoryMut().restock(*chosen);
         
-    }else{//not satisfied with offer
-        recordSaleLoss(cust,*chosen);
-        return false
-    }
-}
+//     }else{//not satisfied with offer
+//         recordSaleLoss(cust,*chosen);
+//         return false
+//     }
+// }
 
 void Manager::recordSale(Plant& p,double revenue){
     floor.inventoryMut().commitSale(&p);
