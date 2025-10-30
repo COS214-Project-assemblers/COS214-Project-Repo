@@ -172,10 +172,10 @@ void Game::buyPlants(string plant, int num)
         throw runtime_error("Greenhouse not initialized. Please create a new game first.");
     }
     
-    // if (factories.empty()) 
-    // {
-    //     throw runtime_error("No plant factories available. Please create a new game first.");
-    // }
+    if (factories.empty()) 
+    {
+        throw runtime_error("No plant factories available. Please create a new game first.");
+    }
 
     auto factoryIt = factories.find(plant);
 
@@ -235,6 +235,11 @@ Game::~Game()
     {
         delete greenhouse;
     }
+
+    if(manager)
+    {
+        delete manager;
+    }
 }
 
 string Game::getCategoryForVariety(string variety) 
@@ -280,22 +285,21 @@ void Game::createCustomers(string type, int num)
         throw runtime_error("Customer type '" + type + "' not found. " + availableTypes);
     }
 
-    // manager tells visitor to make plant offering
-    // then accept method allows visitors to go to the customers
-    // the manager's accept method will return the plant offering
-    // this will then be in the construct's parameter to then builder->buildPlantOptions(vector<Plant*> p)
-    // then customer->setOfferedPlants(plants)
-    // then customer will take that vector and turn into json string (already implemented)
-    // Inventory allPlants = greenhouse->getInventory();
-    // Inventory* i = manager->getPlants();
-
     const Inventory* inventory = manager->getSaleInventory();
-
     Director director;
 
-    CustomerBuilder* builder = nullptr;
     CustomerVisitor* visitor = nullptr;
+    mt19937 rng;
 
+    vector<string> v;
+    v.push_back("easy");
+    v.push_back("medium");
+    v.push_back("hard");
+
+    uniform_int_distribution<size_t> dist(0, v.size() - 1);
+    string chosen;
+    CustomerBuilder* builder = nullptr;
+    
     for (int i = 0; i < num; i++) 
     {
         if(builder)
@@ -310,28 +314,38 @@ void Game::createCustomers(string type, int num)
             visitor = nullptr;
         }
         
-        // Create appropriate builder based on type
-        // add randomized visitor selection
         if (type == "average") 
         {
             builder = new AverageCustomerBuilder(config);
-            visitor = new VisitEasyCustomer(*inventory);
         } 
         else if (type == "ignorant") 
         {
             builder = new IgnorantCustomerBuilder(config);
-            visitor = new VisitMediumCustomer(*inventory);
         } 
         else if (type == "greenfinger") 
         {
             builder = new GreenFingerCustomerBuilder(config);
-            visitor = new VisitHighCustomer(*inventory);
         } 
         else 
         {
             throw runtime_error("Unknown customer type: " + type);
         }
         
+        chosen = v[dist(rng)];
+
+        if(chosen == "easy")
+        {
+            visitor = new VisitEasyCustomer(*inventory);
+        }
+        else if(chosen == "medium")
+        {
+            visitor = new VisitMediumCustomer(*inventory);
+        }
+        else // default to hard
+        {
+            visitor = new VisitHighCustomer(*inventory);
+        }
+
         director.setBuilder(builder);
         Customer* customer = director.construct(*visitor);
         
@@ -340,6 +354,11 @@ void Game::createCustomers(string type, int num)
         if(builder)
         {
             delete builder;
+        }
+
+        if(visitor)
+        {
+            delete visitor;
         }
     }
 

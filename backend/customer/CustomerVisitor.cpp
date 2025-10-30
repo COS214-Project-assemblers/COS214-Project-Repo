@@ -54,6 +54,9 @@ void CustomerVisitor::setReturnable(int i,bool returnable){
     offer[i]->setReturnable(returnable);
 }
 
+// add setAcceptable with the same logic just with offer[i]->setAcceptable(acceptable);
+// then in Plant add this->acceptable = acceptable;
+
 void CustomerVisitor::markCorrectPlants(const std::vector<Plant*>& source, int count,bool returnable){
     for(int i=0;i<count && i<(int)source.size();i++){
         Plant* p=source[i];

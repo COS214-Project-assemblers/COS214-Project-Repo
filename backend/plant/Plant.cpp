@@ -204,14 +204,22 @@ void Plant::setReturnable(bool returnable){
     this->returnable=returnable;
 }
 
-bool Plant::isReturnable(){
+bool Plant::isReturnable(){ // like getReturnable()
     return this->returnable;
 }
 
-void Plant::setAcceptable(bool acceptable){
-    this->acceptable=acceptable;
+// add setAcceptable()
+// add isAcceptable() / getAcceptable
+
+void Plant::setPlantCosts(map<string, vector<int>> plantCosts)
+{
+    Plant::plantCosts = plantCosts;
 }
 
-bool Plant::isAcceptable(){
-    return this->acceptable;
+void Plant::stubPlant() {
+    plantCosts = {};
+}
+
+map<string, vector<int>> Plant::getPlantCosts() {
+    return plantCosts;
 }
