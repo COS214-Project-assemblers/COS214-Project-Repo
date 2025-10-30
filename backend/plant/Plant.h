@@ -276,14 +276,11 @@ class Plant
          * @return A floating-point value representing the plant’s current health.
          */
         float healthScore() ;
-<<<<<<< HEAD
         /**
          * @brief Getter for plant ID
          */
         string getId();
 
-=======
->>>>>>> visitor-Ally
         /**
          * @brief Sets whether the plant is returnable by customers.
          * @param returnable Boolean indicating if the plant is returnable.
@@ -298,7 +295,6 @@ class Plant
          * @brief Sets whether the plant is acceptable to customers.
          * @param acceptable Boolean indicating if the plant is acceptable.
          */
-<<<<<<< HEAD
         static map<string, vector<int>> getPlantCosts();
 
         /**
@@ -314,13 +310,11 @@ class Plant
          * @brief Adds specific plant log message, includes plant ID
          */
         void newPlantLog(string message);
-=======
         void setAcceptable(bool acceptable);
         /**
          * @brief Checks if the plant is acceptable to customers.
          * @return True if the plant is acceptable, false otherwise.
          */
         bool isAcceptable();
->>>>>>> visitor-Ally
 };
 #endif
