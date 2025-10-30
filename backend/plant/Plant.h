@@ -46,13 +46,12 @@ class Plant
         /**
          * @brief The cost to the player when purchasing the plant for cultivation in the greenhouse.
          */
-        float costPrice;
+        int costPrice = 0;
 
         /**
          * @brief The retail price at which the plant can be sold to customers.
-         * @details This is typically calculated as the cost price plus a 50% markup (subject to adjustment).
          */
-        float salePrice;
+        int salePrice = 0;
 
         /**
          * @brief Pointer to the current state of the plant.
@@ -66,9 +65,15 @@ class Plant
         string careType;
 
         /**
-         * @brief A static map linking specific plant varieties to their respective cost prices.
+         * @brief A static map linking specific plant varieties to their respective cost prices. Now, brace yourself,
+         *  this is not only a declaration but a definition. This avoids linker errors and ensures that there is only
+         *  a single definition of this static member 
+         * @note Using integer (as opposed to float or double) for cost prices to avoid floating point rounding errors
+         * 
+         * vector[0] = costPrice
+         * vector[1] = salePrice
          */
-        static map<string, float> plantCosts;
+        inline static std::map<std::string, std::vector<int>> plantCosts{};
 
         /**
          * @brief List of greenhouse staff observers attached to this plant.
@@ -138,15 +143,15 @@ class Plant
 
         /**
          * @brief Retrieves the purchase cost of the plant.
-         * @return The cost price as a floating-point value.
+         * @return The cost price as an integer value.
          */
-        float getCostPrice();
+        int getCostPrice();
 
         /**
          * @brief Retrieves the selling price of the plant.
-         * @return The sale price as a floating-point value.
+         * @return The sale price as an integer value.
          */
-        float getSalePrice();
+        int getSalePrice();
 
         /**
          * @brief Retrieves the difficulty level of caring for the plant.
@@ -266,6 +271,24 @@ class Plant
          * @return True if the plant is returnable, false otherwise.
          */
         bool isReturnable();
+
+        /**
+         * @brief Static method to set static member variable plantCosts
+         * @param[in] plantCosts maps the plant variety to it's integer price
+         */
+        static void setPlantCosts(map<string, vector<int>> plantCosts);
+
+        /**
+         * @brief Used to stub plantCosts static variable when testing plants
+         *  without creating game, ensuring that there are no invalid reads, variable
+         *  instantiated before use
+         */
+        static void stubPlant();
+
+        /**
+         * @brief return plantCosts for testing purposes
+         */
+        static map<string, vector<int>> getPlantCosts();
 };
 
 #endif
