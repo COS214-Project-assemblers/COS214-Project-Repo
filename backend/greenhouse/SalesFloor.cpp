@@ -95,13 +95,3 @@ void SalesFloor::processReturns(double prob,TransactionHistory& hist){
         bool success=hist.processReturn(this->ledger,*this->inv);
     }
 }
-
-std::vector<Plant*> SalesFloor::findByDifficulty(std::string d)const{
-    std::vector<Plant*> out;
-    for(auto* p:this->inv){
-        if(p->getDifficulty()==d){
-            out.push_back(p);
-        }
-    }
-    return out;
-}

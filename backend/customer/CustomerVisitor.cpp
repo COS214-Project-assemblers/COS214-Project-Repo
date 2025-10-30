@@ -50,10 +50,24 @@ const std::vector<Plant*>& CustomerVisitor::getCorrectPlant()const{
     return this->correct;
 }
 
-void CustomerVisitor::markCorrectPlants(const std::vector<Plant*>& source, int count){
+void CustomerVisitor::setReturnable(int i,bool returnable){
+    offer[i]->setReturnable(returnable);
+}
+
+void CustomerVisitor::markCorrectPlants(const std::vector<Plant*>& source, int count,bool returnable){
     for(int i=0;i<count && i<(int)source.size();i++){
-        correct.push_back(source[i]);
+        Plant* p=source[i];
+        correct.push_back(p);
+        p->setReturnable(returnable);
     }
+}
+
+bool CustomerVisitor::isCorrect(Plant* p){
+    return std::find(correct.begin(),correct.end(),p)!=correct.end();
+}
+
+bool CustomerVisitor::isReturnable(Plant* p){
+    return p->isReturnable();
 }
 //if accept no -> sale lost
 //if accept yes and no return -> sale committed

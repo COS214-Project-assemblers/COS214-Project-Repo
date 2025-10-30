@@ -11,22 +11,42 @@
 Manager::Manager(SalesFloor& f):floor(f){}
 
 bool Manager::offerPlants(Customer& cust){
-    //need to add something to choose level of difficulty for player
-    //for now just use easy as an EXAMPLE
-    VisitEasyCustomer v(floor.inventory());
+    // use a random nuber generator to pick from 1 to 3 which will then pick the visitor in a switch statement
+    static std::mt19937 rng(std::random_device{}());
+    std::uniform_int_distribution<int> dist(1,3);
+    int i=dist(rng);
+    switch (int i)
+    {
+    case 1:
+        VisitEasyCustomer v(floor.inventory());
+        break;
+    case 2:
+        VisitMediumCustomer v(floor.inventory());
+        break;
+    default
+        VisitHighCustomer v(floor.inventory());
+        break;
+    }
     cust.accept(v);
     const auto& offer=v.getOffer();//then show offer->player picks->recordSale/loss
+    if(offer.empty()){
+        return
+    }
     //needs display offer -> for gui
     int choiceIdx=getPlayerChoice();
+    if(choiceIdx<0 || choiceIdx>=(int)offer.size()){
+        return false;
+    }
     Plant* chosen=offer[choice];
-    if(cust.isSatisfied(*chosen)){
+    const bool correct=v.isCorrect(chosen);
+    const bool returnable=v.isReturnable(chosen);
+    if(correct && !returnable){//satisfied with offer, no return
         recordSale(cust,*chosen,chosen->getSalePrice());
         return true;
     }else{//not satisfied with offer
         recordSaleLoss(cust,*chosen);
-        return true;
+        return false
     }
-    return true;
 }
 
 void Manager::recordSale(Customer& cust, Plant& p,double revenue){
@@ -48,4 +68,12 @@ void Manager::recordPlantDied(Plant& p,double value){
     Transaction plantDiedT(new PlantDied(),value);
     TransactionMem snap=plantDiedT.createTransactionMem(ledger,&p);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
+}
+
+const Inventory& Manager::inventory()const{
+    return floor.inventory();
+}
+
+Inventory& Manager::inventoryMut(){
+    return floor.inventoryMut();
 }

@@ -209,3 +209,11 @@ void Plant::run() {
     float currentHealth = health->healthScore()  ;
     std::cout << "[State] Current health score: " << currentHealth << std::endl;
 }
+
+void Plant::setReturnable(bool returnable){
+    this->returnable=returnable;
+}
+
+bool Plant::isReturnable(){
+    return this->returnable;
+}

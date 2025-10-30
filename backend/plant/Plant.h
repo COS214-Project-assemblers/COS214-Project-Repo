@@ -79,6 +79,7 @@ class Plant
         std::atomic<bool> alive;
         std::thread thread;
         std::string difficulty;///< The difficulty level of caring for the plant.
+        bool returnable;///< Whether the plant is returnable by customers.
 
     protected:
         /**
@@ -255,7 +256,16 @@ class Plant
          * @return A floating-point value representing the plant’s current health.
          */
         float healthScore() ;
-
+        /**
+         * @brief Sets whether the plant is returnable by customers.
+         * @param returnable Boolean indicating if the plant is returnable.
+         */
+        void setReturnable(bool returnable);
+        /**
+         * @brief Checks if the plant is returnable by customers.
+         * @return True if the plant is returnable, false otherwise.
+         */
+        bool isReturnable();
 };
 
 #endif

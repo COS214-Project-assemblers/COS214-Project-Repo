@@ -41,6 +41,12 @@ class Inventory{
          * @param plant Reference to the Plant being removed
          */
         void removePlant(Plant* plant);
+        /**
+         * @brief Finds all plants in the inventory based on their level of care dificulty.
+         * @param d The level of dificulty you are looking for
+         * @return Vector of all those plants
+         */
+        std::vector<Plant*> findByDifficulty(std::string d)const;
 };
 
 #endif

@@ -32,3 +32,13 @@ void Inventory::removePlant(Plant* plant){
         plants.erase(it);
     }
 }
+
+std::vector<Plant*> Inventory::findByDifficulty(std::string d)const{
+    std::vector<Plant*> out;
+    for(auto* p:this->plants){
+        if(p->getDifficulty()==d){
+            out.push_back(p);
+        }
+    }
+    return out;
+}

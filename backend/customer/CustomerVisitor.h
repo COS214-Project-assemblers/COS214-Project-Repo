@@ -8,7 +8,7 @@
 #include <algorithm>
 #include <cstddef>
 
-class Inventory;
+class SalesFloor;
 // class Plant;
 #include "Plant.h"
 
@@ -29,7 +29,8 @@ class GreenFingerCustomerBuilder;
  */
 class CustomerVisitor{
     protected:
-        const Inventory& inv;///<Read only inventory for building offers
+        // const SalesFloor& floor;///<Reference to salesFloor object
+        const Inventory& inv;///<Reference to inventory object
         std::vector<Plant*> offer;///<Filled by concreteVisitors
         std::vector<Plant*> correct;///<subset of plants that are correct for the customer
     public:
@@ -75,8 +76,27 @@ class CustomerVisitor{
          * @brief Marks the correct plant for the customer.
          * @param source Vector of Plant pointers containing the correct plants for the customer.
          * @param count Number of correct plants to mark.
+         * @param returnable Whether the correct plants are returnable or not.
          */
-        void markCorrectPlants(const std::vector<Plant*>& source, int count);
+        void markCorrectPlants(const std::vector<Plant*>& source, int count,bool returnable);
+        /**
+         * @brief sets retrunable status of correct plants
+         * @param i Index of the plant in the offer vector
+         * @param returnable Whether the correct plants are returnable or not.
+         */
+        void setReturnable(int i,bool returnable);
+        /**
+         * @brief iscorrect plant
+         * @param p Plant to check
+         * @return true if correct plant, false if not
+         */
+        bool isCorrect(Plant* p);
+        /**
+         * @brief isReturnable plant
+         * @param p Plant to check
+         * @return true if returnable, false if not
+         */
+        bool isReturnable(Plant* p);
     //visitors
         /**
          * @brief Visit an IgnorantCustomerBuilder object.

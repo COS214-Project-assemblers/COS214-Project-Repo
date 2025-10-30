@@ -60,6 +60,16 @@ class Manager{
          * @param value The loss in revenue due to the plant dying
          */
         void recordPlantDied(Plant& p,double value);
+        /**
+         * @brief Getter for inventory
+         * @return Reference to the inventory managed by the salesFloor
+         */
+        const Inventory& inventory()const;
+        /**
+         * @brief Mutable getter for inventory
+         * @return Mutable reference to the inventory managed by the salesFloor
+         */
+        Inventory& inventoryMut();
 };
 
 #endif
