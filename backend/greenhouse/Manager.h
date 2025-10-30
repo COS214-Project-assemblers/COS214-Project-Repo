@@ -47,26 +47,24 @@ class Manager{
         /**
          * @brief Records a successful sale.
          * @param p The plant that was sold.
-         * @param revenue The price the plant was sold for.
          */
-        void recordSale(Plant& p,double revenue);
+        void recordSale(Plant& p);
         /**
          * @brief Records if a sale was lost with the rason as to why.
          * @param cust The Customer to which a sale was lost.
          * @param p The plant that was offered but was declined
          */
-        void recordSaleLoss(Customer& cust,Plant& p);
+        void recordRestock(Plant& p);
         /**
          * @brief records if a plant died in the greenhouse
          * @param p The plant that died
-         * @param value The loss in revenue due to the plant dying
          */
-        void recordPlantDied(Plant& p,double value);
+        void recordPlantDied(Plant& p);
         /**
          * @brief record return of plant
-         * @param t transaction to process return on
+         * @param p The plant being returned
          */
-        void processReturns(Plant& p,double value);
+        void processReturns(Plant& p);
         /**
          * @brief Getter for inventory
          * @return Reference to the inventory managed by the salesFloor

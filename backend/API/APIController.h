@@ -74,7 +74,6 @@ public:
     PlayerMenu* playerMenu = new PlayerMenu();
     BasicLogger* logger = new BasicLogger();
     NewGameOption* newGame = new NewGameOption(apiToControl.game, logger);
-    
     playerMenu->setMenuOption(newGame);
 
     auto dto = APIDto::createShared();

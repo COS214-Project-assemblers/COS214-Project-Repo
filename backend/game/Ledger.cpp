@@ -1,7 +1,7 @@
 #include "Ledger.h"
 
 Ledger::Ledger(){
-    this->balance=0;//initial bal is set to 0
+    this->balance=500;//initial bal is set to 500
 }
 
 double Ledger::getBalance(){

@@ -66,30 +66,30 @@ const Inventory* Manager::getSaleInventory()
 //     }
 // }
 
-void Manager::recordSale(Plant& p,double revenue){
+void Manager::recordSale(Plant& p){
     floor->inventoryMut().commitSale(&p);
-    Transaction saleT(new Sale(),revenue);//creates new sale transaction
+    Transaction saleT(new Sale(),p.getSalePrice());//creates new sale transaction
     TransactionMem snap=saleT.createTransactionMem(ledger,&p);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
     //notifu gui
 }
 
-void Manager::recordSaleLoss(Customer& cust,Plant& p){
-    Transaction lostSaleT(new SaleLoss(),0);//creates new sale transaction with 0 value    
+void Manager::recordRestock(Plant& p){
+    Transaction lostSaleT(new Restock(),p.getCostPrice());//creates new sale transaction with 0 value    
     TransactionMem snap=lostSaleT.createTransactionMem(ledger,&p);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
 }
 
-void Manager::recordPlantDied(Plant& p,double value){
+void Manager::recordPlantDied(Plant& p){
     //needs to access the greenhouse inventory to remove plant
     //Needs implimentation for thisssss!!!!
-    Transaction plantDiedT(new PlantDied(),value);
+    Transaction plantDiedT(new PlantDied(),p.getCostPrice());//creates new sale transaction with 0 value
     TransactionMem snap=plantDiedT.createTransactionMem(ledger,&p);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
 }
 
-void Manager::processReturns(Plant& p,double value){
-    Transaction ret(new Return(),value);
+void Manager::processReturns(Plant& p){
+    Transaction ret(new Return(),p.getSalePrice());//creates new sale transaction with 0 value
     TransactionMem snap=ret.createTransactionMem(ledger,&p);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
 }

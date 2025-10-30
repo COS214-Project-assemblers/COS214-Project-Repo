@@ -127,6 +127,7 @@ void Game::createNewGame()
     // try
     try
     {
+        
         // Create new factories
         vector<PlantStruct*> plants;
         map<string, vector<string>> varieties;
