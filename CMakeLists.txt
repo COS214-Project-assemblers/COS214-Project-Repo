@@ -117,10 +117,14 @@ set(SOURCES
   backend/game/TransactionHistory.cpp
   backend/game/TransactionStrategy.h
   backend/game/TransactionStrategy.cpp
+  backend/greenhouse/Manager.h
+  backend/greenhouse/Manager.cpp
+  backend/greenhouse/SalesFloor.h
+  backend/greenhouse/SalesFloor.cpp
   backend/game/Sale.h
   backend/game/Sale.cpp
-  backend/game/saleLoss.h
-  backend/game/saleLoss.cpp
+  backend/game/Restock.h
+  backend/game/Restock.cpp
   backend/game/Return.h
   backend/game/Return.cpp
   backend/game/PlantDied.h

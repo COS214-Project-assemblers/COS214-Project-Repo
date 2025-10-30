@@ -4,7 +4,10 @@
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 
-#include "TransactionStrategy.h"
+// #include "TransactionStrategy.h"
+#include "Sale.h"
+#include "Return.h"
+#include "Restock.h"
 #include "TransactionMem.h"
 #include "Ledger.h"
 #include <string>

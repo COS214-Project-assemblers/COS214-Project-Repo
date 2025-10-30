@@ -42,3 +42,8 @@ std::vector<Plant*> Inventory::findByDifficulty(std::string d)const{
     }
     return out;
 }
+
+void Inventory::commitSale(Plant* plant)
+{
+    removePlant(plant);
+}

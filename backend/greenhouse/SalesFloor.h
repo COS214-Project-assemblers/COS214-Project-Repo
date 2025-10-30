@@ -5,13 +5,17 @@
 #define SALESFLOOR_H
 
 #include "Inventory.h"
-#include "Customer.h"
+// #include "Customer.h"
 #include "TransactionHistory.h"
 #include "Ledger.h"
 
 #include <vector>
 #include <random>
 #include <stdexcept>
+
+class Customer;
+class CustomerVisitor;
+
 /**
  * @class SalesFloor
  * @brief Manages Customer flow and provides access to the inventory for the Manager during sales interactions.
@@ -47,7 +51,7 @@ class SalesFloor{
          */
         void moveToCustHist(Customer* cust);
         //name might change
-        void accept(CustomerVisitor& v);
+        // void accept(CustomerVisitor& v);
         /**
          * @brief checks if there are custoemrs in the queue.
          * @return True if there are customers in the "queue", False if not.
@@ -90,7 +94,7 @@ class SalesFloor{
          * @param hist Reference to the TransactionHistory to process returns.
          */
         //Ally - could maybe also use visitor for this to return the probabilty based on the type of customer.
-        void processReturns(double prob,Transaction& t);
+        // void processReturns(double prob,Transaction& t);
         /**
          * @brief Finds all plants in the inventory based on their level of care dificulty.
          * @param d The level of dificulty you are looking for

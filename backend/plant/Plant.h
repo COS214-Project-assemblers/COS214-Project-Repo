@@ -310,11 +310,6 @@ class Plant
          * @return True if the plant is returnable, false otherwise.
          */
         bool isReturnable();
-        /**
-         * @brief Sets whether the plant is acceptable to customers.
-         * @param acceptable Boolean indicating if the plant is acceptable.
-         */
-        static map<string, vector<int>> getPlantCosts();
 
         /**
          * @brief Setter for logger

@@ -179,6 +179,11 @@ void Game::buyPlants(string plant, int num)
         throw runtime_error("No plant factories available. Please create a new game first.");
     }
 
+    if(manager == nullptr)
+    {
+        throw runtime_error("No manager available. Please create a new game first.");
+    }
+
     auto factoryIt = factories.find(plant);
 
     if (factoryIt == factories.end()) 

@@ -1,7 +1,7 @@
 #include "Transaction.h"
 #include "Sale.h"
 #include "Return.h"
-#include "SaleLoss.h"
+#include "Restock.h"
 #include "PlantDied.h"
 
 Transaction::Transaction(TransactionStrategy* tS,double v):tS(tS), value(v){
@@ -24,7 +24,7 @@ void Transaction::setTransactionMem(const TransactionMem tM){
     }else if(tM.getType()=="Return"){
         rebuilt=new Return();
     }else if(tM.getType()=="Restock"){
-        rebuilt=new Refund();
+        rebuilt=new Return();
     }else if(tM.getType()=="PlantDied"){
         rebuilt=new PlantDied();
     }
