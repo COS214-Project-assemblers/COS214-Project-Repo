@@ -2,7 +2,7 @@
 #include "TransactionMem.h"
 #include "TransactionHistory.h"
 #include "Sale.h"
-#include "SaleLoss.h"
+#include "Restock.h"
 #include "PlantDied.h"
 #include "Return.h"
 #include "Customer.h"
