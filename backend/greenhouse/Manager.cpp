@@ -75,8 +75,8 @@ void Manager::recordSale(Plant& p){
 }
 
 void Manager::recordRestock(Plant& p){
-    Transaction lostSaleT(new Restock(),p.getCostPrice());//creates new sale transaction with 0 value    
-    TransactionMem snap=lostSaleT.createTransactionMem(ledger,&p);//creates snapshot
+    Transaction restock(new Restock(),p.getCostPrice());//creates new sale transaction with 0 value    
+    TransactionMem snap=restock.createTransactionMem(ledger,&p);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
 }
 
