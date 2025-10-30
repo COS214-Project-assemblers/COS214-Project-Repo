@@ -172,10 +172,10 @@ void Game::buyPlants(string plant, int num)
         throw runtime_error("Greenhouse not initialized. Please create a new game first.");
     }
     
-    // if (factories.empty()) 
-    // {
-    //     throw runtime_error("No plant factories available. Please create a new game first.");
-    // }
+    if (factories.empty()) 
+    {
+        throw runtime_error("No plant factories available. Please create a new game first.");
+    }
 
     auto factoryIt = factories.find(plant);
 
@@ -234,6 +234,11 @@ Game::~Game()
     if (greenhouse != nullptr)
     {
         delete greenhouse;
+    }
+
+    if(manager)
+    {
+        delete manager;
     }
 }
 
@@ -349,6 +354,11 @@ void Game::createCustomers(string type, int num)
         if(builder)
         {
             delete builder;
+        }
+
+        if(visitor)
+        {
+            delete visitor;
         }
     }
 
