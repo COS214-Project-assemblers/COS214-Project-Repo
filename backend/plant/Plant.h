@@ -276,6 +276,25 @@ class Plant
          * @return A floating-point value representing the plant’s current health.
          */
         float healthScore() ;
+        
+        /**
+         * @brief Static method to set static member variable plantCosts
+         * @param[in] plantCosts maps the plant variety to it's integer price
+         */
+        static void setPlantCosts(map<string, vector<int>> plantCosts);
+
+        /**
+         * @brief Used to stub plantCosts static variable when testing plants
+         *  without creating game, ensuring that there are no invalid reads, variable
+         *  instantiated before use
+         */
+        static void stubPlant();
+
+        /**
+         * @brief return plantCosts for testing purposes
+         */
+        static map<string, vector<int>> getPlantCosts();
+
         /**
          * @brief Getter for plant ID
          */
