@@ -1,5 +1,5 @@
 /* Using the IndexedDB
- To add/update a record openDB().then(() => addDBRecord(record));
+ To add/update a record openDB().then(() => updateDBRecord(record));
  To read a record openDB().then(() => getPlantRecord(plantID)).then((returnVal) => { console.log(returnVal)} )
 
  Errors thrown and corrective actions taken:
@@ -37,15 +37,33 @@ function openDB() {
   });
 }
 
-function addDBRecord(record) {
+function updateDBRecord(record) {
   return new Promise((resolve, reject) => {
     const tx = db.transaction(["plants"], "readwrite");
     const store = tx.objectStore("plants");
-    const req = store.put(record); 
+    const getReq = store.get(record.plantId);
 
-    req.onerror = () => reject(req.error);
-    tx.oncomplete = () => resolve(); 
-    tx.onerror = () => reject(tx.error);
+    getReq.onsuccess = () => {
+      console.log(!!getReq.result);
+      const existed = !!getReq.result;
+      if (!existed) {
+        const req = store.put(record); 
+
+        req.onerror = () => {
+          reject("Failed to add");
+        }
+
+        let newPlant = document.createElement("li");
+        newPlant.textContent = "Added/updated plant: " + record.plantId;
+        document.getElementById("rando-list").appendChild(newPlant);
+
+        req.onsuccess = () => console.log("Added/updated record");
+      }
+      resolve();
+    }
+    // req.onerror = () => reject(req.error);
+    // tx.oncomplete = () => resolve(); 
+    // tx.onerror = () => reject(tx.error);
   });
 }
 
@@ -61,6 +79,21 @@ function getPlantRecord(plantId) {
   });
 }
 
+function getAllRecords() {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(["plants"], "readonly");
+    const store = tx.objectStore("plants");
+    const request = store.getAll();
+
+    request.onsuccess = () => {
+      resolve(request.result);
+    };
+
+    request.onerror = (event) => {
+      reject(event.target.error);
+    };
+  });
+}
 
 function initSocket() {
     const wsUri = "ws://localhost:8001"
@@ -79,13 +112,19 @@ function initSocket() {
         // plant elements
         console.log(`RECEIVED: ${e.data}`);
         try {
-            let jsonPlantData = JSON.parse(e.data);
+            let jsonPlantData = JSON.parse(e.data); 
+            // console.log(jsonPlantData);
             if (jsonPlantData.plantId == undefined) {
               throw TypeError("PlantID not found");
             }
+            try {
+              openDB().then(() => updateDBRecord(jsonPlantData));
+            } catch {
+              throw Error("Failed to update/add record");
+            }
         } catch (error) {
             if (error instanceof TypeError) {
-              
+              websocket.send(JSON.stringify({"error": error.message}));
             } else {
               websocket.send(JSON.stringify({"error": `Could not parse ${e.data} to json`}));
             }
@@ -97,25 +136,27 @@ function initSocket() {
     });
 }
 
-openDB()
-  .then(() => addDBRecord({ 
-      plantId: "3f6a2d2b-7a5e-4f06-9b4f-2f8e6a2c9b8d",
-      plantCategory: "succulent",
-      plantVariety: "cactus",
-      healthScore: 0.5,
-      waterScore: 10,
-      pruningScore: 10,
-      fertilizerScore: 10,
-      sellable: false,
-      died: false
-    }))
-  .then(() => getPlantRecord(1))
-  .then((rec) => {
-    if (rec) {
-      console.log("Plant found:", rec);
-    } else {
-      console.log("Plant not found");
-    }
-  })
-  .catch((err) => console.error("DB error:", err));
+function initStuff() {
+  document.getElementById("regular-stuff").addEventListener("click", () => {
+    console.log("here");
+    openDB().then(() => getPlantRecord("f296643c-f3bc-4d3a-8eb8-0b3b462a0d67")).then((result) => { console.log(result)});
+    openDB().then(() => getAllRecords()).then((result) => {console.log(result)});
+  });
+}
+
+const request = indexedDB.deleteDatabase("plantDB");
+
+request.onsuccess = () => {
+  console.log("Database deleted successfully");
+};
+request.onerror = (event) => {
+  console.error("Failed to delete database:", event);
+};
+request.onblocked = () => {
+  console.warn("Delete blocked (database still open in another tab)");
+};
+
+
+initStuff();
+initSocket();
 
