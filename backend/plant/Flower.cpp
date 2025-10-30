@@ -14,7 +14,5 @@ Flower::~Flower() {}
 
 Plant* Flower::clone()
 {
-    Plant* thisPlant = this;
-
     return new Flower(*this);
 }
