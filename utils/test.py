@@ -6,9 +6,10 @@ async def connect_to_websocket(uri):
         # Send a message
         await websocket.send("Hello WebSocket!")
         # Receive a message
-        while True:
-            response = await websocket.recv()
-            print(f"Received: {response}")
+        # while True:
+            # await websocket.send(" while True:")
+        response = await websocket.recv()
+        print(f"Received: {response}")
 
 if __name__ == "__main__":
     websocket_uri = "ws://localhost:8001"  # Example public echo server

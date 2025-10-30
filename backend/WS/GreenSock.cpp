@@ -1,9 +1,11 @@
 #include "GreenSock.h"
 
 GreenSock::GreenSock() {
-  s.clear_access_channels(websocketpp::log::alevel::all);
-  s.set_access_channels(websocketpp::log::alevel::connect);
-  s.set_access_channels(websocketpp::log::alevel::disconnect);
+
+  std::cout << "Initalising green sock\n" ; 
+  // s.clear_access_channels(websocketpp::log::alevel::all);
+  // s.set_access_channels(websocketpp::log::alevel::connect);
+  // s.set_access_channels(websocketpp::log::alevel::disconnect);
   s.init_asio();
   onMessage();
   onOpen();

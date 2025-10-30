@@ -5,6 +5,7 @@ Health::Health(float water, float fertalizer, float pruning, int mature){
     this->fertalizer = fertalizer ;
     this->pruning = pruning ;
     this->mature = mature ;
+    this->originalHeathTotal = water + fertalizer + pruning ; 
 
     this->rng = std::mt19937(std::random_device{}()) ;
     this->dist = std::uniform_int_distribution<int>(3, 7);
@@ -41,14 +42,29 @@ Health* Health::clone(){
 
 
 float Health::healthScore() {
-    return (this->water + this->fertalizer  + this->pruning) ;
+    return (this->water + this->fertalizer  + this->pruning)/originalHeathTotal ;
 }
 
+
+float Health::getWater() {
+    return this->water ; 
+}
+float Health::getFertilizer() {
+    return this->fertalizer ; 
+}
+
+float Health::healthPrune(){
+    return this->pruning ; 
+}
 
  int Health::getMaturity() {
     return this->mature;
  ;
 
+ }
+
+ boolean Health::isAlive() {
+    return (healthScore > 0) ; 
  }
 
 

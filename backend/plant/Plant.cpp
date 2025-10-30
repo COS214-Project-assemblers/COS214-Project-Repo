@@ -163,6 +163,8 @@ void Plant::stop() {
 }
 
 void Plant::run() {
+    std::cout << "[Debug] Plant thread started\n";
+
     while (alive && healthScore() > 0) {
         int waitTime = health->dist(health->rng);
         for (int i = 0; i < waitTime*10 && alive; ++i) {
@@ -201,12 +203,25 @@ void Plant::run() {
     }
     float currentHealth = health->healthScore()  ;
     std::cout << "[State] Current health score: " << currentHealth << std::endl;
+
+    std::cout << "[Debug] Plant thread exiting\n";
+
+}
+
+boolean Plant::isSellabl() {
+    if (health->isAlive() && (health->mature==3) ){
+        return true ; 
+    }
+    return false ;
+}
+
+void Plant::setSocket(GreenSock* sock){
+    this->socket = sock ; 
 }
 
 void Plant::alert(string& careType, GreenSock* sock) {
     if (!socket) {
-        std::cerr << "[Error] GreenSock socket not available, cannot send alert.\n";
-        return;
+        this->socket = sock ; 
     }
     nlohmann::json alert ;
 
@@ -217,15 +232,36 @@ void Plant::alert(string& careType, GreenSock* sock) {
 
         // Construct JSON alert payload
         alert = {
-            {"type", "alert"},
-            {"plant_id", plantId},
-            {"category", getPlantCategory()},
-            {"variety", getPlantVariety()},
-            {"care_needed", careType},
-            {"health_score", health->healthScore()}
+            {"plantId", "plantId"},
+            {"plantCategory", getPlantCategory()},
+            {"plantVariety", getPlantVariety()},
+            {"healthScore", health->healthScore()},
+            {"waterScore", heath->getWater()},
+            {"pruningScore", heath->healthPrune()},
+            {"fertilizerScore", heath->getFertilizer()},
+            {"sellable", health->isSellabl()()},
+            {"died", health->isAlive()}
         };
 
         // Convert JSON to string and send via WebSocket
-        socket->sendMessage(alert.dump());
+
+        std::string jsonString = alert.dump();
+        std::cout << jsonString << std::endl;
+
+        socket->sendMessage( jsonString );
 
 }
+
+/* 
+.then(() => addDBRecord({ 
+      plantId: "3f6a2d2b-7a5e-4f06-9b4f-2f8e6a2c9b8d",
+      plantCategory: "succulent",
+      plantVariety: "cactus",
+      healthScore: 0.5,
+      waterScore: 10,
+      pruningScore: 10,
+      fertilizerScore: 10,
+      sellable: false,
+      died: false
+    }))
+*/

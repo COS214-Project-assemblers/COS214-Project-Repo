@@ -6,16 +6,18 @@
 #include <mutex>
 #include <chrono>
 #include <random>
-
+#include "GreenSock.h"
 class Plant; // forward declaration
 
 class Health {
     friend class Plant ;
     protected:
+        float originalHeathTotal ; 
         float water;
         float fertalizer;
         float pruning;
         int mature;
+        GreenSock* socket ; 
 
         std::mutex mtx;
         std::mt19937 rng;
@@ -81,7 +83,14 @@ class Health {
          * water, fertilizer, and pruning levels.
          * @return The total health score (float), typically in the range [0, 3].
          */
-        float healthScore()         ;
+        float healthScore();
+
+        float getWater();
+
+        float getFertilizer();
+
+        float healthPrune();
+
         /**
          * @brief Retrieves the maturity level of the plant.
          * @return Integer representing how mature the plant is.
@@ -100,6 +109,7 @@ class Health {
          * - 2 = pruning
          */
         void decay(int decayIndex)  ;
+        boolean isAlive() ; 
 
 } ;
 

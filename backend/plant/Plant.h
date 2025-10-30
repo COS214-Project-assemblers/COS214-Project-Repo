@@ -85,7 +85,7 @@ class Plant
          *  @brief Pointer to the Health component representing the plant’s overall well-being.
          * */
         Health* health ;
-        GreenSock* socket ;
+        GreenSock* socket = NULL; // initalise it to null 
 
     public:
         /**
@@ -246,7 +246,11 @@ class Plant
          */
         float healthScore() ;
 
+        void setSocket(GreenSock* sock) ; 
+
         void alert(string& careType, GreenSock* sock) ;
+       
+        boolean isSellabl() ; 
 
 };
 
