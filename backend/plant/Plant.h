@@ -98,6 +98,12 @@ class Plant
          * @note Logger managed by Game class
          */
         inline static Logger* logger = nullptr;
+        std::string difficulty;///< The difficulty level of caring for the plant.
+        bool returnable;///< Whether the plant is returnable by customers.
+        bool acceptable;///< Whether the plant is acceptable to customers.
+
+        // also need to add acceptable field
+        // with its setter and getter
 
     protected:
         /**
@@ -111,12 +117,13 @@ class Plant
          * @details Used as a base constructor for all specific Plant subclasses.
          * @param [in] category The general category of the plant.
          * @param [in] variety The specific variety within that category.
+         * @param [in] difficulty The difficulty level of caring for the plant.
          * @section memory_management Thread-related Memory Management
          * The Dynamic Health Attribute should only be Created in the concrete Products
          * because, the type of plant determines how much water/fertilizer/pruning is required
          */
-        // Plant(string category, string variety,string difficulty);
-        Plant(string category, string variety);
+        Plant(string category, string variety,string difficulty);
+        // Plant(string category, string variety);
 
         /**
          * @brief Copy constructor used for the Prototype design pattern.
@@ -163,17 +170,19 @@ class Plant
          * @brief Retrieves the selling price of the plant.
          * @return The sale price as an integer value.
          */
-        int getSalePrice();
+        float getSalePrice();
+
+        /**
+         * @brief Retrieves the difficulty level of caring for the plant.
+         * @return The difficulty level as a string.
+         */
+        std::string getDifficulty();
 
         /**
          * @brief Displays the plant’s details to the console for testing and debugging.
          * @details This method is intended for validation and developer testing purposes only.
          */
         void display();
-
-        ///////////////////////////////
-        // also need to add a getCareLevel() function which will return the added careLevel member variable
-        //////////////////////////////
 
         /**
          * @brief Gets the current state of the plant.
@@ -267,27 +276,29 @@ class Plant
          * @return A floating-point value representing the plant’s current health.
          */
         float healthScore() ;
+<<<<<<< HEAD
         /**
          * @brief Getter for plant ID
          */
         string getId();
 
+=======
+>>>>>>> visitor-Ally
         /**
-         * @brief Static method to set static member variable plantCosts
-         * @param[in] plantCosts maps the plant variety to it's integer price
+         * @brief Sets whether the plant is returnable by customers.
+         * @param returnable Boolean indicating if the plant is returnable.
          */
-        static void setPlantCosts(map<string, vector<int>> plantCosts);
-
+        void setReturnable(bool returnable);
         /**
-         * @brief Used to stub plantCosts static variable when testing plants
-         *  without creating game, ensuring that there are no invalid reads, variable
-         *  instantiated before use
+         * @brief Checks if the plant is returnable by customers.
+         * @return True if the plant is returnable, false otherwise.
          */
-        static void stubPlant();
-
+        bool isReturnable();
         /**
-         * @brief return plantCosts for testing purposes
+         * @brief Sets whether the plant is acceptable to customers.
+         * @param acceptable Boolean indicating if the plant is acceptable.
          */
+<<<<<<< HEAD
         static map<string, vector<int>> getPlantCosts();
 
         /**
@@ -303,6 +314,13 @@ class Plant
          * @brief Adds specific plant log message, includes plant ID
          */
         void newPlantLog(string message);
+=======
+        void setAcceptable(bool acceptable);
+        /**
+         * @brief Checks if the plant is acceptable to customers.
+         * @return True if the plant is acceptable, false otherwise.
+         */
+        bool isAcceptable();
+>>>>>>> visitor-Ally
 };
-
 #endif

@@ -19,6 +19,17 @@
 #include "FlowerCreator.h"
 #include "TreeCreator.h"
 #include "Plant.h"
+#include "Transaction.h"
+#include "TransactionMem.h"
+#include "TransactionHistory.h"
+#include "TransactionStrategy.h"
+#include "Sale.h"
+#include "SaleLoss.h"
+#include "Return.h"
+#include "PlantDied.h"
+#include "SalesFloor.h"
+#include "Inventory.h"
+
 
 TEST(TestSuiteName, TestName) {
     // Setup
@@ -288,7 +299,7 @@ TEST(PlantFactoryTests, ComprehensiveFactoryAndPrototypeIntegration)
     // Test all factories in sequence
     std::vector<std::pair<std::string, PlantCreator*>> factories = {
         {"Succulent", new SucculentCreator()},
-        {"Flower", new FlowerCreator()},
+        {new FlowerCreator()},
         {"Tree", new TreeCreator()}
     };
     
@@ -481,6 +492,38 @@ TEST(GameTests, PlantVarietyMapping)
     delete game;
 }
 
+TEST(VisistorTests, EasyDiff_Ignorant_Correct){
+    Inventory inv;
+    inv.restock(new Flower("Rose", "Hard"));
+    inv.restock(new Plant("SunFLower", "Easy"));
+    inv.restock(new Plant("Poppy", "Medium>"));
+    inv.restock(new Succulent("Cactus", "Easy"));
+    inv.restock(new Plant("Lavender", "Easy"));
+    inv.restock(new Tree("Oak", "Hard"));
+    inv.restock(new Succulent("Aloe", "Medium"));
+    IgnorantCustomer cust;
+    VisitEasyCustomer visitor(inv);
+    inv.accept(visitor);
+    const auto& offer=visitor.getOffer();
+    EXPECT_EQ(offer.size(), 5);
+    int correctCount=0;
+    int refunableCount=0;
+    int wrongCount=0;
+    for(auto *p:offer){
+        const bool corr=visitor.isCorrect(p);
+        const bool ref=visitor.isRefunable(p);
+        if(corr){
+            correctCount++
+            if(ref){
+                refunableCount++;
+            }
+        }else if(p.getDifficulty()=="Hard"){
+            wrongCount++;
+        }
+    }
+    EXPECT_EQ(correctCount,4)<<"Expected 3 easy plants and  medium plant";
+    EXPECT_EQ(refunableCount,1)<<"Expected 1 medium plants to be refunable";
+    EXPECT_EQ(wrongCount,1)<<"Expected 1 hard plant to be in the offer";
 TEST(GameCreationTests, PlantCostTests)
 {
     // Initialize environment

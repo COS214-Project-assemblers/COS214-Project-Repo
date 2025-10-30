@@ -23,7 +23,7 @@ class Tree : public Plant
          * @param [in] variety The name of the tree variety (e.g., "Lemon", "Oak").
          * @param [in] difficulty The level of difficulty for care (Easy/Medium/Hard)
          */
-        Tree(string variety);
+        Tree(string variety,string difficulty);
 
         /**
          * @brief Destroys the Tree object.

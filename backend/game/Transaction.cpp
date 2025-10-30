@@ -1,7 +1,7 @@
 #include "Transaction.h"
 #include "Sale.h"
 #include "Return.h"
-#include "Refund.h"
+#include "SaleLoss.h"
 #include "PlantDied.h"
 
 Transaction::Transaction(TransactionStrategy* tS,double v):tS(tS), value(v){
@@ -12,7 +12,7 @@ TransactionMem Transaction::createTransactionMem(Ledger& ledger,Plant* plant)con
         throw std::runtime_error("transactionStrategy is null!");
     }
     double b4=ledger.getBalance();
-    double after=this->tS->execute(this->value,b4);
+    double after=this->tS->execute(this->value,b4);//update bal
     ledger.setBalance(after);
     return TransactionMem(this->tS->getType(),this->value,b4,after,plant);
 }
@@ -23,7 +23,7 @@ void Transaction::setTransactionMem(const TransactionMem tM){
         rebuilt=new Sale();
     }else if(tM.getType()=="Return"){
         rebuilt=new Return();
-    }else if(tM.getType()=="Refund"){
+    }else if(tM.getType()=="Restock"){
         rebuilt=new Refund();
     }else if(tM.getType()=="PlantDied"){
         rebuilt=new PlantDied();

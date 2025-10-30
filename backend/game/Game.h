@@ -18,6 +18,7 @@
 #include "GameConfiguration.h"
 #include "Customer.h"
 #include "CustomerBuilder.h"
+#include "Manager.h"
 
 using namespace std;
 
@@ -57,7 +58,7 @@ class Game {
         map<string, string> varietyToCategory;
 
         vector<Customer*> customers;
-
+        Manager* manager = nullptr;///<Maintains ref to the manager object
     public:
         /**
          * @brief Game initialization tasks that are not creating/loading game.
@@ -82,6 +83,16 @@ class Game {
          * @brief Getter for testing purposes
          */
         map<string, PlantCreator*> getFactories();
+        // /**
+        //  * @brief Setter for Manager attribute
+        //  * @param[in] manager Manager reference
+        //  */
+        // void setManager(Manager* manager);
+        // /**
+        //  * @brief Getter for Manager attribute
+        //  * @return Manager reference
+        //  */
+        // Manager* getManager();
         /**
          * @brief Operations associated with creating a new game, i.e. creating greenhouse and factories
          */

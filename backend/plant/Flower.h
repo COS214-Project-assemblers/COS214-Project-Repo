@@ -21,10 +21,10 @@ class Flower : public Plant
         /**
          * @brief Constructs a Flower object of a specific variety.
          * @param [in] variety The name of the flower variety (e.g., "Daisy", "Rose").
-        //  * @param [in] difficulty The level of difficulty for care (Easy/Medium/Hard)
+         * @param [in] difficulty The level of difficulty for care (Easy/Medium/Hard)
          */
-        // Flower(string variety,string difficulty);
-        Flower(string variety);
+        Flower(string variety,string difficulty);
+        // Flower(string variety);
 
 
         /**

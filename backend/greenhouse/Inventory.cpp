@@ -22,29 +22,23 @@ std::vector<Plant*> Inventory::all() const{
     return out;
 }
 
-// std::vector<Plant*> Inventory::findByCategory(std::string cat) const{
+void Inventory::restock(Plant* plant){
+    plants.push_back(plant);
+}
 
-// }
-
-
-// std::vector<Plant*> Inventory::findByPrice(double min, double max) const{
-
-// }
+void Inventory::removePlant(Plant* plant){
+    auto it=std::find(plants.begin(), plants.end(), plant);
+    if(it!=plants.end()){
+        plants.erase(it);
+    }
+}
 
 std::vector<Plant*> Inventory::findByDifficulty(std::string d)const{
     std::vector<Plant*> out;
-    for(auto* p:plants){
-        if(p->getCareLevel()==d){
+    for(auto* p:this->plants){
+        if(p->getDifficulty()==d){
             out.push_back(p);
         }
     }
     return out;
-}
-
-void Inventory::commitSale(Plant* plant){
-
-}
-
-void Inventory::restock(Plant* plant){
-    plants.push_back(plant);
 }

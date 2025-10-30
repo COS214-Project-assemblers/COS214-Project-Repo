@@ -7,8 +7,10 @@
 #include <vector>
 #include <algorithm>
 #include <cstddef>
+#include <nlohmann/json.hpp>
+using json=nlohmann::json;
 
-class Inventory;
+class SalesFloor;
 // class Plant;
 #include "Plant.h"
 
@@ -29,8 +31,10 @@ class GreenFingerCustomerBuilder;
  */
 class CustomerVisitor{
     protected:
-        const Inventory& inv;///<Read only inventory for building offers
+        // const SalesFloor& floor;///<Reference to salesFloor object
+        const Inventory inv;///<Reference to inventory object
         std::vector<Plant*> offer;///<Filled by concreteVisitors
+        std::vector<Plant*> correct;///<subset of plants that are correct for the customer
     public:
         /**
          * @brief Constructor.
@@ -60,7 +64,47 @@ class CustomerVisitor{
          * @param target Number to aim for the offers vector
          */
         void finalizeOffer(std::size_t target=5);
+        /**
+         * @brief retrieves the offer vector.
+         * @return The vector of Plant pointers being offered to the customer.
+         */
         const std::vector<Plant*>& getOffer()const;
+        /**
+         * @brief retrieves the correct plant for the customer.
+         * @return Pointer to the correct Plant for the customer.
+         */
+        const std::vector<Plant*>& getCorrectPlant()const;
+        /**
+         * @brief Marks the correct plant for the customer.
+         * @param source Vector of Plant pointers containing the correct plants for the customer.
+         * @param count Number of correct plants to mark.
+         * @param returnable Whether the correct plants are returnable or not.
+         */
+        void markCorrectPlants(const std::vector<Plant*>& source, int count,bool returnable);
+        /**
+         * @brief sets retrunable status of correct plants
+         * @param i Index of the plant in the offer vector
+         * @param returnable Whether the correct plants are returnable or not.
+         */
+        void setReturnable(int i,bool returnable);
+        /**
+         * @brief iscorrect plant
+         * @param p Plant to check
+         * @return true if correct plant, false if not
+         */
+        bool isAcceptable(Plant* p);
+        /**
+         * @brief isReturnable plant
+         * @param p Plant to check
+         * @return true if returnable, false if not
+         */
+        bool isReturnable(Plant* p);
+    //JSON stuff
+        // /**
+        //  * @brief Loads offer data to json object
+        //  * @return json object containing offer data
+        //  */
+        // json offerAsJSON(cosnt std::string diff, const std::string custType)const;
     //visitors
         /**
          * @brief Visit an IgnorantCustomerBuilder object.
