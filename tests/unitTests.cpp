@@ -71,8 +71,6 @@ TEST(GameCreationTests, NewGameOptionExecutesProperly) {
 TEST(PlantFactoryTests, SucculentCreationAndCloning)
 {
     // Test Succulent creation through factory
-    cout << "here" << endl;
-
     Plant::stubPlant();
     SucculentCreator succulentCreator;
     succulentCreator.makePlant("Cactus");
