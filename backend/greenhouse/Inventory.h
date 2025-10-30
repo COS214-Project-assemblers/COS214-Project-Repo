@@ -36,6 +36,11 @@ class Inventory{
          */
         //below is same as megans addPlant
         void restock(Plant* plant);
+        /**
+         * @brief removes a plant from the inventory
+         * @param plant Reference to the Plant being removed
+         */
+        void removePlant(Plant* plant);
 };
 
 #endif

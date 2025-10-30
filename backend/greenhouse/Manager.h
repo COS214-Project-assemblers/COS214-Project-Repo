@@ -10,6 +10,8 @@
 #define MANAGER_H
 
 #include "SalesFloor.h"
+#include "ledger.h"
+#include "Transaction.h"
 
 #include <vector>
 #include <string>
@@ -40,11 +42,6 @@ class Manager{
          */
         bool offerPlants(Customer& cust);
         /**
-         * @brief Assists next customer in the queue.
-         * @return True if customer was successfully assisted, false if not.
-         */
-        bool assistNextCust();
-        /**
          * @brief Records a successful sale.
          * @param cust The customer who made the purchase.
          * @param p The plant that was sold.
@@ -54,9 +51,15 @@ class Manager{
         /**
          * @brief Records if a sale was lost with the rason as to why.
          * @param cust The Customer to which a sale was lost.
-         * @param reason The rason as to why the customer didnt make the purchase
+         * @param p The plant that was offered but was declined
          */
-        void recordLostSale(Customer& cust,std::string reason);
+        void recordSaleLoss(Customer& cust,Plant& p);
+        /**
+         * @brief records if a plant died in the greenhouse
+         * @param p The plant that died
+         * @param value The loss in revenue due to the plant dying
+         */
+        void recordPlantDied(Plant& p,double value);
 };
 
 #endif
