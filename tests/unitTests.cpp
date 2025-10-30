@@ -552,12 +552,16 @@ TEST(GameCustomersCreationTests, TestCreateValidCustomers)
     Game* game = new Game(configPath);
     game->createNewGame();
 
-    game->buyPlants("cactus", 4);
-    game->buyPlants("daisy", 4);
-    game->buyPlants("lemon", 4);
+    EXPECT_NO_THROW({
+        game->createCustomers("ignorant", 1);
+    }) << "createCustomers() should not throw for valid input";
 
     EXPECT_NO_THROW({
-        game->createCustomers("ignorant", 3);
+        game->createCustomers("average", 1);
+    }) << "createCustomers() should not throw for valid input";
+
+    EXPECT_NO_THROW({
+        game->createCustomers("greenfinger", 1);
     }) << "createCustomers() should not throw for valid input";
 
     const auto& customers = game->getCustomers();

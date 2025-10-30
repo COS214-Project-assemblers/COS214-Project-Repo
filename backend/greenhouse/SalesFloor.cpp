@@ -79,3 +79,7 @@ const Ledger& SalesFloor::getLedger()const{
     return this->ledger;
 }
 
+void SalesFloor::addPlant(Plant* p)
+{
+    inv->restock(p);
+}

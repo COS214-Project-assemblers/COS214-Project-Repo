@@ -101,6 +101,8 @@ class SalesFloor{
          * @return Vector of all those plants
          */
         std::vector<Plant*> findByDifficulty(std::string d)const;
+
+        void addPlant(Plant* p);
 };
 
 #endif

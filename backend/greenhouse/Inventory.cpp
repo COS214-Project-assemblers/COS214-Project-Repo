@@ -7,10 +7,15 @@
 
 Inventory::~Inventory()
 {
-    for (Plant* p : plants) {
-        delete p;
-    }
-    plants.clear();
+    // for (Plant* p : plants) 
+    // {
+    //     if(p)
+    //     {
+    //         delete p;
+    //     }
+    // }
+
+    // plants.clear();
 }
 
 

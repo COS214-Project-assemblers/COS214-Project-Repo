@@ -113,16 +113,6 @@ void createFactoriesHelper(string category, string variant, map<string, PlantCre
     
 }
 
-// void Game::setManager(Manager* manager)
-// {
-//     this->manager = manager;
-// }
-
-// Manager* Game::getManager()
-// {
-//     return this->manager;
-// }
-
 void Game::createNewGame()
 {
     // try
@@ -231,7 +221,10 @@ Game::~Game()
 
     for (auto customer : customers)
     {
-        delete customer;
+        if(customer)
+        {
+            delete customer;
+        }
     }
 
     if (config != nullptr)
@@ -277,6 +270,11 @@ void Game::createCustomers(string type, int num)
     if (greenhouse == nullptr) 
     {
         throw runtime_error("Greenhouse not initialized. Please create a new game first.");
+    }
+
+    if (manager == nullptr) 
+    {
+        throw runtime_error("Manager is null");
     }
 
     // Validate customer type exists in configuration
@@ -358,16 +356,16 @@ void Game::createCustomers(string type, int num)
         Customer* customer = director.construct(*visitor);
         
         customers.push_back(customer);
-        
-        if(builder)
-        {
-            delete builder;
-        }
+    }
 
-        if(visitor)
-        {
-            delete visitor;
-        }
+    if(builder)
+    {
+        delete builder;
+    }
+
+    if(visitor)
+    {
+        delete visitor;
     }
 
     logger->newLog("+ Created " + to_string(num) + " " + type + " customers");
