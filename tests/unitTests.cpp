@@ -71,6 +71,8 @@ TEST(GameCreationTests, NewGameOptionExecutesProperly) {
 TEST(PlantFactoryTests, SucculentCreationAndCloning)
 {
     // Test Succulent creation through factory
+    Plant::stubPlant();
+
     SucculentCreator succulentCreator;
     succulentCreator.makePlant("Cactus");
     
@@ -100,6 +102,8 @@ TEST(PlantFactoryTests, SucculentCreationAndCloning)
 
 TEST(PlantFactoryTests, FlowerCreationAndCloning)
 {
+    Plant::stubPlant();
+
     // Test Flower creation through factory
     FlowerCreator flowerCreator;
     flowerCreator.makePlant("Rose");
@@ -130,6 +134,8 @@ TEST(PlantFactoryTests, FlowerCreationAndCloning)
 
 TEST(PlantFactoryTests, TreeCreationAndCloning)
 {
+    Plant::stubPlant();
+
     // Test Tree creation through factory
     TreeCreator treeCreator;
     treeCreator.makePlant("Lemon");
@@ -470,5 +476,24 @@ TEST(GameTests, PlantVarietyMapping)
 
     std::cout << "✓ Plant variety mapping works correctly" << std::endl;
     
+    delete game;
+}
+
+TEST(GameCreationTests, PlantCostTests)
+{
+    // Initialize environment
+    std::cout << "\n=== Testing Cost Extraction ===" << std::endl;
+    
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
+    Game* game = new Game(configPath);
+    game->createNewGame();
+
+    map<string, vector<int>> plantCosts = Plant::getPlantCosts(); 
+
+    for (auto it = plantCosts.begin(); it != plantCosts.end(); ++it) {
+        EXPECT_GT((it->second)[0], 0);
+        EXPECT_GT((it->second)[1], 0);
+    }
+
     delete game;
 }
