@@ -24,6 +24,9 @@ map<string, float> Plant::plantCosts =
 
 Plant::Plant(string category, string variety)
 {
+    // Assign ID to plant
+    id = generateId();
+
     this->plantCategory = category;
     this->plantVariety = variety;
     // this->difficulty=diffictlty;
@@ -202,4 +205,14 @@ void Plant::run() {
     }
     float currentHealth = health->healthScore()  ;
     std::cout << "[State] Current health score: " << currentHealth << std::endl;
+}
+
+string Plant::generateId() {
+    // Static + thread local ensures there is only 1 random num gen 
+    static thread_local boost::uuids::random_generator gen;
+    return to_string(gen());
+}
+
+string Plant::getId() {
+    return id;
 }
