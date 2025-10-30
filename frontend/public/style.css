@@ -250,6 +250,100 @@
     margin-top: 0.4em;
 }
 
+#plant2 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    position: absolute;
+}
+
+#plant2 img {
+    width: 7em;
+    margin-left: 10.8em;
+    margin-top: 0.4em;
+}
+
+#soilGrid div img {
+    width: 7em;
+    margin-top: 0.4em;
+}
+
+#plant3 {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    position: absolute;
+}
+
+#plant3 img {
+    margin-left: 20.4em;
+}
+
+#plant4 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    position: absolute;
+    margin-top: 9em;
+}
+
+#plant4 img {
+    margin-left: 1.3em;
+}
+
+#plant5 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    position: absolute;
+    margin-top: 9em;
+}
+
+#plant5 img {
+    margin-left: 10.8em;
+}
+
+#plant6 {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    position: absolute;
+    margin-top: 9em;
+}
+
+#plant6 img {
+    margin-left: 20.4em;
+}
+
+#plant7 img {
+    margin-left: 1.3em;
+}
+
+#plant7 {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    position: absolute;
+    margin-top: 18em;
+}
+
+
+#plant8 img {
+    margin-left: 10.8em;
+}
+
+#plant8 {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    position: absolute;
+    margin-top: 18em;
+}
+
+#plant9 img {
+    margin-left: 20.4em;
+}
+
+#plant9 {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    position: absolute;
+    margin-top: 18em;
+}
+
 
 #wood {
     bottom: 0;
@@ -537,4 +631,91 @@
     font-family: 'Freckle Face';
     font-size: 2em;
     color: #0d6d00;
+}
+
+
+#capacity {
+    top: 0;
+    position: fixed;
+    font-family: 'Delius';
+    font-size: 1.3em;
+    color: red;
+    font-weight: 600;
+    margin-top: 12em;
+    z-index: 2000;
+    margin-left: 1.7em;
+}
+
+
+#plant1 img:hover {
+    cursor: pointer;
+}
+
+
+#info-board-div img {
+    width: 30em;
+}
+
+#info-board-div {
+    z-index: 3000;
+    position: fixed;
+    top: 0;
+    margin-top: 10em;
+    right: 0;
+    margin-right: 32.6em;
+}
+
+
+#plantInfoGrid {
+    z-index: 5000;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 12em 12em;
+    grid-template-rows: repeat(5, 1fr);
+    top: 0;
+    right: 0;
+    margin-right: 36em;
+    margin-top: 14em;
+}
+
+#plantInfoGrid p {
+    font-family: 'Freckle Face';
+    color: #612e18;
+    font-size: 1.3em;
+}
+
+
+#info-buttons button {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+#cancel-info {
+    width: 10em;
+    margin-right: 1em;
+}
+
+#move-to-sales {
+    width: 13em;
+}
+
+#info-buttons {
+    z-index: 5001;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 34em;
+    margin-top: 35.7em;
+}
+
+#info-buttons button img:hover {
+    cursor: pointer;
+}
+
+#info-title-div {
+    position: absolute;
+    top: 0;
+    margin-left: 38.5em;
+    margin-top: 10em;
+    z-index: 6000;
 }

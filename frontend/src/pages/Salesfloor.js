@@ -15,17 +15,17 @@ const Salesfloor = () => {
         <div className="salesfloorBody">
             <Navbar/>
 
-            <div id="ignorant-customer">
+            {/* <div id="ignorant-customer">
                 <img alt="ignorant" src="/assets/images/ignorant.png" width="50"/>
-            </div>
+            </div> */}
 
             {/* <div id="medium-customer">
                 <img alt="medium" src="/assets/images/medium-customer.png" width="50"/>
             </div> */}
 
-            {/* <div id="greenfinger-customer">
+            <div id="greenfinger-customer">
                 <img alt="greenfinger" src="/assets/images/greenfinger.png" width="50"/>
-            </div> */}
+            </div>
 
             <div id="dialogue-board">
                 <img alt="dialogue-board" src="/assets/images/dialogue-board.svg" width="50"/>
