@@ -545,3 +545,24 @@ TEST(GameCreationTests, PlantCostTests)
 
     delete game;
 }
+
+TEST(GameCustomersCreationTests, TestCreateValidCustomers) 
+{
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
+    Game* game = new Game(configPath);
+    game->createNewGame();
+
+    game->buyPlants("cactus", 4);
+    game->buyPlants("daisy", 4);
+    game->buyPlants("lemon", 4);
+
+    EXPECT_NO_THROW({
+        game->createCustomers("ignorant", 3);
+    }) << "createCustomers() should not throw for valid input";
+
+    const auto& customers = game->getCustomers();
+    EXPECT_EQ(customers.size(), 3)
+        << "Expected 3 customers created, but got " << customers.size();
+
+    delete game;
+}

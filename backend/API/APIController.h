@@ -151,7 +151,13 @@ public:
   }
 
   ENDPOINT("POST", "/add-customers", addCustomers, BODY_DTO(oatpp::Object<AddCustomerDTO>, body)) 
-  {
+  { 
+    // Expected request structure:
+    // {
+    //   "customerType": "ignorant",
+    //   "numToAdd": 5
+    // }
+    
     auto dto = APIDto::createShared();
 
     if (!body) 
