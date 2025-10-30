@@ -92,6 +92,8 @@ set(SOURCES
   backend/game/LogDecorator.cpp
   backend/game/CoutAndLog.h
   backend/game/CoutAndLog.cpp
+  backend/WS/GreenSock.h
+  backend/WS/GreenSock.cpp
 )
 
 add_executable(g_test
