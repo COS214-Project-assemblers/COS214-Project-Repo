@@ -29,13 +29,15 @@ void TransactionHistory::print()const{
     }
 }
 
-bool TransactionHistory::processReturn(Ledger& l){
+bool TransactionHistory::processReturn(Ledger& l,Inventory& inv){
     if(this->memento.empty()){
         return false;
     }
     const TransactionMem& last=this->memento.back();
-    //can get rid of refund strategy, this is a better use of memento can keep other strategies.
     l.setBalance(last.getBalanceB4());
+    if(last.getType()=="Sale"){
+        inv.restock(last.getPlant());
+    }
     this->memento.pop_back();
     return true;
 }
