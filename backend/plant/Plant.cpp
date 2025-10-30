@@ -7,20 +7,6 @@
 #include "NotSellable.h"
 #include "GreenhouseStaff.h"
 #include "PlantHealth.h"
-map<string, float> Plant::plantCosts =
-{
-    {"Rose", 10.0},
-    {"Daisy", 5.0},
-    {"Sunflower", 8.5},
-
-    {"Cactus", 12.0},
-    {"Aloe", 9.0},
-    {"Jade", 7.5},
-
-    {"Lemon", 15.0},
-    {"Banana", 20.0},
-    {"Apple", 25.0}
-};
 
 Plant::Plant(string category, string variety,string difficulty)
 {
@@ -30,21 +16,23 @@ Plant::Plant(string category, string variety,string difficulty)
 
     this->careType = "";
     this->plantState = new NotSellable();
-
-    if(plantCosts[variety])
+    
+    // Game needs to be initialized (prices fetched from JSON) before
+    // plant costs can be set. If game not initialized, plant costs not set.
+    if(!plantCosts.empty() && plantCosts[variety].size() == 2)
     {
-        costPrice = plantCosts[variety];
+        costPrice = plantCosts[variety][0];
+        salePrice = plantCosts[variety][1];
     }
     else
     {
         costPrice = 10.00;
     }
 
-    salePrice = costPrice * 1.5;
-
     // this->health = new Health() ; // concrete plants assign this uniquely 
     this->decayIndex = 0        ;
     this->alive = true          ;
+
 }
 
 Plant::Plant(const Plant& original)
@@ -54,6 +42,8 @@ Plant::Plant(const Plant& original)
     this->costPrice = original.costPrice;
     this->salePrice = original.salePrice;
     this->difficulty=original.difficulty;
+    this->acceptable=original.acceptable;
+    this->returnable=original.returnable;
 
     this->plantState = new NotSellable();
     this->careType = original.careType;
@@ -92,7 +82,7 @@ string Plant::getPlantVariety()
     return plantVariety;
 }
 
-float Plant::getCostPrice()
+int Plant::getCostPrice()
 {
     return costPrice;
 }
@@ -216,4 +206,12 @@ void Plant::setReturnable(bool returnable){
 
 bool Plant::isReturnable(){
     return this->returnable;
+}
+
+void Plant::setAcceptable(bool acceptable){
+    this->acceptable=acceptable;
+}
+
+bool Plant::isAcceptable(){
+    return this->acceptable;
 }

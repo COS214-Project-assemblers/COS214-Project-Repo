@@ -32,7 +32,7 @@ class GreenFingerCustomerBuilder;
 class CustomerVisitor{
     protected:
         // const SalesFloor& floor;///<Reference to salesFloor object
-        const Inventory& inv;///<Reference to inventory object
+        const Inventory inv;///<Reference to inventory object
         std::vector<Plant*> offer;///<Filled by concreteVisitors
         std::vector<Plant*> correct;///<subset of plants that are correct for the customer
     public:
@@ -92,7 +92,7 @@ class CustomerVisitor{
          * @param p Plant to check
          * @return true if correct plant, false if not
          */
-        bool isCorrect(Plant* p);
+        bool isAcceptable(Plant* p);
         /**
          * @brief isReturnable plant
          * @param p Plant to check
@@ -100,11 +100,11 @@ class CustomerVisitor{
          */
         bool isReturnable(Plant* p);
     //JSON stuff
-        /**
-         * @brief Loads offer data to json object
-         * @return json object containing offer data
-         */
-        json offerAsJSON(cosnt std::string diff, const std::string custType)const;
+        // /**
+        //  * @brief Loads offer data to json object
+        //  * @return json object containing offer data
+        //  */
+        // json offerAsJSON(cosnt std::string diff, const std::string custType)const;
     //visitors
         /**
          * @brief Visit an IgnorantCustomerBuilder object.

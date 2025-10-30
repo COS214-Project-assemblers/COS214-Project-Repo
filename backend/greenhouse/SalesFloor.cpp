@@ -1,7 +1,7 @@
 #include "SalesFloor.h"
 
 SalesFloor::SalesFloor(){
-    this->inv=NULL;
+    inv = new Inventory();
 }
 
 void SalesFloor::add(Customer* cust){
@@ -49,11 +49,11 @@ Customer* SalesFloor::popCust(){
     return first;
 }
 
-const Inventory& SalesFloor::inventory()const{
+const Inventory* SalesFloor::inventory()const{
     if(!this->inv){
         throw std::runtime_error("SalesFloor::inventory() called before inventory is set");
     }
-    return *this->inv;
+    return this->inv;
 }
 
 Inventory& SalesFloor::inventoryMut(){

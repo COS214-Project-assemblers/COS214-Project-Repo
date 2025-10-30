@@ -82,6 +82,8 @@ TEST(GameCreationTests, NewGameOptionExecutesProperly) {
 TEST(PlantFactoryTests, SucculentCreationAndCloning)
 {
     // Test Succulent creation through factory
+    Plant::stubPlant();
+
     SucculentCreator succulentCreator;
     succulentCreator.makePlant("Cactus");
     
@@ -111,6 +113,8 @@ TEST(PlantFactoryTests, SucculentCreationAndCloning)
 
 TEST(PlantFactoryTests, FlowerCreationAndCloning)
 {
+    Plant::stubPlant();
+
     // Test Flower creation through factory
     FlowerCreator flowerCreator;
     flowerCreator.makePlant("Rose");
@@ -141,6 +145,8 @@ TEST(PlantFactoryTests, FlowerCreationAndCloning)
 
 TEST(PlantFactoryTests, TreeCreationAndCloning)
 {
+    Plant::stubPlant();
+
     // Test Tree creation through factory
     TreeCreator treeCreator;
     treeCreator.makePlant("Lemon");
@@ -516,4 +522,21 @@ TEST(VisistorTests, EasyDiff_Ignorant_Correct){
     EXPECT_EQ(correctCount,4)<<"Expected 3 easy plants and  medium plant";
     EXPECT_EQ(refunableCount,1)<<"Expected 1 medium plants to be refunable";
     EXPECT_EQ(wrongCount,1)<<"Expected 1 hard plant to be in the offer";
+TEST(GameCreationTests, PlantCostTests)
+{
+    // Initialize environment
+    std::cout << "\n=== Testing Cost Extraction ===" << std::endl;
+    
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
+    Game* game = new Game(configPath);
+    game->createNewGame();
+
+    map<string, vector<int>> plantCosts = Plant::getPlantCosts(); 
+
+    for (auto it = plantCosts.begin(); it != plantCosts.end(); ++it) {
+        EXPECT_GT((it->second)[0], 0);
+        EXPECT_GT((it->second)[1], 0);
+    }
+
+    delete game;
 }

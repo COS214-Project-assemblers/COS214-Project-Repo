@@ -59,34 +59,35 @@ void CustomerVisitor::markCorrectPlants(const std::vector<Plant*>& source, int c
         Plant* p=source[i];
         correct.push_back(p);
         p->setReturnable(returnable);
+        p->setAcceptable(true);
     }
 }
 
-bool CustomerVisitor::isCorrect(Plant* p){
-    return std::find(correct.begin(),correct.end(),p)!=correct.end();
+bool CustomerVisitor::isAcceptable(Plant* p){
+    return p->isAcceptable();
 }
 
 bool CustomerVisitor::isReturnable(Plant* p){
     return p->isReturnable();
 }
 
-json CustomerVisitor::offerAsJSON(const std::string diff, const std::string custType)const{
-    json j;
-    j["customer_type"]=custType;//type of customer being offered to
-    j["difficulty"]=diff;//difficulty level of the game when offer was made
-    j["offer"]=json::array();
-    for(const auto* p:offer){
-        json pj;
-        pj["Plant_category"]=p->getPlantCategory();
-        pj["Plant_variery"]=p->getPlantVariety();
-        pj["care_difficulty"]=p->getDifficulty();//care difficulty of plant
-        pj["sale_price"]=p->getSalePrice();
-        pj["isReturnable"]=isReturnable(p);//checks if plants are returnable
-        pj["isCorrect"]=isCorrect(p);//if plant is a good match for customer
-        j["offer"].push_back(pj);
-    }
-    return j;
-}
+// json CustomerVisitor::offerAsJSON(const std::string diff, const std::string custType)const{
+//     json j;
+//     j["customer_type"]=custType;//type of customer being offered to
+//     j["difficulty"]=diff;//difficulty level of the game when offer was made
+//     j["offer"]=json::array();
+//     for(const auto* p:offer){
+//         json pj;
+//         pj["Plant_category"]=p->getPlantCategory();
+//         pj["Plant_variery"]=p->getPlantVariety();
+//         pj["care_difficulty"]=p->getDifficulty();//care difficulty of plant
+//         pj["sale_price"]=p->getSalePrice();
+//         pj["isReturnable"]=isReturnable(p);//checks if plants are returnable
+//         pj["isCorrect"]=isCorrect(p);//if plant is a good match for customer
+//         j["offer"].push_back(pj);
+//     }
+//     return j;
+// }
 //if accept no -> sale lost
 //if accept yes and no return -> sale committed
 //if accept yes and return -> return 

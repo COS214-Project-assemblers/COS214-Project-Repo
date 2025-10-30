@@ -10,7 +10,7 @@
 #define MANAGER_H
 
 #include "SalesFloor.h"
-#include "ledger.h"
+#include "Ledger.h"
 #include "Transaction.h"
 
 #include <vector>
@@ -24,16 +24,16 @@ class Customer;
 
 class Manager{
     private:
-        SalesFloor& floor;///<Reference to salesFloor object that is managed by the Manager.
+        SalesFloor* floor;///<Reference to salesFloor object that is managed by the Manager.
         Ledger ledger;///<Ledger to keep track of balance
-        Transaction t;///<Transaction
+        // Transaction t;///<Transaction
         TransactionHistory hist;///<Transaction history to keep track of transactions
     public:
         /**
          * @brief Constructs a Manager associated with a given SalesFloor.
          * @param f Reference to the SalesFloor instange the Manager overseads.
          */
-        explicit Manager(SalesFloor& f);
+        explicit Manager();
         /**
          * @brief Deafult destructer
          */
@@ -46,11 +46,10 @@ class Manager{
         bool offerPlants(Customer& cust);
         /**
          * @brief Records a successful sale.
-         * @param cust The customer who made the purchase.
          * @param p The plant that was sold.
          * @param revenue The price the plant was sold for.
          */
-        void recordSale(Customer& cust, Plant& p,double revenue);
+        void recordSale(Plant& p,double revenue);
         /**
          * @brief Records if a sale was lost with the rason as to why.
          * @param cust The Customer to which a sale was lost.
@@ -67,12 +66,12 @@ class Manager{
          * @brief record return of plant
          * @param t transaction to process return on
          */
-        void processReturns(Transaction& t);
+        void processReturns(Plant& p,double value);
         /**
          * @brief Getter for inventory
          * @return Reference to the inventory managed by the salesFloor
          */
-        const Inventory& inventory()const;
+        const Inventory* inventory()const;
         /**
          * @brief Mutable getter for inventory
          * @return Mutable reference to the inventory managed by the salesFloor
@@ -102,6 +101,8 @@ class Manager{
          * @return json object containing user choice?
          */
         json handleSelection(Customer& cust, int choice);
+
+        const Inventory* getSaleInventory();
 };
 
 #endif
