@@ -76,7 +76,17 @@ function initSocket() {
 }
 
 openDB()
-  .then(() => addDBRecord({ plantId: 1, plantCategory: "test", plantVariety: "test" }))
+  .then(() => addDBRecord({ 
+      plantId: "3f6a2d2b-7a5e-4f06-9b4f-2f8e6a2c9b8d",
+      plantCategory: "succulent",
+      plantVariety: "cactus",
+      healthScore: 0.5,
+      waterScore: 10,
+      pruningScore: 10,
+      fertilizerScore: 10,
+      sellable: false,
+      died: false
+    }))
   .then(() => getPlantRecord(1))
   .then((rec) => {
     if (rec) {
