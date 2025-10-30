@@ -10,10 +10,14 @@
 #define MANAGER_H
 
 #include "SalesFloor.h"
+#include "ledger.h"
+#include "Transaction.h"
 
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <nlohmann/json.hpp>
+using json=nlohmann::json;
 
 class Plant;
 class Customer;
@@ -21,8 +25,9 @@ class Customer;
 class Manager{
     private:
         SalesFloor& floor;///<Reference to salesFloor object that is managed by the Manager.
-        Ledger ledger;
-        TransactionHistory hist;
+        Ledger ledger;///<Ledger to keep track of balance
+        Transaction t;///<Transaction
+        TransactionHistory hist;///<Transaction history to keep track of transactions
     public:
         /**
          * @brief Constructs a Manager associated with a given SalesFloor.
@@ -40,11 +45,6 @@ class Manager{
          */
         bool offerPlants(Customer& cust);
         /**
-         * @brief Assists next customer in the queue.
-         * @return True if customer was successfully assisted, false if not.
-         */
-        bool assistNextCust();
-        /**
          * @brief Records a successful sale.
          * @param cust The customer who made the purchase.
          * @param p The plant that was sold.
@@ -54,9 +54,54 @@ class Manager{
         /**
          * @brief Records if a sale was lost with the rason as to why.
          * @param cust The Customer to which a sale was lost.
-         * @param reason The rason as to why the customer didnt make the purchase
+         * @param p The plant that was offered but was declined
          */
-        void recordLostSale(Customer& cust,std::string reason);
+        void recordSaleLoss(Customer& cust,Plant& p);
+        /**
+         * @brief records if a plant died in the greenhouse
+         * @param p The plant that died
+         * @param value The loss in revenue due to the plant dying
+         */
+        void recordPlantDied(Plant& p,double value);
+        /**
+         * @brief record return of plant
+         * @param t transaction to process return on
+         */
+        void processReturns(Transaction& t);
+        /**
+         * @brief Getter for inventory
+         * @return Reference to the inventory managed by the salesFloor
+         */
+        const Inventory& inventory()const;
+        /**
+         * @brief Mutable getter for inventory
+         * @return Mutable reference to the inventory managed by the salesFloor
+         */
+        Inventory& inventoryMut();
+        /**
+         * @brief set transaction
+         * @param t transaction to set
+         */
+        void setTransaction(Transaction& t);
+        /**
+         * @brief getter for transaction
+         * @return reference to transaction
+         */
+        Transaction& getTransaction();
+        /**
+         * @brief make offer to json
+         * @param cust customer being offered to
+         * @param diff difficulty level of game
+         * @return json object containing offer data
+         */
+        json offerAsJSON(Customer& cust, const std::string diff);
+        /**
+         * @brief handle selection from user
+         * @param cust customer making selection
+         * @param choice index of plant chosen from offer
+         * @return json object containing user choice?
+         */
+        json handleSelection(Customer& cust, int choice);
 };
 
 #endif

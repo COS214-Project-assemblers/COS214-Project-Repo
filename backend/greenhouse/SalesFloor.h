@@ -6,8 +6,11 @@
 
 #include "Inventory.h"
 #include "Customer.h"
+#include "TransactionHistory.h"
+#include "Ledger.h"
 
 #include <vector>
+#include <random>
 #include <stdexcept>
 /**
  * @class SalesFloor
@@ -20,6 +23,7 @@ class SalesFloor{
         Inventory* inv;///<Pointer to Inventory object
         std::vector<Customer*> customers;///<Vector of customers in the "queue"
         std::vector<Customer*> custHist;///<Vector of customers that have moved out of the "queue" and is just a history
+        Ledger ledger;///<Ledger to keep track of balance
     public:
         /**
          * @brief Default constructor.
@@ -71,11 +75,28 @@ class SalesFloor{
          */
         Inventory& inventoryMut();
         /**
+         * @brief Mutable getter for the ledger
+         * @return Reference to the ledger object
+         */
+        Ledger& getLedger();
+        /**
+         * @brief Read only getter for the ledger
+         * @return Constant reference to the ledger object
+         */
+        const Ledger& getLedger()const;
+        /**
          * @brief Simulates the process of returns based on a given probability.
          * @param prob Probability that a customer decides to return a product.
+         * @param hist Reference to the TransactionHistory to process returns.
          */
         //Ally - could maybe also use visitor for this to return the probabilty based on the type of customer.
-        void processReturns(double prob);
+        void processReturns(double prob,Transaction& t);
+        /**
+         * @brief Finds all plants in the inventory based on their level of care dificulty.
+         * @param d The level of dificulty you are looking for
+         * @return Vector of all those plants
+         */
+        std::vector<Plant*> findByDifficulty(std::string d)const;
 };
 
 #endif
