@@ -1,3 +1,18 @@
+/* Using the IndexedDB
+ To add/update a record openDB().then(() => addDBRecord(record));
+ To read a record openDB().then(() => getPlantRecord(plantID)).then((returnVal) => { console.log(returnVal)} )
+
+ Errors thrown and corrective actions taken:
+
+ JSON SENT FROM SERVER COULD NOT BE PARSED
+ 1. Send message to server, {"error": failed to parse"} 
+ 2. Abort
+
+ PLANTID NOT FOUND
+ 1. Send message to server {"error": "plantId not found"}
+ 2. Abort
+ */
+
 let db;
 
 function openDB() {
@@ -64,9 +79,16 @@ function initSocket() {
         // plant elements
         console.log(`RECEIVED: ${e.data}`);
         try {
-            JSON.parse(e.data);
+            let jsonPlantData = JSON.parse(e.data);
+            if (jsonPlantData.plantId == undefined) {
+              throw TypeError("PlantID not found");
+            }
         } catch (error) {
-            websocket.send(JSON.stringify({"error": `Could not parse ${e.data} to json`}));
+            if (error instanceof TypeError) {
+              
+            } else {
+              websocket.send(JSON.stringify({"error": `Could not parse ${e.data} to json`}));
+            }
         }
     });
 
