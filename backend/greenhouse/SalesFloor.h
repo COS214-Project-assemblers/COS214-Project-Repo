@@ -36,7 +36,7 @@ class SalesFloor{
         /**
          * @brief Default deconstructor.
          */
-        ~SalesFloor()=default;
+        ~SalesFloor();
         /**
          * @brief Adds a Customer to the customers vector (queue).
          * @param cust Reference to the customer being added to the "queue".

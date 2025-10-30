@@ -16,6 +16,20 @@
 Manager::Manager()
 {
     floor = new SalesFloor();
+    strat = nullptr;
+}
+
+Manager::~Manager()
+{
+    if(strat)
+    {
+        delete strat;
+    }
+
+    if(floor)
+    {
+        delete floor;
+    }
 }
 
 const Inventory* Manager::getSaleInventory()
@@ -67,15 +81,25 @@ const Inventory* Manager::getSaleInventory()
 // }
 
 void Manager::recordSale(Plant& p){
+    if(strat)
+    {
+        delete strat;
+    }
+    strat = new Sale();
     floor->inventoryMut().commitSale(&p);
-    Transaction saleT(new Sale(),p.getSalePrice());//creates new sale transaction
+    Transaction saleT(strat,p.getSalePrice());//creates new sale transaction
     TransactionMem snap=saleT.createTransactionMem(ledger,&p);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
     //notifu gui
 }
 
 void Manager::recordRestock(Plant& p){
-    Transaction restock(new Restock(),p.getCostPrice());//creates new sale transaction with 0 value    
+    if(strat)
+    {
+        delete strat;
+    }
+    strat = new Restock();
+    Transaction restock(strat,p.getCostPrice());//creates new sale transaction with 0 value    
     TransactionMem snap=restock.createTransactionMem(ledger,&p);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
 }
@@ -83,13 +107,23 @@ void Manager::recordRestock(Plant& p){
 void Manager::recordPlantDied(Plant& p){
     //needs to access the greenhouse inventory to remove plant
     //Needs implimentation for thisssss!!!!
-    Transaction plantDiedT(new PlantDied(),p.getCostPrice());//creates new sale transaction with 0 value
+    if(strat)
+    {
+        delete strat;
+    }
+    strat = new PlantDied();
+    Transaction plantDiedT(strat,p.getCostPrice());//creates new sale transaction with 0 value
     TransactionMem snap=plantDiedT.createTransactionMem(ledger,&p);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
 }
 
 void Manager::processReturns(Plant& p){
-    Transaction ret(new Return(),p.getSalePrice());//creates new sale transaction with 0 value
+    if(strat)
+    {
+        delete strat;
+    }
+    strat = new Return();
+    Transaction ret(strat,p.getSalePrice());//creates new sale transaction with 0 value
     TransactionMem snap=ret.createTransactionMem(ledger,&p);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
 }

@@ -27,6 +27,7 @@ class Manager{
         SalesFloor* floor;///<Reference to salesFloor object that is managed by the Manager.
         Ledger ledger;///<Ledger to keep track of balance
         // Transaction t;///<Transaction
+        TransactionStrategy* strat;
         TransactionHistory hist;///<Transaction history to keep track of transactions
     public:
         /**
@@ -37,7 +38,7 @@ class Manager{
         /**
          * @brief Deafult destructer
          */
-        ~Manager()=default;
+        ~Manager();
         /**
          * @brief Presents the builded offer of plants.
          * @param cust Reference to the customer being created.

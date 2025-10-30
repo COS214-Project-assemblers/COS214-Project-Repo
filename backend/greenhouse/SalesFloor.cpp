@@ -4,6 +4,14 @@ SalesFloor::SalesFloor(){
     inv = new Inventory();
 }
 
+SalesFloor::~SalesFloor()
+{
+    if(inv)
+    {
+        delete inv;
+    }
+}
+
 void SalesFloor::add(Customer* cust){
     customers.push_back(cust);
 }
