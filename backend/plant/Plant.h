@@ -86,6 +86,9 @@ class Plant
         std::string difficulty;///< The difficulty level of caring for the plant.
         bool returnable;///< Whether the plant is returnable by customers.
 
+        // also need to add acceptable field
+        // with its setter and getter
+
     protected:
         /**
          *  @brief Pointer to the Health component representing the plant’s overall well-being.
@@ -164,10 +167,6 @@ class Plant
          * @details This method is intended for validation and developer testing purposes only.
          */
         void display();
-
-        ///////////////////////////////
-        // also need to add a getCareLevel() function which will return the added careLevel member variable
-        //////////////////////////////
 
         /**
          * @brief Gets the current state of the plant.
