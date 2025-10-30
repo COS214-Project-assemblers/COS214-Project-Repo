@@ -71,27 +71,3 @@ const Ledger& SalesFloor::getLedger()const{
     return this->ledger;
 }
 
-void SalesFloor::processReturns(double prob,TransactionHistory& hist){
-    //need to impliment
-    //if user chooses correct plant, no return
-    //if not there is a probability they return it
-    if(prob<=0.0){
-        return;
-    }
-    if(prob>1){
-        prob=1;
-    }
-    if(!this->inv){
-        throw std::runtime_error("SalesFloor::processReturns() called before inventory is set");
-    }
-    //random roll
-    static std::random_device rd;
-    static std::mt19937 gen(rd());
-    std::uniform_real_distribution<> dis(0.0, 1.0);
-    double roll=dis(gen);
-    //checks if cust decided to return
-    if(roll<prob){
-        //customer decided to return a plant therefore undo last transaction
-        bool success=hist.processReturn(this->ledger,*this->inv);
-    }
-}

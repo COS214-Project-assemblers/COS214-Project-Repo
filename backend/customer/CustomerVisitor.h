@@ -7,6 +7,8 @@
 #include <vector>
 #include <algorithm>
 #include <cstddef>
+#include <nlohmann/json.hpp>
+using json=nlohmann::json;
 
 class SalesFloor;
 // class Plant;
@@ -97,6 +99,12 @@ class CustomerVisitor{
          * @return true if returnable, false if not
          */
         bool isReturnable(Plant* p);
+    //JSON stuff
+        /**
+         * @brief Loads offer data to json object
+         * @return json object containing offer data
+         */
+        json offerAsJSON(cosnt std::string diff, const std::string custType)const;
     //visitors
         /**
          * @brief Visit an IgnorantCustomerBuilder object.

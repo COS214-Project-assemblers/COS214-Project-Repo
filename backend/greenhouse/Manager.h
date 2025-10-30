@@ -16,6 +16,8 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <nlohmann/json.hpp>
+using json=nlohmann::json;
 
 class Plant;
 class Customer;
@@ -23,8 +25,9 @@ class Customer;
 class Manager{
     private:
         SalesFloor& floor;///<Reference to salesFloor object that is managed by the Manager.
-        Ledger ledger;
-        TransactionHistory hist;
+        Ledger ledger;///<Ledger to keep track of balance
+        Transaction t;///<Transaction
+        TransactionHistory hist;///<Transaction history to keep track of transactions
     public:
         /**
          * @brief Constructs a Manager associated with a given SalesFloor.
@@ -61,6 +64,11 @@ class Manager{
          */
         void recordPlantDied(Plant& p,double value);
         /**
+         * @brief record return of plant
+         * @param t transaction to process return on
+         */
+        void processReturns(Transaction& t);
+        /**
          * @brief Getter for inventory
          * @return Reference to the inventory managed by the salesFloor
          */
@@ -70,6 +78,30 @@ class Manager{
          * @return Mutable reference to the inventory managed by the salesFloor
          */
         Inventory& inventoryMut();
+        /**
+         * @brief set transaction
+         * @param t transaction to set
+         */
+        void setTransaction(Transaction& t);
+        /**
+         * @brief getter for transaction
+         * @return reference to transaction
+         */
+        Transaction& getTransaction();
+        /**
+         * @brief make offer to json
+         * @param cust customer being offered to
+         * @param diff difficulty level of game
+         * @return json object containing offer data
+         */
+        json offerAsJSON(Customer& cust, const std::string diff);
+        /**
+         * @brief handle selection from user
+         * @param cust customer making selection
+         * @param choice index of plant chosen from offer
+         * @return json object containing user choice?
+         */
+        json handleSelection(Customer& cust, int choice);
 };
 
 #endif

@@ -11,3 +11,9 @@ double Ledger::getBalance(){
 void Ledger::setBalance(double newBal){
     this->balance=newBal;
 }
+
+json Ledger::balToJSON()const{
+    json j;
+    j["balance"]=this->balance;
+    return j;
+}

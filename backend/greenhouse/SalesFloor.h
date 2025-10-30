@@ -90,7 +90,7 @@ class SalesFloor{
          * @param hist Reference to the TransactionHistory to process returns.
          */
         //Ally - could maybe also use visitor for this to return the probabilty based on the type of customer.
-        void processReturns(double prob,TransactionHistory& hist);
+        void processReturns(double prob,Transaction& t);
         /**
          * @brief Finds all plants in the inventory based on their level of care dificulty.
          * @param d The level of dificulty you are looking for
