@@ -5,7 +5,8 @@
 
 #include "Flower.h"
 #include "PlantHealth.h"
-Flower::Flower(string variety) : Plant("Flower", variety) {
+Flower::Flower(string variety) : Plant("Flower",variety) {
+
     this->health = new Health() ;
 }
 

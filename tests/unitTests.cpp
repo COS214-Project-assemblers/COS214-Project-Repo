@@ -71,6 +71,7 @@ TEST(GameCreationTests, NewGameOptionExecutesProperly) {
 TEST(PlantFactoryTests, SucculentCreationAndCloning)
 {
     // Test Succulent creation through factory
+    Plant::stubPlant();
     SucculentCreator succulentCreator;
     succulentCreator.makePlant("Cactus");
     
@@ -88,6 +89,7 @@ TEST(PlantFactoryTests, SucculentCreationAndCloning)
     Plant* clonedSucculent = succulent->clone();
     EXPECT_NE(clonedSucculent, nullptr) << "clone() should return non-null pointer";
     EXPECT_NE(succulent, clonedSucculent) << "Clone should be a different object from original";
+    EXPECT_NE(clonedSucculent->getId(), "");
     EXPECT_EQ(clonedSucculent->getPlantCategory(), "Succulent") << "Cloned succulent should have same category";
     EXPECT_EQ(clonedSucculent->getPlantVariety(), "Cactus") << "Cloned succulent should have same variety";
     
@@ -100,6 +102,8 @@ TEST(PlantFactoryTests, SucculentCreationAndCloning)
 
 TEST(PlantFactoryTests, FlowerCreationAndCloning)
 {
+    Plant::stubPlant();
+
     // Test Flower creation through factory
     FlowerCreator flowerCreator;
     flowerCreator.makePlant("Rose");
@@ -117,6 +121,7 @@ TEST(PlantFactoryTests, FlowerCreationAndCloning)
     // Test cloning functionality
     Plant* clonedFlower = flower->clone();
     EXPECT_NE(clonedFlower, nullptr) << "clone() should return non-null pointer";
+    EXPECT_NE(clonedFlower->getId(), "") << "Plant id creation";
     EXPECT_NE(flower, clonedFlower) << "Clone should be a different object from original";
     EXPECT_EQ(clonedFlower->getPlantCategory(), "Flower") << "Cloned flower should have same category";
     EXPECT_EQ(clonedFlower->getPlantVariety(), "Rose") << "Cloned flower should have same variety";
@@ -130,6 +135,8 @@ TEST(PlantFactoryTests, FlowerCreationAndCloning)
 
 TEST(PlantFactoryTests, TreeCreationAndCloning)
 {
+    Plant::stubPlant();
+
     // Test Tree creation through factory
     TreeCreator treeCreator;
     treeCreator.makePlant("Lemon");
@@ -149,6 +156,7 @@ TEST(PlantFactoryTests, TreeCreationAndCloning)
     EXPECT_NE(clonedTree, nullptr) << "clone() should return non-null pointer";
     EXPECT_NE(tree, clonedTree) << "Clone should be a different object from original";
     EXPECT_EQ(clonedTree->getPlantCategory(), "Tree") << "Cloned tree should have same category";
+    EXPECT_NE(clonedTree->getId(), "") << "Plant id creation";
     EXPECT_EQ(clonedTree->getPlantVariety(), "Lemon") << "Cloned tree should have same variety";
     
     std::cout << "✓ Tree cloning successful - original and clone are different objects with same properties" << std::endl;
@@ -470,5 +478,24 @@ TEST(GameTests, PlantVarietyMapping)
 
     std::cout << "✓ Plant variety mapping works correctly" << std::endl;
     
+    delete game;
+}
+
+TEST(GameCreationTests, PlantCostTests)
+{
+    // Initialize environment
+    std::cout << "\n=== Testing Cost Extraction ===" << std::endl;
+    
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
+    Game* game = new Game(configPath);
+    game->createNewGame();
+
+    map<string, vector<int>> plantCosts = Plant::getPlantCosts(); 
+
+    for (auto it = plantCosts.begin(); it != plantCosts.end(); ++it) {
+        EXPECT_GT((it->second)[0], 0);
+        EXPECT_GT((it->second)[1], 0);
+    }
+
     delete game;
 }
