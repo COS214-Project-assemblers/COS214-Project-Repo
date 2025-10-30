@@ -32,7 +32,7 @@ class GreenFingerCustomerBuilder;
 class CustomerVisitor{
     protected:
         // const SalesFloor& floor;///<Reference to salesFloor object
-        const Inventory& inv;///<Reference to inventory object
+        const Inventory inv;///<Reference to inventory object
         std::vector<Plant*> offer;///<Filled by concreteVisitors
         std::vector<Plant*> correct;///<subset of plants that are correct for the customer
     public:

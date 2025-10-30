@@ -68,7 +68,7 @@ class SalesFloor{
          * @brief Provides read only access
          * @return Constant reference to the Inventory object managed by the salesFloor.
          */
-        const Inventory& inventory()const;
+        const Inventory* inventory()const;
         /**
          * @brief non-const access for manager.
          * @return returns mutateable ref to Inventory.

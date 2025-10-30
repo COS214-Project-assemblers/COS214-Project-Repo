@@ -11,8 +11,15 @@
 #include "GreenFingerCustomer.h"
 #include "VisitEasyCustomer.h"
 
-Manager::Manager(SalesFloor& f):floor(f){}
+Manager::Manager()
+{
+    floor = new SalesFloor();
+}
 
+const Inventory* Manager::getSaleInventory()
+{
+    return floor->inventory();
+}
 //classic non-json flow
 bool Manager::offerPlants(Customer& cust){
     // use a random nuber generator to pick from 1 to 3 which will then pick the visitor in a switch statement
@@ -86,20 +93,20 @@ void Manager::processReturns(Plant& p,double value){
 }
 
 const Inventory& Manager::inventory()const{
-    return floor.inventory();
+    return floor->inventory();
 }
 
 Inventory& Manager::inventoryMut(){
-    return floor.inventoryMut();
+    return floor->inventoryMut();
 }
 
-void Manager::setTransaction(Transaction& t){
-    this->t=t;
-}
+// void Manager::setTransaction(Transaction& t){
+//     this->t=t;
+// }
 
-Transaction& Manager::getTransaction(){
-    return this->t;
-}
+// Transaction& Manager::getTransaction(){
+//     return this->t;
+// }
 
 json Manger::offerAsJSON(Customer& cust, const std::string diff){
     // use a random nuber generator to pick from 1 to 3 which will then pick the visitor in a switch statement

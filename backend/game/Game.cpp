@@ -102,15 +102,15 @@ void createFactoriesHelper(string category, string variant, map<string, PlantCre
     
 }
 
-void Game::setManager(Manager* manager)
-{
-    this->manager = manager;
-}
+// void Game::setManager(Manager* manager)
+// {
+//     this->manager = manager;
+// }
 
-Manager* Game::getManager()
-{
-    return this->manager;
-}
+// Manager* Game::getManager()
+// {
+//     return this->manager;
+// }
 
 void Game::createNewGame()
 {
@@ -146,7 +146,8 @@ void Game::createNewGame()
     {
         throw runtime_error("Failed to create greenhouse for unknown reason");
     }
-    //need to create manager
+
+    manager = new Manager();
 }
 
 void Game::buyPlants(string plant, int num) 
@@ -275,8 +276,10 @@ void Game::createCustomers(string type, int num)
     // this will then be in the construct's parameter to then builder->buildPlantOptions(vector<Plant*> p)
     // then customer->setOfferedPlants(plants)
     // then customer will take that vector and turn into json string (already implemented)
-    Inventory* allPlants = greenhouse->getInventory();
+    // Inventory allPlants = greenhouse->getInventory();
     // Inventory* i = manager->getPlants();
+
+    const Inventory* inventory = manager->getSaleInventory();
 
     Director director;
 
@@ -302,17 +305,17 @@ void Game::createCustomers(string type, int num)
         if (type == "average") 
         {
             builder = new AverageCustomerBuilder(config);
-            visitor = new VisitEasyCustomer(*allPlants);
+            visitor = new VisitEasyCustomer(*inventory);
         } 
         else if (type == "ignorant") 
         {
             builder = new IgnorantCustomerBuilder(config);
-            visitor = new VisitMediumCustomer(*allPlants);
+            visitor = new VisitMediumCustomer(*inventory);
         } 
         else if (type == "greenfinger") 
         {
             builder = new GreenFingerCustomerBuilder(config);
-            visitor = new VisitHighCustomer(*allPlants);
+            visitor = new VisitHighCustomer(*inventory);
         } 
         else 
         {

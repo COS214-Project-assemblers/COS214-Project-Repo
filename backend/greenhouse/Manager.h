@@ -10,7 +10,7 @@
 #define MANAGER_H
 
 #include "SalesFloor.h"
-#include "ledger.h"
+#include "Ledger.h"
 #include "Transaction.h"
 
 #include <vector>
@@ -24,16 +24,16 @@ class Customer;
 
 class Manager{
     private:
-        SalesFloor& floor;///<Reference to salesFloor object that is managed by the Manager.
+        SalesFloor* floor;///<Reference to salesFloor object that is managed by the Manager.
         Ledger ledger;///<Ledger to keep track of balance
-        Transaction t;///<Transaction
+        // Transaction t;///<Transaction
         TransactionHistory hist;///<Transaction history to keep track of transactions
     public:
         /**
          * @brief Constructs a Manager associated with a given SalesFloor.
          * @param f Reference to the SalesFloor instange the Manager overseads.
          */
-        explicit Manager(SalesFloor& f);
+        explicit Manager();
         /**
          * @brief Deafult destructer
          */
@@ -102,6 +102,8 @@ class Manager{
          * @return json object containing user choice?
          */
         json handleSelection(Customer& cust, int choice);
+
+        const Inventory* getSaleInventory();
 };
 
 #endif
