@@ -262,7 +262,7 @@
     filter: hue-rotate(321deg) saturate(100%);
 } 
     
-Dead-plant image must have a margin-top of 5 em
+Dead-plant image must have a margin-top of 5 em  OF 'n height van 11em
 
 
 */
@@ -710,11 +710,11 @@ Dead-plant image must have a margin-top of 5 em
     z-index: 5000;
     position: fixed;
     display: grid;
-    grid-template-columns: 12em 12em;
+    grid-template-columns: 13em 12em;
     grid-template-rows: repeat(5, 1fr);
     top: 0;
     right: 0;
-    margin-right: 36em;
+    margin-right: 35em;
     margin-top: 14em;
 }
 
@@ -725,6 +725,9 @@ Dead-plant image must have a margin-top of 5 em
     height: 1em;
 }
 
+.field {
+    color: #c69049;
+}
 
 #info-buttons button {
     background-color: transparent;
@@ -773,3 +776,10 @@ Dead-plant image must have a margin-top of 5 em
 /* #mature-span {
     color: #089108;
 } */
+
+
+
+#move-to:disabled, #move-to img:disabled {
+    cursor: not-allowed;
+    opacity: 50%;
+}

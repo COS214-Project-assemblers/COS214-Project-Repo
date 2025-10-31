@@ -71,7 +71,7 @@ function createPlant(category, varietyIndex) {
     // int
     sellPrice: sellPrice,
     // int
-    maturity: 'Not-Sellable',
+    maturity: 'Sellable',
     // boolean: "Sellable" | "Not-Sellable"
     kind: category,
     // 'flower' | 'succulent' | 'tree'
@@ -221,6 +221,54 @@ app.post('/api/plants/buy', function (req, res) {
     console.log("[".concat(new Date().toISOString(), "] Bought ").concat(plantsToAdd.length, " plant(s) for ").concat(totalCost, ". Balance=").concat(db.balance));
   } catch (err) {
     console.error('BUY /api/plants/buy failed:', err);
+    res.status(500).json({
+      error: 'Internal error'
+    });
+  }
+});
+
+// MOVE TO SALES FLOOR endpoint: 'moves' the mature plant from greenhouse inventory array to sales floor inventory array
+app.post('/api/plants/:id/move-to-sales', function (req, res) {
+  try {
+    var id = req.params.id;
+    var idx = db.greenhouse.findIndex(function (p) {
+      return p.id === id;
+    });
+    if (idx === -1) return res.status(404).json({
+      error: 'Plant not found in greenhouse'
+    });
+    var plant = db.greenhouse[idx];
+    if (plant.maturity !== 'Sellable') {
+      return res.status(400).json({
+        error: 'Plant is not sellable yet'
+      });
+    }
+    db.greenhouse.splice(idx, 1); // removes specific plant from greenhouse
+    db.salesfloor.push(plant); // adds plant to sales floor 
+
+    res.json({
+      ok: true,
+      plant: plant,
+      used: db.greenhouse.length,
+      salesfloor: db.salesfloor
+    });
+    console.log("[".concat(new Date().toISOString(), "] Moved plant id=").concat(plant.id, " (").concat(plant.category, " ").concat(plant.variety, ") to salesfloor"));
+    console.log('Greenhouse inventory:', db.greenhouse.map(function (p) {
+      return {
+        id: p.id,
+        category: p.category,
+        variety: p.variety
+      };
+    }));
+    console.log('Salesfloor inventory:', db.salesfloor.map(function (p) {
+      return {
+        id: p.id,
+        category: p.category,
+        variety: p.variety
+      };
+    }));
+  } catch (err) {
+    console.error('POST /api/plants/:id/move-to-sales failed:', err);
     res.status(500).json({
       error: 'Internal error'
     });
