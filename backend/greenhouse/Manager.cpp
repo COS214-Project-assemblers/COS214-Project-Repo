@@ -104,7 +104,7 @@ void Manager::recordRestock(Plant& p){
     hist.setTransactionMem(snap);//adds snapshot to history
 }
 
-void Manager::recordPlantDied(Plant& p){
+void Manager::recordPlantDied(Plant& p){ // This function needs to make sure the plant that died in the greenhouse, actually gets removed from the inventory of greenhouse
     //needs to access the greenhouse inventory to remove plant
     //Needs implimentation for thisssss!!!!
     if(strat)
@@ -117,7 +117,7 @@ void Manager::recordPlantDied(Plant& p){
     hist.setTransactionMem(snap);//adds snapshot to history
 }
 
-void Manager::processReturns(Plant& p){
+void Manager::processReturns(Plant& p){ // This function needs to make sure that the plant that is returned, needs to actually get added back to the salesfloor
     if(strat)
     {
         delete strat;
