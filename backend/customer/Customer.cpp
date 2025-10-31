@@ -67,10 +67,28 @@ void Customer::setOfferedPlants(const vector<Plant*>& plants)
             plantsJson << ",";
         }
         
-        plantsJson << "{";
+        plantsJson << "\"id\":\"" << escapeJsonString(plants[i]->getId()) << "\",";
         plantsJson << "\"category\":\"" << escapeJsonString(plants[i]->getPlantCategory()) << "\",";
         plantsJson << "\"variety\":\"" << escapeJsonString(plants[i]->getPlantVariety()) << "\",";
-        plantsJson << "\"careLevel\":\"" << escapeJsonString(plants[i]->getCareLevel()) << "\",";
+
+        if(plants[i]->isAcceptable())
+        {
+            plantsJson << "\"acceptable\":\"" << escapeJsonString("yes") << "\",";
+        }
+        else
+        {
+            plantsJson << "\"acceptable\":\"" << escapeJsonString("no") << "\",";
+        }
+
+        if(plants[i]->isReturnable())
+        {
+            plantsJson << "\"returnable\":\"" << escapeJsonString("yes") << "\",";
+        }
+        else
+        {
+            plantsJson << "\"returnable\":\"" << escapeJsonString("no") << "\",";
+        }
+        
         plantsJson << "}";
     }
     

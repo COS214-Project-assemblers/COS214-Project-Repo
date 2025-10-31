@@ -19,6 +19,17 @@
 #include "FlowerCreator.h"
 #include "TreeCreator.h"
 #include "Plant.h"
+#include "Transaction.h"
+#include "TransactionMem.h"
+#include "TransactionHistory.h"
+#include "TransactionStrategy.h"
+#include "Sale.h"
+#include "Restock.h"
+#include "Return.h"
+#include "PlantDied.h"
+#include "SalesFloor.h"
+#include "Inventory.h"
+
 
 TEST(TestSuiteName, TestName) {
     // Setup
@@ -33,7 +44,7 @@ TEST(TestSuiteName, TestName) {
 }
 
 TEST(PlantDynamicTest, HealthChangesOverTime) {
-    Plant* myPlant = new Succulent("Aloe");
+    Plant* myPlant = new Succulent("Aloe", "easy");
 
     float initialScore = myPlant->healthScore();
 
@@ -481,6 +492,41 @@ TEST(GameTests, PlantVarietyMapping)
     delete game;
 }
 
+// TEST(VisistorTests, EasyDiff_Ignorant_Correct){
+//     Inventory inv;
+//     inv.restock(new Flower("Rose", "Hard"));
+//     inv.restock(new Plant("SunFLower", "Easy"));
+//     inv.restock(new Plant("Poppy", "Medium>"));
+//     inv.restock(new Succulent("Cactus", "Easy"));
+//     inv.restock(new Plant("Lavender", "Easy"));
+//     inv.restock(new Tree("Oak", "Hard"));
+//     inv.restock(new Succulent("Aloe", "Medium"));
+//     IgnorantCustomer cust;
+//     VisitEasyCustomer visitor(inv);
+//     inv.accept(visitor);
+//     const auto& offer=visitor.getOffer();
+//     EXPECT_EQ(offer.size(), 5);
+//     int correctCount=0;
+//     int refunableCount=0;
+//     int wrongCount=0;
+//     for(auto *p:offer){
+//         const bool corr=visitor.isCorrect(p);
+//         const bool ref=visitor.isRefunable(p);
+//         if(corr){
+//             correctCount++
+//             if(ref){
+//                 refunableCount++;
+//             }
+//         }else if(p.getDifficulty()=="Hard"){
+//             wrongCount++;
+//         }
+//     }
+//     EXPECT_EQ(correctCount,4)<<"Expected 3 easy plants and  medium plant";
+//     EXPECT_EQ(refunableCount,1)<<"Expected 1 medium plants to be refunable";
+
+//     EXPECT_EQ(wrongCount,1)<<"Expected 1 hard plant to be in the offer";
+// }
+
 TEST(GameCreationTests, PlantCostTests)
 {
     // Initialize environment
@@ -496,6 +542,31 @@ TEST(GameCreationTests, PlantCostTests)
         EXPECT_GT((it->second)[0], 0);
         EXPECT_GT((it->second)[1], 0);
     }
+
+    delete game;
+}
+
+TEST(GameCustomersCreationTests, TestCreateValidCustomers) 
+{
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
+    Game* game = new Game(configPath);
+    game->createNewGame();
+
+    EXPECT_NO_THROW({
+        game->createCustomers("ignorant", 1);
+    }) << "createCustomers() should not throw for valid input";
+
+    EXPECT_NO_THROW({
+        game->createCustomers("average", 1);
+    }) << "createCustomers() should not throw for valid input";
+
+    EXPECT_NO_THROW({
+        game->createCustomers("greenfinger", 1);
+    }) << "createCustomers() should not throw for valid input";
+
+    const auto& customers = game->getCustomers();
+    EXPECT_EQ(customers.size(), 3)
+        << "Expected 3 customers created, but got " << customers.size();
 
     delete game;
 }

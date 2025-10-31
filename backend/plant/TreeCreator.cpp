@@ -11,5 +11,5 @@ TreeCreator::~TreeCreator() {}
 
 Plant* TreeCreator::createPlant(string type)
 {
-    return new Tree(type);
+    return new Tree(type, "hard");
 }

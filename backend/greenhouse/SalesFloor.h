@@ -5,10 +5,17 @@
 #define SALESFLOOR_H
 
 #include "Inventory.h"
-#include "Customer.h"
+// #include "Customer.h"
+#include "TransactionHistory.h"
+#include "Ledger.h"
 
 #include <vector>
+#include <random>
 #include <stdexcept>
+
+class Customer;
+class CustomerVisitor;
+
 /**
  * @class SalesFloor
  * @brief Manages Customer flow and provides access to the inventory for the Manager during sales interactions.
@@ -20,6 +27,7 @@ class SalesFloor{
         Inventory* inv;///<Pointer to Inventory object
         std::vector<Customer*> customers;///<Vector of customers in the "queue"
         std::vector<Customer*> custHist;///<Vector of customers that have moved out of the "queue" and is just a history
+        Ledger ledger;///<Ledger to keep track of balance
     public:
         /**
          * @brief Default constructor.
@@ -28,7 +36,7 @@ class SalesFloor{
         /**
          * @brief Default deconstructor.
          */
-        ~SalesFloor()=default;
+        ~SalesFloor();
         /**
          * @brief Adds a Customer to the customers vector (queue).
          * @param cust Reference to the customer being added to the "queue".
@@ -43,7 +51,7 @@ class SalesFloor{
          */
         void moveToCustHist(Customer* cust);
         //name might change
-        void accept(CustomerVisitor& v);
+        // void accept(CustomerVisitor& v);
         /**
          * @brief checks if there are custoemrs in the queue.
          * @return True if there are customers in the "queue", False if not.
@@ -64,18 +72,37 @@ class SalesFloor{
          * @brief Provides read only access
          * @return Constant reference to the Inventory object managed by the salesFloor.
          */
-        const Inventory& inventory()const;
+        const Inventory* inventory()const;
         /**
          * @brief non-const access for manager.
          * @return returns mutateable ref to Inventory.
          */
         Inventory& inventoryMut();
         /**
+         * @brief Mutable getter for the ledger
+         * @return Reference to the ledger object
+         */
+        Ledger& getLedger();
+        /**
+         * @brief Read only getter for the ledger
+         * @return Constant reference to the ledger object
+         */
+        const Ledger& getLedger()const;
+        /**
          * @brief Simulates the process of returns based on a given probability.
          * @param prob Probability that a customer decides to return a product.
+         * @param hist Reference to the TransactionHistory to process returns.
          */
         //Ally - could maybe also use visitor for this to return the probabilty based on the type of customer.
-        void processReturns(double prob);
+        // void processReturns(double prob,Transaction& t);
+        /**
+         * @brief Finds all plants in the inventory based on their level of care dificulty.
+         * @param d The level of dificulty you are looking for
+         * @return Vector of all those plants
+         */
+        std::vector<Plant*> findByDifficulty(std::string d)const;
+
+        void addPlant(Plant* p);
 };
 
 #endif

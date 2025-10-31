@@ -35,20 +35,27 @@ set(SOURCES
   backend/game/PlayerMenu.h
   backend/game/PlayerMenu.cpp
   backend/game/Logger.h
+
   backend/game/TransactionStrategy.h
   backend/game/TransactionStrategy.cpp
   backend/game/Sale.h
   backend/game/Sale.cpp
+  backend/game/Restock.h
+  backend/game/Restock.cpp
   backend/game/Return.h
   backend/game/Return.cpp
   backend/game/PlantDied.h
   backend/game/PlantDied.cpp
-  # backend/game/Transaction.h
-  # backend/game/Transaction.cpp
-  # backend/game/TransactionMem.h
-  # backend/game/TransactionMem.cpp
-  # backend/game/TransactionHistory.h
-  # backend/game/TransactionHistory.cpp
+
+  backend/game/Transaction.h
+  backend/game/Transaction.cpp
+  backend/game/TransactionMem.h
+  backend/game/TransactionMem.cpp
+  backend/game/TransactionHistory.h
+  backend/game/TransactionHistory.cpp
+  backend/game/Ledger.h
+  backend/game/Ledger.cpp
+
   backend/game/BasicLogger.h
   backend/game/BasicLogger.cpp
   backend/game/GameConfiguration.h
@@ -87,6 +94,12 @@ set(SOURCES
   backend/greenhouse/Inventory.h
   backend/greenhouse/Inventory.cpp
 
+  backend/greenhouse/Manager.h
+  backend/greenhouse/Manager.cpp
+  backend/greenhouse/SalesFloor.h
+  backend/greenhouse/SalesFloor.cpp
+
+
   backend/customer/Customer.h
   backend/customer/Customer.cpp
   backend/customer/AverageCustomer.h
@@ -116,6 +129,8 @@ set(SOURCES
 
   backend/customer/Director.h
   backend/customer/Director.cpp
+
+
 )
 
 add_executable(main

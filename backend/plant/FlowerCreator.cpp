@@ -11,5 +11,5 @@ FlowerCreator::~FlowerCreator() {}
 
 Plant* FlowerCreator::createPlant(string type)
 {
-    return new Flower(type);
+    return new Flower(type, "medium");
 }

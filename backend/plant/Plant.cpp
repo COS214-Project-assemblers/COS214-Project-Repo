@@ -8,12 +8,12 @@
 #include "GreenhouseStaff.h"
 #include "PlantHealth.h"
 
-Plant::Plant(string category, string variety)
+Plant::Plant(string category, string variety,string difficulty)
 {
     // Assign ID to plant
     this->plantCategory = category;
     this->plantVariety = variety;
-    // this->difficulty=diffictlty;
+    this->difficulty=difficulty;
 
     this->careType = "";
     this->plantState = new NotSellable();
@@ -42,6 +42,9 @@ Plant::Plant(const Plant& original)
     this->plantVariety = original.plantVariety;
     this->costPrice = original.costPrice;
     this->salePrice = original.salePrice;
+    this->difficulty=original.difficulty;
+    this->acceptable=original.acceptable;
+    this->returnable=original.returnable;
 
     this->plantState = new NotSellable();
     this->careType = original.careType;
@@ -90,14 +93,19 @@ int Plant::getCostPrice()
     return costPrice;
 }
 
-int Plant::getSalePrice()
+float Plant::getSalePrice()
 {
     return salePrice;
 }
 
+std::string Plant::getDifficulty()
+{
+    return difficulty;
+}
+
 void Plant::display()
 {
-    cout << plantCategory << " - " << plantVariety << ", Cost: R" << costPrice << ", Sale: R" << salePrice << endl;
+    cout << plantCategory << " - " << plantVariety << ", Cost: R" << costPrice << ", Sale: R" << salePrice <<", Difficulty: "<<difficulty<< endl;
 }
 
 
@@ -209,6 +217,24 @@ void Plant::generateId() {
 string Plant::getId() {
     return id;
 }
+void Plant::setReturnable(bool returnable){
+    this->returnable=returnable;
+}
+
+bool Plant::isReturnable(){
+    return this->returnable;
+}
+
+void Plant::setAcceptable(bool acceptable)
+{
+    this->acceptable = acceptable;
+}
+
+bool Plant::isAcceptable()
+{
+    return acceptable;
+}
+
 void Plant::setPlantCosts(map<string, vector<int>> plantCosts)
 {
     Plant::plantCosts = plantCosts;
