@@ -15,6 +15,11 @@ const LandingPage = () => {
                 alert('Failed to start a new game.');
                 return;
             }
+            // let db = {
+            //     balance: 500,
+            //     greenhouse: [],
+            //     salesfloor: []
+            // };
             console.log('New game started successfully');
             navigate('/greenhouse');
         } catch (e) {
@@ -25,7 +30,7 @@ const LandingPage = () => {
 
     const exitGame = async () => {
         try {
-            const res = await fetch('/api/exit-game', { method: 'POST' });
+            const res = await fetch('/api/exit-game', { method: 'GET' });
             if (!res.ok) {
                 const err = await res.json().catch(() => ({}));
                 console.error('Exit game failed', err);

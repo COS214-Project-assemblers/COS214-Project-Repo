@@ -58,6 +58,13 @@ public:
     dto->message = "Hello World!";
     return createDtoResponse(Status::CODE_200, dto);
   }
+
+  ENDPOINT("GET", "/get-balance", root) {
+    auto dto = APIDto::createShared();
+    dto->statusCode = 200;
+    dto->message = "Hello World!";
+    return createDtoResponse(Status::CODE_200, dto);
+  }
   
   /**
    * @brief Executes NewGameOption Command
