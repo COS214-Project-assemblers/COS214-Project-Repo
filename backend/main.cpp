@@ -134,6 +134,8 @@ void testGreenhouseFlow()   {
         Plant* tree = treeCreator.getPlant();
         Plant* clonedTree = tree->clone();
 
+        
+
 
     // Add the plants to the Greenhouse (This is where the threads will be started)
     prt(" Adding Plants to the green House:") ;
@@ -144,6 +146,11 @@ void testGreenhouseFlow()   {
     std::this_thread::sleep_for(std::chrono::seconds(180)); 
     prt(" Deleting the greenhouse: ") ;
     delete greenhouse ; 
+
+    // delete plants that were used to clone 
+    delete succulent ; 
+    delete flower ; 
+    delete tree ; 
     greenSockThread.join();
 }
 
