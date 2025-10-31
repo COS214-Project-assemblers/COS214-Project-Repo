@@ -378,8 +378,6 @@ string Game::getCustomersAsJson()
         customersArray.push_back(json::parse(customer->getStructure()));
     }
     
-    customersArray< "]";
-    
     return customersArray.dump(4); 
 }
 
