@@ -388,3 +388,40 @@ float Game::getGameBalance()
 {
     return manager->getBalance();
 }
+
+std::vector<Plant*> Game::getGreenhousePlants()
+{
+    if (greenhouse == nullptr) 
+    {
+        throw runtime_error("Greenhouse not initialized. Please create a new game first.");
+    }
+    
+    Inventory* inventory = greenhouse->getInventory();
+
+    return inventory->all();
+}
+
+string Game::getGreenhousePlantsAsJson()
+{
+    auto plants = getGreenhousePlants();
+    json plantsArray = json::array();
+
+    for (auto* plant : plants)
+    {
+        json plantJson;
+        plantJson["id"] = plant->getId();
+        plantJson["category"] = plant->getPlantCategory();
+        plantJson["variety"] = plant->getPlantVariety();
+        plantJson["difficulty"] = plant->getDifficulty();
+        plantJson["costPrice"] = plant->getCostPrice();
+        plantJson["salePrice"] = plant->getSalePrice();
+        plantJson["healthScore"] = plant->healthScore();
+        plantJson["isAcceptable"] = plant->isAcceptable();
+        plantJson["isReturnable"] = plant->isReturnable();
+        plantJson["careLevel"] = plant->getCareLevel();
+        
+        plantsArray.push_back(plantJson);
+    }
+    
+    return plantsArray.dump(4);
+}
