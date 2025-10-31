@@ -12,6 +12,7 @@ using json=nlohmann::json;
 
 class SalesFloor;
 // class Plant;
+#include "SalesFloor.h"
 #include "Plant.h"
 
 //forward declarations of concrete builders
