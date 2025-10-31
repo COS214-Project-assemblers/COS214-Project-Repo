@@ -161,6 +161,8 @@ class Game {
 
         
         vector<PlantStruct*> getAvailablePlantVarieties();
+
+        void setManager(Manager* m);
 };
 
 #endif // GAME_HDR

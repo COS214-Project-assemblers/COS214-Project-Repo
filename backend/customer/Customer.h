@@ -16,6 +16,9 @@ using namespace std;
 #include "CustomerVisitor.h"
 #include "Plant.h"
 
+#include <nlohmann/json.hpp>
+using json = nlohmann::json;
+
 /**
  * @class Customer
  * @brief Abstract base class defining the interface and shared behavior for all customer types.

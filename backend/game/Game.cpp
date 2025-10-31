@@ -149,7 +149,10 @@ void Game::createNewGame()
         throw runtime_error("Failed to create greenhouse for unknown reason");
     }
 
-    manager = new Manager();
+    if(!manager)
+    {
+        manager = new Manager();
+    }
 }
 
 void Game::buyPlants(string plant, int num) 
@@ -371,6 +374,11 @@ void Game::createCustomers(string type, int num)
     logger->newLog("+ Created " + to_string(num) + " " + type + " customers");
 }
 
+void Game::setManager(Manager* m)
+{
+    manager = m;
+}
+
 vector<Customer*> Game::getCustomers()
 {
     return customers;
@@ -383,20 +391,12 @@ map<string, map<string, vector<string>>> Game::getAvailableCustomerTypes()
 
 string Game::getCustomersAsJson()
 {
-    stringstream jsonArray;
-    jsonArray << "[";
-    
-    for (size_t i = 0; i < customers.size(); ++i) 
-    {
-        if (i > 0) 
-        {
-            jsonArray << ",";
-        }
+    json customersArray = json::array();
 
-        jsonArray << customers[i]->getStructure();
+    for (auto* customer : customers)
+    {
+        customersArray.push_back(json::parse(customer->getStructure()));
     }
-    
-    jsonArray << "]";
-    
-    return jsonArray.str();
+
+    return customersArray.dump(4); // pretty-print with 4-space indentation
 }

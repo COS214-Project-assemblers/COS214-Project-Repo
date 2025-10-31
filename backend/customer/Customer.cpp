@@ -57,43 +57,23 @@ void Customer::setRejectExitDialogue(string r)
 
 void Customer::setOfferedPlants(const vector<Plant*>& plants)
 {
-    stringstream plantsJson;
-    plantsJson << "[";
-    
-    for (size_t i = 0; i < plants.size(); ++i) 
+    json plantsArray = json::array();
+
+    for (auto* plant : plants)
     {
-        if (i > 0) 
-        {
-            plantsJson << ",";
-        }
-        
-        plantsJson << "\"id\":\"" << escapeJsonString(plants[i]->getId()) << "\",";
-        plantsJson << "\"category\":\"" << escapeJsonString(plants[i]->getPlantCategory()) << "\",";
-        plantsJson << "\"variety\":\"" << escapeJsonString(plants[i]->getPlantVariety()) << "\",";
+        json plantObj = {
+            {"id", plant->getId()},
+            {"category", plant->getPlantCategory()},
+            {"variety", plant->getPlantVariety()},
+            {"acceptable", plant->isAcceptable() ? "yes" : "no"},
+            {"returnable", plant->isReturnable() ? "yes" : "no"}
+        };
 
-        if(plants[i]->isAcceptable())
-        {
-            plantsJson << "\"acceptable\":\"" << escapeJsonString("yes") << "\",";
-        }
-        else
-        {
-            plantsJson << "\"acceptable\":\"" << escapeJsonString("no") << "\",";
-        }
-
-        if(plants[i]->isReturnable())
-        {
-            plantsJson << "\"returnable\":\"" << escapeJsonString("yes") << "\",";
-        }
-        else
-        {
-            plantsJson << "\"returnable\":\"" << escapeJsonString("no") << "\",";
-        }
-        
-        plantsJson << "}";
+        plantsArray.push_back(plantObj);
     }
-    
-    plantsJson << "]";
-    offeredPlants = plantsJson.str();
+
+    // Store it as a string (so the rest of your code works the same)
+    offeredPlants = plantsArray.dump();
 }
 
 string Customer::escapeJsonString(const std::string& input) 
@@ -120,23 +100,20 @@ string Customer::escapeJsonString(const std::string& input)
 
 string Customer::getStructure()
 {
-    stringstream jsonStream;
+    json j = {
+        {"name", name},
+        {"type", type},
+        {"introduction", introductionDialogue},
+        {"preferences", preferencesDialogue},
+        {"recommendations", recommendationsDialogue},
+        {"accept", acceptDialogue},
+        {"reject", rejectDialogue},
+        {"acceptExit", acceptExitDialogue},
+        {"rejectExit", rejectExitDialogue},
+        {"offeredPlants", json::parse(offeredPlants)}
+    };
 
-    jsonStream << "{";
-    jsonStream << "\"name\":\"" << escapeJsonString(name) << "\",";
-    jsonStream << "\"type\":\"" << escapeJsonString(type) << "\",";
-    jsonStream << "\"introduction\":\"" << escapeJsonString(introductionDialogue) << "\",";
-    jsonStream << "\"preferences\":\"" << escapeJsonString(preferencesDialogue) << "\",";
-    jsonStream << "\"recommendations\":\"" << escapeJsonString(recommendationsDialogue) << "\",";
-    jsonStream << "\"accept\":\"" << escapeJsonString(acceptDialogue) << "\",";
-    jsonStream << "\"reject\":\"" << escapeJsonString(rejectDialogue) << "\",";
-    jsonStream << "\"acceptExit\":\"" << escapeJsonString(acceptExitDialogue) << "\",";
-    jsonStream << "\"rejectExit\":\"" << escapeJsonString(rejectExitDialogue) << "\",";
-    jsonStream << "\"offeredPlants\":" << offeredPlants;
-    jsonStream << "}";
-    
-    jsonStructure = jsonStream.str();
-    
+    jsonStructure = j.dump();
     return jsonStructure;
 }
 
