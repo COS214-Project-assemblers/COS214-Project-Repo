@@ -14,12 +14,7 @@ std::mt19937 gen(rd());
 std::uniform_int_distribution<> dist(1000, 3000);
 
 void startGameApi() {
-    char* gameConfigPath = getenv("GAME_CONFIG_PATH");
-    if (gameConfigPath == nullptr) {
-        std::cout << "GAME_CONFIG_PATH environment variable not set, exiting..." << std::endl;
-        exit(EXIT_FAILURE);
-    }
-    API myApi = API(new Game(gameConfigPath));
+    API myApi;
     myApi.bootstrap();
 }
 

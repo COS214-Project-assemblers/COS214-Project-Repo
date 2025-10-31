@@ -375,6 +375,11 @@ string Game::getCustomersAsJson()
     {
         customersArray.push_back(json::parse(customer->getStructure()));
     }
+    
+    return customersArray.dump(4); 
+}
 
-    return customersArray.dump(4); // pretty-print with 4-space indentation
+void Game::exitGame()
+{
+    logger->newLog("Exiting game...");
 }

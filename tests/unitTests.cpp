@@ -7,6 +7,7 @@
 
 #include "Game.h"
 #include "NewGameOption.h"
+#include "ExitGameOption.h"
 #include "PlayerMenu.h"
 #include "MenuOption.h"
 #include "BasicLogger.h"
@@ -572,6 +573,26 @@ TEST(GameCustomersCreationTests, TestCreateValidCustomers)
         << "Expected 3 customers created, but got " << customers.size();
 
     delete game;
+}
+
+TEST(GameCreationTests, ExitGameOptionExecutesProperly) {
+    // Set up environment
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
+    Game* game = new Game(configPath); // VSCode will shout, dont worry
+    PlayerMenu* playerMenu = new PlayerMenu();
+    BasicLogger* logger = new BasicLogger();
+    ExitGameOption* exitGameOption = new ExitGameOption(game, logger);
+
+    // Perform actions
+    playerMenu->setMenuOption(exitGameOption);
+    playerMenu->executeOption();
+    
+    // Cleanup
+    delete game;
+    delete playerMenu;
+    delete logger;
+    // Note: don't delete exitGameOption if PlayerMenu takes ownership
+    std::cout << std::endl;
 }
 
 TEST(BuilderTests, TestPlantOffering)
