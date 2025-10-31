@@ -271,6 +271,30 @@ public:
       return createDtoResponse(Status::CODE_500, dto);
     }
   }
+
+  ENDPOINT("GET", "/balance", getBalance)
+  {
+    auto dto = BalanceResponseDTO::createShared();
+
+    try 
+    {
+      double currentBalance = apiToControl.game->getGameBalance();
+      
+      dto->statusCode = 200;
+      dto->message = "Successfully retrieved balance";
+      dto->balance = currentBalance;
+      
+      return createDtoResponse(Status::CODE_200, dto);
+    } 
+    catch (const std::exception &e) 
+    {
+      dto->statusCode = 500;
+      dto->message = "Failed to get balance: " + std::string(e.what());
+      dto->balance = 0.0; // Default value on error
+      
+      return createDtoResponse(Status::CODE_500, dto);
+    }
+  }
 };
 
 #include OATPP_CODEGEN_END(ApiController) //<-- End Codegen
