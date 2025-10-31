@@ -46,6 +46,7 @@ Game::Game(string configPath)
         }
 
         Plant::setPlantCosts(plantCosts);
+        Plant::setLogger(logger);
     }
     catch (const runtime_error &e)
     {

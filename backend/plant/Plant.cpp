@@ -10,6 +10,7 @@
 
 Plant::Plant(string category, string variety,string difficulty)
 {
+    // Assign ID to plant
     this->plantCategory = category;
     this->plantVariety = variety;
     this->difficulty=difficulty;
@@ -51,6 +52,11 @@ Plant::Plant(const Plant& original)
     this->health = new Health() ; // NB You may not clone/copy mtx
     this->decayIndex = original.decayIndex ;
     this->alive = true ;
+
+    generateId();
+    if (logger) {
+        logger->newLog("Created plant " + id);
+    }
 }
 
 Plant::~Plant() {
@@ -208,6 +214,17 @@ bool Plant::isReturnable(){ // like getReturnable()
     return this->returnable;
 }
 
+void Plant::generateId() {
+    // Static + thread local ensures there is only 1 random num gen 
+    if (id == "") {
+        static thread_local boost::uuids::random_generator gen;
+        this->id = to_string(gen());
+    }
+}
+
+string Plant::getId() {
+    return id;
+}
 void Plant::setPlantCosts(map<string, vector<int>> plantCosts)
 {
     Plant::plantCosts = plantCosts;
@@ -215,8 +232,22 @@ void Plant::setPlantCosts(map<string, vector<int>> plantCosts)
 
 void Plant::stubPlant() {
     plantCosts = {};
+    logger = nullptr;
 }
 
 map<string, vector<int>> Plant::getPlantCosts() {
     return Plant::plantCosts;
 }
+
+void Plant::setLogger(Logger* passedLogger) {
+    logger = passedLogger;
+}
+
+void Plant::newPlantLog(string message) {
+    if (!(id == "")) {
+        message = id + message;
+    }
+    if (logger != nullptr) {
+        logger->newLog(message);
+    }
+} 
