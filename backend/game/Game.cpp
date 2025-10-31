@@ -118,6 +118,7 @@ void Game::createNewGame()
     // try
     try
     {
+        
         // Create new factories
         vector<PlantStruct*> plants;
         map<string, vector<string>> varieties;
@@ -147,6 +148,8 @@ void Game::createNewGame()
     {
         throw runtime_error("Failed to create greenhouse for unknown reason");
     }
+
+    manager = new Manager();
 }
 
 void Game::buyPlants(string plant, int num) 
@@ -164,6 +167,11 @@ void Game::buyPlants(string plant, int num)
     if (factories.empty()) 
     {
         throw runtime_error("No plant factories available. Please create a new game first.");
+    }
+
+    if(manager == nullptr)
+    {
+        throw runtime_error("No manager available. Please create a new game first.");
     }
 
     auto factoryIt = factories.find(plant);
@@ -187,6 +195,7 @@ void Game::buyPlants(string plant, int num)
 
         if (clonedPlant != nullptr) 
         {
+            manager->recordRestock(*clonedPlant);
             greenhouse->addPlant(clonedPlant);
         } 
         else 
@@ -212,7 +221,10 @@ Game::~Game()
 
     for (auto customer : customers)
     {
-        delete customer;
+        if(customer)
+        {
+            delete customer;
+        }
     }
 
     if (config != nullptr)
@@ -223,6 +235,11 @@ Game::~Game()
     if (greenhouse != nullptr)
     {
         delete greenhouse;
+    }
+
+    if(manager)
+    {
+        delete manager;
     }
 }
 
@@ -255,6 +272,11 @@ void Game::createCustomers(string type, int num)
         throw runtime_error("Greenhouse not initialized. Please create a new game first.");
     }
 
+    if (manager == nullptr) 
+    {
+        throw runtime_error("Manager is null");
+    }
+
     // Validate customer type exists in configuration
     auto availableCustomerTypes = getAvailableCustomerTypes();
     if (availableCustomerTypes.find(type) == availableCustomerTypes.end()) 
@@ -269,13 +291,21 @@ void Game::createCustomers(string type, int num)
         throw runtime_error("Customer type '" + type + "' not found. " + availableTypes);
     }
 
-    Inventory* allPlants = greenhouse->getInventory();
-
+    const Inventory* inventory = manager->getSaleInventory();
     Director director;
 
-    CustomerBuilder* builder = nullptr;
     CustomerVisitor* visitor = nullptr;
+    mt19937 rng;
 
+    vector<string> v;
+    v.push_back("easy");
+    v.push_back("medium");
+    v.push_back("hard");
+
+    uniform_int_distribution<size_t> dist(0, v.size() - 1);
+    string chosen;
+    CustomerBuilder* builder = nullptr;
+    
     for (int i = 0; i < num; i++) 
     {
         if(builder)
@@ -290,36 +320,52 @@ void Game::createCustomers(string type, int num)
             visitor = nullptr;
         }
         
-        // Create appropriate builder based on type
         if (type == "average") 
         {
             builder = new AverageCustomerBuilder(config);
-            visitor = new VisitEasyCustomer(*allPlants);
         } 
         else if (type == "ignorant") 
         {
             builder = new IgnorantCustomerBuilder(config);
-            visitor = new VisitMediumCustomer(*allPlants);
         } 
         else if (type == "greenfinger") 
         {
             builder = new GreenFingerCustomerBuilder(config);
-            visitor = new VisitHighCustomer(*allPlants);
         } 
         else 
         {
             throw runtime_error("Unknown customer type: " + type);
         }
         
+        chosen = v[dist(rng)];
+
+        if(chosen == "easy")
+        {
+            visitor = new VisitEasyCustomer(*inventory);
+        }
+        else if(chosen == "medium")
+        {
+            visitor = new VisitMediumCustomer(*inventory);
+        }
+        else // default to hard
+        {
+            visitor = new VisitHighCustomer(*inventory);
+        }
+
         director.setBuilder(builder);
         Customer* customer = director.construct(*visitor);
         
         customers.push_back(customer);
-        
-        if(builder)
-        {
-            delete builder;
-        }
+    }
+
+    if(builder)
+    {
+        delete builder;
+    }
+
+    if(visitor)
+    {
+        delete visitor;
     }
 
     logger->newLog("+ Created " + to_string(num) + " " + type + " customers");

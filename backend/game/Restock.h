@@ -1,26 +1,26 @@
 /**
- * @file Refund.h
+ * @file Restock.h
  */
-#ifndef REFUND_H
-#define REFUND_H
+#ifndef RESTOCK_H
+#define RESTOCK_H
 
 #include "TransactionStrategy.h"
 #include <string>
 
 /**
- * @class Refund
+ * @class Restock
  * @brief Will handle the transaction as a refund
  */
-class Refund:public TransactionStrategy{
+class Restock:public TransactionStrategy{
     public:
         /**
          * @brief Default constructor.
          */
-        Refund()=default;
+        Restock()=default;
         /**
          * @brief Deconstructor.
          */
-        ~Refund()=default;
+        ~Restock()=default;
         /**
          * @brief Executes a transactions financial logic to update the balance.
          * @param v Value of the transaction.
@@ -29,8 +29,8 @@ class Refund:public TransactionStrategy{
          */
         double execute(double v, double b) override;
         /**
-         * @brief Returns the Type of the transaction as a Refund
-         * @return "Refund"
+         * @brief Returns the Type of the transaction as a Restock
+         * @return "Restock"
          */
         std::string getType()const override;
 };

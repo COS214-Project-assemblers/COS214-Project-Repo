@@ -1,8 +1,15 @@
 #include "SalesFloor.h"
 
 SalesFloor::SalesFloor(){
-    //need to impliment
-    
+    inv = new Inventory();
+}
+
+SalesFloor::~SalesFloor()
+{
+    if(inv)
+    {
+        delete inv;
+    }
 }
 
 void SalesFloor::add(Customer* cust){
@@ -50,11 +57,11 @@ Customer* SalesFloor::popCust(){
     return first;
 }
 
-const Inventory& SalesFloor::inventory()const{
+const Inventory* SalesFloor::inventory()const{
     if(!this->inv){
         throw std::runtime_error("SalesFloor::inventory() called before inventory is set");
     }
-    return *this->inv;
+    return this->inv;
 }
 
 Inventory& SalesFloor::inventoryMut(){
@@ -64,13 +71,15 @@ Inventory& SalesFloor::inventoryMut(){
     return *this->inv;
 }
 
-void SalesFloor::processReturns(double prob){
-    //need to impliment
-    if(prob<=0.0){
-        return;
-    }
-    if(prob>1){
-        prob=1;
-    }
+Ledger& SalesFloor::getLedger(){
+    return this->ledger;
+}
 
+const Ledger& SalesFloor::getLedger()const{
+    return this->ledger;
+}
+
+void SalesFloor::addPlant(Plant* p)
+{
+    inv->restock(p);
 }

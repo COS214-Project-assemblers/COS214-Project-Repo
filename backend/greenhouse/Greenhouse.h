@@ -18,6 +18,11 @@ class Greenhouse
         void addPlant(Plant* p);
 
         Inventory* getInventory();
+        /**
+         * @brief removes a plant from the greenhouse inventory
+         * @param plant Reference to the Plant being removed
+         */
+        void removePlant(Plant* plant);
 };
 
 #endif
