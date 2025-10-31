@@ -65,7 +65,7 @@ void Customer::setOfferedPlants(const vector<Plant*>& plants)
             {"id", plant->getId()},
             {"category", plant->getPlantCategory()},
             {"variety", plant->getPlantVariety()},
-            {"careLevel", plant->getCareLevel()},
+            {"difficulty", plant->getDifficulty()},
             {"acceptable", plant->isAcceptable() ? "yes" : "no"},
             {"returnable", plant->isReturnable() ? "yes" : "no"}
         };

@@ -296,8 +296,6 @@ void Game::createCustomers(string type, int num)
 
     const Inventory* inventory = manager->getSaleInventory();
     Director director;
-
-    CustomerVisitor* visitor = nullptr;
     mt19937 rng;
 
     vector<string> difficulties = {"easy", "medium", "hard"};
