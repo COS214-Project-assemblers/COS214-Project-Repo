@@ -48,9 +48,10 @@ bool TransactionHistory::hasBeenReturned(int tID)const{
 }
 
 int TransactionHistory::FindTransactionIDFor(const Plant* p)const{
-    for(int i=0;i<(int)this->memento.size();i++){
-        if(this->memento[i].getType()=="Sale" && this->memento[i].getPlant()==p){
-            return this->memento[i].getTransactionID();
+    for(int i=(int)this->memento.size()-1;i>=0;--i){//do this so it checks it from back to front :) therefore newest->oldest
+        const auto& t = this->memento[i];
+        if(t.getType()=="Sale" && t.getPlant()==p){
+            return t.getTransactionID();
         }
     }
     return -1;
