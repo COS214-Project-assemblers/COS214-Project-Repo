@@ -295,6 +295,30 @@ public:
       return createDtoResponse(Status::CODE_500, dto);
     }
   }
+
+  ENDPOINT("GET", "/greenhouse/plants", getGreenhousePlants)
+  {
+    auto dto = APIDto::createShared();
+
+    try 
+    {
+      std::string plantsJson = apiToControl.game->getGreenhousePlantsAsJson();
+      
+      dto->statusCode = 200;
+      dto->message = "Successfully retrieved greenhouse plants";
+      dto->data = String(plantsJson.c_str());
+      
+      return createDtoResponse(Status::CODE_200, dto);
+    } 
+    catch (const std::exception &e) 
+    {
+      dto->statusCode = 500;
+      dto->message = "Failed to get greenhouse plants: " + std::string(e.what());
+      dto->data = {};
+      
+      return createDtoResponse(Status::CODE_500, dto);
+    }
+  }
 };
 
 #include OATPP_CODEGEN_END(ApiController) //<-- End Codegen
