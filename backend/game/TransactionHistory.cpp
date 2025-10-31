@@ -39,16 +39,12 @@ bool TransactionHistory::hasBeenReturned(int tID)const{
     if(tID<0){
         return false;
     }
-    for(int i=0;i<(int)this->memento.size();i++){
-        if(this->memento[i].getType()=="Return" && this->memento[i].getReturnID()==tID){
+    for(const auto& t : this->memento){
+        if(t.getType()=="Return" && t.getReturnedID()==tID){
             return true;
         }
     }
     return false;
-}
-
-void TransactionHistory::markAsReturned(int tID){
-    this->returnedIDs.push_back(tID);
 }
 
 int TransactionHistory::FindTransactionIDFor(const Plant* p)const{
