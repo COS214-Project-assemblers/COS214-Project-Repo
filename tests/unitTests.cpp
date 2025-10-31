@@ -629,6 +629,8 @@ TEST(BuilderTests, TestPlantOffering)
             ASSERT_TRUE(plant.contains("returnable"));
         }
     }
+
+    cout << customersJson.dump(4) << endl;
     
     delete game;
 }
