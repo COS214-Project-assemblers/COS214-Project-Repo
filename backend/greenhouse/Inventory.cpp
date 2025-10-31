@@ -7,15 +7,15 @@
 
 Inventory::~Inventory()
 {
-    // for (Plant* p : plants) 
-    // {
-    //     if(p)
-    //     {
-    //         delete p;
-    //     }
-    // }
+    for (Plant* p : plants) 
+    {
+        if(p != nullptr)
+        {
+            delete p;
+        }
+    }
 
-    // plants.clear();
+    plants.clear();
 }
 
 

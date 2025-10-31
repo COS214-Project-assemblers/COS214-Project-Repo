@@ -7,7 +7,7 @@
 
 GreenFingerCustomer::GreenFingerCustomer() : Customer() 
 {
-    
+    type = "greenfinger";
 }
 
 GreenFingerCustomer::~GreenFingerCustomer() 
