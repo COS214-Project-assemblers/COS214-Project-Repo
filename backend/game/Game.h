@@ -83,16 +83,7 @@ class Game {
          * @brief Getter for testing purposes
          */
         map<string, PlantCreator*> getFactories();
-        // /**
-        //  * @brief Setter for Manager attribute
-        //  * @param[in] manager Manager reference
-        //  */
-        // void setManager(Manager* manager);
-        // /**
-        //  * @brief Getter for Manager attribute
-        //  * @return Manager reference
-        //  */
-        // Manager* getManager();
+
         /**
          * @brief Operations associated with creating a new game, i.e. creating greenhouse and factories
          */
@@ -169,6 +160,8 @@ class Game {
          */
         void exitGame();
         void setManager(Manager* m);
+
+        float getGameBalance();
 };
 
 #endif // GAME_HDR

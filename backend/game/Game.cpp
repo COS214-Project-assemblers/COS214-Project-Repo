@@ -383,3 +383,8 @@ void Game::exitGame()
 {
     logger->newLog("Exiting game...");
 }
+
+float Game::getGameBalance()
+{
+    return manager->getBalance();
+}
