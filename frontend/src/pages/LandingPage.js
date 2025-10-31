@@ -8,7 +8,7 @@ const LandingPage = () => {
     
     const startNewGame = async () => {
         try {
-            const res = await fetch('/api/new-game', { method: 'POST' });
+            const res = await fetch('/api/new-game', { method: 'GET' });
             if (!res.ok) {
                 const err = await res.json().catch(() => ({}));
                 console.error('New game failed', err);

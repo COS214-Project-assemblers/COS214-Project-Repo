@@ -1,17 +1,21 @@
 services:
-  # api:
-  #   build:
-  #     context: .
-  #     dockerfile: config/API/Dockerfile
-  #   ports:
-  #     - "8000:8000"
-  #   volumes:
-  #     - ./config/API/CMakeLists.txt:/app/CMakeLists.txt:ro
-  #     - ./backend:/app/backend
-  #     - ./config/API/GameConfig.json:/app/GameConfig.json:ro
-  #   env_file:
-  #     - config/API/.env
-  #   command: [/usr/local/bin/dev.sh]
+  api:
+    build:
+      context: .
+      dockerfile: config/API/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./config/API/CMakeLists.txt:/app/CMakeLists.txt:ro
+      - ./backend:/app/backend
+      - ./config/API/GameConfig.json:/app/GameConfig.json:ro
+    env_file:
+      - config/API/.env
+    command: [/usr/local/bin/dev.sh]
+    networks:
+      my_network:
+        ipv4_address: 172.0.0.5
+
 
   greenfingers-react:
     container_name: react-x-nginx
@@ -19,4 +23,15 @@ services:
       context: .
       dockerfile: config/frontend/Dockerfile
     ports:
-      - "8081:8080"
+      - "8080:8080"
+    networks:
+      my_network:
+        ipv4_address: 172.0.0.6
+  
+networks:
+  my_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.0.0.0/24
+          gateway: 172.0.0.1
