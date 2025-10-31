@@ -65,7 +65,7 @@ function createPlant(category, varietyIndex) {
     fertilizerLevel: 100.0,             // float
     costPrice,                          // int
     sellPrice,                          // int
-    maturity: 'Not-Sellable',           // boolean: "Sellable" | "Not-Sellable"
+    maturity: 'Sellable',               // boolean: "Sellable" | "Not-Sellable"
     kind: category,                     // 'flower' | 'succulent' | 'tree'
     varietyIndex,                       
     stage: 'seedling',
@@ -127,9 +127,6 @@ app.post('/api/exit-game', (req, res) => {
 });
 
 
-
-
-
 // BUY PLANTS endpoint: body { flower:[n1,n2,n3], succulent:[n4,n5,n6], tree:[n7,n8,n9] }
 app.post('/api/plants/buy', (req, res) => {
   try {
@@ -186,6 +183,36 @@ app.post('/api/plants/buy', (req, res) => {
     res.status(500).json({ error: 'Internal error' });
   }
 });
+
+
+
+// MOVE TO SALES FLOOR endpoint: 'moves' the mature plant from greenhouse inventory array to sales floor inventory array
+app.post('/api/plants/:id/move-to-sales', (req, res) => {
+  try {
+    const { id } = req.params;
+    const idx = db.greenhouse.findIndex(p => p.id === id);
+    if (idx === -1) return res.status(404).json({ error: 'Plant not found in greenhouse' });
+
+    const plant = db.greenhouse[idx];
+    if (plant.maturity !== 'Sellable') {
+      return res.status(400).json({ error: 'Plant is not sellable yet' });
+    }
+
+    db.greenhouse.splice(idx, 1); // removes specific plant from greenhouse
+    db.salesfloor.push(plant);    // adds plant to sales floor 
+
+    res.json({ ok: true, plant, used: db.greenhouse.length, salesfloor: db.salesfloor });
+
+    // Prints in the terminal. Shows content of Greenhouse and Sales floor arrays as plants get moved to sales floor.
+    console.log(`[${new Date().toISOString()}] Moved plant id=${plant.id} (${plant.category} ${plant.variety}) to salesfloor`);
+    console.log('Greenhouse inventory:', db.greenhouse.map(p => ({ id: p.id, category: p.category, variety: p.variety })));
+    console.log('Salesfloor inventory:', db.salesfloor.map(p => ({ id: p.id, category: p.category, variety: p.variety })));
+  } catch (err) {
+    console.error('POST /api/plants/:id/move-to-sales failed:', err);
+    res.status(500).json({ error: 'Internal error' });
+  }
+});
+
 
 
 
