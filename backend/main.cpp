@@ -5,11 +5,27 @@
 #include <thread>
 #include <chrono>
 #include "GreenSock.h"
+
 #include "Plant.h"
+#include "PlantCreator.h"
+
+
 #include "Succulent.h"
+#include "SucculentCreator.h"
+
 #include "Flower.h"
+#include "FlowerCreator.h"
+
+#include "Tree.h"
+#include "TreeCreator.h"
+
 #include "PlantHealth.h"
+
+
+#include "Greenhouse.h"
 #include <random>
+
+
 
 
 GreenSock greenSock = GreenSock();
@@ -31,53 +47,6 @@ void startGreenSock() {
     greenSock.bootstrap();
 }
 
-void testGreenSock() {
-    while (true) {
-        Plant* myPlant = new Succulent("Aloe");
-        myPlant->setSocket(&greenSock);
-
-        std::string careType = "TESTING";
-        myPlant->alert(careType, &greenSock);
-        std::this_thread::sleep_for(std::chrono::milliseconds(dist(gen)));
-        delete myPlant ; 
-    }
-    
-}
-
-void testingRandomisedThreads() {
-
-    std::thread gameApiThread(startGameApi);
-    std::thread greenSockThread(startGreenSock);
-
-    std::cout << "Testing plant thread dynamic behavior" <<std::endl ; 
-        Plant* myPlant = new Succulent("Aloe");
-        while(myPlant->healthScore() > 0){
-            myPlant->setSocket(&greenSock);
-            std::string careType = "TESTING";
-            myPlant->alert(careType, &greenSock);
-            std::this_thread::sleep_for(std::chrono::milliseconds(dist(gen)));
-        }
-        delete myPlant ; 
-
-
-    gameApiThread.join();
-    greenSockThread.join();
-
-}
-
-void testingPlantRun() {
-
-    std::thread gameApiThread(startGameApi);
-    std::thread greenSockThread(startGreenSock);
-
-    std::cout << "Testing plant thread dynamic behavior" <<std::endl ; 
-        Plant* myPlant = new Succulent("Aloe");
-        myPlant->start() ;
-    gameApiThread.join();
-    greenSockThread.join();
-}
-
-
 void startThreads() {
     std::thread gameApiThread(startGameApi);
     std::thread greenSockThread(startGreenSock);
@@ -93,7 +62,7 @@ void startThreads() {
 
 void testOneThread(){
     std::thread greenSockThread(startGreenSock);
-    Plant* myPlant = new Succulent("Aloe");
+    Plant* myPlant = new Succulent("Aloe", "Easy");
     myPlant->setSocket(&greenSock) ; 
 
     // float initialScore = myPlant->healthScore();
@@ -111,10 +80,10 @@ void testOneThread(){
 
 void testNthreads() {
     std::thread greenSockThread(startGreenSock);
-    Plant* Aloe = new Succulent("Aloe");
+    Plant* Aloe = new Succulent("Aloe", "Easy");
     Aloe->setSocket(&greenSock) ; 
 
-    Plant* rose = new Flower("rose");
+    Plant* rose = new Flower("rose", "Easy");
     rose->setSocket(&greenSock) ; 
     // float initialScore = myPlant->healthScore();
 
@@ -131,11 +100,60 @@ void testNthreads() {
     greenSockThread.join();
 }
 
+void prt(std::string debugging){
+    std::cout << debugging <<std::endl ;
+
+}
+void testGreenhouseFlow()   {
+    std::thread greenSockThread(startGreenSock);
+    prt("void testGreenhouseFlow() ") ;
+
+    // Make a Greenhouse where plants can be added to
+    Greenhouse* greenhouse = new Greenhouse() ; 
+    greenhouse->setSocket(&greenSock) ; 
+    Plant::stubPlant();
+
+    // Make plant factories And then Plants
+        // succulent - aloe        
+        SucculentCreator succulentCreator;
+        succulentCreator.makePlant("Cactus");
+        Plant* succulent = succulentCreator.getPlant();
+        Plant* clonedSucculent = succulent->clone();
+
+
+        // flower - rose
+        FlowerCreator flowerCreator;
+        flowerCreator.makePlant("Rose");
+        Plant* flower = flowerCreator.getPlant();
+        Plant* clonedFlower = flower->clone();
+
+
+        // tree - lemon
+        TreeCreator treeCreator;
+        treeCreator.makePlant("Lemon");
+        Plant* tree = treeCreator.getPlant();
+        Plant* clonedTree = tree->clone();
+
+
+    // Add the plants to the Greenhouse (This is where the threads will be started)
+    prt(" Adding Plants to the green House:") ;
+    greenhouse->addPlant(clonedSucculent) ; 
+    greenhouse->addPlant(clonedFlower) ; 
+    greenhouse->addPlant(clonedTree) ; 
+
+    std::this_thread::sleep_for(std::chrono::seconds(180)); 
+    prt(" Deleting the greenhouse: ") ;
+    delete greenhouse ; 
+    greenSockThread.join();
+}
+
+
 
 int main() {
     // testingRandomisedThreads() ; 
     // testingPlantRun() ; 
     // tes() ; 
-    testNthreads() ; 
+    // testNthreads() ; 
+    testGreenhouseFlow() ; 
     return 0;
 }

@@ -183,25 +183,26 @@ void Plant::run() {
         health->decay(decayIndex) ;
 
         // Alerts - Plant is below minimum threshold - call the staff that need to handle
-        if (health->water < 0.7f) {
+        if (health->water < 0.4f) {
             std::cout << "LOW WATER: (health->water < 0.3f)" <<std::endl ; 
             std::string careType = "water" ;    // I had to declare a variable like this
             this->notify(careType) ;            // then pass it in here because of the data type notify(std::string& careType)
             alert(careType, socket) ;
         }
-        if (health->fertalizer < 0.7f) {
+        if (health->fertalizer < 0.4f) {
             std::cout << "LOW FERTILIZER: (health->water < 0.3f)" <<std::endl ; 
             std::string careType = "fertilizer" ;
             this->notify(careType) ;
             alert(careType, socket) ;
         }
-        if (health->pruning < 0.7f) {
+        if (health->pruning < 0.4f) {
             std::cout << "LOW PRUNING: (health->water < 0.3f)" <<std::endl ; 
             std::string careType = "pruning" ;
             this->notify(careType) ;
             alert(careType, socket) ;
         }
-        if (healthScore() < 0.2f) {
+        if (healthScore() < 0.0001f) {
+            std::cout <<"DEAD This current Plants Health Score is < 0.0001 DEAD"<< std::endl ; 
             this->alive = false ; 
         }
 
@@ -242,7 +243,7 @@ void Plant::alert(string& careType, GreenSock* sock) {
 
         // Construct JSON alert payload
         alert = {
-            {"plantId", "plantId"},
+            {"plantId", getId()},
             {"plantCategory", getPlantCategory()},
             {"plantVariety", getPlantVariety()},
             {"healthScore", health->healthScore()},
