@@ -62,6 +62,15 @@ class CustomerResponseDTO : public oatpp::DTO
   DTO_FIELD(String, customersJson); // Specific field for customer JSON
 };
 
+class BalanceResponseDTO : public oatpp::DTO 
+{
+  DTO_INIT(BalanceResponseDTO, DTO)
+  
+  DTO_FIELD(Int32, statusCode);
+  DTO_FIELD(String, message);
+  DTO_FIELD(Float64, balance); // Using Float64 for double precision
+};
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif // DTOS
