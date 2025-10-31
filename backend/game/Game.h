@@ -162,6 +162,12 @@ class Game {
         
         vector<PlantStruct*> getAvailablePlantVarieties();
 
+        /**
+         * @brief Exits game gracefully, atp it is just logging that the user opted to end the game,
+         * but if the game were to scale this would obviously contain crucial shutdown steps. No mem is
+         * freed since the destructor of the Game will be called when it is deleted in mem
+         */
+        void exitGame();
         void setManager(Manager* m);
 };
 

@@ -1,7 +1,13 @@
 #include "API.h"
 #include "APIController.h"
 
-API::API(Game* game) : game(game) {}
+
+void API::exitGame()
+{
+  if (game != nullptr) { // Sanity check probs would not happen
+    delete game;
+  }
+}
 
 // Inspiration from https://github.com/oatpp/oatpp-starter/blob/master/src/App.cpp
 void API::bootstrap()
