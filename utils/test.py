@@ -7,7 +7,6 @@ async def connect_to_websocket(uri):
         await websocket.send("Hello WebSocket!")
         # Receive a message
         while True:
-            # await websocket.send(" while True:")
             response = await websocket.recv()
             print(f"Received: {response}")
 

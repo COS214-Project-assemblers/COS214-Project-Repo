@@ -7,6 +7,7 @@
 #include "GreenSock.h"
 #include "Plant.h"
 #include "Succulent.h"
+#include "Flower.h"
 #include "PlantHealth.h"
 #include <random>
 
@@ -44,6 +45,10 @@ void testGreenSock() {
 }
 
 void testingRandomisedThreads() {
+
+    std::thread gameApiThread(startGameApi);
+    std::thread greenSockThread(startGreenSock);
+
     std::cout << "Testing plant thread dynamic behavior" <<std::endl ; 
         Plant* myPlant = new Succulent("Aloe");
         while(myPlant->healthScore() > 0){
@@ -54,32 +59,83 @@ void testingRandomisedThreads() {
         }
         delete myPlant ; 
 
+
+    gameApiThread.join();
+    greenSockThread.join();
+
+}
+
+void testingPlantRun() {
+
+    std::thread gameApiThread(startGameApi);
+    std::thread greenSockThread(startGreenSock);
+
+    std::cout << "Testing plant thread dynamic behavior" <<std::endl ; 
+        Plant* myPlant = new Succulent("Aloe");
+        myPlant->start() ;
+    gameApiThread.join();
+    greenSockThread.join();
 }
 
 
 void startThreads() {
     std::thread gameApiThread(startGameApi);
-    // std::thread greenSockThread(testGreenSock);
+    std::thread greenSockThread(startGreenSock);
     // std::thread greenSockThread2(testingRandomisedThreads);
 
 
 
     gameApiThread.join();
-    // greenSockThread.join();
+    greenSockThread.join();
     // greenSockThread2.join();
 }
 
-void startSocket() {
-    startGreenSock()  ;
-    greenSock.sendMessage("Test Message") ; 
 
+void testOneThread(){
+    std::thread greenSockThread(startGreenSock);
+    Plant* myPlant = new Succulent("Aloe");
+    myPlant->setSocket(&greenSock) ; 
+
+    // float initialScore = myPlant->healthScore();
+
+    myPlant->start();
+    std::this_thread::sleep_for(std::chrono::seconds(180)); // let decay happen
+    // myPlant->stop(); // force the thread to stop
+    // myPlant->join();
+
+    // float laterScore = myPlant->healthScore();
+
+    delete myPlant;
+    greenSockThread.join();
+}
+
+void testNthreads() {
+    std::thread greenSockThread(startGreenSock);
+    Plant* Aloe = new Succulent("Aloe");
+    Aloe->setSocket(&greenSock) ; 
+
+    Plant* rose = new Flower("rose");
+    rose->setSocket(&greenSock) ; 
+    // float initialScore = myPlant->healthScore();
+
+    Aloe->start();
+    rose->start() ; 
+    std::this_thread::sleep_for(std::chrono::seconds(180)); // let decay happen
+    // myPlant->stop(); // force the thread to stop
+    // myPlant->join();
+
+    // float laterScore = myPlant->healthScore();
+
+    delete Aloe;
+    delete rose ;
+    greenSockThread.join();
 }
 
 
-
 int main() {
-    // startThreads();
-    // succulentDecayAndAlert() ; 
-    startSocket() ; 
+    // testingRandomisedThreads() ; 
+    // testingPlantRun() ; 
+    // tes() ; 
+    testNthreads() ; 
     return 0;
 }
