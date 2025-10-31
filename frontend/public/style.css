@@ -237,6 +237,24 @@
 }
 
 
+@keyframes growShrink {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); 
+  }
+  100% {
+    transform: scale(1); 
+  }
+}
+
+/* UNHEALTHY PLANT - flashes Red */
+
+/* #plant1 img {
+    filter: hue-rotate(280deg) saturate(100%);
+} */
+
 
 #plant1 {
     grid-column: 1/2;
@@ -265,8 +283,9 @@
 }
 
 #soilGrid div img {
-    width: 7em;
+    width: 6.8em;
     margin-top: 0.4em;
+    animation: growShrink 2s infinite alternate;
 }
 
 #plant3 {
