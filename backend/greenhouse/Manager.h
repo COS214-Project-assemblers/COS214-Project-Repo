@@ -26,7 +26,6 @@ class Manager{
     private:
         SalesFloor* floor;///<Reference to salesFloor object that is managed by the Manager.
         Ledger ledger;///<Ledger to keep track of balance
-        // Transaction t;///<Transaction
         TransactionStrategy* strat;
         TransactionHistory hist;///<Transaction history to keep track of transactions
     public:
@@ -39,12 +38,6 @@ class Manager{
          * @brief Deafult destructer
          */
         ~Manager();
-        /**
-         * @brief Presents the builded offer of plants.
-         * @param cust Reference to the customer being created.
-         * @return True if offer leads to sale, false if not.
-         */
-        bool offerPlants(Customer& cust);
         /**
          * @brief Records a successful sale.
          * @param p The plant that was sold.
@@ -81,28 +74,10 @@ class Manager{
          * @brief set transaction
          * @param t transaction to set
          */
-        void setTransaction(Transaction& t);
-        /**
-         * @brief getter for transaction
-         * @return reference to transaction
-         */
-        Transaction& getTransaction();
-        /**
-         * @brief make offer to json
-         * @param cust customer being offered to
-         * @param diff difficulty level of game
-         * @return json object containing offer data
-         */
-        json offerAsJSON(Customer& cust, const std::string diff);
-        /**
-         * @brief handle selection from user
-         * @param cust customer making selection
-         * @param choice index of plant chosen from offer
-         * @return json object containing user choice?
-         */
-        json handleSelection(Customer& cust, int choice);
 
         const Inventory* getSaleInventory();
+
+        float getBalance();
 };
 
 #endif

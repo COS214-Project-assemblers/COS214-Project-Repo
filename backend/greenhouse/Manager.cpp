@@ -21,12 +21,12 @@ Manager::Manager()
 
 Manager::~Manager()
 {
-    if(strat)
+    if(strat != nullptr)
     {
         delete strat;
     }
 
-    if(floor)
+    if(floor != nullptr)
     {
         delete floor;
     }
@@ -93,7 +93,7 @@ bool Manager::processReturns(Plant& p){ // This function needs to make sure that
     hist.setTransactionMem(snap);//adds snapshot to history
     hist.markAsReturned(snap.getTransactionID());//maks the transaction as returned
     floor->inventoryMut().restock(&p);
-    return true
+    return true;
 }
 
 const Inventory* Manager::inventory()const{
@@ -102,4 +102,9 @@ const Inventory* Manager::inventory()const{
 
 Inventory& Manager::inventoryMut(){
     return floor->inventoryMut();
+}
+
+float Manager::getBalance()
+{
+    return ledger.getBalance();
 }

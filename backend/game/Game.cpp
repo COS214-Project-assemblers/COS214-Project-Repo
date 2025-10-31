@@ -149,7 +149,10 @@ void Game::createNewGame()
         throw runtime_error("Failed to create greenhouse for unknown reason");
     }
 
-    manager = new Manager();
+    if(!manager)
+    {
+        manager = new Manager();
+    }
 }
 
 void Game::buyPlants(string plant, int num) 
@@ -221,7 +224,7 @@ Game::~Game()
 
     for (auto customer : customers)
     {
-        if(customer)
+        if(customer != nullptr)
         {
             delete customer;
         }
@@ -237,7 +240,7 @@ Game::~Game()
         delete greenhouse;
     }
 
-    if(manager)
+    if(manager != nullptr)
     {
         delete manager;
     }
@@ -293,32 +296,16 @@ void Game::createCustomers(string type, int num)
 
     const Inventory* inventory = manager->getSaleInventory();
     Director director;
-
-    CustomerVisitor* visitor = nullptr;
     mt19937 rng;
 
-    vector<string> v;
-    v.push_back("easy");
-    v.push_back("medium");
-    v.push_back("hard");
+    vector<string> difficulties = {"easy", "medium", "hard"};
+    uniform_int_distribution<size_t> dist(0, difficulties.size() - 1);
 
-    uniform_int_distribution<size_t> dist(0, v.size() - 1);
     string chosen;
-    CustomerBuilder* builder = nullptr;
     
     for (int i = 0; i < num; i++) 
     {
-        if(builder)
-        {
-            delete builder;
-            builder = nullptr;
-        }
-        
-        if(visitor)
-        {
-            delete visitor;
-            visitor = nullptr;
-        }
+        CustomerBuilder* builder = nullptr;
         
         if (type == "average") 
         {
@@ -337,7 +324,8 @@ void Game::createCustomers(string type, int num)
             throw runtime_error("Unknown customer type: " + type);
         }
         
-        chosen = v[dist(rng)];
+        string chosen = difficulties[dist(rng)];
+        CustomerVisitor* visitor = nullptr;
 
         if(chosen == "easy")
         {
@@ -356,19 +344,17 @@ void Game::createCustomers(string type, int num)
         Customer* customer = director.construct(*visitor);
         
         customers.push_back(customer);
-    }
 
-    if(builder)
-    {
+        delete visitor;
         delete builder;
     }
 
-    if(visitor)
-    {
-        delete visitor;
-    }
-
     logger->newLog("+ Created " + to_string(num) + " " + type + " customers");
+}
+
+void Game::setManager(Manager* m)
+{
+    manager = m;
 }
 
 vector<Customer*> Game::getCustomers()
@@ -383,20 +369,22 @@ map<string, map<string, vector<string>>> Game::getAvailableCustomerTypes()
 
 string Game::getCustomersAsJson()
 {
-    stringstream jsonArray;
-    jsonArray << "[";
-    
-    for (size_t i = 0; i < customers.size(); ++i) 
-    {
-        if (i > 0) 
-        {
-            jsonArray << ",";
-        }
+    json customersArray = json::array();
 
-        jsonArray << customers[i]->getStructure();
+    for (auto* customer : customers)
+    {
+        customersArray.push_back(json::parse(customer->getStructure()));
     }
     
-    jsonArray << "]";
-    
-    return jsonArray.str();
+    return customersArray.dump(4); 
+}
+
+void Game::exitGame()
+{
+    logger->newLog("Exiting game...");
+}
+
+float Game::getGameBalance()
+{
+    return manager->getBalance();
 }

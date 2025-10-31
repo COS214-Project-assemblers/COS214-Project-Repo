@@ -7,6 +7,7 @@
 
 #include "Game.h"
 #include "NewGameOption.h"
+#include "ExitGameOption.h"
 #include "PlayerMenu.h"
 #include "MenuOption.h"
 #include "BasicLogger.h"
@@ -29,6 +30,9 @@
 #include "PlantDied.h"
 #include "SalesFloor.h"
 #include "Inventory.h"
+#include "IgnorantCustomerBuilder.h"
+#include "AverageCustomerBuilder.h"
+#include "GreenFingerCustomerBuilder.h"
 
 
 TEST(TestSuiteName, TestName) {
@@ -568,5 +572,86 @@ TEST(GameCustomersCreationTests, TestCreateValidCustomers)
     EXPECT_EQ(customers.size(), 3)
         << "Expected 3 customers created, but got " << customers.size();
 
+    delete game;
+}
+
+TEST(GameCreationTests, ExitGameOptionExecutesProperly) {
+    // Set up environment
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
+    Game* game = new Game(configPath); // VSCode will shout, dont worry
+    PlayerMenu* playerMenu = new PlayerMenu();
+    BasicLogger* logger = new BasicLogger();
+    ExitGameOption* exitGameOption = new ExitGameOption(game, logger);
+
+    // Perform actions
+    playerMenu->setMenuOption(exitGameOption);
+    playerMenu->executeOption();
+    
+    // Cleanup
+    delete game;
+    delete playerMenu;
+    delete logger;
+    // Note: don't delete exitGameOption if PlayerMenu takes ownership
+    std::cout << std::endl;
+}
+
+TEST(BuilderTests, TestPlantOffering)
+{
+    string configPath = string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
+    Game* game = new Game(configPath);
+
+    Plant* p1 = new Succulent("cactus", "easy");
+    Plant* p2 = new Flower("daisy", "medium");
+    Plant* p3 = new Tree("lemon", "hard");
+    Plant* p4 = new Succulent("jade", "easy");
+    Plant* p5 = new Flower("rose", "medium");
+    Plant* p6 = new Tree("apple", "hard");
+    Plant* p7 = new Succulent("aloe", "easy");
+    Plant* p8 = new Flower("sunflower", "medium");
+    Plant* p9 = new Tree("banana", "hard");
+
+    Manager* manager = new Manager();
+    manager->inventoryMut().restock(p1);
+    manager->inventoryMut().restock(p2);
+    manager->inventoryMut().restock(p3);
+    manager->inventoryMut().restock(p4);
+    manager->inventoryMut().restock(p5);
+    manager->inventoryMut().restock(p6);
+    manager->inventoryMut().restock(p7);
+    manager->inventoryMut().restock(p8);
+    manager->inventoryMut().restock(p9);
+
+    game->setManager(manager);
+    game->createNewGame();
+
+    game->createCustomers("ignorant", 1);
+    game->createCustomers("average", 1);
+    game->createCustomers("greenfinger", 1);
+
+    string jsonStr = game->getCustomersAsJson();
+
+    json customersJson = json::parse(jsonStr);
+
+    // Check that there are exactly 3 customers
+    ASSERT_EQ(customersJson.size(), 3);
+
+    // Check that each customer has an offeredPlants array
+    for (const auto& customer : customersJson)
+    {
+        ASSERT_TRUE(customer.contains("offeredPlants"));
+        ASSERT_TRUE(customer["offeredPlants"].is_array());
+
+        for (const auto& plant : customer["offeredPlants"])
+        {
+            ASSERT_TRUE(plant.contains("id"));
+            ASSERT_TRUE(plant.contains("category"));
+            ASSERT_TRUE(plant.contains("variety"));
+            ASSERT_TRUE(plant.contains("acceptable"));
+            ASSERT_TRUE(plant.contains("returnable"));
+        }
+    }
+
+    cout << customersJson.dump(4) << endl;
+    
     delete game;
 }

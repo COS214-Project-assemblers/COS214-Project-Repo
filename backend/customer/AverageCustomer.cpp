@@ -7,7 +7,7 @@
 
 AverageCustomer::AverageCustomer() : Customer() 
 {
-    
+    type = "average";
 }
 
 AverageCustomer::~AverageCustomer() 

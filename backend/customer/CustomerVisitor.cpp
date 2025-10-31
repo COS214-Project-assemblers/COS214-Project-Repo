@@ -6,60 +6,83 @@
 #include "CustomerVisitor.h"
 #include "Inventory.h"
 
-CustomerVisitor::CustomerVisitor(const Inventory& inv):inv(inv), correct(NULL){}
+CustomerVisitor::CustomerVisitor(const Inventory& inv)
+{
+    std::vector<Plant*> originalPlants = inv.all();
+    inventoryCopy = originalPlants;
+}
 
-void CustomerVisitor::addRandomPlants(std::vector<Plant*>& source, int count, std::vector<Plant*>& offerList){
-    if(source.empty()){
+CustomerVisitor::~CustomerVisitor()
+{
+    offer.clear();
+    correct.clear();
+    inventoryCopy.clear();
+}
+
+std::vector<Plant*> CustomerVisitor::findByDifficulty(const std::string& difficulty) const 
+{
+    std::vector<Plant*> out;
+
+    for(auto* p : inventoryCopy) 
+    {
+        if(p->getDifficulty() == difficulty) 
+        {
+            out.push_back(p);
+        }
+    }
+
+    return out;
+}
+
+void CustomerVisitor::addRandomPlants(std::vector<Plant*>& source, int count, std::vector<Plant*>& offerList)
+{
+    if(source.empty()) 
+    {
         return;
     }
-    std::random_shuffle(source.begin(),source.end());
-    for(int i=0;i<count && i<(int)source.size();i++){
+
+    std::random_shuffle(source.begin(), source.end());
+
+    for(int i = 0; i < count && i < (int)source.size(); i++) 
+    {
         offerList.push_back(source[i]);
     }
 }
 
-void CustomerVisitor::topUpRandomPlants(const std::vector<Plant*>& source, int need, std::vector<Plant*>& offerList){
-    if(need<=0){
-        return;
-    }
-    std::vector<Plant*> copy=source;
-    std::random_shuffle(copy.begin(),copy.end());
-    for(auto* p:copy){
-        if(need==0){
-            break;
-        }
-        if(std::find(offerList.begin(),offerList.end(),p)==offerList.end()){
+void CustomerVisitor::topUpRandomPlants(int need, std::vector<Plant*>& offerList) 
+{
+    if(need <= 0) return;
+    
+    std::vector<Plant*> copy = inventoryCopy;  // Copy our inventory
+    std::random_shuffle(copy.begin(), copy.end());
+    
+    for(auto* p : copy) 
+    {
+        if(need == 0) break;
+
+        if(std::find(offerList.begin(), offerList.end(), p) == offerList.end()) 
+        {
             offerList.push_back(p);
             --need;
         }
     }
 }
 
-void CustomerVisitor::finalizeOffer(std::size_t target){
-    if(offer.size()<target){
-        topUpRandomPlants(inv.all(),static_cast<int>(target-offer.size()),offer);
+void CustomerVisitor::finalizeOffer(std::size_t target) 
+{
+    if(offer.size() < target) 
+    {
+        topUpRandomPlants(static_cast<int>(target - offer.size()), offer);
     }
-    std::random_shuffle(offer.begin(),offer.end());
+
+    std::random_shuffle(offer.begin(), offer.end());
 }
 
-const std::vector<Plant*>& CustomerVisitor::getOffer()const{
-    return this->offer;
-}
-
-const std::vector<Plant*>& CustomerVisitor::getCorrectPlant()const{
-    return this->correct;
-}
-
-void CustomerVisitor::setReturnable(int i,bool returnable){
-    offer[i]->setReturnable(returnable);
-}
-
-// add setAcceptable with the same logic just with offer[i]->setAcceptable(acceptable);
-// then in Plant add this->acceptable = acceptable;
-
-void CustomerVisitor::markCorrectPlants(const std::vector<Plant*>& source, int count,bool returnable){
-    for(int i=0;i<count && i<(int)source.size();i++){
-        Plant* p=source[i];
+void CustomerVisitor::markCorrectPlants(const std::vector<Plant*>& source, int count, bool returnable) 
+{
+    for(int i = 0; i < count && i < (int)source.size(); i++) 
+    {
+        Plant* p = source[i];
         correct.push_back(p);
         p->setReturnable(returnable);
         p->setAcceptable(true);
