@@ -21,7 +21,6 @@ class Inventory;
 class TransactionHistory{
     private:
         std::vector<TransactionMem> memento;///<Vector to store the history of the transactions
-        std::vector<int> returnedIDs;///<Vector of the returned IDs for transactions
     public:
         /**
          * @brief Default Constructor
@@ -46,12 +45,6 @@ class TransactionHistory{
          * @brief Print the whole transaction history from that day.
          */
         void print()const;
-        /**
-         * @brief Undo last transaction to process Refund
-         * @param l Reference to the ledger object to modify
-         * @return True if undo succeed, False if not.
-         */
-        bool processReturn(Ledger& l,Inventory& inv);
         /**
          * @brief Clears transaction History to start new day/reset
          */

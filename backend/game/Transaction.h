@@ -21,7 +21,7 @@ class Transaction{
     private:
         TransactionStrategy* tS;///<Pointer to a Transaction Strategy object
         double value;///<Value of transaction
-        int transactionID=1;///<Unique ID for transaction
+        int transID;///<Unique ID for transaction
     public:
         /**
          * @brief Constructor

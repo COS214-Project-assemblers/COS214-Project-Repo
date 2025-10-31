@@ -31,19 +31,6 @@ void TransactionHistory::print()const{
     }
 }
 
-bool TransactionHistory::processReturn(Ledger& l,Inventory& inv){
-    if(this->memento.empty()){
-        return false;
-    }
-    const TransactionMem& last=this->memento.back();
-    TransactionStrategy* strat=new Return();
-    Transaction ret(strat,last.getValue());
-    TransactionMem snap=ret.createTransactionMem(l,last.getPlant());
-    this->memento.push_back(snap);
-    inv.restock(last.getPlant());
-    return true;
-}
-
 void TransactionHistory::clear(){
     this->memento.clear();
 }

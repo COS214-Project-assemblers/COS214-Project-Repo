@@ -1,13 +1,8 @@
 #include "TransactionMem.h"
 
 //maybe include the balance to store the state of the balance at that time?
-TransactionMem::TransactionMem(std::string t,double v,double b4, double after,Plant* p,int tID){
-    this->type=t;
-    this->value=v;
-    this->balanceB4=b4;
-    this->balanceAfter=after;
-    this->plant=p;
-    this->transactionID=tID;
+TransactionMem::TransactionMem(std::string t,double v,double b4, double after,Plant* p,int tID,int rID)
+    :type(t),value(v),balanceB4(b4),balanceAfter(balanceAfter),plant(p),tranID(tID), retID(rID){
 }
 
 double TransactionMem::getValue()const{
@@ -31,13 +26,13 @@ Plant* TransactionMem::getPlant()const{
 }
 
 int TransactionMem::getTransactionID()const{
-    return this->transactionID;
+    return this->tranID;
 }
 
 int TransactionMem::getReturnedID()const{
-    return this->returnedID;
+    return this->retID;
 }
 
 void TransactionMem::setReturnedID(int tID){
-    this->returnedID=tID;
+    this->retID=tID;
 }
