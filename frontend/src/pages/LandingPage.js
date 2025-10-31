@@ -42,7 +42,6 @@ const LandingPage = () => {
 
     return (
         <div className="landingBody">
-            {/* <h1>Landing Page</h1> */}
             <div id="title">
                 <img alt="greenfingers-title" src="/assets/images/GreenFingers-title.svg" width="300"/>
             </div>

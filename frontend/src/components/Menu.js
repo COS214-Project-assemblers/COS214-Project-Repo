@@ -88,8 +88,6 @@ const Menu = ({ onCancel }) => {
                 <img alt="menu" id="menu" src="/assets/images/Menu.svg" width="50"/>
             </div>
 
-            {/* <p id="capacity">Greenhouse capacity: {used} / {capacity} </p> */}
-
            <div id="flowerAmountGrid">
                 <input type="number" id="num1" min="0" max="9" value={flower[0]} onChange={onChangeArr(flower, setFlower, 0)} /> {/* Rose */}
                 <input type="number" id="num2" min="0" max="9" value={flower[1]} onChange={onChangeArr(flower, setFlower, 1)} /> {/* Tulip */}

@@ -40,29 +40,37 @@ const SoilGrid = () => {
             <img alt={`soil${i+1}`} id={`soil${i+1}`} src="/assets/images/soil.svg" width="50" />
             {plant && (
                 <div id={`plant${i+1}`}>
-                    <img onClick={() => onPlantClick(plant)} alt={`plant${i+1}`} src="/assets/images/seedling.svg" width="50" style={{ cursor: 'pointer', pointerEvents: 'auto' }}/>
+                    <img onClick={() => onPlantClick(plant)} alt={`plant${i+1}`} src="/assets/images/seedling.svg" width="50" 
+                        style={{ cursor: 'pointer', pointerEvents: 'auto' /* e.g. , filter: 'hue-rotate(280deg) saturate(150%)'  */ }}/>
                 </div>
             )}
         </React.Fragment>
         );
     });
 
+    /*  ================= Inline CSS needed to change the hue of the Plant images on the SoilGrid ==================== 
+    
+        If the plant has the following:
+            - health score above 50% (green): do not add anything to the plant's img tag in the React Fragment above
+
+            - health score of 20% to 50% (orange): add the following in the style attribute of the img tag: 
+                    filter: "hue-rotate(321deg) saturate(100%)"
+
+            - health score below 20% (red):
+                    filter: "hue-rotate(280deg) saturate(150%)"
+
+            - health score at 0%:
+                    -> the img tag's src path must change to: /assets/images/Dead-plant.svg 
+                    -> and the following must be added to the style attribute: marginTop: '5em'
+                    E.g. <img onClick={() => onPlantClick(plant)} alt={`plant${i+1}`} src="/assets/images/Dead-plant.svg" width="50" style={{ cursor: 'pointer', pointerEvents: 'auto', marginTop: '5em' }}/>
+    
+    */
+
+
     return (
         <div className="soilBody">
             <div id="soilGrid">
                 {slots}
-                {/* <img alt="soil1" id="soil1" src="/assets/images/soil.svg" width="50"/>
-                
-                <div id="plant1"><img onClick={toggle} alt="plant1" src="/assets/images/seedling.svg" width="50"/></div>
-                
-                <img alt="soil2" id="soil2" src="/assets/images/soil.svg" width="50"/>
-                <img alt="soil3" id="soil3" src="/assets/images/soil.svg" width="50"/>
-                <img alt="soil4" id="soil4" src="/assets/images/soil.svg" width="50"/>
-                <img alt="soil5" id="soil5" src="/assets/images/soil.svg" width="50"/>
-                <img alt="soil6" id="soil6" src="/assets/images/soil.svg" width="50"/>
-                <img alt="soil7" id="soil7" src="/assets/images/soil.svg" width="50"/>
-                <img alt="soil8" id="soil8" src="/assets/images/soil.svg" width="50"/>
-                <img alt="soil9" id="soil9" src="/assets/images/soil.svg" width="50"/> */}
             </div>
             {isOpen && <PlantInfoCard onCancel={toggle} plant={selected} />}
         </div>
