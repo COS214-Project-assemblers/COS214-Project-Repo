@@ -1,29 +1,28 @@
 /* Ane' Burger 24565068 */
 
 import React, { useState, useEffect, useMemo } from "react";
+import { getCategoriesCount, getInitialPrices, buyPlant } from "../utils/utils.js";
 
 const Menu = ({ onCancel }) => {
-    const [flower, setFlower] = useState([0,0,0]);
-    const [succulent, setSucculent] = useState([0,0,0]);
-    const [tree, setTree] = useState([0,0,0]);
+    const [flower, setFlower] = useState([0, 0, 0]);
+    const [succulent, setSucculent] = useState([0, 0, 0]);
+    const [tree, setTree] = useState([0, 0, 0]);
+
     const [used, setUsed] = useState(0);
     const [capacity, setCapacity] = useState(9);
     const [balance, setBalance] = useState(0);
-    const [prices, setPrices] = useState({ flower:[0,0,0], succulent:[0,0,0], tree:[0,0,0] });
+    const [prices, setPrices] = useState(getInitialPrices());
     const available = Math.max(0, capacity - used);
 
     useEffect(() => {
         const load = async () => {
             try {
-                const [gh, bal, pr] = await Promise.all([
+                const [gh, bal] = await Promise.all([
                     fetch('/api/greenhouse').then(r => r.json()),
-                    fetch('/api/balance').then(r => r.json()),
-                    fetch('/api/cost-prices').then(r => r.json())
+                    fetch('/api/balance').then(r => r.json())
                 ]);
                 setUsed(gh.used ?? 0);
-                setCapacity(gh.capacity ?? 9);
                 setBalance(bal.balance ?? 0);
-                setPrices(pr);
             } catch (e) { /* ignore */ }
         };
         load();
@@ -57,29 +56,38 @@ const Menu = ({ onCancel }) => {
             alert(`Insufficient balance. You need ${totalCost}, available ${balance}.`);
             return;
         }
-        try {
-        const res = await fetch('/api/plants/buy', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ flower, succulent, tree }),
-        });
-        const data = await res.json();
-        if (!res.ok) {
-            alert(data.error || 'Failed to buy plants');
-            return;
+
+        let categoriesCount = getCategoriesCount();
+        console.log(categoriesCount);
+        for (let i = 0; i < flower.length; i++) {
+            if (flower[i] > 0) {
+                await buyPlant(categoriesCount.flowers[0][i].name, flower[i]);
+            }
+        }
+
+        for (let i = 0; i < succulent.length; i++) {
+            if (succulent[i] > 0) {
+                await buyPlant(categoriesCount.succulents[0][i].name, succulent[i]);
+            }
+        }
+
+        for (let i = 0; i < tree.length; i++) {
+            if (tree[i] > 0) {
+                await buyPlant(categoriesCount.trees[0][i].name, tree[i]);
+            }
         }
         
-        setUsed(data.used ?? used);
-        setBalance(data.balance ?? balance);
+        // setUsed(data.used ?? used);
+        // setBalance(data.balance ?? balance);
         
         window.dispatchEvent(new CustomEvent('greenhouse:refresh'));
-        window.dispatchEvent(new CustomEvent('balance:update', { detail: data.balance }));
+        // window.dispatchEvent(new CustomEvent('balance:update', { detail: data.balance }));
         setFlower([0,0,0]); setSucculent([0,0,0]); setTree([0,0,0]); // Reset selections after successful purchase
         onCancel();
-        } catch (e) {
-        console.error(e);
-        alert('Network error while buying plants.');
-        }
+        // } catch (e) {
+        // console.error(e);
+        // alert('Network error while buying plants.');
+        // }
     };
 
     return (

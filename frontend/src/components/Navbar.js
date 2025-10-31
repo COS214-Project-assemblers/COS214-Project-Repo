@@ -26,7 +26,7 @@ const Navbar = () => {
 
     const exitGame = async () => {
         try {
-            const res = await fetch('/api/exit-game', { method: 'POST' });
+            const res = await fetch('/api/exit-game', { method: 'GET' });
             if (!res.ok) {
                 const err = await res.json().catch(() => ({}));
                 console.error('Exit game failed', err);
