@@ -56,3 +56,6 @@ log*
 
 .env
 .env*
+
+venv
+utils/venv/*
