@@ -400,3 +400,8 @@ string Game::getCustomersAsJson()
     
     return jsonArray.str();
 }
+
+void Game::exitGame()
+{
+    logger->newLog("Exiting game...");
+}

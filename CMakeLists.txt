@@ -37,6 +37,8 @@ set(SOURCES
   backend/game/MenuOption.h
   backend/game/NewGameOption.h
   backend/game/NewGameOption.cpp
+  backend/game/ExitGameOption.h
+  backend/game/ExitGameOption.cpp
   backend/game/PlayerMenu.h
   backend/game/PlayerMenu.cpp
   backend/game/Logger.h

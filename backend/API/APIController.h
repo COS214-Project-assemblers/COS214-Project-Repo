@@ -18,7 +18,8 @@
 #include "ContinueGameOption.h"
 #include "BasicLogger.h"
 #include "API.h"
-
+#include "ExitGameOption.h"
+#include <cstdlib>
 #include <stdexcept>
 #include <memory>
 #include <iostream>
@@ -71,6 +72,17 @@ public:
      *  statusCode: <HTTP status code, 200/500>
      * }
      */
+    
+    if (apiToControl.game == nullptr)
+    {
+      char* gameConfigPath = getenv("GAME_CONFIG_PATH");
+      if (gameConfigPath == nullptr) {
+          std::cout << "GAME_CONFIG_PATH environment variable not set, exiting..." << std::endl;
+          exit(EXIT_FAILURE);
+      }
+      apiToControl.game = new Game(gameConfigPath);
+    }
+
     PlayerMenu* playerMenu = new PlayerMenu();
     BasicLogger* logger = new BasicLogger();
     NewGameOption* newGame = new NewGameOption(apiToControl.game, logger);
@@ -95,6 +107,38 @@ public:
     }   
   }
   
+  ENDPOINT("GET", "/exit-game", exitGameEndp) {
+    /**
+     * Response structure
+     * 
+     * {
+     *  message: <game-status>,
+     *  statusCode: <HTTP status code, 200/500>
+     * }
+     */
+    PlayerMenu* playerMenu = new PlayerMenu();
+    BasicLogger* logger = new BasicLogger();
+    ExitGameOption* exitGame = new ExitGameOption(apiToControl.game, logger);
+    playerMenu->setMenuOption(exitGame);
+
+    auto dto = APIDto::createShared();
+
+    try {
+      playerMenu->executeOption();
+      // Deleting playerMenu also frees newGame
+      delete playerMenu;
+      delete logger;
+      dto->statusCode = 200;
+      dto->message = "Game Exited";
+      return createDtoResponse(Status::CODE_200, dto);
+    } catch (const std::exception &e) { // Catches any exception thrown, adds exception message to response
+      delete playerMenu;
+      delete logger;
+      dto->statusCode = 500;
+      dto->message = "Failed to exit Game: " + *e.what();
+      return createDtoResponse(Status::CODE_500, dto);
+    }   
+  }
   // Further Endpoints
 
   ENDPOINT("POST", "/buy-plants", buyPlants, BODY_DTO(oatpp::Object<BuyPlantDTO>, body)) 
