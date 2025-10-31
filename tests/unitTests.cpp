@@ -629,4 +629,6 @@ TEST(BuilderTests, TestPlantOffering)
             ASSERT_TRUE(plant.contains("returnable"));
         }
     }
+    
+    delete game;
 }

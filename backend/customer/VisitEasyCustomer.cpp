@@ -5,9 +5,10 @@ VisitEasyCustomer::VisitEasyCustomer(const Inventory& inv):CustomerVisitor(inv){
 
 vector<Plant*> VisitEasyCustomer::visit(IgnorantCustomerBuilder& builder)
 {
-    std::vector<Plant*> easy=inv.findByDifficulty("easy");
-    std::vector<Plant*> med=inv.findByDifficulty("medium");
-    std::vector<Plant*> hard=inv.findByDifficulty("hard");
+    std::vector<Plant*> easy = findByDifficulty("easy");
+    std::vector<Plant*> med = findByDifficulty("medium");
+    std::vector<Plant*> hard = findByDifficulty("hard");
+
     addRandomPlants(easy,3,offer);
     markCorrectPlants(easy,3,false);//add param for wherther to make as returnable or not? -> this one is NOT returnable
     addRandomPlants(med,1,offer);
@@ -20,9 +21,10 @@ vector<Plant*> VisitEasyCustomer::visit(IgnorantCustomerBuilder& builder)
 
 vector<Plant*> VisitEasyCustomer::visit(AverageCustomerBuilder& builder)
 {
-    std::vector<Plant*> easy=inv.findByDifficulty("easy");
-    std::vector<Plant*> med=inv.findByDifficulty("medium");
-    std::vector<Plant*> hard=inv.findByDifficulty("hard");
+    std::vector<Plant*> easy = findByDifficulty("easy");
+    std::vector<Plant*> med = findByDifficulty("medium");
+    std::vector<Plant*> hard = findByDifficulty("hard");
+
     addRandomPlants(easy,1,offer);
     markCorrectPlants(easy,1,true);
     addRandomPlants(med,3,offer);
@@ -35,9 +37,10 @@ vector<Plant*> VisitEasyCustomer::visit(AverageCustomerBuilder& builder)
 
 vector<Plant*> VisitEasyCustomer::visit(GreenFingerCustomerBuilder& builder)
 {
-    std::vector<Plant*> easy=inv.findByDifficulty("easy");
-    std::vector<Plant*> med=inv.findByDifficulty("medium");
-    std::vector<Plant*> hard=inv.findByDifficulty("hard");
+    std::vector<Plant*> easy = findByDifficulty("easy");
+    std::vector<Plant*> med = findByDifficulty("medium");
+    std::vector<Plant*> hard = findByDifficulty("hard");
+    
     addRandomPlants(easy,1,offer);
     addRandomPlants(med,1,offer);
     markCorrectPlants(med,1,true);

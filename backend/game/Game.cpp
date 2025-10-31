@@ -224,7 +224,7 @@ Game::~Game()
 
     for (auto customer : customers)
     {
-        if(customer)
+        if(customer != nullptr)
         {
             delete customer;
         }
@@ -240,7 +240,7 @@ Game::~Game()
         delete greenhouse;
     }
 
-    if(manager)
+    if(manager != nullptr)
     {
         delete manager;
     }
@@ -300,28 +300,14 @@ void Game::createCustomers(string type, int num)
     CustomerVisitor* visitor = nullptr;
     mt19937 rng;
 
-    vector<string> v;
-    v.push_back("easy");
-    v.push_back("medium");
-    v.push_back("hard");
+    vector<string> difficulties = {"easy", "medium", "hard"};
+    uniform_int_distribution<size_t> dist(0, difficulties.size() - 1);
 
-    uniform_int_distribution<size_t> dist(0, v.size() - 1);
     string chosen;
-    CustomerBuilder* builder = nullptr;
     
     for (int i = 0; i < num; i++) 
     {
-        if(builder)
-        {
-            delete builder;
-            builder = nullptr;
-        }
-        
-        if(visitor)
-        {
-            delete visitor;
-            visitor = nullptr;
-        }
+        CustomerBuilder* builder = nullptr;
         
         if (type == "average") 
         {
@@ -340,7 +326,8 @@ void Game::createCustomers(string type, int num)
             throw runtime_error("Unknown customer type: " + type);
         }
         
-        chosen = v[dist(rng)];
+        string chosen = difficulties[dist(rng)];
+        CustomerVisitor* visitor = nullptr;
 
         if(chosen == "easy")
         {
@@ -359,16 +346,9 @@ void Game::createCustomers(string type, int num)
         Customer* customer = director.construct(*visitor);
         
         customers.push_back(customer);
-    }
 
-    if(builder)
-    {
-        delete builder;
-    }
-
-    if(visitor)
-    {
         delete visitor;
+        delete builder;
     }
 
     logger->newLog("+ Created " + to_string(num) + " " + type + " customers");

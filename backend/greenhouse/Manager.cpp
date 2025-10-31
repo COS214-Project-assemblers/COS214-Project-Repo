@@ -21,12 +21,12 @@ Manager::Manager()
 
 Manager::~Manager()
 {
-    if(strat)
+    if(strat != nullptr)
     {
         delete strat;
     }
 
-    if(floor)
+    if(floor != nullptr)
     {
         delete floor;
     }
