@@ -20,6 +20,7 @@ class TransactionMem{
         std::string type;///<Type of transaction
         Plant* plant;///<Plant from transaction
         int transactionID;///<Unique ID for transaction
+        int returnedID;///<Default is -1, otherwise represents the transactionID from previous sale of return
     public:
         /**
          * @brief Constructor
@@ -65,5 +66,15 @@ class TransactionMem{
          * @return the plant from the transaction
          */
         int getTransactionID()const;
+        /**
+         * @brief Setter for the transactionID from previous sale of return
+         * @param tID The reference id of the previous sale id
+         */
+        void setReturnedID(int tID);
+        /**
+         * @brief Gerrter for the returnID
+         * @return The returned ID
+         */
+        int getReturnedID()const
 };
 #endif

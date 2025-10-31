@@ -33,3 +33,11 @@ Plant* TransactionMem::getPlant()const{
 int TransactionMem::getTransactionID()const{
     return this->transactionID;
 }
+
+int TransactionMem::getReturnedID()const{
+    return this->returnedID;
+}
+
+void TransactionMem::setReturnedID(int tID){
+    this->returnedID=tID;
+}

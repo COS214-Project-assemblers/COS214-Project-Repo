@@ -53,7 +53,7 @@ bool TransactionHistory::hasBeenReturned(int tID)const{
         return false;
     }
     for(int i=0;i<(int)this->memento.size();i++){
-        if(this->memento[i].getType()=="Return" && this->memento[i].getTransactionID()==tID){
+        if(this->memento[i].getType()=="Return" && this->memento[i].getReturnID()==tID){
             return true;
         }
     }

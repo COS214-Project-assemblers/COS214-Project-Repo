@@ -22,7 +22,6 @@ class Transaction{
         TransactionStrategy* tS;///<Pointer to a Transaction Strategy object
         double value;///<Value of transaction
         int transactionID=1;///<Unique ID for transaction
-        int referenceID;///<Reference ID to point to the original transaction in case of returns -> might add later
     public:
         /**
          * @brief Constructor
@@ -56,10 +55,5 @@ class Transaction{
          * @return transaction ID
          */
         int getTransactionID() const;
-        /**
-         * @brief getter for reference ID
-         * @return reference ID
-         */
-        int getReferenceID() const;
 };
 #endif

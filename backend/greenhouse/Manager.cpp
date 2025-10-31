@@ -88,6 +88,7 @@ void Manager::processReturns(Plant& p){ // This function needs to make sure that
     strat = new Return();
     Transaction ret(strat,p.getSalePrice());//creates new sale transaction with 0 value
     TransactionMem snap=ret.createTransactionMem(ledger,&p);//creates snapshot
+    snap.setReturnID(id);//records the return ID in the memento class
     hist.markAsReturned(id);//maks the transaction as returned
     hist.setTransactionMem(snap);//adds snapshot to history
     hist.markAsReturned(snap.getTransactionID());//maks the transaction as returned
