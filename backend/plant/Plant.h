@@ -271,12 +271,28 @@ class Plant
          * @return True if the plant is returnable, false otherwise.
          */
         bool isReturnable();
+
+        /**
+         * @brief Static method to set static member variable plantCosts
+         * @param[in] plantCosts maps the plant variety to it's integer price
         /**
          * @brief Sets whether the plant is acceptable to customers.
          * @param acceptable Boolean indicating if the plant is acceptable.
          */
         void setAcceptable(bool acceptable);
         /**
+         * @brief Used to stub plantCosts static variable when testing plants
+         *  without creating game, ensuring that there are no invalid reads, variable
+         *  instantiated before use
+         */
+        static void stubPlant();
+
+        /**
+         * @brief return plantCosts for testing purposes
+         */
+        static map<string, vector<int>> getPlantCosts();
+};
+
          * @brief Checks if the plant is acceptable to customers.
          * @return True if the plant is acceptable, false otherwise.
          */
