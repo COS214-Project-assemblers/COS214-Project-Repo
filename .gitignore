@@ -57,5 +57,8 @@ log*
 .env
 .env*
 
+bin/*
+utils/venv
+venv/*
 venv
 utils/venv/*
