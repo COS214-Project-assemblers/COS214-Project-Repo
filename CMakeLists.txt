@@ -63,10 +63,12 @@ set(SOURCES
   backend/plant/NotSellable.cpp
   backend/plant/PlantHealth.h
   backend/plant/PlantHealth.cpp
+
   backend/greenhouse/Greenhouse.h
   backend/greenhouse/Greenhouse.cpp
   backend/greenhouse/Inventory.h
   backend/greenhouse/Inventory.cpp
+
   backend/customer/Customer.h
   backend/customer/Customer.cpp
   backend/customer/IgnorantCustomer.h
@@ -77,21 +79,56 @@ set(SOURCES
   backend/customer/GreenFingerCustomer.cpp
   backend/customer/CustomerVisitor.h
   backend/customer/CustomerVisitor.cpp
-  backend/customer/VisitAverageSpendCustomer.h
-  backend/customer/VisitAverageSpendCustomer.cpp
-  backend/customer/VisitBigSpendCustomer.h
-  backend/customer/VisitBigSpendCustomer.cpp
-  backend/customer/VisitLowSpendCustomer.h
-  backend/customer/VisitLowSpendCustomer.cpp
+  backend/customer/VisitEasyCustomer.h
+  backend/customer/VisitEasyCustomer.cpp
+  backend/customer/VisitMediumCustomer.h
+  backend/customer/VisitMediumCustomer.cpp
+  backend/customer/VisitHighCustomer.h
+  backend/customer/VisitHighCustomer.cpp
+
   backend/game/GameConfiguration.h
   backend/game/JSONGameConfiguration.h
   backend/game/JSONGameConfiguration.cpp
   backend/game/EnvironmentInitializer.h
   backend/game/EnvironmentInitializer.cpp
+
+  backend/customer/CustomerBuilder.h
+  backend/customer/CustomerBuilder.cpp
+  backend/customer/IgnorantCustomerBuilder.h
+  backend/customer/IgnorantCustomerBuilder.cpp
+  backend/customer/AverageCustomerBuilder.h
+  backend/customer/AverageCustomerBuilder.cpp
+  backend/customer/GreenFingerCustomerBuilder.h
+  backend/customer/GreenFingerCustomerBuilder.cpp
+  backend/customer/Director.h
+  backend/customer/Director.cpp
+
   backend/game/LogDecorator.h
   backend/game/LogDecorator.cpp
   backend/game/CoutAndLog.h
   backend/game/CoutAndLog.cpp
+  backend/game/Ledger.h
+  backend/game/Ledger.cpp
+  backend/game/Transaction.h
+  backend/game/Transaction.cpp
+  backend/game/TransactionMem.h
+  backend/game/TransactionMem.cpp
+  backend/game/TransactionHistory.h
+  backend/game/TransactionHistory.cpp
+  backend/game/TransactionStrategy.h
+  backend/game/TransactionStrategy.cpp
+  backend/greenhouse/Manager.h
+  backend/greenhouse/Manager.cpp
+  backend/greenhouse/SalesFloor.h
+  backend/greenhouse/SalesFloor.cpp
+  backend/game/Sale.h
+  backend/game/Sale.cpp
+  backend/game/Restock.h
+  backend/game/Restock.cpp
+  backend/game/Return.h
+  backend/game/Return.cpp
+  backend/game/PlantDied.h
+  backend/game/PlantDied.cpp
 )
 
 add_executable(g_test

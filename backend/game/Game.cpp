@@ -1,13 +1,22 @@
 #include "Game.h"
 #include "Greenhouse.h"
-#include "PlantCreator.h"
-#include "FlowerCreator.h"
-#include "SucculentCreator.h"
-#include "TreeCreator.h"
 #include "JSONGameConfiguration.h"
 #include "BasicLogger.h"
 #include "LogDecorator.h"
 #include "CoutAndLog.h"
+
+#include "FlowerCreator.h"
+#include "SucculentCreator.h"
+#include "TreeCreator.h"
+
+#include "AverageCustomerBuilder.h"
+#include "IgnorantCustomerBuilder.h"
+#include "GreenFingerCustomerBuilder.h"
+#include "Director.h"
+#include "VisitEasyCustomer.h"
+#include "VisitMediumCustomer.h"
+#include "VisitHighCustomer.h"
+#include "Inventory.h"
 
 Game::Game(string configPath)
 {
@@ -20,15 +29,24 @@ Game::Game(string configPath)
         logger->newLog("Attempting to load JSON game configuration " + configPath);
         config = new JSONGameConfiguration(configPath);
 
-        map<string, vector<string>> varieties = config->getPlantVarieties();
-        for (const auto &[category, variants] : varieties)
+        map<string, vector<int>> plantCosts;
+        vector<PlantStruct*> plants = config->getPlantVarieties();        for (PlantStruct* p : plants)
         {
-            for (const auto &variety : variants)
-            {
-                varietyToCategory[variety] = category;
-                cout << "✓ Mapped variety '" << variety << "' to category '" << category << "'" << endl;
-            }
+            string variety = p->variety;
+            varietyToCategory[variety] = p->category;
+            string mapMessage = "✓ Mapped variety '" + variety + "' to category '" + p->category + "'";
+            logger->newLog(mapMessage);
+            vector<int> costs = {p->costPrice, p->salePrice};
+            plantCosts[variety] = costs;
+            string costMessage =  "✓ Saved cost price of " + variety + ": " + to_string(costs[0]);
+            logger->newLog(costMessage);
+            costMessage = "✓ Saved sale price of " + variety + ": " + to_string(costs[1]);
+            logger->newLog(costMessage);
+            delete p;
         }
+
+        Plant::setPlantCosts(plantCosts);
+        Plant::setLogger(logger);
     }
     catch (const runtime_error &e)
     {
@@ -73,10 +91,8 @@ map<string, PlantCreator *> Game::getFactories()
     return factories;
 }
 
-void createFactoriesHelper(string category, vector<string> variants, map<string, PlantCreator *>& factories, Logger* logger)
+void createFactoriesHelper(string category, string variant, map<string, PlantCreator *>& factories, Logger* logger)
 {
-    for (const auto &v : variants)
-    {
         // Not optimal, but at least centralized
         PlantCreator* newPlantCreator;
         if (category == "succulents") {
@@ -90,11 +106,11 @@ void createFactoriesHelper(string category, vector<string> variants, map<string,
             return;
         }
 
-        newPlantCreator->makePlant(v);
-        string message = "+ Made " + category + " factory for variety [" + v + "]";
+        newPlantCreator->makePlant(variant);
+        string message = "+ Made " + category + " factory for variety [" + variant + "]";
         logger->newLog(message);
-        factories[v] = newPlantCreator;
-    }
+        factories[variant] = newPlantCreator;
+    
 }
 
 void Game::createNewGame()
@@ -102,16 +118,18 @@ void Game::createNewGame()
     // try
     try
     {
+        
         // Create new factories
+        vector<PlantStruct*> plants;
         map<string, vector<string>> varieties;
         map<string, PlantCreator *> factories;
 
-        varieties = config->getPlantVarieties();
-        for (const auto &[category, variants] : varieties)
-        {
-            createFactoriesHelper(category, variants, factories, logger);
-        }
+        plants = config->getPlantVarieties();
 
+        for (PlantStruct* plant : plants) {
+            createFactoriesHelper(plant->category, plant->variety, factories, logger);
+            delete plant;
+        }
         setFactories(factories);
 
         logger->newLog("+ Created factories");
@@ -130,6 +148,11 @@ void Game::createNewGame()
     {
         throw runtime_error("Failed to create greenhouse for unknown reason");
     }
+
+    if(!manager)
+    {
+        manager = new Manager();
+    }
 }
 
 void Game::buyPlants(string plant, int num) 
@@ -147,6 +170,11 @@ void Game::buyPlants(string plant, int num)
     if (factories.empty()) 
     {
         throw runtime_error("No plant factories available. Please create a new game first.");
+    }
+
+    if(manager == nullptr)
+    {
+        throw runtime_error("No manager available. Please create a new game first.");
     }
 
     auto factoryIt = factories.find(plant);
@@ -170,6 +198,7 @@ void Game::buyPlants(string plant, int num)
 
         if (clonedPlant != nullptr) 
         {
+            manager->recordRestock(*clonedPlant);
             greenhouse->addPlant(clonedPlant);
         } 
         else 
@@ -193,6 +222,14 @@ Game::~Game()
         delete it->second;
     }
 
+    for (auto customer : customers)
+    {
+        if(customer != nullptr)
+        {
+            delete customer;
+        }
+    }
+
     if (config != nullptr)
     {
         delete config;
@@ -201,6 +238,11 @@ Game::~Game()
     if (greenhouse != nullptr)
     {
         delete greenhouse;
+    }
+
+    if(manager != nullptr)
+    {
+        delete manager;
     }
 }
 
@@ -216,7 +258,123 @@ string Game::getCategoryForVariety(string variety)
     return it->second;
 }
 
-map<string, vector<string>> Game::getAvailablePlantVarieties() 
+vector<PlantStruct*> Game::getAvailablePlantVarieties() 
 {
     return config->getPlantVarieties();
+}
+
+void Game::createCustomers(string type, int num)
+{
+    if (num <= 0) 
+    {
+        throw runtime_error("Number of customers must be positive, got: " + to_string(num));
+    }
+    
+    if (greenhouse == nullptr) 
+    {
+        throw runtime_error("Greenhouse not initialized. Please create a new game first.");
+    }
+
+    if (manager == nullptr) 
+    {
+        throw runtime_error("Manager is null");
+    }
+
+    // Validate customer type exists in configuration
+    auto availableCustomerTypes = getAvailableCustomerTypes();
+    if (availableCustomerTypes.find(type) == availableCustomerTypes.end()) 
+    {
+        string availableTypes = "Available customer types: ";
+
+        for (const auto& [customerType, data] : availableCustomerTypes) 
+        {
+            availableTypes += customerType + " ";
+        }
+
+        throw runtime_error("Customer type '" + type + "' not found. " + availableTypes);
+    }
+
+    const Inventory* inventory = manager->getSaleInventory();
+    Director director;
+    mt19937 rng;
+
+    vector<string> difficulties = {"easy", "medium", "hard"};
+    uniform_int_distribution<size_t> dist(0, difficulties.size() - 1);
+
+    string chosen;
+    
+    for (int i = 0; i < num; i++) 
+    {
+        CustomerBuilder* builder = nullptr;
+        
+        if (type == "average") 
+        {
+            builder = new AverageCustomerBuilder(config);
+        } 
+        else if (type == "ignorant") 
+        {
+            builder = new IgnorantCustomerBuilder(config);
+        } 
+        else if (type == "greenfinger") 
+        {
+            builder = new GreenFingerCustomerBuilder(config);
+        } 
+        else 
+        {
+            throw runtime_error("Unknown customer type: " + type);
+        }
+        
+        string chosen = difficulties[dist(rng)];
+        CustomerVisitor* visitor = nullptr;
+
+        if(chosen == "easy")
+        {
+            visitor = new VisitEasyCustomer(*inventory);
+        }
+        else if(chosen == "medium")
+        {
+            visitor = new VisitMediumCustomer(*inventory);
+        }
+        else // default to hard
+        {
+            visitor = new VisitHighCustomer(*inventory);
+        }
+
+        director.setBuilder(builder);
+        Customer* customer = director.construct(*visitor);
+        
+        customers.push_back(customer);
+
+        delete visitor;
+        delete builder;
+    }
+
+    logger->newLog("+ Created " + to_string(num) + " " + type + " customers");
+}
+
+void Game::setManager(Manager* m)
+{
+    manager = m;
+}
+
+vector<Customer*> Game::getCustomers()
+{
+    return customers;
+}
+
+map<string, map<string, vector<string>>> Game::getAvailableCustomerTypes()
+{
+    return config->getCustomerTypes();
+}
+
+string Game::getCustomersAsJson()
+{
+    json customersArray = json::array();
+
+    for (auto* customer : customers)
+    {
+        customersArray.push_back(json::parse(customer->getStructure()));
+    }
+
+    return customersArray.dump(4); // pretty-print with 4-space indentation
 }

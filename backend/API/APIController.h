@@ -81,7 +81,6 @@ public:
     PlayerMenu* playerMenu = new PlayerMenu();
     BasicLogger* logger = new BasicLogger();
     NewGameOption* newGame = new NewGameOption(apiToControl.game, logger);
-    
     playerMenu->setMenuOption(newGame);
 
     auto dto = APIDto::createShared();
@@ -154,6 +153,84 @@ public:
     {
       dto->statusCode = 500;
       dto->message = "Failed to buy plants: " + std::string(e.what());
+      return createDtoResponse(Status::CODE_500, dto);
+    }
+  }
+
+  ENDPOINT("POST", "/add-customers", addCustomers, BODY_DTO(oatpp::Object<AddCustomerDTO>, body)) 
+  { 
+    // Expected request structure:
+    // {
+    //   "customerType": "ignorant",
+    //   "numToAdd": 5
+    // }
+    
+    auto dto = APIDto::createShared();
+
+    if (!body) 
+    {
+      dto->statusCode = 400;
+      dto->message = "Request body is required";
+      
+      return createDtoResponse(Status::CODE_400, dto);
+    }
+
+    if (!body->customerType || body->customerType->empty()) 
+    {
+      dto->statusCode = 400;
+      dto->message = "Customer type parameter is required in request body";
+
+      return createDtoResponse(Status::CODE_400, dto);
+    }
+
+    if (!body->numToAdd || *body->numToAdd <= 0) 
+    {
+      dto->statusCode = 400;
+      dto->message = "Number of customers must be a positive integer in request body";
+
+      return createDtoResponse(Status::CODE_400, dto);
+    }
+
+    try 
+    {
+      std::string customerTypeStr = body->customerType->c_str();
+      int numValue = *body->numToAdd;
+  
+      apiToControl.game->createCustomers(customerTypeStr, numValue);
+      
+      dto->statusCode = 200;
+      dto->message = "Successfully added " + std::to_string(numValue) + " " + customerTypeStr + " customers";
+
+      return createDtoResponse(Status::CODE_200, dto);
+    } 
+    catch (const std::exception &e) 
+    {
+      dto->statusCode = 500;
+      dto->message = "Failed to add customers: " + std::string(e.what());
+
+      return createDtoResponse(Status::CODE_500, dto);
+    }
+  }
+
+  ENDPOINT("GET", "/customers", getCustomers) 
+  {
+    auto dto = CustomerResponseDTO::createShared();
+
+    try 
+    {
+      std::string customersJson = apiToControl.game->getCustomersAsJson();
+      
+      dto->statusCode = 200;
+      dto->message = "Successfully retrieved customers";
+      dto->customersJson = String(customersJson.c_str());
+      
+      return createDtoResponse(Status::CODE_200, dto);
+    } 
+    catch (const std::exception &e) 
+    {
+      dto->statusCode = 500;
+      dto->message = "Failed to get customers: " + std::string(e.what());
+      
       return createDtoResponse(Status::CODE_500, dto);
     }
   }

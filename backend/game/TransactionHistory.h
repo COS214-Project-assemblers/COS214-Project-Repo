@@ -5,11 +5,14 @@
 #define TRANSACTIONHISTORY_H
 
 #include "TransactionMem.h"
-#include "ledger.h"
+#include "Ledger.h"
+#include "Inventory.h"
 
 #include <iostream>
 #include <vector>
 #include <stdexcept>
+
+class Inventory;
 
 /**
  * @class TransactionHistory
@@ -47,7 +50,7 @@ class TransactionHistory{
          * @param l Reference to the ledger object to modify
          * @return True if undo succeed, False if not.
          */
-        bool processReturn(Ledger& l);
+        bool processReturn(Ledger& l,Inventory& inv);
         /**
          * @brief Clears transaction History to start new day/reset
          */

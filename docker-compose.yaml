@@ -5,6 +5,7 @@ services:
       dockerfile: config/API/Dockerfile
     ports:
       - "8000:8000"
+      - "8001:8001"
     volumes:
       - ./config/API/CMakeLists.txt:/app/CMakeLists.txt:ro
       - ./backend:/app/backend

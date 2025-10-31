@@ -19,6 +19,20 @@
 #include "FlowerCreator.h"
 #include "TreeCreator.h"
 #include "Plant.h"
+#include "Transaction.h"
+#include "TransactionMem.h"
+#include "TransactionHistory.h"
+#include "TransactionStrategy.h"
+#include "Sale.h"
+#include "Restock.h"
+#include "Return.h"
+#include "PlantDied.h"
+#include "SalesFloor.h"
+#include "Inventory.h"
+#include "IgnorantCustomerBuilder.h"
+#include "AverageCustomerBuilder.h"
+#include "GreenFingerCustomerBuilder.h"
+
 
 TEST(TestSuiteName, TestName) {
     // Setup
@@ -33,7 +47,7 @@ TEST(TestSuiteName, TestName) {
 }
 
 TEST(PlantDynamicTest, HealthChangesOverTime) {
-    Plant* myPlant = new Succulent("Aloe");
+    Plant* myPlant = new Succulent("Aloe", "easy");
 
     float initialScore = myPlant->healthScore();
 
@@ -71,6 +85,7 @@ TEST(GameCreationTests, NewGameOptionExecutesProperly) {
 TEST(PlantFactoryTests, SucculentCreationAndCloning)
 {
     // Test Succulent creation through factory
+    Plant::stubPlant();
     SucculentCreator succulentCreator;
     succulentCreator.makePlant("Cactus");
     
@@ -88,6 +103,7 @@ TEST(PlantFactoryTests, SucculentCreationAndCloning)
     Plant* clonedSucculent = succulent->clone();
     EXPECT_NE(clonedSucculent, nullptr) << "clone() should return non-null pointer";
     EXPECT_NE(succulent, clonedSucculent) << "Clone should be a different object from original";
+    EXPECT_NE(clonedSucculent->getId(), "");
     EXPECT_EQ(clonedSucculent->getPlantCategory(), "Succulent") << "Cloned succulent should have same category";
     EXPECT_EQ(clonedSucculent->getPlantVariety(), "Cactus") << "Cloned succulent should have same variety";
     
@@ -100,6 +116,8 @@ TEST(PlantFactoryTests, SucculentCreationAndCloning)
 
 TEST(PlantFactoryTests, FlowerCreationAndCloning)
 {
+    Plant::stubPlant();
+
     // Test Flower creation through factory
     FlowerCreator flowerCreator;
     flowerCreator.makePlant("Rose");
@@ -117,6 +135,7 @@ TEST(PlantFactoryTests, FlowerCreationAndCloning)
     // Test cloning functionality
     Plant* clonedFlower = flower->clone();
     EXPECT_NE(clonedFlower, nullptr) << "clone() should return non-null pointer";
+    EXPECT_NE(clonedFlower->getId(), "") << "Plant id creation";
     EXPECT_NE(flower, clonedFlower) << "Clone should be a different object from original";
     EXPECT_EQ(clonedFlower->getPlantCategory(), "Flower") << "Cloned flower should have same category";
     EXPECT_EQ(clonedFlower->getPlantVariety(), "Rose") << "Cloned flower should have same variety";
@@ -130,6 +149,8 @@ TEST(PlantFactoryTests, FlowerCreationAndCloning)
 
 TEST(PlantFactoryTests, TreeCreationAndCloning)
 {
+    Plant::stubPlant();
+
     // Test Tree creation through factory
     TreeCreator treeCreator;
     treeCreator.makePlant("Lemon");
@@ -149,6 +170,7 @@ TEST(PlantFactoryTests, TreeCreationAndCloning)
     EXPECT_NE(clonedTree, nullptr) << "clone() should return non-null pointer";
     EXPECT_NE(tree, clonedTree) << "Clone should be a different object from original";
     EXPECT_EQ(clonedTree->getPlantCategory(), "Tree") << "Cloned tree should have same category";
+    EXPECT_NE(clonedTree->getId(), "") << "Plant id creation";
     EXPECT_EQ(clonedTree->getPlantVariety(), "Lemon") << "Cloned tree should have same variety";
     
     std::cout << "✓ Tree cloning successful - original and clone are different objects with same properties" << std::endl;
@@ -426,18 +448,19 @@ TEST(GameTests, BuyPlantsFactoryMethodIntegration)
     Game* game = new Game(configPath);
     game->createNewGame();
     
-    map<string, vector<string>> varieties = game->getAvailablePlantVarieties();
+    vector<PlantStruct*> plants = game->getAvailablePlantVarieties();
     
-    for (const auto& [category, plantList] : varieties) {
-        if (!plantList.empty()) {
-            string testPlant = plantList[0];
+    for (PlantStruct* pStruct : plants) {
+        if (pStruct->variety != "") {
+            string testPlant = pStruct->variety;
             EXPECT_NO_THROW({
                 game->buyPlants(testPlant, 1);
-            }) << "Should buy " << testPlant << " from " << category << " category";
+            }) << "Should buy " << testPlant << " from " << pStruct->category << " category";
             
             std::cout << "✓ Factory Method correctly created " << testPlant 
-                      << " (" << category << ")" << std::endl;
+                      << " (" << pStruct->category << ")" << std::endl;
         }
+        delete pStruct;
     }
     
     delete game;
@@ -450,27 +473,164 @@ TEST(GameTests, PlantVarietyMapping)
     std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
     Game* game = new Game(configPath);
     
-    map<string, vector<string>> varieties = game->getAvailablePlantVarieties();
+    vector<PlantStruct*> plants = game->getAvailablePlantVarieties();
     std::cout << "Loaded varieties from config:" << std::endl;
-    for (const auto& [category, varietiesList] : varieties) {
-        std::cout << "  " << category << ": ";
-        for (const auto& variety : varietiesList) {
-            std::cout << variety << " ";
-        }
+    for (PlantStruct* p : plants) {
+        std::cout << "  " << p->category << ": ";
+        std::cout << p->variety << " ";
         std::cout << std::endl;
     }
     
-    for (const auto& [expectedCategory, varietiesList] : varieties) {
-        for (const auto& variety : varietiesList) {
-            std::cout << "Testing variety: '" << variety << "' -> expected category: '" << expectedCategory << "'" << std::endl;
-            string actualCategory = game->getCategoryForVariety(variety);
-            EXPECT_EQ(actualCategory, expectedCategory) 
-                << "Variety '" << variety << "' should map to category '" << expectedCategory << "'";
-            std::cout << "  ✓ " << variety << " correctly maps to " << actualCategory << std::endl;
+    for (PlantStruct* p : plants) {
+        std::cout << "Testing variety: '" << p->variety << "' -> expected category: '" << p->category << "'" << std::endl;
+        string actualCategory = game->getCategoryForVariety(p->variety);
+        EXPECT_EQ(actualCategory, p->category) 
+                 << "Variety '" << p->variety << "' should map to category '" << p->category << "'";
+        std::cout << "  ✓ " << p->variety << " correctly maps to " << p->category << std::endl;    
+        delete p;    
+    }
+
+    std::cout << "✓ Plant variety mapping works correctly" << std::endl;
+    
+    delete game;
+}
+
+// TEST(VisistorTests, EasyDiff_Ignorant_Correct){
+//     Inventory inv;
+//     inv.restock(new Flower("Rose", "Hard"));
+//     inv.restock(new Plant("SunFLower", "Easy"));
+//     inv.restock(new Plant("Poppy", "Medium>"));
+//     inv.restock(new Succulent("Cactus", "Easy"));
+//     inv.restock(new Plant("Lavender", "Easy"));
+//     inv.restock(new Tree("Oak", "Hard"));
+//     inv.restock(new Succulent("Aloe", "Medium"));
+//     IgnorantCustomer cust;
+//     VisitEasyCustomer visitor(inv);
+//     inv.accept(visitor);
+//     const auto& offer=visitor.getOffer();
+//     EXPECT_EQ(offer.size(), 5);
+//     int correctCount=0;
+//     int refunableCount=0;
+//     int wrongCount=0;
+//     for(auto *p:offer){
+//         const bool corr=visitor.isCorrect(p);
+//         const bool ref=visitor.isRefunable(p);
+//         if(corr){
+//             correctCount++
+//             if(ref){
+//                 refunableCount++;
+//             }
+//         }else if(p.getDifficulty()=="Hard"){
+//             wrongCount++;
+//         }
+//     }
+//     EXPECT_EQ(correctCount,4)<<"Expected 3 easy plants and  medium plant";
+//     EXPECT_EQ(refunableCount,1)<<"Expected 1 medium plants to be refunable";
+
+//     EXPECT_EQ(wrongCount,1)<<"Expected 1 hard plant to be in the offer";
+// }
+
+TEST(GameCreationTests, PlantCostTests)
+{
+    // Initialize environment
+    std::cout << "\n=== Testing Cost Extraction ===" << std::endl;
+    
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
+    Game* game = new Game(configPath);
+    game->createNewGame();
+
+    map<string, vector<int>> plantCosts = Plant::getPlantCosts(); 
+
+    for (auto it = plantCosts.begin(); it != plantCosts.end(); ++it) {
+        EXPECT_GT((it->second)[0], 0);
+        EXPECT_GT((it->second)[1], 0);
+    }
+
+    delete game;
+}
+
+TEST(GameCustomersCreationTests, TestCreateValidCustomers) 
+{
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
+    Game* game = new Game(configPath);
+    game->createNewGame();
+
+    EXPECT_NO_THROW({
+        game->createCustomers("ignorant", 1);
+    }) << "createCustomers() should not throw for valid input";
+
+    EXPECT_NO_THROW({
+        game->createCustomers("average", 1);
+    }) << "createCustomers() should not throw for valid input";
+
+    EXPECT_NO_THROW({
+        game->createCustomers("greenfinger", 1);
+    }) << "createCustomers() should not throw for valid input";
+
+    const auto& customers = game->getCustomers();
+    EXPECT_EQ(customers.size(), 3)
+        << "Expected 3 customers created, but got " << customers.size();
+
+    delete game;
+}
+
+TEST(BuilderTests, TestPlantOffering)
+{
+    string configPath = string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
+    Game* game = new Game(configPath);
+
+    Plant* p1 = new Succulent("cactus", "easy");
+    Plant* p2 = new Flower("daisy", "medium");
+    Plant* p3 = new Tree("lemon", "hard");
+    Plant* p4 = new Succulent("jade", "easy");
+    Plant* p5 = new Flower("rose", "medium");
+    Plant* p6 = new Tree("apple", "hard");
+    Plant* p7 = new Succulent("aloe", "easy");
+    Plant* p8 = new Flower("sunflower", "medium");
+    Plant* p9 = new Tree("banana", "hard");
+
+    Manager* manager = new Manager();
+    manager->inventoryMut().restock(p1);
+    manager->inventoryMut().restock(p2);
+    manager->inventoryMut().restock(p3);
+    manager->inventoryMut().restock(p4);
+    manager->inventoryMut().restock(p5);
+    manager->inventoryMut().restock(p6);
+    manager->inventoryMut().restock(p7);
+    manager->inventoryMut().restock(p8);
+    manager->inventoryMut().restock(p9);
+
+    game->setManager(manager);
+    game->createNewGame();
+
+    game->createCustomers("ignorant", 1);
+    game->createCustomers("average", 1);
+    game->createCustomers("greenfinger", 1);
+
+    string jsonStr = game->getCustomersAsJson();
+
+    json customersJson = json::parse(jsonStr);
+
+    // Check that there are exactly 3 customers
+    ASSERT_EQ(customersJson.size(), 3);
+
+    // Check that each customer has an offeredPlants array
+    for (const auto& customer : customersJson)
+    {
+        ASSERT_TRUE(customer.contains("offeredPlants"));
+        ASSERT_TRUE(customer["offeredPlants"].is_array());
+
+        for (const auto& plant : customer["offeredPlants"])
+        {
+            ASSERT_TRUE(plant.contains("id"));
+            ASSERT_TRUE(plant.contains("category"));
+            ASSERT_TRUE(plant.contains("variety"));
+            ASSERT_TRUE(plant.contains("acceptable"));
+            ASSERT_TRUE(plant.contains("returnable"));
         }
     }
-    
-    std::cout << "✓ Plant variety mapping works correctly" << std::endl;
+
+    cout << customersJson.dump(4) << endl;
     
     delete game;
 }

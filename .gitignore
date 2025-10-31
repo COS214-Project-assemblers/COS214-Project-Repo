@@ -58,3 +58,8 @@ log*
 .env*
 
 node_modules
+bin/*
+utils/venv
+venv/*
+venv
+utils/venv/*

@@ -1,40 +1,54 @@
 #include "Inventory.h"
-
-Inventory::Inventory()
-{
-    plants = new vector<Plant*>();
-}
+//ally - can just use default constructors & deconstrucotrs
+// Inventory::Inventory()
+// {
+//     plants = new std::vector<Plant*>();
+// }
 
 Inventory::~Inventory()
 {
-    // might not delete??
-    
-    for (auto p : *plants) 
+    for (Plant* p : plants) 
     {
-        delete p;
+        if(p != nullptr)
+        {
+            delete p;
+        }
     }
 
-    delete plants;
+    plants.clear();
 }
 
 
 std::vector<Plant*> Inventory::all() const{
-
-}
-
-std::vector<Plant*> Inventory::findByCategory(std::string cat) const{
-
-}
-
-
-std::vector<Plant*> Inventory::findByPrice(double min, double max) const{
-
-}
-
-void Inventory::commitSale(Plant* plant){
-
+    std::vector<Plant*> out;
+    for(auto* p:plants){
+        out.push_back(p);
+    }
+    return out;
 }
 
 void Inventory::restock(Plant* plant){
-    plants->push_back(plant);
+    plants.push_back(plant);
+}
+
+void Inventory::removePlant(Plant* plant){
+    auto it=std::find(plants.begin(), plants.end(), plant);
+    if(it!=plants.end()){
+        plants.erase(it);
+    }
+}
+
+std::vector<Plant*> Inventory::findByDifficulty(std::string d)const{
+    std::vector<Plant*> out;
+    for(auto* p:this->plants){
+        if(p->getDifficulty()==d){
+            out.push_back(p);
+        }
+    }
+    return out;
+}
+
+void Inventory::commitSale(Plant* plant)
+{
+    removePlant(plant);
 }
