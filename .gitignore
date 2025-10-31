@@ -60,3 +60,5 @@ log*
 bin/*
 utils/venv
 venv/*
+venv
+utils/venv/*
