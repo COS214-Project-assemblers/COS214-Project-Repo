@@ -168,6 +168,7 @@ class Game {
          * freed since the destructor of the Game will be called when it is deleted in mem
          */
         void exitGame();
+        void setManager(Manager* m);
 };
 
 #endif // GAME_HDR
