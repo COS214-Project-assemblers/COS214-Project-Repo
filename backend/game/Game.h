@@ -162,6 +162,9 @@ class Game {
         void setManager(Manager* m);
 
         float getGameBalance();
+
+        vector<Plant*> getGreenhousePlants();
+        string getGreenhousePlantsAsJson();
 };
 
 #endif // GAME_HDR
