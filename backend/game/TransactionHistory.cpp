@@ -1,4 +1,6 @@
 #include "TransactionHistory.h"
+#include "Transaction.h"
+#include "TransactionStrategy.h"
 
 void TransactionHistory::setTransactionMem(const TransactionMem& tM){
     this->memento.push_back(tM);
@@ -34,14 +36,39 @@ bool TransactionHistory::processReturn(Ledger& l,Inventory& inv){
         return false;
     }
     const TransactionMem& last=this->memento.back();
-    l.setBalance(last.getBalanceB4());
-    if(last.getType()=="Sale"){
-        inv.restock(last.getPlant());
-    }
-    this->memento.pop_back();
+    TransactionStrategy* strat=new Return();
+    Transaction ret(strat,last.getValue());
+    TransactionMem snap=ret.createTransactionMem(l,last.getPlant());
+    this->memento.push_back(snap);
+    inv.restock(last.getPlant());
     return true;
 }
 
 void TransactionHistory::clear(){
     this->memento.clear();
+}
+
+bool TransactionHistory::hasBeenReturned(int tID)const{
+    if(tID<0){
+        return false;
+    }
+    for(int i=0;i<(int)this->memento.size();i++){
+        if(this->memento[i].getType()=="Return" && this->memento[i].getTransactionID()==tID){
+            return true;
+        }
+    }
+    return false;
+}
+
+void TransactionHistory::markAsReturned(int tID){
+    this->returnedIDs.push_back(tID);
+}
+
+int TransactionHistory::FindTransactionIDFor(const Plant* p)const{
+    for(int i=0;i<(int)this->memento.size();i++){
+        if(this->memento[i].getType()=="Sale" && this->memento[i].getPlant()==p){
+            return this->memento[i].getTransactionID();
+        }
+    }
+    return -1;
 }

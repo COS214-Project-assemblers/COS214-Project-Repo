@@ -4,7 +4,7 @@
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 
-// #include "TransactionStrategy.h"
+#include "TransactionStrategy.h"
 #include "Sale.h"
 #include "Return.h"
 #include "Restock.h"
@@ -21,6 +21,8 @@ class Transaction{
     private:
         TransactionStrategy* tS;///<Pointer to a Transaction Strategy object
         double value;///<Value of transaction
+        int transactionID=1;///<Unique ID for transaction
+        int referenceID;///<Reference ID to point to the original transaction in case of returns -> might add later
     public:
         /**
          * @brief Constructor
@@ -29,9 +31,9 @@ class Transaction{
          */
         Transaction(TransactionStrategy* tS,double v);
         /**
-         * @brief Default Deconstructor
+         * @brief Deconstructor
          */
-        ~Transaction()=default;
+        ~Transaction();
         /**
          * @brief Applies the transaction to a ledger and returns a snapshot
          * @param ledger Reference to current Ledger
@@ -39,11 +41,6 @@ class Transaction{
          * @return A TransactionMem snapshot
          */
         TransactionMem createTransactionMem(Ledger& ledger,Plant* plant)const;
-        /**
-         * @brief Restores the Transaction From memento
-         * @param tM TransacionMem obj
-         */
-        void setTransactionMem(const TransactionMem tM);
         /**
          * @brief Getter for Value
          * @return Value of transaction
@@ -54,5 +51,15 @@ class Transaction{
          * @return the type of transaction e.g "Sale"
          */
         std::string getType() const;
+        /**
+         * @brief getter for transaction ID
+         * @return transaction ID
+         */
+        int getTransactionID() const;
+        /**
+         * @brief getter for reference ID
+         * @return reference ID
+         */
+        int getReferenceID() const;
 };
 #endif

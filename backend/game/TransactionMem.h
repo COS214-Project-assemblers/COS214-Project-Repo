@@ -19,6 +19,7 @@ class TransactionMem{
         double balanceAfter;///<Value of balance after Transaction
         std::string type;///<Type of transaction
         Plant* plant;///<Plant from transaction
+        int transactionID;///<Unique ID for transaction
     public:
         /**
          * @brief Constructor
@@ -26,8 +27,10 @@ class TransactionMem{
          * @param v Value of Transaction
          * @param b4 Balance before Transactrion was commited
          * @param after Balance after Transaction was commited
+         * @param p Plant from Transaction
+         * @param tID Transaction ID
          */
-        TransactionMem(std::string t,double v,double b4, double after, Plant* p);
+        TransactionMem(std::string t,double v,double b4, double after, Plant* p, int tID);
         /**
          * @brief Default constructor
          */
@@ -57,5 +60,10 @@ class TransactionMem{
          * @return the plant from the transaction
          */
         Plant* getPlant()const;
+        /**
+         * @brief Getter for plant from transaction
+         * @return the plant from the transaction
+         */
+        int getTransactionID()const;
 };
 #endif
