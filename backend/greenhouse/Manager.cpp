@@ -74,13 +74,13 @@ void Manager::recordPlantDied(Plant& p){ // This function needs to make sure the
     hist.setTransactionMem(snap);//adds snapshot to history
 }
 
-void Manager::processReturns(Plant& p){ // This function needs to make sure that the plant that is returned, needs to actually get added back to the salesfloor
+bool Manager::processReturns(Plant& p){ // This function needs to make sure that the plant that is returned, needs to actually get added back to the salesfloor
     int id=hist.FindTransactionIDFor(&p);
     if(id<0){
-        return;
+        return false;
     }
     if(hist.hasBeenReturned(id)){
-        return;
+        return false;
     }   
     if(strat){
         delete strat;
@@ -93,6 +93,7 @@ void Manager::processReturns(Plant& p){ // This function needs to make sure that
     hist.setTransactionMem(snap);//adds snapshot to history
     hist.markAsReturned(snap.getTransactionID());//maks the transaction as returned
     floor->inventoryMut().restock(&p);
+    return true
 }
 
 const Inventory* Manager::inventory()const{
