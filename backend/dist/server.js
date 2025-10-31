@@ -22,7 +22,7 @@ app.use(_express["default"]["static"](_path["default"].join(_dirname, 'frontend'
 // example mock json object to initialise a game with a balance, 
 // empty greenhouse inventory and empty salesfloor inventory
 var db = {
-  balance: 200,
+  balance: 500,
   greenhouse: [],
   salesfloor: []
 };
@@ -34,16 +34,49 @@ var prices = {
   succulent: [15, 20, 10],
   tree: [35, 20, 40]
 };
+var sellPrices = {
+  // mock sell prices for each variety
+  flower: [36, 45, 18],
+  succulent: [27, 36, 18],
+  tree: [63, 36, 72]
+};
 
 // Mock helper function to create a plant
 function createPlant(category, varietyIndex) {
+  var _varietyNames$categor, _varietyNames$categor2, _prices$category$vari, _prices$category, _sellPrices$category$, _sellPrices$category;
+  var varietyNames = {
+    flower: ['Rose', 'Tulip', 'Daisy'],
+    succulent: ['Cactus', 'Aloe', 'Jade'],
+    tree: ['Lemon', 'Apple', 'Oak']
+  };
+  var displayCategory = category.charAt(0).toUpperCase() + category.slice(1); // Flower/Succulent/Tree
+  var varietyName = (_varietyNames$categor = (_varietyNames$categor2 = varietyNames[category]) === null || _varietyNames$categor2 === void 0 ? void 0 : _varietyNames$categor2[varietyIndex]) !== null && _varietyNames$categor !== void 0 ? _varietyNames$categor : "".concat(displayCategory, " ").concat(varietyIndex + 1);
+  var costPrice = (_prices$category$vari = (_prices$category = prices[category]) === null || _prices$category === void 0 ? void 0 : _prices$category[varietyIndex]) !== null && _prices$category$vari !== void 0 ? _prices$category$vari : 0;
+  var sellPrice = (_sellPrices$category$ = (_sellPrices$category = sellPrices[category]) === null || _sellPrices$category === void 0 ? void 0 : _sellPrices$category[varietyIndex]) !== null && _sellPrices$category$ !== void 0 ? _sellPrices$category$ : Math.round(costPrice * 1.8);
   return {
     id: String(nextId++),
-    category: category,
+    category: displayCategory,
+    // string: "Flower" | "Succulent" | "Tree"
+    variety: varietyName,
+    // string: e.g. "Rose"
+    healthScore: 100.0,
+    // float
+    pruningLevel: 0.0,
+    // float
+    waterLevel: 100.0,
+    // float
+    fertilizerLevel: 100.0,
+    // float
+    costPrice: costPrice,
+    // int
+    sellPrice: sellPrice,
+    // int
+    maturity: 'Not-Sellable',
+    // boolean: "Sellable" | "Not-Sellable"
+    kind: category,
     // 'flower' | 'succulent' | 'tree'
-    variety: varietyIndex,
-    // 0, 1 or 2 
-    stage: 'seedling' // or whatever the initial state is, notMature?
+    varietyIndex: varietyIndex,
+    stage: 'seedling'
   };
 }
 
@@ -54,9 +87,16 @@ app.get('/api/balance', function (req, res) {
   });
 });
 
-// Get the prices of the varieties
-app.get('/api/prices', function (req, res) {
+// // Get the prices of the varieties
+// app.get('/api/prices', (req, res) => {
+//   res.json(prices);
+// });
+
+app.get('/api/cost-prices', function (req, res) {
   res.json(prices);
+});
+app.get('/api/sell-prices', function (req, res) {
+  res.json(sellPrices);
 });
 
 // Mock endpoint to initialise the Greenhouse with a capacity of 9 plants and empty inventory
@@ -66,6 +106,20 @@ app.get('/api/greenhouse', function (req, res) {
     used: db.greenhouse.length,
     greenhouse: db.greenhouse
   });
+});
+
+// Get details for a single plant by id
+app.get('/api/plants/:id', function (req, res) {
+  var id = req.params.id;
+  var plant = db.greenhouse.find(function (p) {
+    return p.id === id;
+  }) || db.salesfloor.find(function (p) {
+    return p.id === id;
+  });
+  if (!plant) return res.status(404).json({
+    error: 'Plant not found'
+  });
+  res.json(plant);
 });
 
 // NEW GAME mock endpoint called when the 'New Game' button is clicked on the Landing Page

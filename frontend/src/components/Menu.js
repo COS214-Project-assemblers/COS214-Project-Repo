@@ -18,7 +18,7 @@ const Menu = ({ onCancel }) => {
                 const [gh, bal, pr] = await Promise.all([
                     fetch('/api/greenhouse').then(r => r.json()),
                     fetch('/api/balance').then(r => r.json()),
-                    fetch('/api/prices').then(r => r.json())
+                    fetch('/api/cost-prices').then(r => r.json())
                 ]);
                 setUsed(gh.used ?? 0);
                 setCapacity(gh.capacity ?? 9);

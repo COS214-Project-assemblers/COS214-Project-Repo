@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'frontend', 'public')));
 // example mock json object to initialise a game with a balance, 
 // empty greenhouse inventory and empty salesfloor inventory
 let db = {
-  balance: 200,
+  balance: 500,
   greenhouse: [],
   salesfloor: []
 };
@@ -37,13 +37,38 @@ const prices = {
   tree: [35, 20, 40],
 };
 
+const sellPrices = {    // mock sell prices for each variety
+  flower: [36, 45, 18],
+  succulent: [27, 36, 18],
+  tree: [63, 36, 72],
+};
+
 // Mock helper function to create a plant
 function createPlant(category, varietyIndex) {
+  const varietyNames = {
+    flower: ['Rose', 'Tulip', 'Daisy'],
+    succulent: ['Cactus', 'Aloe', 'Jade'],
+    tree: ['Lemon', 'Apple', 'Oak'],
+  };
+  const displayCategory = category.charAt(0).toUpperCase() + category.slice(1); // Flower/Succulent/Tree
+  const varietyName = varietyNames[category]?.[varietyIndex] ?? `${displayCategory} ${varietyIndex+1}`;
+
+  const costPrice = prices[category]?.[varietyIndex] ?? 0;
+  const sellPrice = sellPrices[category]?.[varietyIndex] ?? Math.round(costPrice * 1.8);    
   return {
     id: String(nextId++),
-    category,              // 'flower' | 'succulent' | 'tree'
-    variety: varietyIndex, // 0, 1 or 2 
-    stage: 'seedling'      // or whatever the initial state is, notMature?
+    category: displayCategory,          // string: "Flower" | "Succulent" | "Tree"
+    variety: varietyName,               // string: e.g. "Rose"
+    healthScore: 100.0,                 // float
+    pruningLevel: 0.0,                  // float
+    waterLevel: 100.0,                  // float
+    fertilizerLevel: 100.0,             // float
+    costPrice,                          // int
+    sellPrice,                          // int
+    maturity: 'Not-Sellable',           // boolean: "Sellable" | "Not-Sellable"
+    kind: category,                     // 'flower' | 'succulent' | 'tree'
+    varietyIndex,                       
+    stage: 'seedling',
   };
 }
 
@@ -52,10 +77,20 @@ app.get('/api/balance', (req, res) => {
   res.json({ balance: db.balance });
 });
 
-// Get the prices of the varieties
-app.get('/api/prices', (req, res) => {
+// // Get the prices of the varieties
+// app.get('/api/prices', (req, res) => {
+//   res.json(prices);
+// });
+
+app.get('/api/cost-prices', (req, res) => {
   res.json(prices);
 });
+
+app.get('/api/sell-prices', (req, res) => {
+  res.json(sellPrices);
+});
+
+
 
 // Mock endpoint to initialise the Greenhouse with a capacity of 9 plants and empty inventory
 app.get('/api/greenhouse', (req, res) => {
@@ -64,6 +99,14 @@ app.get('/api/greenhouse', (req, res) => {
     used: db.greenhouse.length,
     greenhouse: db.greenhouse,
   });
+});
+
+// Get details for a single plant by id
+app.get('/api/plants/:id', (req, res) => {
+  const { id } = req.params;
+  const plant = db.greenhouse.find(p => p.id === id) || db.salesfloor.find(p => p.id === id);
+  if (!plant) return res.status(404).json({ error: 'Plant not found' });
+  res.json(plant);
 });
 
 

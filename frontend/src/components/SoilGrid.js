@@ -28,6 +28,7 @@ const SoilGrid = () => {
     }, []);
 
     const onPlantClick = (plant) => {
+        console.log('Seedling clicked:', plant?.id);
         setSelected(plant);
         setIsOpen(true);
     };
@@ -39,7 +40,7 @@ const SoilGrid = () => {
             <img alt={`soil${i+1}`} id={`soil${i+1}`} src="/assets/images/soil.svg" width="50" />
             {plant && (
             <div id={`plant${i+1}`}>
-                <img onClick={() => onPlantClick(plant)} alt={`plant${i+1}`} src="/assets/images/seedling.svg" width="50" style={{ cursor: 'pointer' }}/>
+                <img onClick={() => onPlantClick(plant)} alt={`plant${i+1}`} src="/assets/images/seedling.svg" width="50" style={{ cursor: 'pointer', pointerEvents: 'auto' }}/>
             </div>
             )}
         </React.Fragment>

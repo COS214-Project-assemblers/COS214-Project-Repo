@@ -682,6 +682,7 @@
     font-family: 'Freckle Face';
     color: #612e18;
     font-size: 1.3em;
+    height: 1em;
 }
 
 
@@ -719,3 +720,16 @@
     margin-top: 10em;
     z-index: 6000;
 }
+
+
+#maturity {
+    grid-column: 1 / 3;
+}
+
+#mature-span {
+    color: red;
+}
+
+/* #mature-span {
+    color: #089108;
+} */
