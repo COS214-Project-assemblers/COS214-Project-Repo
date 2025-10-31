@@ -242,6 +242,7 @@
     grid-column: 1/2;
     grid-row: 1/2;
     position: absolute;
+    width: 0em;
 }
 
 #plant1 img {
@@ -254,6 +255,7 @@
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     position: absolute;
+    width: 0em;
 }
 
 #plant2 img {
@@ -271,6 +273,7 @@
     grid-column: 3 / 4;
     grid-row: 1 / 2;
     position: absolute;
+    width: 0em;
 }
 
 #plant3 img {
@@ -282,6 +285,7 @@
     grid-row: 2 / 3;
     position: absolute;
     margin-top: 9em;
+    width: 0em;
 }
 
 #plant4 img {
@@ -293,6 +297,7 @@
     grid-row: 2 / 3;
     position: absolute;
     margin-top: 9em;
+    width: 0em;
 }
 
 #plant5 img {
@@ -304,6 +309,7 @@
     grid-row: 2 / 3;
     position: absolute;
     margin-top: 9em;
+    width: 0em;
 }
 
 #plant6 img {
@@ -319,6 +325,7 @@
     grid-row: 3 / 4;
     position: absolute;
     margin-top: 18em;
+    width: 0em;
 }
 
 
@@ -331,6 +338,7 @@
     grid-row: 3 / 4;
     position: absolute;
     margin-top: 18em;
+    width: 0em;
 }
 
 #plant9 img {
@@ -342,6 +350,7 @@
     grid-row: 3 / 4;
     position: absolute;
     margin-top: 18em;
+    width: 0em;
 }
 
 
