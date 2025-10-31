@@ -42,10 +42,6 @@ class TransactionHistory{
          */
         TransactionMem getTransactionMem(int index)const;
         /**
-         * @brief Print the whole transaction history from that day.
-         */
-        void print()const;
-        /**
          * @brief Clears transaction History to start new day/reset
          */
         void clear();
@@ -66,5 +62,10 @@ class TransactionHistory{
          * @return transaction ID if found, -1 if not found
          */
         int FindTransactionIDFor(const Plant* p)const;
+        /**
+         * @brief prints statement for the day
+         * will return a print out a "Statemnent" like from your bank account of all transactions from the day with their transaction type, the value, and the balance if it was a returned tranasaction type it will show the initial transactionID
+         */
+        void printStatement();
 };
 #endif

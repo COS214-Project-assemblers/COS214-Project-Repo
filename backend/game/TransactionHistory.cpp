@@ -56,3 +56,16 @@ int TransactionHistory::FindTransactionIDFor(const Plant* p)const{
     }
     return -1;
 }
+
+void TransactionHistory::printStatement(){
+    for(const auto& t : this->memento){
+        std::cout<<"Transacktion #"<<t.getTransactionID()
+                    <<"Type: "<<t.getType()
+                    <<"Value: "<<t.getValue()
+                    <<"Balance: "<<t.getBalenceAfter();
+        if(t.getType()=="Return"){
+            std::cout<<"ReferenceID: "<<t.getReturnedID();
+        }
+        std::cout<<std::endl;
+    }
+}
