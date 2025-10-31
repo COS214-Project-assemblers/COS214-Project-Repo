@@ -11,7 +11,6 @@
 using json=nlohmann::json;
 
 class SalesFloor;
-#include "SalesFloor.h"
 // class Plant;
 #include "Plant.h"
 
