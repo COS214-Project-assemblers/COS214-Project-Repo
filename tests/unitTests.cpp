@@ -1,4 +1,7 @@
-
+//ally-adding as fallback as vs code keeps shouting at me
+#ifndef ROOT_SOURCE_DIR
+#define ROOT_SOURCE_DIR "."
+#endif
 #include <gtest/gtest.h>
 #include <iostream>
 #include <cstdlib>
@@ -400,6 +403,8 @@ TEST(GameTests, BuyPlantsFunctionality)
     Game* game = new Game(configPath);
     game->createNewGame();
     
+    cout << "BALANCE BEFORE: " << game->getManager()->getBalance() << endl;
+
     EXPECT_NO_THROW({
         game->buyPlants("cactus", 1);
     }) << "Should be able to buy a single plant";
@@ -412,6 +417,8 @@ TEST(GameTests, BuyPlantsFunctionality)
     ASSERT_NE(greenhouse, nullptr) << "Greenhouse should exist";
     
     std::cout << "✓ Basic plant purchasing works correctly" << std::endl;
+
+    cout << "BALANCE AFTER: " << game->getManager()->getBalance() << endl;
     
     delete game;
 }
@@ -495,41 +502,6 @@ TEST(GameTests, PlantVarietyMapping)
     
     delete game;
 }
-
-// TEST(VisistorTests, EasyDiff_Ignorant_Correct){
-//     Inventory inv;
-//     inv.restock(new Flower("Rose", "Hard"));
-//     inv.restock(new Plant("SunFLower", "Easy"));
-//     inv.restock(new Plant("Poppy", "Medium>"));
-//     inv.restock(new Succulent("Cactus", "Easy"));
-//     inv.restock(new Plant("Lavender", "Easy"));
-//     inv.restock(new Tree("Oak", "Hard"));
-//     inv.restock(new Succulent("Aloe", "Medium"));
-//     IgnorantCustomer cust;
-//     VisitEasyCustomer visitor(inv);
-//     inv.accept(visitor);
-//     const auto& offer=visitor.getOffer();
-//     EXPECT_EQ(offer.size(), 5);
-//     int correctCount=0;
-//     int refunableCount=0;
-//     int wrongCount=0;
-//     for(auto *p:offer){
-//         const bool corr=visitor.isCorrect(p);
-//         const bool ref=visitor.isRefunable(p);
-//         if(corr){
-//             correctCount++
-//             if(ref){
-//                 refunableCount++;
-//             }
-//         }else if(p.getDifficulty()=="Hard"){
-//             wrongCount++;
-//         }
-//     }
-//     EXPECT_EQ(correctCount,4)<<"Expected 3 easy plants and  medium plant";
-//     EXPECT_EQ(refunableCount,1)<<"Expected 1 medium plants to be refunable";
-
-//     EXPECT_EQ(wrongCount,1)<<"Expected 1 hard plant to be in the offer";
-// }
 
 TEST(GameCreationTests, PlantCostTests)
 {
@@ -654,4 +626,51 @@ TEST(BuilderTests, TestPlantOffering)
     cout << customersJson.dump(4) << endl;
     
     delete game;
+}
+
+TEST(TransactionTests,TestRestockThenSaleThenReturn){
+    //stole Megans start
+    Manager manager;
+    Plant* p1 = new Succulent("cactus", "easy");
+    Plant* p2 = new Flower("daisy", "medium");
+    
+    manager.recordRestock(*p1);//transaction1
+    manager.recordRestock(*p2);//transaction2
+    manager.recordSale(*p1);//transaction3
+    manager.recordSale(*p2);//transaction4
+
+    ASSERT_TRUE(manager.processReturns(*p1));
+
+    std::string jsonStr=manager.getTransactionHist().statementJSON();
+    json arr=json::parse(jsonStr);
+
+    ASSERT_TRUE(arr.is_array());
+    ASSERT_EQ(arr.size(),5);
+    
+    /*Sohould be{
+        {"transactionId",1},
+        {"type","Sale"},
+        {"value",},
+        {"balence",}
+    }*/
+   auto id=[&](int i){
+    return arr[i]["transactionId"].get<int>();
+   };
+
+   //look at first transaction -> SALE P1
+   EXPECT_EQ(arr[2]["type"],"Sale");
+   EXPECT_DOUBLE_EQ(arr[2]["value"].get<double>(),p1->getSalePrice());
+   const int saleP1ID=id(2);
+   
+    //look at second transaction -> SALE P2
+   EXPECT_EQ(arr[3]["type"],"Sale");
+   EXPECT_DOUBLE_EQ(arr[3]["value"].get<double>(),p2->getSalePrice());
+
+   //look at third transaction ->RETURN P1
+   EXPECT_EQ(arr[4]["type"],"Return");
+   EXPECT_DOUBLE_EQ(arr[4]["value"].get<double>(),p1->getSalePrice());
+   ASSERT_TRUE(arr[4].contains("referenceId"));
+   EXPECT_EQ(arr[4]["referenceId"].get<int>(),saleP1ID);
+   //delete p2 and not p1 as inventory currently owns p1 but p2 was sold and not returned
+   delete p2;
 }

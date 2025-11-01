@@ -141,7 +141,7 @@ void Game::createNewGame()
 
     try
     {
-        setGreenhouse(new Greenhouse());
+        setGreenhouse(new Greenhouse(socket));
         logger->newLog("+ Created greenhouse");
     }
     catch (...)
@@ -149,9 +149,10 @@ void Game::createNewGame()
         throw runtime_error("Failed to create greenhouse for unknown reason");
     }
 
-    if(!manager)
+    if(manager == nullptr)
     {
         manager = new Manager();
+        manager->setGreenhouse(getGreenhouse());
     }
 }
 
@@ -357,6 +358,11 @@ void Game::setManager(Manager* m)
     manager = m;
 }
 
+Manager* Game::getManager()
+{
+    return manager;
+}
+
 vector<Customer*> Game::getCustomers()
 {
     return customers;
@@ -429,4 +435,12 @@ string Game::getGreenhousePlantsAsJson()
     }
     
     return plantsArray.dump(4);
+}
+
+void Game::setSocket(GreenSock* socket) {
+    cout << "About to assign member var" << endl;
+    if (socket) {}
+    cout << "Not socket" << endl;
+    this->socket = socket;
+    cout << "Set member variable" << endl;
 }

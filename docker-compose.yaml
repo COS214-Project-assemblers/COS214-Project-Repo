@@ -16,7 +16,10 @@ services:
     networks:
       my_network:
         ipv4_address: 172.0.0.5
-
+    deploy:
+      resources:
+        limits:
+          memory: 16G
 
   # greenfingers-react:
   #   container_name: react-x-nginx

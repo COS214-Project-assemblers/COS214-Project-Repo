@@ -9,6 +9,12 @@ void API::exitGame()
   }
 }
 
+void API::setSocket(GreenSock* sock)
+{
+  game->setSocket(sock);
+  cout << "Game socket set" << endl;
+}
+
 // Inspiration from https://github.com/oatpp/oatpp-starter/blob/master/src/App.cpp
 void API::bootstrap()
 {
@@ -48,4 +54,10 @@ void API::run() {
   std::cout << "objectsCreated = " << oatpp::Environment::getObjectsCreated() << "\n\n";
   
   oatpp::Environment::destroy();
+}
+
+void API::setGame(Game* game) {
+  if (this->game == nullptr) {
+    this->game = game;
+  }
 }

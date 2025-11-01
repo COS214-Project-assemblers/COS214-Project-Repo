@@ -3,6 +3,7 @@
 
 #include <string>
 #include "PlantHealth.h" // will this cause circular dependancy ??
+class Greenhouse;
 class Plant;
 
 using namespace std;
@@ -17,6 +18,8 @@ using namespace std;
  */
 
 class GreenhouseStaff {
+    protected:
+        Greenhouse* greenhouse;
     public:
 
         /**
@@ -34,6 +37,9 @@ class GreenhouseStaff {
         /**
          * @brief Virtual destructor for proper cleanup of derived classes.
          */
+
+        void setGreenhouse(Greenhouse* greenhouse);
+
         virtual ~GreenhouseStaff() = default;
 };
 

@@ -90,6 +90,8 @@ set(SOURCES
   backend/plant/PlantHealth.cpp
   backend/plant/NotSellable.h
   backend/plant/NotSellable.cpp
+  backend/plant/Sellable.h
+  backend/plant/Sellable.cpp
 
   backend/greenhouse/Greenhouse.h
   backend/greenhouse/Greenhouse.cpp
@@ -100,6 +102,11 @@ set(SOURCES
   backend/greenhouse/Manager.cpp
   backend/greenhouse/SalesFloor.h
   backend/greenhouse/SalesFloor.cpp
+
+  backend/greenhouse/GreenhouseStaff.h
+  backend/greenhouse/GreenhouseStaff.cpp
+  backend/greenhouse/PruningStaff.h
+  backend/greenhouse/PruningStaff.cpp
 
 
   backend/customer/Customer.h

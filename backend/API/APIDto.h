@@ -71,6 +71,15 @@ class BalanceResponseDTO : public oatpp::DTO
   DTO_FIELD(Float64, balance); // Using Float64 for double precision
 };
 
+class TransactionDTO : public oatpp::DTO {
+  DTO_INIT(TransactionDTO, DTO)
+  DTO_FIELD(Int32,   transactionId);
+  DTO_FIELD(String,  type);
+  DTO_FIELD(Float64, value);
+  DTO_FIELD(Float64, balance);
+  DTO_FIELD(Int32,   referenceId);
+};
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif // DTOS
