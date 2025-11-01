@@ -2,11 +2,13 @@
 #define GREENHOUSE_H
 
 #include "Inventory.h"
+#include "GreenSock.h"
 
 class Greenhouse
 {
     private:
         Inventory* inventory;
+        GreenSock* socket;
 
     public:
         Greenhouse();
@@ -23,6 +25,10 @@ class Greenhouse
          * @param plant Reference to the Plant being removed
          */
         void removePlant(Plant* plant);
+
+        void startThreads() ; 
+        void setSocket(GreenSock* greenSocket) ;
+
 };
 
 #endif
