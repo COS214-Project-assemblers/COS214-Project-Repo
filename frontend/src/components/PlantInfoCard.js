@@ -81,7 +81,7 @@ const PlantInfoCard = ({ onCancel, plant }) => {
 
             <div id="info-buttons">
                 <button id="cancel-info" onClick={onCancel}><img alt="cancel-info" id="cancel-info" src="/assets/images/cancel-info.svg" width="50"/></button>
-                <button id="move-to" onClick={moveToSales} disabled={disabled}><img alt="move-to" id="move-to-sales" src="/assets/images/move-to-sales.svg" width="50" disabled={disabled}/></button>
+                <button id="move-to" /* onClick={moveToSales} */ disabled={disabled}><img alt="move-to" id="move-to-sales" src="/assets/images/care.svg" width="50" disabled={disabled}/></button>
             </div>
         </div>
     );
