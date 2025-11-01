@@ -57,4 +57,11 @@ log*
 .env
 .env*
 
+bin/*
+utils/venv
+venv/*
+venv
+utils/venv/*
+
 node_modules
+node_modules/*

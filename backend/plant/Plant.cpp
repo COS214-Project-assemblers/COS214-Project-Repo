@@ -7,43 +7,33 @@
 #include "NotSellable.h"
 #include "GreenhouseStaff.h"
 #include "PlantHealth.h"
-map<string, float> Plant::plantCosts =
+
+Plant::Plant(string category, string variety,string difficulty)
 {
-    {"Rose", 10.0},
-    {"Daisy", 5.0},
-    {"Sunflower", 8.5},
-
-    {"Cactus", 12.0},
-    {"Aloe", 9.0},
-    {"Jade", 7.5},
-
-    {"Lemon", 15.0},
-    {"Banana", 20.0},
-    {"Apple", 25.0}
-};
-
-Plant::Plant(string category, string variety)
-{
+    // Assign ID to plant
     this->plantCategory = category;
     this->plantVariety = variety;
+    this->difficulty=difficulty;
 
     this->careType = "";
     this->plantState = new NotSellable();
-
-    if(plantCosts[variety])
+    
+    // Game needs to be initialized (prices fetched from JSON) before
+    // plant costs can be set. If game not initialized, plant costs not set.
+    if(!plantCosts.empty() && plantCosts[variety].size() == 2)
     {
-        costPrice = plantCosts[variety];
+        costPrice = plantCosts[variety][0];
+        salePrice = plantCosts[variety][1];
     }
     else
     {
         costPrice = 10.00;
     }
 
-    salePrice = costPrice * 1.5;
-
     // this->health = new Health() ; // concrete plants assign this uniquely 
     this->decayIndex = 0        ;
     this->alive = true          ;
+
 }
 
 Plant::Plant(const Plant& original)
@@ -52,6 +42,9 @@ Plant::Plant(const Plant& original)
     this->plantVariety = original.plantVariety;
     this->costPrice = original.costPrice;
     this->salePrice = original.salePrice;
+    this->difficulty=original.difficulty;
+    this->acceptable=original.acceptable;
+    this->returnable=original.returnable;
 
     this->plantState = new NotSellable();
     this->careType = original.careType;
@@ -59,6 +52,11 @@ Plant::Plant(const Plant& original)
     this->health = new Health() ; // NB You may not clone/copy mtx
     this->decayIndex = original.decayIndex ;
     this->alive = true ;
+
+    generateId();
+    if (logger) {
+        logger->newLog("Created [" + getPlantCategory() + "] " + getPlantVariety() + " with unique ID: " + id);
+    }
 }
 
 Plant::~Plant() {
@@ -75,6 +73,11 @@ Plant::~Plant() {
     join() ;
 }
 
+string Plant::getCareLevel()
+{
+    return careLevel;
+}
+
 string Plant::getPlantCategory()
 {
     return plantCategory;
@@ -85,7 +88,7 @@ string Plant::getPlantVariety()
     return plantVariety;
 }
 
-float Plant::getCostPrice()
+int Plant::getCostPrice()
 {
     return costPrice;
 }
@@ -95,9 +98,14 @@ float Plant::getSalePrice()
     return salePrice;
 }
 
+std::string Plant::getDifficulty()
+{
+    return difficulty;
+}
+
 void Plant::display()
 {
-    cout << plantCategory << " - " << plantVariety << ", Cost: R" << costPrice << ", Sale: R" << salePrice << endl;
+    cout << plantCategory << " - " << plantVariety << ", Cost: R" << costPrice << ", Sale: R" << salePrice <<", Difficulty: "<<difficulty<< endl;
 }
 
 
@@ -197,3 +205,59 @@ void Plant::run() {
     float currentHealth = health->healthScore()  ;
     std::cout << "[State] Current health score: " << currentHealth << std::endl;
 }
+
+void Plant::generateId() {
+    // Static + thread local ensures there is only 1 random num gen 
+    if (id == "") {
+        static thread_local boost::uuids::random_generator gen;
+        this->id = to_string(gen());
+    }
+}
+
+string Plant::getId() {
+    return id;
+}
+void Plant::setReturnable(bool returnable){
+    this->returnable=returnable;
+}
+
+bool Plant::isReturnable(){
+    return this->returnable;
+}
+
+void Plant::setAcceptable(bool acceptable)
+{
+    this->acceptable = acceptable;
+}
+
+bool Plant::isAcceptable()
+{
+    return acceptable;
+}
+
+void Plant::setPlantCosts(map<string, vector<int>> plantCosts)
+{
+    Plant::plantCosts = plantCosts;
+}
+
+void Plant::stubPlant() {
+    plantCosts = {};
+    logger = nullptr;
+}
+
+map<string, vector<int>> Plant::getPlantCosts() {
+    return plantCosts;
+}
+
+void Plant::setLogger(Logger* passedLogger) {
+    logger = passedLogger;
+}
+
+void Plant::newPlantLog(string message) {
+    if (!(id == "")) {
+        message = id + message;
+    }
+    if (logger != nullptr) {
+        logger->newLog(message);
+    }
+} 

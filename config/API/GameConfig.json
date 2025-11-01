@@ -1,7 +1,248 @@
 {
-    "plantVarieties": {
-        "succulents": ["cactus", "aloe", "jade"],
-        "flowers": ["rose", "tulip", "daisy"],
-        "trees": ["lemon", "apple", "oak"]
+    "customers": 
+    {
+        "ignorant": 
+        {
+            "name": 
+            [
+                "Forgetful Fred",
+                "Neglectful Nancy", 
+                "Clueless Carl",
+                "Absent-minded Alice",
+                "Distracted Dave"
+            ],
+
+            "introduce": 
+            [
+                "Heyyy... so... plants don't scream if I forget to water them, right?",
+                "Yo, plants are like decorative rocks, right?",
+                "I once owned a cactus. It... didn't make it.",
+                "Wait, plants need sunlight? That's new information.",
+                "I just want something green that doesn't judge me."
+            ],
+
+            "preferences": 
+            [
+                "I need a plant that survives on good vibes and accidental neglect.",
+                "Low effort, high reward - like my lifestyle.",
+                "Preferably something photosynthesizing out of pity.",
+                "Maybe one that thrives on chaos?",
+                "Something that forgives... often."
+            ],
+
+            "recommendations": 
+            [
+                "Got anything that refuses to die no matter what I do?",
+                "What's the Chuck Norris of plants?",
+                "I want something that's more resilient than my attention span.",
+                "Any plant that can live purely on confusion?",
+                "Which plant won't file a complaint if I forget it exists?"
+            ],
+
+            "accept": 
+            [
+                "Nice! Even I can't mess this up. Probably.",
+                "That's my kind of plant - lazy and proud.",
+                "Perfect, it'll fit right in with my other survivors."
+            ],
+
+            "reject": 
+            [
+                "Whoa, that sounds like effort. Hard pass.",
+                "That one sounds needy.",
+                "Eh, I don't trust that plant's attitude."
+            ],
+
+            "acceptExit": 
+            [
+                "Thanks! If it dies, I'll just blame the sun!",
+                "Cool, time to neglect it responsibly!",
+                "Sweet, I'll name it Hope 2.0!"
+            ],
+
+            "rejectExit": 
+            [
+                "Cool, I'll try another shop that believes in miracles.",
+                "Maybe I'll just get a fake one.",
+                "I'll meditate on this... or nap. Probably nap."
+            ]
+        },
+
+        "average": 
+        {
+            "name": 
+            [
+                "Moderate Mike",
+                "Balanced Brenda",
+                "Reasonable Rachel",
+                "Sensible Steve",
+                "Average Amy"
+            ],
+
+            "introduce": 
+            [
+                "Hey there! My house is half jungle, half chaos — and I love it!",
+                "Hi! I'm just trying to make my home feel a little more alive.",
+                "Hey! I've got plants, but I want something that really pops!",
+                "Hello! My plants are thriving... mostly.",
+                "Hey! I'm here to add a little green to my life!"
+            ],
+
+            "preferences": 
+            [
+                "Looking for something cute but not dramatic. No divas allowed.",
+                "Something easy-going, but still pretty enough for Instagram.",
+                "I want a plant that forgives, but also flourishes.",
+                "Low drama, medium watering, high vibe.",
+                "A plant that says: I'm thriving, but chill about it."
+            ],
+
+            "recommendations": 
+            [
+                "Got any plants that thrive on medium chaos?",
+                "What's something that survives both sunlight and forgetfulness?",
+                "What's your go-to plant for normal people?",
+                "Any plant that matches a vibe of mild responsibility?",
+                "What would you recommend to someone with commitment issues... to watering?"
+            ],
+
+            "accept": 
+            [
+                "Perfect! It'll look amazing next to the one I almost overwatered!",
+                "Nice, that's exactly what I had in mind!",
+                "Awesome, I can already picture it thriving!"
+            ],
+
+            "reject": 
+            [
+                "Hmm, it's nice... but it doesn't speak to my windowsill.",
+                "Not quite the vibe I was feeling.",
+                "Maybe something a bit more... forgiving?"
+            ],
+
+            "acceptExit": 
+            [
+                "Awesome, thanks! My plants are gonna gossip about this one.",
+                "Thanks! Can't wait to introduce it to the family.",
+                "Yay! Time to rearrange my shelf for the tenth time!"
+            ],
+
+            "rejectExit": 
+            [
+                "I'll think about it. My vibe detector needs a recharge.",
+                "Thanks anyway! I'll browse a bit more.",
+                "Maybe I'll come back after my aesthetic crisis."
+            ]
+        },
+
+        "greenfinger": 
+        {
+            "name": 
+            [
+                "Expert Evelyn",
+                "Master Gardener Greg",
+                "Plant Professor Pete",
+                "Botanical Boss Brenda",
+                "Green Thumb Theo"
+            ],
+            "introduce": 
+            [
+                "Salutations! The legend of chlorophyll welcomes you!",
+                "Greetings, fellow cultivator of photosynthesis!",
+                "Ah, the scent of soil and potential - how invigorating!",
+                "Hello, I come seeking my next botanical conquest!",
+                "Hark! I heard there are rare species within these walls!"
+            ],
+
+            "preferences": 
+            [
+                "I desire a plant that challenges my mighty watering can!",
+                "Something exotic, something with drama - yet discipline.",
+                "I crave a specimen worthy of both awe and fear.",
+                "Show me flora that thrives under watchful devotion.",
+                "I want a plant that will demand excellence!"
+            ],
+
+            "recommendations": 
+            [
+                "Show me something rare... something that fears neither drought nor doom!",
+                "What plants are whispered about among the true gardeners?",
+                "Give me a challenge worthy of my green thumb!",
+                "What's the apex predator of houseplants?",
+                "I seek a plant that scoffs at mediocrity."
+            ],
+
+            "accept": 
+            [
+                "Exquisite! A worthy rival for my bonsai army!",
+                "Magnificent! I can already sense its spirit!",
+                "Splendid! My greenhouse shall rejoice!"
+            ],
+
+            "reject": 
+            [
+                "Bah! Too simple. I seek a plant that mocks my hubris!",
+                "No! I need something more.",
+                "That one's not even trying to intimidate me."
+            ],
+
+            "acceptExit": 
+            [
+                "Marvelous! I shall name it after myself immediately!",
+                "Onward! To repot and glory!",
+                "It shall stand tall in the Hall of Photosynthesis!"
+            ],
+
+            "rejectExit": 
+            [
+                "Farewell! I ride toward greener, riskier pastures!",
+                "Until next time - may your soil be rich and your leaves unbitten!",
+                "I go, but the hunt continues!"
+            ]
+       }
+    },
+    "plantCategories": {
+        "succulents": {
+            "cactus": {
+                "costPrice": 12.00,
+                "salePrice": 15.00
+            },
+            "aloe": {
+                "costPrice": 9.00,
+                "salePrice": 11.00
+            },
+            "jade": {
+                "costPrice": 7.50,
+                "salePrice": 9.00
+            }
+        },
+        "flowers": {
+            "rose": {
+                "costPrice": 10.00,
+                "salePrice": 13.00
+            },
+            "daisy": {
+                "costPrice": 5,
+                "salePrice": 7
+            },
+            "sunflower": {
+                "costPrice": 9,
+                "salePrice": 12
+            }
+        },
+        "trees": {
+            "lemon": {
+                "costPrice": 15.00,
+                "salePrice": 20.00
+            },
+            "banana": {
+                "costPrice": 20,
+                "salePrice": 30
+            },
+            "apple": {
+                "costPrice": 25,
+                "salePrice": 40
+            }
+        }
     }
 }

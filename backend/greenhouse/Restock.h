@@ -9,6 +9,6 @@ class Restock:public TransactionStrategy{
         Restock();
         ~Restock();
         double execute(double v, double b) override;
-        std::string getType();
+        std::string getType() const;
 };
 #endif
