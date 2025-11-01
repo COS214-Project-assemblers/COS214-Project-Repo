@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { clearDB} from "../utils/db"
+import { clearDB, openDB, getPlantRecord, updateDBRecord} from "../utils/db"
 
 const LandingPage = () => {
     const navigate = useNavigate();

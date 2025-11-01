@@ -63,6 +63,7 @@ export function updateDBRecord(record) {
 
 
 export function getPlantRecord(id) {
+  console.log("try get plant" + id);
   return new Promise((resolve, reject) => {
     const tx = db.transaction(["plants"], "readonly");
     const store = tx.objectStore("plants");

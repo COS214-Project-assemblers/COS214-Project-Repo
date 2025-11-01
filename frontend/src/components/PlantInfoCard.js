@@ -10,11 +10,13 @@ const PlantInfoCard = ({ onCancel, plant }) => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        if (!plant?.id) return;
+        if ((plant.id) == "") { console.log("here"); return; };
         const load = async () => {
             setLoading(true);
             try {
-                await openDB().then(() => getPlantRecord(plant?.id)).then((res) => { setInfo(res); console.log(res); })
+                console.log("here");
+                await openDB().then(() => getPlantRecord(plant.id)).then((res) => { setInfo(res); console.log(res); })
+                console.log("here2");
             } catch (e) {
                 console.error(e);
             } finally {
@@ -43,7 +45,7 @@ const PlantInfoCard = ({ onCancel, plant }) => {
         }
     };
 
-    const disabled = (info?.maturity !== 'Sellable');
+    const disabled = (info?.state !== 'Sellable');
 
     return (
         <div className="plantInfoBody">
@@ -56,26 +58,26 @@ const PlantInfoCard = ({ onCancel, plant }) => {
             </div>
 
             <div id="plantInfoGrid">
-                {loading && <p>Loading...</p>}
-                {!loading && info && (
+                {/* {loading && <p>Loading...</p>}
+                {!loading && info && ( */}
                   <>
-                    <p><span className="field">Category:</span> {info.category}</p>
-                    <p><span className="field">Variety:</span> {info.variety}</p>
+                    <p><span className="field">Category:</span> {info?.category}</p>
+                    <p><span className="field">Variety:</span> {info?.variety}</p>
                     <p><span className="field">Health Score:</span> {info?.healthScore ?? '-'}</p>
                     <p><span className="field">Pruning Level:</span> {info?.pruningLevel ?? '-'} / 3</p>
                     <p><span className="field">Water Level:</span> {info?.waterLevel ?? '-'}</p>
                     <p><span className="field">Fertilizer Level:</span> {info?.fertilizerLevel ?? '-'}</p>
 
-                    <p><span className="field">Cost Price:</span> {info.costPrice}</p>
-                    <p><span className="field">Sell Price:</span> {info.salePrice}</p>
+                    <p><span className="field">Cost Price:</span> {info?.costPrice}</p>
+                    <p><span className="field">Sell Price:</span> {info?.salePrice}</p>
 
                     <p id="maturity">
                       Maturity: <span id="mature-span" style={{ color: (info?.state === 'Sellable') ? '#089108' : 'red' }}>
-                        {info.state}
+                        {info?.state}
                       </span>
                     </p>
                   </>
-                )}
+                {/* )} */}
             </div>
 
             <div id="info-buttons">

@@ -5,7 +5,7 @@ import PlantInfoCard from "./PlantInfoCard";
 import { openDB, updateDBRecord, getPlantRecord, initSocket} from "../utils/db"
 
 const SoilGrid = () => {
-    initSocket();
+    // initSocket();
     const [isOpen, setIsOpen] = useState(false);
     const [plants, setPlants] = useState([]);  // greenhouse array
     const [selected, setSelected] = useState(null);
