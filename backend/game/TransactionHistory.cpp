@@ -1,4 +1,6 @@
 #include "TransactionHistory.h"
+#include "Transaction.h"
+#include "TransactionStrategy.h"
 
 void TransactionHistory::setTransactionMem(const TransactionMem& tM){
     this->memento.push_back(tM);
@@ -12,36 +14,58 @@ TransactionMem TransactionHistory::getTransactionMem(int index)const{
     return this->memento[index];
 }
 
-void TransactionHistory::print()const{
-    //iterate though vector and print each memento from that day
-    //Ally - not implimented fully but basic consept
-    if(this->memento.empty()){
-        std::cout<<"No Transactions Recorded today :("<<std::endl;
-    }
-    int count=0;
-    for(const auto& m: this->memento){
-        std::cout<<"Transaction "<<++count
-                    <<"Type: "<<m.getType()
-                    <<"Value: "<<m.getValue()
-                    <<"Balance Before: "<<m.getBalanceB4()
-                    <<"Balance After: "<<m.getBalenceAfter()
-                    <<std::endl;
-    }
-}
-
-bool TransactionHistory::processReturn(Ledger& l,Inventory& inv){
-    if(this->memento.empty()){
-        return false;
-    }
-    const TransactionMem& last=this->memento.back();
-    l.setBalance(last.getBalanceB4());
-    if(last.getType()=="Sale"){
-        inv.restock(last.getPlant());
-    }
-    this->memento.pop_back();
-    return true;
-}
-
 void TransactionHistory::clear(){
     this->memento.clear();
+}
+
+bool TransactionHistory::hasBeenReturned(int tID)const{
+    if(tID<0){
+        return false;
+    }
+    for(const auto& t : this->memento){
+        if(t.getType()=="Return" && t.getReturnedID()==tID){
+            return true;
+        }
+    }
+    return false;
+}
+
+int TransactionHistory::FindTransactionIDFor(const Plant* p)const{
+    for(int i=(int)this->memento.size()-1;i>=0;--i){//do this so it checks it from back to front :) therefore newest->oldest
+        const auto& t = this->memento[i];
+        if(t.getType()=="Sale" && t.getPlant()==p){
+            return t.getTransactionID();
+        }
+    }
+    return -1;
+}
+
+void TransactionHistory::printStatement(){
+    for(const auto& t : this->memento){
+        std::cout<<"Transacktion #"<<t.getTransactionID()
+                    <<"Type: "<<t.getType()
+                    <<"Value: "<<t.getValue()
+                    <<"Balance: "<<t.getBalanceAfter();
+        if(t.getType()=="Return"){
+            std::cout<<"ReferenceID: "<<t.getReturnedID();
+        }
+        std::cout<<std::endl;
+    }
+}
+
+std::string TransactionHistory::statementJSON()const{
+    nlohmann::json transactionHist=nlohmann::json::array();
+    for(const auto& t : this->memento){
+        nlohmann::json transactionObj={
+            {"transactionId",   t.getTransactionID()},
+            {"type",            t.getType()},
+            {"value",           t.getValue()},
+            {"balance",         t.getBalanceAfter()}
+        };
+        if(t.getType()=="Return"){
+            transactionObj["referenceId"]=t.getReturnedID();
+        }
+        transactionHist.push_back(transactionObj);
+    }
+    return transactionHist.dump();
 }

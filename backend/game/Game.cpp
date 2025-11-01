@@ -149,7 +149,7 @@ void Game::createNewGame()
         throw runtime_error("Failed to create greenhouse for unknown reason");
     }
 
-    if(!manager)
+    if(manager == nullptr)
     {
         manager = new Manager();
     }
@@ -355,6 +355,11 @@ void Game::createCustomers(string type, int num)
 void Game::setManager(Manager* m)
 {
     manager = m;
+}
+
+Manager* Game::getManager()
+{
+    return manager;
 }
 
 vector<Customer*> Game::getCustomers()

@@ -28,6 +28,7 @@ class SalesFloor{
         std::vector<Customer*> customers;///<Vector of customers in the "queue"
         std::vector<Customer*> custHist;///<Vector of customers that have moved out of the "queue" and is just a history
         Ledger ledger;///<Ledger to keep track of balance
+        TransactionHistory* history;
     public:
         /**
          * @brief Default constructor.
@@ -103,6 +104,7 @@ class SalesFloor{
         std::vector<Plant*> findByDifficulty(std::string d)const;
 
         void addPlant(Plant* p);
+
 };
 
 #endif

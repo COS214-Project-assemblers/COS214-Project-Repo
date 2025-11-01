@@ -162,6 +162,7 @@ class Game {
          */
         void exitGame();
         void setManager(Manager* m);
+        Manager* getManager();
 
         float getGameBalance();
 
