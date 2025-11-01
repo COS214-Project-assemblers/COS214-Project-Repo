@@ -11,7 +11,7 @@ const Tutorial = () => {
             <div id="tut">
                 <img alt="tutorial-board" src="/assets/images/tutorial-board.svg" width="300"/>
                 <img alt="tutorial-text" id="tut-text" src="/assets/images/tut.svg" width="300"/>
-                {/* Still need to add the text of the Tutorial component. */}
+                
             </div>
         </div>
     );
