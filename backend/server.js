@@ -59,13 +59,13 @@ function createPlant(category, varietyIndex) {
     id: String(nextId++),
     category: displayCategory,          // string: "Flower" | "Succulent" | "Tree"
     variety: varietyName,               // string: e.g. "Rose"
-    healthScore: 100.0,                 // float
-    pruningLevel: 0.0,                  // float
-    waterLevel: 100.0,                  // float
-    fertilizerLevel: 100.0,             // float
+    healthScore: 100,                 // percentage, 0% == dead plant, 20% - 50% == orange plant, less than 20% == red plant
+    pruningLevel: 0,                  // out of 3?
+    waterLevel: 100,                  
+    fertilizerLevel: 100,            
     costPrice,                          // int
     sellPrice,                          // int
-    maturity: 'Sellable',               // boolean: "Sellable" | "Not-Sellable"
+    maturity: 'Not-Sellable',           // boolean: "Sellable" | "Not-Sellable", a Sellable plant has a star added (visual indicator)
     kind: category,                     // 'flower' | 'succulent' | 'tree'
     varietyIndex,                       
     stage: 'seedling',
@@ -77,10 +77,7 @@ app.get('/api/balance', (req, res) => {
   res.json({ balance: db.balance });
 });
 
-// // Get the prices of the varieties
-// app.get('/api/prices', (req, res) => {
-//   res.json(prices);
-// });
+
 
 app.get('/api/cost-prices', (req, res) => {
   res.json(prices);
@@ -101,6 +98,14 @@ app.get('/api/greenhouse', (req, res) => {
   });
 });
 
+// Mock endpoint to get the nr of plants of the sales floor array 
+app.get('/api/salesfloor', (req, res) => {
+  res.json({
+    salesfloor: db.salesfloor,
+    count: Array.isArray(db.salesfloor) ? db.salesfloor.length : 0
+  });
+});
+
 // Get details for a single plant by id
 app.get('/api/plants/:id', (req, res) => {
   const { id } = req.params;
@@ -110,12 +115,17 @@ app.get('/api/plants/:id', (req, res) => {
 });
 
 
+// Mock endpoint: Get all the customers
+app.get('/api/customers', (req, res) => {
+  res.json({ customers });
+});
 
 
 // NEW GAME mock endpoint called when the 'New Game' button is clicked on the Landing Page
 app.post('/api/new-game', (req, res) => {
   nextId = 1;
-  db = { balance: 200, greenhouse: [], salesfloor: []};
+  customers = [];
+  db = { balance: 500, greenhouse: [], salesfloor: []};
   res.status(201).json({ ok: true, state: db });
 });
 
@@ -123,6 +133,7 @@ app.post('/api/new-game', (req, res) => {
 // EXIT GAME mock endpoint called when the 'Exit' button is clicked on the Landing Page
 app.post('/api/exit-game', (req, res) => {
   db = { balance: 0, greenhouse: [], salesfloor: []};  // mock terminate/reset
+  customers = [];
   res.status(200).json({ ok: true });
 });
 
@@ -215,9 +226,141 @@ app.post('/api/plants/:id/move-to-sales', (req, res) => {
 
 
 
+let customers = [];
+
+// Mock function to create 3 customers, one each of type: 'ignorant', 'medium', 'greenfinger'
+function makeCustomer(type) {
+  const base = {
+    ignorant: { 
+      type: 'ignorant',
+      name: 'Absent-minded Alice',
+      introduction: "Heyyy... so... plants don't scream if I forget to water them, right?",
+      preferences: "I need a plant that survives on good vibes and accidental neglect.",
+      recommendations: "Which plant won't file a complaint if I forget it exists?",
+      accept: "Nice! Even I can't mess this up. Probably.",
+      acceptExit: "Thanks! If it dies, I'll just blame the sun!",
+      reject: "That one sounds needy.",
+      rejectExit: "Cool, I'll try another shop that believes in miracles.",
+      offeredPlants: [
+        { variety: 'Lemon', category: 'Tree', acceptable: 'yes', difficulty: 'hard' },
+        { variety: 'Apple', category: 'Tree', acceptable: 'yes', difficulty: 'hard' },
+        { variety: 'Daisy', category: 'Flower', acceptable: 'yes', difficulty: 'medium' },
+        { variety: 'Cactus', category: 'Succulent', acceptable: 'yes', difficulty: 'easy' },
+        { variety: 'Banana', category: 'Tree', acceptable: 'no', difficulty: 'hard' },
+      ],
+    },
+    medium: {
+      type: 'medium',
+      name: 'Sensible Steve',
+      introduction: "Hey there! My house is half jungle, half chaos — and I love it!",
+      preferences: "I want a plant that forgives, but also flourishes.",
+      recommendations: "Any plant that matches a vibe of mild responsibility?",
+      accept: "Nice, that's exactly what I had in mind!",
+      acceptExit: "Awesome, thanks! My plants are gonna gossip about this one.",
+      reject: "Maybe something a bit more... forgiving?",
+      rejectExit: "Thanks anyway! I'll browse a bit more.",
+      offeredPlants: [
+        { variety: 'Lemon', category: 'Tree', acceptable: 'no', difficulty: 'hard' },
+        { variety: 'Banana', category: 'Tree', acceptable: 'no', difficulty: 'hard' },
+        { variety: 'Aloe', category: 'Succulent', acceptable: 'yes', difficulty: 'easy' },
+        { variety: 'Rose', category: 'Flower', acceptable: 'yes', difficulty: 'medium' },
+        { variety: 'Jade', category: 'Succulent', acceptable: 'yes', difficulty: 'easy' },
+      ],
+    },
+    greenfinger: {
+      type: 'greenfinger',
+      name: 'Greenfinger Greg',
+      introduction: "Greetings! I'm hunting for something special for my collection.",
+      preferences: "I prefer plants that reward careful attention.",
+      recommendations: "What would you recommend that truly shines with care?",
+      accept: "Excellent choice — that's perfect.",
+      acceptExit: "Splendid! I'll add it to the conservatory.",
+      reject: "Not quite what I had in mind.",
+      rejectExit: "Thanks, but I'll pass for now.",
+      offeredPlants: [
+        { variety: 'Maple', category: 'Tree', acceptable: 'yes', difficulty: 'hard' },
+        { variety: 'Pine', category: 'Tree', acceptable: 'yes', difficulty: 'hard' },
+        { variety: 'Rose', category: 'Flower', acceptable: 'yes', difficulty: 'medium' },
+        { variety: 'Tulip', category: 'Flower', acceptable: 'yes', difficulty: 'medium' },
+        { variety: 'Daisy', category: 'Flower', acceptable: 'no', difficulty: 'easy' },
+      ],
+    }
+  };
+  return { id: String(Date.now() + Math.random()), type, ...base[type] };
+}
+
+// POST endpoint to initialise customers once to avoid an infinite loop :(
+app.post('/api/customers/init', (req, res) => {
+  customers = [];
+  customers.push(makeCustomer('ignorant'));
+  customers.push(makeCustomer('medium'));     
+  customers.push(makeCustomer('greenfinger'));
+  console.log(`[${new Date().toISOString()}] Customers initialised: total=${customers.length}`);
+  res.status(201).json({ ok: true, total: customers.length });
+});
 
 
 
+
+// Mock endpoint to create customers when navigating to sales floor (called 3 times: ignorant, medium, greenfinger)
+app.post('/api/customers/create', (req, res) => {
+  const { type, count = 1 } = req.body || {};
+  if (!['ignorant', 'medium', 'greenfinger'].includes(type)) {
+    return res.status(400).json({ error: 'Invalid type' });
+  }
+  for (let i = 0; i < Number(count) || 1; i++) customers.push(makeCustomer(type));
+  console.log(`[${new Date().toISOString()}] Created customer: type=${type}, count=${count}, total=${customers.length}`);
+  res.status(201).json({ ok: true, total: customers.length });
+});
+
+
+
+
+// Sell a plant to the current customer selection: remove from salesfloor and add to balance
+// Body: { category: 'Tree'|'Flower'|'Succulent', variety: 'Rose'|'Lemon'|... }
+app.post('/api/sales/sell', (req, res) => {
+  try {
+    const { category, variety } = req.body || {};
+    if (!category || !variety) return res.status(400).json({ error: 'category and variety required' });
+
+    const catL = String(category).toLowerCase();
+    const varL = String(variety).toLowerCase();
+
+    const idx = db.salesfloor.findIndex(p =>
+      String(p.category).toLowerCase() === catL &&
+      String(p.variety).toLowerCase() === varL
+    );
+    if (idx === -1) return res.status(404).json({ error: 'Plant not found on salesfloor' });
+
+    const [plant] = db.salesfloor.splice(idx, 1);  // remove from sales floor inventory
+    const price = plant.sellPrice ?? (sellPrices[plant.kind]?.[plant.varietyIndex] ?? 0);
+    db.balance += price;  // update player's balance
+
+    console.log(`[${new Date().toISOString()}] Sold ${plant.category} ${plant.variety} for ${price}. Balance=${db.balance}`);
+    console.log('Salesfloor inventory:', db.salesfloor.map(p => ({ id: p.id, category: p.category, variety: p.variety })));
+
+    res.json({ ok: true, sellPrice: price, balance: db.balance, remaining: db.salesfloor.length });
+  } catch (e) {
+    console.error('POST /api/sales/sell failed:', e);
+    res.status(500).json({ error: 'Internal error' });
+  }
+});
+
+// Endpoint to reset customers
+app.post('/api/customers/reset', (req, res) => {
+  customers = [];
+  res.json({ ok: true });
+});
+
+
+
+
+
+
+
+
+
+// don't modify this endpoint and leave it below all other endpoints
 app.get(/^\/(?!api).*/, (req, res) => {
   res.sendFile(path.resolve('frontend', 'public', 'index.html'));
 });

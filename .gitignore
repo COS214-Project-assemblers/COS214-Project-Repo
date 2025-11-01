@@ -57,7 +57,10 @@ log*
 .env
 .env*
 
+<<<<<<< HEAD
 node_modules
+=======
+>>>>>>> frontend-branch
 bin/*
 utils/venv
 venv/*
@@ -65,4 +68,8 @@ venv
 utils/venv/*
 
 node_modules
+<<<<<<< HEAD
 node_modules/*
+=======
+node_modules/*
+>>>>>>> frontend-branch
