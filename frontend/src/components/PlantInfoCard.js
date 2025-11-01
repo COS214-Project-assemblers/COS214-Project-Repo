@@ -1,6 +1,7 @@
 /* Ane' Burger 24565068 */
 
 import React, { useState, useEffect } from "react";
+import { openDB, updateDBRecord, getPlantRecord } from "../utils/db"
 // import { Link } from "react-router";
 
 const PlantInfoCard = ({ onCancel, plant }) => {
@@ -12,10 +13,7 @@ const PlantInfoCard = ({ onCancel, plant }) => {
         const load = async () => {
             setLoading(true);
             try {
-                const res = await fetch(`/api/plants/${plant.id}`);
-                const data = await res.json();
-                if (res.ok) setInfo(data);
-                else console.error('Failed to load plant info', data);
+                await openDB().then(() => getPlantRecord(plant?.id)).then((res) => {setInfo(res); console.log(res);});
             } catch (e) {
                 console.error(e);
             } finally {

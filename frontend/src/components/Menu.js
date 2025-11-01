@@ -18,10 +18,10 @@ const Menu = ({ onCancel }) => {
         const load = async () => {
             try {
                 const [gh, bal] = await Promise.all([
-                    fetch('/api/greenhouse').then(r => r.json()),
+                    fetch('/api/greenhouse/plants').then(r => r.json()),
                     fetch('/api/balance').then(r => r.json())
                 ]);
-                setUsed(gh.used ?? 0);
+                setUsed(JSON.parse(gh.data).length > 0 ?? 0);
                 setBalance(bal.balance ?? 0);
             } catch (e) { /* ignore */ }
         };
@@ -58,7 +58,6 @@ const Menu = ({ onCancel }) => {
         }
 
         let categoriesCount = getCategoriesCount();
-        console.log(categoriesCount);
         for (let i = 0; i < flower.length; i++) {
             if (flower[i] > 0) {
                 await buyPlant(categoriesCount.flowers[0][i].name, flower[i]);

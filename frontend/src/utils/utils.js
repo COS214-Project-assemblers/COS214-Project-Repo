@@ -1,10 +1,5 @@
 import gameConfig from "../data/GameConfig.json"
 
-export async function loadGameConfig() {
-    let plantCats = gameConfig["plantCategories"];
-
-}
-
 export function getCategoriesCount() {
     let result = {};
 

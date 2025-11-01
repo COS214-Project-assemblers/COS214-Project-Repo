@@ -21,7 +21,6 @@ const LandingPage = () => {
             console.error(e);
             alert('Network error starting a new game.');
         } finally {
-            setBusy(false);
         }
     };
 

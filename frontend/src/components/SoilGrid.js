@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import PlantInfoCard from "./PlantInfoCard";
+import { openDB, updateDBRecord, getPlantRecord } from "../utils/db"
 
 const SoilGrid = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,9 +15,14 @@ const SoilGrid = () => {
 
     const loadGreenhouse = async () => {
         try {
-        const res = await fetch('/api/greenhouse');
+        const res = await fetch('/api/greenhouse/plants');
         const data = await res.json();
-        setPlants(Array.isArray(data.greenhouse) ? data.greenhouse : []);
+        let tmpPlants = JSON.parse(data.data);
+        tmpPlants.forEach((el, index) => {
+            console.log(el);
+            openDB().then(() => updateDBRecord(el)).then(() => getPlantRecord(el.id)).then((res) => {console.log(res)});
+        });
+        setPlants(Array.isArray(JSON.parse(data.data)) ? JSON.parse(data.data) : []);
         } catch (e) { /* ignore */ }
     };
 
