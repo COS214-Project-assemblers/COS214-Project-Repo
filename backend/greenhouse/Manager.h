@@ -12,6 +12,7 @@
 #include "SalesFloor.h"
 #include "Ledger.h"
 #include "Transaction.h"
+#include "Greenhouse.h"
 
 #include <vector>
 #include <string>
@@ -28,6 +29,7 @@ class Manager{
         Ledger ledger;///<Ledger to keep track of balance
         TransactionStrategy* strat;
         TransactionHistory hist;///<Transaction history to keep track of transactions
+        Greenhouse* greenhouse;
     public:
         /**
          * @brief Constructs a Manager associated with a given SalesFloor.
@@ -79,6 +81,8 @@ class Manager{
 
         float getBalance();
         TransactionHistory getTransactionHist()const;
+
+        void setGreenhouse(Greenhouse* greenhouse);
 };
 
 #endif

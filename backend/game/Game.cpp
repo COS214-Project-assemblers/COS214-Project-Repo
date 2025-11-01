@@ -152,6 +152,7 @@ void Game::createNewGame()
     if(manager == nullptr)
     {
         manager = new Manager();
+        manager->setGreenhouse(getGreenhouse());
     }
 }
 

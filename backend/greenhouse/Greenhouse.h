@@ -4,6 +4,7 @@
 #include "Inventory.h"
 #include "GreenSock.h"
 #include "SalesFloor.h"
+#include "PruningStaff.h"
 
 class Greenhouse
 {
@@ -11,6 +12,7 @@ class Greenhouse
         Inventory* inventory;
         GreenSock* socket;
         SalesFloor* sFloor;
+        vector<GreenhouseStaff*> greenHouseStaff;
     public:
         Greenhouse(GreenSock* socket);
         ~Greenhouse();
@@ -27,6 +29,7 @@ class Greenhouse
          */
         Plant* removePlant(Plant* plant);
 
+        void setSalesFloor(SalesFloor* salesFloor);
         void startThreads() ; 
         void setSocket(GreenSock* greenSocket) ;
         void movePlant(Plant* plant);

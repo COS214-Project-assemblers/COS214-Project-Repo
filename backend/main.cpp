@@ -53,10 +53,10 @@ void startGameApi() {
     myApi.setSocket(greenSock);
     std::cout << "Set socket" << std::endl;
     std::thread apiThread(startApi, myApi);
-    // std::thread sockThread(startSocket);
+    std::thread sockThread(startSocket);
 
     apiThread.join();
-    // sockThread.join();
+    sockThread.join();
 }
 
 
@@ -171,8 +171,6 @@ void testGreenhouseFlow()   {
     delete tree ; 
     greenSockThread.join();
 }
-
-
 
 int main() {
     startGameApi();

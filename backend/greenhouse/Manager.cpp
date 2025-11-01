@@ -114,3 +114,9 @@ float Manager::getBalance()
 TransactionHistory Manager::getTransactionHist()const{
     return this->hist;
 }
+
+void Manager::setGreenhouse(Greenhouse* greenhouse)
+{
+    // this->greenhouse = greenhouse;
+    greenhouse->setSalesFloor(floor);
+}
