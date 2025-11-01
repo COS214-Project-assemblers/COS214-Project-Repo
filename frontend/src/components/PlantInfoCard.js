@@ -67,11 +67,11 @@ const PlantInfoCard = ({ onCancel, plant }) => {
                     <p><span className="field">Fertilizer Level:</span> {info.fertilizerLevel?.toFixed?.(1) ?? info.fertilizerLevel}</p>
 
                     <p><span className="field">Cost Price:</span> {info.costPrice}</p>
-                    <p><span className="field">Sell Price:</span> {info.sellPrice}</p>
+                    <p><span className="field">Sell Price:</span> {info.salePrice}</p>
 
                     <p id="maturity">
-                      Maturity: <span id="mature-span" style={{ color: (info?.maturity === 'Sellable') ? '#089108' : 'red' }}>
-                        {info.maturity}
+                      Maturity: <span id="mature-span" style={{ color: (info?.state === 'Sellable') ? '#089108' : 'red' }}>
+                        {info.state}
                       </span>
                     </p>
                   </>

@@ -49,6 +49,15 @@ module.exports = {
                 pathRewrite: { '^/api': '' },
                 logLevel: 'debug',
             },
+            {
+                context: ['/ws/'],
+                target: 'http://localhost:8001',
+                changeOrigin: true,
+                secure: false,
+                ws: true,
+                pathRewrite: { '^/ws': '' },
+                logLevel: 'debug',
+            },
         ]
     },
     plugins: [

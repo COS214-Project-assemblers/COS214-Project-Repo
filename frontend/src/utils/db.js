@@ -113,6 +113,7 @@ export function initSocket() {
             }
             try {
               openDB().then(() => updateDBRecord(jsonPlantData));
+              window.dispatchEvent(new CustomEvent('greenhouse:refresh'));
             } catch {
               throw Error("Failed to update/add record");
             }

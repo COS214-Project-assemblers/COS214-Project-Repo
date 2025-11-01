@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import PlantInfoCard from "./PlantInfoCard";
-import { openDB, updateDBRecord, getPlantRecord } from "../utils/db"
+import { openDB, updateDBRecord, getPlantRecord, initSocket} from "../utils/db"
 
 const SoilGrid = () => {
+    initSocket();
     const [isOpen, setIsOpen] = useState(false);
     const [plants, setPlants] = useState([]);  // greenhouse array
     const [selected, setSelected] = useState(null);
