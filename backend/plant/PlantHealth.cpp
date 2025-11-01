@@ -79,15 +79,21 @@ void Health::decay(int decayIndex) {
 
 std::string Health::getWater()
 {
-    return std::to_string(water);
+    std::ostringstream out;
+    out << std::fixed << std::setprecision(2) << water;
+    return out.str();
 }
 
 std::string Health::getFertilizer()
 {
-    return std::to_string(fertalizer);
+    std::ostringstream out;
+    out << std::fixed << std::setprecision(2) << fertalizer;
+    return out.str();
 }
 
 std::string Health::getPruning()
 {
-    return std::to_string(pruning);
+    std::ostringstream out;
+    out << std::fixed << std::setprecision(2) << pruning;
+    return out.str();
 }
