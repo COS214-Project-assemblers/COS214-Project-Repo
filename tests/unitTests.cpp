@@ -403,6 +403,8 @@ TEST(GameTests, BuyPlantsFunctionality)
     Game* game = new Game(configPath);
     game->createNewGame();
     
+    cout << "BALANCE BEFORE: " << game->getManager()->getBalance() << endl;
+
     EXPECT_NO_THROW({
         game->buyPlants("cactus", 1);
     }) << "Should be able to buy a single plant";
@@ -415,6 +417,8 @@ TEST(GameTests, BuyPlantsFunctionality)
     ASSERT_NE(greenhouse, nullptr) << "Greenhouse should exist";
     
     std::cout << "✓ Basic plant purchasing works correctly" << std::endl;
+
+    cout << "BALANCE AFTER: " << game->getManager()->getBalance() << endl;
     
     delete game;
 }

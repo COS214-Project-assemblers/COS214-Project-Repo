@@ -357,6 +357,11 @@ void Game::setManager(Manager* m)
     manager = m;
 }
 
+Manager* Game::getManager()
+{
+    return manager;
+}
+
 vector<Customer*> Game::getCustomers()
 {
     return customers;
