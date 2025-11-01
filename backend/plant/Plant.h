@@ -192,6 +192,8 @@ class Plant
          */
         PlantState* getState();
 
+        string getStateAsString();
+
         /**
          * @brief Attaches a greenhouse staff observer to this plant.
          * Adds a staff member to the observer list so they will be notified
@@ -338,5 +340,9 @@ class Plant
          * @return True if the plant is acceptable, false otherwise.
          */
         bool isAcceptable();
+
+        string getWaterLevel();
+        string getFertilizerLevel();
+        string getPruningLevel();
 };
 #endif

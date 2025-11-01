@@ -7,6 +7,9 @@
 #include <chrono>
 #include <random>
 #include "GreenSock.h"
+#include <sstream>
+#include <iomanip>
+
 class Plant; // forward declaration
 
 class Health {
@@ -37,6 +40,10 @@ class Health {
          * @param mature Initial maturity level (default 0)
          */
         Health(float water = 1.0 , float fertalizer = 1.0 , float pruning = 1.0 , int mature= 0);
+
+        std::string getWater();
+        std::string getFertilizer();
+        std::string getPruning();
 
         /**
          * @brief Destructor for Health.
@@ -85,9 +92,9 @@ class Health {
          */
         float healthScore();
 
-        float getWater();
+        float Water();
 
-        float getFertilizer();
+        float Fertilizer();
 
         float healthPrune();
 

@@ -114,6 +114,11 @@ PlantState *Plant::getState() {
     return plantState;
 }
 
+string Plant::getStateAsString()
+{
+    return getState()->getState();
+}
+
 void Plant::attach(GreenhouseStaff *ob) {
     observerList.push_back(ob);
 }
@@ -331,3 +336,18 @@ void Plant::newPlantLog(string message) {
         logger->newLog(message);
     }
 } 
+
+string Plant::getWaterLevel()
+{
+    return health->getWater();
+}
+
+string Plant::getFertilizerLevel()
+{
+    return health->getFertilizer();
+}
+
+string Plant::getPruningLevel()
+{
+    return health->getPruning();
+}

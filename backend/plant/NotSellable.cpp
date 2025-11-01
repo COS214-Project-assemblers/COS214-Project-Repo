@@ -15,3 +15,8 @@ void NotSellable::handle(Plant *plant) {
 
     */
 }
+
+string NotSellable::getState()
+{
+    return "NotSellable";
+}

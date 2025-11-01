@@ -46,10 +46,10 @@ float Health::healthScore() {
 }
 
 
-float Health::getWater() {
+float Health::Water() {
     return this->water ; 
 }
-float Health::getFertilizer() {
+float Health::Fertilizer() {
     return this->fertalizer ; 
 }
 
@@ -91,4 +91,25 @@ void Health::decay(int decayIndex) {
                 break;
         }
 
+}
+
+std::string Health::getWater()
+{
+    std::ostringstream out;
+    out << std::fixed << std::setprecision(2) << water;
+    return out.str();
+}
+
+std::string Health::getFertilizer()
+{
+    std::ostringstream out;
+    out << std::fixed << std::setprecision(2) << fertalizer;
+    return out.str();
+}
+
+std::string Health::getPruning()
+{
+    std::ostringstream out;
+    out << std::fixed << std::setprecision(2) << pruning;
+    return out.str();
 }
