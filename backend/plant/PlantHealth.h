@@ -23,6 +23,10 @@ class Health {
         std::mt19937 rng;
         std::uniform_int_distribution<int> dist;
 
+        void _setWaterUnlocked(float w);
+        void _setFertilizerUnlocked(float f);
+        void _setPruningUnlocked(float p);
+
     public:
 
         /**
@@ -110,6 +114,10 @@ class Health {
          */
         void decay(int decayIndex)  ;
         bool isDead() ; 
+
+        void setWater(float w) ; 
+        void setFertilizer(float f) ; 
+        void setPruning(float p) ; 
 
 } ;
 

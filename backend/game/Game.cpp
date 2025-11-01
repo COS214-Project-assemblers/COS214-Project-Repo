@@ -18,6 +18,14 @@
 #include "VisitHighCustomer.h"
 #include "Inventory.h"
 
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define PURPLE  "\033[35m"
+#define CYAN    "\033[36m"
+
 Game::Game(string configPath)
 {
     CoutAndLog* logDec = new CoutAndLog();
@@ -214,6 +222,7 @@ void Game::saveGame() {}
 
 Game::~Game()
 {
+    std::cout << RED << "\t Deleting Game" << RESET <<std::endl ; 
     if (logger != nullptr) {
         delete logger;
     }

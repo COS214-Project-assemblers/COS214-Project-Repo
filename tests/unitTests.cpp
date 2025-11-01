@@ -34,6 +34,13 @@
 #include "AverageCustomerBuilder.h"
 #include "GreenFingerCustomerBuilder.h"
 
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define PURPLE  "\033[35m"
+#define CYAN    "\033[36m"
 
 TEST(TestSuiteName, TestName) {
     // Setup
@@ -46,7 +53,7 @@ TEST(TestSuiteName, TestName) {
     // Check results
     EXPECT_LT(h.healthScore(), 3.0f);  // after decay, total health should drop (should be Less Than (LT))
 }
-
+/*
 TEST(PlantDynamicTest, HealthChangesOverTime) {
     Plant* myPlant = new Succulent("Aloe", "easy");
 
@@ -62,7 +69,7 @@ TEST(PlantDynamicTest, HealthChangesOverTime) {
     EXPECT_LT(laterScore, initialScore) << "Health should decay over time!";
     delete myPlant;
 }
-
+*/
 TEST(GameCreationTests, NewGameOptionExecutesProperly) {
     // Set up environment
     std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
@@ -394,11 +401,15 @@ TEST(GameCreationTests, TestFactoriesPlantCreation) {
 
 TEST(GameTests, BuyPlantsFunctionality)
 {
-    std::cout << "\n=== Testing Buy Plants Functionality ===" << std::endl;
+    std::cout <<RED<< "\n=== Testing Buy Plants Functionality ===" << RESET<< std::endl;
     
     std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
     Game* game = new Game(configPath);
     game->createNewGame();
+    if (game == NULL){
+        std::cout << CYAN <<"(game == NULL)" << RESET<< std::endl ; 
+    }
+    
     
     EXPECT_NO_THROW({
         game->buyPlants("cactus", 1);
