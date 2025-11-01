@@ -9,7 +9,7 @@
 
 #include "APIComponent.h"
 #include "Game.h"
-
+#include "GreenSock.h"
 #include "oatpp/network/Server.hpp"
 #include <iostream>
 
@@ -45,6 +45,8 @@ class API {
          * @brief deletes current game member
          */
         void exitGame();
+
+        void setSocket(GreenSock* socket);
 };
 
 #endif // API_H

@@ -33,15 +33,31 @@ std::random_device rd;
 std::mt19937 gen(rd());
 std::uniform_int_distribution<> dist(1000, 3000);
 
+void startApi(API api) {
+    api.bootstrap();
+}
+
+void startSocket() {
+    greenSock.bootstrap();
+}
+
 void startGameApi() {
-        char* gameConfigPath = getenv("GAME_CONFIG_PATH");
+    char* gameConfigPath = getenv("GAME_CONFIG_PATH");
     if (gameConfigPath == nullptr) {
         std::cout << "GAME_CONFIG_PATH environment variable not set, exiting..." << std::endl;
         exit(EXIT_FAILURE);
     }
     API myApi;
-    myApi.bootstrap();
+    myApi.setSocket(&greenSock);
+    
+    std::thread apiThread(startApi, myApi);
+    std::thread sockThread(startSocket);
+
+    apiThread.join();
+    sockThread.join();
 }
+
+
 
 void startGreenSock() {
     greenSock.bootstrap();
@@ -109,8 +125,8 @@ void testGreenhouseFlow()   {
     prt("void testGreenhouseFlow() ") ;
 
     // Make a Greenhouse where plants can be added to
-    Greenhouse* greenhouse = new Greenhouse() ; 
-    greenhouse->setSocket(&greenSock) ; 
+    Greenhouse* greenhouse = new Greenhouse(&greenSock); 
+    // greenhouse->setSocket(&greenSock) ; 
     Plant::stubPlant();
 
     // Make plant factories And then Plants
@@ -161,6 +177,8 @@ int main() {
     // testingPlantRun() ; 
     // tes() ; 
     // testNthreads() ; 
-    testGreenhouseFlow() ; 
+    // testGreenhouseFlow() ; 
+    // startGameApi();
+    startGameApi();
     return 0;
 }

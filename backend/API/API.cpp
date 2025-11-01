@@ -9,6 +9,11 @@ void API::exitGame()
   }
 }
 
+void API::setSocket(GreenSock* sock)
+{
+  game->setSocket(sock);
+}
+
 // Inspiration from https://github.com/oatpp/oatpp-starter/blob/master/src/App.cpp
 void API::bootstrap()
 {

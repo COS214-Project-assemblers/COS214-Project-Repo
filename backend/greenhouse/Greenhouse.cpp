@@ -1,7 +1,8 @@
 #include "Greenhouse.h"
 
-Greenhouse::Greenhouse()
+Greenhouse::Greenhouse(GreenSock* socket)
 {
+    this->socket = socket;
     inventory = new Inventory();
 }
 

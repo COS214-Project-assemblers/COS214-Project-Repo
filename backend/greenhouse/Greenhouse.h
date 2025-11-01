@@ -11,7 +11,7 @@ class Greenhouse
         GreenSock* socket;
 
     public:
-        Greenhouse();
+        Greenhouse(GreenSock* socket);
         ~Greenhouse();
 
         /**
