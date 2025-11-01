@@ -51,10 +51,10 @@ void startGameApi() {
     myApi.setSocket(&greenSock);
     
     std::thread apiThread(startApi, myApi);
-    std::thread sockThread(startSocket);
+    // std::thread sockThread(startSocket);
 
     apiThread.join();
-    sockThread.join();
+    // sockThread.join();
 }
 
 
