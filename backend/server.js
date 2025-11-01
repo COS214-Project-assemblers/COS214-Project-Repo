@@ -78,7 +78,6 @@ app.get('/api/balance', (req, res) => {
 });
 
 
-
 app.get('/api/cost-prices', (req, res) => {
   res.json(prices);
 });

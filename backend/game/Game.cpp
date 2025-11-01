@@ -141,7 +141,7 @@ void Game::createNewGame()
 
     try
     {
-        setGreenhouse(new Greenhouse());
+        setGreenhouse(new Greenhouse(socket));
         logger->newLog("+ Created greenhouse");
     }
     catch (...)
@@ -429,4 +429,12 @@ string Game::getGreenhousePlantsAsJson()
     }
     
     return plantsArray.dump(4);
+}
+
+void Game::setSocket(GreenSock* socket) {
+    cout << "About to assign member var" << endl;
+    if (socket) {}
+    cout << "Not socket" << endl;
+    this->socket = socket;
+    cout << "Set member variable" << endl;
 }

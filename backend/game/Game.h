@@ -19,6 +19,7 @@
 #include "Customer.h"
 #include "CustomerBuilder.h"
 #include "Manager.h"
+#include "GreenSock.h"
 
 using namespace std;
 
@@ -59,6 +60,7 @@ class Game {
 
         vector<Customer*> customers;
         Manager* manager = nullptr;///<Maintains ref to the manager object
+        GreenSock* socket = nullptr;
     public:
         /**
          * @brief Game initialization tasks that are not creating/loading game.
@@ -162,6 +164,8 @@ class Game {
         void setManager(Manager* m);
 
         float getGameBalance();
+
+        void setSocket(GreenSock* socket);
 
         vector<Plant*> getGreenhousePlants();
         string getGreenhousePlantsAsJson();

@@ -28,23 +28,41 @@
 
 
 
-GreenSock greenSock = GreenSock();
+GreenSock* greenSock = new GreenSock();
 std::random_device rd; 
 std::mt19937 gen(rd());
 std::uniform_int_distribution<> dist(1000, 3000);
 
+void startApi(API api) {
+    api.bootstrap();
+}
+
+void startSocket() {
+    greenSock->bootstrap();
+}
+
 void startGameApi() {
-        char* gameConfigPath = getenv("GAME_CONFIG_PATH");
+    char* gameConfigPath = getenv("GAME_CONFIG_PATH");
     if (gameConfigPath == nullptr) {
         std::cout << "GAME_CONFIG_PATH environment variable not set, exiting..." << std::endl;
         exit(EXIT_FAILURE);
     }
+    std::cout << "Got gameConfig" << std::endl;
     API myApi;
-    myApi.bootstrap();
+    myApi.setGame(new Game(gameConfigPath));
+    myApi.setSocket(greenSock);
+    std::cout << "Set socket" << std::endl;
+    std::thread apiThread(startApi, myApi);
+    // std::thread sockThread(startSocket);
+
+    apiThread.join();
+    // sockThread.join();
 }
 
+
+
 void startGreenSock() {
-    greenSock.bootstrap();
+    greenSock->bootstrap();
 }
 
 void startThreads() {
@@ -63,7 +81,7 @@ void startThreads() {
 void testOneThread(){
     std::thread greenSockThread(startGreenSock);
     Plant* myPlant = new Succulent("Aloe", "Easy");
-    myPlant->setSocket(&greenSock) ; 
+    myPlant->setSocket(greenSock) ; 
 
     // float initialScore = myPlant->healthScore();
 
@@ -81,10 +99,10 @@ void testOneThread(){
 void testNthreads() {
     std::thread greenSockThread(startGreenSock);
     Plant* Aloe = new Succulent("Aloe", "Easy");
-    Aloe->setSocket(&greenSock) ; 
+    Aloe->setSocket(greenSock) ; 
 
     Plant* rose = new Flower("rose", "Easy");
-    rose->setSocket(&greenSock) ; 
+    rose->setSocket(greenSock) ; 
     // float initialScore = myPlant->healthScore();
 
     Aloe->start();
@@ -109,8 +127,8 @@ void testGreenhouseFlow()   {
     prt("void testGreenhouseFlow() ") ;
 
     // Make a Greenhouse where plants can be added to
-    Greenhouse* greenhouse = new Greenhouse() ; 
-    greenhouse->setSocket(&greenSock) ; 
+    Greenhouse* greenhouse = new Greenhouse(greenSock); 
+    // greenhouse->setSocket(&greenSock) ; 
     Plant::stubPlant();
 
     // Make plant factories And then Plants
@@ -158,5 +176,6 @@ void testGreenhouseFlow()   {
 
 int main() {
     startGameApi();
+    // testGreenhouseFlow();
     return 0;
 }
