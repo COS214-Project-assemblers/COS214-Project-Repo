@@ -190,6 +190,8 @@ class Plant
          */
         PlantState* getState();
 
+        string getStateAsString();
+
         /**
          * @brief Attaches a greenhouse staff observer to this plant.
          * Adds a staff member to the observer list so they will be notified

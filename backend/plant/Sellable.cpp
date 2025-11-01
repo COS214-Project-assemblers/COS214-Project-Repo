@@ -9,3 +9,8 @@ void Sellable::handle(Plant *plant) {
         - Update plant as available in inventory?
     */
 }
+
+string Sellable::getState()
+{
+    return "Sellable";
+}
