@@ -161,6 +161,12 @@ int main() {
     // testingPlantRun() ; 
     // tes() ; 
     // testNthreads() ; 
-    testGreenhouseFlow() ; 
+    std::thread startAPi(startGameApi);
+    std::thread startSock(startGreenSock);
+
+    startAPi.join();
+    startSock.join();
+
+    // testGreenhouseFlow() ; 
     return 0;
 }
