@@ -25,14 +25,28 @@ Inventory* Greenhouse::getInventory()
     return inventory;
 }
 
-void Greenhouse::removePlant(Plant* plant){
+Plant* Greenhouse::removePlant(Plant* plant){
     std::cout << "void Greenhouse::removePlant(Plant* plant)" <<std::endl; 
     this->inventory->removePlant(plant);
     
     std::cout << "\t plant->stop() ; " <<std::endl; 
     plant->join() ; // when a plant is removed from green house, stop its' thread ??? ( -from Morgan)
+    return plant;
 }
 
 void Greenhouse::setSocket(GreenSock* greenSocket) {
     this->socket = greenSocket ; 
+}
+
+void Greenhouse::movePlant(Plant* plant)
+{
+    if (sFloor == nullptr) {
+        cout << "SaleFloor not set" << endl;
+    }
+
+    cout << "Removing plant from Greenhouse" << endl;
+    removePlant(plant);
+    cout << "Moving plant to salesfloor" << endl;
+    sFloor->addPlant(plant);
+    cout << "Moved plant to salesfloor" << endl;
 }

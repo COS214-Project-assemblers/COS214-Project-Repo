@@ -32,7 +32,7 @@ void Inventory::restock(Plant* plant){
 }
 
 void Inventory::removePlant(Plant* plant){
-    auto it=std::find(plants.begin(), plants.end(), plant);
+    auto it = std::find(plants.begin(), plants.end(), plant);
     if(it!=plants.end()){
         plants.erase(it);
     }

@@ -3,13 +3,14 @@
 
 #include "Inventory.h"
 #include "GreenSock.h"
+#include "SalesFloor.h"
 
 class Greenhouse
 {
     private:
         Inventory* inventory;
         GreenSock* socket;
-
+        SalesFloor* sFloor;
     public:
         Greenhouse(GreenSock* socket);
         ~Greenhouse();
@@ -24,11 +25,11 @@ class Greenhouse
          * @brief removes a plant from the greenhouse inventory
          * @param plant Reference to the Plant being removed
          */
-        void removePlant(Plant* plant);
+        Plant* removePlant(Plant* plant);
 
         void startThreads() ; 
         void setSocket(GreenSock* greenSocket) ;
-
+        void movePlant(Plant* plant);
 };
 
 #endif
