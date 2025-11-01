@@ -22,7 +22,8 @@ void GreenSock::onOpen() {
 
 void GreenSock::onMessage() {
   s.set_message_handler([&](websocketpp::connection_hdl hdl, server::message_ptr msg) {
-    sendMessage(msg->get_payload()); // echo
+    // sendMessage(msg->get_payload()); // echo
+    std::cout << msg->get_payload() << std::endl;
   });
 }
 

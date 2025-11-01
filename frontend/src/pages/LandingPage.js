@@ -2,13 +2,14 @@
 
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { clearDB, openDB, getPlantRecord, updateDBRecord} from "../utils/db"
+import { clearDB, openDB, getPlantRecord, updateDBRecord, initSocket} from "../utils/db"
 
 const LandingPage = () => {
     const navigate = useNavigate();
 
     const createNewGame = async () => {
         try {
+            initSocket();
             clearDB();
             const res = await fetch('/api/new-game', { method: 'GET' });
             if (!res.ok) {

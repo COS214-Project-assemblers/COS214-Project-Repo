@@ -326,6 +326,13 @@ public:
       return createDtoResponse(Status::CODE_500, dto);
     }
   }
+
+  ENDPOINT("POST", "/greenhouse/plant-care", careForPlant, BODY_DTO(oatpp::Object<CareForPlantDTO>, plant))
+  {
+    auto dto = APIDto::createShared();
+    
+
+  }
 };
 
 #include OATPP_CODEGEN_END(ApiController) //<-- End Codegen

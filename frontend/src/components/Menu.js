@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import { getCategoriesCount, getInitialPrices, buyPlant } from "../utils/utils.js";
+import { openDB, updateDBRecord, getPlantRecord, initSocket, getAllRecords} from "../utils/db"
 
 const Menu = ({ onCancel }) => {
     const [flower, setFlower] = useState([0, 0, 0]);
@@ -80,7 +81,9 @@ const Menu = ({ onCancel }) => {
         const [gh] = await Promise.all([
                 fetch('/api/greenhouse/plants').then(r => r.json()),
         ]);
-        setUsed(JSON.parse(gh.data).length);
+        JSON.parse(gh.data).forEach(element => {
+            openDB().then(() => updateDBRecord(element));
+        });
         // setBalance(data.balance ?? balance);
         
         window.dispatchEvent(new CustomEvent('greenhouse:refresh'));

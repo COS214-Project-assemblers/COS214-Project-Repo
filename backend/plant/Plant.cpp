@@ -248,13 +248,13 @@ void Plant::alert(string& careType, GreenSock* sock) {
 
         // Construct JSON alert payload
         alert = {
-            {"plantId", getId()},
-            {"plantCategory", getPlantCategory()},
-            {"plantVariety", getPlantVariety()},
+            {"id", getId()},
+            {"category", getPlantCategory()},
+            {"variety", getPlantVariety()},
             {"healthScore", health->healthScore()},
-            {"waterScore", health->getWater()},
-            {"pruningScore", health->healthPrune()},
-            {"fertilizerScore", health->getFertilizer()},
+            {"waterLevel", health->getWater()},
+            {"pruningLevel", health->healthPrune()},
+            {"fertilizerLevel", health->getFertilizer()},
             {"sellable", isSellable()},
             {"died", health->isDead()}
         };

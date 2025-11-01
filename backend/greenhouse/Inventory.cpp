@@ -52,3 +52,12 @@ void Inventory::commitSale(Plant* plant)
 {
     removePlant(plant);
 }
+
+Plant* Inventory::getPlant(string id)
+{
+    for (Plant* plant : plants) {
+        if (plant->getId() == id) return plant;
+    }
+
+    return nullptr;
+}

@@ -170,6 +170,8 @@ class Game {
 
         vector<Plant*> getGreenhousePlants();
         string getGreenhousePlantsAsJson();
+
+        void careForPlant(string id);
 };
 
 #endif // GAME_HDR

@@ -14,9 +14,7 @@ const PlantInfoCard = ({ onCancel, plant }) => {
         const load = async () => {
             setLoading(true);
             try {
-                console.log("here");
                 await openDB().then(() => getPlantRecord(plant.id)).then((res) => { setInfo(res); console.log(res); })
-                console.log("here2");
             } catch (e) {
                 console.error(e);
             } finally {
@@ -72,8 +70,8 @@ const PlantInfoCard = ({ onCancel, plant }) => {
                     <p><span className="field">Sell Price:</span> {info?.salePrice}</p>
 
                     <p id="maturity">
-                      Maturity: <span id="mature-span" style={{ color: (info?.state === 'Sellable') ? '#089108' : 'red' }}>
-                        {info?.state}
+                      Maturity: <span id="mature-span" style={{ color: (info?.sellable) ? '#089108' : 'red' }}>
+                        {(info?.sellable) ? "Sellable" : "Not Sellable"}
                       </span>
                     </p>
                   </>

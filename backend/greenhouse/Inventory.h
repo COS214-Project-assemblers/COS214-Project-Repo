@@ -47,6 +47,8 @@ class Inventory{
          * @return Vector of all those plants
          */
         std::vector<Plant*> findByDifficulty(std::string d)const;
+
+        Plant* getPlant(string id);
 };
 
 #endif

@@ -44,9 +44,7 @@ export function updateDBRecord(record) {
     const getReq = store.get(record.id);
 
     getReq.onsuccess = () => {
-      console.log(!!getReq.result);
-      const existed = !!getReq.result;
-      if (!existed) {
+      
         console.log("Record id is" + record.id);
         const req = store.put(record); 
 
@@ -55,7 +53,7 @@ export function updateDBRecord(record) {
         }
 
         req.onsuccess = () => console.log("Added/updated record");
-      }
+      
       resolve();
     }
   });

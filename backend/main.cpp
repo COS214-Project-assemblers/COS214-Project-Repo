@@ -173,21 +173,7 @@ void testGreenhouseFlow()   {
 }
 
 int main() {
-<<<<<<< HEAD
-    // testingRandomisedThreads() ; 
-    // testingPlantRun() ; 
-    // tes() ; 
-    // testNthreads() ; 
-    std::thread startAPi(startGameApi);
-    std::thread startSock(startGreenSock);
-
-    startAPi.join();
-    startSock.join();
-
-    // testGreenhouseFlow() ; 
-=======
     startGameApi();
     // testGreenhouseFlow();
->>>>>>> dev
     return 0;
 }
