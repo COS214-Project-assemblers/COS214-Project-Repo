@@ -331,7 +331,21 @@ public:
   {
     auto dto = APIDto::createShared();
     
+    try {
+      apiToControl.game->careForPlant(*plant->id);
+      cout << "Endpoint called" << endl;
+      dto->statusCode = 200;
+      dto->message = "Successfully cared for plant " + plant->id;
+      dto->data = {};
 
+      return createDtoResponse(Status::CODE_200, dto);
+    } catch (const std::exception &e) {
+      dto->statusCode = 500;
+      dto->message = "Failed to care for plant " + plant->id;
+      dto->data = {};
+      
+      return createDtoResponse(Status::CODE_500, dto);
+    }
   }
 };
 

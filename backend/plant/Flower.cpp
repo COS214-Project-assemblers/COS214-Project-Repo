@@ -6,12 +6,17 @@
 #include "Flower.h"
 #include "PlantHealth.h"
 Flower::Flower(string variety,string difficulty) : Plant("Flower",variety,difficulty) {
-    this->health = new Health() ;
+    this->health = std::make_unique<Health>() ;
 }
 
 Flower::~Flower() {}
 
 Plant* Flower::clone()
 {
-    return new Flower(*this);
+    auto p = new Flower(this->getPlantVariety(), this->getDifficulty());
+    if (this->getHealth()) {
+        p->health = this->getHealth()->clone();
+    }
+    p->generateId();
+    return p;
 }

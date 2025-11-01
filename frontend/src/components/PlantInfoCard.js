@@ -8,6 +8,7 @@ import { openDB, updateDBRecord, getPlantRecord } from "../utils/db"
 const PlantInfoCard = ({ onCancel, plant }) => {
     const [info, setInfo] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [disabled, setDisabled] = useState(false);
 
     useEffect(() => {
         if ((plant.id) == "") { console.log("here"); return; };
@@ -43,8 +44,22 @@ const PlantInfoCard = ({ onCancel, plant }) => {
         }
     };
 
-    const disabled = (info?.state !== 'Sellable');
+    const careForPlant = async () => {
+        if (!info) return;
+        try {
+            const res = await fetch(`/api/greenhouse/plant-care`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({'id': info.id}) });
+            const data = await res.json();
 
+            setDisabled(true);
+            setTimeout(() => {
+            setDisabled(false);
+            }, 3000);
+
+        } catch (e) {
+            console.error(e);
+            alert("Error while attempting to care for plant");
+        }
+    }
     return (
         <div className="plantInfoBody">
             <div id="info-title-div">
@@ -70,8 +85,8 @@ const PlantInfoCard = ({ onCancel, plant }) => {
                     <p><span className="field">Sell Price:</span> {info?.salePrice}</p>
 
                     <p id="maturity">
-                      Maturity: <span id="mature-span" style={{ color: (info?.sellable) ? '#089108' : 'red' }}>
-                        {(info?.sellable) ? "Sellable" : "Not Sellable"}
+                      Maturity: <span id="mature-span" style={{ color: (info?.state) ? '#089108' : 'red' }}>
+                        {(info?.state) ? "Sellable -- Moved To Sales Floor" : "Not Sellable"}
                       </span>
                     </p>
                   </>
@@ -80,7 +95,7 @@ const PlantInfoCard = ({ onCancel, plant }) => {
 
             <div id="info-buttons">
                 <button id="cancel-info" onClick={onCancel}><img alt="cancel-info" id="cancel-info" src="/assets/images/cancel-info.svg" width="50"/></button>
-                <button id="move-to" /* onClick={moveToSales} */ disabled={disabled}><img alt="move-to" id="move-to-sales" src="/assets/images/care.svg" width="50" disabled={disabled}/></button>
+                <button id="move-to" onClick={careForPlant} disabled={disabled}><img alt="move-to" id="move-to-sales" src="/assets/images/care.svg" width="50"/></button>
             </div>
         </div>
     );

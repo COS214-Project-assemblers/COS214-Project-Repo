@@ -25,19 +25,21 @@ void Health::handleWater(){
 void Health::handleFertilizer(){
     std::lock_guard<std::mutex> lock(mtx);
     std::cout << "Amount Needed " << (1.0 - this->fertalizer) << std::endl ;
-    this->water += (1.0 - this->fertalizer) ;
+    this->fertalizer += (1.0 - this->fertalizer) ;
 }
 
 void Health::handlePruning(){
     std::lock_guard<std::mutex> lock(mtx);
-    std::cout << "Amount Needed " << (1.0 - this->pruning) << std::endl ;
-    this->water += (1.0 - this->pruning) ;
-    this->mature++ ;
+    this->mature = this->mature + 1 ;
+    std::cout << "done adding maturity" << std::endl;
 }
 
-Health* Health::clone(){
-    return new Health() ;
-
+std::unique_ptr<Health> Health::clone() const {
+    // Recreate with current scalar state but brand-new mutex/RNG
+    auto h = std::make_unique<Health>(this->water, this->fertalizer, this->pruning, this->mature);
+    h->rng  = std::mt19937(std::random_device{}());
+    h->dist = std::uniform_int_distribution<int>(3, 7);
+    return h;
 }
 
 

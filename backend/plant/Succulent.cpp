@@ -6,7 +6,7 @@
 #include "Succulent.h"
 #include "PlantHealth.h"
 Succulent::Succulent(string variety,string difficulty) : Plant("Succulent", variety,difficulty) {
-    this->health = new Health(2.0, 2.0, 2.0, 0) ;
+    this->health =  std::make_unique<Health>(2.0, 2.0, 2.0, 0) ;
 }
 
 Succulent::~Succulent() {
@@ -15,5 +15,10 @@ Succulent::~Succulent() {
 
 Plant* Succulent::clone()
 {
-    return new Succulent(*this);
+    auto p = new Succulent(this->getPlantVariety(), this->getDifficulty());
+    if (this->getHealth()) {
+        p->health = this->getHealth()->clone();
+    }
+    p->generateId();
+    return p;
 }

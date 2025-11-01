@@ -53,11 +53,16 @@ void Inventory::commitSale(Plant* plant)
     removePlant(plant);
 }
 
-Plant* Inventory::getPlant(string id)
+void Inventory::takeCareOfPlant(string id)
 {
+    cout << "in inventory" << endl;
+    Plant* toRet = nullptr;
     for (Plant* plant : plants) {
-        if (plant->getId() == id) return plant;
+        if (plant->getId() == id) {
+            cout << "Found plant" << endl;
+            string mess = "pruning";
+            plant->queueNotify(mess);
+            cout << "After notify";
+        }
     }
-
-    return nullptr;
 }

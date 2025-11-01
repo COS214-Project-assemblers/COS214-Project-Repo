@@ -426,10 +426,10 @@ string Game::getGreenhousePlantsAsJson()
         plantJson["isReturnable"] = plant->isReturnable();
         plantJson["careLevel"] = plant->getCareLevel();
         plantJson["careType"] = plant->getCareType(); // water / fertilizer / pruning
-        plantJson["state"] = plant->getStateAsString(); // Sellable / NotSellable
         plantJson["waterLevel"] = plant->getWaterLevel();
         plantJson["fertilizerLevel"] = plant->getFertilizerLevel();
         plantJson["pruningLevel"] = plant->getPruningLevel();
+        plantJson["state"] = false;
         
         plantsArray.push_back(plantJson);
     }
@@ -443,4 +443,9 @@ void Game::setSocket(GreenSock* socket) {
     cout << "Not socket" << endl;
     this->socket = socket;
     cout << "Set member variable" << endl;
+}
+
+void Game::careForPlant(string id)
+{
+    greenhouse->takeCareOfPlant(id);
 }

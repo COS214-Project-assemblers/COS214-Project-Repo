@@ -30,7 +30,7 @@ class PruningStaff : public GreenhouseStaff {
          * @param careType The type of care required (checks for "pruning")
          * @param plant Pointer to the plant that needs care
          */
-        void update(string& careType, Plant* plant);
+        void update(const string& careType, Plant* plant);
 };
 
 #endif

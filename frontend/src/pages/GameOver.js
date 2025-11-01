@@ -7,14 +7,14 @@ const GameOver = () => {
     const navigate = useNavigate();
     const newGame = async () => {
         try {
-            const res = await fetch('/api/new-game', { method: 'POST' });
-            if (!res.ok) {
-                const err = await res.json().catch(() => ({}));
-                console.error('New game failed', err);
-                alert('Failed to create new game.');
-                return;
-            }
-            console.log('New game created successfully');
+            // const res = await fetch('/api/new-game', { method: 'GET' });
+            // if (!res.ok) {
+            //     const err = await res.json().catch(() => ({}));
+            //     console.error('New game failed', err);
+            //     alert('Failed to create new game.');
+            //     return;
+            // }
+            // console.log('New game created successfully');
             navigate('/');
         } catch (e) {
             console.error(e);
