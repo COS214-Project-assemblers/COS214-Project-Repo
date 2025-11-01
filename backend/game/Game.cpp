@@ -149,7 +149,7 @@ void Game::createNewGame()
         throw runtime_error("Failed to create greenhouse for unknown reason");
     }
 
-    if(!manager)
+    if(manager == nullptr)
     {
         manager = new Manager();
     }

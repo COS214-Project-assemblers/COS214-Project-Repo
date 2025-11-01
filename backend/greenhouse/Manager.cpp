@@ -56,7 +56,7 @@ void Manager::recordRestock(Plant& p){
         delete strat;
     }
     strat = new Restock();
-    floor->inventoryMut().restock(&p);
+    // floor->inventoryMut().restock(&p);
     Transaction restock(strat,p.getCostPrice());//creates new sale transaction with 0 value    
     TransactionMem snap=restock.createTransactionMem(ledger,&p);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
