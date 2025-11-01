@@ -36,6 +36,10 @@ class Health {
          */
         Health(float water = 1.0 , float fertalizer = 1.0 , float pruning = 1.0 , int mature= 0);
 
+        std::string getWater();
+        std::string getFertilizer();
+        std::string getPruning();
+
         /**
          * @brief Destructor for Health.
          * Currently, no dynamic memory is managed by Health, so this destructor is empty.

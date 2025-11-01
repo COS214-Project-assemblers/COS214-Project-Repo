@@ -266,3 +266,18 @@ void Plant::newPlantLog(string message) {
         logger->newLog(message);
     }
 } 
+
+string Plant::getWaterLevel()
+{
+    return health->getWater();
+}
+
+string Plant::getFertilizerLevel()
+{
+    return health->getFertilizer();
+}
+
+string Plant::getPruningLevel()
+{
+    return health->getPruning();
+}

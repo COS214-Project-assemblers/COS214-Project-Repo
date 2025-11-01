@@ -332,5 +332,9 @@ class Plant
          * @return True if the plant is acceptable, false otherwise.
          */
         bool isAcceptable();
+
+        string getWaterLevel();
+        string getFertilizerLevel();
+        string getPruningLevel();
 };
 #endif
