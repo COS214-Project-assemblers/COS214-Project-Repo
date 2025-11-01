@@ -419,6 +419,9 @@ string Game::getGreenhousePlantsAsJson()
         plantJson["isAcceptable"] = plant->isAcceptable();
         plantJson["isReturnable"] = plant->isReturnable();
         plantJson["careLevel"] = plant->getCareLevel();
+        plantJson["careType"] = plant->getCareType(); // water / fertilizer / pruning
+        plantJson["state"] = plant->getStateAsString(); // Sellable / NotSellable
+        plantJson["healthScore"] = plant->healthScore(); // float indicating health
         
         plantsArray.push_back(plantJson);
     }
