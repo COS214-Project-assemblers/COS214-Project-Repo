@@ -71,19 +71,17 @@ function createPlant(category, varietyIndex) {
     // string: "Flower" | "Succulent" | "Tree"
     variety: varietyName,
     // string: e.g. "Rose"
-    healthScore: 100.0,
-    // float
-    pruningLevel: 0.0,
-    // float
-    waterLevel: 100.0,
-    // float
-    fertilizerLevel: 100.0,
-    // float
+    healthScore: 100,
+    // percentage
+    pruningLevel: 0,
+    // out of 3?
+    waterLevel: 100,
+    fertilizerLevel: 100,
     costPrice: costPrice,
     // int
     sellPrice: sellPrice,
     // int
-    maturity: 'Sellable',
+    maturity: 'Not-Sellable',
     // boolean: "Sellable" | "Not-Sellable"
     kind: category,
     // 'flower' | 'succulent' | 'tree'
