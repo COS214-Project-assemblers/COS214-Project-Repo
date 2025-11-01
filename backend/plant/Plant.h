@@ -15,10 +15,11 @@
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>
-
+#include <nlohmann/json.hpp>
 #include <thread>
 #include <atomic>
 
+#include "GreenSock.h"
 #include "Logger.h"
 
 class Health ;
@@ -110,6 +111,7 @@ class Plant
          *  @brief Pointer to the Health component representing the plant’s overall well-being.
          * */
         Health* health ;
+        GreenSock* socket = NULL; // initalise it to null 
 
     public:
         /**
@@ -278,6 +280,12 @@ class Plant
          * @return A floating-point value representing the plant’s current health.
          */
         float healthScore() ;
+
+        void setSocket(GreenSock* sock) ; 
+
+        void alert(string& careType, GreenSock* sock) ;
+       
+        bool isSellable() ; 
         
         /**
          * @brief Static method to set static member variable plantCosts

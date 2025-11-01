@@ -109,6 +109,8 @@ set(SOURCES
   backend/game/LogDecorator.cpp
   backend/game/CoutAndLog.h
   backend/game/CoutAndLog.cpp
+  backend/WS/GreenSock.h
+  backend/WS/GreenSock.cpp
   backend/game/Ledger.h
   backend/game/Ledger.cpp
   backend/game/Transaction.h
@@ -151,7 +153,7 @@ add_custom_target(memcheck
 
 # Includes: add the API dir to both targets
 # target_include_directories(main  PRIVATE backend backend/API backend/game backend/plant backend/customer backend/greenhouse backend/transaction)
-target_include_directories(g_test PRIVATE backend tests backend/API backend/game backend/plant backend/customer backend/greenhouse backend/transaction)
+target_include_directories(g_test PRIVATE backend tests backend/API backend/game backend/plant backend/customer backend/greenhouse backend/transaction backend/WS)
 
 # Link libs
 # target_link_libraries(main PRIVATE)

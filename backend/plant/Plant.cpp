@@ -61,16 +61,16 @@ Plant::Plant(const Plant& original)
 
 Plant::~Plant() {
     std::cout << "Plant::~Plant() " <<std::endl ;
-
+    stop() ;
+    join() ;
 
     delete plantState;
 
     if (health){
-        delete health ;
-        health=NULL ;
+        // delete health ;
+        // health=NULL ;
     }
-    stop() ;
-    join() ;
+
 }
 
 string Plant::getCareLevel()
@@ -174,11 +174,13 @@ void Plant::stop() {
 }
 
 void Plant::run() {
-    while (alive && healthScore() > 0) {
+    std::cout << "[Debug] Plant thread started\n";
+
+    while (alive ) {
         int waitTime = health->dist(health->rng);
         for (int i = 0; i < waitTime*10 && alive; ++i) {
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
-            if (i % 10 == 0) std::cout << "[Info] Sleeping... " << i/10 << "s passed\n";
+            // if (i % 10 == 0) std::cout << "[Info] Sleeping... " << i/10 << "s passed\n";
         }
         std::lock_guard<std::mutex> lock(health->mtx);
         std::cout << "[Info] Running decay step, decayIndex=" << decayIndex << std::endl;
@@ -186,20 +188,27 @@ void Plant::run() {
         health->decay(decayIndex) ;
 
         // Alerts - Plant is below minimum threshold - call the staff that need to handle
-        if (health->water < 0.3f) {
+        if (health->water < 0.4f) {
+            std::cout << "LOW WATER: (health->water < 0.3f)" <<std::endl ; 
             std::string careType = "water" ;    // I had to declare a variable like this
             this->notify(careType) ;            // then pass it in here because of the data type notify(std::string& careType)
+            alert(careType, socket) ;
         }
-        if (health->fertalizer < 0.3f) {
+        if (health->fertalizer < 0.4f) {
+            std::cout << "LOW FERTILIZER: (health->water < 0.3f)" <<std::endl ; 
             std::string careType = "fertilizer" ;
             this->notify(careType) ;
+            alert(careType, socket) ;
         }
-        if (health->pruning < 0.3f) {
+        if (health->pruning < 0.4f) {
+            std::cout << "LOW PRUNING: (health->water < 0.3f)" <<std::endl ; 
             std::string careType = "pruning" ;
             this->notify(careType) ;
+            alert(careType, socket) ;
         }
-        if (healthScore() <= 0) {
-            this->alive = false ;
+        if (healthScore() < 0.0001f) {
+            std::cout <<"DEAD This current Plants Health Score is < 0.0001 DEAD"<< std::endl ; 
+            this->alive = false ; 
         }
 
         decayIndex = (decayIndex + 1) % 3;
@@ -209,8 +218,69 @@ void Plant::run() {
     }
     float currentHealth = health->healthScore()  ;
     std::cout << "[State] Current health score: " << currentHealth << std::endl;
+
+    std::cout << "[Debug] Plant thread exiting\n";
+
 }
 
+bool Plant::isSellable() {
+    if ( !health->isDead() && (health->mature > 2) ){
+        return true ; 
+    }
+    return false ;
+}
+
+void Plant::setSocket(GreenSock* sock){
+    this->socket = sock ; 
+}
+
+void Plant::alert(string& careType, GreenSock* sock) {
+    if (!socket) {
+        this->socket = sock ; 
+    }
+    nlohmann::json alert ;
+    std::cout << "void Plant::alert(string& " << careType << "!!!, GreenSock* sock)" << std::endl ; 
+
+        // Unique identifier (stringified memory address)
+        std::ostringstream oss;
+        oss << static_cast<const void*>(this);
+        std::string plantId = oss.str();
+
+        // Construct JSON alert payload
+        alert = {
+            {"plantId", getId()},
+            {"plantCategory", getPlantCategory()},
+            {"plantVariety", getPlantVariety()},
+            {"healthScore", health->healthScore()},
+            {"waterScore", health->getWater()},
+            {"pruningScore", health->healthPrune()},
+            {"fertilizerScore", health->getFertilizer()},
+            {"sellable", isSellable()},
+            {"died", health->isDead()}
+        };
+
+        // Convert JSON to string and send via WebSocket
+
+        std::string jsonString = alert.dump();
+        std::cout << "\t Sedning to greenSock: ===> " << jsonString << std::endl;
+
+        socket->sendMessage( jsonString );
+
+}
+
+/* 
+.then(() => addDBRecord({ 
+      plantId: "3f6a2d2b-7a5e-4f06-9b4f-2f8e6a2c9b8d",
+      plantCategory: "succulent",
+      plantVariety: "cactus",
+      healthScore: 0.5,
+      waterScore: 10,
+      pruningScore: 10,
+      fertilizerScore: 10,
+      sellable: false,
+      died: false
+    }))
+*/
 void Plant::generateId() {
     // Static + thread local ensures there is only 1 random num gen 
     if (id == "") {
