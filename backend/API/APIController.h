@@ -18,7 +18,8 @@
 #include "ContinueGameOption.h"
 #include "BasicLogger.h"
 #include "API.h"
-
+#include "ExitGameOption.h"
+#include <cstdlib>
 #include <stdexcept>
 #include <memory>
 #include <iostream>
@@ -71,6 +72,17 @@ public:
      *  statusCode: <HTTP status code, 200/500>
      * }
      */
+    
+    if (apiToControl.game == nullptr)
+    {
+      char* gameConfigPath = getenv("GAME_CONFIG_PATH");
+      if (gameConfigPath == nullptr) {
+          std::cout << "GAME_CONFIG_PATH environment variable not set, exiting..." << std::endl;
+          exit(EXIT_FAILURE);
+      }
+      apiToControl.game = new Game(gameConfigPath);
+    }
+
     PlayerMenu* playerMenu = new PlayerMenu();
     BasicLogger* logger = new BasicLogger();
     NewGameOption* newGame = new NewGameOption(apiToControl.game, logger);
@@ -95,6 +107,38 @@ public:
     }   
   }
   
+  ENDPOINT("GET", "/exit-game", exitGameEndp) {
+    /**
+     * Response structure
+     * 
+     * {
+     *  message: <game-status>,
+     *  statusCode: <HTTP status code, 200/500>
+     * }
+     */
+    PlayerMenu* playerMenu = new PlayerMenu();
+    BasicLogger* logger = new BasicLogger();
+    ExitGameOption* exitGame = new ExitGameOption(apiToControl.game, logger);
+    playerMenu->setMenuOption(exitGame);
+
+    auto dto = APIDto::createShared();
+
+    try {
+      playerMenu->executeOption();
+      // Deleting playerMenu also frees newGame
+      delete playerMenu;
+      delete logger;
+      dto->statusCode = 200;
+      dto->message = "Game Exited";
+      return createDtoResponse(Status::CODE_200, dto);
+    } catch (const std::exception &e) { // Catches any exception thrown, adds exception message to response
+      delete playerMenu;
+      delete logger;
+      dto->statusCode = 500;
+      dto->message = "Failed to exit Game: " + *e.what();
+      return createDtoResponse(Status::CODE_500, dto);
+    }   
+  }
   // Further Endpoints
 
   ENDPOINT("POST", "/buy-plants", buyPlants, BODY_DTO(oatpp::Object<BuyPlantDTO>, body)) 
@@ -223,6 +267,54 @@ public:
     {
       dto->statusCode = 500;
       dto->message = "Failed to get customers: " + std::string(e.what());
+      
+      return createDtoResponse(Status::CODE_500, dto);
+    }
+  }
+
+  ENDPOINT("GET", "/balance", getBalance)
+  {
+    auto dto = BalanceResponseDTO::createShared();
+
+    try 
+    {
+      double currentBalance = apiToControl.game->getGameBalance();
+      
+      dto->statusCode = 200;
+      dto->message = "Successfully retrieved balance";
+      dto->balance = currentBalance;
+      
+      return createDtoResponse(Status::CODE_200, dto);
+    } 
+    catch (const std::exception &e) 
+    {
+      dto->statusCode = 500;
+      dto->message = "Failed to get balance: " + std::string(e.what());
+      dto->balance = 0.0; // Default value on error
+      
+      return createDtoResponse(Status::CODE_500, dto);
+    }
+  }
+
+  ENDPOINT("GET", "/greenhouse/plants", getGreenhousePlants)
+  {
+    auto dto = APIDto::createShared();
+
+    try 
+    {
+      std::string plantsJson = apiToControl.game->getGreenhousePlantsAsJson();
+      
+      dto->statusCode = 200;
+      dto->message = "Successfully retrieved greenhouse plants";
+      dto->data = String(plantsJson.c_str());
+      
+      return createDtoResponse(Status::CODE_200, dto);
+    } 
+    catch (const std::exception &e) 
+    {
+      dto->statusCode = 500;
+      dto->message = "Failed to get greenhouse plants: " + std::string(e.what());
+      dto->data = {};
       
       return createDtoResponse(Status::CODE_500, dto);
     }

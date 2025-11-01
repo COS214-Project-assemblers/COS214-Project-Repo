@@ -21,13 +21,9 @@ class APIController;
  */
 class API {
     private:
-        Game* game;
+        Game* game = nullptr;
     public:
-        /**
-         * @brief Conctructor that holds reference to Game object to execute API actions
-         * @param[in] game reference to Game object to call methods on
-         */
-        API(Game* game);
+
         /**
          * @brief Bootstrap (https://en.wikipedia.org/wiki/Bootstrapping) API server
          */
@@ -44,6 +40,11 @@ class API {
          *  has access to API state.
          */
         friend class APIController;
+
+        /**
+         * @brief deletes current game member
+         */
+        void exitGame();
 };
 
 #endif // API_H

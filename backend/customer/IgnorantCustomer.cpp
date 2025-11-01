@@ -7,7 +7,7 @@
 
 IgnorantCustomer::IgnorantCustomer() : Customer()
 {
-    
+    type = "ignorant";
 }
 
 IgnorantCustomer::~IgnorantCustomer()
