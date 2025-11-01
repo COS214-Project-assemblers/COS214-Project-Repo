@@ -173,12 +173,6 @@ void testGreenhouseFlow()   {
 
 
 int main() {
-    // testingRandomisedThreads() ; 
-    // testingPlantRun() ; 
-    // tes() ; 
-    // testNthreads() ; 
-    // testGreenhouseFlow() ; 
-    // startGameApi();
     startGameApi();
     return 0;
 }

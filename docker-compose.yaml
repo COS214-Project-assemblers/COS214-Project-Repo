@@ -13,6 +13,10 @@ services:
     env_file:
       - config/API/.env
     command: [/usr/local/bin/dev.sh]
+    deploy:
+      resources:
+        limits:
+          memory: 16G
 
   # greenfingers-react:
   #   container_name: react-x-nginx
