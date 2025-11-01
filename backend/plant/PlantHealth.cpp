@@ -76,3 +76,18 @@ void Health::decay(int decayIndex) {
         }
 
 }
+
+std::string Health::getWater()
+{
+    return std::to_string(water);
+}
+
+std::string Health::getFertilizer()
+{
+    return std::to_string(fertalizer);
+}
+
+std::string Health::getPruning()
+{
+    return std::to_string(pruning);
+}
