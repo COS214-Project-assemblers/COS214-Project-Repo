@@ -45,7 +45,7 @@ void TransactionHistory::printStatement(){
         std::cout<<"Transacktion #"<<t.getTransactionID()
                     <<"Type: "<<t.getType()
                     <<"Value: "<<t.getValue()
-                    <<"Balance: "<<t.getBalenceAfter();
+                    <<"Balance: "<<t.getBalanceAfter();
         if(t.getType()=="Return"){
             std::cout<<"ReferenceID: "<<t.getReturnedID();
         }
@@ -54,13 +54,13 @@ void TransactionHistory::printStatement(){
 }
 
 std::string TransactionHistory::statementJSON()const{
-    json transactionHist=json::array();
+    nlohmann::json transactionHist=nlohmann::json::array();
     for(const auto& t : this->memento){
-        json transactionObj={
+        nlohmann::json transactionObj={
             {"transactionId",   t.getTransactionID()},
             {"type",            t.getType()},
             {"value",           t.getValue()},
-            {"balance",         t.getBalenceAfter()}
+            {"balance",         t.getBalanceAfter()}
         };
         if(t.getType()=="Return"){
             transactionObj["referenceId"]=t.getReturnedID();

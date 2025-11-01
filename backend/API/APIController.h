@@ -295,8 +295,6 @@ public:
       return createDtoResponse(Status::CODE_500, dto);
     }
   }
-
-  ENDPOINT
 };
 
 #include OATPP_CODEGEN_END(ApiController) //<-- End Codegen

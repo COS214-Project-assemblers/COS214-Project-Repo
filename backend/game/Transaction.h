@@ -20,8 +20,8 @@
 class Transaction{
     private:
         TransactionStrategy* tS;///<Pointer to a Transaction Strategy object
-        double value;///<Value of transaction
-        int transID;///<Unique ID for transaction
+        double value{0.0};///<Value of transaction
+        int transID{0};///<Unique ID for transaction
     public:
         /**
          * @brief Constructor

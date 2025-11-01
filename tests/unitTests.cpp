@@ -624,7 +624,7 @@
 //     delete game;
 // }
 
-TEST(TransactionTests,TestRestockThenSaleThenReturnWithStatement){
+TEST(TransactionTests,TestRestockThenSaleThenReturn){
     //stole Megans start
     Manager manager;
     Plant* p1 = new Succulent("cactus", "easy");
@@ -667,8 +667,6 @@ TEST(TransactionTests,TestRestockThenSaleThenReturnWithStatement){
    EXPECT_DOUBLE_EQ(arr[4]["value"].get<double>(),p1->getSalePrice());
    ASSERT_TRUE(arr[4].contains("referenceId"));
    EXPECT_EQ(arr[4]["referenceId"].get<int>(),saleP1ID);
-
-//    const int saleIDFromJson=arr[2]["transactionId"].get<int>();
-//    int idFromMemento=manager.getTransactionHist().getTransactionMem(0).getTransactionID();
-//    EXPECT_EQ(saleIDFromJson,idFromMemento);
+   //delete p2 and not p1 as inventory currently owns p1 but p2 was sold and not returned
+   delete p2;
 }

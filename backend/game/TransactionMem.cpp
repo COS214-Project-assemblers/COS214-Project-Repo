@@ -13,7 +13,7 @@ double TransactionMem::getBalanceB4()const{
     return this->balanceB4;
 }
 
-double TransactionMem::getBalenceAfter()const{
+double TransactionMem::getBalanceAfter()const{
     return this->balanceAfter;
 }
 
