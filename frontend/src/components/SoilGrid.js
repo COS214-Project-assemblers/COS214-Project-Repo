@@ -54,11 +54,9 @@ const SoilGrid = () => {
         const res = await fetch('/api/greenhouse/plants');
         const data = await res.json();
         JSON.parse(data.data).forEach(element => {
-            // console.log(element);
             openDB().then(() => updateDBRecord(element));
         });
         setPlants(Array.isArray(JSON.parse(data.data)) ? JSON.parse(data.data) : []);
-        // console.log(plants);
         } catch (e) { /* ignore */ }
     };
 
