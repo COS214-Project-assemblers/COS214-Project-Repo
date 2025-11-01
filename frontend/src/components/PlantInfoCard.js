@@ -62,10 +62,10 @@ const PlantInfoCard = ({ onCancel, plant }) => {
                   <>
                     <p><span className="field">Category:</span> {info.category}</p>
                     <p><span className="field">Variety:</span> {info.variety}</p>
-                    <p><span className="field">Health Score:</span> {info.healthScore ?? info.healthScore}</p>
-                    <p><span className="field">Pruning Level:</span> {info.pruningLevel ?? info.pruningLevel} / 3</p>
-                    <p><span className="field">Water Level:</span> {info.waterLevel ?? info.waterLevel}</p>
-                    <p><span className="field">Fertilizer Level:</span> {info.fertilizerLevel ?? info.fertilizerLevel}</p>
+                    <p><span className="field">Health Score:</span> {info?.healthScore ?? '-'}</p>
+                    <p><span className="field">Pruning Level:</span> {info?.pruningLevel ?? '-'} / 3</p>
+                    <p><span className="field">Water Level:</span> {info?.waterLevel ?? '-'}</p>
+                    <p><span className="field">Fertilizer Level:</span> {info?.fertilizerLevel ?? '-'}</p>
 
                     <p><span className="field">Cost Price:</span> {info.costPrice}</p>
                     <p><span className="field">Sell Price:</span> {info.sellPrice}</p>

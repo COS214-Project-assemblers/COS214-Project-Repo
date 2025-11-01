@@ -59,7 +59,7 @@ function createPlant(category, varietyIndex) {
   var varietyNames = {
     flower: ['Rose', 'Tulip', 'Daisy'],
     succulent: ['Cactus', 'Aloe', 'Jade'],
-    tree: ['Lemon', 'Apple', 'Oak', 'Maple', 'Pine', 'Banana']
+    tree: ['Lemon', 'Apple', 'Oak']
   };
   var displayCategory = category.charAt(0).toUpperCase() + category.slice(1); // Flower/Succulent/Tree
   var varietyName = (_varietyNames$categor = (_varietyNames$categor2 = varietyNames[category]) === null || _varietyNames$categor2 === void 0 ? void 0 : _varietyNames$categor2[varietyIndex]) !== null && _varietyNames$categor !== void 0 ? _varietyNames$categor : "".concat(displayCategory, " ").concat(varietyIndex + 1);
@@ -72,7 +72,7 @@ function createPlant(category, varietyIndex) {
     variety: varietyName,
     // string: e.g. "Rose"
     healthScore: 100,
-    // percentage
+    // percentage, 0% == dead plant, 20% - 50% == orange plant, less than 20% == red plant
     pruningLevel: 0,
     // out of 3?
     waterLevel: 100,
@@ -82,7 +82,7 @@ function createPlant(category, varietyIndex) {
     sellPrice: sellPrice,
     // int
     maturity: 'Not-Sellable',
-    // boolean: "Sellable" | "Not-Sellable"
+    // boolean: "Sellable" | "Not-Sellable", a Sellable plant has a star added (visual indicator)
     kind: category,
     // 'flower' | 'succulent' | 'tree'
     varietyIndex: varietyIndex,
