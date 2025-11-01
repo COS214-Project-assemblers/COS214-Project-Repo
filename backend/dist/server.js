@@ -81,7 +81,7 @@ function createPlant(category, varietyIndex) {
     // int
     sellPrice: sellPrice,
     // int
-    maturity: 'Not-Sellable',
+    maturity: 'Sellable',
     // boolean: "Sellable" | "Not-Sellable", a Sellable plant has a star added (visual indicator)
     kind: category,
     // 'flower' | 'succulent' | 'tree'

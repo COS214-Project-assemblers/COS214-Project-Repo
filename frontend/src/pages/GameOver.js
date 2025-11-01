@@ -32,7 +32,7 @@ const GameOver = () => {
                 return;
             }
             console.log('Game exited successfully');
-            navigate('/gameover');
+            navigate('/');
         } catch (e) {
             console.error(e);
             alert('Network error exiting the game.');

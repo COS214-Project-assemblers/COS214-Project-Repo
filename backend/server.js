@@ -65,7 +65,7 @@ function createPlant(category, varietyIndex) {
     fertilizerLevel: 100,            
     costPrice,                          // int
     sellPrice,                          // int
-    maturity: 'Not-Sellable',           // boolean: "Sellable" | "Not-Sellable", a Sellable plant has a star added (visual indicator)
+    maturity: 'Sellable',           // boolean: "Sellable" | "Not-Sellable", a Sellable plant has a star added (visual indicator)
     kind: category,                     // 'flower' | 'succulent' | 'tree'
     varietyIndex,                       
     stage: 'seedling',
