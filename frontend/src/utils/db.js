@@ -1,6 +1,6 @@
 /* Using the IndexedDB
  To add/update a record openDB().then(() => updateDBRecord(record));
- To read a record openDB().then(() => getPlantRecord(plantID)).then((returnVal) => { console.log(returnVal)} )
+ To read a record openDB().then(() => getPlantRecord(id)).then((returnVal) => { console.log(returnVal)} )
 
  Errors thrown and corrective actions taken:
 
@@ -8,8 +8,8 @@
  1. Send message to server, {"error": failed to parse"} 
  2. Abort
 
- PLANTID NOT FOUND
- 1. Send message to server {"error": "plantId not found"}
+ id NOT FOUND
+ 1. Send message to server {"error": "id not found"}
  2. Abort
  */
 
@@ -47,6 +47,7 @@ export function updateDBRecord(record) {
       console.log(!!getReq.result);
       const existed = !!getReq.result;
       if (!existed) {
+        console.log("Record id is" + record.id);
         const req = store.put(record); 
 
         req.onerror = () => {
@@ -55,21 +56,17 @@ export function updateDBRecord(record) {
 
         req.onsuccess = () => console.log("Added/updated record");
       }
-
       resolve();
     }
-    // req.onerror = () => reject(req.error);
-    // tx.oncomplete = () => resolve(); 
-    // tx.onerror = () => reject(tx.error);
   });
 }
 
 
-export function getPlantRecord(plantId) {
+export function getPlantRecord(id) {
   return new Promise((resolve, reject) => {
     const tx = db.transaction(["plants"], "readonly");
     const store = tx.objectStore("plants");
-    const req = store.get(plantId);
+    const req = store.get(id);
 
     req.onsuccess = () => resolve(req.result ?? null);
     req.onerror = () => reject(req.error);
@@ -111,8 +108,8 @@ export function initSocket() {
         try {
             let jsonPlantData = JSON.parse(e.data); 
             // console.log(jsonPlantData);
-            if (jsonPlantData.plantId == undefined) {
-              throw TypeError("PlantID not found");
+            if (jsonPlantData.id == undefined) {
+              throw TypeError("id not found");
             }
             try {
               openDB().then(() => updateDBRecord(jsonPlantData));
@@ -133,16 +130,20 @@ export function initSocket() {
     });
 }
 
-// const request = indexedDB.deleteDatabase("plantDB");
+export function clearDB() {
+  const request = indexedDB.deleteDatabase("plantDB");
 
-// request.onsuccess = () => {
-//   console.log("Database deleted successfully");
-// };
-// request.onerror = (event) => {
-//   console.error("Failed to delete database:", event);
-// };
-// request.onblocked = () => {
-//   console.warn("Delete blocked (database still open in another tab)");
-// };
+request.onsuccess = () => {
+  console.log("Database deleted successfully");
+};
+request.onerror = (event) => {
+  console.error("Failed to delete database:", event);
+};
+request.onblocked = () => {
+  console.warn("Delete blocked (database still open in another tab)");
+};
+}
+
+
 
 

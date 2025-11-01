@@ -21,7 +21,7 @@ const Menu = ({ onCancel }) => {
                     fetch('/api/greenhouse/plants').then(r => r.json()),
                     fetch('/api/balance').then(r => r.json())
                 ]);
-                setUsed(JSON.parse(gh.data).length > 0 ?? 0);
+                setUsed(JSON.parse(gh.data).length ?? 0);
                 setBalance(bal.balance ?? 0);
             } catch (e) { /* ignore */ }
         };
@@ -40,7 +40,7 @@ const Menu = ({ onCancel }) => {
 
     const totalCost = useMemo(() => {
         const sum = (arr, priceArr) => arr.reduce((s, qty, i) => s + (Number(qty)||0) * (priceArr?.[i] || 0), 0);
-        return sum(flower, prices.flower) + sum(succulent, prices.succulent) + sum(tree, prices.tree);
+        return sum(flower, prices.flowers) + sum(succulent, prices.succulents) + sum(tree, prices.trees);
     }, [flower, succulent, tree, prices]);
 
     const onBuy = async () => {
@@ -48,6 +48,7 @@ const Menu = ({ onCancel }) => {
             alert('Please select at least one plant or Cancel instead.');
             return;
         }
+        console.log(available);
         if (totalSelected > available) {
             alert(`You can only buy ${available} more plant(s).`);
             return;
@@ -76,11 +77,14 @@ const Menu = ({ onCancel }) => {
             }
         }
         
-        // setUsed(data.used ?? used);
+        const [gh] = await Promise.all([
+                fetch('/api/greenhouse/plants').then(r => r.json()),
+        ]);
+        setUsed(JSON.parse(gh.data).length);
         // setBalance(data.balance ?? balance);
         
         window.dispatchEvent(new CustomEvent('greenhouse:refresh'));
-        // window.dispatchEvent(new CustomEvent('balance:update', { detail: data.balance }));
+        window.dispatchEvent(new CustomEvent('balance:update'));
         setFlower([0,0,0]); setSucculent([0,0,0]); setTree([0,0,0]); // Reset selections after successful purchase
         onCancel();
         // } catch (e) {
@@ -116,7 +120,6 @@ const Menu = ({ onCancel }) => {
             </div>
 
             <p id="totalBalance">{totalCost}</p>
-
             <button id="buy" onClick={onBuy}><img alt="buy" src="/assets/images/Buy.svg" width="50"/></button>
             <button id="cancelBuy" onClick={onCancel}><img alt="cancel" id="cancel-cross" src="/assets/images/cancel.svg" width="50"/></button>
         </div>

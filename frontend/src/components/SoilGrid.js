@@ -17,12 +17,12 @@ const SoilGrid = () => {
         try {
         const res = await fetch('/api/greenhouse/plants');
         const data = await res.json();
-        let tmpPlants = JSON.parse(data.data);
-        tmpPlants.forEach((el, index) => {
-            console.log(el);
-            openDB().then(() => updateDBRecord(el)).then(() => getPlantRecord(el.id)).then((res) => {console.log(res)});
+        JSON.parse(data.data).forEach(element => {
+            // console.log(element);
+            openDB().then(() => updateDBRecord(element));
         });
         setPlants(Array.isArray(JSON.parse(data.data)) ? JSON.parse(data.data) : []);
+        // console.log(plants);
         } catch (e) { /* ignore */ }
     };
 

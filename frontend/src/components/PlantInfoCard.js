@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { openDB, updateDBRecord, getPlantRecord } from "../utils/db"
+
 // import { Link } from "react-router";
 
 const PlantInfoCard = ({ onCancel, plant }) => {
@@ -13,7 +14,7 @@ const PlantInfoCard = ({ onCancel, plant }) => {
         const load = async () => {
             setLoading(true);
             try {
-                await openDB().then(() => getPlantRecord(plant?.id)).then((res) => {setInfo(res); console.log(res);});
+                await openDB().then(() => getPlantRecord(plant?.id)).then((res) => { setInfo(res); console.log(res); })
             } catch (e) {
                 console.error(e);
             } finally {

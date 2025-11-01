@@ -36,10 +36,20 @@ module.exports = {
             }
     },
     devServer: {
-    static: path.resolve(__dirname, 'frontend', 'dist'),
-    historyApiFallback: true,   // React Router: serve index.html on refresh
-    port: 3000,
-    open: true,
+        static: path.resolve(__dirname, 'frontend', 'public'),
+        historyApiFallback: true,   // React Router: serve index.html on refresh
+        port: 3000,
+        open: true,
+        proxy: [
+            {
+                context: ['/api/'],
+                target: 'http://localhost:8000',
+                changeOrigin: true,
+                secure: false,
+                pathRewrite: { '^/api': '' },
+                logLevel: 'debug',
+            },
+        ]
     },
     plugins: [
         new NodePolyfillPlugin(),

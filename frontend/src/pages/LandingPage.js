@@ -2,12 +2,14 @@
 
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { clearDB} from "../utils/db"
 
 const LandingPage = () => {
     const navigate = useNavigate();
 
     const createNewGame = async () => {
         try {
+            clearDB();
             const res = await fetch('/api/new-game', { method: 'GET' });
             if (!res.ok) {
                 const err = await res.json().catch(() => ({}));

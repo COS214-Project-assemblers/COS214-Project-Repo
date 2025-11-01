@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "frontend/src/index.js",
   "scripts": {
-    "dev": "webpack serve --mode development --config webpack.config.js",
+    "dev": "webpack serve --mode development --progress --client-logging verbose --config webpack.config.js",
     "build": "webpack --mode production --config webpack.config.js",
     "start": "npx serve frontend/public -s"
   },
