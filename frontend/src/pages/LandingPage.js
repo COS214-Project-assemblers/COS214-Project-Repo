@@ -5,10 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
     const navigate = useNavigate();
-
-    const createNewGame = async () => {
+    
+    const startNewGame = async () => {
         try {
-            const res = await fetch('/api/new-game', { method: 'GET' });
+            const res = await fetch('/api/new-game', { method: 'POST' });
             if (!res.ok) {
                 const err = await res.json().catch(() => ({}));
                 console.error('New game failed', err);
@@ -20,13 +20,12 @@ const LandingPage = () => {
         } catch (e) {
             console.error(e);
             alert('Network error starting a new game.');
-        } finally {
         }
     };
 
     const exitGame = async () => {
         try {
-            const res = await fetch('/api/exit-game', { method: 'GET' });
+            const res = await fetch('/api/exit-game', { method: 'POST' });
             if (!res.ok) {
                 const err = await res.json().catch(() => ({}));
                 console.error('Exit game failed', err);
@@ -43,14 +42,13 @@ const LandingPage = () => {
 
     return (
         <div className="landingBody">
-            {/* <h1>Landing Page</h1> */}
             <div id="title">
-                <img alt="greenfingers-title" src="/assets/images/GreenFingers-title.svg" width="300" />
+                <img alt="greenfingers-title" src="/assets/images/GreenFingers-title.svg" width="300"/>
             </div>
             <div id="landing-buttons-div">
-                <button id="new-game-button" onClick={createNewGame}><img alt="new-game-button" src="/assets/images/New-Game.svg" width="50" /></button>
-                <Link to="/tutorial"><button id="tutorial-button"><img alt="tutorial-button" src="/assets/images/Tutorial.svg" width="50" /></button></Link>
-                <button id="exit-button" onClick={exitGame}><img alt="exit-button" src="/assets/images/Exit.svg" width="50" /></button>
+                <Link to="/greenhouse"><button id="new-game-button" onClick={startNewGame}><img alt="new-game-button" src="/assets/images/New-Game.svg" width="50"/></button></Link>
+                <Link to="/tutorial"><button id="tutorial-button"><img alt="tutorial-button" src="/assets/images/Tutorial.svg" width="50"/></button></Link>
+                <button id="exit-button" onClick={exitGame}><img alt="exit-button" src="/assets/images/Exit.svg" width="50"/></button>
             </div>
         </div>
     );

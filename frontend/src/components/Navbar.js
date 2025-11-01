@@ -6,27 +6,65 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
     const navigate = useNavigate();
     const [balance, setBalance] = useState(0);
+    const [salesCount, setSalesCount] = useState(0);
+    const [busy, setBusy] = useState(false);
 
     useEffect(() => {
         const load = async () => {
             try {
-                const res = await fetch('/api/balance');
-                const data = await res.json();
-                setBalance(data.balance ?? 0);
+                const [balRes, sfRes] = await Promise.all([
+                    fetch('/api/balance'),
+                    fetch('/api/salesfloor')
+                ]);
+                const balData = await balRes.json();
+                const sfData = await sfRes.json();
+                setBalance(balData.balance ?? 0);
+                setSalesCount(sfData.count ?? (Array.isArray(sfData.salesfloor) ? sfData.salesfloor.length : 0));
             } catch (e) { console.log(e); }
         };
         load();
+
         const onBalanceUpdate = (e) => {
           if (typeof e.detail === 'number') setBalance(e.detail);
           else load();
         };
+        const onSalesfloorRefresh = () => {
+          fetch('/api/salesfloor').then(r => r.json()).then(d => setSalesCount(d.count ?? (Array.isArray(d.salesfloor)? d.salesfloor.length : 0))).catch(()=>{});
+        };
+
         window.addEventListener('balance:update', onBalanceUpdate);
-        return () => window.removeEventListener('balance:update', onBalanceUpdate);
+        window.addEventListener('salesfloor:refresh', onSalesfloorRefresh);
+
+        return () => {
+          window.removeEventListener('balance:update', onBalanceUpdate);
+          window.removeEventListener('salesfloor:refresh', onSalesfloorRefresh);
+        };
     }, []);
+
+    const goToSalesfloor = async () => {
+      if (busy) return;
+      setBusy(true);
+      try {
+        const res = await fetch('/api/customers/init', { method: 'POST' });
+        if (!res.ok) {
+          const err = await res.json().catch(()=>({}));
+          console.error('Init customers failed', err);
+          alert('Failed to prepare customers.');
+          setBusy(false);
+          return;
+        }
+        navigate('/salesfloor');
+      } catch (e) {
+        console.error(e);
+        alert('Network error.');
+      } finally {
+        setBusy(false);
+      }
+    };
 
     const exitGame = async () => {
         try {
-            const res = await fetch('/api/exit-game', { method: 'GET' });
+            const res = await fetch('/api/exit-game', { method: 'POST' });
             if (!res.ok) {
                 const err = await res.json().catch(() => ({}));
                 console.error('Exit game failed', err);
@@ -41,11 +79,18 @@ const Navbar = () => {
         }
     };
 
+    const canGoSales = salesCount > 8 && !busy; // just to check if the sales floor has >8 plants and if customers are already being created
+
     return (
         <div className="navbarBody">
             <div id="nav">
                 <button id="quit-game-button" onClick={exitGame}><img alt="quit-game-button" src="/assets/images/Quit-Game.svg" width="50"/></button>
-                {/* <Link to="/salesfloor"><button id="go-to-sales"><img alt="go-to-sales" src="/assets/images/go-to-sales.svg" width="50"/></button></Link> */}
+                
+                {/* navigate to salesfloor only when the salesfloor array has >8 plants otherwise disabled */}
+                <button id="go-to-sales" onClick={goToSalesfloor} disabled={!canGoSales} style={{ opacity: canGoSales ? 1 : 0.5, cursor: canGoSales ? 'pointer' : 'not-allowed' }} >
+                  <img alt="go-to-sales" src="/assets/images/go-to-sales.svg" width="50"/>
+                </button>
+                
                 <img alt="balance" id="balance" src="/assets/images/balance.svg" width="50"/><span id="b-value">{balance}</span>
             </div>
         </div>
