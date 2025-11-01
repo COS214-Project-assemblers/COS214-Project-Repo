@@ -60,7 +60,7 @@ class Game {
 
         vector<Customer*> customers;
         Manager* manager = nullptr;///<Maintains ref to the manager object
-        GreenSock* socket;
+        GreenSock* socket = nullptr;
     public:
         /**
          * @brief Game initialization tasks that are not creating/loading game.

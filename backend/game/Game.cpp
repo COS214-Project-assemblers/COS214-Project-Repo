@@ -432,5 +432,9 @@ string Game::getGreenhousePlantsAsJson()
 }
 
 void Game::setSocket(GreenSock* socket) {
+    cout << "About to assign member var" << endl;
+    if (socket) {}
+    cout << "Not socket" << endl;
     this->socket = socket;
+    cout << "Set member variable" << endl;
 }

@@ -47,6 +47,8 @@ class API {
         void exitGame();
 
         void setSocket(GreenSock* socket);
+
+        void setGame(Game* game);
 };
 
 #endif // API_H
