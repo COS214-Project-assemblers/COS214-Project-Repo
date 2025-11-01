@@ -16,6 +16,13 @@ class Greenhouse
          * @brief This function will be used to add a Plant into the inventory of the Greenhouse
          */
         void addPlant(Plant* p);
+
+        Inventory* getInventory();
+        /**
+         * @brief removes a plant from the greenhouse inventory
+         * @param plant Reference to the Plant being removed
+         */
+        void removePlant(Plant* plant);
 };
 
 #endif

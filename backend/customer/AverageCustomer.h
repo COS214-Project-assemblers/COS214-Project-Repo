@@ -13,18 +13,13 @@
  * @brief Represents a customer with some plant experience who can handle moderate care requirements.
  * 
  * This customer type prefers plants with "Moderate" care level but will accept "Easy" plants
- * as fallback.
+ * as fallback. Inherits from Customer base class and implements the specific dialogue patterns and plant preferences.
+ * 
+ * @see Customer
  */
 
 class AverageCustomer : public Customer
 {
-    private:
-        void introduce();
-        void expressPreferences();
-        void askForRecommendations();
-        void reactToRecommendations();
-        void thankAndExit();
-
     public:
         /**
          * @brief Constructs a new AverageCustomer object.
@@ -33,25 +28,11 @@ class AverageCustomer : public Customer
 
         /**
          * @brief Destroys the AverageCustomer object.
+         * 
+         * Cleans up any resources allocated by the AverageCustomer. Currently handles
+         * basic cleanup through the base class destructor.
          */
         ~AverageCustomer();
-
-        /**
-         * @brief Accepts a visitor for plant recommendations.
-         * 
-         * @param v Reference to the CustomerVisitor offering plants.
-         */
-        void accept(CustomerVisitor& v) override;
-
-        /**
-         * @brief Evaluates plant options favoring moderate-care plants.
-         * 
-         * Prefers plants with "Moderate" care level but will accept "Easy" plants.
-         * 
-         * @param offers Vector of Plant pointers available for selection.
-         * @return Pointer to chosen Plant if suitable, nullptr if rejected.
-         */
-        const Plant* considerOptions(const vector<const Plant*> offers)const override;
 };
 
 #endif

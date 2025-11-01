@@ -5,7 +5,7 @@
 
 #include "Tree.h"
 #include "PlantHealth.h"
-Tree::Tree(string variety) : Plant("Tree", variety) {
+Tree::Tree(string variety,string difficulty) : Plant("Tree", variety,difficulty) {
     /**
      * Different Concrete Plants initalise their Healths' differently so that they
      * decay at different rates, E.G succulents are watered less than flowers

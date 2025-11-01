@@ -23,6 +23,7 @@ class APIDto : public oatpp::DTO {
   
   DTO_FIELD(Int32, statusCode); // HTTP status code
   DTO_FIELD(String, message); // JSON message
+  DTO_FIELD(Any, data);
   
 };
 
@@ -38,6 +39,36 @@ class BuyPlantDTO : public oatpp::DTO
   DTO_FIELD(String, plant);    // Plant variety to buy
   DTO_FIELD(Int32, numToBuy);  // Number of plants to buy
   
+};
+
+/**
+ * @class AddCustomersDTO
+ * @brief Data Transfer Object for adding customers request
+ */
+class AddCustomerDTO : public oatpp::DTO 
+{
+  DTO_INIT(AddCustomerDTO, DTO)
+  
+  DTO_FIELD(String, customerType);  // Customer type to add
+  DTO_FIELD(Int32, numToAdd);       // Number of customers to add
+};
+
+class CustomerResponseDTO : public oatpp::DTO 
+{
+  DTO_INIT(CustomerResponseDTO, DTO)
+  
+  DTO_FIELD(Int32, statusCode);
+  DTO_FIELD(String, message);
+  DTO_FIELD(String, customersJson); // Specific field for customer JSON
+};
+
+class BalanceResponseDTO : public oatpp::DTO 
+{
+  DTO_INIT(BalanceResponseDTO, DTO)
+  
+  DTO_FIELD(Int32, statusCode);
+  DTO_FIELD(String, message);
+  DTO_FIELD(Float64, balance); // Using Float64 for double precision
 };
 
 #include OATPP_CODEGEN_END(DTO)

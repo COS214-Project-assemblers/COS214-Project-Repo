@@ -32,11 +32,19 @@ class JSONGameConfiguration : public GameConfiguraton {
          * @throws std::runtime_error 
          */
         JSONGameConfiguration(std::string configPath);
+        // /**
+        //  * @brief Extracts plant varieties from loadedConfig
+        //  * @throws std::out_of_range
+        //  */
+        // virtual std::map<std::string, std::vector<std::string>> getPlantVarieties() override;
+
         /**
-         * @brief Extracts plant varieties from loadedConfig
+         * @brief Extracts customer types and their data from loadedConfig
+         * @return Map of customer types to their data
          * @throws std::out_of_range
          */
-        virtual std::map<std::string, std::vector<std::string>> getPlantVarieties() override;
+        virtual std::map<std::string, std::map<std::string, std::vector<std::string>>> getCustomerTypes() override;
+        virtual std::vector<PlantStruct*> getPlantVarieties() override;
 };
 
 #endif // JSONCONF
