@@ -57,8 +57,9 @@ class Manager{
         /**
          * @brief record return of plant
          * @param p The plant being returned
+         * @return true if return was executed, false if not
          */
-        void processReturns(Plant& p);
+        bool processReturns(Plant& p);
         /**
          * @brief Getter for inventory
          * @return Reference to the inventory managed by the salesFloor
@@ -77,6 +78,7 @@ class Manager{
         const Inventory* getSaleInventory();
 
         float getBalance();
+        TransactionHistory getTransactionHist()const;
 };
 
 #endif
