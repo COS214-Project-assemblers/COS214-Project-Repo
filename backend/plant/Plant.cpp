@@ -61,16 +61,16 @@ Plant::Plant(const Plant& original)
 
 Plant::~Plant() {
     std::cout << "Plant::~Plant() " <<std::endl ;
-
+    stop() ;
+    join() ;
 
     delete plantState;
 
     if (health){
-        delete health ;
-        health=NULL ;
+        // delete health ;
+        // health=NULL ;
     }
-    stop() ;
-    join() ;
+
 }
 
 string Plant::getCareLevel()
