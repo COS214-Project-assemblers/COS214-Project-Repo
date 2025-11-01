@@ -114,6 +114,11 @@ PlantState *Plant::getState() {
     return plantState;
 }
 
+string Plant::getStateAsString()
+{
+    return getState()->getState();
+}
+
 void Plant::attach(GreenhouseStaff *ob) {
     observerList.push_back(ob);
 }

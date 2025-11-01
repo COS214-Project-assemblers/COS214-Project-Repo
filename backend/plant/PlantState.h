@@ -29,6 +29,8 @@ class PlantState {
          * @brief Virtual destructor for proper cleanup of derived classes.
          */
         virtual ~PlantState() = default;
+
+        virtual string getState() = 0;
 };
 
 #endif

@@ -21,6 +21,8 @@ class Sellable : public PlantState {
          * @param plant Pointer to the plant being handled
          */
         void handle(Plant* plant);
+
+        string getState();
 };
 
 #endif
