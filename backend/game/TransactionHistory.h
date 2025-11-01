@@ -11,6 +11,7 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
+#include <nlohmann/json.hpp>
 
 class Inventory;
 
@@ -63,9 +64,14 @@ class TransactionHistory{
          */
         int FindTransactionIDFor(const Plant* p)const;
         /**
-         * @brief prints statement for the day
+         * @brief prints statement for the day -> for testing for me
          * will return a print out a "Statemnent" like from your bank account of all transactions from the day with their transaction type, the value, and the balance if it was a returned tranasaction type it will show the initial transactionID
          */
         void printStatement();
+        /**
+         * @brief Gives the statement for the day in JSON format for front end
+         * @return A string of the JSON statement
+         */
+        std::string statementJSON()const;
 };
 #endif

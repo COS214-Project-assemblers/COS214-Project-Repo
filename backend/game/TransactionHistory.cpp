@@ -14,23 +14,6 @@ TransactionMem TransactionHistory::getTransactionMem(int index)const{
     return this->memento[index];
 }
 
-void TransactionHistory::print()const{
-    //iterate though vector and print each memento from that day
-    //Ally - not implimented fully but basic consept
-    if(this->memento.empty()){
-        std::cout<<"No Transactions Recorded today :("<<std::endl;
-    }
-    int count=0;
-    for(const auto& m: this->memento){
-        std::cout<<"Transaction "<<++count
-                    <<"Type: "<<m.getType()
-                    <<"Value: "<<m.getValue()
-                    <<"Balance Before: "<<m.getBalanceB4()
-                    <<"Balance After: "<<m.getBalenceAfter()
-                    <<std::endl;
-    }
-}
-
 void TransactionHistory::clear(){
     this->memento.clear();
 }
@@ -68,4 +51,21 @@ void TransactionHistory::printStatement(){
         }
         std::cout<<std::endl;
     }
+}
+
+std::string TransactionHistory::statementJSON()const{
+    json transactionHist=json::array();
+    for(const auto& t : this->memento){
+        json transactionObj={
+            {"transactionId",   t.getTransactionID()},
+            {"type",            t.getType()},
+            {"value",           t.getValue()},
+            {"balance",         t.getBalenceAfter()}
+        };
+        if(t.getType()=="Return"){
+            transactionObj["referenceId"]=t.getReturnedID();
+        }
+        transactionHist.push_back(transactionObj);
+    }
+    return transactionHist.dump();
 }

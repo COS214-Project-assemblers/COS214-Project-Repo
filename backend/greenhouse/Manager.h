@@ -78,6 +78,7 @@ class Manager{
         const Inventory* getSaleInventory();
 
         float getBalance();
+        TransactionHistory getTransactionHist()const;
 };
 
 #endif

@@ -76,6 +76,6 @@ class TransactionMem{
          * @brief Gerrter for the returnID
          * @return The returned ID
          */
-        int getReturnedID()const
+        int getReturnedID()const;
 };
 #endif

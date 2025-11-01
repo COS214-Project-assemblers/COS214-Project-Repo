@@ -47,7 +47,7 @@ void Manager::recordSale(Plant& p){
     Transaction saleT(strat,p.getSalePrice());//creates new sale transaction
     TransactionMem snap=saleT.createTransactionMem(ledger,&p);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
-    //notifu gui
+    strat=nullptr;
 }
 
 void Manager::recordRestock(Plant& p){
@@ -56,9 +56,11 @@ void Manager::recordRestock(Plant& p){
         delete strat;
     }
     strat = new Restock();
+    floor->inventoryMut().restock(&p);
     Transaction restock(strat,p.getCostPrice());//creates new sale transaction with 0 value    
     TransactionMem snap=restock.createTransactionMem(ledger,&p);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
+    strat=nullptr;
 }
 
 void Manager::recordPlantDied(Plant& p){ // This function needs to make sure the plant that died in the greenhouse, actually gets removed from the inventory of greenhouse
@@ -72,6 +74,7 @@ void Manager::recordPlantDied(Plant& p){ // This function needs to make sure the
     Transaction plantDiedT(strat,p.getCostPrice());//creates new sale transaction with 0 value
     TransactionMem snap=plantDiedT.createTransactionMem(ledger,&p);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
+    strat=nullptr;
 }
 
 bool Manager::processReturns(Plant& p){ // This function needs to make sure that the plant that is returned, needs to actually get added back to the salesfloor
@@ -89,10 +92,9 @@ bool Manager::processReturns(Plant& p){ // This function needs to make sure that
     Transaction ret(strat,p.getSalePrice());//creates new sale transaction with 0 value
     TransactionMem snap=ret.createTransactionMem(ledger,&p);//creates snapshot
     snap.setReturnedID(id);//records the return ID in the memento class
-    hist.markAsReturned(id);//maks the transaction as returned
     hist.setTransactionMem(snap);//adds snapshot to history
-    hist.markAsReturned(snap.getTransactionID());//maks the transaction as returned
     floor->inventoryMut().restock(&p);
+    strat=nullptr;
     return true;
 }
 
@@ -107,4 +109,8 @@ Inventory& Manager::inventoryMut(){
 float Manager::getBalance()
 {
     return ledger.getBalance();
+}
+
+TransactionHistory Manager::getTransactionHist()const{
+    return this->hist;
 }
