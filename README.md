@@ -6,7 +6,7 @@
 - Morgan Wattrus (u23541068)
 - Ané Burger (u24565068)
 - Allyson Andre (u23525984)
-* Gerard Jordaan (u24568385)
+- Gerard Jordaan (u24568385)
 ## 🔗 Links
 - [Notion](https://www.notion.so/COS-214-Final-Project-27cd746b5e5f8007a722c42b0529a6e2?source=copy_link)
 - [Report](https://docs.google.com/document/d/1Phlq3BvhULa5o92I_TQlJdaRacmksK-wEytywCLnIkY/edit?usp=sharing)
@@ -62,10 +62,10 @@ Our design prioritizes clarity, pattern cohesion, and responsiveness.
 - **Language:** C++ 17
 - **Build System:** CMake
 - **Libraries:**
-    - [Oat++](https://oatpp.io/) – REST API
-    - [nlohmann/json](https://github.com/nlohmann/json) – JSON serialization
-    - [GoogleTest](https://github.com/google/googletest) – Unit testing
-    - Websocketpp
+    - [Oat++](https://oatpp.io/) REST API
+    - [nlohmann/json](https://github.com/nlohmann/json) JSON serialization
+    - [GoogleTest](https://github.com/google/googletest) Unit testing
+    - [Websocketpp](https://github.com/zaphoyd/websocketpp) Websocket 
 - **Documentation:** Doxygen
 ### 🏗 Infrastructure
 - **Docker** containers
