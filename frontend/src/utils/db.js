@@ -119,7 +119,8 @@ export function addPlantRecord(record) {
   });
 }
 export function initSocket() {
-    const wsUri = "ws://localhost:8001"
+    // const wsUri = "ws://localhost:8001"; FOR DEV SERVER 
+    const wsUri = "ws://localhost:8080/ws"
     const websocket = new WebSocket(wsUri);
 
     websocket.addEventListener("open", () => {

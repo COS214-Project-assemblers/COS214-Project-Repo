@@ -239,7 +239,7 @@ public:
     {
       std::string customerTypeStr = body->customerType->c_str();
       int numValue = *body->numToAdd;
-  
+      
       apiToControl.game->createCustomers(customerTypeStr, numValue);
       
       dto->statusCode = 200;
@@ -368,10 +368,31 @@ public:
       return createDtoResponse(Status::CODE_500, dto);
     }
   }
+
+ENDPOINT("GET", "/clear-customers", clearCust)
+  {
+    auto dto = APIDto::createShared();
+
+    try 
+    {
+      apiToControl.game->clearCustomers();
+      
+      dto->statusCode = 200;
+      dto->message = "Successfully cleared all customers";
+      dto->data = {};
+      
+      return createDtoResponse(Status::CODE_200, dto);
+    } 
+    catch (const std::exception &e) 
+    {
+      dto->statusCode = 500;
+      dto->message = "Failed to clear customers: " + std::string(e.what());
+      dto->data = {};
+      
+      return createDtoResponse(Status::CODE_500, dto);
+    }
+  }
 };
-
-
-
 #include OATPP_CODEGEN_END(ApiController) //<-- End Codegen
 
 #endif // API_CONTROLLERH

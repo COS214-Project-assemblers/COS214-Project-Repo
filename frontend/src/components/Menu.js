@@ -45,11 +45,11 @@ const Menu = ({ onCancel }) => {
     }, [flower, succulent, tree, prices]);
 
     const onBuy = async () => {
+        try {
         if (totalSelected === 0) {
             alert('Please select at least one plant or Cancel instead.');
             return;
         }
-        console.log(available);
         if (totalSelected > available) {
             alert(`You can only buy ${available} more plant(s).`);
             return;
@@ -93,6 +93,7 @@ const Menu = ({ onCancel }) => {
         window.dispatchEvent(new CustomEvent('balance:update'));
         setFlower([0,0,0]); setSucculent([0,0,0]); setTree([0,0,0]); // Reset selections after successful purchase
         onCancel();
+    } catch {}
     };
 
     return (

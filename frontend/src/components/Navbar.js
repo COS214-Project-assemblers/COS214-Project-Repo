@@ -23,7 +23,7 @@ const Navbar = () => {
           res.forEach((el) => {
           });
         });
-        
+
       } catch (e) { console.log(e); }
     };
     load();
@@ -61,6 +61,7 @@ const Navbar = () => {
     if (busy) return;
     setBusy(true);
     try {
+      const resClear = await fetch('/api/clear-customers');
       const resIg = await fetch('/api/add-customers', {
         method: 'POST',
         headers: {

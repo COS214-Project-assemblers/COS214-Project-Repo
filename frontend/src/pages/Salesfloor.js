@@ -30,8 +30,8 @@ const Salesfloor = () => {
 
     const loadCustomers = async () => {
       try {
-        const res = await fetch('/api/customers');
-        const data = await res.json();
+        const resGet = await fetch('/api/customers');
+        const data = await resGet.json();
         console.log(JSON.parse(data.customersJson));
         setCustomers(Array.isArray(JSON.parse(data.customersJson)) ? JSON.parse(data.customersJson) : []);
         setCurrentIdx(0);
