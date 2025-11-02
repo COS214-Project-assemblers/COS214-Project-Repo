@@ -23,9 +23,14 @@ const Salesfloor = () => {
     }
 
     const imgForType = (type) => {
-      if (type === 'ignorant') return '/assets/images/ignorant.png';
-      if (type === 'average') return '/assets/images/medium-customer.png';
-      return '/assets/images/greenfinger.png';
+      switch (type) {
+        case 'ignorant':
+          return { src: '/assets/images/ignorant.png', style: { width: '41em', marginLeft: '1em' } };
+        case 'average':
+          return { src: '/assets/images/medium-customer.png', style: { width: '24em', marginLeft: '6em' } };
+        default: 
+          return { src: '/assets/images/greenfinger.png', style: { width: '18em', marginLeft: '11em' } };
+      }
     };
 
     const loadCustomers = async () => {
@@ -147,7 +152,10 @@ const Salesfloor = () => {
             {current && (
               <>
                 <div id="greenfinger-customer">
-                    <img alt="customer" src={imgForType(current.type)} width="50"/>
+                    {(() => {
+                      const { src, style } = imgForType(current.type);
+                      return <img alt="customer" src={src} style={style} />;
+                    })()}
                 </div>
 
                 <div id="dialogue-board">
