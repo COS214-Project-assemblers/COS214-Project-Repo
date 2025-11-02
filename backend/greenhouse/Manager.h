@@ -80,6 +80,7 @@ class Manager{
         const Inventory* getSaleInventory();
 
         float getBalance();
+        void resetBalance();
         TransactionHistory getTransactionHist()const;
 
         void setGreenhouse(Greenhouse* greenhouse);

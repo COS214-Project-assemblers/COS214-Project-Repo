@@ -218,10 +218,12 @@ Game::~Game()
     if (logger != nullptr) {
         delete logger;
     }
+    cout << "NOOOOOOOT LOOOOOOOOOGER" << endl;
     for (auto it = factories.begin(); it != factories.end(); ++it)
     {
         delete it->second;
     }
+    cout << "NOOOOOOOT FACTORIES" << endl;
 
     for (auto customer : customers)
     {
@@ -230,21 +232,30 @@ Game::~Game()
             delete customer;
         }
     }
+    cout << "NOOOOOOOT CUSTOMERS" << endl;
 
     if (config != nullptr)
     {
         delete config;
     }
 
+    cout << "NOOOOOOOOOT CONFIIIIIIIIIG" << endl;
+
     if (greenhouse != nullptr)
     {
         delete greenhouse;
     }
 
+    cout << "NOOOOOOOOOOT GREEENHOUSE" << endl;
+
     if(manager != nullptr)
     {
+        cout << "MANAGEER" << endl;
         delete manager;
     }
+
+    cout << "NOOOOOOOOOOT MANAGEER" << endl;
+
 }
 
 string Game::getCategoryForVariety(string variety) 

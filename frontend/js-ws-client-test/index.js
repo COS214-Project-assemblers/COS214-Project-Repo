@@ -61,9 +61,6 @@ function updateDBRecord(record) {
       }
       resolve();
     }
-    // req.onerror = () => reject(req.error);
-    // tx.oncomplete = () => resolve(); 
-    // tx.onerror = () => reject(tx.error);
   });
 }
 
@@ -113,7 +110,6 @@ function initSocket() {
         console.log(`RECEIVED: ${e.data}`);
         try {
             let jsonPlantData = JSON.parse(e.data); 
-            // console.log(jsonPlantData);
             if (jsonPlantData.plantId == undefined) {
               throw TypeError("PlantID not found");
             }

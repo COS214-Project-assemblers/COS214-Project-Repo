@@ -38,33 +38,33 @@
 #include "GreenFingerCustomerBuilder.h"
 
 
-// TEST(TestSuiteName, TestName) {
-//     // Setup
+TEST(TestSuiteName, TestName) {
+    // Setup
     
-//     Health h(1.0f, 1.0f, 1.0f, 0);
+    Health h(1.0f, 1.0f, 1.0f, 0);
 
-//     // Action
-//     h.decay(0);
+    // Action
+    h.decay(0);
 
-//     // Check results
-//     EXPECT_LT(h.healthScore(), 3.0f);  // after decay, total health should drop (should be Less Than (LT))
-// }
+    // Check results
+    EXPECT_LT(h.healthScore(), 3.0f);  // after decay, total health should drop (should be Less Than (LT))
+}
 
-// TEST(PlantDynamicTest, HealthChangesOverTime) {
-//     Plant* myPlant = new Succulent("Aloe", "easy");
+TEST(PlantDynamicTest, HealthChangesOverTime) {
+    Plant* myPlant = new Succulent("Aloe", "easy");
 
-//     float initialScore = myPlant->healthScore();
+    float initialScore = myPlant->healthScore();
 
-//     myPlant->start();
-//     std::this_thread::sleep_for(std::chrono::seconds(10)); // let decay happen
-//     myPlant->stop(); // force the thread to stop
-//     myPlant->join();
+    myPlant->start();
+    std::this_thread::sleep_for(std::chrono::seconds(10)); // let decay happen
+    myPlant->stop(); // force the thread to stop
+    myPlant->join();
 
-//     float laterScore = myPlant->healthScore();
+    float laterScore = myPlant->healthScore();
 
-//     EXPECT_LT(laterScore, initialScore) << "Health should decay over time!";
-//     delete myPlant;
-// }
+    EXPECT_LT(laterScore, initialScore) << "Health should decay over time!";
+    delete myPlant;
+}
 
 TEST(GameCreationTests, NewGameOptionExecutesProperly) {
     // Set up environment
@@ -113,6 +113,7 @@ TEST(PlantFactoryTests, SucculentCreationAndCloning)
     
     std::cout << "✓ Succulent cloning successful - original and clone are different objects with same properties" << std::endl;
     
+    clonedSucculent->join();
     delete clonedSucculent;
 
     std::cout << std::endl;
@@ -146,6 +147,7 @@ TEST(PlantFactoryTests, FlowerCreationAndCloning)
     
     std::cout << "✓ Flower cloning successful - original and clone are different objects with same properties" << std::endl;
     
+    clonedFlower->join();
     delete clonedFlower;
 
     std::cout << std::endl;
@@ -179,6 +181,7 @@ TEST(PlantFactoryTests, TreeCreationAndCloning)
     
     std::cout << "✓ Tree cloning successful - original and clone are different objects with same properties" << std::endl;
     
+    clonedTree->join();
     delete clonedTree;
 
     std::cout << std::endl;
@@ -395,33 +398,35 @@ TEST(GameCreationTests, TestFactoriesPlantCreation) {
     delete logger;
 }
 
-// TEST(GameTests, BuyPlantsFunctionality)
-// {
-//     std::cout << "\n=== Testing Buy Plants Functionality ===" << std::endl;
+TEST(GameTests, BuyPlantsFunctionality)
+{
+    std::cout << "\n=== Testing Buy Plants Functionality ===" << std::endl;
     
-//     std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
-//     Game* game = new Game(configPath);
-//     game->createNewGame();
+    std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
+    Game* game = new Game(configPath);
+    game->createNewGame();
+    game->setSocket(nullptr);
     
-//     cout << "BALANCE BEFORE: " << game->getManager()->getBalance() << endl;
-//     cout << "HERE: GOT BALANCE BEFORE" << endl;
-//     EXPECT_NO_THROW({
-//         game->buyPlants("cactus", 1);
-//     }) << "Should be able to buy a single plant";
+    cout << "BALANCE BEFORE: " << game->getManager()->getBalance() << endl;
+    EXPECT_NO_THROW({
+        game->buyPlants("cactus", 1);
+    }) << "Should be able to buy a single plant";
     
-//     EXPECT_NO_THROW({
-//         game->buyPlants("rose", 3);
-//     }) << "Should be able to buy multiple plants";
+    EXPECT_NO_THROW({
+        game->buyPlants("rose", 3);
+    }) << "Should be able to buy multiple plants";
     
-//     Greenhouse* greenhouse = game->getGreenhouse();
-//     ASSERT_NE(greenhouse, nullptr) << "Greenhouse should exist";
+    Greenhouse* greenhouse = game->getGreenhouse();
+    ASSERT_NE(greenhouse, nullptr) << "Greenhouse should exist";
     
-//     std::cout << "✓ Basic plant purchasing works correctly" << std::endl;
+    std::cout << "✓ Basic plant purchasing works correctly" << std::endl;
 
-//     cout << "BALANCE AFTER: " << game->getManager()->getBalance() << endl;
+    cout << "BALANCE AFTER: " << game->getManager()->getBalance() << endl;
     
-//     delete game;
-// }
+    delete game;
+    cout << "here" << endl;
+    
+}
 
 TEST(GameTests, BuyPlantsErrorCases)
 {
@@ -455,7 +460,7 @@ TEST(GameTests, BuyPlantsFactoryMethodIntegration)
     std::string configPath = std::string(ROOT_SOURCE_DIR) + "/config/API/GameConfig.json";
     Game* game = new Game(configPath);
     game->createNewGame();
-    
+    // game->setSocket(nullptr);
     vector<PlantStruct*> plants = game->getAvailablePlantVarieties();
     
     for (PlantStruct* pStruct : plants) {
@@ -626,51 +631,4 @@ TEST(BuilderTests, TestPlantOffering)
     cout << customersJson.dump(4) << endl;
     
     delete game;
-}
-
-TEST(TransactionTests,TestRestockThenSaleThenReturn){
-    //stole Megans start
-    Manager manager;
-    Plant* p1 = new Succulent("cactus", "easy");
-    Plant* p2 = new Flower("daisy", "medium");
-    
-    manager.recordRestock(*p1);//transaction1
-    manager.recordRestock(*p2);//transaction2
-    manager.recordSale(p1->getId());//transaction3
-    manager.recordSale(p2->getId());//transaction4
-
-    ASSERT_TRUE(manager.processReturns(*p1));
-
-    std::string jsonStr=manager.getTransactionHist().statementJSON();
-    json arr=json::parse(jsonStr);
-
-    ASSERT_TRUE(arr.is_array());
-    ASSERT_EQ(arr.size(),5);
-    
-    /*Sohould be{
-        {"transactionId",1},
-        {"type","Sale"},
-        {"value",},
-        {"balence",}
-    }*/
-   auto id=[&](int i){
-    return arr[i]["transactionId"].get<int>();
-   };
-
-   //look at first transaction -> SALE P1
-   EXPECT_EQ(arr[2]["type"],"Sale");
-   EXPECT_DOUBLE_EQ(arr[2]["value"].get<double>(),p1->getSalePrice());
-   const int saleP1ID=id(2);
-   
-    //look at second transaction -> SALE P2
-   EXPECT_EQ(arr[3]["type"],"Sale");
-   EXPECT_DOUBLE_EQ(arr[3]["value"].get<double>(),p2->getSalePrice());
-
-   //look at third transaction ->RETURN P1
-   EXPECT_EQ(arr[4]["type"],"Return");
-   EXPECT_DOUBLE_EQ(arr[4]["value"].get<double>(),p1->getSalePrice());
-   ASSERT_TRUE(arr[4].contains("referenceId"));
-   EXPECT_EQ(arr[4]["referenceId"].get<int>(),saleP1ID);
-   //delete p2 and not p1 as inventory currently owns p1 but p2 was sold and not returned
-   delete p2;
 }

@@ -287,7 +287,9 @@ void Plant::alert(string& careType, GreenSock* sock) {
         std::cout << "\t Sedning to greenSock: ===> " << jsonString << std::endl;
            {
             std::lock_guard<std::mutex> g(socketMtx);
-            socket->sendMessage(jsonString);
+            if (socket) {
+                socket->sendMessage(jsonString);
+            }
         }
 
 

@@ -12,7 +12,6 @@ vector<Plant*> VisitMediumCustomer::visit(IgnorantCustomerBuilder& builder)
     addRandomPlants(easy,2,offer);
     markCorrectPlants(easy,2,false);
     addRandomPlants(med,1,offer);
-    markCorrectPlants(med,1,true);
     addRandomPlants(hard,2,offer);
     finalizeOffer();
 
@@ -26,7 +25,6 @@ vector<Plant*> VisitMediumCustomer::visit(AverageCustomerBuilder& builder)
     std::vector<Plant*> hard = findByDifficulty("hard");
 
     addRandomPlants(easy,2,offer);
-    markCorrectPlants(easy,2,true);
     addRandomPlants(med,2,offer);
     markCorrectPlants(med,2,false);
     addRandomPlants(hard,1,offer);
@@ -43,7 +41,6 @@ vector<Plant*> VisitMediumCustomer::visit(GreenFingerCustomerBuilder& builder)
     
     addRandomPlants(easy,2,offer);
     addRandomPlants(med,1,offer);
-    markCorrectPlants(med,1,true);
     addRandomPlants(hard,2,offer);
     markCorrectPlants(hard,2,false);
     finalizeOffer();

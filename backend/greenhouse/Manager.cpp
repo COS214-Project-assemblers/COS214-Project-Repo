@@ -134,3 +134,8 @@ void Manager::setGreenhouse(Greenhouse* greenhouse)
     // this->greenhouse = greenhouse;
     greenhouse->setSalesFloor(floor);
 }
+
+void Manager::resetBalance()
+{
+    ledger.setBalance(500);
+}
