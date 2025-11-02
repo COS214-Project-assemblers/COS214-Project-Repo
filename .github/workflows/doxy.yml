@@ -1,0 +1,31 @@
+name: Doxygen Deployment
+
+on:
+  push:
+    branches: [dev, main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          set -euxo pipefail
+          sudo apt-get update
+          sudo apt-get install -y doxygen lftp graphviz
+
+      - name: Build doxygen files
+        run: doxygen Doxyfile
+
+      - name: Upload docs via FTP
+        env:
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_URL: ${{ secrets.FTP_URL }}
+        run: |
+          set -euxo pipefail
+          echo "set ftp:ssl-allow false" > ~/.lftprc
+          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" "$FTP_URL" -e "mirror --reverse --verbose=3 html/ /assemblers-documentation/; quit"

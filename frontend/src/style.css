@@ -1,0 +1,833 @@
+@import url('https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+
+.landingBody, .greenhouseBody, .salesfloorBody, .tutorialBody, .gameOverBody, .endOfDayBody {
+    background-image: url(../public/assets/images/Greenhouse.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#title, #game-over-title, #end-of-day-title {
+    width: 60em;
+    margin: auto;
+    margin-top: 9em;
+}
+
+#title img, #game-over-title img, #end-of-day-title img {
+    width: 60em;
+}
+
+#new-game-button, #exit-day-button2, #new-game-button2, #exit-day-button3, #new-game-button3 {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+#new-game-button2 img, #new-game-button3 img {
+    width: 22em;
+    margin-left: 12em;
+}
+
+#exit-day-button2 img, #exit-day-button3 img {
+    width: 17em;
+    margin-left: 3.5em;
+}
+
+#new-game-button2 img:hover, #new-game-button3 img:hover {
+    cursor: pointer;
+}
+
+#exit-day-button2 img:hover, #exit-day-button3 img:hover {
+    cursor: pointer;
+}
+
+#new-game-button img {
+    width: 22em;
+    margin-top: 3em;
+}
+
+#tutorial-button {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+#tutorial-button img {
+    width: 22em;
+    margin-top: 3em;
+    margin-left: 0.8em;
+}
+
+#exit-button {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+#exit-button img {
+    width: 17em;
+    margin-top: 3em;
+    margin-left: 3em;
+}
+
+#landing-buttons-div, #endOfDay-buttons-div, #gameOver-buttons-div {
+    margin: auto;
+    width: 60em;
+}
+
+#landing-buttons-div button img:hover {
+    cursor: pointer;
+}
+
+
+
+#tut {
+    margin: auto;
+    width: 40em;
+    margin-top: 4em;
+}
+
+#tut img {
+    width: 40em;
+}
+
+#tut #tut-text {
+    width: 35.6em;
+}
+
+#tut-text {
+    top: 0;
+    position: fixed;
+    margin-right: 27.5em;
+    right: 0;
+    margin-top: 13em;
+}
+
+#home-button {
+    width: 13em;
+    position: absolute;
+    margin-left: 3em;
+    margin-top: 3em;
+}
+
+#home-button:hover {
+    cursor: pointer;
+}
+
+#nav button {
+    background-color: transparent;
+    border: 1px solid transparent;
+    width: 18em;
+}
+
+#quit-game-button img {
+    width: 20em;
+}
+
+#quit-game-button img:hover {
+    cursor: pointer;
+} 
+
+#go-to-sales img {
+    width: 22em;
+}
+
+#go-to-sales img:hover {
+    cursor: pointer;
+}
+
+#balance {
+    width: 9em;
+    float: inline-end;
+    margin-top: 3em;
+    margin-right: 3em;
+}
+
+#b-value {
+    font-family: 'Freckle Face';
+    color: #612e18;
+    font-size: 2.8em;
+    float: inline-end;
+    margin-top: 1.05em;
+    right: 0;
+    position: absolute;
+    margin-right: 1.5em;
+}
+
+
+
+#soilGrid img {
+    width: 9.5em;
+}
+
+#soilGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 28.5em;
+    margin: auto;
+    margin-top: 2em;
+}
+
+#buyPlantsButton {
+    width: 22em;
+    margin: auto;
+}
+
+
+#buy-plants {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#buy-plants img {
+    width: 22em;
+    margin-left: 1em;
+}
+
+#buy-plants img:hover {
+    cursor: pointer;
+}
+
+
+
+#menu {
+    width: 40em;
+}
+
+#menuDiv {
+    width: 40em;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    margin: auto;
+    margin-top: 8em;
+    left: 0;
+    margin-left: 27em;
+}
+
+
+#cancelBuy, #buy {
+    background-color: transparent;
+    border: 1pc solid transparent;
+}
+
+#cancel-cross {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    margin-top: 12em;
+    margin-left: 27.5em;
+}
+
+
+#buy img {
+    width: 10em;
+}
+
+#buy img:hover {
+   cursor: pointer;
+}
+
+
+#buy {
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+    width: 9.6em;
+    left: 0;
+    margin-left: 38em;
+    margin-bottom: 4.5em;
+}
+
+#cancel-cross:hover {
+    cursor: pointer;
+}
+
+
+@keyframes growShrink {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); 
+  }
+  100% {
+    transform: scale(1); 
+  }
+}
+
+/* UNHEALTHY PLANT - flashes Red if health is below 20% */
+
+/* #plant1 img {
+    filter: hue-rotate(280deg) saturate(150%);
+} */
+
+/* UNHEALTHY PLANT - flashes Orange if health is at 50% */
+
+/* 
+#plant2 img {
+    filter: hue-rotate(321deg) saturate(100%);
+} 
+    
+Dead-plant image must have a margin-top of 5 em  OF 'n height van 11em
+
+
+*/
+
+
+#plant1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    position: absolute;
+    width: 0em;
+}
+
+#plant1 img {
+    width: 7em;
+    margin-left: 1.3em;
+    margin-top: 0.4em;
+}
+
+#plant2 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    position: absolute;
+    width: 0em;
+}
+
+#plant2 img {
+    width: 7em;
+    margin-left: 10.8em;
+    margin-top: 0.4em;
+}
+
+#soilGrid div img {
+    width: 6.8em;
+    margin-top: 0.4em;
+    animation: growShrink 2s infinite alternate;
+}
+
+#plant3 {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    position: absolute;
+    width: 0em;
+}
+
+#plant3 img {
+    margin-left: 20.4em;
+}
+
+#plant4 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    position: absolute;
+    margin-top: 9em;
+    width: 0em;
+}
+
+#plant4 img {
+    margin-left: 1.3em;
+}
+
+#plant5 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    position: absolute;
+    margin-top: 9em;
+    width: 0em;
+}
+
+#plant5 img {
+    margin-left: 10.8em;
+}
+
+#plant6 {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    position: absolute;
+    margin-top: 9em;
+    width: 0em;
+}
+
+#plant6 img {
+    margin-left: 20.4em;
+}
+
+#plant7 img {
+    margin-left: 1.3em;
+}
+
+#plant7 {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    position: absolute;
+    margin-top: 18em;
+    width: 0em;
+}
+
+
+#plant8 img {
+    margin-left: 10.8em;
+}
+
+#plant8 {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    position: absolute;
+    margin-top: 18em;
+    width: 0em;
+}
+
+#plant9 img {
+    margin-left: 20.4em;
+}
+
+#plant9 {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    position: absolute;
+    margin-top: 18em;
+    width: 0em;
+}
+
+
+#wood {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    height: 9em;
+    z-index: 8;
+}
+
+#wood img {
+    width: 140em;
+    margin-left: 0em;
+}
+
+/* 
+#ignorant-customer img {
+    width: 44em;
+}
+
+#medium-customer img {
+    width: 24em;
+    margin-left: 9em;
+}
+
+#greenfinger-customer img {
+    width: 24em;
+    margin-left: 9em;
+}
+
+#greenfinger-customer img {
+    width: 17em;
+    margin-left: 14em;
+} */
+
+
+#dialogue-board img {
+    width: 40em;
+}
+
+#dialogue-board {
+    width: 40em;
+    z-index: 20;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    margin-left: 33em;
+    margin-top: 11em;
+}
+
+
+
+#next {
+    background-color: transparent;
+    border: 1px solid transparent;
+    width: 9em;
+    position: absolute;
+    margin-left: 74em;
+    z-index: 40;
+    top: 0;
+    margin-top: 33em;
+}
+
+#next img {
+    width: 9em;
+}
+
+#next img:hover {
+    cursor: pointer;
+}
+
+
+#customer-name {
+    top: 0;
+    position: absolute;
+    z-index: 70;
+    margin-left: 44.2em;
+    margin-top: 8.8em;
+}
+
+#customer-name p {
+    font-family: 'Freckle Face';
+    color: #fff7e8;
+    font-size: 2em;
+    margin-top: 1.5em;
+}
+
+
+#customer-dialogue p {
+    font-family: 'Delius';
+    font-size: 2em;
+    color: #612e18;
+}
+
+#customer-dialogue {
+    top: 0;
+    position: absolute;
+    margin-left: 38em;
+    margin-top: 16em;
+    z-index: 90;
+    width: 30em;
+}
+
+
+#suggest-board img {
+    width: 35em;
+}
+
+#suggest-board {
+    top: 0;
+    position: fixed;
+    right: 0;
+    margin-top: 6em;
+    margin-right: 25.4em;
+    z-index: 100;
+}
+
+
+#suggest {
+    position: fixed;
+    background-color: transparent;
+    border-color: transparent;
+    z-index: 200;
+    bottom: 0;
+    margin-left: 68em;
+    margin-bottom: 8.5em;
+}
+
+#suggest img {
+    width: 11em;
+}
+
+#suggest img:hover {
+    cursor: pointer;
+}
+
+
+
+
+#suggestGrid {
+    display: grid;
+    z-index: 300;
+    position: fixed;
+    top: 0;
+    margin: auto;
+    width: 26em;
+    margin-left: 40em;
+    margin-top: 16em;
+    height: 23em;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#suggestGrid div {
+    grid-column: 1 / 2;
+    width: 25.3em;
+    border-bottom: 1px solid #9d715e;
+}
+
+#suggestGrid div p {
+    font-family: 'Freckle Face';
+    color: #612e18;
+    font-size: 1.3em;
+    margin-bottom: 0em;
+    margin-top: 1.1em;
+}
+
+
+
+#zero-balance {
+    top: 0;
+    right: 0;
+    position: fixed;
+    width: 10em;
+    margin-right: 3em;
+    margin-top: 3em;
+}
+
+#zero-b-value {
+    z-index: 400;
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-size: 3em;
+    font-family: 'Freckle Face';
+    color: #ed0000;
+    margin-right: 2em;
+    margin-top: 1em;
+}
+
+
+#flowerAmountGrid {
+    top: 0;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-top: 18.35em;
+    z-index: 800;
+    margin-left: 10em;
+}
+
+#flowerAmountGrid input {
+    width: 2.6em;
+    background-color: #fff7e8;
+    border: 1px solid #9c6600;
+    border-radius: 7px;
+    padding: 5px;
+    font-family: 'Delius';
+    color: #9c6600;
+    margin-bottom: 0.5em;
+}
+
+#flowerAmountGrid input::placeholder {
+    color: #9c6600;
+}
+
+
+
+
+
+
+#succAmountGrid {
+    top: 0;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-top: 27.05em;
+    z-index: 800;
+    margin-left: 10em;
+}
+
+#succAmountGrid input {
+    width: 2.6em;
+    background-color: #fff7e8;
+    border: 1px solid #9c6600;
+    border-radius: 7px;
+    padding: 5px;
+    font-family: 'Delius';
+    color: #9c6600;
+    margin-bottom: 0.5em;
+}
+
+#succAmountGrid input::placeholder {
+    color: #9c6600;
+}
+
+
+
+
+
+
+#treeAmountGrid {
+    top: 0;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-top: 36em;
+    z-index: 800;
+    margin-left: 10em;
+}
+
+#treeAmountGrid input {
+    width: 2.6em;
+    background-color: #fff7e8;
+    border: 1px solid #9c6600;
+    border-radius: 7px;
+    padding: 5px;
+    font-family: 'Delius';
+    color: #9c6600;
+    margin-bottom: 0.5em;
+}
+
+#treeAmountGrid input::placeholder {
+    color: #9c6600;
+}
+
+
+#totalBalance {
+    bottom: 0;
+    position: fixed;
+    margin-left: 10.2em;
+    margin-bottom: 3.2em;
+    z-index: 1000;
+    font-family: 'Freckle Face';
+    font-size: 2em;
+    color: #0d6d00;
+}
+
+
+#capacity {
+    top: 0;
+    position: fixed;
+    font-family: 'Delius';
+    font-size: 1.3em;
+    color: red;
+    font-weight: 600;
+    margin-top: 12em;
+    z-index: 2000;
+    margin-left: 1.7em;
+}
+
+
+#plant1 img:hover {
+    cursor: pointer;
+}
+
+
+#info-board-div img {
+    width: 30em;
+}
+
+#info-board-div {
+    z-index: 3000;
+    position: fixed;
+    top: 0;
+    margin-top: 10em;
+    right: 0;
+    margin-right: 32.6em;
+}
+
+
+#plantInfoGrid {
+    z-index: 5000;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 13em 12em;
+    grid-template-rows: repeat(5, 1fr);
+    top: 0;
+    right: 0;
+    margin-right: 35em;
+    margin-top: 14em;
+}
+
+#plantInfoGrid p {
+    font-family: 'Freckle Face';
+    color: #612e18;
+    font-size: 1.3em;
+    height: 1em;
+}
+
+.field {
+    color: #c69049;
+}
+
+#info-buttons button {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+#cancel-info {
+    width: 10em;
+    margin-right: 1em;
+}
+
+#move-to-sales {
+    width: 9em;
+}
+
+#info-buttons {
+    z-index: 5001;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 34em;
+    margin-top: 35.7em;
+}
+
+#info-buttons button img:hover {
+    cursor: pointer;
+}
+
+#info-title-div {
+    position: absolute;
+    top: 0;
+    margin-left: 38.5em;
+    margin-top: 10em;
+    z-index: 6000;
+}
+
+
+#maturity {
+    grid-column: 1 / 3;
+}
+
+#mature-span {
+    color: red;
+}
+
+/* #mature-span {
+    color: #089108;
+} */
+
+
+
+#move-to:disabled, #move-to img:disabled {
+    cursor: not-allowed;
+    opacity: 50%;
+}
+
+
+
+
+.not-selected, .selected {
+    width: 2.4em;
+}
+
+.easy {
+    width: 6em;
+}
+
+#suggestGrid div {
+    display: grid;
+    grid-template-columns: 12.85em 8em 4em;
+}
+
+
+#suggestGrid div img {
+    margin-left: 0.5em;
+    margin-top: 1em;
+}
+
+#suggestGrid div p span {
+    font-size: 0.8em;
+}
+
+.easy, .medium, .hard {
+    width: 6em;
+    height: 2.4em;
+}
+
+.selected, .not-selected:hover {
+    cursor: pointer;
+}

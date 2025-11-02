@@ -1,0 +1,93 @@
+/**
+ * @file APIDto.h
+ * @brief Define Data Transfer Objects to serialize/deserialize objects in requests
+ * @author Gerard Jordaan
+ * @note Inspiration taken from https://github.com/oatpp/oatpp-starter/blob/master/src/dto/DTOs.hpp
+ */
+#ifndef DTOS
+#define DTOS
+
+#include "oatpp/macro/codegen.hpp"
+#include "oatpp/Types.hpp"
+
+#include OATPP_CODEGEN_BEGIN(DTO)
+
+/**
+ * @class MyDto
+ * @brief Data Transfer Object. Object containing fields only.
+ *  Used in API for serialization/deserialization and validation
+ */
+class APIDto : public oatpp::DTO {
+  
+  DTO_INIT(APIDto, DTO)
+  
+  DTO_FIELD(Int32, statusCode); // HTTP status code
+  DTO_FIELD(String, message); // JSON message
+  DTO_FIELD(Any, data);
+  
+};
+
+/**
+ * @class BuyPlantDTO
+ * @brief Data Transfer Object for buying plants request
+ * Uses POST request body instead of query parameters for security
+ */
+class BuyPlantDTO : public oatpp::DTO 
+{
+  DTO_INIT(BuyPlantDTO, DTO)
+  
+  DTO_FIELD(String, plant);    // Plant variety to buy
+  DTO_FIELD(Int32, numToBuy);  // Number of plants to buy
+  
+};
+
+/**
+ * @class AddCustomersDTO
+ * @brief Data Transfer Object for adding customers request
+ */
+class AddCustomerDTO : public oatpp::DTO 
+{
+  DTO_INIT(AddCustomerDTO, DTO)
+  
+  DTO_FIELD(String, customerType);  // Customer type to add
+  DTO_FIELD(Int32, numToAdd);       // Number of customers to add
+};
+
+class CustomerResponseDTO : public oatpp::DTO 
+{
+  DTO_INIT(CustomerResponseDTO, DTO)
+  
+  DTO_FIELD(Int32, statusCode);
+  DTO_FIELD(String, message);
+  DTO_FIELD(String, customersJson); // Specific field for customer JSON
+};
+
+class BalanceResponseDTO : public oatpp::DTO 
+{
+  DTO_INIT(BalanceResponseDTO, DTO)
+  
+  DTO_FIELD(Int32, statusCode);
+  DTO_FIELD(String, message);
+  DTO_FIELD(Float64, balance); // Using Float64 for double precision
+};
+
+class TransactionDTO : public oatpp::DTO {
+  DTO_INIT(TransactionDTO, DTO)
+  DTO_FIELD(Int32,   transactionId);
+  DTO_FIELD(String,  type);
+  DTO_FIELD(Float64, value);
+  DTO_FIELD(Float64, balance);
+  DTO_FIELD(Int32,   referenceId);
+};
+
+class CareForPlantDTO : public oatpp::DTO 
+{
+  DTO_INIT(CareForPlantDTO, DTO)
+  
+  DTO_FIELD(String, id);  // Customer type to add
+};
+
+
+#include OATPP_CODEGEN_END(DTO)
+
+#endif // DTOS

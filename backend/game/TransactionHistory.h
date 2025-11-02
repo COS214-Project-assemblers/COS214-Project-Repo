@@ -1,0 +1,77 @@
+/**
+ * @file TransactionHistory.h
+ */
+#ifndef TRANSACTIONHISTORY_H
+#define TRANSACTIONHISTORY_H
+
+#include "TransactionMem.h"
+#include "Ledger.h"
+#include "Inventory.h"
+
+#include <iostream>
+#include <vector>
+#include <stdexcept>
+#include <nlohmann/json.hpp>
+
+class Inventory;
+
+/**
+ * @class TransactionHistory
+ * @brief Stores Mememntos that allows for processing refunds and printing the transaction history at end of day
+ */
+class TransactionHistory{
+    private:
+        std::vector<TransactionMem> memento;///<Vector to store the history of the transactions
+    public:
+        /**
+         * @brief Default Constructor
+         */
+        TransactionHistory()=default;
+        /**
+         * @brief Deafult deconstructor
+         */
+        ~TransactionHistory()=default;
+        /**
+         * @brief Adds a transactionMem to the history
+         * @param tM The TransactionMem snapshot to add
+         */
+        void setTransactionMem(const TransactionMem& tM);
+        /**
+         * @brief retireves a specific snapshot by index
+         * @param index Index of snapshot in memento vector
+         * @return The TransactionMem object at that index
+         */
+        TransactionMem getTransactionMem(int index)const;
+        /**
+         * @brief Clears transaction History to start new day/reset
+         */
+        void clear();
+        /**
+         * @brief checks if a transaction ID has already been returned
+         * @param tID Transaction ID to check
+         * @return True if it has been returned, False if not
+         */
+        bool hasBeenReturned(int tID)const;
+        /**
+         * @brief marks a transaction ID as returned
+         * @param tID Transaction ID to mark as returned
+         */
+        void markAsReturned(int tID);
+        /**
+         * @brief Gives you the last transaction ID for a specific plant
+         * @param p Plant pointer to check for
+         * @return transaction ID if found, -1 if not found
+         */
+        int FindTransactionIDFor(const Plant* p)const;
+        /**
+         * @brief prints statement for the day -> for testing for me
+         * will return a print out a "Statemnent" like from your bank account of all transactions from the day with their transaction type, the value, and the balance if it was a returned tranasaction type it will show the initial transactionID
+         */
+        void printStatement();
+        /**
+         * @brief Gives the statement for the day in JSON format for front end
+         * @return A string of the JSON statement
+         */
+        std::string statementJSON()const;
+};
+#endif

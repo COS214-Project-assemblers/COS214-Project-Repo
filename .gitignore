@@ -47,4 +47,26 @@ build
 build/
 
 .vscode
+.vscode/
+.vscode/*
+
+.env
+
+*conflict*
+
+log*
+
+.env
+.env*
+
+node_modules
+bin/*
+utils/venv
+venv/*
+venv
+utils/venv/*
+
+node_modules
+node_modules/*
+node_modules/*
 .vscode/*
