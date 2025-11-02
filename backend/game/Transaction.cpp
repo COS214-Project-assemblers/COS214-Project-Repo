@@ -10,12 +10,12 @@ Transaction::Transaction(TransactionStrategy* tS,double v):tS(tS), value(v){
     this->transID=nextID++;
 }
 
-Transaction::~Transaction(){
-    if(this->tS){
-        delete this->tS;
-        this->tS=nullptr;
-    }
-}
+// Transaction::~Transaction(){
+//     if(this->tS){
+//         delete this->tS;
+//         this->tS=nullptr;
+//     }
+// }
 
 TransactionMem Transaction::createTransactionMem(Ledger& ledger,Plant* plant)const{
     if(!tS){

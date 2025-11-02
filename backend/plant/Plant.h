@@ -21,6 +21,11 @@
 
 #include "GreenSock.h"
 #include "Logger.h"
+#include "ThreadSafeQueue.h"
+#include <iostream>
+#include <queue>
+#include <memory>
+#include <mutex>
 
 class Health ;
 class PlantState;
@@ -63,7 +68,7 @@ class Plant
         /**
          * @brief Pointer to the current state of the plant.
          */
-        PlantState* plantState;
+        std::unique_ptr<PlantState> plantState;
 
         /**
          * @brief The type of care currently required by the plant.
@@ -106,12 +111,19 @@ class Plant
         bool acceptable = false;  // Initialize to false
         bool returnable = false;
 
+        SafeQueue safeQueue;
+        std::queue<string> notifyQ;
+        std::queue<int> pruneQueue;
+
+        std::mutex socketMtx;
+
+        bool sellable = false;
     protected:
         /**
          *  @brief Pointer to the Health component representing the plant’s overall well-being.
          * */
-        Health* health ;
-        GreenSock* socket = NULL; // initalise it to null 
+        std::unique_ptr<Health> health ;
+        GreenSock* socket = nullptr; // initalise it to null 
 
     public:
         /**
@@ -132,8 +144,11 @@ class Plant
          * @details Enables cloning of existing Plant objects.
          * @param [in] original Reference to the Plant object being duplicated.
          */
-        Plant(const Plant& original);
-
+         Plant(const Plant&)            = delete;
+       Plant& operator=(const Plant&) = delete;
+        // Allow moves
+        Plant(Plant&&)                 = default;
+        Plant& operator=(Plant&&)      = default;
         /**
          * @brief Virtual destructor to ensure proper cleanup in derived classes.
          * NOTE - Additional Clean Up functionality for Thread Behaviour:
@@ -216,7 +231,7 @@ class Plant
          * member, informing them about the required care type.
          * @param careType The type of care the plant requires
          */
-        void notify(string& careType);
+        void notify(const string& careType);
 
         string getCareType();
 
@@ -344,5 +359,8 @@ class Plant
         string getWaterLevel();
         string getFertilizerLevel();
         string getPruningLevel();
+
+        void queueNotify(string task);
+        void queuePrune();
 };
 #endif

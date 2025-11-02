@@ -7,14 +7,6 @@ const GameOver = () => {
     const navigate = useNavigate();
     const newGame = async () => {
         try {
-            const res = await fetch('/api/new-game', { method: 'POST' });
-            if (!res.ok) {
-                const err = await res.json().catch(() => ({}));
-                console.error('New game failed', err);
-                alert('Failed to create new game.');
-                return;
-            }
-            console.log('New game created successfully');
             navigate('/');
         } catch (e) {
             console.error(e);
@@ -23,20 +15,7 @@ const GameOver = () => {
     };
 
     const exitGame = async () => {
-        try {
-            const res = await fetch('/api/exit-game', { method: 'POST' });
-            if (!res.ok) {
-                const err = await res.json().catch(() => ({}));
-                console.error('Exit game failed', err);
-                alert('Failed to exit game.');
-                return;
-            }
-            console.log('Game exited successfully');
-            navigate('/');
-        } catch (e) {
-            console.error(e);
-            alert('Network error exiting the game.');
-        }
+        navigate('/');
     };
 
     return (

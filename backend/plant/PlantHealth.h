@@ -22,10 +22,10 @@ class Health {
         int mature;
         GreenSock* socket ; 
 
-        std::mutex mtx;
-        std::mt19937 rng;
-        std::uniform_int_distribution<int> dist;
+        mutable std::mutex mtx;
 
+        mutable std::mt19937 rng;
+       mutable std::uniform_int_distribution<int> dist;
     public:
 
         /**
@@ -50,7 +50,10 @@ class Health {
          * Currently, no dynamic memory is managed by Health, so this destructor is empty.
          */
         ~Health();
-
+            Health(const Health&)            = delete;
+            Health& operator=(const Health&) = delete;
+    Health(Health&&)                 = default;
+        Health& operator=(Health&&)      = default;
         /**
          * @brief Handles watering by restoring the water attribute to full (1.0).
          *
@@ -82,7 +85,7 @@ class Health {
          * Allocates and returns a new Health object with default constructor parameters.
          * @return Pointer to a newly created Health instance.
          */
-        Health* clone()             ;
+  std::unique_ptr<Health> clone() const;
 
         /**
          * @brief Computes the overall health score.
@@ -93,7 +96,7 @@ class Health {
         float healthScore();
 
         float Water();
-
+    
         float Fertilizer();
 
         float healthPrune();

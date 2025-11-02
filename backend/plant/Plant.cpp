@@ -7,6 +7,7 @@
 #include "NotSellable.h"
 #include "GreenhouseStaff.h"
 #include "PlantHealth.h"
+#include <cmath>
 
 Plant::Plant(string category, string variety,string difficulty)
 {
@@ -16,7 +17,7 @@ Plant::Plant(string category, string variety,string difficulty)
     this->difficulty=difficulty;
 
     this->careType = "";
-    this->plantState = new NotSellable();
+    this->plantState = std::make_unique<NotSellable>();
     
     // Game needs to be initialized (prices fetched from JSON) before
     // plant costs can be set. If game not initialized, plant costs not set.
@@ -33,44 +34,35 @@ Plant::Plant(string category, string variety,string difficulty)
     // this->health = new Health() ; // concrete plants assign this uniquely 
     this->decayIndex = 0        ;
     this->alive = true          ;
-
 }
 
-Plant::Plant(const Plant& original)
-{
-    this->plantCategory = original.plantCategory;
-    this->plantVariety = original.plantVariety;
-    this->costPrice = original.costPrice;
-    this->salePrice = original.salePrice;
-    this->difficulty=original.difficulty;
-    this->acceptable=original.acceptable;
-    this->returnable=original.returnable;
+// Plant::Plant(const Plant& original)
+// {
+//     this->plantCategory = original.plantCategory;
+//     this->plantVariety = original.plantVariety;
+//     this->costPrice = original.costPrice;
+//     this->salePrice = original.salePrice;
+//     this->difficulty=original.difficulty;
+//     this->acceptable=original.acceptable;
+//     this->returnable=original.returnable;
+//     this->maturity = 0;
+//     this->plantState = new NotSellable();
+//     this->careType = original.careType;
+//     this->pruneQueue = new std::queue<int>;
+//     this->health = new Health() ; // NB You may not clone/copy mtx
+//     this->decayIndex = original.decayIndex ;
+//     this->alive = true ;
 
-    this->plantState = new NotSellable();
-    this->careType = original.careType;
-
-    this->health = new Health() ; // NB You may not clone/copy mtx
-    this->decayIndex = original.decayIndex ;
-    this->alive = true ;
-
-    generateId();
-    if (logger) {
-        logger->newLog("Created [" + getPlantCategory() + "] " + getPlantVariety() + " with unique ID: " + id);
-    }
-}
+//     generateId();
+//     if (logger) {
+//         logger->newLog("Created [" + getPlantCategory() + "] " + getPlantVariety() + " with unique ID: " + id);
+//     }
+// }
 
 Plant::~Plant() {
     std::cout << "Plant::~Plant() " <<std::endl ;
     stop() ;
     join() ;
-
-    delete plantState;
-
-    if (health){
-        // delete health ;
-        // health=NULL ;
-    }
-
 }
 
 string Plant::getCareLevel()
@@ -108,10 +100,8 @@ void Plant::display()
     cout << plantCategory << " - " << plantVariety << ", Cost: R" << costPrice << ", Sale: R" << salePrice <<", Difficulty: "<<difficulty<< endl;
 }
 
-
-
 PlantState *Plant::getState() {
-    return plantState;
+    return plantState.get();
 }
 
 string Plant::getStateAsString()
@@ -127,7 +117,10 @@ void Plant::detach(GreenhouseStaff *ob) {
     observerList.erase(std::remove(observerList.begin(), observerList.end(), ob), observerList.end());
 }
 
-void Plant::notify(std::string& careType) {
+void Plant::notify(const std::string& careType) {
+    // cout << "Attempting to notify" << endl;
+    // safeQueue.push("pruning");
+    cout << observerList.size() << endl;
     for(GreenhouseStaff* observer : observerList) {
         observer->update(careType, this);
     }
@@ -138,10 +131,7 @@ std::string Plant::getCareType() {
 }
 
 void Plant::setState(PlantState *plantState_) {
-    if(plantState != plantState_) {
-        delete plantState;
-        plantState = plantState_;
-    }
+    
 }
 
 void Plant::request() {
@@ -149,7 +139,7 @@ void Plant::request() {
 }
 
 Health* Plant::getHealth()  {
-    return this->health ;
+    return this->health.get() ;
 }
 
 float Plant::healthScore() {
@@ -175,8 +165,31 @@ void Plant::stop() {
 
 void Plant::run() {
     std::cout << "[Debug] Plant thread started\n";
+    string test;
 
     while (alive ) {
+        bool exitLoop = false;
+
+        // while (!notifyQ.empty()) {
+        //     notify(notifyQ.front());
+        //     notifyQ.pop();
+        // }
+
+        while (!pruneQueue.empty()) {
+            health->handlePruning();
+            health->handleFertilizer();
+            health->handleWater();
+            cout << "========UPDATED PRUNE LEVEL===== " << health->getMaturity() << endl;
+            if (health->getMaturity() == 1) exitLoop = true;
+            pruneQueue.pop();  
+        }
+
+        if (exitLoop) {
+            cout << "!!!!!!!!!!!!!!!!!!!!!!breaking!!!!!!!!!!!!!!!!!!" << endl;
+            break;
+        } 
+        // if (safeQueue.try_pop(test)) notify(test);
+        // cout << test << endl;
         int waitTime = health->dist(health->rng);
         for (int i = 0; i < waitTime*10 && alive; ++i) {
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
@@ -188,22 +201,22 @@ void Plant::run() {
         health->decay(decayIndex) ;
 
         // Alerts - Plant is below minimum threshold - call the staff that need to handle
-        if (health->water < 0.4f) {
+        if (health->Water() < 0.4f) {
             std::cout << "LOW WATER: (health->water < 0.3f)" <<std::endl ; 
             std::string careType = "water" ;    // I had to declare a variable like this
-            this->notify(careType) ;            // then pass it in here because of the data type notify(std::string& careType)
+            // this->notify(careType) ;            // then pass it in here because of the data type notify(std::string& careType)
             alert(careType, socket) ;
         }
-        if (health->fertalizer < 0.4f) {
+        if (health->Fertilizer() < 0.4f) {
             std::cout << "LOW FERTILIZER: (health->water < 0.3f)" <<std::endl ; 
             std::string careType = "fertilizer" ;
-            this->notify(careType) ;
+            // this->notify(careType) ;
             alert(careType, socket) ;
         }
-        if (health->pruning < 0.4f) {
+        if (health->healthPrune() < 0.4f) {
             std::cout << "LOW PRUNING: (health->water < 0.3f)" <<std::endl ; 
             std::string careType = "pruning" ;
-            this->notify(careType) ;
+            // this->notify(careType) ;
             alert(careType, socket) ;
         }
         if (healthScore() < 0.0001f) {
@@ -211,23 +224,29 @@ void Plant::run() {
             this->alive = false ; 
         }
 
+        alert(careType, socket) ;
+
         decayIndex = (decayIndex + 1) % 3;
         std::cout << "[Info] Moving to next decayIndex: " << decayIndex << std::endl;
         float currentHealth = health->healthScore() ;
         std::cout << "[State] Current health score: " << currentHealth << std::endl;
     }
     float currentHealth = health->healthScore()  ;
+    if (currentHealth > 0) {
+        sellable = true;
+        string moveStaff = "pruning";
+        notify(moveStaff);
+    }
     std::cout << "[State] Current health score: " << currentHealth << std::endl;
 
     std::cout << "[Debug] Plant thread exiting\n";
+    string def = "default";
+    alert(def, socket);
 
 }
 
 bool Plant::isSellable() {
-    if ( !health->isDead() && (health->mature > 2) ){
-        return true ; 
-    }
-    return false ;
+   return sellable;
 }
 
 void Plant::setSocket(GreenSock* sock){
@@ -239,6 +258,7 @@ void Plant::alert(string& careType, GreenSock* sock) {
         this->socket = sock ; 
     }
     nlohmann::json alert ;
+    if (careType != "default")
     std::cout << "void Plant::alert(string& " << careType << "!!!, GreenSock* sock)" << std::endl ; 
 
         // Unique identifier (stringified memory address)
@@ -248,23 +268,28 @@ void Plant::alert(string& careType, GreenSock* sock) {
 
         // Construct JSON alert payload
         alert = {
-            {"plantId", getId()},
-            {"plantCategory", getPlantCategory()},
-            {"plantVariety", getPlantVariety()},
-            {"healthScore", health->healthScore()},
-            {"waterScore", health->getWater()},
-            {"pruningScore", health->healthPrune()},
-            {"fertilizerScore", health->getFertilizer()},
-            {"sellable", isSellable()},
-            {"died", health->isDead()}
-        };
+        {"id", getId()},
+        {"category", getPlantCategory()},
+        {"variety", getPlantVariety()},
+        {"healthScore", std::round(health->healthScore() * 10000) / 100.0}, 
+        {"waterLevel", std::round(health->Water() * 100) / 100.0},
+        {"pruningLevel", std::round(health->healthPrune() * 100) / 100.0},
+        {"fertilizerLevel", std::round(health->Fertilizer() * 100) / 100.0},
+        {"state", isSellable()},
+        {"died", health->isDead()},
+        {"costPrice", getCostPrice()},
+        {"salePrice", getSalePrice()}
+    };
 
         // Convert JSON to string and send via WebSocket
 
         std::string jsonString = alert.dump();
         std::cout << "\t Sedning to greenSock: ===> " << jsonString << std::endl;
+           {
+            std::lock_guard<std::mutex> g(socketMtx);
+            socket->sendMessage(jsonString);
+        }
 
-        socket->sendMessage( jsonString );
 
 }
 
@@ -350,4 +375,14 @@ string Plant::getFertilizerLevel()
 string Plant::getPruningLevel()
 {
     return health->getPruning();
+}
+
+void Plant::queueNotify(string task)
+{
+    queuePrune();
+}
+
+void Plant::queuePrune()
+{
+    pruneQueue.push(1);
 }

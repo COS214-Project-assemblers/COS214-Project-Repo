@@ -73,3 +73,19 @@ void SalesFloor::addPlant(Plant* p)
 {
     inv->restock(p);
 }
+
+Plant* SalesFloor::getPlantOnSalesFloor(string id)
+{
+    return inv->getPlant(id);
+}
+
+Plant* SalesFloor::removePlantFromSalesFloor(string id)
+{
+    Plant* plantToRemove =inv->getPlant(id);
+
+    if (plantToRemove == nullptr) return nullptr;
+
+    inv->removePlant(plantToRemove);
+
+    return plantToRemove;
+}

@@ -44,7 +44,7 @@ Plant* Greenhouse::removePlant(Plant* plant){
     this->inventory->removePlant(plant);
     
     std::cout << "\t plant->stop() ; " <<std::endl; 
-    plant->join() ; // when a plant is removed from green house, stop its' thread ??? ( -from Morgan)
+    // plant->join() ; // when a plant is removed from green house, stop its' thread ??? ( -from Morgan)
     return plant;
 }
 
@@ -68,4 +68,16 @@ void Greenhouse::movePlant(Plant* plant)
 void Greenhouse::setSalesFloor(SalesFloor* salesFloor)
 {
     sFloor = salesFloor;
+}
+
+void Greenhouse::takeCareOfPlant(string id)
+{
+    Plant* carePlant = inventory->getPlant(id);
+    if (carePlant == nullptr) {
+        std::cout << "Could not find plant" << std::endl;
+        return;
+    }
+
+    string notif = "pruning";
+    carePlant->queueNotify(notif);
 }

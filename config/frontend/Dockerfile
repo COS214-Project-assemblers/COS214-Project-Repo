@@ -1,14 +1,15 @@
-# Stage 1: Build React app
-FROM node:25 AS build
-WORKDIR /app
-COPY frontend/greenfingers/package*.json ./
-COPY frontend/greenfingers .
-RUN npm install
-RUN npm run build
+FROM node:jod-alpine3.21 AS build
 
-# Stage 2: Serve with Nginx
+WORKDIR /app
+COPY package*.json ./
+COPY webpack* ./
+COPY .babelrc ./
+RUN npm ci
+COPY frontend ./frontend
+RUN npm run build 
+
+# Serve with Nginx
 FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
 COPY config/frontend/default.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
+COPY --from=build /app/frontend/public /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]

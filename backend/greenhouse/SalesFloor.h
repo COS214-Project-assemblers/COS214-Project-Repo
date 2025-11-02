@@ -94,17 +94,11 @@ class SalesFloor{
          * @param prob Probability that a customer decides to return a product.
          * @param hist Reference to the TransactionHistory to process returns.
          */
-        //Ally - could maybe also use visitor for this to return the probabilty based on the type of customer.
-        // void processReturns(double prob,Transaction& t);
-        /**
-         * @brief Finds all plants in the inventory based on their level of care dificulty.
-         * @param d The level of dificulty you are looking for
-         * @return Vector of all those plants
-         */
-        std::vector<Plant*> findByDifficulty(std::string d)const;
 
         void addPlant(Plant* p);
 
+        Plant* getPlantOnSalesFloor(string id);
+        Plant* removePlantFromSalesFloor(string id);
 };
 
 #endif

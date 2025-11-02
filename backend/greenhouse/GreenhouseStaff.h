@@ -32,7 +32,7 @@ class GreenhouseStaff {
          * @param careType The type of care required ("water", "fertilizer", "pruning")
          * @param plant Pointer to the plant that needs care
          */
-        virtual void update(string& careType, Plant* plant) = 0;
+        virtual void update(const string& careType, Plant* plant) = 0;
 
         /**
          * @brief Virtual destructor for proper cleanup of derived classes.

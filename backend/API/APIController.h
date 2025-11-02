@@ -59,6 +59,13 @@ public:
     dto->message = "Hello World!";
     return createDtoResponse(Status::CODE_200, dto);
   }
+
+  // ENDPOINT("GET", "/get-balance", root) {
+  //   auto dto = APIDto::createShared();
+  //   dto->statusCode = 200;
+  //   dto->message = "Hello World!";
+  //   return createDtoResponse(Status::CODE_200, dto);
+  // }
   
   /**
    * @brief Executes NewGameOption Command
@@ -232,7 +239,7 @@ public:
     {
       std::string customerTypeStr = body->customerType->c_str();
       int numValue = *body->numToAdd;
-  
+      
       apiToControl.game->createCustomers(customerTypeStr, numValue);
       
       dto->statusCode = 200;
@@ -319,8 +326,73 @@ public:
       return createDtoResponse(Status::CODE_500, dto);
     }
   }
-};
 
+  ENDPOINT("POST", "/greenhouse/plant-care", careForPlant, BODY_DTO(oatpp::Object<CareForPlantDTO>, plant))
+  {
+    auto dto = APIDto::createShared();
+    
+    try {
+      apiToControl.game->careForPlant(*plant->id);
+      cout << "Endpoint called" << endl;
+      dto->statusCode = 200;
+      dto->message = "Successfully cared for plant " + plant->id;
+      dto->data = {};
+
+      return createDtoResponse(Status::CODE_200, dto);
+    } catch (const std::exception &e) {
+      dto->statusCode = 500;
+      dto->message = "Failed to care for plant " + plant->id;
+      dto->data = {};
+      
+      return createDtoResponse(Status::CODE_500, dto);
+    }
+  }
+
+  // Reusing DTO for plant Id, will rename to something better later
+    ENDPOINT("POST", "/salesfloor/make-sale", makeSale, BODY_DTO(oatpp::Object<CareForPlantDTO>, plant))
+  {
+    auto dto = APIDto::createShared();
+    
+    try {
+      apiToControl.game->makeSale(*plant->id);
+      dto->statusCode = 200;
+      dto->message = "Successfully made sale " + *plant->id;
+      dto->data = {};
+
+      return createDtoResponse(Status::CODE_200, dto);
+    } catch (const std::exception &e) {
+      dto->statusCode = 500;
+      dto->message = "Failed to make sale for plant " + plant->id;
+      dto->data = {};
+      
+      return createDtoResponse(Status::CODE_500, dto);
+    }
+  }
+
+ENDPOINT("GET", "/clear-customers", clearCust)
+  {
+    auto dto = APIDto::createShared();
+
+    try 
+    {
+      apiToControl.game->clearCustomers();
+      
+      dto->statusCode = 200;
+      dto->message = "Successfully cleared all customers";
+      dto->data = {};
+      
+      return createDtoResponse(Status::CODE_200, dto);
+    } 
+    catch (const std::exception &e) 
+    {
+      dto->statusCode = 500;
+      dto->message = "Failed to clear customers: " + std::string(e.what());
+      dto->data = {};
+      
+      return createDtoResponse(Status::CODE_500, dto);
+    }
+  }
+};
 #include OATPP_CODEGEN_END(ApiController) //<-- End Codegen
 
 #endif // API_CONTROLLERH

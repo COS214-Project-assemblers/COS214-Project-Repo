@@ -28,11 +28,12 @@ class Greenhouse
          * @param plant Reference to the Plant being removed
          */
         Plant* removePlant(Plant* plant);
-
+        void takeCareOfPlant(string id);
         void setSalesFloor(SalesFloor* salesFloor);
         void startThreads() ; 
         void setSocket(GreenSock* greenSocket) ;
         void movePlant(Plant* plant);
+
 };
 
 #endif

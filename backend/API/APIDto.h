@@ -80,6 +80,14 @@ class TransactionDTO : public oatpp::DTO {
   DTO_FIELD(Int32,   referenceId);
 };
 
+class CareForPlantDTO : public oatpp::DTO 
+{
+  DTO_INIT(CareForPlantDTO, DTO)
+  
+  DTO_FIELD(String, id);  // Customer type to add
+};
+
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif // DTOS
