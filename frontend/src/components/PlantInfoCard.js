@@ -11,11 +11,11 @@ const PlantInfoCard = ({ onCancel, plant }) => {
     const [disabled, setDisabled] = useState(false);
 
     useEffect(() => {
-        if ((plant.id) == "") { console.log("here"); return; };
+        if ((plant.id) == "") { return; };
         const load = async () => {
             setLoading(true);
             try {
-                await openDB().then(() => getPlantRecord(plant.id)).then((res) => { setInfo(res); console.log(res); })
+                await openDB().then(() => getPlantRecord(plant.id)).then((res) => { setInfo(res)})
             } catch (e) {
                 console.error(e);
             } finally {
@@ -24,25 +24,6 @@ const PlantInfoCard = ({ onCancel, plant }) => {
         };
         load();
     }, [plant?.id]);
-
-    const moveToSales = async () => {
-        if (!info) return;
-        try {
-            const res = await fetch(`/api/plants/${info.id}/move-to-sales`, { method: 'POST' });
-            const data = await res.json();
-            if (!res.ok) {
-                alert(data.error || 'Failed to move plant to salesfloor');
-                return;
-            }
-            console.log('Moved plant to salesfloor:', data.plant);
-            window.dispatchEvent(new CustomEvent('greenhouse:refresh'));
-            window.dispatchEvent(new CustomEvent('salesfloor:refresh'));
-            onCancel();
-        } catch (e) {
-            console.error(e);
-            alert('Network error moving plant.');
-        }
-    };
 
     const careForPlant = async () => {
         if (!info) return;
@@ -54,6 +35,8 @@ const PlantInfoCard = ({ onCancel, plant }) => {
             setTimeout(() => {
             setDisabled(false);
             }, 3000);
+            
+            onCancel?.();
 
         } catch (e) {
             console.error(e);
@@ -95,7 +78,7 @@ const PlantInfoCard = ({ onCancel, plant }) => {
 
             <div id="info-buttons">
                 <button id="cancel-info" onClick={onCancel}><img alt="cancel-info" id="cancel-info" src="/assets/images/cancel-info.svg" width="50"/></button>
-                <button id="move-to" onClick={careForPlant} disabled={disabled}><img alt="move-to" id="move-to-sales" src="/assets/images/care.svg" width="50"/></button>
+                <button id="move-to" onClick={careForPlant} disabled={disabled || info?.state}><img alt="move-to" id="move-to-sales" src="/assets/images/care.svg" width="50"/></button>
             </div>
         </div>
     );

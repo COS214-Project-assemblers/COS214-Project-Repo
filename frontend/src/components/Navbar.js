@@ -2,25 +2,28 @@
 
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { openDB, updateDBRecord, getPlantRecord, initSocket, getAllRecords} from "../utils/db"
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [balance, setBalance] = useState(0);
   const [salesCount, setSalesCount] = useState(0);
   const [busy, setBusy] = useState(false);
+  const [canGoSales, setCanGoSales] = useState(false);
 
   useEffect(() => {
     const load = async () => {
       try {
         const [balRes, sfRes] = await Promise.all([
           fetch('/api/balance'),
-          // fetch('/api/salesfloor')
         ]);
         const balData = await balRes.json();
-        console.log(balData);
-        // const sfData = await sfRes.json();
         setBalance(balData.balance ?? 0);
-        // setSalesCount(sfData.count ?? (Array.isArray(sfData.salesfloor) ? sfData.salesfloor.length : 0));
+        openDB().then(() => getAllRecords()).then((res) => {
+          res.forEach((el) => {
+          });
+        });
+        
       } catch (e) { console.log(e); }
     };
     load();
@@ -30,7 +33,19 @@ const Navbar = () => {
       else load();
     };
     const onSalesfloorRefresh = () => {
-      fetch('/api/salesfloor').then(r => r.json()).then(d => setSalesCount(d.count ?? (Array.isArray(d.salesfloor) ? d.salesfloor.length : 0))).catch(() => { });
+      openDB().then(() => getAllRecords()).then((res) => {
+        let diedOrSellable = true;
+        let count = 0;
+          res.forEach((el) => {
+            if (!el.state && !el.died)
+              diedOrSellable = false;
+            if (el.state)
+              count++;
+          });
+          setSalesCount(count);
+          setCanGoSales(diedOrSellable && count > 0);
+          console.log("Can go sales: " + diedOrSellable);
+        });
     };
 
     window.addEventListener('balance:update', onBalanceUpdate);
@@ -96,7 +111,7 @@ const Navbar = () => {
     }
   };
 
-  const canGoSales = salesCount > 8 && !busy; // just to check if the sales floor has >8 plants and if customers are already being created
+  // const canGoSales = salesCount > 8 && !busy; // just to check if the sales floor has >8 plants and if customers are already being created
 
   return (
     <div className="navbarBody">
@@ -104,8 +119,8 @@ const Navbar = () => {
         <button id="quit-game-button" onClick={exitGame}><img alt="quit-game-button" src="/assets/images/Quit-Game.svg" width="50" /></button>
 
         {/* navigate to salesfloor only when the salesfloor array has >8 plants otherwise disabled */}
-        <button id="go-to-sales" onClick={goToSalesfloor}>
-          {/* disabled={!canGoSales} style={{ opacity: canGoSales ? 1 : 0.5, cursor: canGoSales ? 'pointer' : 'not-allowed' }} > */}
+        <button id="go-to-sales" onClick={goToSalesfloor}
+          disabled={!canGoSales} style={{ opacity: canGoSales ? 1 : 0.5, cursor: canGoSales ? 'pointer' : 'not-allowed' }} >
           <img alt="go-to-sales" src="/assets/images/go-to-sales.svg" width="50" />
         </button>
 

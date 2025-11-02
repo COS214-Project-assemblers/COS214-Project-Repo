@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import { getCategoriesCount, getInitialPrices, buyPlant } from "../utils/utils.js";
-import { openDB, updateDBRecord, getPlantRecord, initSocket, getAllRecords} from "../utils/db"
+import { openDB, updateDBRecord, getPlantRecord, initSocket, getAllRecords, addPlantRecord} from "../utils/db"
 
 const Menu = ({ onCancel }) => {
     const [flower, setFlower] = useState([0, 0, 0]);
@@ -81,19 +81,18 @@ const Menu = ({ onCancel }) => {
         const [gh] = await Promise.all([
                 fetch('/api/greenhouse/plants').then(r => r.json()),
         ]);
-        JSON.parse(gh.data).forEach(element => {
-            openDB().then(() => updateDBRecord(element));
-        });
-        // setBalance(data.balance ?? balance);
+        try {
+            JSON.parse(gh.data).forEach(element => {
+                openDB().then(() => addPlantRecord(element)).catch();
+            });
+        } catch {} // Plant already in grid
+        
         
         window.dispatchEvent(new CustomEvent('greenhouse:refresh'));
+        window.dispatchEvent(new CustomEvent('salesfloor:refresh'));
         window.dispatchEvent(new CustomEvent('balance:update'));
         setFlower([0,0,0]); setSucculent([0,0,0]); setTree([0,0,0]); // Reset selections after successful purchase
         onCancel();
-        // } catch (e) {
-        // console.error(e);
-        // alert('Network error while buying plants.');
-        // }
     };
 
     return (

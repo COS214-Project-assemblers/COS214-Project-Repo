@@ -454,3 +454,14 @@ void Game::makeSale(string id)
 {
     manager->recordSale(id);
 }
+
+void Game::clearCustomers() {
+    for (auto it = customers.begin(); it != customers.end(); ) {
+        if (*it != nullptr) {
+            delete *it;        
+            it = customers.erase(it); 
+        } else {
+            ++it; 
+        }
+    }
+}

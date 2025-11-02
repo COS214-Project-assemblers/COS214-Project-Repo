@@ -7,6 +7,7 @@
 #include "NotSellable.h"
 #include "GreenhouseStaff.h"
 #include "PlantHealth.h"
+#include <cmath>
 
 Plant::Plant(string category, string variety,string difficulty)
 {
@@ -267,16 +268,18 @@ void Plant::alert(string& careType, GreenSock* sock) {
 
         // Construct JSON alert payload
         alert = {
-            {"id", getId()},
-            {"category", getPlantCategory()},
-            {"variety", getPlantVariety()},
-            {"healthScore", health->healthScore() * 100},
-            {"waterLevel", health->getWater()},
-            {"pruningLevel", health->healthPrune()},
-            {"fertilizerLevel", health->getFertilizer()},
-            {"state", isSellable()},
-            {"died", health->isDead()}
-        };
+        {"id", getId()},
+        {"category", getPlantCategory()},
+        {"variety", getPlantVariety()},
+        {"healthScore", std::round(health->healthScore() * 10000) / 100.0}, 
+        {"waterLevel", std::round(health->Water() * 100) / 100.0},
+        {"pruningLevel", std::round(health->healthPrune() * 100) / 100.0},
+        {"fertilizerLevel", std::round(health->Fertilizer() * 100) / 100.0},
+        {"state", isSellable()},
+        {"died", health->isDead()},
+        {"costPrice", getCostPrice()},
+        {"salePrice", getSalePrice()}
+    };
 
         // Convert JSON to string and send via WebSocket
 

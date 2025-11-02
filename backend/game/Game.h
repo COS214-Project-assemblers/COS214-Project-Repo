@@ -173,6 +173,7 @@ class Game {
 
         void careForPlant(string id);
         void makeSale(string id);
+        void clearCustomers();
 };
 
 #endif // GAME_HDR

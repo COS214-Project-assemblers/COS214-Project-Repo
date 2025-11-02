@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Navbar from '../components/Navbar';
 import Suggestions from '../components/Suggestions';
+import { openDB, deletePlantRecord, getAllRecords, getPlantRecord} from "../utils/db"
 import { useNavigate } from "react-router-dom"; 
                                                                 // result is accept/reject and then exit is the acceptExit/rejectExit
 const DIALOG_ORDER = ['introduction', 'preferences', 'recommendations', 'result', 'exit'];
@@ -12,6 +13,7 @@ const Salesfloor = () => {
     const [currentIdx, setCurrentIdx] = useState(0);
     const [stage, setStage] = useState('introduction'); 
     const [resultAccepted, setResultAccepted] = useState(null);
+    const [numPlantsLeft, setNumPlants] = useState(0);
 
     const current = customers[currentIdx];
     const navigate = useNavigate();
@@ -22,7 +24,7 @@ const Salesfloor = () => {
 
     const imgForType = (type) => {
       if (type === 'ignorant') return '/assets/images/ignorant.png';
-      if (type === 'medium') return '/assets/images/medium-customer.png';
+      if (type === 'average') return '/assets/images/medium-customer.png';
       return '/assets/images/greenfinger.png';
     };
 
@@ -35,6 +37,15 @@ const Salesfloor = () => {
         setCurrentIdx(0);
         setStage('introduction');
         setResultAccepted(null);
+
+        await openDB().then(() => getAllRecords()).then((plants) => {
+          // console.log(plants);
+          let numPlants = 0;
+          plants.forEach((p) => {
+            if (!p.died) ++numPlants;
+          });
+          setNumPlants(numPlants);
+        });
       } catch (e) { console.error(e); }
     };
 
@@ -50,12 +61,32 @@ const Salesfloor = () => {
       else if (stage === 'result') setStage('exit');
       else if (stage === 'exit') {
         const nextIndex = currentIdx + 1;   // move to next customer
-        if (nextIndex < customers.length) {
+        if (nextIndex < customers.length && numPlantsLeft > 0) {
+          const nextCustomer = customers[nextIndex];
+          const offeredCopy = (
+          await Promise.all(
+            (nextCustomer.offeredPlants || []).map(async (orig) => {
+              try {
+                await openDB();
+                const rec = await getPlantRecord(orig.id); 
+                if (!rec) return null; 
+                return rec ? { ...orig, ...rec } : orig;
+              } catch {
+                return orig;
+              }
+            })
+          )
+        ).filter(Boolean);
+
+          console.log("Offered copy");
+          console.log(offeredCopy);
+          const newCustomers = [...customers];
+          newCustomers[nextIndex] = { ...nextCustomer, offeredPlants: offeredCopy };
+          setCustomers(newCustomers);
           setCurrentIdx(nextIndex);
           setStage('introduction');
           setResultAccepted(null);
         } else {
-          try { await fetch('/api/customers/reset', { method: 'POST' }); } catch {}
           navigate('/endofday');
         }
       }
@@ -79,6 +110,8 @@ const Salesfloor = () => {
           });
           const data = await res.json();
           if (res.ok) {
+            openDB().then(() => deletePlantRecord(selection.id)).then((success) => console.log(success));
+            setNumPlants(numPlantsLeft - 1);
             window.dispatchEvent(new CustomEvent('balance:update', { detail: data.balance }));
             window.dispatchEvent(new CustomEvent('salesfloor:refresh'));
           } else {
@@ -141,6 +174,7 @@ const Salesfloor = () => {
               </>
             )}
             {isOpen && current && (
+
               <Suggestions onCancel={() => setIsOpen(false)} offered={current.offeredPlants} onSelect={onSuggested} />
             )}
 
