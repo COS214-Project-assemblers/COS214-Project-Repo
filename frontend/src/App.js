@@ -1,6 +1,6 @@
 
 import React from "react";
-import '../../frontend/public/style.css';
+import "./style.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import Greenhouse from "./pages/Greenhouse";

@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
 
 .landingBody, .greenhouseBody, .salesfloorBody, .tutorialBody, .gameOverBody, .endOfDayBody {
-    background-image: url(./assets/images/Greenhouse.png);
+    background-image: url(../public/assets/images/Greenhouse.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
