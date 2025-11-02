@@ -172,6 +172,7 @@ class Game {
         string getGreenhousePlantsAsJson();
 
         void careForPlant(string id);
+        void makeSale(string id);
 };
 
 #endif // GAME_HDR

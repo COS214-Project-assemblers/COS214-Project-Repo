@@ -105,6 +105,7 @@ class SalesFloor{
 
         void addPlant(Plant* p);
 
+        Plant* getPlantOnSalesFloor(string id);
 };
 
 #endif

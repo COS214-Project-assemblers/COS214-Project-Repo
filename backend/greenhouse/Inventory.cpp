@@ -48,21 +48,13 @@ std::vector<Plant*> Inventory::findByDifficulty(std::string d)const{
     return out;
 }
 
-void Inventory::commitSale(Plant* plant)
+Plant* Inventory::getPlant(string id)
 {
-    removePlant(plant);
-}
-
-void Inventory::takeCareOfPlant(string id)
-{
-    cout << "in inventory" << endl;
-    Plant* toRet = nullptr;
-    for (Plant* plant : plants) {
+     for (Plant* plant : plants) {
         if (plant->getId() == id) {
-            cout << "Found plant" << endl;
-            string mess = "pruning";
-            plant->queueNotify(mess);
-            cout << "After notify";
+            return plant;
         }
     }
+
+    return nullptr;
 }

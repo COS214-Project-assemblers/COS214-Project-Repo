@@ -26,11 +26,6 @@ class Inventory{
          */
         std::vector<Plant*> all() const;
         /**
-         * @brief Commits a sale by removing the plant from the inventory
-         * @param plant Reference to the Plant being sold
-         */
-        void commitSale(Plant* plant);
-        /**
          * @brief Restocks a plantby adding it to the vector containing plants in the inventory
          * @param plant Reference to the Plant being restocked
          */
@@ -48,7 +43,7 @@ class Inventory{
          */
         std::vector<Plant*> findByDifficulty(std::string d)const;
 
-        void takeCareOfPlant(string id);
+        Plant* getPlant(string id);
 };
 
 #endif

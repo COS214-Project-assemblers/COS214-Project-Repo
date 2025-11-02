@@ -73,3 +73,8 @@ void SalesFloor::addPlant(Plant* p)
 {
     inv->restock(p);
 }
+
+Plant* SalesFloor::getPlantOnSalesFloor(string id)
+{
+    return inv->getPlant(id);
+}

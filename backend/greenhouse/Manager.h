@@ -44,7 +44,7 @@ class Manager{
          * @brief Records a successful sale.
          * @param p The plant that was sold.
          */
-        void recordSale(Plant& p);
+        void recordSale(string id);
         /**
          * @brief Records if a sale was lost with the rason as to why.
          * @param cust The Customer to which a sale was lost.

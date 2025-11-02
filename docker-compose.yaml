@@ -21,21 +21,21 @@ services:
         limits:
           memory: 16G
 
-  # greenfingers-react:
-  #   container_name: react-x-nginx
-  #   build: 
-  #     context: .
-  #     dockerfile: config/frontend/Dockerfile
-  #   ports:
-  #     - "8080:8080"
-  #   networks:
-  #     my_network:
-  #       ipv4_address: 172.0.0.6
+#   greenfingers-react:
+#     container_name: react-x-nginx
+#     build: 
+#       context: .
+#       dockerfile: config/frontend/Dockerfile
+#     ports:
+#       - "8080:8080"
+#     networks:
+#       my_network:
+#         ipv4_address: 172.0.0.6
   
-networks:
-  my_network:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.0.0.0/24
-          gateway: 172.0.0.1
+# networks:
+#   my_network:
+#     driver: bridge
+#     ipam:
+#       config:
+#         - subnet: 172.0.0.0/24
+#           gateway: 172.0.0.1

@@ -37,17 +37,29 @@ const Inventory* Manager::getSaleInventory()
     return floor->inventory();
 }
 
-void Manager::recordSale(Plant& p){
+void Manager::recordSale(string id){
     if(strat)
     {
         delete strat;
     }
+
+    Plant* plantToSell = floor->getPlantOnSalesFloor(id);
+
+    if (plantToSell == nullptr) {
+        return;
+    }
+
     strat = new Sale();
-    floor->inventoryMut().commitSale(&p);
-    Transaction saleT(strat,p.getSalePrice());//creates new sale transaction
-    TransactionMem snap=saleT.createTransactionMem(ledger,&p);//creates snapshot
+
+    Transaction saleT(strat, plantToSell);
+    TransactionMem snap=saleT.createTransactionMem(ledger,plantToSell);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
-    strat=nullptr;
+
+    floor->
+    // floor->inventoryMut().commitSale(&p);
+    // Transaction saleT(strat,p.getSalePrice());//creates new sale transaction
+
+    // strat=nullptr;
 }
 
 void Manager::recordRestock(Plant& p){

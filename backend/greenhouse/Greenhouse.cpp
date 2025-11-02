@@ -72,5 +72,12 @@ void Greenhouse::setSalesFloor(SalesFloor* salesFloor)
 
 void Greenhouse::takeCareOfPlant(string id)
 {
-    inventory->takeCareOfPlant(id);
+    Plant* carePlant = inventory->getPlant(id);
+    if (carePlant == nullptr) {
+        std::cout << "Could not find plant" << std::endl;
+        return;
+    }
+
+    string notif = "pruning";
+    carePlant->queueNotify(notif);
 }
