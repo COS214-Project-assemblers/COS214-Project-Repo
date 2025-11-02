@@ -10,6 +10,12 @@ RUN git clone https://github.com/oatpp/oatpp.git /oatpp && cd /oatpp && cmake . 
 RUN mkdir -p /var/log/greenfingers && touch /var/log/greenfingers/log.txt && chmod 666 /var/log/greenfingers/log.txt
 
 WORKDIR /app
-COPY backend/dev.sh /usr/local/bin/dev.sh
-RUN chmod +x /usr/local/bin/dev.sh
+COPY backend /app/backend
+COPY config/API/CMakeLists.txt /app/CMakeLists.txt
+COPY config/API/GameConfig.json /app/GameConfig.json
+RUN cmake -S . -B build
+RUN cmake --build build
+ENTRYPOINT [ "/app/build/main" ]
+# COPY backend/dev.sh /usr/local/bin/dev.sh
+# RUN chmod +x /usr/local/bin/dev.sh
 

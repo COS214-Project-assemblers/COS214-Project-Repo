@@ -6,13 +6,8 @@ services:
     ports:
       - "8000:8000"
       - "8001:8001"
-    volumes:
-      - ./config/API/CMakeLists.txt:/app/CMakeLists.txt:ro
-      - ./backend:/app/backend
-      - ./config/API/GameConfig.json:/app/GameConfig.json:ro
     env_file:
       - config/API/.env
-    command: [/usr/local/bin/dev.sh]
     networks:
       my_network:
         ipv4_address: 172.0.0.5
@@ -31,7 +26,6 @@ services:
     networks:
       my_network:
         ipv4_address: 172.0.0.6
-  
 networks:
   my_network:
     driver: bridge
