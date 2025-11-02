@@ -449,3 +449,8 @@ void Game::careForPlant(string id)
 {
     greenhouse->takeCareOfPlant(id);
 }
+
+void Game::makeSale(string id)
+{
+    manager->recordSale(id);
+}

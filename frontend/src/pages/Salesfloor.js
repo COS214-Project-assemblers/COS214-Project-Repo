@@ -72,10 +72,10 @@ const Salesfloor = () => {
 
       if (accepted) {
         try {
-          const res = await fetch('/api/sales/sell', {
+          const res = await fetch('/api/salesfloor/make-sale', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ category: selection.category, variety: selection.variety })
+            body: JSON.stringify({ id: selection.id})
           });
           const data = await res.json();
           if (res.ok) {

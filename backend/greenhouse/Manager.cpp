@@ -50,12 +50,14 @@ void Manager::recordSale(string id){
     }
 
     strat = new Sale();
+    cout << "GOT PLANT" << endl;
 
-    Transaction saleT(strat, plantToSell);
+    Transaction saleT(strat, plantToSell->getSalePrice());
     TransactionMem snap=saleT.createTransactionMem(ledger,plantToSell);//creates snapshot
     hist.setTransactionMem(snap);//adds snapshot to history
 
-    floor->
+    floor->removePlantFromSalesFloor(id);
+    cout << "REMOVED PLANT" << endl;
     // floor->inventoryMut().commitSale(&p);
     // Transaction saleT(strat,p.getSalePrice());//creates new sale transaction
 

@@ -32,7 +32,7 @@ class Transaction{
         /**
          * @brief Deconstructor
          */
-        ~Transaction();
+        ~Transaction() = default;
         /**
          * @brief Applies the transaction to a ledger and returns a snapshot
          * @param ledger Reference to current Ledger

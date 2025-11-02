@@ -347,7 +347,30 @@ public:
       return createDtoResponse(Status::CODE_500, dto);
     }
   }
+
+  // Reusing DTO for plant Id, will rename to something better later
+    ENDPOINT("POST", "/salesfloor/make-sale", makeSale, BODY_DTO(oatpp::Object<CareForPlantDTO>, plant))
+  {
+    auto dto = APIDto::createShared();
+    
+    try {
+      apiToControl.game->makeSale(*plant->id);
+      dto->statusCode = 200;
+      dto->message = "Successfully made sale " + *plant->id;
+      dto->data = {};
+
+      return createDtoResponse(Status::CODE_200, dto);
+    } catch (const std::exception &e) {
+      dto->statusCode = 500;
+      dto->message = "Failed to make sale for plant " + plant->id;
+      dto->data = {};
+      
+      return createDtoResponse(Status::CODE_500, dto);
+    }
+  }
 };
+
+
 
 #include OATPP_CODEGEN_END(ApiController) //<-- End Codegen
 

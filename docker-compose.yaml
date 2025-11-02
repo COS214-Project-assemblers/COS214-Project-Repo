@@ -32,10 +32,10 @@ services:
 #       my_network:
 #         ipv4_address: 172.0.0.6
   
-# networks:
-#   my_network:
-#     driver: bridge
-#     ipam:
-#       config:
-#         - subnet: 172.0.0.0/24
-#           gateway: 172.0.0.1
+networks:
+  my_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.0.0.0/24
+          gateway: 172.0.0.1
