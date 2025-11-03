@@ -32,7 +32,6 @@ const PlantInfoCard = ({ onCancel, plant }) => {
 
     const updateInfo = async() => {
         try {
-            if (caring) setCaring(false);
             await openDB().then(() => getPlantRecord(plant.id)).then((res) => { setInfo(res)});
         } catch (e) {
             console.error(e);
