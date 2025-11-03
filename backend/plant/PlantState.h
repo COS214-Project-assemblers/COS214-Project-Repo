@@ -1,3 +1,8 @@
+/**
+ * @file PlantState.h
+ * @brief Abstract base class for plant state management
+ */
+
 #ifndef PLANTSTATE_H
 #define PLANTSTATE_H
 
@@ -30,6 +35,10 @@ class PlantState {
          */
         virtual ~PlantState() = default;
 
+        /**
+         * @brief Gets the state name as a string.
+         * @return State name string
+         */
         virtual string getState() = 0;
 };
 

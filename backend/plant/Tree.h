@@ -1,6 +1,7 @@
 /**
  * @file Tree.h
  * @brief Defines the Tree subclass derived from the Plant base class.
+ * @author Megan Norval
  */
 
 #ifndef TREE_H

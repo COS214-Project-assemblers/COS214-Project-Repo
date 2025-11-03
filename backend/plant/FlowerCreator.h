@@ -1,6 +1,7 @@
 /**
  * @file FlowerCreator.h
  * @brief Defines the FlowerCreator class for creating Flower objects.
+ * @author Megan Norval
  *
  * This class implements the Factory Method defined in PlantCreator to
  * instantiate and manage Flower-type Plant objects.

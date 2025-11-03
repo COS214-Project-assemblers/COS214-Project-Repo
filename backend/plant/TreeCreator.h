@@ -1,6 +1,7 @@
 /**
  * @file TreeCreator.h
  * @brief Defines the TreeCreator class for creating Tree objects.
+ * @author Megan Norval
  *
  * This class implements the Factory Method defined in PlantCreator to
  * instantiate and manage Tree-type Plant objects.

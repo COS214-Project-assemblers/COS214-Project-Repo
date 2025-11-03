@@ -1,6 +1,7 @@
 /**
  * @file Flower.h
  * @brief Defines the Flower subclass derived from the Plant base class.
+ * @author Megan Norval
  */
 
 #ifndef FLOWER_H
