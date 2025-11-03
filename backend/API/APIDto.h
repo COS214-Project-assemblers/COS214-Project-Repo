@@ -53,6 +53,10 @@ class AddCustomerDTO : public oatpp::DTO
   DTO_FIELD(Int32, numToAdd);       // Number of customers to add
 };
 
+/**
+ * @class CustomerResponseDTO
+ * @brief Data Transfer Object for customer retrieval response
+ */
 class CustomerResponseDTO : public oatpp::DTO 
 {
   DTO_INIT(CustomerResponseDTO, DTO)
@@ -62,6 +66,10 @@ class CustomerResponseDTO : public oatpp::DTO
   DTO_FIELD(String, customersJson); // Specific field for customer JSON
 };
 
+/**
+ * @class BalanceResponseDTO
+ * @brief Data Transfer Object for balance retrieval response
+ */
 class BalanceResponseDTO : public oatpp::DTO 
 {
   DTO_INIT(BalanceResponseDTO, DTO)
@@ -71,6 +79,10 @@ class BalanceResponseDTO : public oatpp::DTO
   DTO_FIELD(Float64, balance); // Using Float64 for double precision
 };
 
+/**
+ * @class TransactionDTO
+ * @brief Data Transfer Object for transaction data
+ */
 class TransactionDTO : public oatpp::DTO {
   DTO_INIT(TransactionDTO, DTO)
   DTO_FIELD(Int32,   transactionId);
@@ -80,6 +92,10 @@ class TransactionDTO : public oatpp::DTO {
   DTO_FIELD(Int32,   referenceId);
 };
 
+/**
+ * @class CareForPlantDTO
+ * @brief Data Transfer Object for plant care operations
+ */
 class CareForPlantDTO : public oatpp::DTO 
 {
   DTO_INIT(CareForPlantDTO, DTO)
@@ -90,4 +106,4 @@ class CareForPlantDTO : public oatpp::DTO
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // DTOS
+#endif
