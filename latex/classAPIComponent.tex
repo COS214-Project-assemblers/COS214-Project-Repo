@@ -1,0 +1,51 @@
+\hypertarget{classAPIComponent}{}\doxysection{APIComponent Class Reference}
+\label{classAPIComponent}\index{APIComponent@{APIComponent}}
+
+
+Holds \mbox{\hyperlink{classAPI}{API}} components, i.\+e. server, router, connection handlers etc registers components in oatpp\+::base\+::\+Environment All components created via Macros. For lower level implementation details visit the docs.  
+
+
+
+
+{\ttfamily \#include $<$APIComponent.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAPIComponent_abe79e3b54f260ac0e8b86870883d5ee6}\label{classAPIComponent_abe79e3b54f260ac0e8b86870883d5ee6}} 
+\mbox{\hyperlink{classAPIComponent_abe79e3b54f260ac0e8b86870883d5ee6}{OATPP\+\_\+\+CREATE\+\_\+\+COMPONENT}} (std\+::shared\+\_\+ptr$<$ oatpp\+::network\+::\+Server\+Connection\+Provider $>$, server\+Connection\+Provider)(\mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Macro (details hidden) to create Server\+Connection\+Provider component listens for TCP packets on port 8000. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAPIComponent_a736378da380da8f87852af5e55d0cce4}{OATPP\+\_\+\+CREATE\+\_\+\+COMPONENT}} (std\+::shared\+\_\+ptr$<$ oatpp\+::web\+::server\+::\+Http\+Router $>$, http\+Router)(\mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Macro to Create Http\+Router component. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAPIComponent_a82bb305f77a4ecc579625efa9d94025e}\label{classAPIComponent_a82bb305f77a4ecc579625efa9d94025e}} 
+\mbox{\hyperlink{classAPIComponent_a82bb305f77a4ecc579625efa9d94025e}{OATPP\+\_\+\+CREATE\+\_\+\+COMPONENT}} (std\+::shared\+\_\+ptr$<$ oatpp\+::network\+::\+Connection\+Handler $>$, server\+Connection\+Handler)(\mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Connection\+Handler uses router to route requests. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAPIComponent_a05016732074b3c64e3560b21a60aedad}\label{classAPIComponent_a05016732074b3c64e3560b21a60aedad}} 
+\mbox{\hyperlink{classAPIComponent_a05016732074b3c64e3560b21a60aedad}{OATPP\+\_\+\+CREATE\+\_\+\+COMPONENT}} (std\+::shared\+\_\+ptr$<$ oatpp\+::web\+::mime\+::\+Content\+Mappers $>$, api\+Content\+Mappers)(\mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Serialize/\+Desserialize (\href{https://en.wikipedia.org/wiki/Serialization}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Serialization}}) DTOs (\href{https://en.wikipedia.org/wiki/Data_transfer_object}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Data\+\_\+transfer\+\_\+object}}) with JSON in controller \mbox{\hyperlink{classAPI}{API}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds \mbox{\hyperlink{classAPI}{API}} components, i.\+e. server, router, connection handlers etc registers components in oatpp\+::base\+::\+Environment All components created via Macros. For lower level implementation details visit the docs. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAPIComponent_a736378da380da8f87852af5e55d0cce4}\label{classAPIComponent_a736378da380da8f87852af5e55d0cce4}} 
+\index{APIComponent@{APIComponent}!OATPP\_CREATE\_COMPONENT@{OATPP\_CREATE\_COMPONENT}}
+\index{OATPP\_CREATE\_COMPONENT@{OATPP\_CREATE\_COMPONENT}!APIComponent@{APIComponent}}
+\doxysubsubsection{\texorpdfstring{OATPP\_CREATE\_COMPONENT()}{OATPP\_CREATE\_COMPONENT()}}
+{\footnotesize\ttfamily APIComponent\+::\+OATPP\+\_\+\+CREATE\+\_\+\+COMPONENT (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ oatpp\+::web\+::server\+::\+Http\+Router $>$}]{,  }\item[{http\+Router}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Macro to Create Http\+Router component. 
+
+\begin{DoxyNote}{Note}
+Oat++ flow\+: Connection\+Provider (TCP) -\/$>$ Server -\/$>$ Http\+Connection\+Handler -\/$>$ Http\+Router 
+
+shared -\/$>$ thread for each connection 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+backend/\+API/\mbox{\hyperlink{APIComponent_8h}{APIComponent.\+h}}\end{DoxyCompactItemize}

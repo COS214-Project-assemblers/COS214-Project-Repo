@@ -1,0 +1,127 @@
+\hypertarget{md_README_autotoc_md1}{}\doxysubsection{Team\+: $<$strong$>$\+Assemblers$<$/strong$>$}\label{md_README_autotoc_md1}
+{\bfseries{Members\+:}}
+\begin{DoxyItemize}
+\item Megan Norval (u24575764)
+\item Morgan Wattrus (u23541068)
+\item Ané Burger (u24565068)
+\item Allyson Andre (u23525984)
+\item Gerard Jordaan (u24568385) 
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md2}{}\doxysection{🔗 Links}\label{md_README_autotoc_md2}
+
+\begin{DoxyItemize}
+\item \href{https://www.notion.so/COS-214-Final-Project-27cd746b5e5f8007a722c42b0529a6e2?source=copy_link}{\texttt{ Notion}}
+\item \href{https://docs.google.com/document/d/1Phlq3BvhULa5o92I_TQlJdaRacmksK-wEytywCLnIkY/edit?usp=sharing}{\texttt{ Report}} 
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md3}{}\doxysection{🚀 How to Run}\label{md_README_autotoc_md3}
+\hypertarget{md_README_autotoc_md4}{}\doxysubsection{$<$strong$>$1. Clone the Repository$<$/strong$>$}\label{md_README_autotoc_md4}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{https://github.com/COS214-\/Project-\/assemblers/COS214-\/Project-\/Repo.git}
+\DoxyCodeLine{cd COS214-\/Project-\/Repo}
+
+\end{DoxyCode}
+ \hypertarget{md_README_autotoc_md5}{}\doxysubsection{2. Prerequisites}\label{md_README_autotoc_md5}
+
+\begin{DoxyItemize}
+\item {\bfseries{Docker}} installed
+\begin{DoxyItemize}
+\item \href{https://docs.docker.com/engine/install/}{\texttt{ https\+://docs.\+docker.\+com/engine/install/}}
+\end{DoxyItemize}
+\item No existing services should listen on these {\bfseries{ports}}\+:
+\begin{DoxyItemize}
+\item {\ttfamily 8000}
+\item {\ttfamily 8001}
+\item {\ttfamily 8080} 
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md6}{}\doxysection{3. $<$tt$>$.\+env$<$/tt$>$ file}\label{md_README_autotoc_md6}
+Example (recommended) {\ttfamily .env} file, should be placed in {\ttfamily COS214-\/\+Project-\/\+Repo/config/\+API/.env}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{LOG\_FILE="{}/var/log/greenfingers/log.txt"{}}
+\DoxyCodeLine{GAME\_CONFIG\_PATH="{}/app/GameConfig.json"{}}
+
+\end{DoxyCode}
+ \hypertarget{md_README_autotoc_md7}{}\doxysubsection{4. Run the Docker Compose}\label{md_README_autotoc_md7}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{docker compose up}
+
+\end{DoxyCode}
+ \hypertarget{md_README_autotoc_md8}{}\doxysubsection{4. Access the App}\label{md_README_autotoc_md8}
+The app is served on \href{http://localhost:8080}{\texttt{ http\+://localhost\+:8080}} \hypertarget{md_README_autotoc_md9}{}\doxysection{📖 Project Overview}\label{md_README_autotoc_md9}
+Green\+Fingers is a gamified plant nursery simulator developed in C++17 for the COS 214 – Software Design and Patterns module at the University of Pretoria.
+
+The project models the core systems of a functioning nursery\+: plants, staff, and customers—each represented through object-\/oriented design and ten (10+) design patterns. Players interact with an evolving ecosystem where proper plant care, stock management, and customer satisfaction drive success. \hypertarget{md_README_autotoc_md10}{}\doxysection{🎯 Objectives}\label{md_README_autotoc_md10}
+
+\begin{DoxyItemize}
+\item Demonstrate mastery of {\bfseries{object-\/oriented design}} and {\bfseries{software architecture}}.
+\item Apply {\bfseries{design patterns}} to achieve {\bfseries{flexibility}}, {\bfseries{maintainability}}, and {\bfseries{scalability}}.
+\item Build an {\bfseries{interactive, extensible simulation}} backed by REST \mbox{\hyperlink{classAPI}{API}} and Web\+Socket.
+\item Collaborate effectively using {\bfseries{Git \& Git\+Hub}} with disciplined version control and testing. 
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md11}{}\doxysection{🧩 Design Approach}\label{md_README_autotoc_md11}
+We approached the project using a {\bfseries{gamified simulation model}}, emphasizing system interactions and growth mechanics. Our design prioritizes clarity, pattern cohesion, and responsiveness. \hypertarget{md_README_autotoc_md12}{}\doxysection{⚙️ Technologies Used}\label{md_README_autotoc_md12}
+\hypertarget{md_README_autotoc_md13}{}\doxysubsection{🖥 Backend}\label{md_README_autotoc_md13}
+
+\begin{DoxyItemize}
+\item {\bfseries{Language\+:}} C++ 17
+\item {\bfseries{Build System\+:}} CMake
+\item {\bfseries{Libraries\+:}}
+\begin{DoxyItemize}
+\item \href{https://oatpp.io/}{\texttt{ Oat++}} REST \mbox{\hyperlink{classAPI}{API}}
+\item \href{https://github.com/nlohmann/json}{\texttt{ nlohmann/json}} JSON serialization
+\item \href{https://github.com/google/googletest}{\texttt{ Google\+Test}} Unit testing
+\item \href{https://github.com/zaphoyd/websocketpp}{\texttt{ Websocketpp}} Websocket
+\end{DoxyItemize}
+\item {\bfseries{Documentation\+:}} Doxygen 
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md14}{}\doxysubsection{🏗 Infrastructure}\label{md_README_autotoc_md14}
+
+\begin{DoxyItemize}
+\item {\bfseries{Docker}} containers
+\item {\bfseries{NGINX}} reverse proxy
+\item {\bfseries{Ubuntu}} base image for \mbox{\hyperlink{classAPI}{API}} runtime
+\item {\bfseries{Node.\+js}} bridge for frontend integration 
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md15}{}\doxysubsection{🌐 Frontend}\label{md_README_autotoc_md15}
+
+\begin{DoxyItemize}
+\item {\bfseries{React}}
+\item {\bfseries{Indexed\+DB support}} for local caching
+\item {\bfseries{Web\+Socket}} real-\/time updates 
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md16}{}\doxysection{🧪 Development Practices}\label{md_README_autotoc_md16}
+
+\begin{DoxyItemize}
+\item Minimum 10 commits per member
+\item Branching strategy documented in report (Feature Branching)
+\item {\bfseries{Automated Testing\+:}} Implemented via Google\+Test
+\item {\bfseries{Documentation\+:}} Generated using Doxygen
+\item {\bfseries{CI/\+CD}}\+:
+\begin{DoxyItemize}
+\item Google\+Test integration testing
+\item valgrind memory checks integration testing
+\item Open\+AI Codex for automated code review and summary on PR open
+\item Continuous Doxygen deployment to a remote server when pushed to {\ttfamily dev}, {\ttfamily main} 
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md17}{}\doxysection{📂 Repository Structure}\label{md_README_autotoc_md17}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GreenFingers/}
+\DoxyCodeLine{├── backend/}
+\DoxyCodeLine{│   ├── API/             \# Oat++ controllers and DTOs}
+\DoxyCodeLine{│   ├── customer/        \# Builder \& Visitor patterns for customers}
+\DoxyCodeLine{│   ├── game/            \# Game loop, logger, menu, transactions}
+\DoxyCodeLine{│   ├── greenhouse/      \# Staff, inventory, manager, sales floor}
+\DoxyCodeLine{│   ├── plant/           \# Plant types and state patterns}
+\DoxyCodeLine{│   ├── WS/              \# WebSocket implementation (GreenSock)}
+\DoxyCodeLine{│   ├── main.cpp}
+\DoxyCodeLine{│   └── server.js}
+\DoxyCodeLine{│}
+\DoxyCodeLine{├── frontend/            \# React app and assets}
+\DoxyCodeLine{├── config/              \# JSON configs \& Docker compose files}
+\DoxyCodeLine{├── tests/               \# GoogleTest unit tests}
+\DoxyCodeLine{├── utils/               \# Shared modules and scripts}
+\DoxyCodeLine{├── docker-\/compose.yaml}
+\DoxyCodeLine{├── CMakeLists.txt}
+\DoxyCodeLine{├── Doxyfile}
+\DoxyCodeLine{└── README.md}
+
+\end{DoxyCode}
+ 

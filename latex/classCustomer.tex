@@ -1,0 +1,198 @@
+\hypertarget{classCustomer}{}\doxysection{Customer Class Reference}
+\label{classCustomer}\index{Customer@{Customer}}
+
+
+Abstract base class defining the interface and shared behavior for all customer types.  
+
+
+
+
+{\ttfamily \#include $<$Customer.\+h$>$}
+
+
+
+Inheritance diagram for Customer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCustomer__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCustomer_abcc8fae9701e5ba9d7d6fe44498b34e3}{Customer}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_ab93fb14683b0393b9c900109f77c2629}\label{classCustomer_ab93fb14683b0393b9c900109f77c2629}} 
+virtual \mbox{\hyperlink{classCustomer_ab93fb14683b0393b9c900109f77c2629}{$\sim$\+Customer}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper polymorphic destruction. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classCustomer_a25ce886d1305f49c020c2ba9e6247e24}{get\+Structure}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the json\+Structure member variable. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classCustomer_a98501225f88f6d62d55e7da75987b915}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the type of \mbox{\hyperlink{classCustomer}{Customer}}. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classCustomer_a2a98b0dbf1dca63bda88f4b137bb4fca}{escape\+Json\+String}} (const string \&input)
+\begin{DoxyCompactList}\small\item\em Escapes special JSON characters in a string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_aa719cee33bf9f84bbd01aa6d20c3b545}\label{classCustomer_aa719cee33bf9f84bbd01aa6d20c3b545}} 
+void {\bfseries set\+Name} (string n)
+\item 
+\mbox{\Hypertarget{classCustomer_aa3db8672efc64a0ff4066d954478a33f}\label{classCustomer_aa3db8672efc64a0ff4066d954478a33f}} 
+void {\bfseries set\+Introduction\+Dialogue} (string i)
+\item 
+\mbox{\Hypertarget{classCustomer_a04658055402f161b347921df6436f85b}\label{classCustomer_a04658055402f161b347921df6436f85b}} 
+void {\bfseries set\+Preferences\+Dialogue} (string p)
+\item 
+\mbox{\Hypertarget{classCustomer_a2570a2eb1b1ab8f8332137b2b25431a3}\label{classCustomer_a2570a2eb1b1ab8f8332137b2b25431a3}} 
+void {\bfseries set\+Recommendations\+Dialogue} (string r)
+\item 
+\mbox{\Hypertarget{classCustomer_a1b465f80fb6aede6429e368019ebe5fd}\label{classCustomer_a1b465f80fb6aede6429e368019ebe5fd}} 
+void {\bfseries set\+Accept\+Dialogue} (string a)
+\item 
+\mbox{\Hypertarget{classCustomer_af05d38284a54b8bc979ec59d912ab78a}\label{classCustomer_af05d38284a54b8bc979ec59d912ab78a}} 
+void {\bfseries set\+Reject\+Dialogue} (string r)
+\item 
+\mbox{\Hypertarget{classCustomer_aa432b49b9e023af9abc29e38b9263c1c}\label{classCustomer_aa432b49b9e023af9abc29e38b9263c1c}} 
+void {\bfseries set\+Accept\+Exit\+Dialogue} (string a)
+\item 
+\mbox{\Hypertarget{classCustomer_a9fb89dd92d93abdca680f9d1ce5d576a}\label{classCustomer_a9fb89dd92d93abdca680f9d1ce5d576a}} 
+void {\bfseries set\+Reject\+Exit\+Dialogue} (string r)
+\item 
+void \mbox{\hyperlink{classCustomer_aa7b2d35c22885d4529c98279f275204a}{set\+Offered\+Plants}} (const vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \&plants)
+\begin{DoxyCompactList}\small\item\em Sets the plants offered to the customer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCustomer_a0616845cbf756de79e5d95fe5b5f4b2c}\label{classCustomer_a0616845cbf756de79e5d95fe5b5f4b2c}} 
+string \mbox{\hyperlink{classCustomer_a0616845cbf756de79e5d95fe5b5f4b2c}{json\+Structure}}
+\begin{DoxyCompactList}\small\item\em Complete JSON representation of the customer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_ab411a5bc37f49cbae7ba68e716979749}\label{classCustomer_ab411a5bc37f49cbae7ba68e716979749}} 
+string \mbox{\hyperlink{classCustomer_ab411a5bc37f49cbae7ba68e716979749}{type}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classCustomer}{Customer}} type identifier (\char`\"{}ignorant\char`\"{}, \char`\"{}average\char`\"{}, \char`\"{}greenfinger\char`\"{}) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_a42c1c948fa0121c82b2725826d9f8300}\label{classCustomer_a42c1c948fa0121c82b2725826d9f8300}} 
+string \mbox{\hyperlink{classCustomer_a42c1c948fa0121c82b2725826d9f8300}{name}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classCustomer}{Customer}}\textquotesingle{}s randomly selected name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_afe47ae8d7bf7b980229d2724137d8cb9}\label{classCustomer_afe47ae8d7bf7b980229d2724137d8cb9}} 
+string \mbox{\hyperlink{classCustomer_afe47ae8d7bf7b980229d2724137d8cb9}{introduction\+Dialogue}}
+\begin{DoxyCompactList}\small\item\em Initial greeting dialogue. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_a68b8adf0290d91143bec1db8addc0cb8}\label{classCustomer_a68b8adf0290d91143bec1db8addc0cb8}} 
+string \mbox{\hyperlink{classCustomer_a68b8adf0290d91143bec1db8addc0cb8}{preferences\+Dialogue}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classCustomer}{Customer}}\textquotesingle{}s plant preferences description. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_a1dd92f0ac7ce453f69b2f8130e8b9129}\label{classCustomer_a1dd92f0ac7ce453f69b2f8130e8b9129}} 
+string \mbox{\hyperlink{classCustomer_a1dd92f0ac7ce453f69b2f8130e8b9129}{recommendations\+Dialogue}}
+\begin{DoxyCompactList}\small\item\em Request for plant recommendations. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_ac8b1e084e9a9e3d8ed4cd682f65f8495}\label{classCustomer_ac8b1e084e9a9e3d8ed4cd682f65f8495}} 
+string \mbox{\hyperlink{classCustomer_ac8b1e084e9a9e3d8ed4cd682f65f8495}{accept\+Dialogue}}
+\begin{DoxyCompactList}\small\item\em Dialogue when accepting a plant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_ad218708c3d3dd42c27412a63a213f8ae}\label{classCustomer_ad218708c3d3dd42c27412a63a213f8ae}} 
+string \mbox{\hyperlink{classCustomer_ad218708c3d3dd42c27412a63a213f8ae}{reject\+Dialogue}}
+\begin{DoxyCompactList}\small\item\em Dialogue when rejecting a plant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_a75895156a5babecaccf25c8ecc29e00d}\label{classCustomer_a75895156a5babecaccf25c8ecc29e00d}} 
+string \mbox{\hyperlink{classCustomer_a75895156a5babecaccf25c8ecc29e00d}{accept\+Exit\+Dialogue}}
+\begin{DoxyCompactList}\small\item\em Exit dialogue after accepting. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_a827740a10661efc74c7053da98def071}\label{classCustomer_a827740a10661efc74c7053da98def071}} 
+string \mbox{\hyperlink{classCustomer_a827740a10661efc74c7053da98def071}{reject\+Exit\+Dialogue}}
+\begin{DoxyCompactList}\small\item\em Exit dialogue after rejecting. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_a2eebcb6a34e75966f36fbf686787bec6}\label{classCustomer_a2eebcb6a34e75966f36fbf686787bec6}} 
+string \mbox{\hyperlink{classCustomer_a2eebcb6a34e75966f36fbf686787bec6}{offered\+Plants}}
+\begin{DoxyCompactList}\small\item\em JSON string of plants offered to the customer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class defining the interface and shared behavior for all customer types. 
+
+This class serves as the base for all specific customer types (Ignorant, Average, Green\+Finger). It maintains customer dialogue, preferences, and plant offerings, and provides functionality to serialize the customer data to JSON format for \mbox{\hyperlink{classAPI}{API}} communication.
+
+The class provides the data structure that gets built by the Builder pattern.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classIgnorantCustomer}{Ignorant\+Customer}} 
+
+\mbox{\hyperlink{classAverageCustomer}{Average\+Customer}} 
+
+\mbox{\hyperlink{classGreenFingerCustomer}{Green\+Finger\+Customer}} 
+
+\mbox{\hyperlink{classCustomerBuilder}{Customer\+Builder}} 
+
+\mbox{\hyperlink{classCustomerVisitor}{Customer\+Visitor}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCustomer_abcc8fae9701e5ba9d7d6fe44498b34e3}\label{classCustomer_abcc8fae9701e5ba9d7d6fe44498b34e3}} 
+\index{Customer@{Customer}!Customer@{Customer}}
+\index{Customer@{Customer}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{Customer()}{Customer()}}
+{\footnotesize\ttfamily Customer\+::\+Customer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+Initializes a new \mbox{\hyperlink{classCustomer}{Customer}} instance with empty dialogue fields. Derived classes should set the specific customer type. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCustomer_a2a98b0dbf1dca63bda88f4b137bb4fca}\label{classCustomer_a2a98b0dbf1dca63bda88f4b137bb4fca}} 
+\index{Customer@{Customer}!escapeJsonString@{escapeJsonString}}
+\index{escapeJsonString@{escapeJsonString}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{escapeJsonString()}{escapeJsonString()}}
+{\footnotesize\ttfamily string Customer\+::escape\+Json\+String (\begin{DoxyParamCaption}\item[{const string \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Escapes special JSON characters in a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The string to escape \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Escaped string safe for JSON inclusion
+\end{DoxyReturn}
+Handles escaping of quotes, backslashes, and control characters to ensure valid JSON output. \mbox{\Hypertarget{classCustomer_a25ce886d1305f49c020c2ba9e6247e24}\label{classCustomer_a25ce886d1305f49c020c2ba9e6247e24}} 
+\index{Customer@{Customer}!getStructure@{getStructure}}
+\index{getStructure@{getStructure}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getStructure()}{getStructure()}}
+{\footnotesize\ttfamily string Customer\+::get\+Structure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the json\+Structure member variable. 
+
+\begin{DoxyReturn}{Returns}
+The json\+Structure as a string for the \mbox{\hyperlink{classAPI}{API}} endpoint
+\end{DoxyReturn}
+Constructs and returns a complete JSON representation of the customer including all dialogues and offered plants. \mbox{\Hypertarget{classCustomer_a98501225f88f6d62d55e7da75987b915}\label{classCustomer_a98501225f88f6d62d55e7da75987b915}} 
+\index{Customer@{Customer}!getType@{getType}}
+\index{getType@{getType}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily string Customer\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the type of \mbox{\hyperlink{classCustomer}{Customer}}. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classCustomer}{Customer}} type as string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_aa7b2d35c22885d4529c98279f275204a}\label{classCustomer_aa7b2d35c22885d4529c98279f275204a}} 
+\index{Customer@{Customer}!setOfferedPlants@{setOfferedPlants}}
+\index{setOfferedPlants@{setOfferedPlants}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{setOfferedPlants()}{setOfferedPlants()}}
+{\footnotesize\ttfamily void Customer\+::set\+Offered\+Plants (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \&}]{plants }\end{DoxyParamCaption})}
+
+
+
+Sets the plants offered to the customer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plants} & Vector of \mbox{\hyperlink{classPlant}{Plant}} pointers to offer\\
+\hline
+\end{DoxyParams}
+Converts the plant vector to JSON format and stores it as a string for inclusion in the customer\textquotesingle{}s JSON structure. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/customer/\mbox{\hyperlink{Customer_8h}{Customer.\+h}}\item 
+backend/customer/\mbox{\hyperlink{Customer_8cpp}{Customer.\+cpp}}\end{DoxyCompactItemize}

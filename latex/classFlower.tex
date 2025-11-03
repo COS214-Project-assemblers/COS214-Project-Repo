@@ -1,0 +1,93 @@
+\hypertarget{classFlower}{}\doxysection{Flower Class Reference}
+\label{classFlower}\index{Flower@{Flower}}
+
+
+Represents a \mbox{\hyperlink{classFlower}{Flower}} plant type within the greenhouse system.  
+
+
+
+
+{\ttfamily \#include $<$Flower.\+h$>$}
+
+
+
+Inheritance diagram for Flower\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=130pt]{classFlower__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Flower\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=150pt]{classFlower__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFlower_a1eca5cd98056943cd4e53993d26003c7}{Flower}} (string variety, string difficulty)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classFlower}{Flower}} object of a specific variety. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFlower_a37a4d44c09d5976c8af0969a18a0cd8a}\label{classFlower_a37a4d44c09d5976c8af0969a18a0cd8a}} 
+\mbox{\hyperlink{classFlower_a37a4d44c09d5976c8af0969a18a0cd8a}{$\sim$\+Flower}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \mbox{\hyperlink{classFlower}{Flower}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classFlower_a96a4360e9aaf75dbf5717eff9e88f8bd}{clone}} ()
+\begin{DoxyCompactList}\small\item\em Creates and returns a clone of this \mbox{\hyperlink{classFlower}{Flower}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a \mbox{\hyperlink{classFlower}{Flower}} plant type within the greenhouse system. 
+
+The \mbox{\hyperlink{classFlower}{Flower}} class extends the abstract \mbox{\hyperlink{classPlant}{Plant}} class and provides a concrete implementation for creating and cloning \mbox{\hyperlink{classFlower}{Flower}} objects. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFlower_a1eca5cd98056943cd4e53993d26003c7}\label{classFlower_a1eca5cd98056943cd4e53993d26003c7}} 
+\index{Flower@{Flower}!Flower@{Flower}}
+\index{Flower@{Flower}!Flower@{Flower}}
+\doxysubsubsection{\texorpdfstring{Flower()}{Flower()}}
+{\footnotesize\ttfamily Flower\+::\+Flower (\begin{DoxyParamCaption}\item[{string}]{variety,  }\item[{string}]{difficulty }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classFlower}{Flower}} object of a specific variety. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em variety} & The name of the flower variety (e.\+g., \char`\"{}\+Daisy\char`\"{}, \char`\"{}\+Rose\char`\"{}). \\
+\hline
+\mbox{\texttt{ in}}  & {\em difficulty} & The level of difficulty for care (Easy/\+Medium/\+Hard) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFlower_a96a4360e9aaf75dbf5717eff9e88f8bd}\label{classFlower_a96a4360e9aaf75dbf5717eff9e88f8bd}} 
+\index{Flower@{Flower}!clone@{clone}}
+\index{clone@{clone}!Flower@{Flower}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}} $\ast$ Flower\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Creates and returns a clone of this \mbox{\hyperlink{classFlower}{Flower}} instance. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the newly cloned \mbox{\hyperlink{classFlower}{Flower}} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlant_a1aad1743d1921023773c939e8713c84a}{Plant}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/plant/\mbox{\hyperlink{Flower_8h}{Flower.\+h}}\item 
+backend/plant/\mbox{\hyperlink{Flower_8cpp}{Flower.\+cpp}}\end{DoxyCompactItemize}

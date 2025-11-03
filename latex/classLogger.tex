@@ -1,0 +1,56 @@
+\hypertarget{classLogger}{}\doxysection{Logger Class Reference}
+\label{classLogger}\index{Logger@{Logger}}
+
+
+Interface for concrete Log strategies to implement.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+
+
+Inheritance diagram for Logger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classLogger__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classLogger_a4019994ae26c88dd9eed155a14344173}{new\+Log}} (std\+::string message)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function that acts as the algorithm the concrete strategies are to implement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for concrete Log strategies to implement. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLogger_a4019994ae26c88dd9eed155a14344173}\label{classLogger_a4019994ae26c88dd9eed155a14344173}} 
+\index{Logger@{Logger}!newLog@{newLog}}
+\index{newLog@{newLog}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{newLog()}{newLog()}}
+{\footnotesize\ttfamily virtual void Logger\+::new\+Log (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function that acts as the algorithm the concrete strategies are to implement. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em message} & Content of log message \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classLogDecorator_afc1a84d2e135ca58b89569d0faa1c4eb}{Log\+Decorator}}, and \mbox{\hyperlink{classCoutAndLog_a15de08071ab3f685f1d74323e109a121}{Cout\+And\+Log}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+backend/game/\mbox{\hyperlink{Logger_8h}{Logger.\+h}}\end{DoxyCompactItemize}

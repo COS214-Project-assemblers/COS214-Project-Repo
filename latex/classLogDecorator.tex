@@ -1,0 +1,68 @@
+\hypertarget{classLogDecorator}{}\doxysection{Log\+Decorator Class Reference}
+\label{classLogDecorator}\index{LogDecorator@{LogDecorator}}
+
+
+Allows user to add extended functionality to the log Concrete\+Strategies, i.\+e. can add cout before log along with some colours/custom formatting.  
+
+
+
+
+{\ttfamily \#include $<$Log\+Decorator.\+h$>$}
+
+
+
+Inheritance diagram for Log\+Decorator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classLogDecorator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Log\+Decorator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classLogDecorator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogDecorator_afc1a84d2e135ca58b89569d0faa1c4eb}\label{classLogDecorator_afc1a84d2e135ca58b89569d0faa1c4eb}} 
+virtual void \mbox{\hyperlink{classLogDecorator_afc1a84d2e135ca58b89569d0faa1c4eb}{new\+Log}} (std\+::string message) override
+\begin{DoxyCompactList}\small\item\em placeholder for Concrete\+Decorators to inherit from \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogDecorator_ab52f53f761053a3b94fef3f48d972f1b}{set\+Base\+Logger}} (\mbox{\hyperlink{classLogger}{Logger}} $\ast$logger)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogDecorator_acda9153df0ba0a5984a5f561653bc662}\label{classLogDecorator_acda9153df0ba0a5984a5f561653bc662}} 
+\mbox{\hyperlink{classLogger}{Logger}} $\ast$ {\bfseries logger} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Allows user to add extended functionality to the log Concrete\+Strategies, i.\+e. can add cout before log along with some colours/custom formatting. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLogDecorator_ab52f53f761053a3b94fef3f48d972f1b}\label{classLogDecorator_ab52f53f761053a3b94fef3f48d972f1b}} 
+\index{LogDecorator@{LogDecorator}!setBaseLogger@{setBaseLogger}}
+\index{setBaseLogger@{setBaseLogger}!LogDecorator@{LogDecorator}}
+\doxysubsubsection{\texorpdfstring{setBaseLogger()}{setBaseLogger()}}
+{\footnotesize\ttfamily void Log\+Decorator\+::set\+Base\+Logger (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLogger}{Logger}} $\ast$}]{logger }\end{DoxyParamCaption})}
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & when logger == nullptr \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/game/\mbox{\hyperlink{LogDecorator_8h}{Log\+Decorator.\+h}}\item 
+backend/game/Log\+Decorator.\+cpp\end{DoxyCompactItemize}

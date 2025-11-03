@@ -1,0 +1,127 @@
+\hypertarget{classVisitMediumCustomer}{}\doxysection{Visit\+Medium\+Customer Class Reference}
+\label{classVisitMediumCustomer}\index{VisitMediumCustomer@{VisitMediumCustomer}}
+
+
+Inheritance diagram for Visit\+Medium\+Customer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classVisitMediumCustomer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Visit\+Medium\+Customer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classVisitMediumCustomer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVisitMediumCustomer_a5737cda2c2535696c93eb0d50c964d0d}{Visit\+Medium\+Customer}} (const \mbox{\hyperlink{classInventory}{Inventory}} \&inv)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classVisitMediumCustomer_a91832af30ca6bea671523c94eef2ab27}{visit}} (\mbox{\hyperlink{classIgnorantCustomerBuilder}{Ignorant\+Customer\+Builder}} \&builder)
+\begin{DoxyCompactList}\small\item\em Create plant recommendation for ignorant customers. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classVisitMediumCustomer_a7f43dff74d106630b9533022eaabc9e7}{visit}} (\mbox{\hyperlink{classAverageCustomerBuilder}{Average\+Customer\+Builder}} \&builder)
+\begin{DoxyCompactList}\small\item\em Create plant recommendation for average customers. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classVisitMediumCustomer_a23cd7a1d18cf96455efdbefb88ccccdf}{visit}} (\mbox{\hyperlink{classGreenFingerCustomerBuilder}{Green\+Finger\+Customer\+Builder}} \&builder)
+\begin{DoxyCompactList}\small\item\em Create plant recommendation for expert (green finger) customers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classVisitMediumCustomer_a5737cda2c2535696c93eb0d50c964d0d}\label{classVisitMediumCustomer_a5737cda2c2535696c93eb0d50c964d0d}} 
+\index{VisitMediumCustomer@{VisitMediumCustomer}!VisitMediumCustomer@{VisitMediumCustomer}}
+\index{VisitMediumCustomer@{VisitMediumCustomer}!VisitMediumCustomer@{VisitMediumCustomer}}
+\doxysubsubsection{\texorpdfstring{VisitMediumCustomer()}{VisitMediumCustomer()}}
+{\footnotesize\ttfamily Visit\+Medium\+Customer\+::\+Visit\+Medium\+Customer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classInventory}{Inventory}} \&}]{inv }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inv} & \mbox{\hyperlink{classInventory}{Inventory}} reference \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVisitMediumCustomer_a7f43dff74d106630b9533022eaabc9e7}\label{classVisitMediumCustomer_a7f43dff74d106630b9533022eaabc9e7}} 
+\index{VisitMediumCustomer@{VisitMediumCustomer}!visit@{visit}}
+\index{visit@{visit}!VisitMediumCustomer@{VisitMediumCustomer}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ Visit\+Medium\+Customer\+::visit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAverageCustomerBuilder}{Average\+Customer\+Builder}} \&}]{builder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Create plant recommendation for average customers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em builder} & The customer builder being visited \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of recommended plants 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCustomerVisitor_abee3cb5ee0604a20751fb7efc7230b96}{Customer\+Visitor}}.
+
+\mbox{\Hypertarget{classVisitMediumCustomer_a23cd7a1d18cf96455efdbefb88ccccdf}\label{classVisitMediumCustomer_a23cd7a1d18cf96455efdbefb88ccccdf}} 
+\index{VisitMediumCustomer@{VisitMediumCustomer}!visit@{visit}}
+\index{visit@{visit}!VisitMediumCustomer@{VisitMediumCustomer}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ Visit\+Medium\+Customer\+::visit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGreenFingerCustomerBuilder}{Green\+Finger\+Customer\+Builder}} \&}]{builder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Create plant recommendation for expert (green finger) customers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em builder} & The customer builder being visited \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of recommended plants 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCustomerVisitor_a82ea98378ec4b4f16b07655270801d79}{Customer\+Visitor}}.
+
+\mbox{\Hypertarget{classVisitMediumCustomer_a91832af30ca6bea671523c94eef2ab27}\label{classVisitMediumCustomer_a91832af30ca6bea671523c94eef2ab27}} 
+\index{VisitMediumCustomer@{VisitMediumCustomer}!visit@{visit}}
+\index{visit@{visit}!VisitMediumCustomer@{VisitMediumCustomer}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ Visit\+Medium\+Customer\+::visit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIgnorantCustomerBuilder}{Ignorant\+Customer\+Builder}} \&}]{builder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Create plant recommendation for ignorant customers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em builder} & The customer builder being visited \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of recommended plants 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCustomerVisitor_a92b865c025936424400eca86ece1b522}{Customer\+Visitor}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/customer/Visit\+Medium\+Customer.\+h\item 
+backend/customer/Visit\+Medium\+Customer.\+cpp\end{DoxyCompactItemize}

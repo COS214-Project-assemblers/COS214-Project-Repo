@@ -1,0 +1,5 @@
+<map id="IgnorantCustomerBuilder" name="IgnorantCustomerBuilder">
+<area shape="rect" id="node1" title="Concrete builder for constructing IgnorantCustomer objects with random dialogue selection." alt="" coords="5,171,191,197"/>
+<area shape="rect" id="node2" href="$classCustomerBuilder.html" title="Abstract base class for building Customer objects step by step." alt="" coords="33,95,163,121"/>
+<area shape="rect" id="node3" href="$classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types." alt="" coords="55,5,141,32"/>
+</map>

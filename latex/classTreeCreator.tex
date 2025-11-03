@@ -1,0 +1,77 @@
+\hypertarget{classTreeCreator}{}\doxysection{Tree\+Creator Class Reference}
+\label{classTreeCreator}\index{TreeCreator@{TreeCreator}}
+
+
+Concrete creator class responsible for creating \mbox{\hyperlink{classTree}{Tree}} objects.  
+
+
+
+
+{\ttfamily \#include $<$Tree\+Creator.\+h$>$}
+
+
+
+Inheritance diagram for Tree\+Creator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classTreeCreator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Tree\+Creator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classTreeCreator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTreeCreator_aa3d9a7adb93282cf7efd4f4fd799c0aa}\label{classTreeCreator_aa3d9a7adb93282cf7efd4f4fd799c0aa}} 
+\mbox{\hyperlink{classTreeCreator_aa3d9a7adb93282cf7efd4f4fd799c0aa}{Tree\+Creator}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classTreeCreator}{Tree\+Creator}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTreeCreator_a811b27c887df31a33c18f86644734885}\label{classTreeCreator_a811b27c887df31a33c18f86644734885}} 
+\mbox{\hyperlink{classTreeCreator_a811b27c887df31a33c18f86644734885}{$\sim$\+Tree\+Creator}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \mbox{\hyperlink{classTreeCreator}{Tree\+Creator}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classTreeCreator_a57c8a91add0c6fc90fe107cefaeba55b}{create\+Plant}} (string type)
+\begin{DoxyCompactList}\small\item\em Creates a new \mbox{\hyperlink{classTree}{Tree}} object of the specified variety. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Concrete creator class responsible for creating \mbox{\hyperlink{classTree}{Tree}} objects. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTreeCreator_a57c8a91add0c6fc90fe107cefaeba55b}\label{classTreeCreator_a57c8a91add0c6fc90fe107cefaeba55b}} 
+\index{TreeCreator@{TreeCreator}!createPlant@{createPlant}}
+\index{createPlant@{createPlant}!TreeCreator@{TreeCreator}}
+\doxysubsubsection{\texorpdfstring{createPlant()}{createPlant()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}} $\ast$ Tree\+Creator\+::create\+Plant (\begin{DoxyParamCaption}\item[{string}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Creates a new \mbox{\hyperlink{classTree}{Tree}} object of the specified variety. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em type} & The variety of tree to create (e.\+g., \char`\"{}\+Lemon\char`\"{}, \char`\"{}\+Apple\char`\"{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the newly created \mbox{\hyperlink{classTree}{Tree}} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantCreator_aba19be00d1c07f46f883a3dc72bf7852}{Plant\+Creator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/plant/\mbox{\hyperlink{TreeCreator_8h}{Tree\+Creator.\+h}}\item 
+backend/plant/\mbox{\hyperlink{TreeCreator_8cpp}{Tree\+Creator.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,281 @@
+\hypertarget{classCustomerVisitor}{}\doxysection{Customer\+Visitor Class Reference}
+\label{classCustomerVisitor}\index{CustomerVisitor@{CustomerVisitor}}
+
+
+This is the abstract base class for defining operations for the concrete\+Visitors.  
+
+
+
+
+{\ttfamily \#include $<$Customer\+Visitor.\+h$>$}
+
+
+
+Inheritance diagram for Customer\+Visitor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCustomerVisitor__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCustomerVisitor_aca6fe43da84a84932a2f08192c30fe72}\label{classCustomerVisitor_aca6fe43da84a84932a2f08192c30fe72}} 
+\mbox{\hyperlink{classCustomerVisitor_aca6fe43da84a84932a2f08192c30fe72}{Customer\+Visitor}} (const \mbox{\hyperlink{classInventory}{Inventory}} \&inv)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomerVisitor_a8fcfa4ac2b3fa82129ac35fc1744545f}\label{classCustomerVisitor_a8fcfa4ac2b3fa82129ac35fc1744545f}} 
+virtual \mbox{\hyperlink{classCustomerVisitor_a8fcfa4ac2b3fa82129ac35fc1744545f}{$\sim$\+Customer\+Visitor}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomerVisitor_a85c5542005fada63750655e2cbceb1f6}\label{classCustomerVisitor_a85c5542005fada63750655e2cbceb1f6}} 
+std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ {\bfseries find\+By\+Difficulty} (const std\+::string \&difficulty) const
+\item 
+void \mbox{\hyperlink{classCustomerVisitor_a8e26dd28a2c50e845dc70055c5eb3f83}{add\+Random\+Plants}} (std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \&source, int count, std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \&offer\+List)
+\begin{DoxyCompactList}\small\item\em Adds random plants to the offers\+List. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomerVisitor_a03eb18c9c9f584877decf150316862be}{top\+Up\+Random\+Plants}} (int need, std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \&offer\+List)
+\begin{DoxyCompactList}\small\item\em Adds random plants from any difficulty level. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomerVisitor_a022528cfe43a1b4099f9977e9593653a}{finalize\+Offer}} (std\+::size\+\_\+t target=5)
+\begin{DoxyCompactList}\small\item\em finalizes offer -\/$>$ makes it shuffled + tops up if less that 5 \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \& \mbox{\hyperlink{classCustomerVisitor_a5b93c5d771ff104dabd14b089e7b8528}{get\+Offer}} () const
+\begin{DoxyCompactList}\small\item\em retrieves the offer vector. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \& \mbox{\hyperlink{classCustomerVisitor_a2527df84752c15af98cc3bbbdaa54fa3}{get\+Correct\+Plant}} () const
+\begin{DoxyCompactList}\small\item\em retrieves the correct plant for the customer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomerVisitor_afa8bbeb9d22b19253a5e395b826c7cff}{mark\+Correct\+Plants}} (const std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \&source, int count, bool returnable)
+\begin{DoxyCompactList}\small\item\em Marks the correct plant for the customer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCustomerVisitor_a838d43f6c6df33840f0cddfba857616d}{is\+Acceptable}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p)
+\begin{DoxyCompactList}\small\item\em iscorrect plant \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCustomerVisitor_aba4e9409a40d4f58494a45dc4d7ca876}{is\+Returnable}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$p)
+\begin{DoxyCompactList}\small\item\em is\+Returnable plant \end{DoxyCompactList}\item 
+virtual vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classCustomerVisitor_a92b865c025936424400eca86ece1b522}{visit}} (\mbox{\hyperlink{classIgnorantCustomerBuilder}{Ignorant\+Customer\+Builder}} \&builder)=0
+\begin{DoxyCompactList}\small\item\em Visit an \mbox{\hyperlink{classIgnorantCustomerBuilder}{Ignorant\+Customer\+Builder}} object. \end{DoxyCompactList}\item 
+virtual vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classCustomerVisitor_abee3cb5ee0604a20751fb7efc7230b96}{visit}} (\mbox{\hyperlink{classAverageCustomerBuilder}{Average\+Customer\+Builder}} \&builder)=0
+\begin{DoxyCompactList}\small\item\em Visit an \mbox{\hyperlink{classAverageCustomerBuilder}{Average\+Customer\+Builder}} object. \end{DoxyCompactList}\item 
+virtual vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classCustomerVisitor_a82ea98378ec4b4f16b07655270801d79}{visit}} (\mbox{\hyperlink{classGreenFingerCustomerBuilder}{Green\+Finger\+Customer\+Builder}} \&builder)=0
+\begin{DoxyCompactList}\small\item\em Visit a \mbox{\hyperlink{classGreenFingerCustomerBuilder}{Green\+Finger\+Customer\+Builder}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCustomerVisitor_a6a262bcfd9d1b60b0c9c37a824125144}\label{classCustomerVisitor_a6a262bcfd9d1b60b0c9c37a824125144}} 
+std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classCustomerVisitor_a6a262bcfd9d1b60b0c9c37a824125144}{inventory\+Copy}}
+\begin{DoxyCompactList}\small\item\em Own local copy of the \mbox{\hyperlink{classInventory}{Inventory}} in salesfloor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomerVisitor_ae83d78f175474bf64fed1c90a9d70155}\label{classCustomerVisitor_ae83d78f175474bf64fed1c90a9d70155}} 
+std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classCustomerVisitor_ae83d78f175474bf64fed1c90a9d70155}{offer}}
+\begin{DoxyCompactList}\small\item\em Filled by concrete\+Visitors. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomerVisitor_a8cabbb75d5cc216110c8f64e396c3c49}\label{classCustomerVisitor_a8cabbb75d5cc216110c8f64e396c3c49}} 
+std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classCustomerVisitor_a8cabbb75d5cc216110c8f64e396c3c49}{correct}}
+\begin{DoxyCompactList}\small\item\em subset of plants that are correct for the customer \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the abstract base class for defining operations for the concrete\+Visitors. 
+
+THis class provides a set of pure virtual functions for visiting each concrete customer type. Concrete visitor iimplementation should define the plants that will be offered to the customer.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classIgnorantCustomer}{Ignorant\+Customer}} 
+
+\mbox{\hyperlink{classAverageCustomer}{Average\+Customer}} 
+
+\mbox{\hyperlink{classGreenFingerCustomer}{Green\+Finger\+Customer}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCustomerVisitor_a8e26dd28a2c50e845dc70055c5eb3f83}\label{classCustomerVisitor_a8e26dd28a2c50e845dc70055c5eb3f83}} 
+\index{CustomerVisitor@{CustomerVisitor}!addRandomPlants@{addRandomPlants}}
+\index{addRandomPlants@{addRandomPlants}!CustomerVisitor@{CustomerVisitor}}
+\doxysubsubsection{\texorpdfstring{addRandomPlants()}{addRandomPlants()}}
+{\footnotesize\ttfamily void Customer\+Visitor\+::add\+Random\+Plants (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \&}]{source,  }\item[{int}]{count,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \&}]{offer\+List }\end{DoxyParamCaption})}
+
+
+
+Adds random plants to the offers\+List. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Source of the vector from which plants may randomly be chosen \\
+\hline
+{\em count} & Number of plants to add to the offers\+List vector \\
+\hline
+{\em offers\+List} & Vector to add plantd to be offered to the user to pick from and then offer to the customer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomerVisitor_a022528cfe43a1b4099f9977e9593653a}\label{classCustomerVisitor_a022528cfe43a1b4099f9977e9593653a}} 
+\index{CustomerVisitor@{CustomerVisitor}!finalizeOffer@{finalizeOffer}}
+\index{finalizeOffer@{finalizeOffer}!CustomerVisitor@{CustomerVisitor}}
+\doxysubsubsection{\texorpdfstring{finalizeOffer()}{finalizeOffer()}}
+{\footnotesize\ttfamily void Customer\+Visitor\+::finalize\+Offer (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{target = {\ttfamily 5} }\end{DoxyParamCaption})}
+
+
+
+finalizes offer -\/$>$ makes it shuffled + tops up if less that 5 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Number to aim for the offers vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomerVisitor_a2527df84752c15af98cc3bbbdaa54fa3}\label{classCustomerVisitor_a2527df84752c15af98cc3bbbdaa54fa3}} 
+\index{CustomerVisitor@{CustomerVisitor}!getCorrectPlant@{getCorrectPlant}}
+\index{getCorrectPlant@{getCorrectPlant}!CustomerVisitor@{CustomerVisitor}}
+\doxysubsubsection{\texorpdfstring{getCorrectPlant()}{getCorrectPlant()}}
+{\footnotesize\ttfamily const std\+::vector$<$\mbox{\hyperlink{classPlant}{Plant}}$\ast$$>$\& Customer\+Visitor\+::get\+Correct\+Plant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retrieves the correct plant for the customer. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the correct \mbox{\hyperlink{classPlant}{Plant}} for the customer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomerVisitor_a5b93c5d771ff104dabd14b089e7b8528}\label{classCustomerVisitor_a5b93c5d771ff104dabd14b089e7b8528}} 
+\index{CustomerVisitor@{CustomerVisitor}!getOffer@{getOffer}}
+\index{getOffer@{getOffer}!CustomerVisitor@{CustomerVisitor}}
+\doxysubsubsection{\texorpdfstring{getOffer()}{getOffer()}}
+{\footnotesize\ttfamily const std\+::vector$<$\mbox{\hyperlink{classPlant}{Plant}}$\ast$$>$\& Customer\+Visitor\+::get\+Offer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retrieves the offer vector. 
+
+\begin{DoxyReturn}{Returns}
+The vector of \mbox{\hyperlink{classPlant}{Plant}} pointers being offered to the customer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomerVisitor_a838d43f6c6df33840f0cddfba857616d}\label{classCustomerVisitor_a838d43f6c6df33840f0cddfba857616d}} 
+\index{CustomerVisitor@{CustomerVisitor}!isAcceptable@{isAcceptable}}
+\index{isAcceptable@{isAcceptable}!CustomerVisitor@{CustomerVisitor}}
+\doxysubsubsection{\texorpdfstring{isAcceptable()}{isAcceptable()}}
+{\footnotesize\ttfamily bool Customer\+Visitor\+::is\+Acceptable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+iscorrect plant 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \mbox{\hyperlink{classPlant}{Plant}} to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if correct plant, false if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomerVisitor_aba4e9409a40d4f58494a45dc4d7ca876}\label{classCustomerVisitor_aba4e9409a40d4f58494a45dc4d7ca876}} 
+\index{CustomerVisitor@{CustomerVisitor}!isReturnable@{isReturnable}}
+\index{isReturnable@{isReturnable}!CustomerVisitor@{CustomerVisitor}}
+\doxysubsubsection{\texorpdfstring{isReturnable()}{isReturnable()}}
+{\footnotesize\ttfamily bool Customer\+Visitor\+::is\+Returnable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+is\+Returnable plant 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \mbox{\hyperlink{classPlant}{Plant}} to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if returnable, false if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomerVisitor_afa8bbeb9d22b19253a5e395b826c7cff}\label{classCustomerVisitor_afa8bbeb9d22b19253a5e395b826c7cff}} 
+\index{CustomerVisitor@{CustomerVisitor}!markCorrectPlants@{markCorrectPlants}}
+\index{markCorrectPlants@{markCorrectPlants}!CustomerVisitor@{CustomerVisitor}}
+\doxysubsubsection{\texorpdfstring{markCorrectPlants()}{markCorrectPlants()}}
+{\footnotesize\ttfamily void Customer\+Visitor\+::mark\+Correct\+Plants (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \&}]{source,  }\item[{int}]{count,  }\item[{bool}]{returnable }\end{DoxyParamCaption})}
+
+
+
+Marks the correct plant for the customer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Vector of \mbox{\hyperlink{classPlant}{Plant}} pointers containing the correct plants for the customer. \\
+\hline
+{\em count} & Number of correct plants to mark. \\
+\hline
+{\em returnable} & Whether the correct plants are returnable or not. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomerVisitor_a03eb18c9c9f584877decf150316862be}\label{classCustomerVisitor_a03eb18c9c9f584877decf150316862be}} 
+\index{CustomerVisitor@{CustomerVisitor}!topUpRandomPlants@{topUpRandomPlants}}
+\index{topUpRandomPlants@{topUpRandomPlants}!CustomerVisitor@{CustomerVisitor}}
+\doxysubsubsection{\texorpdfstring{topUpRandomPlants()}{topUpRandomPlants()}}
+{\footnotesize\ttfamily void Customer\+Visitor\+::top\+Up\+Random\+Plants (\begin{DoxyParamCaption}\item[{int}]{need,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \&}]{offer\+List }\end{DoxyParamCaption})}
+
+
+
+Adds random plants from any difficulty level. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Source of the vector from which plants may randomly be chosen \\
+\hline
+{\em need} & Number of plants to add to the offers\+List vector \\
+\hline
+{\em offers\+List} & Vector to add needed plants to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomerVisitor_abee3cb5ee0604a20751fb7efc7230b96}\label{classCustomerVisitor_abee3cb5ee0604a20751fb7efc7230b96}} 
+\index{CustomerVisitor@{CustomerVisitor}!visit@{visit}}
+\index{visit@{visit}!CustomerVisitor@{CustomerVisitor}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily virtual vector$<$\mbox{\hyperlink{classPlant}{Plant}}$\ast$$>$ Customer\+Visitor\+::visit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAverageCustomerBuilder}{Average\+Customer\+Builder}} \&}]{builder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Visit an \mbox{\hyperlink{classAverageCustomerBuilder}{Average\+Customer\+Builder}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em builder} & Reference to the \mbox{\hyperlink{classAverageCustomerBuilder}{Average\+Customer\+Builder}} being visited. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classVisitMediumCustomer_a7f43dff74d106630b9533022eaabc9e7}{Visit\+Medium\+Customer}}, \mbox{\hyperlink{classVisitHighCustomer_a92c714f863f3494f06721e49e144d4f1}{Visit\+High\+Customer}}, and \mbox{\hyperlink{classVisitEasyCustomer_aeda36f2ea9b094a4eb27a5606428bf0f}{Visit\+Easy\+Customer}}.
+
+\mbox{\Hypertarget{classCustomerVisitor_a82ea98378ec4b4f16b07655270801d79}\label{classCustomerVisitor_a82ea98378ec4b4f16b07655270801d79}} 
+\index{CustomerVisitor@{CustomerVisitor}!visit@{visit}}
+\index{visit@{visit}!CustomerVisitor@{CustomerVisitor}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily virtual vector$<$\mbox{\hyperlink{classPlant}{Plant}}$\ast$$>$ Customer\+Visitor\+::visit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGreenFingerCustomerBuilder}{Green\+Finger\+Customer\+Builder}} \&}]{builder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Visit a \mbox{\hyperlink{classGreenFingerCustomerBuilder}{Green\+Finger\+Customer\+Builder}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em builder} & Reference to the \mbox{\hyperlink{classGreenFingerCustomerBuilder}{Green\+Finger\+Customer\+Builder}} being visited. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classVisitMediumCustomer_a23cd7a1d18cf96455efdbefb88ccccdf}{Visit\+Medium\+Customer}}, \mbox{\hyperlink{classVisitHighCustomer_acefd69ffb47e94112373ced4c6a3e3d3}{Visit\+High\+Customer}}, and \mbox{\hyperlink{classVisitEasyCustomer_a85a7835f9a9233d1cafa84f6a6ee23e0}{Visit\+Easy\+Customer}}.
+
+\mbox{\Hypertarget{classCustomerVisitor_a92b865c025936424400eca86ece1b522}\label{classCustomerVisitor_a92b865c025936424400eca86ece1b522}} 
+\index{CustomerVisitor@{CustomerVisitor}!visit@{visit}}
+\index{visit@{visit}!CustomerVisitor@{CustomerVisitor}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily virtual vector$<$\mbox{\hyperlink{classPlant}{Plant}}$\ast$$>$ Customer\+Visitor\+::visit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIgnorantCustomerBuilder}{Ignorant\+Customer\+Builder}} \&}]{builder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Visit an \mbox{\hyperlink{classIgnorantCustomerBuilder}{Ignorant\+Customer\+Builder}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em builder} & Reference to the \mbox{\hyperlink{classIgnorantCustomerBuilder}{Ignorant\+Customer\+Builder}} being visited. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classVisitMediumCustomer_a91832af30ca6bea671523c94eef2ab27}{Visit\+Medium\+Customer}}, \mbox{\hyperlink{classVisitHighCustomer_ae3e8d8a47b8e237f5dd2a3ca54d9bf37}{Visit\+High\+Customer}}, and \mbox{\hyperlink{classVisitEasyCustomer_a05dba5933de3fcc65e0b004b63215120}{Visit\+Easy\+Customer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/customer/Customer\+Visitor.\+h\item 
+backend/customer/\mbox{\hyperlink{CustomerVisitor_8cpp}{Customer\+Visitor.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,70 @@
+\hypertarget{classFertilizerStaff}{}\doxysection{Fertilizer\+Staff Class Reference}
+\label{classFertilizerStaff}\index{FertilizerStaff@{FertilizerStaff}}
+
+
+Concrete observer class for staff responsible for fertilizing plants.  
+
+
+
+
+{\ttfamily \#include $<$Fertilizer\+Staff.\+h$>$}
+
+
+
+Inheritance diagram for Fertilizer\+Staff\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classFertilizerStaff__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fertilizer\+Staff\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classFertilizerStaff__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classFertilizerStaff_ab5a38abbcd927ef1f9724fcc37b50ffd}{update}} (string \&care\+Type, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)
+\begin{DoxyCompactList}\small\item\em Updates the fertilizer staff about a plant\textquotesingle{}s care requirements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Concrete observer class for staff responsible for fertilizing plants. 
+
+This class represents greenhouse staff members who are specifically responsible for applying fertilizer to plants. It implements the \mbox{\hyperlink{classGreenhouseStaff}{Greenhouse\+Staff}} interface and responds to notifications when plants require fertilizing care (care\+Type == \char`\"{}fertilizer\char`\"{}). 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFertilizerStaff_ab5a38abbcd927ef1f9724fcc37b50ffd}\label{classFertilizerStaff_ab5a38abbcd927ef1f9724fcc37b50ffd}} 
+\index{FertilizerStaff@{FertilizerStaff}!update@{update}}
+\index{update@{update}!FertilizerStaff@{FertilizerStaff}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Fertilizer\+Staff\+::update (\begin{DoxyParamCaption}\item[{string \&}]{care\+Type,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})}
+
+
+
+Updates the fertilizer staff about a plant\textquotesingle{}s care requirements. 
+
+This method is called when a plant notifies observers about its care needs. The fertilizer staff will respond if the care type indicates that fertilizing is required.
+
+
+\begin{DoxyParams}{Parameters}
+{\em care\+Type} & The type of care required (checks for \char`\"{}fertilizer\char`\"{}) \\
+\hline
+{\em plant} & Pointer to the plant that needs care \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/greenhouse/Fertilizer\+Staff.\+h\item 
+backend/greenhouse/Fertilizer\+Staff.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,69 @@
+\hypertarget{classNewGameOption}{}\doxysection{New\+Game\+Option Class Reference}
+\label{classNewGameOption}\index{NewGameOption@{NewGameOption}}
+
+
+Implements \mbox{\hyperlink{classMenuOption}{Menu\+Option}} interface. \mbox{\hyperlink{classNewGameOption}{New\+Game\+Option}} invokes and logs the operation to create a new \mbox{\hyperlink{classGame}{Game}}.  
+
+
+
+
+{\ttfamily \#include $<$New\+Game\+Option.\+h$>$}
+
+
+
+Inheritance diagram for New\+Game\+Option\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classNewGameOption__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for New\+Game\+Option\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{classNewGameOption__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNewGameOption_a493b171ccd63db23367b6cb16ba1e91f}{New\+Game\+Option}} (\mbox{\hyperlink{classGame}{Game}} $\ast$\mbox{\hyperlink{classMenuOption_aab8e81ed33e23bea5245f6b63a702c2d}{game}}, \mbox{\hyperlink{classLogger}{Logger}} $\ast$\mbox{\hyperlink{classMenuOption_a1f22b70856b3fdc684d373b1d4f29e06}{logger}}=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructor sets attributes. Calls parent constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNewGameOption_a0440a475181b5ed3c33d17b50013ceb1}\label{classNewGameOption_a0440a475181b5ed3c33d17b50013ceb1}} 
+virtual void \mbox{\hyperlink{classNewGameOption_a0440a475181b5ed3c33d17b50013ceb1}{execute}} () override
+\begin{DoxyCompactList}\small\item\em Implements execute method from \mbox{\hyperlink{classMenuOption}{Menu\+Option}} interface. invokes the method on the \mbox{\hyperlink{classGame}{Game}} object related to creating a new game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Implements \mbox{\hyperlink{classMenuOption}{Menu\+Option}} interface. \mbox{\hyperlink{classNewGameOption}{New\+Game\+Option}} invokes and logs the operation to create a new \mbox{\hyperlink{classGame}{Game}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNewGameOption_a493b171ccd63db23367b6cb16ba1e91f}\label{classNewGameOption_a493b171ccd63db23367b6cb16ba1e91f}} 
+\index{NewGameOption@{NewGameOption}!NewGameOption@{NewGameOption}}
+\index{NewGameOption@{NewGameOption}!NewGameOption@{NewGameOption}}
+\doxysubsubsection{\texorpdfstring{NewGameOption()}{NewGameOption()}}
+{\footnotesize\ttfamily New\+Game\+Option\+::\+New\+Game\+Option (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGame}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{classLogger}{Logger}} $\ast$}]{logger = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Constructor sets attributes. Calls parent constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em game} & \mbox{\hyperlink{classGame}{Game}} object reference \\
+\hline
+\mbox{\texttt{ in}}  & {\em logger} & Optional reference to \mbox{\hyperlink{classLogger}{Logger}} object, default is nullptr \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/game/\mbox{\hyperlink{NewGameOption_8h}{New\+Game\+Option.\+h}}\item 
+backend/game/New\+Game\+Option.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,97 @@
+\hypertarget{classReturn}{}\doxysection{Return Class Reference}
+\label{classReturn}\index{Return@{Return}}
+
+
+Will handle the transaction as a \mbox{\hyperlink{classReturn}{Return}}.  
+
+
+
+
+{\ttfamily \#include $<$Return.\+h$>$}
+
+
+
+Inheritance diagram for Return\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classReturn__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Return\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classReturn__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classReturn_a0ba39b3df0ffcc95addb2d376fcbedfa}\label{classReturn_a0ba39b3df0ffcc95addb2d376fcbedfa}} 
+\mbox{\hyperlink{classReturn_a0ba39b3df0ffcc95addb2d376fcbedfa}{Return}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReturn_a1fa990d5dc3edb438091bdb66089a54e}\label{classReturn_a1fa990d5dc3edb438091bdb66089a54e}} 
+\mbox{\hyperlink{classReturn_a1fa990d5dc3edb438091bdb66089a54e}{$\sim$\+Return}} ()=default
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classReturn_a815adb4dde74a871bdb845d878a6e28d}{execute}} (double v, double b) override
+\begin{DoxyCompactList}\small\item\em Executes a transactions financial logic to update the balance. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classReturn_ab78b663b2cbae9ba484fabb13bed61cf}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the Type of the transaction as a \mbox{\hyperlink{classReturn}{Return}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Will handle the transaction as a \mbox{\hyperlink{classReturn}{Return}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classReturn_a815adb4dde74a871bdb845d878a6e28d}\label{classReturn_a815adb4dde74a871bdb845d878a6e28d}} 
+\index{Return@{Return}!execute@{execute}}
+\index{execute@{execute}!Return@{Return}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily double Return\+::execute (\begin{DoxyParamCaption}\item[{double}]{v,  }\item[{double}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executes a transactions financial logic to update the balance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Value of the transaction. \\
+\hline
+{\em b} & Value of the current balance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+THe new balance of b-\/v 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTransactionStrategy_a38df3eab00d2eb37ccc53b09f2f7f5a5}{Transaction\+Strategy}}.
+
+\mbox{\Hypertarget{classReturn_ab78b663b2cbae9ba484fabb13bed61cf}\label{classReturn_ab78b663b2cbae9ba484fabb13bed61cf}} 
+\index{Return@{Return}!getType@{getType}}
+\index{getType@{getType}!Return@{Return}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Return\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the Type of the transaction as a \mbox{\hyperlink{classReturn}{Return}}. 
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}\+Return\char`\"{} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTransactionStrategy_aa95499a098f269bbbbe6772a9890bef5}{Transaction\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/game/\mbox{\hyperlink{Return_8h}{Return.\+h}}\item 
+backend/game/Return.\+cpp\end{DoxyCompactItemize}

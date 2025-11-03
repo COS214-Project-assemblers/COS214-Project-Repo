@@ -1,0 +1,72 @@
+\hypertarget{classSellable}{}\doxysection{Sellable Class Reference}
+\label{classSellable}\index{Sellable@{Sellable}}
+
+
+Concrete state class representing a plant that is ready for sale.  
+
+
+
+
+{\ttfamily \#include $<$Sellable.\+h$>$}
+
+
+
+Inheritance diagram for Sellable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classSellable__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Sellable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classSellable__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSellable_a1c07f0aacd96a90d8816f2fa443c09bc}{handle}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)
+\begin{DoxyCompactList}\small\item\em Handles the plant\textquotesingle{}s behaviour when it is in a sellable state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSellable_aefbfff36e910ec14e08cff7ed676f48a}\label{classSellable_aefbfff36e910ec14e08cff7ed676f48a}} 
+string {\bfseries get\+State} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete state class representing a plant that is ready for sale. 
+
+This class represents the state where a plant has matured sufficiently and meets all quality criteria to be sold to customers. In this state, the plant can be moved to the \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSellable_a1c07f0aacd96a90d8816f2fa443c09bc}\label{classSellable_a1c07f0aacd96a90d8816f2fa443c09bc}} 
+\index{Sellable@{Sellable}!handle@{handle}}
+\index{handle@{handle}!Sellable@{Sellable}}
+\doxysubsubsection{\texorpdfstring{handle()}{handle()}}
+{\footnotesize\ttfamily void Sellable\+::handle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handles the plant\textquotesingle{}s behaviour when it is in a sellable state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & Pointer to the plant being handled \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantState_a8128942762c90e82177b153445e8c95d}{Plant\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/plant/Sellable.\+h\item 
+backend/plant/Sellable.\+cpp\end{DoxyCompactItemize}

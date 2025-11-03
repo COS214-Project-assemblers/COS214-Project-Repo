@@ -1,0 +1,100 @@
+\hypertarget{classInventory}{}\doxysection{Inventory Class Reference}
+\label{classInventory}\index{Inventory@{Inventory}}
+
+
+Stores a collections of plants, will return vectors of plants for the manager to choose from and then offer the client.  
+
+
+
+
+{\ttfamily \#include $<$Inventory.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classInventory_ac940a4903c7284e0cb451ae49fd6beef}{all}} () const
+\begin{DoxyCompactList}\small\item\em returns all plants in the inventory \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInventory_a2c7dfc2a11d8c2b851888f49f562cb7f}{restock}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)
+\begin{DoxyCompactList}\small\item\em Restocks a plantby adding it to the vector containing plants in the inventory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInventory_a775d02edd78192a12ffa024994986182}{remove\+Plant}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)
+\begin{DoxyCompactList}\small\item\em removes a plant from the inventory \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classInventory_afda9ccb08b84d27b80c14dc5a782fd9d}{find\+By\+Difficulty}} (std\+::string d) const
+\begin{DoxyCompactList}\small\item\em Finds all plants in the inventory based on their level of care dificulty. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInventory_a38ab7d9b8f37a8c0156c1a1c3635c513}\label{classInventory_a38ab7d9b8f37a8c0156c1a1c3635c513}} 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ {\bfseries get\+Plant} (string id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Stores a collections of plants, will return vectors of plants for the manager to choose from and then offer the client. 
+
+The \mbox{\hyperlink{classInventory}{Inventory}} class stores all available \mbox{\hyperlink{classPlant}{Plant}} objects that are availible for sale to clients, it allows for filtering based on a categoy or by a price range. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInventory_ac940a4903c7284e0cb451ae49fd6beef}\label{classInventory_ac940a4903c7284e0cb451ae49fd6beef}} 
+\index{Inventory@{Inventory}!all@{all}}
+\index{all@{all}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{all()}{all()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ Inventory\+::all (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+returns all plants in the inventory 
+
+\begin{DoxyReturn}{Returns}
+A vector containing pointers to all \mbox{\hyperlink{classPlant}{Plant}} objects in the inventory 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInventory_afda9ccb08b84d27b80c14dc5a782fd9d}\label{classInventory_afda9ccb08b84d27b80c14dc5a782fd9d}} 
+\index{Inventory@{Inventory}!findByDifficulty@{findByDifficulty}}
+\index{findByDifficulty@{findByDifficulty}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{findByDifficulty()}{findByDifficulty()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ Inventory\+::find\+By\+Difficulty (\begin{DoxyParamCaption}\item[{std\+::string}]{d }\end{DoxyParamCaption}) const}
+
+
+
+Finds all plants in the inventory based on their level of care dificulty. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The level of dificulty you are looking for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of all those plants 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInventory_a775d02edd78192a12ffa024994986182}\label{classInventory_a775d02edd78192a12ffa024994986182}} 
+\index{Inventory@{Inventory}!removePlant@{removePlant}}
+\index{removePlant@{removePlant}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{removePlant()}{removePlant()}}
+{\footnotesize\ttfamily void Inventory\+::remove\+Plant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})}
+
+
+
+removes a plant from the inventory 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & Reference to the \mbox{\hyperlink{classPlant}{Plant}} being removed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInventory_a2c7dfc2a11d8c2b851888f49f562cb7f}\label{classInventory_a2c7dfc2a11d8c2b851888f49f562cb7f}} 
+\index{Inventory@{Inventory}!restock@{restock}}
+\index{restock@{restock}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{restock()}{restock()}}
+{\footnotesize\ttfamily void Inventory\+::restock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})}
+
+
+
+Restocks a plantby adding it to the vector containing plants in the inventory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & Reference to the \mbox{\hyperlink{classPlant}{Plant}} being restocked \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/greenhouse/Inventory.\+h\item 
+backend/greenhouse/Inventory.\+cpp\end{DoxyCompactItemize}

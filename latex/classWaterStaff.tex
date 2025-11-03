@@ -1,0 +1,70 @@
+\hypertarget{classWaterStaff}{}\doxysection{Water\+Staff Class Reference}
+\label{classWaterStaff}\index{WaterStaff@{WaterStaff}}
+
+
+Concrete observer class for staff responsible for watering plants.  
+
+
+
+
+{\ttfamily \#include $<$Water\+Staff.\+h$>$}
+
+
+
+Inheritance diagram for Water\+Staff\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classWaterStaff__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Water\+Staff\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classWaterStaff__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classWaterStaff_a25353f19564cae4bb125d71d5544a165}{update}} (string \&care\+Type, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)
+\begin{DoxyCompactList}\small\item\em Updates the water staff about a plant\textquotesingle{}s care requirements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Concrete observer class for staff responsible for watering plants. 
+
+This class represents greenhouse staff members who are specifically responsible for watering plants. It implements the \mbox{\hyperlink{classGreenhouseStaff}{Greenhouse\+Staff}} interface and responds to notifications when plants require watering care (care\+Type == \char`\"{}water\char`\"{}). 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWaterStaff_a25353f19564cae4bb125d71d5544a165}\label{classWaterStaff_a25353f19564cae4bb125d71d5544a165}} 
+\index{WaterStaff@{WaterStaff}!update@{update}}
+\index{update@{update}!WaterStaff@{WaterStaff}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Water\+Staff\+::update (\begin{DoxyParamCaption}\item[{string \&}]{care\+Type,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})}
+
+
+
+Updates the water staff about a plant\textquotesingle{}s care requirements. 
+
+This method is called when a plant notifies observers about its care needs. The water staff will respond if the care\+Type indicates that watering is required.
+
+
+\begin{DoxyParams}{Parameters}
+{\em care\+Type} & The type of care required (checks for \char`\"{}water\char`\"{}) \\
+\hline
+{\em plant} & Pointer to the plant that needs care \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/greenhouse/Water\+Staff.\+h\item 
+backend/greenhouse/Water\+Staff.\+cpp\end{DoxyCompactItemize}

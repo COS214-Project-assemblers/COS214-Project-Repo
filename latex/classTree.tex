@@ -1,0 +1,93 @@
+\hypertarget{classTree}{}\doxysection{Tree Class Reference}
+\label{classTree}\index{Tree@{Tree}}
+
+
+Represents a \mbox{\hyperlink{classTree}{Tree}} plant type within the greenhouse system.  
+
+
+
+
+{\ttfamily \#include $<$Tree.\+h$>$}
+
+
+
+Inheritance diagram for Tree\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=121pt]{classTree__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Tree\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=150pt]{classTree__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTree_a8e0330e88861d0e3272cd1d7dbc82033}{Tree}} (string variety, string difficulty)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classTree}{Tree}} object of a specific variety. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTree_abdc38545cf3f588725b5d8b8075b3866}\label{classTree_abdc38545cf3f588725b5d8b8075b3866}} 
+\mbox{\hyperlink{classTree_abdc38545cf3f588725b5d8b8075b3866}{$\sim$\+Tree}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \mbox{\hyperlink{classTree}{Tree}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classTree_a3201646959795323c5ff93f8facbf49f}{clone}} ()
+\begin{DoxyCompactList}\small\item\em Creates and returns a clone of this \mbox{\hyperlink{classTree}{Tree}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a \mbox{\hyperlink{classTree}{Tree}} plant type within the greenhouse system. 
+
+The \mbox{\hyperlink{classTree}{Tree}} class extends the abstract \mbox{\hyperlink{classPlant}{Plant}} base class, providing a concrete implementation for creating and cloning \mbox{\hyperlink{classTree}{Tree}} objects. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTree_a8e0330e88861d0e3272cd1d7dbc82033}\label{classTree_a8e0330e88861d0e3272cd1d7dbc82033}} 
+\index{Tree@{Tree}!Tree@{Tree}}
+\index{Tree@{Tree}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{Tree()}{Tree()}}
+{\footnotesize\ttfamily Tree\+::\+Tree (\begin{DoxyParamCaption}\item[{string}]{variety,  }\item[{string}]{difficulty }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classTree}{Tree}} object of a specific variety. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em variety} & The name of the tree variety (e.\+g., \char`\"{}\+Lemon\char`\"{}, \char`\"{}\+Oak\char`\"{}). \\
+\hline
+\mbox{\texttt{ in}}  & {\em difficulty} & The level of difficulty for care (Easy/\+Medium/\+Hard) \\
+\hline
+\end{DoxyParams}
+Different Concrete Plants initalise their Healths\textquotesingle{} differently so that they decay at different rates, E.\+G succulents are watered less than flowers
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTree_a3201646959795323c5ff93f8facbf49f}\label{classTree_a3201646959795323c5ff93f8facbf49f}} 
+\index{Tree@{Tree}!clone@{clone}}
+\index{clone@{clone}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}} $\ast$ Tree\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Creates and returns a clone of this \mbox{\hyperlink{classTree}{Tree}} instance. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the newly cloned \mbox{\hyperlink{classTree}{Tree}} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlant_a1aad1743d1921023773c939e8713c84a}{Plant}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/plant/\mbox{\hyperlink{Tree_8h}{Tree.\+h}}\item 
+backend/plant/\mbox{\hyperlink{Tree_8cpp}{Tree.\+cpp}}\end{DoxyCompactItemize}

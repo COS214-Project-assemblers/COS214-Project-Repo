@@ -1,0 +1,4 @@
+<map id="backend/plant/SucculentCreator.h" name="backend/plant/SucculentCreator.h">
+<area shape="rect" id="node1" title="Defines the SucculentCreator class for creating Succulent objects." alt="" coords="13,5,252,32"/>
+<area shape="rect" id="node2" href="$SucculentCreator_8cpp.html" title="Implements the functionality defined in the SucculentCreator class." alt="" coords="5,80,260,107"/>
+</map>

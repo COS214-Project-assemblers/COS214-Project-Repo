@@ -1,0 +1,6 @@
+<map id="Customer" name="Customer">
+<area shape="rect" id="node1" title="Abstract base class defining the interface and shared behavior for all customer types." alt="" coords="208,5,293,32"/>
+<area shape="rect" id="node2" href="$classAverageCustomer.html" title="Represents a customer with some plant experience who can handle moderate care requirements." alt="" coords="5,80,144,107"/>
+<area shape="rect" id="node3" href="$classGreenFingerCustomer.html" title="Represents an experienced plant enthusiast who seeks challenging specimens." alt="" coords="169,80,333,107"/>
+<area shape="rect" id="node4" href="$classIgnorantCustomer.html" title="Represents a customer with minimal plant knowledge who needs easy&#45;care plants." alt="" coords="357,80,496,107"/>
+</map>

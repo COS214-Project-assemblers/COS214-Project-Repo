@@ -1,0 +1,52 @@
+<map id="backend/game/Logger.h" name="backend/game/Logger.h">
+<area shape="rect" id="node1" title="Header for Strategy Logger." alt="" coords="1589,5,1765,32"/>
+<area shape="rect" id="node2" href="$BasicLogger_8h.html" title="Header file for BasicLogger ConcreteStrategy." alt="" coords="5,341,216,367"/>
+<area shape="rect" id="node5" href="$Game_8h.html" title="Header file for Game class." alt="" coords="1361,698,1533,725"/>
+<area shape="rect" id="node7" href="$MenuOption_8h_source.html" title=" " alt="" coords="831,780,1043,807"/>
+<area shape="rect" id="node11" href="$LogDecorator_8h.html" title=" " alt="" coords="3152,80,3371,107"/>
+<area shape="rect" id="node13" href="$Plant_8h.html" title="Defines the abstract base class for all Plant objects used in the system." alt="" coords="1596,80,1759,107"/>
+<area shape="rect" id="node3" href="$APIController_8h.html" title="Define endpoints." alt="" coords="965,944,1166,971"/>
+<area shape="rect" id="node4" href="$APIController_8cpp.html" title="Still need to see what going to do here." alt="" coords="957,1019,1173,1045"/>
+<area shape="rect" id="node6" href="$API_8h.html" title="Bootstrapper for public facing API." alt="" coords="1377,780,1516,807"/>
+<area shape="rect" id="node8" href="$ContinueGameOption_8h.html" title="Header file for ContinueGameOption class." alt="" coords="1084,855,1303,896"/>
+<area shape="rect" id="node9" href="$ExitGameOption_8h.html" title=" " alt="" coords="551,862,791,889"/>
+<area shape="rect" id="node10" href="$NewGameOption_8h.html" title="Header file for NewGameOption class." alt="" coords="815,862,1059,889"/>
+<area shape="rect" id="node12" href="$CoutAndLog_8h_source.html" title=" " alt="" coords="3156,162,3367,189"/>
+<area shape="rect" id="node14" href="$Customer_8h.html" title="Abstract base class for all customer types in the plant shop game." alt="" coords="1591,519,1809,546"/>
+<area shape="rect" id="node25" href="$CustomerVisitor_8h_source.html" title=" " alt="" coords="803,423,1011,464"/>
+<area shape="rect" id="node30" href="$TransactionMem_8h.html" title=" " alt="" coords="668,155,863,196"/>
+<area shape="rect" id="node35" href="$Inventory_8h_source.html" title=" " alt="" coords="327,155,483,196"/>
+<area shape="rect" id="node36" href="$Flower_8h.html" title="Defines the Flower subclass derived from the Plant base class." alt="" coords="1179,162,1351,189"/>
+<area shape="rect" id="node39" href="$Plant_8cpp.html" title="Implements the functionality defined in the Plant class." alt="" coords="2714,341,2891,367"/>
+<area shape="rect" id="node40" href="$PlantCreator_8h.html" title="Defines the abstract PlantCreator class used in the Factory/Prototype creation process." alt="" coords="1461,162,1670,189"/>
+<area shape="rect" id="node44" href="$PlantState_8h_source.html" title=" " alt="" coords="2570,162,2766,189"/>
+<area shape="rect" id="node47" href="$Succulent_8h.html" title="Defines the Succulent subclass derived from the Plant base class." alt="" coords="1695,162,1887,189"/>
+<area shape="rect" id="node49" href="$Tree_8h.html" title="Defines the Tree subclass derived from the Plant base class." alt="" coords="1935,162,2091,189"/>
+<area shape="rect" id="node15" href="$AverageCustomer_8h.html" title="Concrete customer class representing moderately experienced plant buyers." alt="" coords="3151,601,3350,643"/>
+<area shape="rect" id="node18" href="$Customer_8cpp.html" title="Implements the functionality defined in the Customer class." alt="" coords="1428,609,1663,635"/>
+<area shape="rect" id="node19" href="$CustomerBuilder_8h.html" title="Abstract builder interface for creating Customer objects." alt="" coords="1135,601,1343,643"/>
+<area shape="rect" id="node23" href="$GreenFingerCustomer_8h.html" title="Concrete customer class representing expert plant enthusiasts." alt="" coords="1908,601,2132,643"/>
+<area shape="rect" id="node24" href="$IgnorantCustomer_8h.html" title="Concrete customer class representing inexperienced plant buyers." alt="" coords="1686,601,1885,643"/>
+<area shape="rect" id="node16" href="$AverageCustomer_8cpp.html" title="Implements the functionality defined in the AverageCustomer class." alt="" coords="3151,691,3350,732"/>
+<area shape="rect" id="node17" href="$AverageCustomerBuilder_8h.html" title="Builder class for creating AverageCustomer objects with randomized dialogues." alt="" coords="2235,691,2434,732"/>
+<area shape="rect" id="node20" href="$CustomerBuilder_8cpp.html" title="Implements the CustomerBuilder base class functionality." alt="" coords="880,691,1088,732"/>
+<area shape="rect" id="node21" href="$Director_8h.html" title="Director class for coordinating customer construction using builders and visitors." alt="" coords="619,698,827,725"/>
+<area shape="rect" id="node22" href="$GreenFingerCustomerBuilder_8h.html" title="Builder class for creating GreenFingerCustomer objects with randomized dialogues." alt="" coords="1112,691,1336,732"/>
+<area shape="rect" id="node26" href="$CustomerVisitor_8cpp.html" title="Implements the CustomerVisitor base class functionality." alt="" coords="405,512,613,553"/>
+<area shape="rect" id="node27" href="$VisitEasyCustomer_8h.html" title="Visitor for creating plant recommendations for easy&#45;maintenance customers." alt="" coords="1276,512,1481,553"/>
+<area shape="rect" id="node28" href="$VisitHighCustomer_8h.html" title="Visitor for creating plant recommendations for customers preferring challenging plants." alt="" coords="746,512,950,553"/>
+<area shape="rect" id="node29" href="$VisitMediumCustomer_8h_source.html" title=" " alt="" coords="975,512,1201,553"/>
+<area shape="rect" id="node31" href="$Transaction_8h.html" title=" " alt="" coords="662,251,869,278"/>
+<area shape="rect" id="node32" href="$TransactionHistory_8h.html" title=" " alt="" coords="443,244,637,285"/>
+<area shape="rect" id="node33" href="$SalesFloor_8h.html" title=" " alt="" coords="427,333,583,375"/>
+<area shape="rect" id="node34" href="$Greenhouse_8h_source.html" title=" " alt="" coords="385,423,541,464"/>
+<area shape="rect" id="node37" href="$Flower_8cpp.html" title="Implements the functionality defined in the Flower class." alt="" coords="944,251,1131,278"/>
+<area shape="rect" id="node38" href="$FlowerCreator_8h.html" title="Defines the FlowerCreator class for creating Flower objects." alt="" coords="1155,251,1375,278"/>
+<area shape="rect" id="node41" href="$PlantCreator_8cpp.html" title="Implements the functionality defined in the PlantCreator class." alt="" coords="1400,251,1624,278"/>
+<area shape="rect" id="node42" href="$SucculentCreator_8h.html" title="Defines the SucculentCreator class for creating Succulent objects." alt="" coords="1649,251,1887,278"/>
+<area shape="rect" id="node43" href="$TreeCreator_8h.html" title="Defines the TreeCreator class for creating Tree objects." alt="" coords="1912,251,2115,278"/>
+<area shape="rect" id="node45" href="$NotSellable_8h_source.html" title=" " alt="" coords="2566,251,2770,278"/>
+<area shape="rect" id="node46" href="$Sellable_8h_source.html" title=" " alt="" coords="2795,251,2976,278"/>
+<area shape="rect" id="node48" href="$Succulent_8cpp.html" title="Implements the functionality defined in the Succulent class." alt="" coords="2139,251,2346,278"/>
+<area shape="rect" id="node50" href="$Tree_8cpp.html" title="Implements the functionality defined in the Tree class." alt="" coords="2371,251,2541,278"/>
+</map>

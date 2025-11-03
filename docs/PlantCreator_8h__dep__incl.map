@@ -1,0 +1,10 @@
+<map id="backend/plant/PlantCreator.h" name="backend/plant/PlantCreator.h">
+<area shape="rect" id="node1" title="Defines the abstract PlantCreator class used in the Factory/Prototype creation process." alt="" coords="393,5,602,32"/>
+<area shape="rect" id="node2" href="$FlowerCreator_8h.html" title="Defines the FlowerCreator class for creating Flower objects." alt="" coords="13,80,233,107"/>
+<area shape="rect" id="node4" href="$PlantCreator_8cpp.html" title="Implements the functionality defined in the PlantCreator class." alt="" coords="257,80,481,107"/>
+<area shape="rect" id="node5" href="$SucculentCreator_8h.html" title="Defines the SucculentCreator class for creating Succulent objects." alt="" coords="506,80,745,107"/>
+<area shape="rect" id="node7" href="$TreeCreator_8h.html" title="Defines the TreeCreator class for creating Tree objects." alt="" coords="777,80,980,107"/>
+<area shape="rect" id="node3" href="$FlowerCreator_8cpp.html" title="Implements the functionality defined in the FlowerCreator class." alt="" coords="5,155,240,181"/>
+<area shape="rect" id="node6" href="$SucculentCreator_8cpp.html" title="Implements the functionality defined in the SucculentCreator class." alt="" coords="494,155,749,181"/>
+<area shape="rect" id="node8" href="$TreeCreator_8cpp.html" title="Implements the functionality defined in the TreeCreator class." alt="" coords="773,155,992,181"/>
+</map>

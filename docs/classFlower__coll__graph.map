@@ -1,0 +1,5 @@
+<map id="Flower" name="Flower">
+<area shape="rect" id="node1" title="Represents a Flower plant type within the greenhouse system." alt="" coords="18,171,85,197"/>
+<area shape="rect" id="node2" href="$classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation." alt="" coords="24,95,79,121"/>
+<area shape="rect" id="node3" href="$classGreenSock.html" title=" " alt="" coords="5,5,97,32"/>
+</map>

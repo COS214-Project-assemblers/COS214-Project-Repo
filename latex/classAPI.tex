@@ -1,0 +1,44 @@
+\hypertarget{classAPI}{}\doxysection{API Class Reference}
+\label{classAPI}\index{API@{API}}
+
+
+Bootstraps (starts) public facing \mbox{\hyperlink{classAPI}{API}}.  
+
+
+
+
+{\ttfamily \#include $<$API.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAPI_a84eaa6196f83bbfc69a9be4fc9665040}\label{classAPI_a84eaa6196f83bbfc69a9be4fc9665040}} 
+void \mbox{\hyperlink{classAPI_a84eaa6196f83bbfc69a9be4fc9665040}{bootstrap}} ()
+\begin{DoxyCompactList}\small\item\em Bootstrap (\href{https://en.wikipedia.org/wiki/Bootstrapping}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Bootstrapping}}) \mbox{\hyperlink{classAPI}{API}} server. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAPI_a65eaa62223b5f6944b34b760edb27bf2}\label{classAPI_a65eaa62223b5f6944b34b760edb27bf2}} 
+void \mbox{\hyperlink{classAPI_a65eaa62223b5f6944b34b760edb27bf2}{run}} ()
+\begin{DoxyCompactList}\small\item\em Allows the client to start \mbox{\hyperlink{classAPI}{API}} server, calls bootstrapper. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAPI_a782b096bd60362b164f4f3adc516ae1a}\label{classAPI_a782b096bd60362b164f4f3adc516ae1a}} 
+void \mbox{\hyperlink{classAPI_a782b096bd60362b164f4f3adc516ae1a}{exit\+Game}} ()
+\begin{DoxyCompactList}\small\item\em deletes current game member \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAPI_a5185c25e8e7a9f24e59d173ad7d28e90}\label{classAPI_a5185c25e8e7a9f24e59d173ad7d28e90}} 
+void {\bfseries set\+Socket} (\mbox{\hyperlink{classGreenSock}{Green\+Sock}} $\ast$socket)
+\item 
+\mbox{\Hypertarget{classAPI_a56880e71419f5aed9231256a3d2468a2}\label{classAPI_a56880e71419f5aed9231256a3d2468a2}} 
+void {\bfseries set\+Game} (\mbox{\hyperlink{classGame}{Game}} $\ast$game)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAPI_a5b46ef8a82b316165de7cf4c5cfcf627}\label{classAPI_a5b46ef8a82b316165de7cf4c5cfcf627}} 
+class \mbox{\hyperlink{classAPI_a5b46ef8a82b316165de7cf4c5cfcf627}{APIController}}
+\begin{DoxyCompactList}\small\item\em Declare \mbox{\hyperlink{classAPIController}{APIController}} as friend class of \mbox{\hyperlink{classAPI}{API}} such that \mbox{\hyperlink{classAPIController}{APIController}} can have access to private member variables like the \char`\"{}game\char`\"{} member variable. This is done to ensure extensibility, client interacts with \mbox{\hyperlink{classAPI}{API}}, \mbox{\hyperlink{classAPI}{API}} with \mbox{\hyperlink{classAPIController}{APIController}}, if ever \mbox{\hyperlink{classAPIController}{APIController}} needs more context client can pass to \mbox{\hyperlink{classAPI}{API}} to store in state, \mbox{\hyperlink{classAPIController}{APIController}} has access to \mbox{\hyperlink{classAPI}{API}} state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Bootstraps (starts) public facing \mbox{\hyperlink{classAPI}{API}}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/\+API/\mbox{\hyperlink{API_8h}{API.\+h}}\item 
+backend/\+API/API.\+cpp\end{DoxyCompactItemize}

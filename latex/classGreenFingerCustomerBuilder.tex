@@ -1,0 +1,152 @@
+\hypertarget{classGreenFingerCustomerBuilder}{}\doxysection{Green\+Finger\+Customer\+Builder Class Reference}
+\label{classGreenFingerCustomerBuilder}\index{GreenFingerCustomerBuilder@{GreenFingerCustomerBuilder}}
+
+
+Concrete builder for constructing \mbox{\hyperlink{classGreenFingerCustomer}{Green\+Finger\+Customer}} objects with random dialogue selection.  
+
+
+
+
+{\ttfamily \#include $<$Green\+Finger\+Customer\+Builder.\+h$>$}
+
+
+
+Inheritance diagram for Green\+Finger\+Customer\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{classGreenFingerCustomerBuilder__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Green\+Finger\+Customer\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{classGreenFingerCustomerBuilder__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGreenFingerCustomerBuilder_a396fbc6832159031058b09dff38b6ecc}{Green\+Finger\+Customer\+Builder}} (\mbox{\hyperlink{classGameConfiguraton}{Game\+Configuraton}} $\ast$config)
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{classGreenFingerCustomerBuilder}{Green\+Finger\+Customer\+Builder}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGreenFingerCustomerBuilder_a35e979a3910dd0befee9fc81ccb7c456}\label{classGreenFingerCustomerBuilder_a35e979a3910dd0befee9fc81ccb7c456}} 
+\mbox{\hyperlink{classGreenFingerCustomerBuilder_a35e979a3910dd0befee9fc81ccb7c456}{$\sim$\+Green\+Finger\+Customer\+Builder}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \mbox{\hyperlink{classGreenFingerCustomerBuilder}{Green\+Finger\+Customer\+Builder}} object. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classGreenFingerCustomerBuilder_a79c1b3834c41c78f41546899bb75f8aa}{get\+Random\+Element}} (const vector$<$ string $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Selects a random element from a string vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGreenFingerCustomerBuilder_ae207c7c729e89e10e26ae93cd482f307}\label{classGreenFingerCustomerBuilder_ae207c7c729e89e10e26ae93cd482f307}} 
+void {\bfseries build\+Name} (string n)
+\item 
+\mbox{\Hypertarget{classGreenFingerCustomerBuilder_a309b504e3c71b76e6f81e0a604e7d10c}\label{classGreenFingerCustomerBuilder_a309b504e3c71b76e6f81e0a604e7d10c}} 
+void {\bfseries build\+Intro\+Dialogue} (string i)
+\item 
+\mbox{\Hypertarget{classGreenFingerCustomerBuilder_aa38dedb8e7e678873a691b2eaa1134c7}\label{classGreenFingerCustomerBuilder_aa38dedb8e7e678873a691b2eaa1134c7}} 
+void {\bfseries build\+Preferences\+Dialogue} (string p)
+\item 
+\mbox{\Hypertarget{classGreenFingerCustomerBuilder_ac353eb749bbdd20e9bf2af76de5d2447}\label{classGreenFingerCustomerBuilder_ac353eb749bbdd20e9bf2af76de5d2447}} 
+void {\bfseries build\+Recommendations\+Dialogue} (string r)
+\item 
+\mbox{\Hypertarget{classGreenFingerCustomerBuilder_a55a313231c187f56227ebcbca825fbef}\label{classGreenFingerCustomerBuilder_a55a313231c187f56227ebcbca825fbef}} 
+void {\bfseries build\+Accept\+Dialogue} (string a)
+\item 
+\mbox{\Hypertarget{classGreenFingerCustomerBuilder_a8635171bda580e8070f2f51854f57c03}\label{classGreenFingerCustomerBuilder_a8635171bda580e8070f2f51854f57c03}} 
+void {\bfseries build\+Reject\+Dialogue} (string r)
+\item 
+\mbox{\Hypertarget{classGreenFingerCustomerBuilder_aa8368090924fc5410cc4d927c260ab93}\label{classGreenFingerCustomerBuilder_aa8368090924fc5410cc4d927c260ab93}} 
+void {\bfseries build\+Accept\+Exit\+Dialogue} (string a)
+\item 
+\mbox{\Hypertarget{classGreenFingerCustomerBuilder_af37552e28b63d6fb8856c3f0a971f34f}\label{classGreenFingerCustomerBuilder_af37552e28b63d6fb8856c3f0a971f34f}} 
+void {\bfseries build\+Reject\+Exit\+Dialogue} (string r)
+\item 
+\mbox{\Hypertarget{classGreenFingerCustomerBuilder_a78a1a6777e0d5f5217f45ed8b311415c}\label{classGreenFingerCustomerBuilder_a78a1a6777e0d5f5217f45ed8b311415c}} 
+void {\bfseries build\+Plant\+Options} (const vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \&plants)
+\item 
+vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classGreenFingerCustomerBuilder_ae4e99ada59ac5340a1770c62e884419d}{accept}} (\mbox{\hyperlink{classCustomerVisitor}{Customer\+Visitor}} \&visitor)
+\begin{DoxyCompactList}\small\item\em Accepts a visitor to provide plant recommendations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Concrete builder for constructing \mbox{\hyperlink{classGreenFingerCustomer}{Green\+Finger\+Customer}} objects with random dialogue selection. 
+
+Implements the \mbox{\hyperlink{classCustomerBuilder}{Customer\+Builder}} interface to create \mbox{\hyperlink{classGreenFingerCustomer}{Green\+Finger\+Customer}} instances with randomly selected dialogues from the JSON configuration. Uses the Builder pattern to separate customer construction from customer representation.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classCustomerBuilder}{Customer\+Builder}} 
+
+\mbox{\hyperlink{classGreenFingerCustomer}{Green\+Finger\+Customer}} 
+
+\mbox{\hyperlink{classDirector}{Director}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGreenFingerCustomerBuilder_a396fbc6832159031058b09dff38b6ecc}\label{classGreenFingerCustomerBuilder_a396fbc6832159031058b09dff38b6ecc}} 
+\index{GreenFingerCustomerBuilder@{GreenFingerCustomerBuilder}!GreenFingerCustomerBuilder@{GreenFingerCustomerBuilder}}
+\index{GreenFingerCustomerBuilder@{GreenFingerCustomerBuilder}!GreenFingerCustomerBuilder@{GreenFingerCustomerBuilder}}
+\doxysubsubsection{\texorpdfstring{GreenFingerCustomerBuilder()}{GreenFingerCustomerBuilder()}}
+{\footnotesize\ttfamily Green\+Finger\+Customer\+Builder\+::\+Green\+Finger\+Customer\+Builder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameConfiguraton}{Game\+Configuraton}} $\ast$}]{config }\end{DoxyParamCaption})}
+
+
+
+Constructs a new \mbox{\hyperlink{classGreenFingerCustomerBuilder}{Green\+Finger\+Customer\+Builder}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & Pointer to the game configuration containing customer data \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGreenFingerCustomerBuilder_ae4e99ada59ac5340a1770c62e884419d}\label{classGreenFingerCustomerBuilder_ae4e99ada59ac5340a1770c62e884419d}} 
+\index{GreenFingerCustomerBuilder@{GreenFingerCustomerBuilder}!accept@{accept}}
+\index{accept@{accept}!GreenFingerCustomerBuilder@{GreenFingerCustomerBuilder}}
+\doxysubsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ Green\+Finger\+Customer\+Builder\+::accept (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomerVisitor}{Customer\+Visitor}} \&}]{visitor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Accepts a visitor to provide plant recommendations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em visitor} & Reference to the \mbox{\hyperlink{classCustomerVisitor}{Customer\+Visitor}} that will recommend plants \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of \mbox{\hyperlink{classPlant}{Plant}} pointers recommended by the visitor
+\end{DoxyReturn}
+Implements the Visitor pattern to allow different plant recommendation strategies to be applied to the greenfinger customer being built. 
+
+Implements \mbox{\hyperlink{classCustomerBuilder_a66d3f47a67c295e8b161c7b2bac5da8f}{Customer\+Builder}}.
+
+\mbox{\Hypertarget{classGreenFingerCustomerBuilder_a79c1b3834c41c78f41546899bb75f8aa}\label{classGreenFingerCustomerBuilder_a79c1b3834c41c78f41546899bb75f8aa}} 
+\index{GreenFingerCustomerBuilder@{GreenFingerCustomerBuilder}!getRandomElement@{getRandomElement}}
+\index{getRandomElement@{getRandomElement}!GreenFingerCustomerBuilder@{GreenFingerCustomerBuilder}}
+\doxysubsubsection{\texorpdfstring{getRandomElement()}{getRandomElement()}}
+{\footnotesize\ttfamily string Green\+Finger\+Customer\+Builder\+::get\+Random\+Element (\begin{DoxyParamCaption}\item[{const vector$<$ string $>$ \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Selects a random element from a string vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vector of strings to select from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Randomly selected string, or empty string if vector is empty 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/customer/\mbox{\hyperlink{GreenFingerCustomerBuilder_8h}{Green\+Finger\+Customer\+Builder.\+h}}\item 
+backend/customer/\mbox{\hyperlink{GreenFingerCustomerBuilder_8cpp}{Green\+Finger\+Customer\+Builder.\+cpp}}\end{DoxyCompactItemize}

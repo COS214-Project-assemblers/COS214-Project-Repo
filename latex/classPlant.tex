@@ -1,0 +1,479 @@
+\hypertarget{classPlant}{}\doxysection{Plant Class Reference}
+\label{classPlant}\index{Plant@{Plant}}
+
+
+Abstract base class representing a plant entity in the greenhouse simulation.  
+
+
+
+
+{\ttfamily \#include $<$Plant.\+h$>$}
+
+
+
+Inheritance diagram for Plant\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{classPlant__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Plant\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=150pt]{classPlant__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlant_acebbf19547e2c79b1a7aca0131520185}{Plant}} (string category, string variety, string difficulty)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classPlant}{Plant}} object with the specified category and variety and difficulty. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlant_ac37031052d6510e42f5bda39db6373cb}{Plant}} (const \mbox{\hyperlink{classPlant}{Plant}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy constructor used for the Prototype design pattern. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_a85df291c490d3482c099192cb59b0f09}\label{classPlant_a85df291c490d3482c099192cb59b0f09}} 
+\mbox{\hyperlink{classPlant}{Plant}} \& {\bfseries operator=} (const \mbox{\hyperlink{classPlant}{Plant}} \&)=delete
+\item 
+\mbox{\Hypertarget{classPlant_a3d93139647096c3d5f5bd05a3d8ef376}\label{classPlant_a3d93139647096c3d5f5bd05a3d8ef376}} 
+{\bfseries Plant} (\mbox{\hyperlink{classPlant}{Plant}} \&\&)=default
+\item 
+\mbox{\Hypertarget{classPlant_a27fb2bc6d30cb08f41acba7f0b76ed6a}\label{classPlant_a27fb2bc6d30cb08f41acba7f0b76ed6a}} 
+\mbox{\hyperlink{classPlant}{Plant}} \& {\bfseries operator=} (\mbox{\hyperlink{classPlant}{Plant}} \&\&)=default
+\item 
+virtual \mbox{\hyperlink{classPlant_ab0effb2b143e6da7b65ebd13a3b1fc29}{$\sim$\+Plant}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor to ensure proper cleanup in derived classes. NOTE -\/ Additional Clean Up functionality for Thread Behaviour\+: \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classPlant_a1aad1743d1921023773c939e8713c84a}{clone}} ()=0
+\begin{DoxyCompactList}\small\item\em Creates and returns a clone of the current \mbox{\hyperlink{classPlant}{Plant}} instance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_ad73415c73e3d35066bdd7bf49fb5b9df}\label{classPlant_ad73415c73e3d35066bdd7bf49fb5b9df}} 
+string {\bfseries get\+Care\+Level} ()
+\item 
+string \mbox{\hyperlink{classPlant_a7b693b6d7fcf749087c183e432701e86}{get\+Plant\+Category}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the category of the plant. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classPlant_ace2e0eb020fd856c23d4ac2d5a02205a}{get\+Plant\+Variety}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the variety of the plant. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlant_aad3987f73bec0e7de876a8b681a6480a}{get\+Cost\+Price}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the purchase cost of the plant. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classPlant_abb1eb433a4f18c79da765a0e5bf2e32e}{get\+Sale\+Price}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the selling price of the plant. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classPlant_a63e7296ada16f9b9a0563de153b666a7}{get\+Difficulty}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the difficulty level of caring for the plant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_ab82a69fbc1df746afd1b0ef9a4417f1b}{display}} ()
+\begin{DoxyCompactList}\small\item\em Displays the plant’s details to the console for testing and debugging. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ \mbox{\hyperlink{classPlant_a2151ec6381e0f01e5a34cf4ea156995c}{get\+State}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current state of the plant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_ac9e7122ad82334e49b6df6c09e69fb07}\label{classPlant_ac9e7122ad82334e49b6df6c09e69fb07}} 
+string {\bfseries get\+State\+As\+String} ()
+\item 
+void \mbox{\hyperlink{classPlant_a618b7b65c369af20208bcd5d6b480a18}{attach}} (\mbox{\hyperlink{classGreenhouseStaff}{Greenhouse\+Staff}} $\ast$ob)
+\begin{DoxyCompactList}\small\item\em Attaches a greenhouse staff observer to this plant. Adds a staff member to the observer list so they will be notified when the plant requires care. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_af05c3a7e9ea81b53f83a06ae871470bc}{detach}} (\mbox{\hyperlink{classGreenhouseStaff}{Greenhouse\+Staff}} $\ast$ob)
+\begin{DoxyCompactList}\small\item\em Detaches a greenhouse staff observer from this plant. Removes a staff member from the observer list so they will no longer be notified about this plant\textquotesingle{}s care requirements. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_abf9111d1a080db14d9a500b3f731c3f4}{notify}} (const string \&care\+Type)
+\begin{DoxyCompactList}\small\item\em Notifies all attached observers about the plant\textquotesingle{}s care needs. Iterates through the observer list and calls update() on each staff member, informing them about the required care type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_aef28698db4d54349bad45cbbf70354c4}\label{classPlant_aef28698db4d54349bad45cbbf70354c4}} 
+string {\bfseries get\+Care\+Type} ()
+\item 
+void \mbox{\hyperlink{classPlant_a779c60c37956bd2e6d369e94528aae70}{set\+State}} (\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$plant\+State)
+\begin{DoxyCompactList}\small\item\em Sets a new state for the plant. Transitions the plant to a new state, following the State pattern. The previous state is deleted and replaced with the new state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_a23d00b089c9b7fdf284d5a5e35fea1bd}\label{classPlant_a23d00b089c9b7fdf284d5a5e35fea1bd}} 
+void \mbox{\hyperlink{classPlant_a23d00b089c9b7fdf284d5a5e35fea1bd}{request}} ()
+\begin{DoxyCompactList}\small\item\em Requests the plant\textquotesingle{}s state to handle its current behaviour. Delegates behaviour to the current \mbox{\hyperlink{classPlantState}{Plant\+State}} by calling its handle() method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_af0e246520db29c397a103d32dd77dfe9}\label{classPlant_af0e246520db29c397a103d32dd77dfe9}} 
+void \mbox{\hyperlink{classPlant_af0e246520db29c397a103d32dd77dfe9}{start}} ()
+\begin{DoxyCompactList}\small\item\em Starts the background thread that manages the plant’s lifecycle. Launches the thread running the {\ttfamily \mbox{\hyperlink{classPlant_a0c2a4513ef389b460118478b657726c6}{run()}}} method, which periodically decays the plant\textquotesingle{}s health attributes and triggers observer notifications when care is needed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_a010866e8c4abb9e1cf07fc04053ce8ba}\label{classPlant_a010866e8c4abb9e1cf07fc04053ce8ba}} 
+void \mbox{\hyperlink{classPlant_a010866e8c4abb9e1cf07fc04053ce8ba}{join}} ()
+\begin{DoxyCompactList}\small\item\em Waits for the background thread to finish execution. Ensures that any running thread is safely joined before object destruction, preventing undefined behaviour or resource leaks. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_a0fd65b3637257e2044c5c9baa6e999a8}\label{classPlant_a0fd65b3637257e2044c5c9baa6e999a8}} 
+void \mbox{\hyperlink{classPlant_a0fd65b3637257e2044c5c9baa6e999a8}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Signals the plant\textquotesingle{}s background thread to stop execution. Sets the {\ttfamily alive} flag to false, allowing the {\ttfamily \mbox{\hyperlink{classPlant_a0c2a4513ef389b460118478b657726c6}{run()}}} loop to terminate gracefully. Typically followed by a call to {\ttfamily \mbox{\hyperlink{classPlant_a010866e8c4abb9e1cf07fc04053ce8ba}{join()}}} to ensure the thread fully exits. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_a0c2a4513ef389b460118478b657726c6}\label{classPlant_a0c2a4513ef389b460118478b657726c6}} 
+void \mbox{\hyperlink{classPlant_a0c2a4513ef389b460118478b657726c6}{run}} ()
+\begin{DoxyCompactList}\small\item\em Main loop executed by the plant’s background thread. Periodically decreases water, fertilizer, and pruning values (simulating decay). If any health parameter falls below a threshold, notifies greenhouse staff observers. Continues running until the plant dies or {\ttfamily \mbox{\hyperlink{classPlant_a0fd65b3637257e2044c5c9baa6e999a8}{stop()}}} is called. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classHealth}{Health}} $\ast$ \mbox{\hyperlink{classPlant_a98b534a551926f210030e7192c59c11e}{get\+Health}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the \mbox{\hyperlink{classHealth}{Health}} object associated with this plant. This allows the greenhouse staff to make use of the appropriate handle functions in the \mbox{\hyperlink{classHealth}{Health}} \mbox{\hyperlink{classClass}{Class}}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classPlant_a1d738e8a426b183463a89b007439358b}{health\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Computes the plant’s overall health score. The score is calculated as the sum of normalized water, fertilizer, and pruning values. A lower score indicates declining health. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_a9f10a9ac98b7de0e7d2c7d89c998e3b1}\label{classPlant_a9f10a9ac98b7de0e7d2c7d89c998e3b1}} 
+void {\bfseries set\+Socket} (\mbox{\hyperlink{classGreenSock}{Green\+Sock}} $\ast$sock)
+\item 
+\mbox{\Hypertarget{classPlant_abe74d727d76d2a968cc3184d044472ed}\label{classPlant_abe74d727d76d2a968cc3184d044472ed}} 
+void {\bfseries alert} (string \&care\+Type, \mbox{\hyperlink{classGreenSock}{Green\+Sock}} $\ast$sock)
+\item 
+\mbox{\Hypertarget{classPlant_adaf52f80e8c8b883c237e06770a654df}\label{classPlant_adaf52f80e8c8b883c237e06770a654df}} 
+bool {\bfseries is\+Sellable} ()
+\item 
+\mbox{\Hypertarget{classPlant_a7d9d023dc0ee4543ac8f631d40acbf09}\label{classPlant_a7d9d023dc0ee4543ac8f631d40acbf09}} 
+string \mbox{\hyperlink{classPlant_a7d9d023dc0ee4543ac8f631d40acbf09}{get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Getter for plant ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlant_ab2065518721f80a2b56aa8dc3c0f2d0f}{set\+Returnable}} (bool returnable)
+\begin{DoxyCompactList}\small\item\em Sets whether the plant is returnable by customers. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlant_a4028274c5dd1549cde067d46e0694d08}{is\+Returnable}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the plant is returnable by customers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_ab0556dc49becc291bc83e9aebad9e103}\label{classPlant_ab0556dc49becc291bc83e9aebad9e103}} 
+void {\bfseries generate\+Id} ()
+\item 
+\mbox{\Hypertarget{classPlant_add0b4c313e6f0c761683bcf167b4e8da}\label{classPlant_add0b4c313e6f0c761683bcf167b4e8da}} 
+void \mbox{\hyperlink{classPlant_add0b4c313e6f0c761683bcf167b4e8da}{new\+Plant\+Log}} (string message)
+\begin{DoxyCompactList}\small\item\em Adds specific plant log message, includes plant ID. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_a537e75b14f1c85feec083b9ed0c294fe}\label{classPlant_a537e75b14f1c85feec083b9ed0c294fe}} 
+void {\bfseries set\+Acceptable} (bool acceptable)
+\item 
+bool \mbox{\hyperlink{classPlant_a9285ed31fd88135044fe861c1958656f}{is\+Acceptable}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the plant is acceptable to customers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_a3d4b511d758d0f8762aa627ff5e11fe0}\label{classPlant_a3d4b511d758d0f8762aa627ff5e11fe0}} 
+string {\bfseries get\+Water\+Level} ()
+\item 
+\mbox{\Hypertarget{classPlant_aa59d0eaac86a713a1db63a886b7e1b85}\label{classPlant_aa59d0eaac86a713a1db63a886b7e1b85}} 
+string {\bfseries get\+Fertilizer\+Level} ()
+\item 
+\mbox{\Hypertarget{classPlant_a35553b2053db1b9af899c2b65f3aa6dc}\label{classPlant_a35553b2053db1b9af899c2b65f3aa6dc}} 
+string {\bfseries get\+Pruning\+Level} ()
+\item 
+\mbox{\Hypertarget{classPlant_a60507dd7fb25cc20d02b2ba1b7f74ef7}\label{classPlant_a60507dd7fb25cc20d02b2ba1b7f74ef7}} 
+void {\bfseries queue\+Notify} (string task)
+\item 
+\mbox{\Hypertarget{classPlant_a05d28fbd4d1abf1cf3019a7b1dd2b40b}\label{classPlant_a05d28fbd4d1abf1cf3019a7b1dd2b40b}} 
+void {\bfseries queue\+Prune} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classPlant_ac4aed3b395a27bb49a44d73bba22c889}{set\+Plant\+Costs}} (map$<$ string, vector$<$ int $>$$>$ plant\+Costs)
+\begin{DoxyCompactList}\small\item\em Static method to set static member variable plant\+Costs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_a9e6a96ad28213db7ea37053bee172b13}\label{classPlant_a9e6a96ad28213db7ea37053bee172b13}} 
+static void \mbox{\hyperlink{classPlant_a9e6a96ad28213db7ea37053bee172b13}{stub\+Plant}} ()
+\begin{DoxyCompactList}\small\item\em Used to stub plant\+Costs static variable when testing plants without creating game, ensuring that there are no invalid reads, variable instantiated before use. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_a741dcd448fb528a57520bad96d66ecc2}\label{classPlant_a741dcd448fb528a57520bad96d66ecc2}} 
+static map$<$ string, vector$<$ int $>$ $>$ \mbox{\hyperlink{classPlant_a741dcd448fb528a57520bad96d66ecc2}{get\+Plant\+Costs}} ()
+\begin{DoxyCompactList}\small\item\em return plant\+Costs for testing purposes \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_aabc8e809ff50b9fcdc7b00d2cfc0e904}\label{classPlant_aabc8e809ff50b9fcdc7b00d2cfc0e904}} 
+static void \mbox{\hyperlink{classPlant_aabc8e809ff50b9fcdc7b00d2cfc0e904}{set\+Logger}} (\mbox{\hyperlink{classLogger}{Logger}} $\ast$logger)
+\begin{DoxyCompactList}\small\item\em Setter for logger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlant_a99dfe38c8e0be9c0877f295981982127}\label{classPlant_a99dfe38c8e0be9c0877f295981982127}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHealth}{Health}} $>$ \mbox{\hyperlink{classPlant_a99dfe38c8e0be9c0877f295981982127}{health}}
+\begin{DoxyCompactList}\small\item\em Pointer to the \mbox{\hyperlink{classHealth}{Health}} component representing the plant’s overall well-\/being. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlant_a1a66ff75def0bd88016949196b114658}\label{classPlant_a1a66ff75def0bd88016949196b114658}} 
+\mbox{\hyperlink{classGreenSock}{Green\+Sock}} $\ast$ {\bfseries socket} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class representing a plant entity in the greenhouse simulation. 
+
+This class serves as the foundation for all specific plant types (e.\+g., \mbox{\hyperlink{classSucculent}{Succulent}}, \mbox{\hyperlink{classFlower}{Flower}}, \mbox{\hyperlink{classTree}{Tree}}). It provides common attributes such as category, variety, pricing, and state management, and defines an interface for cloning and observer interaction. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPlant_acebbf19547e2c79b1a7aca0131520185}\label{classPlant_acebbf19547e2c79b1a7aca0131520185}} 
+\index{Plant@{Plant}!Plant@{Plant}}
+\index{Plant@{Plant}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{Plant()}{Plant()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Plant\+::\+Plant (\begin{DoxyParamCaption}\item[{string}]{category,  }\item[{string}]{variety,  }\item[{string}]{difficulty }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classPlant}{Plant}} object with the specified category and variety and difficulty. 
+
+Used as a base constructor for all specific \mbox{\hyperlink{classPlant}{Plant}} subclasses. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em category} & The general category of the plant. \\
+\hline
+\mbox{\texttt{ in}}  & {\em variety} & The specific variety within that category. \\
+\hline
+\mbox{\texttt{ in}}  & {\em difficulty} & The difficulty level of caring for the plant. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPlant_memory_management}{}\doxysubsection{Thread-\/related Memory Management}\label{classPlant_memory_management}
+The Dynamic \mbox{\hyperlink{classHealth}{Health}} Attribute should only be Created in the concrete Products because, the type of plant determines how much water/fertilizer/pruning is required \mbox{\Hypertarget{classPlant_ac37031052d6510e42f5bda39db6373cb}\label{classPlant_ac37031052d6510e42f5bda39db6373cb}} 
+\index{Plant@{Plant}!Plant@{Plant}}
+\index{Plant@{Plant}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{Plant()}{Plant()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Plant\+::\+Plant (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classPlant}{Plant}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Copy constructor used for the Prototype design pattern. 
+
+Enables cloning of existing \mbox{\hyperlink{classPlant}{Plant}} objects. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em original} & Reference to the \mbox{\hyperlink{classPlant}{Plant}} object being duplicated. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_ab0effb2b143e6da7b65ebd13a3b1fc29}\label{classPlant_ab0effb2b143e6da7b65ebd13a3b1fc29}} 
+\index{Plant@{Plant}!````~Plant@{$\sim$Plant}}
+\index{````~Plant@{$\sim$Plant}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{$\sim$Plant()}{~Plant()}}
+{\footnotesize\ttfamily Plant\+::$\sim$\+Plant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Virtual destructor to ensure proper cleanup in derived classes. NOTE -\/ Additional Clean Up functionality for Thread Behaviour\+: 
+
+
+\begin{DoxyItemize}
+\item Deletes the dynamically allocated \mbox{\hyperlink{classHealth}{Health}} object.
+\item Safely stops and joins the internal background thread to prevent dangling execution. 
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlant_a618b7b65c369af20208bcd5d6b480a18}\label{classPlant_a618b7b65c369af20208bcd5d6b480a18}} 
+\index{Plant@{Plant}!attach@{attach}}
+\index{attach@{attach}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}}
+{\footnotesize\ttfamily void Plant\+::attach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGreenhouseStaff}{Greenhouse\+Staff}} $\ast$}]{ob }\end{DoxyParamCaption})}
+
+
+
+Attaches a greenhouse staff observer to this plant. Adds a staff member to the observer list so they will be notified when the plant requires care. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ob} & Pointer to the \mbox{\hyperlink{classGreenhouseStaff}{Greenhouse\+Staff}} observer to attach \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_a1aad1743d1921023773c939e8713c84a}\label{classPlant_a1aad1743d1921023773c939e8713c84a}} 
+\index{Plant@{Plant}!clone@{clone}}
+\index{clone@{clone}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classPlant}{Plant}}$\ast$ Plant\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates and returns a clone of the current \mbox{\hyperlink{classPlant}{Plant}} instance. 
+
+This pure virtual function must be implemented by all derived classes. \begin{DoxyReturn}{Returns}
+A pointer to the newly cloned \mbox{\hyperlink{classPlant}{Plant}} object. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classTree_a3201646959795323c5ff93f8facbf49f}{Tree}}, \mbox{\hyperlink{classSucculent_a5a5836ebd75b9bb3488ba9510cd2144c}{Succulent}}, and \mbox{\hyperlink{classFlower_a96a4360e9aaf75dbf5717eff9e88f8bd}{Flower}}.
+
+\mbox{\Hypertarget{classPlant_af05c3a7e9ea81b53f83a06ae871470bc}\label{classPlant_af05c3a7e9ea81b53f83a06ae871470bc}} 
+\index{Plant@{Plant}!detach@{detach}}
+\index{detach@{detach}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{detach()}{detach()}}
+{\footnotesize\ttfamily void Plant\+::detach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGreenhouseStaff}{Greenhouse\+Staff}} $\ast$}]{ob }\end{DoxyParamCaption})}
+
+
+
+Detaches a greenhouse staff observer from this plant. Removes a staff member from the observer list so they will no longer be notified about this plant\textquotesingle{}s care requirements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ob} & Pointer to the \mbox{\hyperlink{classGreenhouseStaff}{Greenhouse\+Staff}} observer to detach \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_ab82a69fbc1df746afd1b0ef9a4417f1b}\label{classPlant_ab82a69fbc1df746afd1b0ef9a4417f1b}} 
+\index{Plant@{Plant}!display@{display}}
+\index{display@{display}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void Plant\+::display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the plant’s details to the console for testing and debugging. 
+
+This method is intended for validation and developer testing purposes only. \mbox{\Hypertarget{classPlant_aad3987f73bec0e7de876a8b681a6480a}\label{classPlant_aad3987f73bec0e7de876a8b681a6480a}} 
+\index{Plant@{Plant}!getCostPrice@{getCostPrice}}
+\index{getCostPrice@{getCostPrice}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getCostPrice()}{getCostPrice()}}
+{\footnotesize\ttfamily int Plant\+::get\+Cost\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the purchase cost of the plant. 
+
+\begin{DoxyReturn}{Returns}
+The cost price as an integer value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a63e7296ada16f9b9a0563de153b666a7}\label{classPlant_a63e7296ada16f9b9a0563de153b666a7}} 
+\index{Plant@{Plant}!getDifficulty@{getDifficulty}}
+\index{getDifficulty@{getDifficulty}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getDifficulty()}{getDifficulty()}}
+{\footnotesize\ttfamily std\+::string Plant\+::get\+Difficulty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the difficulty level of caring for the plant. 
+
+\begin{DoxyReturn}{Returns}
+The difficulty level as a string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a98b534a551926f210030e7192c59c11e}\label{classPlant_a98b534a551926f210030e7192c59c11e}} 
+\index{Plant@{Plant}!getHealth@{getHealth}}
+\index{getHealth@{getHealth}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getHealth()}{getHealth()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classHealth}{Health}} $\ast$ Plant\+::get\+Health (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the \mbox{\hyperlink{classHealth}{Health}} object associated with this plant. This allows the greenhouse staff to make use of the appropriate handle functions in the \mbox{\hyperlink{classHealth}{Health}} \mbox{\hyperlink{classClass}{Class}}. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the plant’s \mbox{\hyperlink{classHealth}{Health}} component. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a7b693b6d7fcf749087c183e432701e86}\label{classPlant_a7b693b6d7fcf749087c183e432701e86}} 
+\index{Plant@{Plant}!getPlantCategory@{getPlantCategory}}
+\index{getPlantCategory@{getPlantCategory}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getPlantCategory()}{getPlantCategory()}}
+{\footnotesize\ttfamily string Plant\+::get\+Plant\+Category (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the category of the plant. 
+
+\begin{DoxyReturn}{Returns}
+The category name as a string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_ace2e0eb020fd856c23d4ac2d5a02205a}\label{classPlant_ace2e0eb020fd856c23d4ac2d5a02205a}} 
+\index{Plant@{Plant}!getPlantVariety@{getPlantVariety}}
+\index{getPlantVariety@{getPlantVariety}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getPlantVariety()}{getPlantVariety()}}
+{\footnotesize\ttfamily string Plant\+::get\+Plant\+Variety (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the variety of the plant. 
+
+\begin{DoxyReturn}{Returns}
+The variety name as a string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_abb1eb433a4f18c79da765a0e5bf2e32e}\label{classPlant_abb1eb433a4f18c79da765a0e5bf2e32e}} 
+\index{Plant@{Plant}!getSalePrice@{getSalePrice}}
+\index{getSalePrice@{getSalePrice}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getSalePrice()}{getSalePrice()}}
+{\footnotesize\ttfamily float Plant\+::get\+Sale\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the selling price of the plant. 
+
+\begin{DoxyReturn}{Returns}
+The sale price as an integer value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a2151ec6381e0f01e5a34cf4ea156995c}\label{classPlant_a2151ec6381e0f01e5a34cf4ea156995c}} 
+\index{Plant@{Plant}!getState@{getState}}
+\index{getState@{getState}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ Plant\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current state of the plant. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the current \mbox{\hyperlink{classPlantState}{Plant\+State}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a1d738e8a426b183463a89b007439358b}\label{classPlant_a1d738e8a426b183463a89b007439358b}} 
+\index{Plant@{Plant}!healthScore@{healthScore}}
+\index{healthScore@{healthScore}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{healthScore()}{healthScore()}}
+{\footnotesize\ttfamily float Plant\+::health\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Computes the plant’s overall health score. The score is calculated as the sum of normalized water, fertilizer, and pruning values. A lower score indicates declining health. 
+
+\begin{DoxyReturn}{Returns}
+A floating-\/point value representing the plant’s current health. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a9285ed31fd88135044fe861c1958656f}\label{classPlant_a9285ed31fd88135044fe861c1958656f}} 
+\index{Plant@{Plant}!isAcceptable@{isAcceptable}}
+\index{isAcceptable@{isAcceptable}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{isAcceptable()}{isAcceptable()}}
+{\footnotesize\ttfamily bool Plant\+::is\+Acceptable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the plant is acceptable to customers. 
+
+\begin{DoxyReturn}{Returns}
+True if the plant is acceptable, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_a4028274c5dd1549cde067d46e0694d08}\label{classPlant_a4028274c5dd1549cde067d46e0694d08}} 
+\index{Plant@{Plant}!isReturnable@{isReturnable}}
+\index{isReturnable@{isReturnable}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{isReturnable()}{isReturnable()}}
+{\footnotesize\ttfamily bool Plant\+::is\+Returnable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the plant is returnable by customers. 
+
+\begin{DoxyReturn}{Returns}
+True if the plant is returnable, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_abf9111d1a080db14d9a500b3f731c3f4}\label{classPlant_abf9111d1a080db14d9a500b3f731c3f4}} 
+\index{Plant@{Plant}!notify@{notify}}
+\index{notify@{notify}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{notify()}{notify()}}
+{\footnotesize\ttfamily void Plant\+::notify (\begin{DoxyParamCaption}\item[{const string \&}]{care\+Type }\end{DoxyParamCaption})}
+
+
+
+Notifies all attached observers about the plant\textquotesingle{}s care needs. Iterates through the observer list and calls update() on each staff member, informing them about the required care type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em care\+Type} & The type of care the plant requires \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_ac4aed3b395a27bb49a44d73bba22c889}\label{classPlant_ac4aed3b395a27bb49a44d73bba22c889}} 
+\index{Plant@{Plant}!setPlantCosts@{setPlantCosts}}
+\index{setPlantCosts@{setPlantCosts}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{setPlantCosts()}{setPlantCosts()}}
+{\footnotesize\ttfamily void Plant\+::set\+Plant\+Costs (\begin{DoxyParamCaption}\item[{map$<$ string, vector$<$ int $>$$>$}]{plant\+Costs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Static method to set static member variable plant\+Costs. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plant\+Costs} & maps the plant variety to it\textquotesingle{}s integer price \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_ab2065518721f80a2b56aa8dc3c0f2d0f}\label{classPlant_ab2065518721f80a2b56aa8dc3c0f2d0f}} 
+\index{Plant@{Plant}!setReturnable@{setReturnable}}
+\index{setReturnable@{setReturnable}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{setReturnable()}{setReturnable()}}
+{\footnotesize\ttfamily void Plant\+::set\+Returnable (\begin{DoxyParamCaption}\item[{bool}]{returnable }\end{DoxyParamCaption})}
+
+
+
+Sets whether the plant is returnable by customers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em returnable} & Boolean indicating if the plant is returnable. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlant_a779c60c37956bd2e6d369e94528aae70}\label{classPlant_a779c60c37956bd2e6d369e94528aae70}} 
+\index{Plant@{Plant}!setState@{setState}}
+\index{setState@{setState}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void Plant\+::set\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$}]{plant\+State }\end{DoxyParamCaption})}
+
+
+
+Sets a new state for the plant. Transitions the plant to a new state, following the State pattern. The previous state is deleted and replaced with the new state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant\+State} & Pointer to the new \mbox{\hyperlink{classPlantState}{Plant\+State}} to set \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/plant/\mbox{\hyperlink{Plant_8h}{Plant.\+h}}\item 
+backend/plant/\mbox{\hyperlink{Plant_8cpp}{Plant.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="backend/API/APIDto.h" name="backend/API/APIDto.h">
+<area shape="rect" id="node1" title="Define Data Transfer Objects to serialize/deserialize objects in requests." alt="" coords="33,5,194,32"/>
+<area shape="rect" id="node2" href="$APIController_8h.html" title="Define endpoints." alt="" coords="13,80,214,107"/>
+<area shape="rect" id="node3" href="$APIController_8cpp.html" title="Still need to see what going to do here." alt="" coords="5,155,221,181"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="PlantDied" name="PlantDied">
+<area shape="rect" id="node1" title="Will handle the transaction as if a plant died after it was not cared for properly." alt="" coords="38,80,123,107"/>
+<area shape="rect" id="node2" href="$classTransactionStrategy.html" title="The TransactionStrategy class an abstract class that will help define how transactions will be handel..." alt="" coords="5,5,156,32"/>
+</map>

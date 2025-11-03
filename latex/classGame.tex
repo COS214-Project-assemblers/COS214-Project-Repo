@@ -1,0 +1,237 @@
+\hypertarget{classGame}{}\doxysection{Game Class Reference}
+\label{classGame}\index{Game@{Game}}
+
+
+The \mbox{\hyperlink{classGame}{Game}} class represents the internal \mbox{\hyperlink{classAPI}{API}} of the system. It is modelled in terms of the Facade design pattern.  
+
+
+
+
+{\ttfamily \#include $<$Game.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_a041137bfc85419ee7b7b213581bd5559}\label{classGame_a041137bfc85419ee7b7b213581bd5559}} 
+\mbox{\hyperlink{classGame_a041137bfc85419ee7b7b213581bd5559}{Game}} (string config\+Path)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classGame}{Game}} initialization tasks that are not creating/loading game. Wil problably init DB connection etc here. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a5d311d7c7038d951c0162a2572ca0a5e}{set\+Greenhouse}} (\mbox{\hyperlink{classGreenhouse}{Greenhouse}} $\ast$greenhouse)
+\begin{DoxyCompactList}\small\item\em Setter for greenhouse attribute. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_ab4b43027d3d7299e5b61e9fcb07df186}\label{classGame_ab4b43027d3d7299e5b61e9fcb07df186}} 
+\mbox{\hyperlink{classGreenhouse}{Greenhouse}} $\ast$ \mbox{\hyperlink{classGame_ab4b43027d3d7299e5b61e9fcb07df186}{get\+Greenhouse}} ()
+\begin{DoxyCompactList}\small\item\em Getter for testing purposes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a7359a2e7ec517cd29012adbb21587d41}{set\+Factories}} (map$<$ string, \mbox{\hyperlink{classPlantCreator}{Plant\+Creator}} $\ast$ $>$ factories)
+\begin{DoxyCompactList}\small\item\em Setter for factories. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_a1e843356ddcf3de40aee7de24ba7642c}\label{classGame_a1e843356ddcf3de40aee7de24ba7642c}} 
+map$<$ string, \mbox{\hyperlink{classPlantCreator}{Plant\+Creator}} $\ast$ $>$ \mbox{\hyperlink{classGame_a1e843356ddcf3de40aee7de24ba7642c}{get\+Factories}} ()
+\begin{DoxyCompactList}\small\item\em Getter for testing purposes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_a5927ecb0ccddd93022fc922d530fd616}\label{classGame_a5927ecb0ccddd93022fc922d530fd616}} 
+void \mbox{\hyperlink{classGame_a5927ecb0ccddd93022fc922d530fd616}{create\+New\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Operations associated with creating a new game, i.\+e. creating greenhouse and factories. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a47ad90ac9f5993990381529e684ae435}{buy\+Plants}} (string plant, int num)
+\begin{DoxyCompactList}\small\item\em This is used by the user to be able to buy plants to add to the \mbox{\hyperlink{classGreenhouse}{Greenhouse}}. Uses Factory Method pattern to find correct plant creator and Prototype pattern to clone plants. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_a9337573762b19948f4164a4f0b760708}\label{classGame_a9337573762b19948f4164a4f0b760708}} 
+void \mbox{\hyperlink{classGame_a9337573762b19948f4164a4f0b760708}{load\+Existing\+Game}} ()
+\begin{DoxyCompactList}\small\item\em loads greenhouse and factories from DB \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a9f7ad0384767e46fa072891c123b7d9c}{save\+Game}} ()
+\item 
+\mbox{\Hypertarget{classGame_ae3d112ca6e0e55150d2fdbc704474530}\label{classGame_ae3d112ca6e0e55150d2fdbc704474530}} 
+\mbox{\hyperlink{classGame_ae3d112ca6e0e55150d2fdbc704474530}{$\sim$\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Frees greenhouse, plant creators memory. Closes DB connection. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classGame_ac9217e3f6c08a800cb004f274f2e1875}{get\+Category\+For\+Variety}} (string variety)
+\begin{DoxyCompactList}\small\item\em Helper method to get category for a plant variety. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classCustomer}{Customer}} $\ast$ $>$ \mbox{\hyperlink{classGame_a9c7657d220a66e1d7e49363182484f0f}{get\+Customers}} ()
+\begin{DoxyCompactList}\small\item\em Getter for customers vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a61aafc0f78b5e13fe6ed6ddb4bdaf21e}{create\+Customers}} (string type, int num)
+\begin{DoxyCompactList}\small\item\em Creates and adds customers to the game. \end{DoxyCompactList}\item 
+map$<$ string, map$<$ string, vector$<$ string $>$ $>$ $>$ \mbox{\hyperlink{classGame_a13cd4b0313a65ae56e72b1230f9c3fd0}{get\+Available\+Customer\+Types}} ()
+\begin{DoxyCompactList}\small\item\em Get available customer types from configuration. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classGame_a5436d9b0fdc13ddbc7623bbe38219880}{get\+Customers\+As\+Json}} ()
+\begin{DoxyCompactList}\small\item\em Get all customers as a JSON array string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_ab463d0edd5549a0d46b09f28dc2a9246}\label{classGame_ab463d0edd5549a0d46b09f28dc2a9246}} 
+vector$<$ \mbox{\hyperlink{structPlantStruct}{Plant\+Struct}} $\ast$ $>$ {\bfseries get\+Available\+Plant\+Varieties} ()
+\item 
+\mbox{\Hypertarget{classGame_ad1945c922f49185fe91abdfb9faa4c07}\label{classGame_ad1945c922f49185fe91abdfb9faa4c07}} 
+void \mbox{\hyperlink{classGame_ad1945c922f49185fe91abdfb9faa4c07}{exit\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Exits game gracefully, atp it is just logging that the user opted to end the game, but if the game were to scale this would obviously contain crucial shutdown steps. No mem is freed since the destructor of the \mbox{\hyperlink{classGame}{Game}} will be called when it is deleted in mem. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_a2f6415bb2e0fa700fdf3ed9e472dcfb0}\label{classGame_a2f6415bb2e0fa700fdf3ed9e472dcfb0}} 
+void {\bfseries set\+Manager} (\mbox{\hyperlink{classManager}{Manager}} $\ast$m)
+\item 
+\mbox{\Hypertarget{classGame_ad7d7254abc3f22eb9e5040eaccaf2a4b}\label{classGame_ad7d7254abc3f22eb9e5040eaccaf2a4b}} 
+\mbox{\hyperlink{classManager}{Manager}} $\ast$ {\bfseries get\+Manager} ()
+\item 
+\mbox{\Hypertarget{classGame_a4d6ea1fbec4d7273233ae32a3a7ce5e2}\label{classGame_a4d6ea1fbec4d7273233ae32a3a7ce5e2}} 
+float {\bfseries get\+Game\+Balance} ()
+\item 
+\mbox{\Hypertarget{classGame_aa23b91bf250ac6425a4b70dc7f248736}\label{classGame_aa23b91bf250ac6425a4b70dc7f248736}} 
+void {\bfseries set\+Socket} (\mbox{\hyperlink{classGreenSock}{Green\+Sock}} $\ast$socket)
+\item 
+\mbox{\Hypertarget{classGame_aeb3ea555476fcd077c340f95978ff71b}\label{classGame_aeb3ea555476fcd077c340f95978ff71b}} 
+vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ {\bfseries get\+Greenhouse\+Plants} ()
+\item 
+\mbox{\Hypertarget{classGame_a63ee9877b99af8bb05d88acf964d8141}\label{classGame_a63ee9877b99af8bb05d88acf964d8141}} 
+string {\bfseries get\+Greenhouse\+Plants\+As\+Json} ()
+\item 
+\mbox{\Hypertarget{classGame_ac44e5ba200cb50ee91d60a696a01c961}\label{classGame_ac44e5ba200cb50ee91d60a696a01c961}} 
+void {\bfseries care\+For\+Plant} (string id)
+\item 
+\mbox{\Hypertarget{classGame_a6c69a69e881357e294379c5f8af7d1fc}\label{classGame_a6c69a69e881357e294379c5f8af7d1fc}} 
+void {\bfseries make\+Sale} (string id)
+\item 
+\mbox{\Hypertarget{classGame_a6ee2b5b96a3bd511fdf5c86237b7d1e1}\label{classGame_a6ee2b5b96a3bd511fdf5c86237b7d1e1}} 
+void {\bfseries clear\+Customers} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classGame}{Game}} class represents the internal \mbox{\hyperlink{classAPI}{API}} of the system. It is modelled in terms of the Facade design pattern. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGame_a47ad90ac9f5993990381529e684ae435}\label{classGame_a47ad90ac9f5993990381529e684ae435}} 
+\index{Game@{Game}!buyPlants@{buyPlants}}
+\index{buyPlants@{buyPlants}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{buyPlants()}{buyPlants()}}
+{\footnotesize\ttfamily void Game\+::buy\+Plants (\begin{DoxyParamCaption}\item[{string}]{plant,  }\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+This is used by the user to be able to buy plants to add to the \mbox{\hyperlink{classGreenhouse}{Greenhouse}}. Uses Factory Method pattern to find correct plant creator and Prototype pattern to clone plants. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & The specific plant variety to buy (e.\+g., \char`\"{}cactus\char`\"{}, \char`\"{}rose\char`\"{}, \char`\"{}lemon\char`\"{}) \\
+\hline
+{\em num} & The number of plants to buy \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & if plant variety not found or greenhouse not initialized \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classGame_a61aafc0f78b5e13fe6ed6ddb4bdaf21e}\label{classGame_a61aafc0f78b5e13fe6ed6ddb4bdaf21e}} 
+\index{Game@{Game}!createCustomers@{createCustomers}}
+\index{createCustomers@{createCustomers}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{createCustomers()}{createCustomers()}}
+{\footnotesize\ttfamily void Game\+::create\+Customers (\begin{DoxyParamCaption}\item[{string}]{type,  }\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+Creates and adds customers to the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of customer to add (\char`\"{}ignorant\char`\"{}, \char`\"{}average\char`\"{}, \char`\"{}greenfinger\char`\"{}) \\
+\hline
+{\em num} & The number of customers to add \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & if customer creation fails \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classGame_a13cd4b0313a65ae56e72b1230f9c3fd0}\label{classGame_a13cd4b0313a65ae56e72b1230f9c3fd0}} 
+\index{Game@{Game}!getAvailableCustomerTypes@{getAvailableCustomerTypes}}
+\index{getAvailableCustomerTypes@{getAvailableCustomerTypes}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getAvailableCustomerTypes()}{getAvailableCustomerTypes()}}
+{\footnotesize\ttfamily map$<$ string, map$<$ string, vector$<$ string $>$ $>$ $>$ Game\+::get\+Available\+Customer\+Types (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get available customer types from configuration. 
+
+\begin{DoxyReturn}{Returns}
+Map of customer types to their definitions 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGame_ac9217e3f6c08a800cb004f274f2e1875}\label{classGame_ac9217e3f6c08a800cb004f274f2e1875}} 
+\index{Game@{Game}!getCategoryForVariety@{getCategoryForVariety}}
+\index{getCategoryForVariety@{getCategoryForVariety}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getCategoryForVariety()}{getCategoryForVariety()}}
+{\footnotesize\ttfamily string Game\+::get\+Category\+For\+Variety (\begin{DoxyParamCaption}\item[{string}]{variety }\end{DoxyParamCaption})}
+
+
+
+Helper method to get category for a plant variety. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em variety} & The plant variety to look up \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The category name 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & if variety not found in configuration \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classGame_a9c7657d220a66e1d7e49363182484f0f}\label{classGame_a9c7657d220a66e1d7e49363182484f0f}} 
+\index{Game@{Game}!getCustomers@{getCustomers}}
+\index{getCustomers@{getCustomers}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getCustomers()}{getCustomers()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classCustomer}{Customer}} $\ast$ $>$ Game\+::get\+Customers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for customers vector. 
+
+\begin{DoxyReturn}{Returns}
+Vector of \mbox{\hyperlink{classCustomer}{Customer}} pointers 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGame_a5436d9b0fdc13ddbc7623bbe38219880}\label{classGame_a5436d9b0fdc13ddbc7623bbe38219880}} 
+\index{Game@{Game}!getCustomersAsJson@{getCustomersAsJson}}
+\index{getCustomersAsJson@{getCustomersAsJson}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getCustomersAsJson()}{getCustomersAsJson()}}
+{\footnotesize\ttfamily string Game\+::get\+Customers\+As\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get all customers as a JSON array string. 
+
+\begin{DoxyReturn}{Returns}
+JSON string containing all customers 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGame_a9f7ad0384767e46fa072891c123b7d9c}\label{classGame_a9f7ad0384767e46fa072891c123b7d9c}} 
+\index{Game@{Game}!saveGame@{saveGame}}
+\index{saveGame@{saveGame}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{saveGame()}{saveGame()}}
+{\footnotesize\ttfamily void Game\+::save\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Saves state of greenhouse and factories in DB \mbox{\Hypertarget{classGame_a7359a2e7ec517cd29012adbb21587d41}\label{classGame_a7359a2e7ec517cd29012adbb21587d41}} 
+\index{Game@{Game}!setFactories@{setFactories}}
+\index{setFactories@{setFactories}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{setFactories()}{setFactories()}}
+{\footnotesize\ttfamily void Game\+::set\+Factories (\begin{DoxyParamCaption}\item[{map$<$ string, \mbox{\hyperlink{classPlantCreator}{Plant\+Creator}} $\ast$ $>$}]{factories }\end{DoxyParamCaption})}
+
+
+
+Setter for factories. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em factories} & Vector of \mbox{\hyperlink{classPlantCreator}{Plant\+Creator}} object references, these are the \char`\"{}factories\char`\"{} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGame_a5d311d7c7038d951c0162a2572ca0a5e}\label{classGame_a5d311d7c7038d951c0162a2572ca0a5e}} 
+\index{Game@{Game}!setGreenhouse@{setGreenhouse}}
+\index{setGreenhouse@{setGreenhouse}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{setGreenhouse()}{setGreenhouse()}}
+{\footnotesize\ttfamily void Game\+::set\+Greenhouse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGreenhouse}{Greenhouse}} $\ast$}]{greenhouse }\end{DoxyParamCaption})}
+
+
+
+Setter for greenhouse attribute. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em greenhouse} & \mbox{\hyperlink{classGreenhouse}{Greenhouse}} reference \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/game/\mbox{\hyperlink{Game_8h}{Game.\+h}}\item 
+backend/game/Game.\+cpp\end{DoxyCompactItemize}

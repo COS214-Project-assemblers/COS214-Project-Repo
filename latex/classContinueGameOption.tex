@@ -1,0 +1,70 @@
+\hypertarget{classContinueGameOption}{}\doxysection{Continue\+Game\+Option Class Reference}
+\label{classContinueGameOption}\index{ContinueGameOption@{ContinueGameOption}}
+
+
+Inherits from \mbox{\hyperlink{classMenuOption}{Menu\+Option}}. Represents Concrete\+Command participant in the Command design pattern. Invokes operation to load a saved game.  
+
+
+
+
+{\ttfamily \#include $<$Continue\+Game\+Option.\+h$>$}
+
+
+
+Inheritance diagram for Continue\+Game\+Option\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classContinueGameOption__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Continue\+Game\+Option\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classContinueGameOption__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classContinueGameOption_a2b7d173a4bd0792fb00e751b756eff66}{Continue\+Game\+Option}} (\mbox{\hyperlink{classGame}{Game}} $\ast$\mbox{\hyperlink{classMenuOption_aab8e81ed33e23bea5245f6b63a702c2d}{game}}, int game\+Id, \mbox{\hyperlink{classLogger}{Logger}} $\ast$\mbox{\hyperlink{classMenuOption_a1f22b70856b3fdc684d373b1d4f29e06}{logger}}=nullptr)
+\begin{DoxyCompactList}\small\item\em Calls parent constructor and sets game\+Id attribute. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContinueGameOption_afb607de162858bcb1a750fa7f60589fb}\label{classContinueGameOption_afb607de162858bcb1a750fa7f60589fb}} 
+virtual void \mbox{\hyperlink{classContinueGameOption_afb607de162858bcb1a750fa7f60589fb}{execute}} () override
+\begin{DoxyCompactList}\small\item\em Implements execute method from \mbox{\hyperlink{classMenuOption}{Menu\+Option}} interface. Invokes operation on \mbox{\hyperlink{classGame}{Game}} object to load an existing game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Inherits from \mbox{\hyperlink{classMenuOption}{Menu\+Option}}. Represents Concrete\+Command participant in the Command design pattern. Invokes operation to load a saved game. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classContinueGameOption_a2b7d173a4bd0792fb00e751b756eff66}\label{classContinueGameOption_a2b7d173a4bd0792fb00e751b756eff66}} 
+\index{ContinueGameOption@{ContinueGameOption}!ContinueGameOption@{ContinueGameOption}}
+\index{ContinueGameOption@{ContinueGameOption}!ContinueGameOption@{ContinueGameOption}}
+\doxysubsubsection{\texorpdfstring{ContinueGameOption()}{ContinueGameOption()}}
+{\footnotesize\ttfamily Continue\+Game\+Option\+::\+Continue\+Game\+Option (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGame}{Game}} $\ast$}]{game,  }\item[{int}]{game\+Id,  }\item[{\mbox{\hyperlink{classLogger}{Logger}} $\ast$}]{logger = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Calls parent constructor and sets game\+Id attribute. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em game} & \mbox{\hyperlink{classGame}{Game}} object reference \\
+\hline
+\mbox{\texttt{ in}}  & {\em game\+Id} & Game\+Id of saved game \\
+\hline
+\mbox{\texttt{ in}}  & {\em logger} & Optional reference to \mbox{\hyperlink{classLogger}{Logger}} object, default is nullptr \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+backend/game/\mbox{\hyperlink{ContinueGameOption_8h}{Continue\+Game\+Option.\+h}}\end{DoxyCompactItemize}

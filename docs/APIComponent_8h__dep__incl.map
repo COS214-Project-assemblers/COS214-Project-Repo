@@ -1,0 +1,6 @@
+<map id="backend/API/APIComponent.h" name="backend/API/APIComponent.h">
+<area shape="rect" id="node1" title="Refer to docs https://oatpp.io/docs/start/step&#45;by&#45;step/#application&#45;components&#45;configuration." alt="" coords="7,5,220,32"/>
+<area shape="rect" id="node2" href="$API_8h.html" title="Bootstrapper for public facing API." alt="" coords="44,80,183,107"/>
+<area shape="rect" id="node3" href="$APIController_8h.html" title="Define endpoints." alt="" coords="13,155,214,181"/>
+<area shape="rect" id="node4" href="$APIController_8cpp.html" title="Still need to see what going to do here." alt="" coords="5,229,221,256"/>
+</map>

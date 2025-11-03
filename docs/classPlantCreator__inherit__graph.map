@@ -1,0 +1,6 @@
+<map id="PlantCreator" name="PlantCreator">
+<area shape="rect" id="node1" title="Abstract base class responsible for creating and managing Plant objects." alt="" coords="159,5,262,32"/>
+<area shape="rect" id="node2" href="$classFlowerCreator.html" title="Concrete creator class responsible for creating Flower objects." alt="" coords="5,80,120,107"/>
+<area shape="rect" id="node3" href="$classSucculentCreator.html" title="Concrete creator class responsible for creating Succulent objects." alt="" coords="144,80,277,107"/>
+<area shape="rect" id="node4" href="$classTreeCreator.html" title="Concrete creator class responsible for creating Tree objects." alt="" coords="302,80,399,107"/>
+</map>

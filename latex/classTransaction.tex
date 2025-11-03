@@ -1,0 +1,118 @@
+\hypertarget{classTransaction}{}\doxysection{Transaction Class Reference}
+\label{classTransaction}\index{Transaction@{Transaction}}
+
+
+Represensts a single transaction in the system and holds its value and the \mbox{\hyperlink{classTransactionStrategy}{Transaction\+Strategy}} used.  
+
+
+
+
+{\ttfamily \#include $<$Transaction.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTransaction_a1d943506a4f99a3093ac1bc3253c9016}{Transaction}} (\mbox{\hyperlink{classTransactionStrategy}{Transaction\+Strategy}} $\ast$tS, double v)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTransaction_a5c016c2ddc134b2c62eb139058a2817a}\label{classTransaction_a5c016c2ddc134b2c62eb139058a2817a}} 
+\mbox{\hyperlink{classTransaction_a5c016c2ddc134b2c62eb139058a2817a}{$\sim$\+Transaction}} ()=default
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTransactionMem}{Transaction\+Mem}} \mbox{\hyperlink{classTransaction_ac763e5eb07f6fcfa86c8e0c48cf3f736}{create\+Transaction\+Mem}} (\mbox{\hyperlink{classLedger}{Ledger}} \&ledger, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant) const
+\begin{DoxyCompactList}\small\item\em Applies the transaction to a ledger and returns a snapshot. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransaction_a95976b2e60b66d766edf4db534324db4}{get\+Value}} () const
+\begin{DoxyCompactList}\small\item\em Getter for Value. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classTransaction_acc2ff6df5723ac928e8cf6531d092f9f}{get\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Getter for type of transaction. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTransaction_a474e7d2f20023e79a441b7f4f634d94b}{get\+Transaction\+ID}} () const
+\begin{DoxyCompactList}\small\item\em getter for transaction ID \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represensts a single transaction in the system and holds its value and the \mbox{\hyperlink{classTransactionStrategy}{Transaction\+Strategy}} used. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTransaction_a1d943506a4f99a3093ac1bc3253c9016}\label{classTransaction_a1d943506a4f99a3093ac1bc3253c9016}} 
+\index{Transaction@{Transaction}!Transaction@{Transaction}}
+\index{Transaction@{Transaction}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{Transaction()}{Transaction()}}
+{\footnotesize\ttfamily Transaction\+::\+Transaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTransactionStrategy}{Transaction\+Strategy}} $\ast$}]{tS,  }\item[{double}]{v }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tS} & Pointer to a \mbox{\hyperlink{classTransactionStrategy}{Transaction\+Strategy}} \\
+\hline
+{\em v} & Value of the current \mbox{\hyperlink{classTransaction}{Transaction}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTransaction_ac763e5eb07f6fcfa86c8e0c48cf3f736}\label{classTransaction_ac763e5eb07f6fcfa86c8e0c48cf3f736}} 
+\index{Transaction@{Transaction}!createTransactionMem@{createTransactionMem}}
+\index{createTransactionMem@{createTransactionMem}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{createTransactionMem()}{createTransactionMem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTransactionMem}{Transaction\+Mem}} Transaction\+::create\+Transaction\+Mem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLedger}{Ledger}} \&}]{ledger,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption}) const}
+
+
+
+Applies the transaction to a ledger and returns a snapshot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ledger} & Reference to current \mbox{\hyperlink{classLedger}{Ledger}} \\
+\hline
+{\em plant} & \mbox{\hyperlink{classPlant}{Plant}} item from transaction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classTransactionMem}{Transaction\+Mem}} snapshot 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransaction_a474e7d2f20023e79a441b7f4f634d94b}\label{classTransaction_a474e7d2f20023e79a441b7f4f634d94b}} 
+\index{Transaction@{Transaction}!getTransactionID@{getTransactionID}}
+\index{getTransactionID@{getTransactionID}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{getTransactionID()}{getTransactionID()}}
+{\footnotesize\ttfamily int Transaction\+::get\+Transaction\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+getter for transaction ID 
+
+\begin{DoxyReturn}{Returns}
+transaction ID 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransaction_acc2ff6df5723ac928e8cf6531d092f9f}\label{classTransaction_acc2ff6df5723ac928e8cf6531d092f9f}} 
+\index{Transaction@{Transaction}!getType@{getType}}
+\index{getType@{getType}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Transaction\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for type of transaction. 
+
+\begin{DoxyReturn}{Returns}
+the type of transaction e.\+g \char`\"{}\+Sale\char`\"{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTransaction_a95976b2e60b66d766edf4db534324db4}\label{classTransaction_a95976b2e60b66d766edf4db534324db4}} 
+\index{Transaction@{Transaction}!getValue@{getValue}}
+\index{getValue@{getValue}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily double Transaction\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for Value. 
+
+\begin{DoxyReturn}{Returns}
+Value of transaction 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/game/\mbox{\hyperlink{Transaction_8h}{Transaction.\+h}}\item 
+backend/game/Transaction.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,72 @@
+\hypertarget{classNotSellable}{}\doxysection{Not\+Sellable Class Reference}
+\label{classNotSellable}\index{NotSellable@{NotSellable}}
+
+
+Concrete state class representing a plant that is not ready for sale.  
+
+
+
+
+{\ttfamily \#include $<$Not\+Sellable.\+h$>$}
+
+
+
+Inheritance diagram for Not\+Sellable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{classNotSellable__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Not\+Sellable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{classNotSellable__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classNotSellable_a6c28c9296b8017eb3223afa4873b73ee}{handle}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)
+\begin{DoxyCompactList}\small\item\em Handles the plant\textquotesingle{}s behaviour when it is not ready for sale. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNotSellable_ad23eb8f1d3961498dc4ab0b272bc3db7}\label{classNotSellable_ad23eb8f1d3961498dc4ab0b272bc3db7}} 
+string {\bfseries get\+State} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete state class representing a plant that is not ready for sale. 
+
+This class represents the state where a plant has not yet matured sufficiently or does not meet quality criteria to be sold to customers. Plants in this state may require additional care and growth time before transitioning to a \mbox{\hyperlink{classSellable}{Sellable}} state. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNotSellable_a6c28c9296b8017eb3223afa4873b73ee}\label{classNotSellable_a6c28c9296b8017eb3223afa4873b73ee}} 
+\index{NotSellable@{NotSellable}!handle@{handle}}
+\index{handle@{handle}!NotSellable@{NotSellable}}
+\doxysubsubsection{\texorpdfstring{handle()}{handle()}}
+{\footnotesize\ttfamily void Not\+Sellable\+::handle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handles the plant\textquotesingle{}s behaviour when it is not ready for sale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & Pointer to the plant being handled \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantState_a8128942762c90e82177b153445e8c95d}{Plant\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/plant/Not\+Sellable.\+h\item 
+backend/plant/Not\+Sellable.\+cpp\end{DoxyCompactItemize}

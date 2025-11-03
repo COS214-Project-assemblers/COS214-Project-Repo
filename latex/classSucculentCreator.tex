@@ -1,0 +1,77 @@
+\hypertarget{classSucculentCreator}{}\doxysection{Succulent\+Creator Class Reference}
+\label{classSucculentCreator}\index{SucculentCreator@{SucculentCreator}}
+
+
+Concrete creator class responsible for creating \mbox{\hyperlink{classSucculent}{Succulent}} objects.  
+
+
+
+
+{\ttfamily \#include $<$Succulent\+Creator.\+h$>$}
+
+
+
+Inheritance diagram for Succulent\+Creator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classSucculentCreator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Succulent\+Creator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classSucculentCreator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSucculentCreator_a27432db0ad6d00fd180130f053889e12}\label{classSucculentCreator_a27432db0ad6d00fd180130f053889e12}} 
+\mbox{\hyperlink{classSucculentCreator_a27432db0ad6d00fd180130f053889e12}{Succulent\+Creator}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classSucculentCreator}{Succulent\+Creator}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSucculentCreator_aae5a3aae4b0bded4862665ccf26f7529}\label{classSucculentCreator_aae5a3aae4b0bded4862665ccf26f7529}} 
+\mbox{\hyperlink{classSucculentCreator_aae5a3aae4b0bded4862665ccf26f7529}{$\sim$\+Succulent\+Creator}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \mbox{\hyperlink{classSucculentCreator}{Succulent\+Creator}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classSucculentCreator_a9d9469f43a70d6a28ab73c6f3262cc66}{create\+Plant}} (string type)
+\begin{DoxyCompactList}\small\item\em Creates a new \mbox{\hyperlink{classSucculent}{Succulent}} object of the specified variety. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Concrete creator class responsible for creating \mbox{\hyperlink{classSucculent}{Succulent}} objects. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSucculentCreator_a9d9469f43a70d6a28ab73c6f3262cc66}\label{classSucculentCreator_a9d9469f43a70d6a28ab73c6f3262cc66}} 
+\index{SucculentCreator@{SucculentCreator}!createPlant@{createPlant}}
+\index{createPlant@{createPlant}!SucculentCreator@{SucculentCreator}}
+\doxysubsubsection{\texorpdfstring{createPlant()}{createPlant()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}} $\ast$ Succulent\+Creator\+::create\+Plant (\begin{DoxyParamCaption}\item[{string}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Creates a new \mbox{\hyperlink{classSucculent}{Succulent}} object of the specified variety. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em type} & The variety of succulent to create (e.\+g., \char`\"{}\+Cactus\char`\"{}, \char`\"{}\+Aloe\char`\"{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the newly created \mbox{\hyperlink{classSucculent}{Succulent}} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantCreator_aba19be00d1c07f46f883a3dc72bf7852}{Plant\+Creator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/plant/\mbox{\hyperlink{SucculentCreator_8h}{Succulent\+Creator.\+h}}\item 
+backend/plant/\mbox{\hyperlink{SucculentCreator_8cpp}{Succulent\+Creator.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,79 @@
+\hypertarget{classLedger}{}\doxysection{Ledger Class Reference}
+\label{classLedger}\index{Ledger@{Ledger}}
+
+
+Holds the balance.  
+
+
+
+
+{\ttfamily \#include $<$Ledger.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLedger_a9834bb66cabcd1e3ef81c6d0180729ee}\label{classLedger_a9834bb66cabcd1e3ef81c6d0180729ee}} 
+\mbox{\hyperlink{classLedger_a9834bb66cabcd1e3ef81c6d0180729ee}{Ledger}} ()
+\begin{DoxyCompactList}\small\item\em Construstor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLedger_a4326da001f7475ce11bc4bbd95b1fb87}\label{classLedger_a4326da001f7475ce11bc4bbd95b1fb87}} 
+\mbox{\hyperlink{classLedger_a4326da001f7475ce11bc4bbd95b1fb87}{$\sim$\+Ledger}} ()=default
+\begin{DoxyCompactList}\small\item\em default deconstructor \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classLedger_af36cd3c5ad72f1f4d079fcda3ab6ef96}{get\+Balance}} ()
+\begin{DoxyCompactList}\small\item\em Getter for Balance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLedger_af59f0d62f8bdb4a64a199697a05ebe28}{set\+Balance}} (double new\+Bal)
+\begin{DoxyCompactList}\small\item\em Setter for balance. \end{DoxyCompactList}\item 
+json \mbox{\hyperlink{classLedger_aab6ea8c6058693695bbbeece33b51a01}{bal\+To\+JSON}} () const
+\begin{DoxyCompactList}\small\item\em converst balance to json \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds the balance. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLedger_aab6ea8c6058693695bbbeece33b51a01}\label{classLedger_aab6ea8c6058693695bbbeece33b51a01}} 
+\index{Ledger@{Ledger}!balToJSON@{balToJSON}}
+\index{balToJSON@{balToJSON}!Ledger@{Ledger}}
+\doxysubsubsection{\texorpdfstring{balToJSON()}{balToJSON()}}
+{\footnotesize\ttfamily json Ledger\+::bal\+To\+JSON (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+converst balance to json 
+
+\begin{DoxyReturn}{Returns}
+json object containing balance info 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLedger_af36cd3c5ad72f1f4d079fcda3ab6ef96}\label{classLedger_af36cd3c5ad72f1f4d079fcda3ab6ef96}} 
+\index{Ledger@{Ledger}!getBalance@{getBalance}}
+\index{getBalance@{getBalance}!Ledger@{Ledger}}
+\doxysubsubsection{\texorpdfstring{getBalance()}{getBalance()}}
+{\footnotesize\ttfamily double Ledger\+::get\+Balance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for Balance. 
+
+\begin{DoxyReturn}{Returns}
+current balance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLedger_af59f0d62f8bdb4a64a199697a05ebe28}\label{classLedger_af59f0d62f8bdb4a64a199697a05ebe28}} 
+\index{Ledger@{Ledger}!setBalance@{setBalance}}
+\index{setBalance@{setBalance}!Ledger@{Ledger}}
+\doxysubsubsection{\texorpdfstring{setBalance()}{setBalance()}}
+{\footnotesize\ttfamily void Ledger\+::set\+Balance (\begin{DoxyParamCaption}\item[{double}]{new\+Bal }\end{DoxyParamCaption})}
+
+
+
+Setter for balance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Bal} & the updated balance based on the transaction\+Strategy Calc \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/game/Ledger.\+h\item 
+backend/game/Ledger.\+cpp\end{DoxyCompactItemize}

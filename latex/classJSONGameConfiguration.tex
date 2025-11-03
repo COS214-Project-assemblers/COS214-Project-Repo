@@ -1,0 +1,105 @@
+\hypertarget{classJSONGameConfiguration}{}\doxysection{JSONGame\+Configuration Class Reference}
+\label{classJSONGameConfiguration}\index{JSONGameConfiguration@{JSONGameConfiguration}}
+
+
+Implements \mbox{\hyperlink{classGameConfiguration}{Game\+Configuration}} interface. Concrete\+Strategy participant. Loads data from .json file, implements methods to retrieve configurations.  
+
+
+
+
+{\ttfamily \#include $<$JSONGame\+Configuration.\+h$>$}
+
+
+
+Inheritance diagram for JSONGame\+Configuration\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classJSONGameConfiguration__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for JSONGame\+Configuration\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classJSONGameConfiguration__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classJSONGameConfiguration_a46785bba822f53404a5fc61f1e638acb}{JSONGame\+Configuration}} (std\+::string config\+Path)
+\begin{DoxyCompactList}\small\item\em Calls this-\/$>$load\+Config, error handling logic. \end{DoxyCompactList}\item 
+virtual std\+::map$<$ std\+::string, std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ $>$ \mbox{\hyperlink{classJSONGameConfiguration_adaf316c583989cade82b061014f22791}{get\+Customer\+Types}} () override
+\begin{DoxyCompactList}\small\item\em Extracts customer types and their data from loaded\+Config. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{structPlantStruct}{Plant\+Struct}} $\ast$ $>$ \mbox{\hyperlink{classJSONGameConfiguration_a1033d629cac4fb778f6e738a851862e4}{get\+Plant\+Varieties}} () override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements \mbox{\hyperlink{classGameConfiguration}{Game\+Configuration}} interface. Concrete\+Strategy participant. Loads data from .json file, implements methods to retrieve configurations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classJSONGameConfiguration_a46785bba822f53404a5fc61f1e638acb}\label{classJSONGameConfiguration_a46785bba822f53404a5fc61f1e638acb}} 
+\index{JSONGameConfiguration@{JSONGameConfiguration}!JSONGameConfiguration@{JSONGameConfiguration}}
+\index{JSONGameConfiguration@{JSONGameConfiguration}!JSONGameConfiguration@{JSONGameConfiguration}}
+\doxysubsubsection{\texorpdfstring{JSONGameConfiguration()}{JSONGameConfiguration()}}
+{\footnotesize\ttfamily JSONGame\+Configuration\+::\+JSONGame\+Configuration (\begin{DoxyParamCaption}\item[{std\+::string}]{config\+Path }\end{DoxyParamCaption})}
+
+
+
+Calls this-\/$>$load\+Config, error handling logic. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classJSONGameConfiguration_adaf316c583989cade82b061014f22791}\label{classJSONGameConfiguration_adaf316c583989cade82b061014f22791}} 
+\index{JSONGameConfiguration@{JSONGameConfiguration}!getCustomerTypes@{getCustomerTypes}}
+\index{getCustomerTypes@{getCustomerTypes}!JSONGameConfiguration@{JSONGameConfiguration}}
+\doxysubsubsection{\texorpdfstring{getCustomerTypes()}{getCustomerTypes()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ $>$ JSONGame\+Configuration\+::get\+Customer\+Types (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Extracts customer types and their data from loaded\+Config. 
+
+\begin{DoxyReturn}{Returns}
+Map of customer types to their data 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{classGameConfiguraton_a6137915b14344bcd85517c8a2922f160}{Game\+Configuraton}}.
+
+\mbox{\Hypertarget{classJSONGameConfiguration_a1033d629cac4fb778f6e738a851862e4}\label{classJSONGameConfiguration_a1033d629cac4fb778f6e738a851862e4}} 
+\index{JSONGameConfiguration@{JSONGameConfiguration}!getPlantVarieties@{getPlantVarieties}}
+\index{getPlantVarieties@{getPlantVarieties}!JSONGameConfiguration@{JSONGameConfiguration}}
+\doxysubsubsection{\texorpdfstring{getPlantVarieties()}{getPlantVarieties()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structPlantStruct}{Plant\+Struct}} $\ast$ $>$ JSONGame\+Configuration\+::get\+Plant\+Varieties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+std\+::map that maps the plant category to a list of its variants i.\+e. \mbox{[}\char`\"{}succulent\char`\"{}, \mbox{[}\char`\"{}cactus\char`\"{}, \char`\"{}other-\/succulent\char`\"{}\mbox{]}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classGameConfiguraton_ac64e0a8ed256b9589cf2155fb1785cb8}{Game\+Configuraton}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/game/\mbox{\hyperlink{JSONGameConfiguration_8h}{JSONGame\+Configuration.\+h}}\item 
+backend/game/JSONGame\+Configuration.\+cpp\end{DoxyCompactItemize}

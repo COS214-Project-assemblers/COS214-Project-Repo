@@ -1,0 +1,152 @@
+\hypertarget{classIgnorantCustomerBuilder}{}\doxysection{Ignorant\+Customer\+Builder Class Reference}
+\label{classIgnorantCustomerBuilder}\index{IgnorantCustomerBuilder@{IgnorantCustomerBuilder}}
+
+
+Concrete builder for constructing \mbox{\hyperlink{classIgnorantCustomer}{Ignorant\+Customer}} objects with random dialogue selection.  
+
+
+
+
+{\ttfamily \#include $<$Ignorant\+Customer\+Builder.\+h$>$}
+
+
+
+Inheritance diagram for Ignorant\+Customer\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{classIgnorantCustomerBuilder__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ignorant\+Customer\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{classIgnorantCustomerBuilder__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIgnorantCustomerBuilder_a292f06ca6922cae9974c021236a32eff}{Ignorant\+Customer\+Builder}} (\mbox{\hyperlink{classGameConfiguraton}{Game\+Configuraton}} $\ast$config)
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{classIgnorantCustomerBuilder}{Ignorant\+Customer\+Builder}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIgnorantCustomerBuilder_a832fdaeb96b049e6474173c3794b5d59}\label{classIgnorantCustomerBuilder_a832fdaeb96b049e6474173c3794b5d59}} 
+\mbox{\hyperlink{classIgnorantCustomerBuilder_a832fdaeb96b049e6474173c3794b5d59}{$\sim$\+Ignorant\+Customer\+Builder}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \mbox{\hyperlink{classIgnorantCustomerBuilder}{Ignorant\+Customer\+Builder}} object. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classIgnorantCustomerBuilder_aa59b73e3b2d03c3b94c7ba05c23cf474}{get\+Random\+Element}} (const vector$<$ string $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Selects a random element from a string vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIgnorantCustomerBuilder_a2da68b853ab36eba179adb445060b399}\label{classIgnorantCustomerBuilder_a2da68b853ab36eba179adb445060b399}} 
+void {\bfseries build\+Name} (string n)
+\item 
+\mbox{\Hypertarget{classIgnorantCustomerBuilder_acaa16e4568f778addde12d6195c13d04}\label{classIgnorantCustomerBuilder_acaa16e4568f778addde12d6195c13d04}} 
+void {\bfseries build\+Intro\+Dialogue} (string i)
+\item 
+\mbox{\Hypertarget{classIgnorantCustomerBuilder_a4ca97554590437ff8385672de2a53d63}\label{classIgnorantCustomerBuilder_a4ca97554590437ff8385672de2a53d63}} 
+void {\bfseries build\+Preferences\+Dialogue} (string p)
+\item 
+\mbox{\Hypertarget{classIgnorantCustomerBuilder_a3a5a6e3b6d733406bcfa1ab7a6e17acb}\label{classIgnorantCustomerBuilder_a3a5a6e3b6d733406bcfa1ab7a6e17acb}} 
+void {\bfseries build\+Recommendations\+Dialogue} (string r)
+\item 
+\mbox{\Hypertarget{classIgnorantCustomerBuilder_acb8ce09c7c8fc1e8435a98c4d1b1a284}\label{classIgnorantCustomerBuilder_acb8ce09c7c8fc1e8435a98c4d1b1a284}} 
+void {\bfseries build\+Accept\+Dialogue} (string a)
+\item 
+\mbox{\Hypertarget{classIgnorantCustomerBuilder_ae67922376b7bb11b347d4c1735777cb2}\label{classIgnorantCustomerBuilder_ae67922376b7bb11b347d4c1735777cb2}} 
+void {\bfseries build\+Reject\+Dialogue} (string r)
+\item 
+\mbox{\Hypertarget{classIgnorantCustomerBuilder_a59d4686ac9cafcca17450ad40a944fb2}\label{classIgnorantCustomerBuilder_a59d4686ac9cafcca17450ad40a944fb2}} 
+void {\bfseries build\+Accept\+Exit\+Dialogue} (string a)
+\item 
+\mbox{\Hypertarget{classIgnorantCustomerBuilder_a20489ff9474db8ce7e76bbf818857e1b}\label{classIgnorantCustomerBuilder_a20489ff9474db8ce7e76bbf818857e1b}} 
+void {\bfseries build\+Reject\+Exit\+Dialogue} (string r)
+\item 
+\mbox{\Hypertarget{classIgnorantCustomerBuilder_a5a9c9f5aab2000c95734abf43e149434}\label{classIgnorantCustomerBuilder_a5a9c9f5aab2000c95734abf43e149434}} 
+void {\bfseries build\+Plant\+Options} (const vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \&plants)
+\item 
+vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classIgnorantCustomerBuilder_a458bd427e5c7e1e669676d94e6571143}{accept}} (\mbox{\hyperlink{classCustomerVisitor}{Customer\+Visitor}} \&visitor)
+\begin{DoxyCompactList}\small\item\em Accepts a visitor to provide plant recommendations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Concrete builder for constructing \mbox{\hyperlink{classIgnorantCustomer}{Ignorant\+Customer}} objects with random dialogue selection. 
+
+Implements the \mbox{\hyperlink{classCustomerBuilder}{Customer\+Builder}} interface to create \mbox{\hyperlink{classIgnorantCustomer}{Ignorant\+Customer}} instances with randomly selected dialogues from the JSON configuration. Uses the Builder pattern to separate customer construction from customer representation.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classCustomerBuilder}{Customer\+Builder}} 
+
+\mbox{\hyperlink{classIgnorantCustomer}{Ignorant\+Customer}} 
+
+\mbox{\hyperlink{classDirector}{Director}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classIgnorantCustomerBuilder_a292f06ca6922cae9974c021236a32eff}\label{classIgnorantCustomerBuilder_a292f06ca6922cae9974c021236a32eff}} 
+\index{IgnorantCustomerBuilder@{IgnorantCustomerBuilder}!IgnorantCustomerBuilder@{IgnorantCustomerBuilder}}
+\index{IgnorantCustomerBuilder@{IgnorantCustomerBuilder}!IgnorantCustomerBuilder@{IgnorantCustomerBuilder}}
+\doxysubsubsection{\texorpdfstring{IgnorantCustomerBuilder()}{IgnorantCustomerBuilder()}}
+{\footnotesize\ttfamily Ignorant\+Customer\+Builder\+::\+Ignorant\+Customer\+Builder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameConfiguraton}{Game\+Configuraton}} $\ast$}]{config }\end{DoxyParamCaption})}
+
+
+
+Constructs a new \mbox{\hyperlink{classIgnorantCustomerBuilder}{Ignorant\+Customer\+Builder}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & Pointer to the game configuration containing customer data \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIgnorantCustomerBuilder_a458bd427e5c7e1e669676d94e6571143}\label{classIgnorantCustomerBuilder_a458bd427e5c7e1e669676d94e6571143}} 
+\index{IgnorantCustomerBuilder@{IgnorantCustomerBuilder}!accept@{accept}}
+\index{accept@{accept}!IgnorantCustomerBuilder@{IgnorantCustomerBuilder}}
+\doxysubsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ Ignorant\+Customer\+Builder\+::accept (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomerVisitor}{Customer\+Visitor}} \&}]{visitor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Accepts a visitor to provide plant recommendations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em visitor} & Reference to the \mbox{\hyperlink{classCustomerVisitor}{Customer\+Visitor}} that will recommend plants \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of \mbox{\hyperlink{classPlant}{Plant}} pointers recommended by the visitor
+\end{DoxyReturn}
+Implements the Visitor pattern to allow different plant recommendation strategies to be applied to the ignorant customer being built. 
+
+Implements \mbox{\hyperlink{classCustomerBuilder_a66d3f47a67c295e8b161c7b2bac5da8f}{Customer\+Builder}}.
+
+\mbox{\Hypertarget{classIgnorantCustomerBuilder_aa59b73e3b2d03c3b94c7ba05c23cf474}\label{classIgnorantCustomerBuilder_aa59b73e3b2d03c3b94c7ba05c23cf474}} 
+\index{IgnorantCustomerBuilder@{IgnorantCustomerBuilder}!getRandomElement@{getRandomElement}}
+\index{getRandomElement@{getRandomElement}!IgnorantCustomerBuilder@{IgnorantCustomerBuilder}}
+\doxysubsubsection{\texorpdfstring{getRandomElement()}{getRandomElement()}}
+{\footnotesize\ttfamily string Ignorant\+Customer\+Builder\+::get\+Random\+Element (\begin{DoxyParamCaption}\item[{const vector$<$ string $>$ \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Selects a random element from a string vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vector of strings to select from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Randomly selected string, or empty string if vector is empty 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/customer/\mbox{\hyperlink{IgnorantCustomerBuilder_8h}{Ignorant\+Customer\+Builder.\+h}}\item 
+backend/customer/\mbox{\hyperlink{IgnorantCustomerBuilder_8cpp}{Ignorant\+Customer\+Builder.\+cpp}}\end{DoxyCompactItemize}

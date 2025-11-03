@@ -1,0 +1,220 @@
+\hypertarget{classHealth}{}\doxysection{Health Class Reference}
+\label{classHealth}\index{Health@{Health}}
+
+
+Collaboration diagram for Health\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=150pt]{classHealth__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classHealth_aa516f2d567d8a01eb2a53fef5b008dfb}{Health}} (float water=1.\+0, float fertalizer=1.\+0, float pruning=1.\+0, int mature=0)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classHealth}{Health}} object with given or default parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHealth_a1249819ea67aa5aeaa195fd40dd49b0b}\label{classHealth_a1249819ea67aa5aeaa195fd40dd49b0b}} 
+std\+::string {\bfseries get\+Water} ()
+\item 
+\mbox{\Hypertarget{classHealth_ad07441b65f4c2eacb435cb6f1903b822}\label{classHealth_ad07441b65f4c2eacb435cb6f1903b822}} 
+std\+::string {\bfseries get\+Fertilizer} ()
+\item 
+\mbox{\Hypertarget{classHealth_a17037ad04481b0c087b0539df1ea5d09}\label{classHealth_a17037ad04481b0c087b0539df1ea5d09}} 
+std\+::string {\bfseries get\+Pruning} ()
+\item 
+\mbox{\Hypertarget{classHealth_a25bdebcca7d22e042509e706e2a3f8ef}\label{classHealth_a25bdebcca7d22e042509e706e2a3f8ef}} 
+\mbox{\hyperlink{classHealth_a25bdebcca7d22e042509e706e2a3f8ef}{$\sim$\+Health}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classHealth}{Health}}. Currently, no dynamic memory is managed by \mbox{\hyperlink{classHealth}{Health}}, so this destructor is empty. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHealth_a595cfc52ef2eac4cdb244c0b14b7884d}\label{classHealth_a595cfc52ef2eac4cdb244c0b14b7884d}} 
+{\bfseries Health} (const \mbox{\hyperlink{classHealth}{Health}} \&)=delete
+\item 
+\mbox{\Hypertarget{classHealth_aca6e1ebfef3f8412383fe3e584515ade}\label{classHealth_aca6e1ebfef3f8412383fe3e584515ade}} 
+\mbox{\hyperlink{classHealth}{Health}} \& {\bfseries operator=} (const \mbox{\hyperlink{classHealth}{Health}} \&)=delete
+\item 
+\mbox{\Hypertarget{classHealth_aa01260165701d2e49a5fedaa8d38bc92}\label{classHealth_aa01260165701d2e49a5fedaa8d38bc92}} 
+{\bfseries Health} (\mbox{\hyperlink{classHealth}{Health}} \&\&)=default
+\item 
+\mbox{\Hypertarget{classHealth_aeecb05b70b23e5233e301baf13281be0}\label{classHealth_aeecb05b70b23e5233e301baf13281be0}} 
+\mbox{\hyperlink{classHealth}{Health}} \& {\bfseries operator=} (\mbox{\hyperlink{classHealth}{Health}} \&\&)=default
+\item 
+void \mbox{\hyperlink{classHealth_a95e3f3756d950518b984bdaca2a16691}{handle\+Water}} ()
+\begin{DoxyCompactList}\small\item\em Handles watering by restoring the water attribute to full (1.\+0). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHealth_a0285244430e08b7be546677f76ce0bb7}{handle\+Fertilizer}} ()
+\begin{DoxyCompactList}\small\item\em Handles fertilizer replenishment by restoring the fertilizer attribute to full (1.\+0). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHealth_a0a2e8060649f872a418f3379e528b8d0}\label{classHealth_a0a2e8060649f872a418f3379e528b8d0}} 
+void \mbox{\hyperlink{classHealth_a0a2e8060649f872a418f3379e528b8d0}{handle\+Pruning}} ()
+\begin{DoxyCompactList}\small\item\em Handles pruning by restoring the pruning attribute to full (1.\+0) AND INCREASES MATURITY. Uses a mutex lock to ensure thread-\/safe modification. Prints the amount of pruning required before action. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHealth}{Health}} $>$ \mbox{\hyperlink{classHealth_a4d65cf4ccb04b4592c101de1188e692e}{clone}} () const
+\begin{DoxyCompactList}\small\item\em Creates a clone of the current \mbox{\hyperlink{classHealth}{Health}} object. Allocates and returns a new \mbox{\hyperlink{classHealth}{Health}} object with default constructor parameters. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classHealth_aafa4efefefa200da2f3fd6dfabcff811}{health\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Computes the overall health score. The health score is a simple additive measure of the plant’s water, fertilizer, and pruning levels. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHealth_aa13bcf91779952a9b33b6bb0985db6ee}\label{classHealth_aa13bcf91779952a9b33b6bb0985db6ee}} 
+float {\bfseries Water} ()
+\item 
+\mbox{\Hypertarget{classHealth_adaf748247b008806bc2ad75288135614}\label{classHealth_adaf748247b008806bc2ad75288135614}} 
+float {\bfseries Fertilizer} ()
+\item 
+\mbox{\Hypertarget{classHealth_a4768fe62195017d3b14253b3c3224948}\label{classHealth_a4768fe62195017d3b14253b3c3224948}} 
+float {\bfseries health\+Prune} ()
+\item 
+int \mbox{\hyperlink{classHealth_ac9a12047ab52a51655fe002dc1605192}{get\+Maturity}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the maturity level of the plant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHealth_af83f3e87547dd0295a36ef589058f3d6}{decay}} (int decay\+Index)
+\begin{DoxyCompactList}\small\item\em Simulates natural health decay over time. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHealth_a051395e1877cd01bf8036365269e760f}\label{classHealth_a051395e1877cd01bf8036365269e760f}} 
+bool {\bfseries is\+Dead} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHealth_a23173e5555905abaec470524e477eebf}\label{classHealth_a23173e5555905abaec470524e477eebf}} 
+float {\bfseries original\+Heath\+Total}
+\item 
+\mbox{\Hypertarget{classHealth_a4a8bc7ff09bf840bf76bebeca00892bf}\label{classHealth_a4a8bc7ff09bf840bf76bebeca00892bf}} 
+float {\bfseries water}
+\item 
+\mbox{\Hypertarget{classHealth_aa1f07abbbcee12df603d8ae49c51a533}\label{classHealth_aa1f07abbbcee12df603d8ae49c51a533}} 
+float {\bfseries fertalizer}
+\item 
+\mbox{\Hypertarget{classHealth_af38318a0930fc69964389773d3623253}\label{classHealth_af38318a0930fc69964389773d3623253}} 
+float {\bfseries pruning}
+\item 
+\mbox{\Hypertarget{classHealth_abb59553b2de535879ff6aeb9813f401f}\label{classHealth_abb59553b2de535879ff6aeb9813f401f}} 
+int {\bfseries mature}
+\item 
+\mbox{\Hypertarget{classHealth_ac976b937d0848d1ba515d8b10d482b07}\label{classHealth_ac976b937d0848d1ba515d8b10d482b07}} 
+\mbox{\hyperlink{classGreenSock}{Green\+Sock}} $\ast$ {\bfseries socket}
+\item 
+\mbox{\Hypertarget{classHealth_a11f0a11046be4c94a587bb9a5fe3a868}\label{classHealth_a11f0a11046be4c94a587bb9a5fe3a868}} 
+std\+::mutex {\bfseries mtx}
+\item 
+\mbox{\Hypertarget{classHealth_a4e68e250d64155c0d6e377cfb2ca2cae}\label{classHealth_a4e68e250d64155c0d6e377cfb2ca2cae}} 
+std\+::mt19937 {\bfseries rng}
+\item 
+\mbox{\Hypertarget{classHealth_a6b77c50882a184da2a72333283841073}\label{classHealth_a6b77c50882a184da2a72333283841073}} 
+std\+::uniform\+\_\+int\+\_\+distribution$<$ int $>$ {\bfseries dist}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHealth_aa7d2e19c0c20134c6785f16b997ddc40}\label{classHealth_aa7d2e19c0c20134c6785f16b997ddc40}} 
+class {\bfseries Plant}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHealth_aa516f2d567d8a01eb2a53fef5b008dfb}\label{classHealth_aa516f2d567d8a01eb2a53fef5b008dfb}} 
+\index{Health@{Health}!Health@{Health}}
+\index{Health@{Health}!Health@{Health}}
+\doxysubsubsection{\texorpdfstring{Health()}{Health()}}
+{\footnotesize\ttfamily Health\+::\+Health (\begin{DoxyParamCaption}\item[{float}]{water = {\ttfamily 1.0},  }\item[{float}]{fertalizer = {\ttfamily 1.0},  }\item[{float}]{pruning = {\ttfamily 1.0},  }\item[{int}]{mature = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classHealth}{Health}} object with given or default parameters. 
+
+Initializes health metrics to represent a plant’s starting state. Also seeds a random number generator and uniform distribution used for decay behavior.
+
+
+\begin{DoxyParams}{Parameters}
+{\em water} & Initial water level (default 1.\+0) \\
+\hline
+{\em fertalizer} & Initial fertilizer level (default 1.\+0) \\
+\hline
+{\em pruning} & Initial pruning level (default 1.\+0) \\
+\hline
+{\em mature} & Initial maturity level (default 0) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHealth_a4d65cf4ccb04b4592c101de1188e692e}\label{classHealth_a4d65cf4ccb04b4592c101de1188e692e}} 
+\index{Health@{Health}!clone@{clone}}
+\index{clone@{clone}!Health@{Health}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classHealth}{Health}} $>$ Health\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Creates a clone of the current \mbox{\hyperlink{classHealth}{Health}} object. Allocates and returns a new \mbox{\hyperlink{classHealth}{Health}} object with default constructor parameters. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to a newly created \mbox{\hyperlink{classHealth}{Health}} instance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHealth_af83f3e87547dd0295a36ef589058f3d6}\label{classHealth_af83f3e87547dd0295a36ef589058f3d6}} 
+\index{Health@{Health}!decay@{decay}}
+\index{decay@{decay}!Health@{Health}}
+\doxysubsubsection{\texorpdfstring{decay()}{decay()}}
+{\footnotesize\ttfamily void Health\+::decay (\begin{DoxyParamCaption}\item[{int}]{decay\+Index }\end{DoxyParamCaption})}
+
+
+
+Simulates natural health decay over time. 
+
+Based on the provided decay index, a corresponding health attribute (water, fertilizer, or pruning) is reduced by 0.\+4, not dropping below 0.\+0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em decay\+Index} & Integer in range \mbox{[}0,2\mbox{]}, selecting which attribute to decay\+:
+\begin{DoxyItemize}
+\item 0 = water
+\item 1 = fertilizer
+\item 2 = pruning 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHealth_ac9a12047ab52a51655fe002dc1605192}\label{classHealth_ac9a12047ab52a51655fe002dc1605192}} 
+\index{Health@{Health}!getMaturity@{getMaturity}}
+\index{getMaturity@{getMaturity}!Health@{Health}}
+\doxysubsubsection{\texorpdfstring{getMaturity()}{getMaturity()}}
+{\footnotesize\ttfamily int Health\+::get\+Maturity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the maturity level of the plant. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing how mature the plant is. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHealth_a0285244430e08b7be546677f76ce0bb7}\label{classHealth_a0285244430e08b7be546677f76ce0bb7}} 
+\index{Health@{Health}!handleFertilizer@{handleFertilizer}}
+\index{handleFertilizer@{handleFertilizer}!Health@{Health}}
+\doxysubsubsection{\texorpdfstring{handleFertilizer()}{handleFertilizer()}}
+{\footnotesize\ttfamily void Health\+::handle\+Fertilizer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles fertilizer replenishment by restoring the fertilizer attribute to full (1.\+0). 
+
+Uses a mutex lock to ensure thread-\/safe modification. Prints the amount of fertilizer required before replenishment. \mbox{\Hypertarget{classHealth_a95e3f3756d950518b984bdaca2a16691}\label{classHealth_a95e3f3756d950518b984bdaca2a16691}} 
+\index{Health@{Health}!handleWater@{handleWater}}
+\index{handleWater@{handleWater}!Health@{Health}}
+\doxysubsubsection{\texorpdfstring{handleWater()}{handleWater()}}
+{\footnotesize\ttfamily void Health\+::handle\+Water (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles watering by restoring the water attribute to full (1.\+0). 
+
+Uses a mutex lock to ensure thread-\/safe modification. Prints the amount of water required before replenishment. \mbox{\Hypertarget{classHealth_aafa4efefefa200da2f3fd6dfabcff811}\label{classHealth_aafa4efefefa200da2f3fd6dfabcff811}} 
+\index{Health@{Health}!healthScore@{healthScore}}
+\index{healthScore@{healthScore}!Health@{Health}}
+\doxysubsubsection{\texorpdfstring{healthScore()}{healthScore()}}
+{\footnotesize\ttfamily float Health\+::health\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Computes the overall health score. The health score is a simple additive measure of the plant’s water, fertilizer, and pruning levels. 
+
+\begin{DoxyReturn}{Returns}
+The total health score (float), typically in the range \mbox{[}0, 3\mbox{]}. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/plant/Plant\+Health.\+h\item 
+backend/plant/Plant\+Health.\+cpp\end{DoxyCompactItemize}

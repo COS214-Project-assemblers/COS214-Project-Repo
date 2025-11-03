@@ -1,0 +1,6 @@
+<map id="backend/customer/GreenFingerCustomer.h" name="backend/customer/GreenFingerCustomer.h">
+<area shape="rect" id="node1" title="Concrete customer class representing expert plant enthusiasts." alt="" coords="129,5,353,47"/>
+<area shape="rect" id="node2" href="$GreenFingerCustomer_8cpp.html" title="Implements the functionality defined in the GreenFingerCustomer class." alt="" coords="5,95,229,136"/>
+<area shape="rect" id="node3" href="$GreenFingerCustomerBuilder_8h.html" title="Builder class for creating GreenFingerCustomer objects with randomized dialogues." alt="" coords="253,95,477,136"/>
+<area shape="rect" id="node4" href="$GreenFingerCustomerBuilder_8cpp.html" title="Implements the GreenFingerCustomerBuilder class functionality." alt="" coords="253,184,477,225"/>
+</map>

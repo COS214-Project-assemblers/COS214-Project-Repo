@@ -1,0 +1,142 @@
+\hypertarget{classRestock}{}\doxysection{Restock Class Reference}
+\label{classRestock}\index{Restock@{Restock}}
+
+
+Will handle the transaction as a refund.  
+
+
+
+
+{\ttfamily \#include $<$Restock.\+h$>$}
+
+
+
+Inheritance diagram for Restock\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classRestock__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Restock\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classRestock__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRestock_a3d64576b1191a5124c4974ac4dc42cd8}\label{classRestock_a3d64576b1191a5124c4974ac4dc42cd8}} 
+\mbox{\hyperlink{classRestock_a3d64576b1191a5124c4974ac4dc42cd8}{Restock}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRestock_aa2ea3172bc427ac1153572ca6f80490d}\label{classRestock_aa2ea3172bc427ac1153572ca6f80490d}} 
+\mbox{\hyperlink{classRestock_aa2ea3172bc427ac1153572ca6f80490d}{$\sim$\+Restock}} ()=default
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classRestock_aa3a46dec3112c5292cd0aa2d7bbfb643}{execute}} (double v, double b) override
+\begin{DoxyCompactList}\small\item\em Executes a transactions financial logic to update the balance. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classRestock_accbcafd2f250c444d91e06ae0db47470}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the Type of the transaction as a \mbox{\hyperlink{classRestock}{Restock}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classRestock_aa3a46dec3112c5292cd0aa2d7bbfb643}{execute}} (double v, double b) override
+\begin{DoxyCompactList}\small\item\em Executes a transactions financial logic to update the balance. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classRestock_a4414a8a43d0d4c2e3f6224c53ef8f777}{get\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Returns the Type of the transaction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Will handle the transaction as a refund. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRestock_aa3a46dec3112c5292cd0aa2d7bbfb643}\label{classRestock_aa3a46dec3112c5292cd0aa2d7bbfb643}} 
+\index{Restock@{Restock}!execute@{execute}}
+\index{execute@{execute}!Restock@{Restock}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Restock\+::execute (\begin{DoxyParamCaption}\item[{double}]{v,  }\item[{double}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executes a transactions financial logic to update the balance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Value of the transaction. \\
+\hline
+{\em b} & Value of the current balance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+THe new balance of b-\/v 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTransactionStrategy_a38df3eab00d2eb37ccc53b09f2f7f5a5}{Transaction\+Strategy}}.
+
+\mbox{\Hypertarget{classRestock_aa3a46dec3112c5292cd0aa2d7bbfb643}\label{classRestock_aa3a46dec3112c5292cd0aa2d7bbfb643}} 
+\index{Restock@{Restock}!execute@{execute}}
+\index{execute@{execute}!Restock@{Restock}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Restock\+::execute (\begin{DoxyParamCaption}\item[{double}]{v,  }\item[{double}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executes a transactions financial logic to update the balance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Value of the transaction. \\
+\hline
+{\em b} & Value of the current balance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+THe new balance after a transaction has been executed. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTransactionStrategy_a38df3eab00d2eb37ccc53b09f2f7f5a5}{Transaction\+Strategy}}.
+
+\mbox{\Hypertarget{classRestock_a4414a8a43d0d4c2e3f6224c53ef8f777}\label{classRestock_a4414a8a43d0d4c2e3f6224c53ef8f777}} 
+\index{Restock@{Restock}!getType@{getType}}
+\index{getType@{getType}!Restock@{Restock}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::string Restock\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns the Type of the transaction. 
+
+\begin{DoxyReturn}{Returns}
+The Type of the transaction 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTransactionStrategy_aa95499a098f269bbbbe6772a9890bef5}{Transaction\+Strategy}}.
+
+\mbox{\Hypertarget{classRestock_accbcafd2f250c444d91e06ae0db47470}\label{classRestock_accbcafd2f250c444d91e06ae0db47470}} 
+\index{Restock@{Restock}!getType@{getType}}
+\index{getType@{getType}!Restock@{Restock}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string Restock\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the Type of the transaction as a \mbox{\hyperlink{classRestock}{Restock}}. 
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}\+Restock\char`\"{} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTransactionStrategy_aa95499a098f269bbbbe6772a9890bef5}{Transaction\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend/game/\mbox{\hyperlink{game_2Restock_8h}{Restock.\+h}}\item 
+backend/game/Restock.\+cpp\end{DoxyCompactItemize}
