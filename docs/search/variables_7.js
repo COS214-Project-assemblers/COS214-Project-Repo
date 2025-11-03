@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_675',['name',['../classCustomer.html#a42c1c948fa0121c82b2725826d9f8300',1,'Customer']]]
+  ['jsonstructure_769',['jsonStructure',['../classCustomer.html#a0616845cbf756de79e5d95fe5b5f4b2c',1,'Customer']]]
 ];

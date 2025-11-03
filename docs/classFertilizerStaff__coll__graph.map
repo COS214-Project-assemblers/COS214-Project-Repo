@@ -1,5 +1,5 @@
 <map id="FertilizerStaff" name="FertilizerStaff">
 <area shape="rect" id="node1" title="Concrete observer class for staff responsible for fertilizing plants." alt="" coords="16,171,125,197"/>
 <area shape="rect" id="node2" href="$classGreenhouseStaff.html" title="Abstract base class for greenhouse staff observers." alt="" coords="5,95,136,121"/>
-<area shape="rect" id="node3" href="$classGreenhouse.html" title=" " alt="" coords="21,5,121,32"/>
+<area shape="rect" id="node3" href="$classGreenhouse.html" title="Central greenhouse management system coordinating plants, staff, and sales." alt="" coords="21,5,121,32"/>
 </map>

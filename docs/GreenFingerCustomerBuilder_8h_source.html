@@ -70,47 +70,47 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="GreenFingerCustomerBuilder_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef GREENFINGERCUSTOMERBUILDER_H</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define GREENFINGERCUSTOMERBUILDER_H</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="GreenFingerCustomer_8h.html">GreenFingerCustomer.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CustomerBuilder_8h.html">CustomerBuilder.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classGreenFingerCustomerBuilder.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGreenFingerCustomerBuilder.html">GreenFingerCustomerBuilder</a>: <span class="keyword">public</span> <a class="code" href="classCustomerBuilder.html">CustomerBuilder</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">private</span>:    </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="classGameConfiguraton.html">GameConfiguraton</a>* config;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef GREENFINGERCUSTOMERBUILDER_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define GREENFINGERCUSTOMERBUILDER_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="GreenFingerCustomer_8h.html">GreenFingerCustomer.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CustomerBuilder_8h.html">CustomerBuilder.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classGreenFingerCustomerBuilder.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGreenFingerCustomerBuilder.html">GreenFingerCustomerBuilder</a>: <span class="keyword">public</span> <a class="code" href="classCustomerBuilder.html">CustomerBuilder</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">private</span>:    </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="classGameConfiguraton.html">GameConfiguraton</a>* config;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        mt19937 rng;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classGreenFingerCustomerBuilder.html#a396fbc6832159031058b09dff38b6ecc">GreenFingerCustomerBuilder</a>(<a class="code" href="classGameConfiguraton.html">GameConfiguraton</a>* config);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="classGreenFingerCustomerBuilder.html#a35e979a3910dd0befee9fc81ccb7c456">~GreenFingerCustomerBuilder</a>();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classGreenFingerCustomerBuilder.html#a79c1b3834c41c78f41546899bb75f8aa">getRandomElement</a>(<span class="keyword">const</span> vector&lt;string&gt;&amp; v);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">// Builder interface implementation</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> buildName(<span class="keywordtype">string</span> n);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> buildIntroDialogue(<span class="keywordtype">string</span> i);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> buildPreferencesDialogue(<span class="keywordtype">string</span> p);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> buildRecommendationsDialogue(<span class="keywordtype">string</span> r);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> buildAcceptDialogue(<span class="keywordtype">string</span> a);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">void</span> buildRejectDialogue(<span class="keywordtype">string</span> r);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> buildAcceptExitDialogue(<span class="keywordtype">string</span> a);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">void</span> buildRejectExitDialogue(<span class="keywordtype">string</span> r);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> buildPlantOptions(<span class="keyword">const</span> vector&lt;Plant*&gt;&amp; plants);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        vector&lt;Plant*&gt; <a class="code" href="classGreenFingerCustomerBuilder.html#ae4e99ada59ac5340a1770c62e884419d">accept</a>(<a class="code" href="classCustomerVisitor.html">CustomerVisitor</a>&amp; visitor);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="classGreenFingerCustomerBuilder.html#a396fbc6832159031058b09dff38b6ecc">GreenFingerCustomerBuilder</a>(<a class="code" href="classGameConfiguraton.html">GameConfiguraton</a>* config);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="classGreenFingerCustomerBuilder.html#a35e979a3910dd0befee9fc81ccb7c456">~GreenFingerCustomerBuilder</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classGreenFingerCustomerBuilder.html#a79c1b3834c41c78f41546899bb75f8aa">getRandomElement</a>(<span class="keyword">const</span> vector&lt;string&gt;&amp; v);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">// Builder interface implementation</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> buildName(<span class="keywordtype">string</span> n);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> buildIntroDialogue(<span class="keywordtype">string</span> i);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">void</span> buildPreferencesDialogue(<span class="keywordtype">string</span> p);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> buildRecommendationsDialogue(<span class="keywordtype">string</span> r);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">void</span> buildAcceptDialogue(<span class="keywordtype">string</span> a);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> buildRejectDialogue(<span class="keywordtype">string</span> r);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">void</span> buildAcceptExitDialogue(<span class="keywordtype">string</span> a);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">void</span> buildRejectExitDialogue(<span class="keywordtype">string</span> r);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">void</span> buildPlantOptions(<span class="keyword">const</span> vector&lt;Plant*&gt;&amp; plants);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        vector&lt;Plant*&gt; <a class="code" href="classGreenFingerCustomerBuilder.html#ae4e99ada59ac5340a1770c62e884419d">accept</a>(<a class="code" href="classCustomerVisitor.html">CustomerVisitor</a>&amp; visitor);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aCustomerBuilder_8h_html"><div class="ttname"><a href="CustomerBuilder_8h.html">CustomerBuilder.h</a></div><div class="ttdoc">Abstract builder interface for creating Customer objects.</div></div>
 <div class="ttc" id="aGreenFingerCustomer_8h_html"><div class="ttname"><a href="GreenFingerCustomer_8h.html">GreenFingerCustomer.h</a></div><div class="ttdoc">Concrete customer class representing expert plant enthusiasts.</div></div>
-<div class="ttc" id="aclassCustomerBuilder_html"><div class="ttname"><a href="classCustomerBuilder.html">CustomerBuilder</a></div><div class="ttdoc">Abstract base class for building Customer objects step by step.</div><div class="ttdef"><b>Definition:</b> CustomerBuilder.h:33</div></div>
-<div class="ttc" id="aclassCustomerVisitor_html"><div class="ttname"><a href="classCustomerVisitor.html">CustomerVisitor</a></div><div class="ttdoc">This is the abstract base class for defining operations for the concreteVisitors.</div><div class="ttdef"><b>Definition:</b> CustomerVisitor.h:34</div></div>
-<div class="ttc" id="aclassGameConfiguraton_html"><div class="ttname"><a href="classGameConfiguraton.html">GameConfiguraton</a></div><div class="ttdef"><b>Definition:</b> GameConfiguration.h:31</div></div>
-<div class="ttc" id="aclassGreenFingerCustomerBuilder_html"><div class="ttname"><a href="classGreenFingerCustomerBuilder.html">GreenFingerCustomerBuilder</a></div><div class="ttdoc">Concrete builder for constructing GreenFingerCustomer objects with random dialogue selection.</div><div class="ttdef"><b>Definition:</b> GreenFingerCustomerBuilder.h:25</div></div>
+<div class="ttc" id="aclassCustomerBuilder_html"><div class="ttname"><a href="classCustomerBuilder.html">CustomerBuilder</a></div><div class="ttdoc">Abstract base class for building Customer objects step by step.</div><div class="ttdef"><b>Definition:</b> CustomerBuilder.h:34</div></div>
+<div class="ttc" id="aclassCustomerVisitor_html"><div class="ttname"><a href="classCustomerVisitor.html">CustomerVisitor</a></div><div class="ttdoc">Abstract base class for defining operations for the concrete visitors.</div><div class="ttdef"><b>Definition:</b> CustomerVisitor.h:36</div></div>
+<div class="ttc" id="aclassGameConfiguraton_html"><div class="ttname"><a href="classGameConfiguraton.html">GameConfiguraton</a></div><div class="ttdef"><b>Definition:</b> GameConfiguration.h:33</div></div>
+<div class="ttc" id="aclassGreenFingerCustomerBuilder_html"><div class="ttname"><a href="classGreenFingerCustomerBuilder.html">GreenFingerCustomerBuilder</a></div><div class="ttdoc">Concrete builder for constructing GreenFingerCustomer objects with random dialogue selection.</div><div class="ttdef"><b>Definition:</b> GreenFingerCustomerBuilder.h:26</div></div>
 <div class="ttc" id="aclassGreenFingerCustomerBuilder_html_a35e979a3910dd0befee9fc81ccb7c456"><div class="ttname"><a href="classGreenFingerCustomerBuilder.html#a35e979a3910dd0befee9fc81ccb7c456">GreenFingerCustomerBuilder::~GreenFingerCustomerBuilder</a></div><div class="ttdeci">~GreenFingerCustomerBuilder()</div><div class="ttdoc">Destroys the GreenFingerCustomerBuilder object.</div><div class="ttdef"><b>Definition:</b> GreenFingerCustomerBuilder.cpp:16</div></div>
 <div class="ttc" id="aclassGreenFingerCustomerBuilder_html_a396fbc6832159031058b09dff38b6ecc"><div class="ttname"><a href="classGreenFingerCustomerBuilder.html#a396fbc6832159031058b09dff38b6ecc">GreenFingerCustomerBuilder::GreenFingerCustomerBuilder</a></div><div class="ttdeci">GreenFingerCustomerBuilder(GameConfiguraton *config)</div><div class="ttdoc">Constructs a new GreenFingerCustomerBuilder object.</div><div class="ttdef"><b>Definition:</b> GreenFingerCustomerBuilder.cpp:8</div></div>
 <div class="ttc" id="aclassGreenFingerCustomerBuilder_html_a79c1b3834c41c78f41546899bb75f8aa"><div class="ttname"><a href="classGreenFingerCustomerBuilder.html#a79c1b3834c41c78f41546899bb75f8aa">GreenFingerCustomerBuilder::getRandomElement</a></div><div class="ttdeci">string getRandomElement(const vector&lt; string &gt; &amp;v)</div><div class="ttdoc">Selects a random element from a string vector.</div><div class="ttdef"><b>Definition:</b> GreenFingerCustomerBuilder.cpp:21</div></div>

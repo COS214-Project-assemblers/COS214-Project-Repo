@@ -75,23 +75,25 @@ $(function() {
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// Forward declaration, ok to do so since using MenuOption*</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">class </span><a class="code" href="classMenuOption.html">MenuOption</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classPlayerMenu.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPlayerMenu.html">PlayerMenu</a> {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="classMenuOption.html">MenuOption</a>* menuOption = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classPlayerMenu.html#af37d74811384bdf8f23325ae4b6cc25f">setMenuOption</a>(<a class="code" href="classMenuOption.html">MenuOption</a>* option);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classPlayerMenu.html#a4760ece81400800452375a6b6300875f">executeOption</a>();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classPlayerMenu.html#a764418c67a206ddfb783ea2f8a755bcc">~PlayerMenu</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// P_MENU</span></div>
-<div class="ttc" id="aclassMenuOption_html"><div class="ttname"><a href="classMenuOption.html">MenuOption</a></div><div class="ttdef"><b>Definition:</b> MenuOption.h:7</div></div>
-<div class="ttc" id="aclassPlayerMenu_html"><div class="ttname"><a href="classPlayerMenu.html">PlayerMenu</a></div><div class="ttdoc">Creates object that holds and then executes MenuOption.</div><div class="ttdef"><b>Definition:</b> PlayerMenu.h:20</div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span><a class="code" href="classMenuOption.html">MenuOption</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classPlayerMenu.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPlayerMenu.html">PlayerMenu</a> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="classMenuOption.html">MenuOption</a>* menuOption = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classPlayerMenu.html#af37d74811384bdf8f23325ae4b6cc25f">setMenuOption</a>(<a class="code" href="classMenuOption.html">MenuOption</a>* option);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classPlayerMenu.html#a4760ece81400800452375a6b6300875f">executeOption</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="classPlayerMenu.html#a764418c67a206ddfb783ea2f8a755bcc">~PlayerMenu</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassMenuOption_html"><div class="ttname"><a href="classMenuOption.html">MenuOption</a></div><div class="ttdoc">Abstract base class for menu command options.</div><div class="ttdef"><b>Definition:</b> MenuOption.h:22</div></div>
+<div class="ttc" id="aclassPlayerMenu_html"><div class="ttname"><a href="classPlayerMenu.html">PlayerMenu</a></div><div class="ttdoc">Invoker class that holds and executes MenuOption commands.</div><div class="ttdef"><b>Definition:</b> PlayerMenu.h:23</div></div>
 <div class="ttc" id="aclassPlayerMenu_html_a4760ece81400800452375a6b6300875f"><div class="ttname"><a href="classPlayerMenu.html#a4760ece81400800452375a6b6300875f">PlayerMenu::executeOption</a></div><div class="ttdeci">void executeOption()</div><div class="ttdoc">Invokes execute() method on menuOption attribute.</div><div class="ttdef"><b>Definition:</b> PlayerMenu.cpp:12</div></div>
-<div class="ttc" id="aclassPlayerMenu_html_a764418c67a206ddfb783ea2f8a755bcc"><div class="ttname"><a href="classPlayerMenu.html#a764418c67a206ddfb783ea2f8a755bcc">PlayerMenu::~PlayerMenu</a></div><div class="ttdeci">~PlayerMenu()</div><div class="ttdoc">Frees mem allocated to menuOption attr.</div><div class="ttdef"><b>Definition:</b> PlayerMenu.cpp:21</div></div>
+<div class="ttc" id="aclassPlayerMenu_html_a764418c67a206ddfb783ea2f8a755bcc"><div class="ttname"><a href="classPlayerMenu.html#a764418c67a206ddfb783ea2f8a755bcc">PlayerMenu::~PlayerMenu</a></div><div class="ttdeci">~PlayerMenu()</div><div class="ttdoc">Destructor - cleans up allocated menu option.</div><div class="ttdef"><b>Definition:</b> PlayerMenu.cpp:21</div></div>
 <div class="ttc" id="aclassPlayerMenu_html_af37d74811384bdf8f23325ae4b6cc25f"><div class="ttname"><a href="classPlayerMenu.html#af37d74811384bdf8f23325ae4b6cc25f">PlayerMenu::setMenuOption</a></div><div class="ttdeci">void setMenuOption(MenuOption *option)</div><div class="ttdoc">Setter for menuOption attribute.</div><div class="ttdef"><b>Definition:</b> PlayerMenu.cpp:4</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

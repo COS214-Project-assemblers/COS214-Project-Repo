@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Abstract base class for menu command options.">
 <polygon fill="#bfbfbf" stroke="black" points="18,-0.5 18,-19.5 94,-19.5 94,-0.5 18,-0.5"/>
 <text text-anchor="middle" x="56" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MenuOption</text>
 </a>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classGame.html" target="_top" xlink:title="The Game class represents the internal API of the system. It is modelled in terms of the Facade desig...">
+<g id="a_node2"><a xlink:href="classGame.html" target="_top" xlink:title="The main game class representing the internal API of the system.">
 <polygon fill="white" stroke="black" points="0,-67.5 0,-86.5 46,-86.5 46,-67.5 0,-67.5"/>
 <text text-anchor="middle" x="23" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Game</text>
 </a>
@@ -37,7 +37,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classLogger.html" target="_top" xlink:title="Interface for concrete Log strategies to implement.">
+<g id="a_node3"><a xlink:href="classLogger.html" target="_top" xlink:title="Interface for concrete logging strategies.">
 <polygon fill="white" stroke="black" points="64,-67.5 64,-86.5 114,-86.5 114,-67.5 64,-67.5"/>
 <text text-anchor="middle" x="89" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Logger</text>
 </a>

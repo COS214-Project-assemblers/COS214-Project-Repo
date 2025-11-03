@@ -1,5 +1,5 @@
 <map id="backend/game/ExitGameOption.h" name="backend/game/ExitGameOption.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,245,32"/>
+<area shape="rect" id="node1" title="Command for exiting the game with logging capabilities." alt="" coords="5,5,245,32"/>
 <area shape="rect" id="node2" href="$APIController_8h.html" title="Define endpoints." alt="" coords="25,80,226,107"/>
 <area shape="rect" id="node3" href="$APIController_8cpp.html" title="Still need to see what going to do here." alt="" coords="17,155,233,181"/>
 </map>

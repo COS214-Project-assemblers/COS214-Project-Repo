@@ -89,14 +89,44 @@ Public Member Functions</h2></td></tr>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlantState.html#a9a5ce5b16d289b30690309bf4486a58f">~PlantState</a> ()=default</td></tr>
 <tr class="memdesc:a9a5ce5b16d289b30690309bf4486a58f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper cleanup of derived classes. <br /></td></tr>
 <tr class="separator:a9a5ce5b16d289b30690309bf4486a58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad714d9c35ad3f2ebcdc0b9089aed6034"><td class="memItemLeft" align="right" valign="top"><a id="ad714d9c35ad3f2ebcdc0b9089aed6034"></a>
-virtual string&#160;</td><td class="memItemRight" valign="bottom"><b>getState</b> ()=0</td></tr>
+<tr class="memitem:ad714d9c35ad3f2ebcdc0b9089aed6034"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlantState.html#ad714d9c35ad3f2ebcdc0b9089aed6034">getState</a> ()=0</td></tr>
+<tr class="memdesc:ad714d9c35ad3f2ebcdc0b9089aed6034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the state name as a string.  <a href="classPlantState.html#ad714d9c35ad3f2ebcdc0b9089aed6034">More...</a><br /></td></tr>
 <tr class="separator:ad714d9c35ad3f2ebcdc0b9089aed6034"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract base class representing different states of a plant. </p>
 <p>This class defines the interface for all concrete plant states in the State pattern. Each state represents a specific phase of a plant's lifecycle (<a class="el" href="classSellable.html" title="Concrete state class representing a plant that is ready for sale.">Sellable</a>, <a class="el" href="classNotSellable.html" title="Concrete state class representing a plant that is not ready for sale.">NotSellable</a>) and defines behaviour specific to that state. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad714d9c35ad3f2ebcdc0b9089aed6034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad714d9c35ad3f2ebcdc0b9089aed6034">&#9670;&nbsp;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual string PlantState::getState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the state name as a string. </p>
+<dl class="section return"><dt>Returns</dt><dd>State name string </dd></dl>
+
+<p>Implemented in <a class="el" href="classSellable.html#aefbfff36e910ec14e08cff7ed676f48a">Sellable</a>, and <a class="el" href="classNotSellable.html#ad23eb8f1d3961498dc4ab0b272bc3db7">NotSellable</a>.</p>
+
+</div>
+</div>
 <a id="a8128942762c90e82177b153445e8c95d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8128942762c90e82177b153445e8c95d">&#9670;&nbsp;</a></span>handle()</h2>
 

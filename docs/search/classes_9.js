@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jsongameconfiguration_360',['JSONGameConfiguration',['../classJSONGameConfiguration.html',1,'']]]
+  ['jsongameconfiguration_409',['JSONGameConfiguration',['../classJSONGameConfiguration.html',1,'']]]
 ];

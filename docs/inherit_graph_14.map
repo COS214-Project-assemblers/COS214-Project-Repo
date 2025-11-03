@@ -1,3 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classGameConfiguration.html" title="Interface that provides unified interface to clients wanting to read game configurations...." alt="" coords="5,5,153,32"/>
+<area shape="rect" id="node1" href="$classGreenhouseStaff.html" title="Abstract base class for greenhouse staff observers." alt="" coords="5,56,136,83"/>
+<area shape="rect" id="node2" href="$classFertilizerStaff.html" title="Concrete observer class for staff responsible for fertilizing plants." alt="" coords="184,5,293,32"/>
+<area shape="rect" id="node3" href="$classPruningStaff.html" title="Concrete observer class for staff responsible for pruning plants." alt="" coords="188,56,289,83"/>
+<area shape="rect" id="node4" href="$classWaterStaff.html" title="Concrete observer class for staff responsible for watering plants." alt="" coords="193,107,284,133"/>
 </map>

@@ -5,5 +5,6 @@ var searchData=
   ['director_63',['Director',['../classDirector.html',1,'Director'],['../classDirector.html#a607a41fe5c42dd9ca7e256a11942a6d7',1,'Director::Director()']]],
   ['director_2ecpp_64',['Director.cpp',['../Director_8cpp.html',1,'']]],
   ['director_2eh_65',['Director.h',['../Director_8h.html',1,'']]],
-  ['display_66',['display',['../classPlant.html#ab82a69fbc1df746afd1b0ef9a4417f1b',1,'Plant']]]
+  ['display_66',['display',['../classPlant.html#ab82a69fbc1df746afd1b0ef9a4417f1b',1,'Plant']]],
+  ['dist_67',['dist',['../classHealth.html#a6b77c50882a184da2a72333283841073',1,'Health']]]
 ];

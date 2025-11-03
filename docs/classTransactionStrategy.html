@@ -69,7 +69,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="classTransactionStrategy.html" title="The TransactionStrategy class an abstract class that will help define how transactions will be handel...">TransactionStrategy</a> class an abstract class that will help define how transactions will be handeld based on the type of <a class="el" href="classTransaction.html" title="Represensts a single transaction in the system and holds its value and the TransactionStrategy used.">Transaction</a>.  
+<p>Abstract base class for transaction handling strategies.  
  <a href="classTransactionStrategy.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="TransactionStrategy_8h_source.html">TransactionStrategy.h</a>&gt;</code></p>
@@ -84,21 +84,29 @@ Inheritance diagram for TransactionStrategy:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad8fea22a0db82e64c7ee61dd82cd686a"><td class="memItemLeft" align="right" valign="top"><a id="ad8fea22a0db82e64c7ee61dd82cd686a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionStrategy.html#ad8fea22a0db82e64c7ee61dd82cd686a">TransactionStrategy</a> ()</td></tr>
-<tr class="memdesc:ad8fea22a0db82e64c7ee61dd82cd686a"><td class="mdescLeft">&#160;</td><td class="mdescRight">default constructor. <br /></td></tr>
+<tr class="memdesc:ad8fea22a0db82e64c7ee61dd82cd686a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
 <tr class="separator:ad8fea22a0db82e64c7ee61dd82cd686a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0beeaa04b55c6b062dcb9e3c4be26d93"><td class="memItemLeft" align="right" valign="top"><a id="a0beeaa04b55c6b062dcb9e3c4be26d93"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionStrategy.html#a0beeaa04b55c6b062dcb9e3c4be26d93">~TransactionStrategy</a> ()</td></tr>
-<tr class="memdesc:a0beeaa04b55c6b062dcb9e3c4be26d93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual Deconstructor. <br /></td></tr>
+<tr class="memdesc:a0beeaa04b55c6b062dcb9e3c4be26d93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper polymorphic cleanup. <br /></td></tr>
 <tr class="separator:a0beeaa04b55c6b062dcb9e3c4be26d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38df3eab00d2eb37ccc53b09f2f7f5a5"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionStrategy.html#a38df3eab00d2eb37ccc53b09f2f7f5a5">execute</a> (double v, double b)=0</td></tr>
-<tr class="memdesc:a38df3eab00d2eb37ccc53b09f2f7f5a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a transactions financial logic to update the balance.  <a href="classTransactionStrategy.html#a38df3eab00d2eb37ccc53b09f2f7f5a5">More...</a><br /></td></tr>
+<tr class="memdesc:a38df3eab00d2eb37ccc53b09f2f7f5a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes transaction financial logic.  <a href="classTransactionStrategy.html#a38df3eab00d2eb37ccc53b09f2f7f5a5">More...</a><br /></td></tr>
 <tr class="separator:a38df3eab00d2eb37ccc53b09f2f7f5a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa95499a098f269bbbbe6772a9890bef5"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionStrategy.html#aa95499a098f269bbbbe6772a9890bef5">getType</a> () const =0</td></tr>
-<tr class="memdesc:aa95499a098f269bbbbe6772a9890bef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Type of the transaction.  <a href="classTransactionStrategy.html#aa95499a098f269bbbbe6772a9890bef5">More...</a><br /></td></tr>
+<tr class="memdesc:aa95499a098f269bbbbe6772a9890bef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets transaction type identifier.  <a href="classTransactionStrategy.html#aa95499a098f269bbbbe6772a9890bef5">More...</a><br /></td></tr>
 <tr class="separator:aa95499a098f269bbbbe6772a9890bef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="classTransactionStrategy.html" title="The TransactionStrategy class an abstract class that will help define how transactions will be handel...">TransactionStrategy</a> class an abstract class that will help define how transactions will be handeld based on the type of <a class="el" href="classTransaction.html" title="Represensts a single transaction in the system and holds its value and the TransactionStrategy used.">Transaction</a>. </p>
+<div class="textblock"><p>Abstract base class for transaction handling strategies. </p>
+<p>Defines the interface for different transaction types using the Strategy pattern. Each concrete strategy implements specific financial logic for different transaction types (sale, return, etc.).</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSale.html" title="Handles financial transactions for plant sales.">Sale</a> </dd>
+<dd>
+<a class="el" href="classReturn.html" title="Handles financial transactions for customer returns.">Return</a> </dd>
+<dd>
+<a class="el" href="classRestock.html" title="Handles financial transactions for inventory restocking.">Restock</a> </dd>
+<dd>
+<a class="el" href="classPlantDied.html" title="Handles financial transactions when plants die due to poor care.">PlantDied</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a38df3eab00d2eb37ccc53b09f2f7f5a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a38df3eab00d2eb37ccc53b09f2f7f5a5">&#9670;&nbsp;</a></span>execute()</h2>
@@ -134,17 +142,17 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </table>
 </div><div class="memdoc">
 
-<p>Executes a transactions financial logic to update the balance. </p>
+<p>Executes transaction financial logic. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v</td><td>Value of the transaction. </td></tr>
-    <tr><td class="paramname">b</td><td>Value of the current balance </td></tr>
+    <tr><td class="paramname">v</td><td>Monetary value of the transaction </td></tr>
+    <tr><td class="paramname">b</td><td>Current balance before transaction </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>THe new balance after a transaction has been executed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>New balance after transaction processing </dd></dl>
 
-<p>Implemented in <a class="el" href="classRestock.html#aa3a46dec3112c5292cd0aa2d7bbfb643">Restock</a>, <a class="el" href="classSale.html#a65de70eb6240ac1563dc512d2d1e525b">Sale</a>, <a class="el" href="classReturn.html#a815adb4dde74a871bdb845d878a6e28d">Return</a>, <a class="el" href="classRestock.html#aa3a46dec3112c5292cd0aa2d7bbfb643">Restock</a>, and <a class="el" href="classPlantDied.html#aab970e8c1d6df22ea733693d7af63ab2">PlantDied</a>.</p>
+<p>Implemented in <a class="el" href="classSale.html#a65de70eb6240ac1563dc512d2d1e525b">Sale</a>, <a class="el" href="classReturn.html#a815adb4dde74a871bdb845d878a6e28d">Return</a>, <a class="el" href="classRestock.html#aa3a46dec3112c5292cd0aa2d7bbfb643">Restock</a>, and <a class="el" href="classPlantDied.html#aab970e8c1d6df22ea733693d7af63ab2">PlantDied</a>.</p>
 
 </div>
 </div>
@@ -171,10 +179,10 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </table>
 </div><div class="memdoc">
 
-<p>Returns the Type of the transaction. </p>
-<dl class="section return"><dt>Returns</dt><dd>The Type of the transaction </dd></dl>
+<p>Gets transaction type identifier. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classTransaction.html" title="Represents a single financial transaction with strategy and value.">Transaction</a> type string </dd></dl>
 
-<p>Implemented in <a class="el" href="classSale.html#a89823b7da82dc9fb8f48ae9b1ce2f03a">Sale</a>, <a class="el" href="classReturn.html#ab78b663b2cbae9ba484fabb13bed61cf">Return</a>, <a class="el" href="classRestock.html#accbcafd2f250c444d91e06ae0db47470">Restock</a>, <a class="el" href="classPlantDied.html#afed6adc9817146c135aca6f599170dba">PlantDied</a>, and <a class="el" href="classRestock.html#a4414a8a43d0d4c2e3f6224c53ef8f777">Restock</a>.</p>
+<p>Implemented in <a class="el" href="classSale.html#a89823b7da82dc9fb8f48ae9b1ce2f03a">Sale</a>, <a class="el" href="classReturn.html#ab78b663b2cbae9ba484fabb13bed61cf">Return</a>, <a class="el" href="classRestock.html#accbcafd2f250c444d91e06ae0db47470">Restock</a>, and <a class="el" href="classPlantDied.html#afed6adc9817146c135aca6f599170dba">PlantDied</a>.</p>
 
 </div>
 </div>

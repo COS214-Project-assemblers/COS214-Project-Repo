@@ -1,10 +1,9 @@
 <map id="backend/game/Game.h" name="backend/game/Game.h">
-<area shape="rect" id="node1" title="Header file for Game class." alt="" coords="95,5,267,32"/>
+<area shape="rect" id="node1" title="Header file for Game class &#45; Main game facade." alt="" coords="95,5,267,32"/>
 <area shape="rect" id="node2" href="$API_8h.html" title="Bootstrapper for public facing API." alt="" coords="5,80,144,107"/>
-<area shape="rect" id="node3" href="$APIController_8h.html" title="Define endpoints." alt="" coords="227,244,429,271"/>
-<area shape="rect" id="node5" href="$MenuOption_8h_source.html" title=" " alt="" coords="349,80,561,107"/>
-<area shape="rect" id="node4" href="$APIController_8cpp.html" title="Still need to see what going to do here." alt="" coords="220,319,436,345"/>
-<area shape="rect" id="node6" href="$ContinueGameOption_8h.html" title="Header file for ContinueGameOption class." alt="" coords="219,155,437,196"/>
-<area shape="rect" id="node7" href="$ExitGameOption_8h.html" title=" " alt="" coords="461,162,701,189"/>
-<area shape="rect" id="node8" href="$NewGameOption_8h.html" title="Header file for NewGameOption class." alt="" coords="726,162,970,189"/>
+<area shape="rect" id="node3" href="$APIController_8h.html" title="Define endpoints." alt="" coords="159,229,361,256"/>
+<area shape="rect" id="node5" href="$MenuOption_8h.html" title="Base class for menu command options." alt="" coords="233,80,445,107"/>
+<area shape="rect" id="node4" href="$APIController_8cpp.html" title="Still need to see what going to do here." alt="" coords="152,304,368,331"/>
+<area shape="rect" id="node6" href="$ExitGameOption_8h.html" title="Command for exiting the game with logging capabilities." alt="" coords="219,155,459,181"/>
+<area shape="rect" id="node7" href="$NewGameOption_8h.html" title="Header file for NewGameOption class." alt="" coords="483,155,727,181"/>
 </map>

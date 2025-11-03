@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Header file for PlayerMenu class. PlayerMenu is the Invoker participant in the command design pattern...">
+<g id="a_node1"><a xlink:title="Header file for PlayerMenu class &#45; Command pattern invoker.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-56.5 0,-75.5 158,-75.5 158,-56.5 0,-56.5"/>
 <text text-anchor="middle" x="79" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">backend/game/PlayerMenu.h</text>
 </a>

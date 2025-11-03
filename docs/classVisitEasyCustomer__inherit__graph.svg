@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classCustomerVisitor.html" target="_top" xlink:title="This is the abstract base class for defining operations for the concreteVisitors.">
+<g id="a_node2"><a xlink:href="classCustomerVisitor.html" target="_top" xlink:title="Abstract base class for defining operations for the concrete visitors.">
 <polygon fill="white" stroke="black" points="7,-56.5 7,-75.5 102,-75.5 102,-56.5 7,-56.5"/>
 <text text-anchor="middle" x="54.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">CustomerVisitor</text>
 </a>

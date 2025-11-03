@@ -69,87 +69,116 @@ $(function() {
 <div class="title">PlantHealth.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef HEALTH_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define HEALTH_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;mutex&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;random&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="GreenSock_8h.html">GreenSock.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span><a class="code" href="classPlant.html">Plant</a>; <span class="comment">// forward declaration</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classHealth.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHealth.html">Health</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classPlant.html">Plant</a> ;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">float</span> originalHeathTotal ; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">float</span> water;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">float</span> fertalizer;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">float</span> pruning;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">int</span> mature;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="classGreenSock.html">GreenSock</a>* socket ; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">mutable</span> std::mutex mtx;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">mutable</span> std::mt19937 rng;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;       <span class="keyword">mutable</span> std::uniform_int_distribution&lt;int&gt; dist;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classHealth.html#aa516f2d567d8a01eb2a53fef5b008dfb">Health</a>(<span class="keywordtype">float</span> water = 1.0 , <span class="keywordtype">float</span> fertalizer = 1.0 , <span class="keywordtype">float</span> pruning = 1.0 , <span class="keywordtype">int</span> mature= 0);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::string getWater();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        std::string getFertilizer();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        std::string getPruning();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="classHealth.html#a25bdebcca7d22e042509e706e2a3f8ef">~Health</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <a class="code" href="classHealth.html#aa516f2d567d8a01eb2a53fef5b008dfb">Health</a>(<span class="keyword">const</span> <a class="code" href="classHealth.html">Health</a>&amp;)            = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <a class="code" href="classHealth.html">Health</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classHealth.html">Health</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classHealth.html#aa516f2d567d8a01eb2a53fef5b008dfb">Health</a>(<a class="code" href="classHealth.html">Health</a>&amp;&amp;)                 = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="classHealth.html">Health</a>&amp; operator=(<a class="code" href="classHealth.html">Health</a>&amp;&amp;)      = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classHealth.html#a95e3f3756d950518b984bdaca2a16691">handleWater</a>();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classHealth.html#a0285244430e08b7be546677f76ce0bb7">handleFertilizer</a>()     ;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classHealth.html#a0a2e8060649f872a418f3379e528b8d0">handlePruning</a>()        ;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  std::unique_ptr&lt;Health&gt; <a class="code" href="classHealth.html#a4d65cf4ccb04b4592c101de1188e692e">clone</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classHealth.html#aafa4efefefa200da2f3fd6dfabcff811">healthScore</a>();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordtype">float</span> Water();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordtype">float</span> Fertilizer();</div>
+<a href="PlantHealth_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef HEALTH_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define HEALTH_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;mutex&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="GreenSock_8h.html">GreenSock.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span><a class="code" href="classPlant.html">Plant</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classHealth.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHealth.html">Health</a> {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classPlant.html">Plant</a> ;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classHealth.html#a23173e5555905abaec470524e477eebf">   31</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classHealth.html#a23173e5555905abaec470524e477eebf">originalHeathTotal</a>;    </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classHealth.html#a4a8bc7ff09bf840bf76bebeca00892bf">   32</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classHealth.html#a4a8bc7ff09bf840bf76bebeca00892bf">water</a>;                 </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classHealth.html#aa1f07abbbcee12df603d8ae49c51a533">   33</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classHealth.html#aa1f07abbbcee12df603d8ae49c51a533">fertalizer</a>;            </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classHealth.html#af38318a0930fc69964389773d3623253">   34</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classHealth.html#af38318a0930fc69964389773d3623253">pruning</a>;               </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classHealth.html#abb59553b2de535879ff6aeb9813f401f">   35</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classHealth.html#abb59553b2de535879ff6aeb9813f401f">mature</a>;                  </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classHealth.html#ac976b937d0848d1ba515d8b10d482b07">   36</a></span>&#160;        <a class="code" href="classGreenSock.html">GreenSock</a>* <a class="code" href="classHealth.html#ac976b937d0848d1ba515d8b10d482b07">socket</a>;           </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classHealth.html#a11f0a11046be4c94a587bb9a5fe3a868">   38</a></span>&#160;        <span class="keyword">mutable</span> std::mutex <a class="code" href="classHealth.html#a11f0a11046be4c94a587bb9a5fe3a868">mtx</a>;      </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classHealth.html#a4e68e250d64155c0d6e377cfb2ca2cae">   40</a></span>&#160;        <span class="keyword">mutable</span> std::mt19937 <a class="code" href="classHealth.html#a4e68e250d64155c0d6e377cfb2ca2cae">rng</a>;    </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classHealth.html#a6b77c50882a184da2a72333283841073">   41</a></span>&#160;        <span class="keyword">mutable</span> std::uniform_int_distribution&lt;int&gt; <a class="code" href="classHealth.html#a6b77c50882a184da2a72333283841073">dist</a>;  </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="classHealth.html#aa516f2d567d8a01eb2a53fef5b008dfb">Health</a>(<span class="keywordtype">float</span> <a class="code" href="classHealth.html#a4a8bc7ff09bf840bf76bebeca00892bf">water</a> = 1.0 , <span class="keywordtype">float</span> <a class="code" href="classHealth.html#aa1f07abbbcee12df603d8ae49c51a533">fertalizer</a> = 1.0 , <span class="keywordtype">float</span> <a class="code" href="classHealth.html#af38318a0930fc69964389773d3623253">pruning</a> = 1.0 , <span class="keywordtype">int</span> <a class="code" href="classHealth.html#abb59553b2de535879ff6aeb9813f401f">mature</a>= 0);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        std::string <a class="code" href="classHealth.html#a1249819ea67aa5aeaa195fd40dd49b0b">getWater</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        std::string <a class="code" href="classHealth.html#ad07441b65f4c2eacb435cb6f1903b822">getFertilizer</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        std::string <a class="code" href="classHealth.html#a17037ad04481b0c087b0539df1ea5d09">getPruning</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="classHealth.html#a25bdebcca7d22e042509e706e2a3f8ef">~Health</a>();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classHealth.html#a595cfc52ef2eac4cdb244c0b14b7884d">   85</a></span>&#160;        <a class="code" href="classHealth.html#a595cfc52ef2eac4cdb244c0b14b7884d">Health</a>(<span class="keyword">const</span> <a class="code" href="classHealth.html">Health</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classHealth.html#aca6e1ebfef3f8412383fe3e584515ade">   90</a></span>&#160;        <a class="code" href="classHealth.html">Health</a>&amp; <a class="code" href="classHealth.html#aca6e1ebfef3f8412383fe3e584515ade">operator=</a>(<span class="keyword">const</span> <a class="code" href="classHealth.html">Health</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classHealth.html#aa01260165701d2e49a5fedaa8d38bc92">   95</a></span>&#160;        <a class="code" href="classHealth.html#aa01260165701d2e49a5fedaa8d38bc92">Health</a>(<a class="code" href="classHealth.html">Health</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classHealth.html#aeecb05b70b23e5233e301baf13281be0">  100</a></span>&#160;        <a class="code" href="classHealth.html">Health</a>&amp; <a class="code" href="classHealth.html#aeecb05b70b23e5233e301baf13281be0">operator=</a>(<a class="code" href="classHealth.html">Health</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordtype">float</span> healthPrune();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classHealth.html#ac9a12047ab52a51655fe002dc1605192">getMaturity</a>()           ;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classHealth.html#a95e3f3756d950518b984bdaca2a16691">handleWater</a>();</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classHealth.html#af83f3e87547dd0295a36ef589058f3d6">decay</a>(<span class="keywordtype">int</span> decayIndex)  ;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordtype">bool</span> isDead() ; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;} ;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classHealth.html#a0285244430e08b7be546677f76ce0bb7">handleFertilizer</a>()     ;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classHealth.html#a0a2e8060649f872a418f3379e528b8d0">handlePruning</a>()        ;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// HEALTH_H</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        std::unique_ptr&lt;Health&gt; <a class="code" href="classHealth.html#a4d65cf4ccb04b4592c101de1188e692e">clone</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classHealth.html#aafa4efefefa200da2f3fd6dfabcff811">healthScore</a>();</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classHealth.html#aa13bcf91779952a9b33b6bb0985db6ee">Water</a>();</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classHealth.html#adaf748247b008806bc2ad75288135614">Fertilizer</a>();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classHealth.html#a4768fe62195017d3b14253b3c3224948">healthPrune</a>();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classHealth.html#ac9a12047ab52a51655fe002dc1605192">getMaturity</a>()           ;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classHealth.html#af83f3e87547dd0295a36ef589058f3d6">decay</a>(<span class="keywordtype">int</span> decayIndex)  ;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classHealth.html#a051395e1877cd01bf8036365269e760f">isDead</a>() ; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;} ;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// HEALTH_H</span></div>
 <div class="ttc" id="aGreenSock_8h_html"><div class="ttname"><a href="GreenSock_8h.html">GreenSock.h</a></div></div>
 <div class="ttc" id="aclassGreenSock_html"><div class="ttname"><a href="classGreenSock.html">GreenSock</a></div><div class="ttdef"><b>Definition:</b> GreenSock.h:20</div></div>
-<div class="ttc" id="aclassHealth_html"><div class="ttname"><a href="classHealth.html">Health</a></div><div class="ttdef"><b>Definition:</b> PlantHealth.h:15</div></div>
+<div class="ttc" id="aclassHealth_html"><div class="ttname"><a href="classHealth.html">Health</a></div><div class="ttdoc">Manages plant health metrics including water, fertilizer, pruning, and maturity.</div><div class="ttdef"><b>Definition:</b> PlantHealth.h:27</div></div>
 <div class="ttc" id="aclassHealth_html_a0285244430e08b7be546677f76ce0bb7"><div class="ttname"><a href="classHealth.html#a0285244430e08b7be546677f76ce0bb7">Health::handleFertilizer</a></div><div class="ttdeci">void handleFertilizer()</div><div class="ttdoc">Handles fertilizer replenishment by restoring the fertilizer attribute to full (1....</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:25</div></div>
+<div class="ttc" id="aclassHealth_html_a051395e1877cd01bf8036365269e760f"><div class="ttname"><a href="classHealth.html#a051395e1877cd01bf8036365269e760f">Health::isDead</a></div><div class="ttdeci">bool isDead()</div><div class="ttdoc">Checks if plant is dead based on health thresholds.</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:68</div></div>
 <div class="ttc" id="aclassHealth_html_a0a2e8060649f872a418f3379e528b8d0"><div class="ttname"><a href="classHealth.html#a0a2e8060649f872a418f3379e528b8d0">Health::handlePruning</a></div><div class="ttdeci">void handlePruning()</div><div class="ttdoc">Handles pruning by restoring the pruning attribute to full (1.0) AND INCREASES MATURITY....</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:31</div></div>
+<div class="ttc" id="aclassHealth_html_a11f0a11046be4c94a587bb9a5fe3a868"><div class="ttname"><a href="classHealth.html#a11f0a11046be4c94a587bb9a5fe3a868">Health::mtx</a></div><div class="ttdeci">std::mutex mtx</div><div class="ttdoc">Mutex for thread-safe health operations.</div><div class="ttdef"><b>Definition:</b> PlantHealth.h:38</div></div>
+<div class="ttc" id="aclassHealth_html_a1249819ea67aa5aeaa195fd40dd49b0b"><div class="ttname"><a href="classHealth.html#a1249819ea67aa5aeaa195fd40dd49b0b">Health::getWater</a></div><div class="ttdeci">std::string getWater()</div><div class="ttdoc">Gets water level as formatted string.</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:98</div></div>
+<div class="ttc" id="aclassHealth_html_a17037ad04481b0c087b0539df1ea5d09"><div class="ttname"><a href="classHealth.html#a17037ad04481b0c087b0539df1ea5d09">Health::getPruning</a></div><div class="ttdeci">std::string getPruning()</div><div class="ttdoc">Gets pruning level as formatted string.</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:112</div></div>
+<div class="ttc" id="aclassHealth_html_a23173e5555905abaec470524e477eebf"><div class="ttname"><a href="classHealth.html#a23173e5555905abaec470524e477eebf">Health::originalHeathTotal</a></div><div class="ttdeci">float originalHeathTotal</div><div class="ttdoc">Baseline health total for reference.</div><div class="ttdef"><b>Definition:</b> PlantHealth.h:31</div></div>
 <div class="ttc" id="aclassHealth_html_a25bdebcca7d22e042509e706e2a3f8ef"><div class="ttname"><a href="classHealth.html#a25bdebcca7d22e042509e706e2a3f8ef">Health::~Health</a></div><div class="ttdeci">~Health()</div><div class="ttdoc">Destructor for Health. Currently, no dynamic memory is managed by Health, so this destructor is empty...</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:14</div></div>
+<div class="ttc" id="aclassHealth_html_a4768fe62195017d3b14253b3c3224948"><div class="ttname"><a href="classHealth.html#a4768fe62195017d3b14253b3c3224948">Health::healthPrune</a></div><div class="ttdeci">float healthPrune()</div><div class="ttdoc">Gets current pruning level.</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:58</div></div>
+<div class="ttc" id="aclassHealth_html_a4a8bc7ff09bf840bf76bebeca00892bf"><div class="ttname"><a href="classHealth.html#a4a8bc7ff09bf840bf76bebeca00892bf">Health::water</a></div><div class="ttdeci">float water</div><div class="ttdoc">Water level.</div><div class="ttdef"><b>Definition:</b> PlantHealth.h:32</div></div>
 <div class="ttc" id="aclassHealth_html_a4d65cf4ccb04b4592c101de1188e692e"><div class="ttname"><a href="classHealth.html#a4d65cf4ccb04b4592c101de1188e692e">Health::clone</a></div><div class="ttdeci">std::unique_ptr&lt; Health &gt; clone() const</div><div class="ttdoc">Creates a clone of the current Health object. Allocates and returns a new Health object with default ...</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:37</div></div>
+<div class="ttc" id="aclassHealth_html_a4e68e250d64155c0d6e377cfb2ca2cae"><div class="ttname"><a href="classHealth.html#a4e68e250d64155c0d6e377cfb2ca2cae">Health::rng</a></div><div class="ttdeci">std::mt19937 rng</div><div class="ttdoc">Random number generator for decay behavior.</div><div class="ttdef"><b>Definition:</b> PlantHealth.h:40</div></div>
+<div class="ttc" id="aclassHealth_html_a595cfc52ef2eac4cdb244c0b14b7884d"><div class="ttname"><a href="classHealth.html#a595cfc52ef2eac4cdb244c0b14b7884d">Health::Health</a></div><div class="ttdeci">Health(const Health &amp;)=delete</div><div class="ttdoc">Copy constructor deleted to prevent unintended copying.</div></div>
+<div class="ttc" id="aclassHealth_html_a6b77c50882a184da2a72333283841073"><div class="ttname"><a href="classHealth.html#a6b77c50882a184da2a72333283841073">Health::dist</a></div><div class="ttdeci">std::uniform_int_distribution&lt; int &gt; dist</div><div class="ttdoc">Distribution for random decay.</div><div class="ttdef"><b>Definition:</b> PlantHealth.h:41</div></div>
 <div class="ttc" id="aclassHealth_html_a95e3f3756d950518b984bdaca2a16691"><div class="ttname"><a href="classHealth.html#a95e3f3756d950518b984bdaca2a16691">Health::handleWater</a></div><div class="ttdeci">void handleWater()</div><div class="ttdoc">Handles watering by restoring the water attribute to full (1.0).</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:18</div></div>
+<div class="ttc" id="aclassHealth_html_aa01260165701d2e49a5fedaa8d38bc92"><div class="ttname"><a href="classHealth.html#aa01260165701d2e49a5fedaa8d38bc92">Health::Health</a></div><div class="ttdeci">Health(Health &amp;&amp;)=default</div><div class="ttdoc">Move constructor enabled for efficient resource transfer.</div></div>
+<div class="ttc" id="aclassHealth_html_aa13bcf91779952a9b33b6bb0985db6ee"><div class="ttname"><a href="classHealth.html#aa13bcf91779952a9b33b6bb0985db6ee">Health::Water</a></div><div class="ttdeci">float Water()</div><div class="ttdoc">Gets current water level.</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:51</div></div>
+<div class="ttc" id="aclassHealth_html_aa1f07abbbcee12df603d8ae49c51a533"><div class="ttname"><a href="classHealth.html#aa1f07abbbcee12df603d8ae49c51a533">Health::fertalizer</a></div><div class="ttdeci">float fertalizer</div><div class="ttdoc">Fertilizer level.</div><div class="ttdef"><b>Definition:</b> PlantHealth.h:33</div></div>
 <div class="ttc" id="aclassHealth_html_aa516f2d567d8a01eb2a53fef5b008dfb"><div class="ttname"><a href="classHealth.html#aa516f2d567d8a01eb2a53fef5b008dfb">Health::Health</a></div><div class="ttdeci">Health(float water=1.0, float fertalizer=1.0, float pruning=1.0, int mature=0)</div><div class="ttdoc">Constructs a Health object with given or default parameters.</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:3</div></div>
 <div class="ttc" id="aclassHealth_html_aafa4efefefa200da2f3fd6dfabcff811"><div class="ttname"><a href="classHealth.html#aafa4efefefa200da2f3fd6dfabcff811">Health::healthScore</a></div><div class="ttdeci">float healthScore()</div><div class="ttdoc">Computes the overall health score. The health score is a simple additive measure of the plant’s water...</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:46</div></div>
+<div class="ttc" id="aclassHealth_html_abb59553b2de535879ff6aeb9813f401f"><div class="ttname"><a href="classHealth.html#abb59553b2de535879ff6aeb9813f401f">Health::mature</a></div><div class="ttdeci">int mature</div><div class="ttdoc">Maturity level.</div><div class="ttdef"><b>Definition:</b> PlantHealth.h:35</div></div>
+<div class="ttc" id="aclassHealth_html_ac976b937d0848d1ba515d8b10d482b07"><div class="ttname"><a href="classHealth.html#ac976b937d0848d1ba515d8b10d482b07">Health::socket</a></div><div class="ttdeci">GreenSock * socket</div><div class="ttdoc">WebSocket for real-time health updates.</div><div class="ttdef"><b>Definition:</b> PlantHealth.h:36</div></div>
 <div class="ttc" id="aclassHealth_html_ac9a12047ab52a51655fe002dc1605192"><div class="ttname"><a href="classHealth.html#ac9a12047ab52a51655fe002dc1605192">Health::getMaturity</a></div><div class="ttdeci">int getMaturity()</div><div class="ttdoc">Retrieves the maturity level of the plant.</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:62</div></div>
+<div class="ttc" id="aclassHealth_html_aca6e1ebfef3f8412383fe3e584515ade"><div class="ttname"><a href="classHealth.html#aca6e1ebfef3f8412383fe3e584515ade">Health::operator=</a></div><div class="ttdeci">Health &amp; operator=(const Health &amp;)=delete</div><div class="ttdoc">Copy assignment operator deleted.</div></div>
+<div class="ttc" id="aclassHealth_html_ad07441b65f4c2eacb435cb6f1903b822"><div class="ttname"><a href="classHealth.html#ad07441b65f4c2eacb435cb6f1903b822">Health::getFertilizer</a></div><div class="ttdeci">std::string getFertilizer()</div><div class="ttdoc">Gets fertilizer level as formatted string.</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:105</div></div>
+<div class="ttc" id="aclassHealth_html_adaf748247b008806bc2ad75288135614"><div class="ttname"><a href="classHealth.html#adaf748247b008806bc2ad75288135614">Health::Fertilizer</a></div><div class="ttdeci">float Fertilizer()</div><div class="ttdoc">Gets current fertilizer level.</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:54</div></div>
+<div class="ttc" id="aclassHealth_html_aeecb05b70b23e5233e301baf13281be0"><div class="ttname"><a href="classHealth.html#aeecb05b70b23e5233e301baf13281be0">Health::operator=</a></div><div class="ttdeci">Health &amp; operator=(Health &amp;&amp;)=default</div><div class="ttdoc">Move assignment operator enabled.</div></div>
+<div class="ttc" id="aclassHealth_html_af38318a0930fc69964389773d3623253"><div class="ttname"><a href="classHealth.html#af38318a0930fc69964389773d3623253">Health::pruning</a></div><div class="ttdeci">float pruning</div><div class="ttdoc">Pruning level.</div><div class="ttdef"><b>Definition:</b> PlantHealth.h:34</div></div>
 <div class="ttc" id="aclassHealth_html_af83f3e87547dd0295a36ef589058f3d6"><div class="ttname"><a href="classHealth.html#af83f3e87547dd0295a36ef589058f3d6">Health::decay</a></div><div class="ttdeci">void decay(int decayIndex)</div><div class="ttdoc">Simulates natural health decay over time.</div><div class="ttdef"><b>Definition:</b> PlantHealth.cpp:73</div></div>
-<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">Abstract base class representing a plant entity in the greenhouse simulation.</div><div class="ttdef"><b>Definition:</b> Plant.h:45</div></div>
+<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">Abstract base class representing a plant entity in the greenhouse simulation.</div><div class="ttdef"><b>Definition:</b> Plant.h:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

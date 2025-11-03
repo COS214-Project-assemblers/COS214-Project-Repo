@@ -69,7 +69,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Interface for concrete Log strategies to implement.  
+<p>Interface for concrete logging strategies.  
  <a href="classLogger.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Logger_8h_source.html">Logger.h</a>&gt;</code></p>
@@ -85,9 +85,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4019994ae26c88dd9eed155a14344173"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a4019994ae26c88dd9eed155a14344173">newLog</a> (std::string message)=0</td></tr>
 <tr class="memdesc:a4019994ae26c88dd9eed155a14344173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual function that acts as the algorithm the concrete strategies are to implement.  <a href="classLogger.html#a4019994ae26c88dd9eed155a14344173">More...</a><br /></td></tr>
 <tr class="separator:a4019994ae26c88dd9eed155a14344173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae93f62ca3e47716b7120acb032a260f3"><td class="memItemLeft" align="right" valign="top"><a id="ae93f62ca3e47716b7120acb032a260f3"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#ae93f62ca3e47716b7120acb032a260f3">~Logger</a> ()</td></tr>
+<tr class="memdesc:ae93f62ca3e47716b7120acb032a260f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper polymorphic cleanup. <br /></td></tr>
+<tr class="separator:ae93f62ca3e47716b7120acb032a260f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface for concrete Log strategies to implement. </p>
+<div class="textblock"><p>Interface for concrete logging strategies. </p>
+<p>Defines the common interface for all logging implementations following the Strategy pattern. Concrete strategies implement specific logging mechanisms (file, console, etc.).</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classBasicLogger.html" title="Implements Logger interface for file-based logging.">BasicLogger</a> </dd>
+<dd>
+<a class="el" href="classLogDecorator.html" title="Base decorator for extending logger functionality.">LogDecorator</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4019994ae26c88dd9eed155a14344173"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4019994ae26c88dd9eed155a14344173">&#9670;&nbsp;</a></span>newLog()</h2>

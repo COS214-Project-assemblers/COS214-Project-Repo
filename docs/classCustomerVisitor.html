@@ -70,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>This is the abstract base class for defining operations for the concreteVisitors.  
+<p>Abstract base class for defining operations for the concrete visitors.  
  <a href="classCustomerVisitor.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="CustomerVisitor_8h_source.html">CustomerVisitor.h</a>&gt;</code></p>
@@ -83,16 +83,15 @@ Inheritance diagram for CustomerVisitor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aca6fe43da84a84932a2f08192c30fe72"><td class="memItemLeft" align="right" valign="top"><a id="aca6fe43da84a84932a2f08192c30fe72"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#aca6fe43da84a84932a2f08192c30fe72">CustomerVisitor</a> (const <a class="el" href="classInventory.html">Inventory</a> &amp;inv)</td></tr>
-<tr class="memdesc:aca6fe43da84a84932a2f08192c30fe72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
+<tr class="memitem:aca6fe43da84a84932a2f08192c30fe72"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#aca6fe43da84a84932a2f08192c30fe72">CustomerVisitor</a> (const <a class="el" href="classInventory.html">Inventory</a> &amp;inv)</td></tr>
+<tr class="memdesc:aca6fe43da84a84932a2f08192c30fe72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classCustomerVisitor.html#aca6fe43da84a84932a2f08192c30fe72">More...</a><br /></td></tr>
 <tr class="separator:aca6fe43da84a84932a2f08192c30fe72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fcfa4ac2b3fa82129ac35fc1744545f"><td class="memItemLeft" align="right" valign="top"><a id="a8fcfa4ac2b3fa82129ac35fc1744545f"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#a8fcfa4ac2b3fa82129ac35fc1744545f">~CustomerVisitor</a> ()</td></tr>
 <tr class="memdesc:a8fcfa4ac2b3fa82129ac35fc1744545f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor. <br /></td></tr>
 <tr class="separator:a8fcfa4ac2b3fa82129ac35fc1744545f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85c5542005fada63750655e2cbceb1f6"><td class="memItemLeft" align="right" valign="top"><a id="a85c5542005fada63750655e2cbceb1f6"></a>
-std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>findByDifficulty</b> (const std::string &amp;difficulty) const</td></tr>
+<tr class="memitem:a85c5542005fada63750655e2cbceb1f6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#a85c5542005fada63750655e2cbceb1f6">findByDifficulty</a> (const std::string &amp;difficulty) const</td></tr>
+<tr class="memdesc:a85c5542005fada63750655e2cbceb1f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds plants by difficulty level.  <a href="classCustomerVisitor.html#a85c5542005fada63750655e2cbceb1f6">More...</a><br /></td></tr>
 <tr class="separator:a85c5542005fada63750655e2cbceb1f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e26dd28a2c50e845dc70055c5eb3f83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#a8e26dd28a2c50e845dc70055c5eb3f83">addRandomPlants</a> (std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt; &amp;source, int count, std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt; &amp;offerList)</td></tr>
 <tr class="memdesc:a8e26dd28a2c50e845dc70055c5eb3f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds random plants to the offersList.  <a href="classCustomerVisitor.html#a8e26dd28a2c50e845dc70055c5eb3f83">More...</a><br /></td></tr>
@@ -103,20 +102,14 @@ std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td>
 <tr class="memitem:a022528cfe43a1b4099f9977e9593653a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#a022528cfe43a1b4099f9977e9593653a">finalizeOffer</a> (std::size_t target=5)</td></tr>
 <tr class="memdesc:a022528cfe43a1b4099f9977e9593653a"><td class="mdescLeft">&#160;</td><td class="mdescRight">finalizes offer -&gt; makes it shuffled + tops up if less that 5  <a href="classCustomerVisitor.html#a022528cfe43a1b4099f9977e9593653a">More...</a><br /></td></tr>
 <tr class="separator:a022528cfe43a1b4099f9977e9593653a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b93c5d771ff104dabd14b089e7b8528"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#a5b93c5d771ff104dabd14b089e7b8528">getOffer</a> () const</td></tr>
-<tr class="memdesc:a5b93c5d771ff104dabd14b089e7b8528"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieves the offer vector.  <a href="classCustomerVisitor.html#a5b93c5d771ff104dabd14b089e7b8528">More...</a><br /></td></tr>
-<tr class="separator:a5b93c5d771ff104dabd14b089e7b8528"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2527df84752c15af98cc3bbbdaa54fa3"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#a2527df84752c15af98cc3bbbdaa54fa3">getCorrectPlant</a> () const</td></tr>
-<tr class="memdesc:a2527df84752c15af98cc3bbbdaa54fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieves the correct plant for the customer.  <a href="classCustomerVisitor.html#a2527df84752c15af98cc3bbbdaa54fa3">More...</a><br /></td></tr>
-<tr class="separator:a2527df84752c15af98cc3bbbdaa54fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa8bbeb9d22b19253a5e395b826c7cff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#afa8bbeb9d22b19253a5e395b826c7cff">markCorrectPlants</a> (const std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt; &amp;source, int count, bool returnable)</td></tr>
 <tr class="memdesc:afa8bbeb9d22b19253a5e395b826c7cff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks the correct plant for the customer.  <a href="classCustomerVisitor.html#afa8bbeb9d22b19253a5e395b826c7cff">More...</a><br /></td></tr>
 <tr class="separator:afa8bbeb9d22b19253a5e395b826c7cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a838d43f6c6df33840f0cddfba857616d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#a838d43f6c6df33840f0cddfba857616d">isAcceptable</a> (<a class="el" href="classPlant.html">Plant</a> *p)</td></tr>
-<tr class="memdesc:a838d43f6c6df33840f0cddfba857616d"><td class="mdescLeft">&#160;</td><td class="mdescRight">iscorrect plant  <a href="classCustomerVisitor.html#a838d43f6c6df33840f0cddfba857616d">More...</a><br /></td></tr>
+<tr class="memdesc:a838d43f6c6df33840f0cddfba857616d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a plant is acceptable for the customer.  <a href="classCustomerVisitor.html#a838d43f6c6df33840f0cddfba857616d">More...</a><br /></td></tr>
 <tr class="separator:a838d43f6c6df33840f0cddfba857616d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba4e9409a40d4f58494a45dc4d7ca876"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#aba4e9409a40d4f58494a45dc4d7ca876">isReturnable</a> (<a class="el" href="classPlant.html">Plant</a> *p)</td></tr>
-<tr class="memdesc:aba4e9409a40d4f58494a45dc4d7ca876"><td class="mdescLeft">&#160;</td><td class="mdescRight">isReturnable plant  <a href="classCustomerVisitor.html#aba4e9409a40d4f58494a45dc4d7ca876">More...</a><br /></td></tr>
+<tr class="memdesc:aba4e9409a40d4f58494a45dc4d7ca876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a plant is returnable.  <a href="classCustomerVisitor.html#aba4e9409a40d4f58494a45dc4d7ca876">More...</a><br /></td></tr>
 <tr class="separator:aba4e9409a40d4f58494a45dc4d7ca876"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92b865c025936424400eca86ece1b522"><td class="memItemLeft" align="right" valign="top">virtual vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#a92b865c025936424400eca86ece1b522">visit</a> (<a class="el" href="classIgnorantCustomerBuilder.html">IgnorantCustomerBuilder</a> &amp;builder)=0</td></tr>
 <tr class="memdesc:a92b865c025936424400eca86ece1b522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visit an <a class="el" href="classIgnorantCustomerBuilder.html" title="Concrete builder for constructing IgnorantCustomer objects with random dialogue selection.">IgnorantCustomerBuilder</a> object.  <a href="classCustomerVisitor.html#a92b865c025936424400eca86ece1b522">More...</a><br /></td></tr>
@@ -132,26 +125,59 @@ std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a6a262bcfd9d1b60b0c9c37a824125144"><td class="memItemLeft" align="right" valign="top"><a id="a6a262bcfd9d1b60b0c9c37a824125144"></a>
 std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#a6a262bcfd9d1b60b0c9c37a824125144">inventoryCopy</a></td></tr>
-<tr class="memdesc:a6a262bcfd9d1b60b0c9c37a824125144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Own local copy of the <a class="el" href="classInventory.html" title="Stores a collections of plants, will return vectors of plants for the manager to choose from and then...">Inventory</a> in salesfloor. <br /></td></tr>
+<tr class="memdesc:a6a262bcfd9d1b60b0c9c37a824125144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Own local copy of the <a class="el" href="classInventory.html" title="Manages collection of plants for sale and greenhouse operations.">Inventory</a> in salesfloor. <br /></td></tr>
 <tr class="separator:a6a262bcfd9d1b60b0c9c37a824125144"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae83d78f175474bf64fed1c90a9d70155"><td class="memItemLeft" align="right" valign="top"><a id="ae83d78f175474bf64fed1c90a9d70155"></a>
 std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#ae83d78f175474bf64fed1c90a9d70155">offer</a></td></tr>
-<tr class="memdesc:ae83d78f175474bf64fed1c90a9d70155"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filled by concreteVisitors. <br /></td></tr>
+<tr class="memdesc:ae83d78f175474bf64fed1c90a9d70155"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plants to be offered to the customer. <br /></td></tr>
 <tr class="separator:ae83d78f175474bf64fed1c90a9d70155"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cabbb75d5cc216110c8f64e396c3c49"><td class="memItemLeft" align="right" valign="top"><a id="a8cabbb75d5cc216110c8f64e396c3c49"></a>
 std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomerVisitor.html#a8cabbb75d5cc216110c8f64e396c3c49">correct</a></td></tr>
-<tr class="memdesc:a8cabbb75d5cc216110c8f64e396c3c49"><td class="mdescLeft">&#160;</td><td class="mdescRight">subset of plants that are correct for the customer <br /></td></tr>
+<tr class="memdesc:a8cabbb75d5cc216110c8f64e396c3c49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subset of plants that are correct for the customer's preferences. <br /></td></tr>
 <tr class="separator:a8cabbb75d5cc216110c8f64e396c3c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This is the abstract base class for defining operations for the concreteVisitors. </p>
-<p>THis class provides a set of pure virtual functions for visiting each concrete customer type. Concrete visitor iimplementation should define the plants that will be offered to the customer.</p>
+<div class="textblock"><p>Abstract base class for defining operations for the concrete visitors. </p>
+<p>This class provides a set of pure virtual functions for visiting each concrete customer type. Concrete visitor implementations should define the plants that will be offered to the customer based on their preferences and the available inventory.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classIgnorantCustomer.html" title="Represents a customer with minimal plant knowledge who needs easy-care plants.">IgnorantCustomer</a> </dd>
 <dd>
 <a class="el" href="classAverageCustomer.html" title="Represents a customer with some plant experience who can handle moderate care requirements.">AverageCustomer</a> </dd>
 <dd>
-<a class="el" href="classGreenFingerCustomer.html" title="Represents an experienced plant enthusiast who seeks challenging specimens.">GreenFingerCustomer</a> </dd></dl>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="el" href="classGreenFingerCustomer.html" title="Represents an experienced plant enthusiast who seeks challenging specimens.">GreenFingerCustomer</a> </dd>
+<dd>
+<a class="el" href="classVisitEasyCustomer.html" title="Visitor implementation for customers preferring easy-to-maintain plants.">VisitEasyCustomer</a> </dd>
+<dd>
+<a class="el" href="classVisitMediumCustomer.html" title="Visitor implementation for balanced plant recommendations.">VisitMediumCustomer</a> </dd>
+<dd>
+<a class="el" href="classVisitHighCustomer.html" title="Visitor implementation for customers preferring challenging plants.">VisitHighCustomer</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aca6fe43da84a84932a2f08192c30fe72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca6fe43da84a84932a2f08192c30fe72">&#9670;&nbsp;</a></span>CustomerVisitor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CustomerVisitor::CustomerVisitor </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classInventory.html">Inventory</a> &amp;&#160;</td>
+          <td class="paramname"><em>inv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inv</td><td>Reference to the salesfloor inventory to copy plants from </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a8e26dd28a2c50e845dc70055c5eb3f83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8e26dd28a2c50e845dc70055c5eb3f83">&#9670;&nbsp;</a></span>addRandomPlants()</h2>
 
@@ -222,43 +248,30 @@ std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td>
 
 </div>
 </div>
-<a id="a2527df84752c15af98cc3bbbdaa54fa3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2527df84752c15af98cc3bbbdaa54fa3">&#9670;&nbsp;</a></span>getCorrectPlant()</h2>
+<a id="a85c5542005fada63750655e2cbceb1f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85c5542005fada63750655e2cbceb1f6">&#9670;&nbsp;</a></span>findByDifficulty()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt;<a class="el" href="classPlant.html">Plant</a>*&gt;&amp; CustomerVisitor::getCorrectPlant </td>
+          <td class="memname">std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt; CustomerVisitor::findByDifficulty </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>difficulty</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>retrieves the correct plant for the customer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the correct <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> for the customer. </dd></dl>
-
-</div>
-</div>
-<a id="a5b93c5d771ff104dabd14b089e7b8528"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b93c5d771ff104dabd14b089e7b8528">&#9670;&nbsp;</a></span>getOffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt;<a class="el" href="classPlant.html">Plant</a>*&gt;&amp; CustomerVisitor::getOffer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>retrieves the offer vector. </p>
-<dl class="section return"><dt>Returns</dt><dd>The vector of <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> pointers being offered to the customer. </dd></dl>
+<p>Finds plants by difficulty level. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">difficulty</td><td>Difficulty level to filter by ("easy", "medium", "hard") </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of plants matching the specified difficulty </dd></dl>
 
 </div>
 </div>
@@ -278,7 +291,7 @@ std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td>
       </table>
 </div><div class="memdoc">
 
-<p>iscorrect plant </p>
+<p>Checks if a plant is acceptable for the customer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p</td><td><a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> to check </td></tr>
@@ -305,7 +318,7 @@ std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td>
       </table>
 </div><div class="memdoc">
 
-<p>isReturnable plant </p>
+<p>Checks if a plant is returnable. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p</td><td><a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> to check </td></tr>
@@ -429,6 +442,7 @@ std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> pointers recommended for the average customer </dd></dl>
 
 <p>Implemented in <a class="el" href="classVisitMediumCustomer.html#a7f43dff74d106630b9533022eaabc9e7">VisitMediumCustomer</a>, <a class="el" href="classVisitHighCustomer.html#a92c714f863f3494f06721e49e144d4f1">VisitHighCustomer</a>, and <a class="el" href="classVisitEasyCustomer.html#aeda36f2ea9b094a4eb27a5606428bf0f">VisitEasyCustomer</a>.</p>
 
@@ -465,6 +479,7 @@ std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> pointers recommended for the greenfinger customer </dd></dl>
 
 <p>Implemented in <a class="el" href="classVisitMediumCustomer.html#a23cd7a1d18cf96455efdbefb88ccccdf">VisitMediumCustomer</a>, <a class="el" href="classVisitHighCustomer.html#acefd69ffb47e94112373ced4c6a3e3d3">VisitHighCustomer</a>, and <a class="el" href="classVisitEasyCustomer.html#a85a7835f9a9233d1cafa84f6a6ee23e0">VisitEasyCustomer</a>.</p>
 
@@ -501,6 +516,7 @@ std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> pointers recommended for the ignorant customer </dd></dl>
 
 <p>Implemented in <a class="el" href="classVisitMediumCustomer.html#a91832af30ca6bea671523c94eef2ab27">VisitMediumCustomer</a>, <a class="el" href="classVisitHighCustomer.html#ae3e8d8a47b8e237f5dd2a3ca54d9bf37">VisitHighCustomer</a>, and <a class="el" href="classVisitEasyCustomer.html#a05dba5933de3fcc65e0b004b63215120">VisitEasyCustomer</a>.</p>
 

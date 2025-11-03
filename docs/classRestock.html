@@ -69,10 +69,10 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Will handle the transaction as a refund.  
+<p>Handles financial transactions for inventory restocking.  
  <a href="classRestock.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="game_2Restock_8h_source.html">Restock.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="Restock_8h_source.html">Restock.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Restock:</div>
 <div class="dyncontent">
@@ -94,35 +94,31 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3d64576b1191a5124c4974ac4dc42cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2ea3172bc427ac1153572ca6f80490d"><td class="memItemLeft" align="right" valign="top"><a id="aa2ea3172bc427ac1153572ca6f80490d"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRestock.html#aa2ea3172bc427ac1153572ca6f80490d">~Restock</a> ()=default</td></tr>
-<tr class="memdesc:aa2ea3172bc427ac1153572ca6f80490d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deconstructor. <br /></td></tr>
+<tr class="memdesc:aa2ea3172bc427ac1153572ca6f80490d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
 <tr class="separator:aa2ea3172bc427ac1153572ca6f80490d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3a46dec3112c5292cd0aa2d7bbfb643"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRestock.html#aa3a46dec3112c5292cd0aa2d7bbfb643">execute</a> (double v, double b) override</td></tr>
-<tr class="memdesc:aa3a46dec3112c5292cd0aa2d7bbfb643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a transactions financial logic to update the balance.  <a href="classRestock.html#aa3a46dec3112c5292cd0aa2d7bbfb643">More...</a><br /></td></tr>
+<tr class="memdesc:aa3a46dec3112c5292cd0aa2d7bbfb643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes restock transaction logic.  <a href="classRestock.html#aa3a46dec3112c5292cd0aa2d7bbfb643">More...</a><br /></td></tr>
 <tr class="separator:aa3a46dec3112c5292cd0aa2d7bbfb643"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accbcafd2f250c444d91e06ae0db47470"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRestock.html#accbcafd2f250c444d91e06ae0db47470">getType</a> () const override</td></tr>
-<tr class="memdesc:accbcafd2f250c444d91e06ae0db47470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Type of the transaction as a <a class="el" href="classRestock.html" title="Will handle the transaction as a refund.">Restock</a>.  <a href="classRestock.html#accbcafd2f250c444d91e06ae0db47470">More...</a><br /></td></tr>
+<tr class="memdesc:accbcafd2f250c444d91e06ae0db47470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the transaction type identifier.  <a href="classRestock.html#accbcafd2f250c444d91e06ae0db47470">More...</a><br /></td></tr>
 <tr class="separator:accbcafd2f250c444d91e06ae0db47470"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3a46dec3112c5292cd0aa2d7bbfb643"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRestock.html#aa3a46dec3112c5292cd0aa2d7bbfb643">execute</a> (double v, double b) override</td></tr>
-<tr class="memdesc:aa3a46dec3112c5292cd0aa2d7bbfb643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a transactions financial logic to update the balance.  <a href="classRestock.html#aa3a46dec3112c5292cd0aa2d7bbfb643">More...</a><br /></td></tr>
-<tr class="separator:aa3a46dec3112c5292cd0aa2d7bbfb643"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4414a8a43d0d4c2e3f6224c53ef8f777"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRestock.html#a4414a8a43d0d4c2e3f6224c53ef8f777">getType</a> () const</td></tr>
-<tr class="memdesc:a4414a8a43d0d4c2e3f6224c53ef8f777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Type of the transaction.  <a href="classRestock.html#a4414a8a43d0d4c2e3f6224c53ef8f777">More...</a><br /></td></tr>
-<tr class="separator:a4414a8a43d0d4c2e3f6224c53ef8f777"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classTransactionStrategy"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classTransactionStrategy')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classTransactionStrategy.html">TransactionStrategy</a></td></tr>
 <tr class="memitem:ad8fea22a0db82e64c7ee61dd82cd686a inherit pub_methods_classTransactionStrategy"><td class="memItemLeft" align="right" valign="top"><a id="ad8fea22a0db82e64c7ee61dd82cd686a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionStrategy.html#ad8fea22a0db82e64c7ee61dd82cd686a">TransactionStrategy</a> ()</td></tr>
-<tr class="memdesc:ad8fea22a0db82e64c7ee61dd82cd686a inherit pub_methods_classTransactionStrategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">default constructor. <br /></td></tr>
+<tr class="memdesc:ad8fea22a0db82e64c7ee61dd82cd686a inherit pub_methods_classTransactionStrategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
 <tr class="separator:ad8fea22a0db82e64c7ee61dd82cd686a inherit pub_methods_classTransactionStrategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0beeaa04b55c6b062dcb9e3c4be26d93 inherit pub_methods_classTransactionStrategy"><td class="memItemLeft" align="right" valign="top"><a id="a0beeaa04b55c6b062dcb9e3c4be26d93"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionStrategy.html#a0beeaa04b55c6b062dcb9e3c4be26d93">~TransactionStrategy</a> ()</td></tr>
-<tr class="memdesc:a0beeaa04b55c6b062dcb9e3c4be26d93 inherit pub_methods_classTransactionStrategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual Deconstructor. <br /></td></tr>
+<tr class="memdesc:a0beeaa04b55c6b062dcb9e3c4be26d93 inherit pub_methods_classTransactionStrategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper polymorphic cleanup. <br /></td></tr>
 <tr class="separator:a0beeaa04b55c6b062dcb9e3c4be26d93 inherit pub_methods_classTransactionStrategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Will handle the transaction as a refund. </p>
+<div class="textblock"><p>Handles financial transactions for inventory restocking. </p>
+<p>Implements <a class="el" href="classTransactionStrategy.html" title="Abstract base class for transaction handling strategies.">TransactionStrategy</a> for deducting costs when purchasing new plants for inventory.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classTransactionStrategy.html" title="Abstract base class for transaction handling strategies.">TransactionStrategy</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa3a46dec3112c5292cd0aa2d7bbfb643"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3a46dec3112c5292cd0aa2d7bbfb643">&#9670;&nbsp;</a></span>execute() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3a46dec3112c5292cd0aa2d7bbfb643">&#9670;&nbsp;</a></span>execute()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -155,100 +151,22 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </table>
 </div><div class="memdoc">
 
-<p>Executes a transactions financial logic to update the balance. </p>
+<p>Executes restock transaction logic. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v</td><td>Value of the transaction. </td></tr>
-    <tr><td class="paramname">b</td><td>Value of the current balance </td></tr>
+    <tr><td class="paramname">v</td><td>Cost of plants being restocked </td></tr>
+    <tr><td class="paramname">b</td><td>Current balance before transaction </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>THe new balance of b-v </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>New balance after restock cost (b - v) </dd></dl>
 
 <p>Implements <a class="el" href="classTransactionStrategy.html#a38df3eab00d2eb37ccc53b09f2f7f5a5">TransactionStrategy</a>.</p>
-
-</div>
-</div>
-<a id="aa3a46dec3112c5292cd0aa2d7bbfb643"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3a46dec3112c5292cd0aa2d7bbfb643">&#9670;&nbsp;</a></span>execute() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Restock::execute </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Executes a transactions financial logic to update the balance. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">v</td><td>Value of the transaction. </td></tr>
-    <tr><td class="paramname">b</td><td>Value of the current balance </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>THe new balance after a transaction has been executed. </dd></dl>
-
-<p>Implements <a class="el" href="classTransactionStrategy.html#a38df3eab00d2eb37ccc53b09f2f7f5a5">TransactionStrategy</a>.</p>
-
-</div>
-</div>
-<a id="a4414a8a43d0d4c2e3f6224c53ef8f777"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4414a8a43d0d4c2e3f6224c53ef8f777">&#9670;&nbsp;</a></span>getType() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string Restock::getType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the Type of the transaction. </p>
-<dl class="section return"><dt>Returns</dt><dd>The Type of the transaction </dd></dl>
-
-<p>Implements <a class="el" href="classTransactionStrategy.html#aa95499a098f269bbbbe6772a9890bef5">TransactionStrategy</a>.</p>
 
 </div>
 </div>
 <a id="accbcafd2f250c444d91e06ae0db47470"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#accbcafd2f250c444d91e06ae0db47470">&#9670;&nbsp;</a></span>getType() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#accbcafd2f250c444d91e06ae0db47470">&#9670;&nbsp;</a></span>getType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -270,15 +188,15 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </table>
 </div><div class="memdoc">
 
-<p>Returns the Type of the transaction as a <a class="el" href="classRestock.html" title="Will handle the transaction as a refund.">Restock</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd>"Restock" </dd></dl>
+<p>Gets the transaction type identifier. </p>
+<dl class="section return"><dt>Returns</dt><dd>"Restock" string </dd></dl>
 
 <p>Implements <a class="el" href="classTransactionStrategy.html#aa95499a098f269bbbbe6772a9890bef5">TransactionStrategy</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>backend/game/<a class="el" href="game_2Restock_8h_source.html">Restock.h</a></li>
+<li>backend/game/<a class="el" href="Restock_8h_source.html">Restock.h</a></li>
 <li>backend/game/Restock.cpp</li>
 </ul>
 </div><!-- contents -->

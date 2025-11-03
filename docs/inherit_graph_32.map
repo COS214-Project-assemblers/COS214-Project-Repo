@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classSalesFloor.html" title="Manages Customer flow and provides access to the inventory for the Manager during sales interactions." alt="" coords="5,5,96,32"/>
+<area shape="rect" id="node1" href="$classTransactionStrategy.html" title="Abstract base class for transaction handling strategies." alt="" coords="5,81,156,108"/>
+<area shape="rect" id="node2" href="$classPlantDied.html" title="Handles financial transactions when plants die due to poor care." alt="" coords="204,5,289,32"/>
+<area shape="rect" id="node3" href="$classRestock.html" title="Handles financial transactions for inventory restocking." alt="" coords="209,56,284,83"/>
+<area shape="rect" id="node4" href="$classReturn.html" title="Handles financial transactions for customer returns." alt="" coords="214,107,279,133"/>
+<area shape="rect" id="node5" href="$classSale.html" title="Handles financial transactions for plant sales." alt="" coords="221,157,272,184"/>
 </map>

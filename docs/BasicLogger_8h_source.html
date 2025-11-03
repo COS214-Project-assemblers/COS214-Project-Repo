@@ -83,21 +83,27 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classBasicLogger.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classBasicLogger.html">BasicLogger</a> : <span class="keyword">public</span> <a class="code" href="classLogger.html">Logger</a> {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">string</span> fileName;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        ofstream file;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="classBasicLogger.html">BasicLogger</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">void</span> newLog(<span class="keywordtype">string</span> message) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">string</span> timestamp();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        ~<a class="code" href="classBasicLogger.html">BasicLogger</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// BASICLOGGER</span></div>
-<div class="ttc" id="aLogger_8h_html"><div class="ttname"><a href="Logger_8h.html">Logger.h</a></div><div class="ttdoc">Header for Strategy Logger.</div></div>
-<div class="ttc" id="aclassBasicLogger_html"><div class="ttname"><a href="classBasicLogger.html">BasicLogger</a></div><div class="ttdoc">Implements Logger interface. Reads LOG_FILE (log file path) environment variable, opens and appends l...</div><div class="ttdef"><b>Definition:</b> BasicLogger.h:25</div></div>
-<div class="ttc" id="aclassLogger_html"><div class="ttname"><a href="classLogger.html">Logger</a></div><div class="ttdoc">Interface for concrete Log strategies to implement.</div><div class="ttdef"><b>Definition:</b> Logger.h:18</div></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classBasicLogger.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classBasicLogger.html">BasicLogger</a> : <span class="keyword">public</span> <a class="code" href="classLogger.html">Logger</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">string</span> fileName;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        ofstream file;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="classBasicLogger.html">BasicLogger</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> newLog(<span class="keywordtype">string</span> message) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">string</span> timestamp();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        ~<a class="code" href="classBasicLogger.html">BasicLogger</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aLogger_8h_html"><div class="ttname"><a href="Logger_8h.html">Logger.h</a></div><div class="ttdoc">Header for Strategy Logger interface.</div></div>
+<div class="ttc" id="aclassBasicLogger_html"><div class="ttname"><a href="classBasicLogger.html">BasicLogger</a></div><div class="ttdoc">Implements Logger interface for file-based logging.</div><div class="ttdef"><b>Definition:</b> BasicLogger.h:29</div></div>
+<div class="ttc" id="aclassLogger_html"><div class="ttname"><a href="classLogger.html">Logger</a></div><div class="ttdoc">Interface for concrete logging strategies.</div><div class="ttdef"><b>Definition:</b> Logger.h:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

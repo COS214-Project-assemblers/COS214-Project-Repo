@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['recommendationsdialogue_679',['recommendationsDialogue',['../classCustomer.html#a1dd92f0ac7ce453f69b2f8130e8b9129',1,'Customer']]],
-  ['rejectdialogue_680',['rejectDialogue',['../classCustomer.html#ad218708c3d3dd42c27412a63a213f8ae',1,'Customer']]],
-  ['rejectexitdialogue_681',['rejectExitDialogue',['../classCustomer.html#a827740a10661efc74c7053da98def071',1,'Customer']]]
+  ['name_773',['name',['../classCustomer.html#a42c1c948fa0121c82b2725826d9f8300',1,'Customer']]]
 ];

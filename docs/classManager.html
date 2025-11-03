@@ -69,92 +69,87 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Declares manager class which is responsible for managing the creation of plant offers, and dealing with customers through the sales floor.  
+<p>Coordinates plant sales, customer interactions, and financial transactions.  
  <a href="classManager.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Manager_8h_source.html">Manager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1658ff9f18e38ccd9cb8b0b371b9c20b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html#a1658ff9f18e38ccd9cb8b0b371b9c20b">Manager</a> ()</td></tr>
-<tr class="memdesc:a1658ff9f18e38ccd9cb8b0b371b9c20b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classManager.html" title="Declares manager class which is responsible for managing the creation of plant offers,...">Manager</a> associated with a given <a class="el" href="classSalesFloor.html" title="Manages Customer flow and provides access to the inventory for the Manager during sales interactions.">SalesFloor</a>.  <a href="classManager.html#a1658ff9f18e38ccd9cb8b0b371b9c20b">More...</a><br /></td></tr>
+<tr class="memitem:a1658ff9f18e38ccd9cb8b0b371b9c20b"><td class="memItemLeft" align="right" valign="top"><a id="a1658ff9f18e38ccd9cb8b0b371b9c20b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html#a1658ff9f18e38ccd9cb8b0b371b9c20b">Manager</a> ()</td></tr>
+<tr class="memdesc:a1658ff9f18e38ccd9cb8b0b371b9c20b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classManager.html" title="Coordinates plant sales, customer interactions, and financial transactions.">Manager</a> with default initialization. <br /></td></tr>
 <tr class="separator:a1658ff9f18e38ccd9cb8b0b371b9c20b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a322cad25d7007438b3a043ad02253d29"><td class="memItemLeft" align="right" valign="top"><a id="a322cad25d7007438b3a043ad02253d29"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html#a322cad25d7007438b3a043ad02253d29">~Manager</a> ()</td></tr>
-<tr class="memdesc:a322cad25d7007438b3a043ad02253d29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deafult destructer. <br /></td></tr>
+<tr class="memdesc:a322cad25d7007438b3a043ad02253d29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor - cleans up manager resources. <br /></td></tr>
 <tr class="separator:a322cad25d7007438b3a043ad02253d29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0e731250eff12f4500b567a7622f86a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html#ac0e731250eff12f4500b567a7622f86a">recordSale</a> (string id)</td></tr>
 <tr class="memdesc:ac0e731250eff12f4500b567a7622f86a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records a successful sale.  <a href="classManager.html#ac0e731250eff12f4500b567a7622f86a">More...</a><br /></td></tr>
 <tr class="separator:ac0e731250eff12f4500b567a7622f86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae7bcae640724ac040d684cfd3980237"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html#aae7bcae640724ac040d684cfd3980237">recordRestock</a> (<a class="el" href="classPlant.html">Plant</a> &amp;p)</td></tr>
-<tr class="memdesc:aae7bcae640724ac040d684cfd3980237"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records if a sale was lost with the rason as to why.  <a href="classManager.html#aae7bcae640724ac040d684cfd3980237">More...</a><br /></td></tr>
+<tr class="memdesc:aae7bcae640724ac040d684cfd3980237"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records plant restocking transaction.  <a href="classManager.html#aae7bcae640724ac040d684cfd3980237">More...</a><br /></td></tr>
 <tr class="separator:aae7bcae640724ac040d684cfd3980237"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad49c445a526fe6c0964a6e7824e683a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html#ad49c445a526fe6c0964a6e7824e683a6">recordPlantDied</a> (<a class="el" href="classPlant.html">Plant</a> &amp;p)</td></tr>
-<tr class="memdesc:ad49c445a526fe6c0964a6e7824e683a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">records if a plant died in the greenhouse  <a href="classManager.html#ad49c445a526fe6c0964a6e7824e683a6">More...</a><br /></td></tr>
+<tr class="memdesc:ad49c445a526fe6c0964a6e7824e683a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records plant death in greenhouse.  <a href="classManager.html#ad49c445a526fe6c0964a6e7824e683a6">More...</a><br /></td></tr>
 <tr class="separator:ad49c445a526fe6c0964a6e7824e683a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a712cf34bddfbae9b3c4e92ebd7cfe092"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html#a712cf34bddfbae9b3c4e92ebd7cfe092">processReturns</a> (<a class="el" href="classPlant.html">Plant</a> &amp;p)</td></tr>
-<tr class="memdesc:a712cf34bddfbae9b3c4e92ebd7cfe092"><td class="mdescLeft">&#160;</td><td class="mdescRight">record return of plant  <a href="classManager.html#a712cf34bddfbae9b3c4e92ebd7cfe092">More...</a><br /></td></tr>
+<tr class="memdesc:a712cf34bddfbae9b3c4e92ebd7cfe092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes customer plant returns.  <a href="classManager.html#a712cf34bddfbae9b3c4e92ebd7cfe092">More...</a><br /></td></tr>
 <tr class="separator:a712cf34bddfbae9b3c4e92ebd7cfe092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac71c4c12b28570a1cb3dbf0c666313ea"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classInventory.html">Inventory</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html#ac71c4c12b28570a1cb3dbf0c666313ea">inventory</a> () const</td></tr>
-<tr class="memdesc:ac71c4c12b28570a1cb3dbf0c666313ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for inventory.  <a href="classManager.html#ac71c4c12b28570a1cb3dbf0c666313ea">More...</a><br /></td></tr>
+<tr class="memdesc:ac71c4c12b28570a1cb3dbf0c666313ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get read-only access to inventory.  <a href="classManager.html#ac71c4c12b28570a1cb3dbf0c666313ea">More...</a><br /></td></tr>
 <tr class="separator:ac71c4c12b28570a1cb3dbf0c666313ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab224b72bfb785aa35e8bb3d69ba36e60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classInventory.html">Inventory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html#ab224b72bfb785aa35e8bb3d69ba36e60">inventoryMut</a> ()</td></tr>
-<tr class="memdesc:ab224b72bfb785aa35e8bb3d69ba36e60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable getter for inventory.  <a href="classManager.html#ab224b72bfb785aa35e8bb3d69ba36e60">More...</a><br /></td></tr>
+<tr class="memdesc:ab224b72bfb785aa35e8bb3d69ba36e60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get mutable access to inventory.  <a href="classManager.html#ab224b72bfb785aa35e8bb3d69ba36e60">More...</a><br /></td></tr>
 <tr class="separator:ab224b72bfb785aa35e8bb3d69ba36e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40b9d5808522b617d33122262478f226"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classInventory.html">Inventory</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html#a40b9d5808522b617d33122262478f226">getSaleInventory</a> ()</td></tr>
-<tr class="memdesc:a40b9d5808522b617d33122262478f226"><td class="mdescLeft">&#160;</td><td class="mdescRight">set transaction  <a href="classManager.html#a40b9d5808522b617d33122262478f226">More...</a><br /></td></tr>
+<tr class="memdesc:a40b9d5808522b617d33122262478f226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get sales floor inventory.  <a href="classManager.html#a40b9d5808522b617d33122262478f226">More...</a><br /></td></tr>
 <tr class="separator:a40b9d5808522b617d33122262478f226"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c7a4e3b6cef041b5da5a0e5ec4c7440"><td class="memItemLeft" align="right" valign="top"><a id="a5c7a4e3b6cef041b5da5a0e5ec4c7440"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getBalance</b> ()</td></tr>
+<tr class="memitem:a5c7a4e3b6cef041b5da5a0e5ec4c7440"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html#a5c7a4e3b6cef041b5da5a0e5ec4c7440">getBalance</a> ()</td></tr>
+<tr class="memdesc:a5c7a4e3b6cef041b5da5a0e5ec4c7440"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current balance.  <a href="classManager.html#a5c7a4e3b6cef041b5da5a0e5ec4c7440">More...</a><br /></td></tr>
 <tr class="separator:a5c7a4e3b6cef041b5da5a0e5ec4c7440"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4158e116b9326094c40de61849cd61cc"><td class="memItemLeft" align="right" valign="top"><a id="a4158e116b9326094c40de61849cd61cc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetBalance</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html#a4158e116b9326094c40de61849cd61cc">resetBalance</a> ()</td></tr>
+<tr class="memdesc:a4158e116b9326094c40de61849cd61cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets balance to 500. <br /></td></tr>
 <tr class="separator:a4158e116b9326094c40de61849cd61cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e1c9e2e23e32986fcdd822a83b104f8"><td class="memItemLeft" align="right" valign="top"><a id="a8e1c9e2e23e32986fcdd822a83b104f8"></a>
-<a class="el" href="classTransactionHistory.html">TransactionHistory</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getTransactionHist</b> () const</td></tr>
+<tr class="memitem:a8e1c9e2e23e32986fcdd822a83b104f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTransactionHistory.html">TransactionHistory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html#a8e1c9e2e23e32986fcdd822a83b104f8">getTransactionHist</a> () const</td></tr>
+<tr class="memdesc:a8e1c9e2e23e32986fcdd822a83b104f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get transaction history.  <a href="classManager.html#a8e1c9e2e23e32986fcdd822a83b104f8">More...</a><br /></td></tr>
 <tr class="separator:a8e1c9e2e23e32986fcdd822a83b104f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6da5178b52c50ae1cdfe15772f504482"><td class="memItemLeft" align="right" valign="top"><a id="a6da5178b52c50ae1cdfe15772f504482"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGreenhouse</b> (<a class="el" href="classGreenhouse.html">Greenhouse</a> *greenhouse)</td></tr>
+<tr class="memitem:a6da5178b52c50ae1cdfe15772f504482"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManager.html#a6da5178b52c50ae1cdfe15772f504482">setGreenhouse</a> (<a class="el" href="classGreenhouse.html">Greenhouse</a> *greenhouse)</td></tr>
+<tr class="memdesc:a6da5178b52c50ae1cdfe15772f504482"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets greenhouse reference.  <a href="classManager.html#a6da5178b52c50ae1cdfe15772f504482">More...</a><br /></td></tr>
 <tr class="separator:a6da5178b52c50ae1cdfe15772f504482"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Declares manager class which is responsible for managing the creation of plant offers, and dealing with customers through the sales floor. </p>
-<p>The <a class="el" href="classManager.html" title="Declares manager class which is responsible for managing the creation of plant offers,...">Manager</a> class coordinates the interactions between the sales floor and customers. It builds <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> offers for the customers, and processes the transactions (recorded/lost) </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a1658ff9f18e38ccd9cb8b0b371b9c20b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1658ff9f18e38ccd9cb8b0b371b9c20b">&#9670;&nbsp;</a></span>Manager()</h2>
+<div class="textblock"><p>Coordinates plant sales, customer interactions, and financial transactions. </p>
+<p>The <a class="el" href="classManager.html" title="Coordinates plant sales, customer interactions, and financial transactions.">Manager</a> class is responsible for managing the creation of plant offers, dealing with customers through the sales floor, and processing financial transactions. It serves as the central coordinator between sales floor, greenhouse, and financial systems.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSalesFloor.html" title="Manages customer flow and provides access to inventory for sales interactions.">SalesFloor</a> </dd>
+<dd>
+<a class="el" href="classGreenhouse.html" title="Central greenhouse management system coordinating plants, staff, and sales.">Greenhouse</a> </dd>
+<dd>
+<a class="el" href="classLedger.html" title="Maintains and manages the game&#39;s financial balance.">Ledger</a> </dd>
+<dd>
+<a class="el" href="classTransactionHistory.html">TransactionHistory</a> </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5c7a4e3b6cef041b5da5a0e5ec4c7440"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c7a4e3b6cef041b5da5a0e5ec4c7440">&#9670;&nbsp;</a></span>getBalance()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Manager::Manager </td>
+          <td class="memname">float Manager::getBalance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Constructs a <a class="el" href="classManager.html" title="Declares manager class which is responsible for managing the creation of plant offers,...">Manager</a> associated with a given <a class="el" href="classSalesFloor.html" title="Manages Customer flow and provides access to the inventory for the Manager during sales interactions.">SalesFloor</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>Reference to the <a class="el" href="classSalesFloor.html" title="Manages Customer flow and provides access to the inventory for the Manager during sales interactions.">SalesFloor</a> instange the <a class="el" href="classManager.html" title="Declares manager class which is responsible for managing the creation of plant offers,...">Manager</a> overseads. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Get current balance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current financial balance as float </dd></dl>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a40b9d5808522b617d33122262478f226"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a40b9d5808522b617d33122262478f226">&#9670;&nbsp;</a></span>getSaleInventory()</h2>
 
@@ -170,13 +165,28 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setGreenhouse</b> (<a
       </table>
 </div><div class="memdoc">
 
-<p>set transaction </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t</td><td>transaction to set </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Get sales floor inventory. </p>
+<dl class="section return"><dt>Returns</dt><dd>Constant pointer to sales floor inventory </dd></dl>
+
+</div>
+</div>
+<a id="a8e1c9e2e23e32986fcdd822a83b104f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e1c9e2e23e32986fcdd822a83b104f8">&#9670;&nbsp;</a></span>getTransactionHist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTransactionHistory.html">TransactionHistory</a> Manager::getTransactionHist </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get transaction history. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classTransactionHistory.html">TransactionHistory</a> object containing transaction records </dd></dl>
 
 </div>
 </div>
@@ -195,8 +205,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setGreenhouse</b> (<a
       </table>
 </div><div class="memdoc">
 
-<p>Getter for inventory. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the inventory managed by the salesFloor </dd></dl>
+<p>Get read-only access to inventory. </p>
+<dl class="section return"><dt>Returns</dt><dd>Constant pointer to the inventory managed by sales floor </dd></dl>
 
 </div>
 </div>
@@ -215,8 +225,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setGreenhouse</b> (<a
       </table>
 </div><div class="memdoc">
 
-<p>Mutable getter for inventory. </p>
-<dl class="section return"><dt>Returns</dt><dd>Mutable reference to the inventory managed by the salesFloor </dd></dl>
+<p>Get mutable access to inventory. </p>
+<dl class="section return"><dt>Returns</dt><dd>Mutable reference to the inventory managed by sales floor </dd></dl>
 
 </div>
 </div>
@@ -236,14 +246,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setGreenhouse</b> (<a
       </table>
 </div><div class="memdoc">
 
-<p>record return of plant </p>
+<p>Processes customer plant returns. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td>The plant being returned </td></tr>
+    <tr><td class="paramname">p</td><td>Reference to the <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> being returned </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if return was executed, false if not </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if return was processed successfully, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -263,10 +273,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setGreenhouse</b> (<a
       </table>
 </div><div class="memdoc">
 
-<p>records if a plant died in the greenhouse </p>
+<p>Records plant death in greenhouse. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td>The plant that died </td></tr>
+    <tr><td class="paramname">p</td><td>Reference to the <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> that died </td></tr>
   </table>
   </dd>
 </dl>
@@ -289,11 +299,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setGreenhouse</b> (<a
       </table>
 </div><div class="memdoc">
 
-<p>Records if a sale was lost with the rason as to why. </p>
+<p>Records plant restocking transaction. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cust</td><td>The <a class="el" href="classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types.">Customer</a> to which a sale was lost. </td></tr>
-    <tr><td class="paramname">p</td><td>The plant that was offered but was declined </td></tr>
+    <tr><td class="paramname">p</td><td>Reference to the <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> being restocked </td></tr>
   </table>
   </dd>
 </dl>
@@ -320,6 +329,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setGreenhouse</b> (<a
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p</td><td>The plant that was sold. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6da5178b52c50ae1cdfe15772f504482"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6da5178b52c50ae1cdfe15772f504482">&#9670;&nbsp;</a></span>setGreenhouse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Manager::setGreenhouse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGreenhouse.html">Greenhouse</a> *&#160;</td>
+          <td class="paramname"><em>greenhouse</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets greenhouse reference. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">greenhouse</td><td>Pointer to <a class="el" href="classGreenhouse.html" title="Central greenhouse management system coordinating plants, staff, and sales.">Greenhouse</a> instance </td></tr>
   </table>
   </dd>
 </dl>

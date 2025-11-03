@@ -69,39 +69,47 @@ $(function() {
 <div class="title">Inventory.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef INVENTORY_H</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define INVENTORY_H</span></div>
+<a href="Inventory_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef INVENTORY_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define INVENTORY_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Plant_8h.html">Plant.h</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Plant_8h.html">Plant.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classInventory.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classInventory.html">Inventory</a>{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        std::vector&lt;Plant*&gt; plants;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="comment">//no need to construct/deconstruct manually</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="classInventory.html">Inventory</a>()=<span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        ~<a class="code" href="classInventory.html">Inventory</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::vector&lt;Plant*&gt; <a class="code" href="classInventory.html#ac940a4903c7284e0cb451ae49fd6beef">all</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="comment">//below is same as megans addPlant</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classInventory.html#a2c7dfc2a11d8c2b851888f49f562cb7f">restock</a>(<a class="code" href="classPlant.html">Plant</a>* plant);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classInventory.html#a775d02edd78192a12ffa024994986182">removePlant</a>(<a class="code" href="classPlant.html">Plant</a>* plant);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::vector&lt;Plant*&gt; <a class="code" href="classInventory.html#afda9ccb08b84d27b80c14dc5a782fd9d">findByDifficulty</a>(std::string d)<span class="keyword">const</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="classPlant.html">Plant</a>* getPlant(<span class="keywordtype">string</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classInventory.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classInventory.html">Inventory</a>{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::vector&lt;Plant*&gt; plants;  </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classInventory.html#aec17731a1277602e1df82135d3fcd76b">   31</a></span>&#160;        <a class="code" href="classInventory.html#aec17731a1277602e1df82135d3fcd76b">Inventory</a>()=<span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="classInventory.html#a6c6dfcb6d977c74a7abf46809e892e3d">~Inventory</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        std::vector&lt;Plant*&gt; <a class="code" href="classInventory.html#ac940a4903c7284e0cb451ae49fd6beef">all</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classInventory.html#a2c7dfc2a11d8c2b851888f49f562cb7f">restock</a>(<a class="code" href="classPlant.html">Plant</a>* plant);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classInventory.html#a775d02edd78192a12ffa024994986182">removePlant</a>(<a class="code" href="classPlant.html">Plant</a>* plant);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        std::vector&lt;Plant*&gt; <a class="code" href="classInventory.html#afda9ccb08b84d27b80c14dc5a782fd9d">findByDifficulty</a>(std::string d)<span class="keyword">const</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="classPlant.html">Plant</a>* <a class="code" href="classInventory.html#a38ab7d9b8f37a8c0156c1a1c3635c513">getPlant</a>(<span class="keywordtype">string</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aPlant_8h_html"><div class="ttname"><a href="Plant_8h.html">Plant.h</a></div><div class="ttdoc">Defines the abstract base class for all Plant objects used in the system.</div></div>
-<div class="ttc" id="aclassInventory_html"><div class="ttname"><a href="classInventory.html">Inventory</a></div><div class="ttdoc">Stores a collections of plants, will return vectors of plants for the manager to choose from and then...</div><div class="ttdef"><b>Definition:</b> Inventory.h:16</div></div>
-<div class="ttc" id="aclassInventory_html_a2c7dfc2a11d8c2b851888f49f562cb7f"><div class="ttname"><a href="classInventory.html#a2c7dfc2a11d8c2b851888f49f562cb7f">Inventory::restock</a></div><div class="ttdeci">void restock(Plant *plant)</div><div class="ttdoc">Restocks a plantby adding it to the vector containing plants in the inventory.</div><div class="ttdef"><b>Definition:</b> Inventory.cpp:22</div></div>
+<div class="ttc" id="aclassInventory_html"><div class="ttname"><a href="classInventory.html">Inventory</a></div><div class="ttdoc">Manages collection of plants for sale and greenhouse operations.</div><div class="ttdef"><b>Definition:</b> Inventory.h:22</div></div>
+<div class="ttc" id="aclassInventory_html_a2c7dfc2a11d8c2b851888f49f562cb7f"><div class="ttname"><a href="classInventory.html#a2c7dfc2a11d8c2b851888f49f562cb7f">Inventory::restock</a></div><div class="ttdeci">void restock(Plant *plant)</div><div class="ttdoc">Restocks a plant by adding it to the vector containing plants in the inventory.</div><div class="ttdef"><b>Definition:</b> Inventory.cpp:22</div></div>
+<div class="ttc" id="aclassInventory_html_a38ab7d9b8f37a8c0156c1a1c3635c513"><div class="ttname"><a href="classInventory.html#a38ab7d9b8f37a8c0156c1a1c3635c513">Inventory::getPlant</a></div><div class="ttdeci">Plant * getPlant(string id)</div><div class="ttdoc">Gets a specific plant by ID.</div><div class="ttdef"><b>Definition:</b> Inventory.cpp:43</div></div>
+<div class="ttc" id="aclassInventory_html_a6c6dfcb6d977c74a7abf46809e892e3d"><div class="ttname"><a href="classInventory.html#a6c6dfcb6d977c74a7abf46809e892e3d">Inventory::~Inventory</a></div><div class="ttdeci">~Inventory()</div><div class="ttdoc">Destructor - cleans up plant resources.</div><div class="ttdef"><b>Definition:</b> Inventory.cpp:8</div></div>
 <div class="ttc" id="aclassInventory_html_a775d02edd78192a12ffa024994986182"><div class="ttname"><a href="classInventory.html#a775d02edd78192a12ffa024994986182">Inventory::removePlant</a></div><div class="ttdeci">void removePlant(Plant *plant)</div><div class="ttdoc">removes a plant from the inventory</div><div class="ttdef"><b>Definition:</b> Inventory.cpp:26</div></div>
 <div class="ttc" id="aclassInventory_html_ac940a4903c7284e0cb451ae49fd6beef"><div class="ttname"><a href="classInventory.html#ac940a4903c7284e0cb451ae49fd6beef">Inventory::all</a></div><div class="ttdeci">std::vector&lt; Plant * &gt; all() const</div><div class="ttdoc">returns all plants in the inventory</div><div class="ttdef"><b>Definition:</b> Inventory.cpp:14</div></div>
-<div class="ttc" id="aclassInventory_html_afda9ccb08b84d27b80c14dc5a782fd9d"><div class="ttname"><a href="classInventory.html#afda9ccb08b84d27b80c14dc5a782fd9d">Inventory::findByDifficulty</a></div><div class="ttdeci">std::vector&lt; Plant * &gt; findByDifficulty(std::string d) const</div><div class="ttdoc">Finds all plants in the inventory based on their level of care dificulty.</div><div class="ttdef"><b>Definition:</b> Inventory.cpp:33</div></div>
-<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">Abstract base class representing a plant entity in the greenhouse simulation.</div><div class="ttdef"><b>Definition:</b> Plant.h:45</div></div>
+<div class="ttc" id="aclassInventory_html_aec17731a1277602e1df82135d3fcd76b"><div class="ttname"><a href="classInventory.html#aec17731a1277602e1df82135d3fcd76b">Inventory::Inventory</a></div><div class="ttdeci">Inventory()=default</div><div class="ttdoc">Default constructor.</div></div>
+<div class="ttc" id="aclassInventory_html_afda9ccb08b84d27b80c14dc5a782fd9d"><div class="ttname"><a href="classInventory.html#afda9ccb08b84d27b80c14dc5a782fd9d">Inventory::findByDifficulty</a></div><div class="ttdeci">std::vector&lt; Plant * &gt; findByDifficulty(std::string d) const</div><div class="ttdoc">Finds plants by care difficulty level.</div><div class="ttdef"><b>Definition:</b> Inventory.cpp:33</div></div>
+<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">Abstract base class representing a plant entity in the greenhouse simulation.</div><div class="ttdef"><b>Definition:</b> Plant.h:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

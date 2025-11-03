@@ -176,7 +176,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract base class defining the interface and shared behavior for all customer types. </p>
-<p>This class serves as the base for all specific customer types (Ignorant, Average, GreenFinger). It maintains customer dialogue, preferences, and plant offerings, and provides functionality to serialize the customer data to JSON format for <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a> communication.</p>
+<p>This class serves as the base for all specific customer types (Ignorant, Average, GreenFinger). It maintains customer dialogue, preferences, and plant offerings, and provides functionality to serialize the customer data to JSON format for <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> communication.</p>
 <p>The class provides the data structure that gets built by the Builder pattern.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classIgnorantCustomer.html" title="Represents a customer with minimal plant knowledge who needs easy-care plants.">IgnorantCustomer</a> </dd>
 <dd>
@@ -186,7 +186,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <dd>
 <a class="el" href="classCustomerBuilder.html" title="Abstract base class for building Customer objects step by step.">CustomerBuilder</a> </dd>
 <dd>
-<a class="el" href="classCustomerVisitor.html" title="This is the abstract base class for defining operations for the concreteVisitors.">CustomerVisitor</a> </dd></dl>
+<a class="el" href="classCustomerVisitor.html" title="Abstract base class for defining operations for the concrete visitors.">CustomerVisitor</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abcc8fae9701e5ba9d7d6fe44498b34e3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abcc8fae9701e5ba9d7d6fe44498b34e3">&#9670;&nbsp;</a></span>Customer()</h2>
@@ -253,7 +253,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><div class="memdoc">
 
 <p>Getter for the jsonStructure member variable. </p>
-<dl class="section return"><dt>Returns</dt><dd>The jsonStructure as a string for the <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a> endpoint</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The jsonStructure as a string for the <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> endpoint</dd></dl>
 <p>Constructs and returns a complete JSON representation of the customer including all dialogues and offered plants. </p>
 
 </div>

@@ -96,7 +96,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="Logger_8h.html" target="_top" xlink:title="Header for Strategy Logger.">
+<g id="a_node7"><a xlink:href="Logger_8h.html" target="_top" xlink:title="Header for Strategy Logger interface.">
 <polygon fill="white" stroke="black" points="285.24,-56.5 285.24,-75.5 343.24,-75.5 343.24,-56.5 285.24,-56.5"/>
 <text text-anchor="middle" x="314.24" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">Logger.h</text>
 </a>

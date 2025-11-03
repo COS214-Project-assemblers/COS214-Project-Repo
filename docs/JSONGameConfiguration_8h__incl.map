@@ -1,5 +1,5 @@
 <map id="backend/game/JSONGameConfiguration.h" name="backend/game/JSONGameConfiguration.h">
-<area shape="rect" id="node1" title=" " alt="" coords="31,5,322,32"/>
+<area shape="rect" id="node1" title="JSON&#45;based game configuration implementation." alt="" coords="31,5,322,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,79,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="103,80,250,107"/>
 <area shape="rect" id="node4" href="$GameConfiguration_8h.html" title="Interface for obtaining game configuration." alt="" coords="274,80,434,107"/>

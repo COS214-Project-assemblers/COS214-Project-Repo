@@ -1,4 +1,4 @@
 <map id="VisitEasyCustomer" name="VisitEasyCustomer">
 <area shape="rect" id="node1" title="Visitor implementation for customers preferring easy&#45;to&#45;maintain plants." alt="" coords="5,80,151,107"/>
-<area shape="rect" id="node2" href="$classCustomerVisitor.html" title="This is the abstract base class for defining operations for the concreteVisitors." alt="" coords="15,5,141,32"/>
+<area shape="rect" id="node2" href="$classCustomerVisitor.html" title="Abstract base class for defining operations for the concrete visitors." alt="" coords="15,5,141,32"/>
 </map>

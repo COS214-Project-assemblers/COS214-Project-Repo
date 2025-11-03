@@ -91,8 +91,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1c07f0aacd96a90d8816f2fa443c09bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSellable.html#a1c07f0aacd96a90d8816f2fa443c09bc">handle</a> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
 <tr class="memdesc:a1c07f0aacd96a90d8816f2fa443c09bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the plant's behaviour when it is in a sellable state.  <a href="classSellable.html#a1c07f0aacd96a90d8816f2fa443c09bc">More...</a><br /></td></tr>
 <tr class="separator:a1c07f0aacd96a90d8816f2fa443c09bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefbfff36e910ec14e08cff7ed676f48a"><td class="memItemLeft" align="right" valign="top"><a id="aefbfff36e910ec14e08cff7ed676f48a"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>getState</b> ()</td></tr>
+<tr class="memitem:aefbfff36e910ec14e08cff7ed676f48a"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSellable.html#aefbfff36e910ec14e08cff7ed676f48a">getState</a> ()</td></tr>
+<tr class="memdesc:aefbfff36e910ec14e08cff7ed676f48a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the state name.  <a href="classSellable.html#aefbfff36e910ec14e08cff7ed676f48a">More...</a><br /></td></tr>
 <tr class="separator:aefbfff36e910ec14e08cff7ed676f48a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classPlantState"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classPlantState')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classPlantState.html">PlantState</a></td></tr>
 <tr class="memitem:a9a5ce5b16d289b30690309bf4486a58f inherit pub_methods_classPlantState"><td class="memItemLeft" align="right" valign="top"><a id="a9a5ce5b16d289b30690309bf4486a58f"></a>
@@ -102,8 +102,38 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Concrete state class representing a plant that is ready for sale. </p>
-<p>This class represents the state where a plant has matured sufficiently and meets all quality criteria to be sold to customers. In this state, the plant can be moved to the <a class="el" href="classSalesFloor.html" title="Manages Customer flow and provides access to the inventory for the Manager during sales interactions.">SalesFloor</a>. </p>
+<p>This class represents the state where a plant has matured sufficiently and meets all quality criteria to be sold to customers. In this state, the plant can be moved to the <a class="el" href="classSalesFloor.html" title="Manages customer flow and provides access to inventory for sales interactions.">SalesFloor</a>. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aefbfff36e910ec14e08cff7ed676f48a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefbfff36e910ec14e08cff7ed676f48a">&#9670;&nbsp;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Sellable::getState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the state name. </p>
+<dl class="section return"><dt>Returns</dt><dd>"Sellable" string </dd></dl>
+
+<p>Implements <a class="el" href="classPlantState.html#ad714d9c35ad3f2ebcdc0b9089aed6034">PlantState</a>.</p>
+
+</div>
+</div>
 <a id="a1c07f0aacd96a90d8816f2fa443c09bc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c07f0aacd96a90d8816f2fa443c09bc">&#9670;&nbsp;</a></span>handle()</h2>
 

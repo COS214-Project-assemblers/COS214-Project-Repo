@@ -1,4 +1,4 @@
 <map id="Health" name="Health">
-<area shape="rect" id="node1" title=" " alt="" coords="19,95,84,121"/>
+<area shape="rect" id="node1" title="Manages plant health metrics including water, fertilizer, pruning, and maturity." alt="" coords="19,95,84,121"/>
 <area shape="rect" id="node2" href="$classGreenSock.html" title=" " alt="" coords="5,5,97,32"/>
 </map>

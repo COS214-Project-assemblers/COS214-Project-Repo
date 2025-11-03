@@ -70,35 +70,37 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="Director_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef DIRECTOR_H</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define DIRECTOR_H</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CustomerBuilder_8h.html">CustomerBuilder.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;CustomerVisitor.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classDirector.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="classDirector.html">Director</a></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="classCustomerBuilder.html">CustomerBuilder</a>* builder;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classDirector.html#a607a41fe5c42dd9ca7e256a11942a6d7">Director</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef DIRECTOR_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define DIRECTOR_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CustomerBuilder_8h.html">CustomerBuilder.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CustomerVisitor_8h.html">CustomerVisitor.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classDirector.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="classDirector.html">Director</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="classCustomerBuilder.html">CustomerBuilder</a>* builder;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classDirector.html#a607a41fe5c42dd9ca7e256a11942a6d7">Director</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classDirector.html#a59d7a588bfd4edd22948a9e7fd8c854a">~Director</a>();</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classDirector.html#a566c111b7c8902a5dcd2f274c96ef0d7">setBuilder</a>(<a class="code" href="classCustomerBuilder.html">CustomerBuilder</a>* b);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="classCustomer.html">Customer</a>* <a class="code" href="classDirector.html#a34009177a9f161e2fe0591f833cff9fe">construct</a>(<a class="code" href="classCustomerVisitor.html">CustomerVisitor</a>&amp; v);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classDirector.html#a102c4553856ba618258f4393373e7a43">getCustomerJsonStructure</a>();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="classCustomer.html">Customer</a>* <a class="code" href="classDirector.html#a34009177a9f161e2fe0591f833cff9fe">construct</a>(<a class="code" href="classCustomerVisitor.html">CustomerVisitor</a>&amp; v);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classDirector.html#a102c4553856ba618258f4393373e7a43">getCustomerJsonStructure</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aCustomerBuilder_8h_html"><div class="ttname"><a href="CustomerBuilder_8h.html">CustomerBuilder.h</a></div><div class="ttdoc">Abstract builder interface for creating Customer objects.</div></div>
-<div class="ttc" id="aclassCustomerBuilder_html"><div class="ttname"><a href="classCustomerBuilder.html">CustomerBuilder</a></div><div class="ttdoc">Abstract base class for building Customer objects step by step.</div><div class="ttdef"><b>Definition:</b> CustomerBuilder.h:33</div></div>
-<div class="ttc" id="aclassCustomerVisitor_html"><div class="ttname"><a href="classCustomerVisitor.html">CustomerVisitor</a></div><div class="ttdoc">This is the abstract base class for defining operations for the concreteVisitors.</div><div class="ttdef"><b>Definition:</b> CustomerVisitor.h:34</div></div>
-<div class="ttc" id="aclassCustomer_html"><div class="ttname"><a href="classCustomer.html">Customer</a></div><div class="ttdoc">Abstract base class defining the interface and shared behavior for all customer types.</div><div class="ttdef"><b>Definition:</b> Customer.h:39</div></div>
-<div class="ttc" id="aclassDirector_html"><div class="ttname"><a href="classDirector.html">Director</a></div><div class="ttdoc">Coordinates the construction of Customer objects using builders and visitors.</div><div class="ttdef"><b>Definition:</b> Director.h:28</div></div>
+<div class="ttc" id="aCustomerVisitor_8h_html"><div class="ttname"><a href="CustomerVisitor_8h.html">CustomerVisitor.h</a></div><div class="ttdoc">Abstract visitor class for plant recommendation strategies for different customer types.</div></div>
+<div class="ttc" id="aclassCustomerBuilder_html"><div class="ttname"><a href="classCustomerBuilder.html">CustomerBuilder</a></div><div class="ttdoc">Abstract base class for building Customer objects step by step.</div><div class="ttdef"><b>Definition:</b> CustomerBuilder.h:34</div></div>
+<div class="ttc" id="aclassCustomerVisitor_html"><div class="ttname"><a href="classCustomerVisitor.html">CustomerVisitor</a></div><div class="ttdoc">Abstract base class for defining operations for the concrete visitors.</div><div class="ttdef"><b>Definition:</b> CustomerVisitor.h:36</div></div>
+<div class="ttc" id="aclassCustomer_html"><div class="ttname"><a href="classCustomer.html">Customer</a></div><div class="ttdoc">Abstract base class defining the interface and shared behavior for all customer types.</div><div class="ttdef"><b>Definition:</b> Customer.h:40</div></div>
+<div class="ttc" id="aclassDirector_html"><div class="ttname"><a href="classDirector.html">Director</a></div><div class="ttdoc">Coordinates the construction of Customer objects using builders and visitors.</div><div class="ttdef"><b>Definition:</b> Director.h:29</div></div>
 <div class="ttc" id="aclassDirector_html_a102c4553856ba618258f4393373e7a43"><div class="ttname"><a href="classDirector.html#a102c4553856ba618258f4393373e7a43">Director::getCustomerJsonStructure</a></div><div class="ttdeci">string getCustomerJsonStructure()</div><div class="ttdoc">Returns the JSON structure of the currently built customer.</div><div class="ttdef"><b>Definition:</b> Director.cpp:46</div></div>
 <div class="ttc" id="aclassDirector_html_a34009177a9f161e2fe0591f833cff9fe"><div class="ttname"><a href="classDirector.html#a34009177a9f161e2fe0591f833cff9fe">Director::construct</a></div><div class="ttdeci">Customer * construct(CustomerVisitor &amp;v)</div><div class="ttdoc">Constructs a complete customer using the current builder and visitor.</div><div class="ttdef"><b>Definition:</b> Director.cpp:23</div></div>
 <div class="ttc" id="aclassDirector_html_a566c111b7c8902a5dcd2f274c96ef0d7"><div class="ttname"><a href="classDirector.html#a566c111b7c8902a5dcd2f274c96ef0d7">Director::setBuilder</a></div><div class="ttdeci">void setBuilder(CustomerBuilder *b)</div><div class="ttdoc">Sets the current builder for customer construction.</div><div class="ttdef"><b>Definition:</b> Director.cpp:18</div></div>

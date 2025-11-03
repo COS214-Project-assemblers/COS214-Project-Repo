@@ -70,37 +70,36 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="JSONGameConfiguration_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef JSONCONF</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define JSONCONF</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="GameConfiguration_8h.html">GameConfiguration.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using</span> json = nlohmann::json;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classJSONGameConfiguration.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classJSONGameConfiguration.html">JSONGameConfiguration</a> : <span class="keyword">public</span> <a class="code" href="classGameConfiguraton.html">GameConfiguraton</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        json loadedConfig;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">void</span> loadConfig(std::string configPath);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="classJSONGameConfiguration.html#a46785bba822f53404a5fc61f1e638acb">JSONGameConfiguration</a>(std::string configPath);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">// /**</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">//  * @brief Extracts plant varieties from loadedConfig</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">//  * @throws std::out_of_range</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">//  */</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">// virtual std::map&lt;std::string, std::vector&lt;std::string&gt;&gt; getPlantVarieties() override;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">virtual</span> std::map&lt;std::string, std::map&lt;std::string, std::vector&lt;std::string&gt;&gt;&gt; <a class="code" href="classJSONGameConfiguration.html#adaf316c583989cade82b061014f22791">getCustomerTypes</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">virtual</span> std::vector&lt;PlantStruct*&gt; <a class="code" href="classJSONGameConfiguration.html#a1033d629cac4fb778f6e738a851862e4">getPlantVarieties</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// JSONCONF</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef JSONCONF</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define JSONCONF</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="GameConfiguration_8h.html">GameConfiguration.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using</span> json = nlohmann::json;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classJSONGameConfiguration.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classJSONGameConfiguration.html">JSONGameConfiguration</a> : <span class="keyword">public</span> <a class="code" href="classGameConfiguraton.html">GameConfiguraton</a> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        json loadedConfig;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">void</span> loadConfig(std::string configPath);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="classJSONGameConfiguration.html#a46785bba822f53404a5fc61f1e638acb">JSONGameConfiguration</a>(std::string configPath);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">virtual</span> std::map&lt;std::string, std::map&lt;std::string, std::vector&lt;std::string&gt;&gt;&gt; <a class="code" href="classJSONGameConfiguration.html#adaf316c583989cade82b061014f22791">getCustomerTypes</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">virtual</span> std::vector&lt;PlantStruct*&gt; <a class="code" href="classJSONGameConfiguration.html#a1033d629cac4fb778f6e738a851862e4">getPlantVarieties</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aGameConfiguration_8h_html"><div class="ttname"><a href="GameConfiguration_8h.html">GameConfiguration.h</a></div><div class="ttdoc">Interface for obtaining game configuration.</div></div>
-<div class="ttc" id="aclassGameConfiguraton_html"><div class="ttname"><a href="classGameConfiguraton.html">GameConfiguraton</a></div><div class="ttdef"><b>Definition:</b> GameConfiguration.h:31</div></div>
-<div class="ttc" id="aclassJSONGameConfiguration_html"><div class="ttname"><a href="classJSONGameConfiguration.html">JSONGameConfiguration</a></div><div class="ttdoc">Implements GameConfiguration interface. ConcreteStrategy participant. Loads data from ....</div><div class="ttdef"><b>Definition:</b> JSONGameConfiguration.h:19</div></div>
-<div class="ttc" id="aclassJSONGameConfiguration_html_a1033d629cac4fb778f6e738a851862e4"><div class="ttname"><a href="classJSONGameConfiguration.html#a1033d629cac4fb778f6e738a851862e4">JSONGameConfiguration::getPlantVarieties</a></div><div class="ttdeci">virtual std::vector&lt; PlantStruct * &gt; getPlantVarieties() override</div><div class="ttdef"><b>Definition:</b> JSONGameConfiguration.cpp:23</div></div>
-<div class="ttc" id="aclassJSONGameConfiguration_html_a46785bba822f53404a5fc61f1e638acb"><div class="ttname"><a href="classJSONGameConfiguration.html#a46785bba822f53404a5fc61f1e638acb">JSONGameConfiguration::JSONGameConfiguration</a></div><div class="ttdeci">JSONGameConfiguration(std::string configPath)</div><div class="ttdoc">Calls this-&gt;loadConfig, error handling logic.</div><div class="ttdef"><b>Definition:</b> JSONGameConfiguration.cpp:14</div></div>
-<div class="ttc" id="aclassJSONGameConfiguration_html_adaf316c583989cade82b061014f22791"><div class="ttname"><a href="classJSONGameConfiguration.html#adaf316c583989cade82b061014f22791">JSONGameConfiguration::getCustomerTypes</a></div><div class="ttdeci">virtual std::map&lt; std::string, std::map&lt; std::string, std::vector&lt; std::string &gt; &gt; &gt; getCustomerTypes() override</div><div class="ttdoc">Extracts customer types and their data from loadedConfig.</div><div class="ttdef"><b>Definition:</b> JSONGameConfiguration.cpp:46</div></div>
+<div class="ttc" id="aclassGameConfiguraton_html"><div class="ttname"><a href="classGameConfiguraton.html">GameConfiguraton</a></div><div class="ttdef"><b>Definition:</b> GameConfiguration.h:33</div></div>
+<div class="ttc" id="aclassJSONGameConfiguration_html"><div class="ttname"><a href="classJSONGameConfiguration.html">JSONGameConfiguration</a></div><div class="ttdoc">Implements GameConfiguration interface for JSON file configuration.</div><div class="ttdef"><b>Definition:</b> JSONGameConfiguration.h:23</div></div>
+<div class="ttc" id="aclassJSONGameConfiguration_html_a1033d629cac4fb778f6e738a851862e4"><div class="ttname"><a href="classJSONGameConfiguration.html#a1033d629cac4fb778f6e738a851862e4">JSONGameConfiguration::getPlantVarieties</a></div><div class="ttdeci">virtual std::vector&lt; PlantStruct * &gt; getPlantVarieties() override</div><div class="ttdoc">Extracts plant varieties from loaded configuration.</div><div class="ttdef"><b>Definition:</b> JSONGameConfiguration.cpp:23</div></div>
+<div class="ttc" id="aclassJSONGameConfiguration_html_a46785bba822f53404a5fc61f1e638acb"><div class="ttname"><a href="classJSONGameConfiguration.html#a46785bba822f53404a5fc61f1e638acb">JSONGameConfiguration::JSONGameConfiguration</a></div><div class="ttdeci">JSONGameConfiguration(std::string configPath)</div><div class="ttdoc">Constructor - loads configuration from specified path.</div><div class="ttdef"><b>Definition:</b> JSONGameConfiguration.cpp:14</div></div>
+<div class="ttc" id="aclassJSONGameConfiguration_html_adaf316c583989cade82b061014f22791"><div class="ttname"><a href="classJSONGameConfiguration.html#adaf316c583989cade82b061014f22791">JSONGameConfiguration::getCustomerTypes</a></div><div class="ttdeci">virtual std::map&lt; std::string, std::map&lt; std::string, std::vector&lt; std::string &gt; &gt; &gt; getCustomerTypes() override</div><div class="ttdoc">Extracts customer types and their data from loaded configuration.</div><div class="ttdef"><b>Definition:</b> JSONGameConfiguration.cpp:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
