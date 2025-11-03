@@ -12,41 +12,6 @@ SalesFloor::~SalesFloor()
     }
 }
 
-void SalesFloor::add(Customer* cust){
-    customers.push_back(cust);
-}
-
-void SalesFloor::moveToCustHist(Customer* cust){
-    if(!cust){
-        return;
-    }
-    auto i=std::find(customers.begin(),customers.end(),cust);
-    if(i!=customers.end()){
-        customers.erase(i);
-    }
-    custHist.push_back(cust);
-}
-
-bool SalesFloor::hasCustomers(){
-    return !this->customers.empty();
-}
-
-Customer* SalesFloor::frontCust(){
-    if(customers.empty()){
-        return NULL;
-    }
-    return customers.front();
-}
-
-Customer* SalesFloor::popCust(){
-    if(customers.empty()){
-        return NULL;
-    }
-    Customer* first=customers.front();
-    customers.erase(customers.begin());
-    return first;
-}
-
 const Inventory* SalesFloor::inventory()const{
     if(!this->inv){
         throw std::runtime_error("SalesFloor::inventory() called before inventory is set");

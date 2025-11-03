@@ -99,14 +99,7 @@ class Game {
          * @throws runtime_error if plant variety not found or greenhouse not initialized
          */
         void buyPlants(string plant, int num);
-        /**
-         * @brief loads greenhouse and factories from DB
-         */
-        void loadExistingGame();
-        /**
-         * Saves state of greenhouse and factories in DB
-         */
-        void saveGame();
+
         /**
          * @brief Frees greenhouse, plant creators memory. Closes DB connection.
          */
@@ -120,12 +113,6 @@ class Game {
          */
         string getCategoryForVariety(string variety);
         
-        // /**
-        //  * @brief Get all available plant varieties from configuration
-        //  * @return Map of categories to plant varieties
-        //  */
-        // map<string, vector<string>> getAvailablePlantVarieties();
-
         /**
          * @brief Getter for customers vector
          * @return Vector of Customer pointers

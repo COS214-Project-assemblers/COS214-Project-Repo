@@ -21,7 +21,7 @@
 
 #include "GreenSock.h"
 #include "Logger.h"
-#include "ThreadSafeQueue.h"
+// #include "ThreadSafeQueue.h"
 #include <iostream>
 #include <queue>
 #include <memory>
@@ -111,7 +111,7 @@ class Plant
         bool acceptable = false;  // Initialize to false
         bool returnable = false;
 
-        SafeQueue safeQueue;
+        // SafeQueue safeQueue;
         std::queue<string> notifyQ;
         std::queue<int> pruneQueue;
 
@@ -137,7 +137,6 @@ class Plant
          * because, the type of plant determines how much water/fertilizer/pruning is required
          */
         Plant(string category, string variety,string difficulty);
-        // Plant(string category, string variety);
 
         /**
          * @brief Copy constructor used for the Prototype design pattern.

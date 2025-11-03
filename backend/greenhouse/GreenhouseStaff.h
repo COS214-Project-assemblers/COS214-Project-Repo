@@ -2,7 +2,7 @@
 #define GREENHOUSESTAFF_H
 
 #include <string>
-#include "PlantHealth.h" // will this cause circular dependancy ??
+#include "PlantHealth.h"
 class Greenhouse;
 class Plant;
 
@@ -37,10 +37,9 @@ class GreenhouseStaff {
         /**
          * @brief Virtual destructor for proper cleanup of derived classes.
          */
+        virtual ~GreenhouseStaff() = default;
 
         void setGreenhouse(Greenhouse* greenhouse);
-
-        virtual ~GreenhouseStaff() = default;
 };
 
 #endif

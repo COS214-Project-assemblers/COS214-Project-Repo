@@ -15,7 +15,6 @@
 #include "Game.h"
 #include "PlayerMenu.h"
 #include "NewGameOption.h"
-#include "ContinueGameOption.h"
 #include "BasicLogger.h"
 #include "API.h"
 #include "ExitGameOption.h"
@@ -28,7 +27,6 @@
 
 /**
  * @class APIController
- * @warning see I might have might booboo with parent class being called ApiController
  * @brief Sample Api Controller.
  */
 class APIController : public oatpp::web::server::api::ApiController {

@@ -135,8 +135,8 @@ void Game::createNewGame()
         logger->newLog("+ Created factories");
     }
     catch (...)
-    {                                                                         // More specific error handling required
-        throw runtime_error("Failed to create factories for unknown reason"); // Reason is unknown since using catch(...)
+    {                                                                         
+        throw runtime_error("Failed to create factories for unknown reason");
     }
 
     try
@@ -209,21 +209,17 @@ void Game::buyPlants(string plant, int num)
     }
 }
 
-void Game::loadExistingGame() {}
-
-void Game::saveGame() {}
-
 Game::~Game()
 {
     if (logger != nullptr) {
         delete logger;
     }
-    cout << "NOOOOOOOT LOOOOOOOOOGER" << endl;
+    
     for (auto it = factories.begin(); it != factories.end(); ++it)
     {
         delete it->second;
     }
-    cout << "NOOOOOOOT FACTORIES" << endl;
+    
 
     for (auto customer : customers)
     {
@@ -232,30 +228,23 @@ Game::~Game()
             delete customer;
         }
     }
-    cout << "NOOOOOOOT CUSTOMERS" << endl;
+    
 
     if (config != nullptr)
     {
         delete config;
     }
 
-    cout << "NOOOOOOOOOT CONFIIIIIIIIIG" << endl;
 
     if (greenhouse != nullptr)
     {
         delete greenhouse;
     }
 
-    cout << "NOOOOOOOOOOT GREEENHOUSE" << endl;
-
     if(manager != nullptr)
     {
-        cout << "MANAGEER" << endl;
         delete manager;
     }
-
-    cout << "NOOOOOOOOOOT MANAGEER" << endl;
-
 }
 
 string Game::getCategoryForVariety(string variety) 

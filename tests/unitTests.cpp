@@ -17,7 +17,6 @@
 #include "PlantHealth.h"
 #include "Plant.h"
 #include "Succulent.h"
-#include "EnvironmentInitializer.h"
 #include "PlantCreator.h"
 #include "SucculentCreator.h"
 #include "FlowerCreator.h"
