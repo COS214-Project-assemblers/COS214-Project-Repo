@@ -2,6 +2,7 @@
  * @file VisitEasyCustomer.h
  * @brief Visitor for creating plant recommendations for easy-maintenance customers
  */
+
 #ifndef VISITEASYCUSTOMER_H
 #define VISITEASYCUSTOMER_H
 
@@ -13,16 +14,23 @@
  * 
  * This visitor creates plant recommendations with a focus on easy-maintenance plants
  * while including some medium and hard difficulty plants based on customer type.
+ * 
+ * @see CustomerVisitor
+ * @see IgnorantCustomerBuilder
+ * @see AverageCustomerBuilder
+ * @see GreenFingerCustomerBuilder
  */
 class VisitEasyCustomer:public CustomerVisitor{
     public:
         /**
          * @brief Constructor
          * @param inv Inventory reference
+         * @details Initializes with a copy of the salesfloor inventory
          */
         VisitEasyCustomer(const Inventory& inv);
+
         /**
-         * @brief default constructor
+         * @brief Default destructor
          */
         ~VisitEasyCustomer()=default;
 

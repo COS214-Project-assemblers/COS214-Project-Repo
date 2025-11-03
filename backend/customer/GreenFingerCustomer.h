@@ -1,6 +1,7 @@
 /**
  * @file GreenFingerCustomer.h
  * @brief Concrete customer class representing expert plant enthusiasts.
+ * @author Megan Norval
  */
 
 #ifndef GREENFINGERCUSTOMER_H
@@ -20,17 +21,18 @@
  * 
  * @see Customer
  */
-
 class GreenFingerCustomer : public Customer
 {
     public:
         /**
          * @brief Constructs a new GreenFingerCustomer object.
+         * @details Initializes the customer type as "greenfinger" and sets up base customer structure.
          */
         GreenFingerCustomer();
 
         /**
          * @brief Destroys the GreenFingerCustomer object.
+         * @details Cleans up resources through base class destructor.
          */        
         ~GreenFingerCustomer();
 };

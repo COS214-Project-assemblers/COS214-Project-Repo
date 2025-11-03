@@ -12,9 +12,8 @@ vector<Plant*> VisitEasyCustomer::visit(IgnorantCustomerBuilder& builder)
 
 
     addRandomPlants(easy,3,offer);
-    markCorrectPlants(easy,3,false);//add param for wherther to make as returnable or not? -> this one is NOT returnable
+    markCorrectPlants(easy,3,false);
     addRandomPlants(med,1,offer);
-    // markCorrectPlants(med,1,true);//this one would be returnable
     addRandomPlants(hard,1,offer);
     finalizeOffer();
 
@@ -28,7 +27,6 @@ vector<Plant*> VisitEasyCustomer::visit(AverageCustomerBuilder& builder)
     std::vector<Plant*> hard = findByDifficulty("hard");
 
     addRandomPlants(easy,1,offer);
-    // markCorrectPlants(easy,1,true);
     addRandomPlants(med,3,offer);
     markCorrectPlants(med,3,false);
     addRandomPlants(hard,1,offer);
@@ -45,7 +43,6 @@ vector<Plant*> VisitEasyCustomer::visit(GreenFingerCustomerBuilder& builder)
     
     addRandomPlants(easy,1,offer);
     addRandomPlants(med,1,offer);
-    // markCorrectPlants(med,1,true);
     addRandomPlants(hard,3,offer);
     markCorrectPlants(hard,1,false);
     finalizeOffer();
