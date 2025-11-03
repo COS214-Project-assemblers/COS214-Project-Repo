@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Implements MenuOption interface. NewGameOption invokes and logs the operation to create a new Game.">
+<g id="a_node1"><a xlink:title="Command for creating a new game instance.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 100,-19.5 100,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="50" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">NewGameOption</text>
 </a>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classMenuOption.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classMenuOption.html" target="_top" xlink:title="Abstract base class for menu command options.">
 <polygon fill="white" stroke="black" points="12,-56.5 12,-75.5 88,-75.5 88,-56.5 12,-56.5"/>
 <text text-anchor="middle" x="50" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">MenuOption</text>
 </a>

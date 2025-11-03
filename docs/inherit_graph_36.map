@@ -1,7 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classTransactionStrategy.html" title="The TransactionStrategy class an abstract class that will help define how transactions will be handel..." alt="" coords="5,81,156,108"/>
-<area shape="rect" id="node2" href="$classPlantDied.html" title="Will handle the transaction as if a plant died after it was not cared for properly." alt="" coords="204,5,289,32"/>
-<area shape="rect" id="node3" href="$classRestock.html" title="Will handle the transaction as a refund." alt="" coords="209,56,284,83"/>
-<area shape="rect" id="node4" href="$classReturn.html" title="Will handle the transaction as a Return." alt="" coords="214,107,279,133"/>
-<area shape="rect" id="node5" href="$classSale.html" title="Will handle the transaction as a sale." alt="" coords="221,157,272,184"/>
-</map>

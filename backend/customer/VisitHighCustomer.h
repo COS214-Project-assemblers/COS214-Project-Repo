@@ -14,6 +14,11 @@
  * 
  * This visitor creates plant recommendations with a focus on medium and hard
  * difficulty plants while including some easy plants based on customer type.
+ * 
+ * @see CustomerVisitor
+ * @see IgnorantCustomerBuilder
+ * @see AverageCustomerBuilder
+ * @see GreenFingerCustomerBuilder
  */
 
 class VisitHighCustomer:public CustomerVisitor{
@@ -21,8 +26,13 @@ class VisitHighCustomer:public CustomerVisitor{
         /**
          * @brief Constructor
          * @param inv Inventory reference
+         * @details Initializes with a copy of the salesfloor inventory
          */
         VisitHighCustomer(const Inventory& inv);
+
+        /**
+         * @brief Default destructor
+         */
         ~VisitHighCustomer()=default;
 
         /**

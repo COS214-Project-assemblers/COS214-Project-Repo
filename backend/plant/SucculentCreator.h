@@ -1,6 +1,7 @@
 /**
  * @file SucculentCreator.h
  * @brief Defines the SucculentCreator class for creating Succulent objects.
+ * @author Megan Norval
  *
  * This class implements the Factory Method defined in PlantCreator to
  * instantiate and manage Succulent-type Plant objects.

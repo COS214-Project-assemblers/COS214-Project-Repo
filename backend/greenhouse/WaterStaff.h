@@ -1,3 +1,7 @@
+/**
+ * @file WaterStaff.h
+ * @brief Concrete observer for watering staff in greenhouse
+ */
 #ifndef WATERSTAFF_H
 #define WATERSTAFF_H
 
@@ -12,6 +16,8 @@ using namespace std;
  * This class represents greenhouse staff members who are specifically responsible
  * for watering plants. It implements the GreenhouseStaff interface and responds
  * to notifications when plants require watering care (careType == "water").
+ * 
+ * @see GreenhouseStaff
  */
 class WaterStaff : public GreenhouseStaff {
     public:

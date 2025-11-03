@@ -92,21 +92,28 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae56e37cf7603d0618097c2076dad0efb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the pruning staff about a plant's care requirements.  <a href="classPruningStaff.html#ae56e37cf7603d0618097c2076dad0efb">More...</a><br /></td></tr>
 <tr class="separator:ae56e37cf7603d0618097c2076dad0efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classGreenhouseStaff"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classGreenhouseStaff')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classGreenhouseStaff.html">GreenhouseStaff</a></td></tr>
-<tr class="memitem:a18e508892ada07d8c7e6efe344e3da5d inherit pub_methods_classGreenhouseStaff"><td class="memItemLeft" align="right" valign="top"><a id="a18e508892ada07d8c7e6efe344e3da5d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouseStaff.html#a18e508892ada07d8c7e6efe344e3da5d">setGreenhouse</a> (<a class="el" href="classGreenhouse.html">Greenhouse</a> *greenhouse)</td></tr>
-<tr class="memdesc:a18e508892ada07d8c7e6efe344e3da5d inherit pub_methods_classGreenhouseStaff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper cleanup of derived classes. <br /></td></tr>
+<tr class="memitem:ad5adff48a11a47a5de0747e9e30fe79d inherit pub_methods_classGreenhouseStaff"><td class="memItemLeft" align="right" valign="top"><a id="ad5adff48a11a47a5de0747e9e30fe79d"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouseStaff.html#ad5adff48a11a47a5de0747e9e30fe79d">~GreenhouseStaff</a> ()=default</td></tr>
+<tr class="memdesc:ad5adff48a11a47a5de0747e9e30fe79d inherit pub_methods_classGreenhouseStaff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper cleanup of derived classes. <br /></td></tr>
+<tr class="separator:ad5adff48a11a47a5de0747e9e30fe79d inherit pub_methods_classGreenhouseStaff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18e508892ada07d8c7e6efe344e3da5d inherit pub_methods_classGreenhouseStaff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouseStaff.html#a18e508892ada07d8c7e6efe344e3da5d">setGreenhouse</a> (<a class="el" href="classGreenhouse.html">Greenhouse</a> *<a class="el" href="classGreenhouseStaff.html#abd6e0d1fb093e2ee616666cfb5311811">greenhouse</a>)</td></tr>
+<tr class="memdesc:a18e508892ada07d8c7e6efe344e3da5d inherit pub_methods_classGreenhouseStaff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the greenhouse reference for staff operations.  <a href="classGreenhouseStaff.html#a18e508892ada07d8c7e6efe344e3da5d">More...</a><br /></td></tr>
 <tr class="separator:a18e508892ada07d8c7e6efe344e3da5d inherit pub_methods_classGreenhouseStaff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classGreenhouseStaff"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classGreenhouseStaff')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classGreenhouseStaff.html">GreenhouseStaff</a></td></tr>
 <tr class="memitem:abd6e0d1fb093e2ee616666cfb5311811 inherit pro_attribs_classGreenhouseStaff"><td class="memItemLeft" align="right" valign="top"><a id="abd6e0d1fb093e2ee616666cfb5311811"></a>
-<a class="el" href="classGreenhouse.html">Greenhouse</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>greenhouse</b></td></tr>
+<a class="el" href="classGreenhouse.html">Greenhouse</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouseStaff.html#abd6e0d1fb093e2ee616666cfb5311811">greenhouse</a></td></tr>
+<tr class="memdesc:abd6e0d1fb093e2ee616666cfb5311811 inherit pro_attribs_classGreenhouseStaff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to greenhouse for plant operations. <br /></td></tr>
 <tr class="separator:abd6e0d1fb093e2ee616666cfb5311811 inherit pro_attribs_classGreenhouseStaff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Concrete observer class for staff responsible for pruning plants. </p>
-<p>This class represents greenhouse staff members who are specifically responsible for pruning plants. It implements the <a class="el" href="classGreenhouseStaff.html" title="Abstract base class for greenhouse staff observers.">GreenhouseStaff</a> interface and responds to notifications when plants require pruning care (careType == "pruning"). </p>
+<p>This class represents greenhouse staff members who are specifically responsible for pruning plants. It implements the <a class="el" href="classGreenhouseStaff.html" title="Abstract base class for greenhouse staff observers.">GreenhouseStaff</a> interface and responds to notifications when plants require pruning care (careType == "pruning").</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classGreenhouseStaff.html" title="Abstract base class for greenhouse staff observers.">GreenhouseStaff</a> </dd>
+<dd>
+ObserverPattern </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae56e37cf7603d0618097c2076dad0efb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae56e37cf7603d0618097c2076dad0efb">&#9670;&nbsp;</a></span>update()</h2>

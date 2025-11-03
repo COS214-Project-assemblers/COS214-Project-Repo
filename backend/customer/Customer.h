@@ -1,6 +1,7 @@
 /**
  * @file Customer.h
  * @brief Abstract base class for all customer types in the plant shop game.
+ * @author Megan Norval
  */
 
 #ifndef CUSTOMER_H

@@ -1,4 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,44,32"/>
-<area shape="rect" id="node2" href="$classbuild_1_1build__tracker_1_1TrackerId.html" title=" " alt="" coords="92,5,295,32"/>
+<area shape="rect" id="node1" href="$classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types." alt="" coords="5,56,91,83"/>
+<area shape="rect" id="node2" href="$classAverageCustomer.html" title="Represents a customer with some plant experience who can handle moderate care requirements." alt="" coords="151,5,290,32"/>
+<area shape="rect" id="node3" href="$classGreenFingerCustomer.html" title="Represents an experienced plant enthusiast who seeks challenging specimens." alt="" coords="139,56,303,83"/>
+<area shape="rect" id="node4" href="$classIgnorantCustomer.html" title="Represents a customer with minimal plant knowledge who needs easy&#45;care plants." alt="" coords="151,107,290,133"/>
 </map>

@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classLedger.html" title="Holds the balance." alt="" coords="5,5,72,32"/>
+<area shape="rect" id="node1" href="$classMenuOption.html" title="Abstract base class for menu command options." alt="" coords="5,31,107,57"/>
+<area shape="rect" id="node2" href="$classExitGameOption.html" title="Command participant for encapsulating the command of exiting the game." alt="" coords="157,5,286,32"/>
+<area shape="rect" id="node3" href="$classNewGameOption.html" title="Command for creating a new game instance." alt="" coords="155,56,288,83"/>
 </map>

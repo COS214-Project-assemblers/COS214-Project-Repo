@@ -69,7 +69,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Holds <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a> components, i.e. server, router, connection handlers etc registers components in oatpp::base::Environment All components created via Macros. For lower level implementation details visit the docs.  
+<p>Holds <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> components for dependency injection.  
  <a href="classAPIComponent.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="APIComponent_8h_source.html">APIComponent.h</a>&gt;</code></p>
@@ -89,11 +89,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a82bb305f77a4ecc579625efa9d94025e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05016732074b3c64e3560b21a60aedad"><td class="memItemLeft" align="right" valign="top"><a id="a05016732074b3c64e3560b21a60aedad"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPIComponent.html#a05016732074b3c64e3560b21a60aedad">OATPP_CREATE_COMPONENT</a> (std::shared_ptr&lt; oatpp::web::mime::ContentMappers &gt;, apiContentMappers)([]</td></tr>
-<tr class="memdesc:a05016732074b3c64e3560b21a60aedad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize/Desserialize (<a href="https://en.wikipedia.org/wiki/Serialization">https://en.wikipedia.org/wiki/Serialization</a>) DTOs (<a href="https://en.wikipedia.org/wiki/Data_transfer_object">https://en.wikipedia.org/wiki/Data_transfer_object</a>) with JSON in controller <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a>. <br /></td></tr>
+<tr class="memdesc:a05016732074b3c64e3560b21a60aedad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize/Desserialize (<a href="https://en.wikipedia.org/wiki/Serialization">https://en.wikipedia.org/wiki/Serialization</a>) DTOs (<a href="https://en.wikipedia.org/wiki/Data_transfer_object">https://en.wikipedia.org/wiki/Data_transfer_object</a>) with JSON in controller <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a>. <br /></td></tr>
 <tr class="separator:a05016732074b3c64e3560b21a60aedad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Holds <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a> components, i.e. server, router, connection handlers etc registers components in oatpp::base::Environment All components created via Macros. For lower level implementation details visit the docs. </p>
+<div class="textblock"><p>Holds <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> components for dependency injection. </p>
+<p>Registers components in oatpp::base::Environment. Configures server, router, connection handlers and JSON mappers. All components created via Macros. For lower level implementation details visit the docs.</p>
+<p>Oat++ flow: ConnectionProvider (TCP) -&gt; Server -&gt; HttpConnectionHandler -&gt; HttpRouter </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a736378da380da8f87852af5e55d0cce4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a736378da380da8f87852af5e55d0cce4">&#9670;&nbsp;</a></span>OATPP_CREATE_COMPONENT()</h2>

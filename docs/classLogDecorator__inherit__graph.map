@@ -1,5 +1,5 @@
 <map id="LogDecorator" name="LogDecorator">
-<area shape="rect" id="node1" title="Allows user to add extended functionality to the log ConcreteStrategies, i.e. can add cout before log..." alt="" coords="5,80,115,107"/>
-<area shape="rect" id="node3" href="$classCoutAndLog.html" title=" " alt="" coords="10,155,110,181"/>
-<area shape="rect" id="node2" href="$classLogger.html" title="Interface for concrete Log strategies to implement." alt="" coords="27,5,93,32"/>
+<area shape="rect" id="node1" title="Base decorator for extending logger functionality." alt="" coords="5,80,115,107"/>
+<area shape="rect" id="node3" href="$classCoutAndLog.html" title="Decorator that logs messages to both console and underlying logger." alt="" coords="10,155,110,181"/>
+<area shape="rect" id="node2" href="$classLogger.html" title="Interface for concrete logging strategies." alt="" coords="27,5,93,32"/>
 </map>

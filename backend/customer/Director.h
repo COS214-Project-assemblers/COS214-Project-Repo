@@ -1,6 +1,7 @@
 /**
  * @file Director.h
  * @brief Director class for coordinating customer construction using builders and visitors.
+ * @author Megan Norval
  */
 
 #ifndef DIRECTOR_H
@@ -33,17 +34,16 @@ class Director
         CustomerBuilder* builder;
 
     public:
+
         /**
          * @brief Default constructor
-         * 
-         * Initializes the director with no active builder.
+         * @details Initializes the director with no active builder.
          */
         Director();
 
         /**
          * @brief Destructor
-         * 
-         * Cleans up director resources. Note: The builder is managed externally
+         * @details Cleans up director resources. Note: The builder is managed externally
          * and should be deleted by the caller.
          */
         ~Director();
@@ -58,12 +58,10 @@ class Director
          * @brief Constructs a complete customer using the current builder and visitor
          * @param v Reference to the CustomerVisitor for plant recommendations
          * @return Pointer to the fully constructed Customer object
-         * 
-         * Executes the complete customer construction process:
+         * @details Executes the complete customer construction process:
          * 1. Builds all dialogue parts using the builder
          * 2. Gets plant recommendations from the visitor
          * 3. Sets the plant options on the customer
-         * 
          * @throws std::runtime_error if no builder is set
          */
         Customer* construct(CustomerVisitor& v);
@@ -71,7 +69,6 @@ class Director
         /**
          * @brief Returns the JSON structure of the currently built customer
          * @return JSON string representation of the customer
-         * 
          * @throws std::runtime_error if no builder is set or no customer is built
          */
         string getCustomerJsonStructure();

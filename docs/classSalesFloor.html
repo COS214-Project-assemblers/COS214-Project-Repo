@@ -69,7 +69,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Manages <a class="el" href="classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types.">Customer</a> flow and provides access to the inventory for the <a class="el" href="classManager.html" title="Declares manager class which is responsible for managing the creation of plant offers,...">Manager</a> during sales interactions.  
+<p>Manages customer flow and provides access to inventory for sales interactions.  
  <a href="classSalesFloor.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="SalesFloor_8h_source.html">SalesFloor.h</a>&gt;</code></p>
@@ -82,28 +82,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aaa630ba1a639bff6b93dc580a04cdb91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f0af5d6d4b496b27b00134bb29aac56"><td class="memItemLeft" align="right" valign="top"><a id="a2f0af5d6d4b496b27b00134bb29aac56"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#a2f0af5d6d4b496b27b00134bb29aac56">~SalesFloor</a> ()</td></tr>
-<tr class="memdesc:a2f0af5d6d4b496b27b00134bb29aac56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default deconstructor. <br /></td></tr>
+<tr class="memdesc:a2f0af5d6d4b496b27b00134bb29aac56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
 <tr class="separator:a2f0af5d6d4b496b27b00134bb29aac56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa392fa6f93d97e8edbcdcf8285c144c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#aa392fa6f93d97e8edbcdcf8285c144c5">add</a> (<a class="el" href="classCustomer.html">Customer</a> *cust)</td></tr>
-<tr class="memdesc:aa392fa6f93d97e8edbcdcf8285c144c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types.">Customer</a> to the customers vector (queue).  <a href="classSalesFloor.html#aa392fa6f93d97e8edbcdcf8285c144c5">More...</a><br /></td></tr>
-<tr class="separator:aa392fa6f93d97e8edbcdcf8285c144c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7cc1003f0a00490951604c4ce36d41b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#ad7cc1003f0a00490951604c4ce36d41b">moveToCustHist</a> (<a class="el" href="classCustomer.html">Customer</a> *cust)</td></tr>
-<tr class="memdesc:ad7cc1003f0a00490951604c4ce36d41b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will remove a costomer from the customers vector to the custHist vector to keep track of customers served.  <a href="classSalesFloor.html#ad7cc1003f0a00490951604c4ce36d41b">More...</a><br /></td></tr>
-<tr class="separator:ad7cc1003f0a00490951604c4ce36d41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1f63f1eb88518d53c2c15a9059b977e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#ab1f63f1eb88518d53c2c15a9059b977e">hasCustomers</a> ()</td></tr>
-<tr class="memdesc:ab1f63f1eb88518d53c2c15a9059b977e"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if there are custoemrs in the queue.  <a href="classSalesFloor.html#ab1f63f1eb88518d53c2c15a9059b977e">More...</a><br /></td></tr>
-<tr class="separator:ab1f63f1eb88518d53c2c15a9059b977e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a097e12c556b2bcf36c52b2df7dfe7b21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCustomer.html">Customer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#a097e12c556b2bcf36c52b2df7dfe7b21">frontCust</a> ()</td></tr>
-<tr class="memdesc:a097e12c556b2bcf36c52b2df7dfe7b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells you who the customer at the front of the "queue" is.  <a href="classSalesFloor.html#a097e12c556b2bcf36c52b2df7dfe7b21">More...</a><br /></td></tr>
-<tr class="separator:a097e12c556b2bcf36c52b2df7dfe7b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab541f072ee051982421e675066cb4333"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCustomer.html">Customer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#ab541f072ee051982421e675066cb4333">popCust</a> ()</td></tr>
-<tr class="memdesc:ab541f072ee051982421e675066cb4333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the customer at the front of the "queue" after they have been helped/or decided to return their plant.  <a href="classSalesFloor.html#ab541f072ee051982421e675066cb4333">More...</a><br /></td></tr>
-<tr class="separator:ab541f072ee051982421e675066cb4333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7d21b7ad81eb345130661342bc792a7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classInventory.html">Inventory</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#ae7d21b7ad81eb345130661342bc792a7">inventory</a> () const</td></tr>
-<tr class="memdesc:ae7d21b7ad81eb345130661342bc792a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides read only access.  <a href="classSalesFloor.html#ae7d21b7ad81eb345130661342bc792a7">More...</a><br /></td></tr>
+<tr class="memdesc:ae7d21b7ad81eb345130661342bc792a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides read-only access to inventory.  <a href="classSalesFloor.html#ae7d21b7ad81eb345130661342bc792a7">More...</a><br /></td></tr>
 <tr class="separator:ae7d21b7ad81eb345130661342bc792a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77be3ae0f0696836b4a2238500a5f5ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classInventory.html">Inventory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#a77be3ae0f0696836b4a2238500a5f5ff">inventoryMut</a> ()</td></tr>
-<tr class="memdesc:a77be3ae0f0696836b4a2238500a5f5ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">non-const access for manager.  <a href="classSalesFloor.html#a77be3ae0f0696836b4a2238500a5f5ff">More...</a><br /></td></tr>
+<tr class="memdesc:a77be3ae0f0696836b4a2238500a5f5ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides mutable access to inventory for manager operations.  <a href="classSalesFloor.html#a77be3ae0f0696836b4a2238500a5f5ff">More...</a><br /></td></tr>
 <tr class="separator:a77be3ae0f0696836b4a2238500a5f5ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29e9012dced3ed514d1857d8355f7d94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLedger.html">Ledger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#a29e9012dced3ed514d1857d8355f7d94">getLedger</a> ()</td></tr>
 <tr class="memdesc:a29e9012dced3ed514d1857d8355f7d94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable getter for the ledger.  <a href="classSalesFloor.html#a29e9012dced3ed514d1857d8355f7d94">More...</a><br /></td></tr>
@@ -112,46 +97,26 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:acecce2715548dab8f164142679eefd6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read only getter for the ledger.  <a href="classSalesFloor.html#acecce2715548dab8f164142679eefd6a">More...</a><br /></td></tr>
 <tr class="separator:acecce2715548dab8f164142679eefd6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea9a667924950abea05323367d88b2e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#aea9a667924950abea05323367d88b2e4">addPlant</a> (<a class="el" href="classPlant.html">Plant</a> *p)</td></tr>
-<tr class="memdesc:aea9a667924950abea05323367d88b2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulates the process of returns based on a given probability.  <a href="classSalesFloor.html#aea9a667924950abea05323367d88b2e4">More...</a><br /></td></tr>
+<tr class="memdesc:aea9a667924950abea05323367d88b2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds plant to sales floor inventory.  <a href="classSalesFloor.html#aea9a667924950abea05323367d88b2e4">More...</a><br /></td></tr>
 <tr class="separator:aea9a667924950abea05323367d88b2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afca2d48a1878bbbe1db2bd5052985760"><td class="memItemLeft" align="right" valign="top"><a id="afca2d48a1878bbbe1db2bd5052985760"></a>
-<a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getPlantOnSalesFloor</b> (string id)</td></tr>
+<tr class="memitem:afca2d48a1878bbbe1db2bd5052985760"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#afca2d48a1878bbbe1db2bd5052985760">getPlantOnSalesFloor</a> (string id)</td></tr>
+<tr class="memdesc:afca2d48a1878bbbe1db2bd5052985760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets plant from sales floor by ID.  <a href="classSalesFloor.html#afca2d48a1878bbbe1db2bd5052985760">More...</a><br /></td></tr>
 <tr class="separator:afca2d48a1878bbbe1db2bd5052985760"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af377d9c109b20c7c45651129cc5f0efa"><td class="memItemLeft" align="right" valign="top"><a id="af377d9c109b20c7c45651129cc5f0efa"></a>
-<a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>removePlantFromSalesFloor</b> (string id)</td></tr>
+<tr class="memitem:af377d9c109b20c7c45651129cc5f0efa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#af377d9c109b20c7c45651129cc5f0efa">removePlantFromSalesFloor</a> (string id)</td></tr>
+<tr class="memdesc:af377d9c109b20c7c45651129cc5f0efa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes plant from sales floor by ID.  <a href="classSalesFloor.html#af377d9c109b20c7c45651129cc5f0efa">More...</a><br /></td></tr>
 <tr class="separator:af377d9c109b20c7c45651129cc5f0efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Manages <a class="el" href="classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types.">Customer</a> flow and provides access to the inventory for the <a class="el" href="classManager.html" title="Declares manager class which is responsible for managing the creation of plant offers,...">Manager</a> during sales interactions. </p>
-<p>The <a class="el" href="classSalesFloor.html" title="Manages Customer flow and provides access to the inventory for the Manager during sales interactions.">SalesFloor</a> class is for the enviroment in which the <a class="el" href="classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types.">Customer</a> can interact with the <a class="el" href="classManager.html" title="Declares manager class which is responsible for managing the creation of plant offers,...">Manager</a>. It maintains a current "queue" and history lists. </p>
+<div class="textblock"><p>Manages customer flow and provides access to inventory for sales interactions. </p>
+<p>The <a class="el" href="classSalesFloor.html" title="Manages customer flow and provides access to inventory for sales interactions.">SalesFloor</a> class provides the environment where customers interact with the manager during sales. It maintains inventory access, financial ledger, and transaction history for sales operations.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classInventory.html" title="Manages collection of plants for sale and greenhouse operations.">Inventory</a> </dd>
+<dd>
+<a class="el" href="classLedger.html" title="Maintains and manages the game&#39;s financial balance.">Ledger</a> </dd>
+<dd>
+<a class="el" href="classTransactionHistory.html">TransactionHistory</a> </dd>
+<dd>
+<a class="el" href="classManager.html" title="Coordinates plant sales, customer interactions, and financial transactions.">Manager</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa392fa6f93d97e8edbcdcf8285c144c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa392fa6f93d97e8edbcdcf8285c144c5">&#9670;&nbsp;</a></span>add()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SalesFloor::add </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classCustomer.html">Customer</a> *&#160;</td>
-          <td class="paramname"><em>cust</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Adds a <a class="el" href="classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types.">Customer</a> to the customers vector (queue). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">cust</td><td>Reference to the customer being added to the "queue".</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Will also move a customer to the back of the queue if it they decide to return their product at hte end of the transaction. </p>
-
-</div>
-</div>
 <a id="aea9a667924950abea05323367d88b2e4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea9a667924950abea05323367d88b2e4">&#9670;&nbsp;</a></span>addPlant()</h2>
 
@@ -168,34 +133,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Simulates the process of returns based on a given probability. </p>
+<p>Adds plant to sales floor inventory. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">prob</td><td>Probability that a customer decides to return a product. </td></tr>
-    <tr><td class="paramname">hist</td><td>Reference to the <a class="el" href="classTransactionHistory.html" title="Stores Mememntos that allows for processing refunds and printing the transaction history at end of da...">TransactionHistory</a> to process returns. </td></tr>
+    <tr><td class="paramname">p</td><td>Pointer to <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> to add </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a097e12c556b2bcf36c52b2df7dfe7b21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a097e12c556b2bcf36c52b2df7dfe7b21">&#9670;&nbsp;</a></span>frontCust()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classCustomer.html">Customer</a> * SalesFloor::frontCust </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Tells you who the customer at the front of the "queue" is. </p>
-<dl class="section return"><dt>Returns</dt><dd>pointer to the <a class="el" href="classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types.">Customer</a> </dd></dl>
 
 </div>
 </div>
@@ -239,23 +183,30 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab1f63f1eb88518d53c2c15a9059b977e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1f63f1eb88518d53c2c15a9059b977e">&#9670;&nbsp;</a></span>hasCustomers()</h2>
+<a id="afca2d48a1878bbbe1db2bd5052985760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afca2d48a1878bbbe1db2bd5052985760">&#9670;&nbsp;</a></span>getPlantOnSalesFloor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool SalesFloor::hasCustomers </td>
+          <td class="memname"><a class="el" href="classPlant.html">Plant</a> * SalesFloor::getPlantOnSalesFloor </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>checks if there are custoemrs in the queue. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if there are customers in the "queue", False if not. </dd></dl>
+<p>Gets plant from sales floor by ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td><a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> identifier </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> if found, nullptr otherwise </dd></dl>
 
 </div>
 </div>
@@ -274,8 +225,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Provides read only access. </p>
-<dl class="section return"><dt>Returns</dt><dd>Constant reference to the <a class="el" href="classInventory.html" title="Stores a collections of plants, will return vectors of plants for the manager to choose from and then...">Inventory</a> object managed by the salesFloor. </dd></dl>
+<p>Provides read-only access to inventory. </p>
+<dl class="section return"><dt>Returns</dt><dd>Constant pointer to the <a class="el" href="classInventory.html" title="Manages collection of plants for sale and greenhouse operations.">Inventory</a> object </dd></dl>
 
 </div>
 </div>
@@ -294,54 +245,35 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>non-const access for manager. </p>
-<dl class="section return"><dt>Returns</dt><dd>returns mutateable ref to <a class="el" href="classInventory.html" title="Stores a collections of plants, will return vectors of plants for the manager to choose from and then...">Inventory</a>. </dd></dl>
+<p>Provides mutable access to inventory for manager operations. </p>
+<dl class="section return"><dt>Returns</dt><dd>Mutable reference to the <a class="el" href="classInventory.html" title="Manages collection of plants for sale and greenhouse operations.">Inventory</a> object </dd></dl>
 
 </div>
 </div>
-<a id="ad7cc1003f0a00490951604c4ce36d41b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7cc1003f0a00490951604c4ce36d41b">&#9670;&nbsp;</a></span>moveToCustHist()</h2>
+<a id="af377d9c109b20c7c45651129cc5f0efa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af377d9c109b20c7c45651129cc5f0efa">&#9670;&nbsp;</a></span>removePlantFromSalesFloor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SalesFloor::moveToCustHist </td>
+          <td class="memname"><a class="el" href="classPlant.html">Plant</a> * SalesFloor::removePlantFromSalesFloor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classCustomer.html">Customer</a> *&#160;</td>
-          <td class="paramname"><em>cust</em></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Will remove a costomer from the customers vector to the custHist vector to keep track of customers served. </p>
+<p>Removes plant from sales floor by ID. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cust</td><td>The customer who has made a desion(purchase a plant/or not) and is moving to history </td></tr>
+    <tr><td class="paramname">id</td><td><a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> identifier </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="ab541f072ee051982421e675066cb4333"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab541f072ee051982421e675066cb4333">&#9670;&nbsp;</a></span>popCust()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classCustomer.html">Customer</a> * SalesFloor::popCust </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Removes the customer at the front of the "queue" after they have been helped/or decided to return their plant. </p>
-<dl class="section return"><dt>Returns</dt><dd>pointer to the <a class="el" href="classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types.">Customer</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to removed <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> </dd></dl>
 
 </div>
 </div>

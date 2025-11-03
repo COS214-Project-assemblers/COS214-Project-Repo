@@ -9,9 +9,9 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 252)">
 <title>Graphical Class Hierarchy</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-252 243,-252 243,4 -4,4"/>
-<!-- Node21 -->
+<!-- Node20 -->
 <g id="node1" class="node">
-<title>Node21</title>
+<title>Node20</title>
 <g id="a_node1"><a xlink:title=" ">
 <polygon fill="white" stroke="#bfbfbf" points="0,-114.5 0,-133.5 71,-133.5 71,-114.5 0,-114.5"/>
 <text text-anchor="middle" x="35.5" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">oatpp::DTO</text>
@@ -27,99 +27,99 @@
 </a>
 </g>
 </g>
-<!-- Node21&#45;&gt;Node0 -->
+<!-- Node20&#45;&gt;Node0 -->
 <g id="edge1" class="edge">
-<title>Node21&#45;&gt;Node0</title>
+<title>Node20&#45;&gt;Node0</title>
 <path fill="none" stroke="midnightblue" d="M45.66,-142.84C57.09,-164.39 78.63,-199.24 107,-219 119.06,-227.4 134.84,-232.13 147.83,-234.76"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="48.66,-141.03 41,-133.71 42.43,-144.21 48.66,-141.03"/>
 </g>
-<!-- Node23 -->
+<!-- Node22 -->
 <g id="node3" class="node">
-<title>Node23</title>
+<title>Node22</title>
 <g id="a_node3"><a xlink:href="classAddCustomerDTO.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="121,-190.5 121,-209.5 225,-209.5 225,-190.5 121,-190.5"/>
 <text text-anchor="middle" x="173" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">AddCustomerDTO</text>
 </a>
 </g>
 </g>
-<!-- Node21&#45;&gt;Node23 -->
+<!-- Node20&#45;&gt;Node22 -->
 <g id="edge2" class="edge">
-<title>Node21&#45;&gt;Node23</title>
+<title>Node20&#45;&gt;Node22</title>
 <path fill="none" stroke="midnightblue" d="M53.62,-141.12C67.1,-153.75 86.91,-170.48 107,-181 114.19,-184.76 122.22,-187.88 130.13,-190.42"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="55.73,-138.3 46.1,-133.89 50.88,-143.34 55.73,-138.3"/>
 </g>
-<!-- Node24 -->
+<!-- Node23 -->
 <g id="node4" class="node">
-<title>Node24</title>
-<g id="a_node4"><a xlink:href="classBalanceResponseDTO.html" target="_top" xlink:title=" ">
+<title>Node23</title>
+<g id="a_node4"><a xlink:href="classBalanceResponseDTO.html" target="_top" xlink:title="Data Transfer Object for balance retrieval response.">
 <polygon fill="white" stroke="black" points="111,-152.5 111,-171.5 235,-171.5 235,-152.5 111,-152.5"/>
 <text text-anchor="middle" x="173" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">BalanceResponseDTO</text>
 </a>
 </g>
 </g>
-<!-- Node21&#45;&gt;Node24 -->
+<!-- Node20&#45;&gt;Node23 -->
 <g id="edge3" class="edge">
-<title>Node21&#45;&gt;Node24</title>
+<title>Node20&#45;&gt;Node23</title>
 <path fill="none" stroke="midnightblue" d="M80.42,-136.32C99.04,-141.54 120.41,-147.53 137.82,-152.41"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="81.27,-132.92 70.69,-133.59 79.38,-139.66 81.27,-132.92"/>
 </g>
-<!-- Node25 -->
+<!-- Node24 -->
 <g id="node5" class="node">
-<title>Node25</title>
+<title>Node24</title>
 <g id="a_node5"><a xlink:href="classBuyPlantDTO.html" target="_top" xlink:title="Data Transfer Object for buying plants request Uses POST request body instead of query parameters for...">
 <polygon fill="white" stroke="black" points="132.5,-114.5 132.5,-133.5 213.5,-133.5 213.5,-114.5 132.5,-114.5"/>
 <text text-anchor="middle" x="173" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">BuyPlantDTO</text>
 </a>
 </g>
 </g>
-<!-- Node21&#45;&gt;Node25 -->
+<!-- Node20&#45;&gt;Node24 -->
 <g id="edge4" class="edge">
-<title>Node21&#45;&gt;Node25</title>
+<title>Node20&#45;&gt;Node24</title>
 <path fill="none" stroke="midnightblue" d="M81.49,-124C97.9,-124 116.32,-124 132.24,-124"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="81.04,-120.5 71.04,-124 81.04,-127.5 81.04,-120.5"/>
 </g>
-<!-- Node26 -->
+<!-- Node25 -->
 <g id="node6" class="node">
-<title>Node26</title>
-<g id="a_node6"><a xlink:href="classCareForPlantDTO.html" target="_top" xlink:title=" ">
+<title>Node25</title>
+<g id="a_node6"><a xlink:href="classCareForPlantDTO.html" target="_top" xlink:title="Data Transfer Object for plant care operations.">
 <polygon fill="white" stroke="black" points="123,-76.5 123,-95.5 223,-95.5 223,-76.5 123,-76.5"/>
 <text text-anchor="middle" x="173" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">CareForPlantDTO</text>
 </a>
 </g>
 </g>
-<!-- Node21&#45;&gt;Node26 -->
+<!-- Node20&#45;&gt;Node25 -->
 <g id="edge5" class="edge">
-<title>Node21&#45;&gt;Node26</title>
+<title>Node20&#45;&gt;Node25</title>
 <path fill="none" stroke="midnightblue" d="M80.42,-111.68C99.04,-106.46 120.41,-100.47 137.82,-95.59"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="79.38,-108.34 70.69,-114.41 81.27,-115.08 79.38,-108.34"/>
 </g>
-<!-- Node27 -->
+<!-- Node26 -->
 <g id="node7" class="node">
-<title>Node27</title>
-<g id="a_node7"><a xlink:href="classCustomerResponseDTO.html" target="_top" xlink:title=" ">
+<title>Node26</title>
+<g id="a_node7"><a xlink:href="classCustomerResponseDTO.html" target="_top" xlink:title="Data Transfer Object for customer retrieval response.">
 <polygon fill="white" stroke="black" points="107,-38.5 107,-57.5 239,-57.5 239,-38.5 107,-38.5"/>
 <text text-anchor="middle" x="173" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CustomerResponseDTO</text>
 </a>
 </g>
 </g>
-<!-- Node21&#45;&gt;Node27 -->
+<!-- Node20&#45;&gt;Node26 -->
 <g id="edge6" class="edge">
-<title>Node21&#45;&gt;Node27</title>
+<title>Node20&#45;&gt;Node26</title>
 <path fill="none" stroke="midnightblue" d="M53.62,-106.88C67.1,-94.25 86.91,-77.52 107,-67 114.19,-63.24 122.22,-60.12 130.13,-57.58"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="50.88,-104.66 46.1,-114.11 55.73,-109.7 50.88,-104.66"/>
 </g>
-<!-- Node28 -->
+<!-- Node27 -->
 <g id="node8" class="node">
-<title>Node28</title>
-<g id="a_node8"><a xlink:href="classTransactionDTO.html" target="_top" xlink:title=" ">
+<title>Node27</title>
+<g id="a_node8"><a xlink:href="classTransactionDTO.html" target="_top" xlink:title="Data Transfer Object for transaction data.">
 <polygon fill="white" stroke="black" points="126.5,-0.5 126.5,-19.5 219.5,-19.5 219.5,-0.5 126.5,-0.5"/>
 <text text-anchor="middle" x="173" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">TransactionDTO</text>
 </a>
 </g>
 </g>
-<!-- Node21&#45;&gt;Node28 -->
+<!-- Node20&#45;&gt;Node27 -->
 <g id="edge7" class="edge">
-<title>Node21&#45;&gt;Node28</title>
+<title>Node20&#45;&gt;Node27</title>
 <path fill="none" stroke="midnightblue" d="M45.66,-105.16C57.09,-83.61 78.63,-48.76 107,-29 112.79,-24.97 119.43,-21.78 126.22,-19.27"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="42.43,-103.79 41,-114.29 48.66,-106.97 42.43,-103.79"/>
 </g>

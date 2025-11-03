@@ -1,6 +1,7 @@
 /**
  * @file Succulent.h
  * @brief Defines the Succulent subclass derived from the Plant base class.
+ * @author Megan Norval
  */
 
 #ifndef SUCCULENT_H

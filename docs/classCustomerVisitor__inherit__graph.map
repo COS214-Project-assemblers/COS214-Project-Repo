@@ -1,6 +1,6 @@
 <map id="CustomerVisitor" name="CustomerVisitor">
-<area shape="rect" id="node1" title="This is the abstract base class for defining operations for the concreteVisitors." alt="" coords="184,5,311,32"/>
+<area shape="rect" id="node1" title="Abstract base class for defining operations for the concrete visitors." alt="" coords="184,5,311,32"/>
 <area shape="rect" id="node2" href="$classVisitEasyCustomer.html" title="Visitor implementation for customers preferring easy&#45;to&#45;maintain plants." alt="" coords="5,80,151,107"/>
 <area shape="rect" id="node3" href="$classVisitHighCustomer.html" title="Visitor implementation for customers preferring challenging plants." alt="" coords="175,80,319,107"/>
-<area shape="rect" id="node4" href="$classVisitMediumCustomer.html" title=" " alt="" coords="344,80,511,107"/>
+<area shape="rect" id="node4" href="$classVisitMediumCustomer.html" title="Visitor implementation for balanced plant recommendations." alt="" coords="344,80,511,107"/>
 </map>

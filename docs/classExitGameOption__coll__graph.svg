@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Command participant for encapsulating the command of exiting the game allows for advanced logging and...">
+<g id="a_node1"><a xlink:title="Command participant for encapsulating the command of exiting the game.">
 <polygon fill="#bfbfbf" stroke="black" points="7.5,-0.5 7.5,-19.5 104.5,-19.5 104.5,-0.5 7.5,-0.5"/>
 <text text-anchor="middle" x="56" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ExitGameOption</text>
 </a>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classMenuOption.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classMenuOption.html" target="_top" xlink:title="Abstract base class for menu command options.">
 <polygon fill="white" stroke="black" points="18,-57.5 18,-76.5 94,-76.5 94,-57.5 18,-57.5"/>
 <text text-anchor="middle" x="56" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">MenuOption</text>
 </a>
@@ -36,7 +36,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classGame.html" target="_top" xlink:title="The Game class represents the internal API of the system. It is modelled in terms of the Facade desig...">
+<g id="a_node3"><a xlink:href="classGame.html" target="_top" xlink:title="The main game class representing the internal API of the system.">
 <polygon fill="white" stroke="black" points="0,-124.5 0,-143.5 46,-143.5 46,-124.5 0,-124.5"/>
 <text text-anchor="middle" x="23" y="-131.5" font-family="Helvetica,sans-Serif" font-size="10.00">Game</text>
 </a>
@@ -52,7 +52,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="classLogger.html" target="_top" xlink:title="Interface for concrete Log strategies to implement.">
+<g id="a_node4"><a xlink:href="classLogger.html" target="_top" xlink:title="Interface for concrete logging strategies.">
 <polygon fill="white" stroke="black" points="64,-124.5 64,-143.5 114,-143.5 114,-124.5 64,-124.5"/>
 <text text-anchor="middle" x="89" y="-131.5" font-family="Helvetica,sans-Serif" font-size="10.00">Logger</text>
 </a>

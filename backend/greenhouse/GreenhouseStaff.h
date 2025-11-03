@@ -1,8 +1,12 @@
+/**
+ * @file GreenhouseStaff.h
+ * @brief Abstract base class for greenhouse staff observers
+ */
 #ifndef GREENHOUSESTAFF_H
 #define GREENHOUSESTAFF_H
 
 #include <string>
-#include "PlantHealth.h" // will this cause circular dependancy ??
+#include "PlantHealth.h"
 class Greenhouse;
 class Plant;
 
@@ -19,7 +23,8 @@ using namespace std;
 
 class GreenhouseStaff {
     protected:
-        Greenhouse* greenhouse;
+        Greenhouse* greenhouse;  ///< Reference to greenhouse for plant operations
+
     public:
 
         /**
@@ -37,10 +42,13 @@ class GreenhouseStaff {
         /**
          * @brief Virtual destructor for proper cleanup of derived classes.
          */
-
-        void setGreenhouse(Greenhouse* greenhouse);
-
         virtual ~GreenhouseStaff() = default;
+
+        /**
+         * @brief Sets the greenhouse reference for staff operations
+         * @param greenhouse Pointer to Greenhouse instance
+         */
+        void setGreenhouse(Greenhouse* greenhouse);
 };
 
 #endif

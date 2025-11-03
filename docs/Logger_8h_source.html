@@ -77,15 +77,17 @@ $(function() {
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classLogger.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLogger.html">Logger</a> {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classLogger.html#a4019994ae26c88dd9eed155a14344173">   24</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classLogger.html#a4019994ae26c88dd9eed155a14344173">newLog</a>(std::string message) = 0;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classLogger.html">Logger</a>() {};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LOGGER</span></div>
-<div class="ttc" id="aclassLogger_html"><div class="ttname"><a href="classLogger.html">Logger</a></div><div class="ttdoc">Interface for concrete Log strategies to implement.</div><div class="ttdef"><b>Definition:</b> Logger.h:18</div></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classLogger.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLogger.html">Logger</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classLogger.html#a4019994ae26c88dd9eed155a14344173">   30</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classLogger.html#a4019994ae26c88dd9eed155a14344173">newLog</a>(std::string message) = 0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classLogger.html#ae93f62ca3e47716b7120acb032a260f3">   35</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classLogger.html#ae93f62ca3e47716b7120acb032a260f3">~Logger</a>() {};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassLogger_html"><div class="ttname"><a href="classLogger.html">Logger</a></div><div class="ttdoc">Interface for concrete logging strategies.</div><div class="ttdef"><b>Definition:</b> Logger.h:24</div></div>
 <div class="ttc" id="aclassLogger_html_a4019994ae26c88dd9eed155a14344173"><div class="ttname"><a href="classLogger.html#a4019994ae26c88dd9eed155a14344173">Logger::newLog</a></div><div class="ttdeci">virtual void newLog(std::string message)=0</div><div class="ttdoc">Pure virtual function that acts as the algorithm the concrete strategies are to implement.</div></div>
+<div class="ttc" id="aclassLogger_html_ae93f62ca3e47716b7120acb032a260f3"><div class="ttname"><a href="classLogger.html#ae93f62ca3e47716b7120acb032a260f3">Logger::~Logger</a></div><div class="ttdeci">virtual ~Logger()</div><div class="ttdoc">Virtual destructor for proper polymorphic cleanup.</div><div class="ttdef"><b>Definition:</b> Logger.h:35</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

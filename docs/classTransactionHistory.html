@@ -68,11 +68,6 @@ $(function() {
 <div class="title">TransactionHistory Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Stores Mememntos that allows for processing refunds and printing the transaction history at end of day.  
- <a href="classTransactionHistory.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="TransactionHistory_8h_source.html">TransactionHistory.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -82,13 +77,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1eed4f275336bc51993742a693748538"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55a0b884922487b614d3bb2541cdea06"><td class="memItemLeft" align="right" valign="top"><a id="a55a0b884922487b614d3bb2541cdea06"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionHistory.html#a55a0b884922487b614d3bb2541cdea06">~TransactionHistory</a> ()=default</td></tr>
-<tr class="memdesc:a55a0b884922487b614d3bb2541cdea06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deafult deconstructor. <br /></td></tr>
+<tr class="memdesc:a55a0b884922487b614d3bb2541cdea06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
 <tr class="separator:a55a0b884922487b614d3bb2541cdea06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cdac4e279441af6ee0400b681d0caa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionHistory.html#a5cdac4e279441af6ee0400b681d0caa9">setTransactionMem</a> (const <a class="el" href="classTransactionMem.html">TransactionMem</a> &amp;tM)</td></tr>
 <tr class="memdesc:a5cdac4e279441af6ee0400b681d0caa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a transactionMem to the history.  <a href="classTransactionHistory.html#a5cdac4e279441af6ee0400b681d0caa9">More...</a><br /></td></tr>
 <tr class="separator:a5cdac4e279441af6ee0400b681d0caa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39d83674ee634036aa0d6730a923f761"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTransactionMem.html">TransactionMem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionHistory.html#a39d83674ee634036aa0d6730a923f761">getTransactionMem</a> (int index) const</td></tr>
-<tr class="memdesc:a39d83674ee634036aa0d6730a923f761"><td class="mdescLeft">&#160;</td><td class="mdescRight">retireves a specific snapshot by index  <a href="classTransactionHistory.html#a39d83674ee634036aa0d6730a923f761">More...</a><br /></td></tr>
+<tr class="memdesc:a39d83674ee634036aa0d6730a923f761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves specific transaction snapshot by index.  <a href="classTransactionHistory.html#a39d83674ee634036aa0d6730a923f761">More...</a><br /></td></tr>
 <tr class="separator:a39d83674ee634036aa0d6730a923f761"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b80c84d3a1ea05d3a0cbba8c67cfc6c"><td class="memItemLeft" align="right" valign="top"><a id="a2b80c84d3a1ea05d3a0cbba8c67cfc6c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionHistory.html#a2b80c84d3a1ea05d3a0cbba8c67cfc6c">clear</a> ()</td></tr>
@@ -97,23 +92,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a0861554386174245a3b38a8cff6c84de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionHistory.html#a0861554386174245a3b38a8cff6c84de">hasBeenReturned</a> (int tID) const</td></tr>
 <tr class="memdesc:a0861554386174245a3b38a8cff6c84de"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if a transaction ID has already been returned  <a href="classTransactionHistory.html#a0861554386174245a3b38a8cff6c84de">More...</a><br /></td></tr>
 <tr class="separator:a0861554386174245a3b38a8cff6c84de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2c1be7ca3fbe1f052567798914b1b35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionHistory.html#ab2c1be7ca3fbe1f052567798914b1b35">markAsReturned</a> (int tID)</td></tr>
-<tr class="memdesc:ab2c1be7ca3fbe1f052567798914b1b35"><td class="mdescLeft">&#160;</td><td class="mdescRight">marks a transaction ID as returned  <a href="classTransactionHistory.html#ab2c1be7ca3fbe1f052567798914b1b35">More...</a><br /></td></tr>
-<tr class="separator:ab2c1be7ca3fbe1f052567798914b1b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad594c89d22027c929614ff30b4283e61"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionHistory.html#ad594c89d22027c929614ff30b4283e61">FindTransactionIDFor</a> (const <a class="el" href="classPlant.html">Plant</a> *p) const</td></tr>
 <tr class="memdesc:ad594c89d22027c929614ff30b4283e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives you the last transaction ID for a specific plant.  <a href="classTransactionHistory.html#ad594c89d22027c929614ff30b4283e61">More...</a><br /></td></tr>
 <tr class="separator:ad594c89d22027c929614ff30b4283e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f54697037f692f0ae442590dc2fe5c9"><td class="memItemLeft" align="right" valign="top"><a id="a3f54697037f692f0ae442590dc2fe5c9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionHistory.html#a3f54697037f692f0ae442590dc2fe5c9">printStatement</a> ()</td></tr>
-<tr class="memdesc:a3f54697037f692f0ae442590dc2fe5c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints statement for the day -&gt; for testing for me will return a print out a "Statemnent" like from your bank account of all transactions from the day with their transaction type, the value, and the balance if it was a returned tranasaction type it will show the initial transactionID <br /></td></tr>
+<tr class="memitem:a3f54697037f692f0ae442590dc2fe5c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionHistory.html#a3f54697037f692f0ae442590dc2fe5c9">printStatement</a> ()</td></tr>
+<tr class="memdesc:a3f54697037f692f0ae442590dc2fe5c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints daily transaction statement (primarily for testing)  <a href="classTransactionHistory.html#a3f54697037f692f0ae442590dc2fe5c9">More...</a><br /></td></tr>
 <tr class="separator:a3f54697037f692f0ae442590dc2fe5c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf1565f2b1c6f097f4b95354655e6c25"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransactionHistory.html#abf1565f2b1c6f097f4b95354655e6c25">statementJSON</a> () const</td></tr>
 <tr class="memdesc:abf1565f2b1c6f097f4b95354655e6c25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the statement for the day in JSON format for front end.  <a href="classTransactionHistory.html#abf1565f2b1c6f097f4b95354655e6c25">More...</a><br /></td></tr>
 <tr class="separator:abf1565f2b1c6f097f4b95354655e6c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Stores Mememntos that allows for processing refunds and printing the transaction history at end of day. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad594c89d22027c929614ff30b4283e61"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad594c89d22027c929614ff30b4283e61">&#9670;&nbsp;</a></span>FindTransactionIDFor()</h2>
 
@@ -157,14 +146,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
       </table>
 </div><div class="memdoc">
 
-<p>retireves a specific snapshot by index </p>
+<p>Retrieves specific transaction snapshot by index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>Index of snapshot in memento vector </td></tr>
+    <tr><td class="paramname">index</td><td>Position of snapshot in vector </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classTransactionMem.html" title="The transactionMem class is used to create a snapshot of a transaction.">TransactionMem</a> object at that index </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classTransactionMem.html" title="The transactionMem class is used to create a snapshot of a transaction.">TransactionMem</a> object at specified index </dd></dl>
 
 </div>
 </div>
@@ -187,7 +176,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>checks if a transaction ID has already been returned </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tID</td><td><a class="el" href="classTransaction.html" title="Represensts a single transaction in the system and holds its value and the TransactionStrategy used.">Transaction</a> ID to check </td></tr>
+    <tr><td class="paramname">tID</td><td><a class="el" href="classTransaction.html" title="Represents a single financial transaction with strategy and value.">Transaction</a> ID to check </td></tr>
   </table>
   </dd>
 </dl>
@@ -195,29 +184,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a id="ab2c1be7ca3fbe1f052567798914b1b35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2c1be7ca3fbe1f052567798914b1b35">&#9670;&nbsp;</a></span>markAsReturned()</h2>
+<a id="a3f54697037f692f0ae442590dc2fe5c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f54697037f692f0ae442590dc2fe5c9">&#9670;&nbsp;</a></span>printStatement()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void TransactionHistory::markAsReturned </td>
+          <td class="memname">void TransactionHistory::printStatement </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>tID</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>marks a transaction ID as returned </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tID</td><td><a class="el" href="classTransaction.html" title="Represensts a single transaction in the system and holds its value and the TransactionStrategy used.">Transaction</a> ID to mark as returned </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Prints daily transaction statement (primarily for testing) </p>
+<p>Outputs formatted statement similar to bank statement showing all daily transactions with types, values, and balances </p>
 
 </div>
 </div>

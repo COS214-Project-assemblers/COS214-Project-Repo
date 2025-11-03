@@ -1,19 +1,5 @@
 var searchData=
 [
-  ['recommendationsdialogue_210',['recommendationsDialogue',['../classCustomer.html#a1dd92f0ac7ce453f69b2f8130e8b9129',1,'Customer']]],
-  ['recordplantdied_211',['recordPlantDied',['../classManager.html#ad49c445a526fe6c0964a6e7824e683a6',1,'Manager']]],
-  ['recordrestock_212',['recordRestock',['../classManager.html#aae7bcae640724ac040d684cfd3980237',1,'Manager']]],
-  ['recordsale_213',['recordSale',['../classManager.html#ac0e731250eff12f4500b567a7622f86a',1,'Manager']]],
-  ['rejectdialogue_214',['rejectDialogue',['../classCustomer.html#ad218708c3d3dd42c27412a63a213f8ae',1,'Customer']]],
-  ['rejectexitdialogue_215',['rejectExitDialogue',['../classCustomer.html#a827740a10661efc74c7053da98def071',1,'Customer']]],
-  ['remove_216',['remove',['../classbuild_1_1build__tracker_1_1BuildTracker.html#af454e453c37807489faab2999151106b',1,'build::build_tracker::BuildTracker']]],
-  ['removeplant_217',['removePlant',['../classGreenhouse.html#a1f325b5c435ca2b39dc8b1775f67b3f4',1,'Greenhouse::removePlant()'],['../classInventory.html#a775d02edd78192a12ffa024994986182',1,'Inventory::removePlant()']]],
-  ['request_218',['request',['../classPlant.html#a23d00b089c9b7fdf284d5a5e35fea1bd',1,'Plant']]],
-  ['restock_219',['Restock',['../classRestock.html',1,'']]],
-  ['restock_220',['restock',['../classInventory.html#a2c7dfc2a11d8c2b851888f49f562cb7f',1,'Inventory']]],
-  ['restock_221',['Restock',['../classRestock.html#a3d64576b1191a5124c4974ac4dc42cd8',1,'Restock']]],
-  ['restock_2eh_222',['Restock.h',['../game_2Restock_8h.html',1,'']]],
-  ['return_223',['Return',['../classReturn.html',1,'Return'],['../classReturn.html#a0ba39b3df0ffcc95addb2d376fcbedfa',1,'Return::Return()']]],
-  ['return_2eh_224',['Return.h',['../Return_8h.html',1,'']]],
-  ['run_225',['run',['../classAPI.html#a65eaa62223b5f6944b34b760edb27bf2',1,'API::run()'],['../classPlant.html#a0c2a4513ef389b460118478b657726c6',1,'Plant::run()']]]
+  ['queuenotify_240',['queueNotify',['../classPlant.html#a60507dd7fb25cc20d02b2ba1b7f74ef7',1,'Plant']]],
+  ['queueprune_241',['queuePrune',['../classPlant.html#a05d28fbd4d1abf1cf3019a7b1dd2b40b',1,'Plant']]]
 ];

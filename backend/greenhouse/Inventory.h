@@ -1,8 +1,6 @@
 /**
- * @class Inventory
- * @brief Stores a collections of plants, will return vectors of plants for the manager to choose from and then offer the client.
- * 
- * The Inventory class stores all available Plant objects that are availible for sale to clients, it allows for filtering based on a categoy or by a price range.
+ * @file Inventory.h
+ * @brief Inventory management for plants in greenhouse and sales floor
  */
 
 #ifndef INVENTORY_H
@@ -13,36 +11,60 @@
 #include <vector>
 #include <string>
 
+/**
+ * @class Inventory
+ * @brief Manages collection of plants for sale and greenhouse operations
+ * 
+ * @see Plant
+ * @see Manager
+ * @see SalesFloor
+ */
 class Inventory{
     private:
-        std::vector<Plant*> plants;
+        std::vector<Plant*> plants;  ///< Collection of plants in inventory
+
     public:
-        //no need to construct/deconstruct manually
+
+        /**
+         * @brief Default constructor
+         */
         Inventory()=default;
+
+        /**
+         * @brief Destructor - cleans up plant resources
+         */
         ~Inventory();
+
         /**
          * @brief returns all plants in the inventory
          * @return A vector containing pointers to all Plant objects in the inventory
          */
         std::vector<Plant*> all() const;
+
         /**
-         * @brief Restocks a plantby adding it to the vector containing plants in the inventory
+         * @brief Restocks a plant by adding it to the vector containing plants in the inventory
          * @param plant Reference to the Plant being restocked
          */
-        //below is same as megans addPlant
         void restock(Plant* plant);
+
         /**
          * @brief removes a plant from the inventory
          * @param plant Reference to the Plant being removed
          */
         void removePlant(Plant* plant);
+
         /**
-         * @brief Finds all plants in the inventory based on their level of care dificulty.
-         * @param d The level of dificulty you are looking for
-         * @return Vector of all those plants
+         * @brief Finds plants by care difficulty level
+         * @param d Difficulty level to filter by ("Easy", "Moderate", "Hard")
+         * @return Vector of plants matching specified difficulty
          */
         std::vector<Plant*> findByDifficulty(std::string d)const;
 
+        /**
+         * @brief Gets a specific plant by ID
+         * @param id Plant identifier
+         * @return Pointer to Plant if found, nullptr otherwise
+         */
         Plant* getPlant(string id);
 };
 

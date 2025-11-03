@@ -1,5 +1,6 @@
 /**
  * @file Restock.h
+ * @brief Transaction strategy for restock operations
  */
 #ifndef RESTOCK_H
 #define RESTOCK_H
@@ -9,28 +10,35 @@
 
 /**
  * @class Restock
- * @brief Will handle the transaction as a refund
+ * @brief Handles financial transactions for inventory restocking
+ * @details Implements TransactionStrategy for deducting costs when
+ * purchasing new plants for inventory.
+ * 
+ * @see TransactionStrategy
  */
-class Restock:public TransactionStrategy{
+class Restock : public TransactionStrategy{
     public:
         /**
          * @brief Default constructor.
          */
         Restock()=default;
+
         /**
-         * @brief Deconstructor.
+         * @brief Default destructor
          */
         ~Restock()=default;
+
         /**
-         * @brief Executes a transactions financial logic to update the balance.
-         * @param v Value of the transaction.
-         * @param b Value of the current balance
-         * @return THe new balance of b-v
+         * @brief Executes restock transaction logic
+         * @param v Cost of plants being restocked
+         * @param b Current balance before transaction
+         * @return New balance after restock cost (b - v)
          */
         double execute(double v, double b) override;
+
         /**
-         * @brief Returns the Type of the transaction as a Restock
-         * @return "Restock"
+         * @brief Gets the transaction type identifier
+         * @return "Restock" string
          */
         std::string getType()const override;
 };

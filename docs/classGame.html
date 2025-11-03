@@ -69,47 +69,36 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="classGame.html" title="The Game class represents the internal API of the system. It is modelled in terms of the Facade desig...">Game</a> class represents the internal <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a> of the system. It is modelled in terms of the Facade design pattern.  
+<p>The main game class representing the internal <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> of the system.  
  <a href="classGame.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Game_8h_source.html">Game.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a041137bfc85419ee7b7b213581bd5559"><td class="memItemLeft" align="right" valign="top"><a id="a041137bfc85419ee7b7b213581bd5559"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a041137bfc85419ee7b7b213581bd5559">Game</a> (string configPath)</td></tr>
-<tr class="memdesc:a041137bfc85419ee7b7b213581bd5559"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classGame.html" title="The Game class represents the internal API of the system. It is modelled in terms of the Facade desig...">Game</a> initialization tasks that are not creating/loading game. Wil problably init DB connection etc here. <br /></td></tr>
+<tr class="memitem:a041137bfc85419ee7b7b213581bd5559"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a041137bfc85419ee7b7b213581bd5559">Game</a> (string configPath)</td></tr>
+<tr class="memdesc:a041137bfc85419ee7b7b213581bd5559"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor - initializes game with configuration.  <a href="classGame.html#a041137bfc85419ee7b7b213581bd5559">More...</a><br /></td></tr>
 <tr class="separator:a041137bfc85419ee7b7b213581bd5559"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d311d7c7038d951c0162a2572ca0a5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a5d311d7c7038d951c0162a2572ca0a5e">setGreenhouse</a> (<a class="el" href="classGreenhouse.html">Greenhouse</a> *greenhouse)</td></tr>
 <tr class="memdesc:a5d311d7c7038d951c0162a2572ca0a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for greenhouse attribute.  <a href="classGame.html#a5d311d7c7038d951c0162a2572ca0a5e">More...</a><br /></td></tr>
 <tr class="separator:a5d311d7c7038d951c0162a2572ca0a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4b43027d3d7299e5b61e9fcb07df186"><td class="memItemLeft" align="right" valign="top"><a id="ab4b43027d3d7299e5b61e9fcb07df186"></a>
-<a class="el" href="classGreenhouse.html">Greenhouse</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ab4b43027d3d7299e5b61e9fcb07df186">getGreenhouse</a> ()</td></tr>
-<tr class="memdesc:ab4b43027d3d7299e5b61e9fcb07df186"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for testing purposes. <br /></td></tr>
+<tr class="memitem:ab4b43027d3d7299e5b61e9fcb07df186"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGreenhouse.html">Greenhouse</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ab4b43027d3d7299e5b61e9fcb07df186">getGreenhouse</a> ()</td></tr>
+<tr class="memdesc:ab4b43027d3d7299e5b61e9fcb07df186"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for greenhouse.  <a href="classGame.html#ab4b43027d3d7299e5b61e9fcb07df186">More...</a><br /></td></tr>
 <tr class="separator:ab4b43027d3d7299e5b61e9fcb07df186"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7359a2e7ec517cd29012adbb21587d41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a7359a2e7ec517cd29012adbb21587d41">setFactories</a> (map&lt; string, <a class="el" href="classPlantCreator.html">PlantCreator</a> * &gt; factories)</td></tr>
-<tr class="memdesc:a7359a2e7ec517cd29012adbb21587d41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for factories.  <a href="classGame.html#a7359a2e7ec517cd29012adbb21587d41">More...</a><br /></td></tr>
+<tr class="memdesc:a7359a2e7ec517cd29012adbb21587d41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for plant factories.  <a href="classGame.html#a7359a2e7ec517cd29012adbb21587d41">More...</a><br /></td></tr>
 <tr class="separator:a7359a2e7ec517cd29012adbb21587d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e843356ddcf3de40aee7de24ba7642c"><td class="memItemLeft" align="right" valign="top"><a id="a1e843356ddcf3de40aee7de24ba7642c"></a>
-map&lt; string, <a class="el" href="classPlantCreator.html">PlantCreator</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a1e843356ddcf3de40aee7de24ba7642c">getFactories</a> ()</td></tr>
-<tr class="memdesc:a1e843356ddcf3de40aee7de24ba7642c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for testing purposes. <br /></td></tr>
+<tr class="memitem:a1e843356ddcf3de40aee7de24ba7642c"><td class="memItemLeft" align="right" valign="top">map&lt; string, <a class="el" href="classPlantCreator.html">PlantCreator</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a1e843356ddcf3de40aee7de24ba7642c">getFactories</a> ()</td></tr>
+<tr class="memdesc:a1e843356ddcf3de40aee7de24ba7642c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for factories.  <a href="classGame.html#a1e843356ddcf3de40aee7de24ba7642c">More...</a><br /></td></tr>
 <tr class="separator:a1e843356ddcf3de40aee7de24ba7642c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5927ecb0ccddd93022fc922d530fd616"><td class="memItemLeft" align="right" valign="top"><a id="a5927ecb0ccddd93022fc922d530fd616"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a5927ecb0ccddd93022fc922d530fd616">createNewGame</a> ()</td></tr>
-<tr class="memdesc:a5927ecb0ccddd93022fc922d530fd616"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operations associated with creating a new game, i.e. creating greenhouse and factories. <br /></td></tr>
+<tr class="memitem:a5927ecb0ccddd93022fc922d530fd616"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a5927ecb0ccddd93022fc922d530fd616">createNewGame</a> ()</td></tr>
+<tr class="memdesc:a5927ecb0ccddd93022fc922d530fd616"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operations for creating a new game instance.  <a href="classGame.html#a5927ecb0ccddd93022fc922d530fd616">More...</a><br /></td></tr>
 <tr class="separator:a5927ecb0ccddd93022fc922d530fd616"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47ad90ac9f5993990381529e684ae435"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a47ad90ac9f5993990381529e684ae435">buyPlants</a> (string plant, int num)</td></tr>
-<tr class="memdesc:a47ad90ac9f5993990381529e684ae435"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is used by the user to be able to buy plants to add to the <a class="el" href="classGreenhouse.html">Greenhouse</a>. Uses Factory Method pattern to find correct plant creator and Prototype pattern to clone plants.  <a href="classGame.html#a47ad90ac9f5993990381529e684ae435">More...</a><br /></td></tr>
+<tr class="memdesc:a47ad90ac9f5993990381529e684ae435"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buys plants and adds them to the <a class="el" href="classGreenhouse.html" title="Central greenhouse management system coordinating plants, staff, and sales.">Greenhouse</a>.  <a href="classGame.html#a47ad90ac9f5993990381529e684ae435">More...</a><br /></td></tr>
 <tr class="separator:a47ad90ac9f5993990381529e684ae435"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9337573762b19948f4164a4f0b760708"><td class="memItemLeft" align="right" valign="top"><a id="a9337573762b19948f4164a4f0b760708"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a9337573762b19948f4164a4f0b760708">loadExistingGame</a> ()</td></tr>
-<tr class="memdesc:a9337573762b19948f4164a4f0b760708"><td class="mdescLeft">&#160;</td><td class="mdescRight">loads greenhouse and factories from DB <br /></td></tr>
-<tr class="separator:a9337573762b19948f4164a4f0b760708"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f7ad0384767e46fa072891c123b7d9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a9f7ad0384767e46fa072891c123b7d9c">saveGame</a> ()</td></tr>
-<tr class="separator:a9f7ad0384767e46fa072891c123b7d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3d112ca6e0e55150d2fdbc704474530"><td class="memItemLeft" align="right" valign="top"><a id="ae3d112ca6e0e55150d2fdbc704474530"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ae3d112ca6e0e55150d2fdbc704474530">~Game</a> ()</td></tr>
-<tr class="memdesc:ae3d112ca6e0e55150d2fdbc704474530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees greenhouse, plant creators memory. Closes DB connection. <br /></td></tr>
+<tr class="memitem:ae3d112ca6e0e55150d2fdbc704474530"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ae3d112ca6e0e55150d2fdbc704474530">~Game</a> ()</td></tr>
+<tr class="memdesc:ae3d112ca6e0e55150d2fdbc704474530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor - cleans up game resources.  <a href="classGame.html#ae3d112ca6e0e55150d2fdbc704474530">More...</a><br /></td></tr>
 <tr class="separator:ae3d112ca6e0e55150d2fdbc704474530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9217e3f6c08a800cb004f274f2e1875"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ac9217e3f6c08a800cb004f274f2e1875">getCategoryForVariety</a> (string variety)</td></tr>
 <tr class="memdesc:ac9217e3f6c08a800cb004f274f2e1875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper method to get category for a plant variety.  <a href="classGame.html#ac9217e3f6c08a800cb004f274f2e1875">More...</a><br /></td></tr>
@@ -126,44 +115,92 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a5436d9b0fdc13ddbc7623bbe38219880"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a5436d9b0fdc13ddbc7623bbe38219880">getCustomersAsJson</a> ()</td></tr>
 <tr class="memdesc:a5436d9b0fdc13ddbc7623bbe38219880"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all customers as a JSON array string.  <a href="classGame.html#a5436d9b0fdc13ddbc7623bbe38219880">More...</a><br /></td></tr>
 <tr class="separator:a5436d9b0fdc13ddbc7623bbe38219880"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab463d0edd5549a0d46b09f28dc2a9246"><td class="memItemLeft" align="right" valign="top"><a id="ab463d0edd5549a0d46b09f28dc2a9246"></a>
-vector&lt; <a class="el" href="structPlantStruct.html">PlantStruct</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getAvailablePlantVarieties</b> ()</td></tr>
+<tr class="memitem:ab463d0edd5549a0d46b09f28dc2a9246"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structPlantStruct.html">PlantStruct</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ab463d0edd5549a0d46b09f28dc2a9246">getAvailablePlantVarieties</a> ()</td></tr>
+<tr class="memdesc:ab463d0edd5549a0d46b09f28dc2a9246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all customers as a JSON array string.  <a href="classGame.html#ab463d0edd5549a0d46b09f28dc2a9246">More...</a><br /></td></tr>
 <tr class="separator:ab463d0edd5549a0d46b09f28dc2a9246"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1945c922f49185fe91abdfb9faa4c07"><td class="memItemLeft" align="right" valign="top"><a id="ad1945c922f49185fe91abdfb9faa4c07"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ad1945c922f49185fe91abdfb9faa4c07">exitGame</a> ()</td></tr>
-<tr class="memdesc:ad1945c922f49185fe91abdfb9faa4c07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exits game gracefully, atp it is just logging that the user opted to end the game, but if the game were to scale this would obviously contain crucial shutdown steps. No mem is freed since the destructor of the <a class="el" href="classGame.html" title="The Game class represents the internal API of the system. It is modelled in terms of the Facade desig...">Game</a> will be called when it is deleted in mem. <br /></td></tr>
+<tr class="memitem:ad1945c922f49185fe91abdfb9faa4c07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ad1945c922f49185fe91abdfb9faa4c07">exitGame</a> ()</td></tr>
+<tr class="memdesc:ad1945c922f49185fe91abdfb9faa4c07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exits game gracefully.  <a href="classGame.html#ad1945c922f49185fe91abdfb9faa4c07">More...</a><br /></td></tr>
 <tr class="separator:ad1945c922f49185fe91abdfb9faa4c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f6415bb2e0fa700fdf3ed9e472dcfb0"><td class="memItemLeft" align="right" valign="top"><a id="a2f6415bb2e0fa700fdf3ed9e472dcfb0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setManager</b> (<a class="el" href="classManager.html">Manager</a> *m)</td></tr>
+<tr class="memitem:a2f6415bb2e0fa700fdf3ed9e472dcfb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a2f6415bb2e0fa700fdf3ed9e472dcfb0">setManager</a> (<a class="el" href="classManager.html">Manager</a> *m)</td></tr>
+<tr class="memdesc:a2f6415bb2e0fa700fdf3ed9e472dcfb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for manager.  <a href="classGame.html#a2f6415bb2e0fa700fdf3ed9e472dcfb0">More...</a><br /></td></tr>
 <tr class="separator:a2f6415bb2e0fa700fdf3ed9e472dcfb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7d7254abc3f22eb9e5040eaccaf2a4b"><td class="memItemLeft" align="right" valign="top"><a id="ad7d7254abc3f22eb9e5040eaccaf2a4b"></a>
-<a class="el" href="classManager.html">Manager</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getManager</b> ()</td></tr>
+<tr class="memitem:ad7d7254abc3f22eb9e5040eaccaf2a4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classManager.html">Manager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ad7d7254abc3f22eb9e5040eaccaf2a4b">getManager</a> ()</td></tr>
+<tr class="memdesc:ad7d7254abc3f22eb9e5040eaccaf2a4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for manager.  <a href="classGame.html#ad7d7254abc3f22eb9e5040eaccaf2a4b">More...</a><br /></td></tr>
 <tr class="separator:ad7d7254abc3f22eb9e5040eaccaf2a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d6ea1fbec4d7273233ae32a3a7ce5e2"><td class="memItemLeft" align="right" valign="top"><a id="a4d6ea1fbec4d7273233ae32a3a7ce5e2"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getGameBalance</b> ()</td></tr>
+<tr class="memitem:a4d6ea1fbec4d7273233ae32a3a7ce5e2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a4d6ea1fbec4d7273233ae32a3a7ce5e2">getGameBalance</a> ()</td></tr>
+<tr class="memdesc:a4d6ea1fbec4d7273233ae32a3a7ce5e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current game balance.  <a href="classGame.html#a4d6ea1fbec4d7273233ae32a3a7ce5e2">More...</a><br /></td></tr>
 <tr class="separator:a4d6ea1fbec4d7273233ae32a3a7ce5e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa23b91bf250ac6425a4b70dc7f248736"><td class="memItemLeft" align="right" valign="top"><a id="aa23b91bf250ac6425a4b70dc7f248736"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSocket</b> (<a class="el" href="classGreenSock.html">GreenSock</a> *socket)</td></tr>
+<tr class="memitem:aa23b91bf250ac6425a4b70dc7f248736"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#aa23b91bf250ac6425a4b70dc7f248736">setSocket</a> (<a class="el" href="classGreenSock.html">GreenSock</a> *socket)</td></tr>
+<tr class="memdesc:aa23b91bf250ac6425a4b70dc7f248736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for WebSocket connection.  <a href="classGame.html#aa23b91bf250ac6425a4b70dc7f248736">More...</a><br /></td></tr>
 <tr class="separator:aa23b91bf250ac6425a4b70dc7f248736"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb3ea555476fcd077c340f95978ff71b"><td class="memItemLeft" align="right" valign="top"><a id="aeb3ea555476fcd077c340f95978ff71b"></a>
-vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getGreenhousePlants</b> ()</td></tr>
+<tr class="memitem:aeb3ea555476fcd077c340f95978ff71b"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#aeb3ea555476fcd077c340f95978ff71b">getGreenhousePlants</a> ()</td></tr>
+<tr class="memdesc:aeb3ea555476fcd077c340f95978ff71b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get greenhouse plants as vector.  <a href="classGame.html#aeb3ea555476fcd077c340f95978ff71b">More...</a><br /></td></tr>
 <tr class="separator:aeb3ea555476fcd077c340f95978ff71b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63ee9877b99af8bb05d88acf964d8141"><td class="memItemLeft" align="right" valign="top"><a id="a63ee9877b99af8bb05d88acf964d8141"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>getGreenhousePlantsAsJson</b> ()</td></tr>
+<tr class="memitem:a63ee9877b99af8bb05d88acf964d8141"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a63ee9877b99af8bb05d88acf964d8141">getGreenhousePlantsAsJson</a> ()</td></tr>
+<tr class="memdesc:a63ee9877b99af8bb05d88acf964d8141"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get greenhouse plants as JSON string.  <a href="classGame.html#a63ee9877b99af8bb05d88acf964d8141">More...</a><br /></td></tr>
 <tr class="separator:a63ee9877b99af8bb05d88acf964d8141"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac44e5ba200cb50ee91d60a696a01c961"><td class="memItemLeft" align="right" valign="top"><a id="ac44e5ba200cb50ee91d60a696a01c961"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>careForPlant</b> (string id)</td></tr>
+<tr class="memitem:ac44e5ba200cb50ee91d60a696a01c961"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ac44e5ba200cb50ee91d60a696a01c961">careForPlant</a> (string id)</td></tr>
+<tr class="memdesc:ac44e5ba200cb50ee91d60a696a01c961"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform care action on a specific plant.  <a href="classGame.html#ac44e5ba200cb50ee91d60a696a01c961">More...</a><br /></td></tr>
 <tr class="separator:ac44e5ba200cb50ee91d60a696a01c961"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c69a69e881357e294379c5f8af7d1fc"><td class="memItemLeft" align="right" valign="top"><a id="a6c69a69e881357e294379c5f8af7d1fc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>makeSale</b> (string id)</td></tr>
+<tr class="memitem:a6c69a69e881357e294379c5f8af7d1fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a6c69a69e881357e294379c5f8af7d1fc">makeSale</a> (string id)</td></tr>
+<tr class="memdesc:a6c69a69e881357e294379c5f8af7d1fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a sale of a plant.  <a href="classGame.html#a6c69a69e881357e294379c5f8af7d1fc">More...</a><br /></td></tr>
 <tr class="separator:a6c69a69e881357e294379c5f8af7d1fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ee2b5b96a3bd511fdf5c86237b7d1e1"><td class="memItemLeft" align="right" valign="top"><a id="a6ee2b5b96a3bd511fdf5c86237b7d1e1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearCustomers</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a6ee2b5b96a3bd511fdf5c86237b7d1e1">clearCustomers</a> ()</td></tr>
+<tr class="memdesc:a6ee2b5b96a3bd511fdf5c86237b7d1e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all customers from the game. <br /></td></tr>
 <tr class="separator:a6ee2b5b96a3bd511fdf5c86237b7d1e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="classGame.html" title="The Game class represents the internal API of the system. It is modelled in terms of the Facade desig...">Game</a> class represents the internal <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a> of the system. It is modelled in terms of the Facade design pattern. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>The main game class representing the internal <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> of the system. </p>
+<p>Models the Facade design pattern to provide a simplified interface to the complex subsystem of game components including greenhouse, customers, inventory, and financial systems. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a041137bfc85419ee7b7b213581bd5559"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a041137bfc85419ee7b7b213581bd5559">&#9670;&nbsp;</a></span>Game()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Game::Game </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>configPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor - initializes game with configuration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">configPath</td><td>Path to game configuration file </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae3d112ca6e0e55150d2fdbc704474530"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3d112ca6e0e55150d2fdbc704474530">&#9670;&nbsp;</a></span>~Game()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Game::~Game </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor - cleans up game resources. </p>
+<p>Frees greenhouse, plant creators memory, and other resources </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a47ad90ac9f5993990381529e684ae435"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a47ad90ac9f5993990381529e684ae435">&#9670;&nbsp;</a></span>buyPlants()</h2>
 
@@ -190,7 +227,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearCustomers</b> ()
       </table>
 </div><div class="memdoc">
 
-<p>This is used by the user to be able to buy plants to add to the <a class="el" href="classGreenhouse.html">Greenhouse</a>. Uses Factory Method pattern to find correct plant creator and Prototype pattern to clone plants. </p>
+<p>Buys plants and adds them to the <a class="el" href="classGreenhouse.html" title="Central greenhouse management system coordinating plants, staff, and sales.">Greenhouse</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">plant</td><td>The specific plant variety to buy (e.g., "cactus", "rose", "lemon") </td></tr>
@@ -201,6 +238,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearCustomers</b> ()
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">runtime_error</td><td>if plant variety not found or greenhouse not initialized </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac44e5ba200cb50ee91d60a696a01c961"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac44e5ba200cb50ee91d60a696a01c961">&#9670;&nbsp;</a></span>careForPlant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::careForPlant </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform care action on a specific plant. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td><a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> identifier </td></tr>
   </table>
   </dd>
 </dl>
@@ -250,6 +313,46 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearCustomers</b> ()
 
 </div>
 </div>
+<a id="a5927ecb0ccddd93022fc922d530fd616"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5927ecb0ccddd93022fc922d530fd616">&#9670;&nbsp;</a></span>createNewGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::createNewGame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Operations for creating a new game instance. </p>
+<p>Creates greenhouse, initializes factories, and sets up game state </p>
+
+</div>
+</div>
+<a id="ad1945c922f49185fe91abdfb9faa4c07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1945c922f49185fe91abdfb9faa4c07">&#9670;&nbsp;</a></span>exitGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::exitGame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Exits game gracefully. </p>
+<p>Logs exit operation. Memory cleanup handled by destructor </p>
+
+</div>
+</div>
 <a id="a13cd4b0313a65ae56e72b1230f9c3fd0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a13cd4b0313a65ae56e72b1230f9c3fd0">&#9670;&nbsp;</a></span>getAvailableCustomerTypes()</h2>
 
@@ -267,6 +370,26 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearCustomers</b> ()
 
 <p>Get available customer types from configuration. </p>
 <dl class="section return"><dt>Returns</dt><dd>Map of customer types to their definitions </dd></dl>
+
+</div>
+</div>
+<a id="ab463d0edd5549a0d46b09f28dc2a9246"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab463d0edd5549a0d46b09f28dc2a9246">&#9670;&nbsp;</a></span>getAvailablePlantVarieties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="structPlantStruct.html">PlantStruct</a> * &gt; Game::getAvailablePlantVarieties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get all customers as a JSON array string. </p>
+<dl class="section return"><dt>Returns</dt><dd>JSON string containing all customers </dd></dl>
 
 </div>
 </div>
@@ -343,21 +466,149 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearCustomers</b> ()
 
 </div>
 </div>
-<a id="a9f7ad0384767e46fa072891c123b7d9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f7ad0384767e46fa072891c123b7d9c">&#9670;&nbsp;</a></span>saveGame()</h2>
+<a id="a1e843356ddcf3de40aee7de24ba7642c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e843356ddcf3de40aee7de24ba7642c">&#9670;&nbsp;</a></span>getFactories()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Game::saveGame </td>
+          <td class="memname">map&lt; string, <a class="el" href="classPlantCreator.html">PlantCreator</a> * &gt; Game::getFactories </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Saves state of greenhouse and factories in DB </p>
+
+<p>Getter for factories. </p>
+<dl class="section return"><dt>Returns</dt><dd>Map of plant factories </dd></dl>
+
+</div>
+</div>
+<a id="a4d6ea1fbec4d7273233ae32a3a7ce5e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d6ea1fbec4d7273233ae32a3a7ce5e2">&#9670;&nbsp;</a></span>getGameBalance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Game::getGameBalance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get current game balance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current balance as float </dd></dl>
+
+</div>
+</div>
+<a id="ab4b43027d3d7299e5b61e9fcb07df186"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4b43027d3d7299e5b61e9fcb07df186">&#9670;&nbsp;</a></span>getGreenhouse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGreenhouse.html">Greenhouse</a> * Game::getGreenhouse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for greenhouse. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to <a class="el" href="classGreenhouse.html" title="Central greenhouse management system coordinating plants, staff, and sales.">Greenhouse</a> instance </dd></dl>
+
+</div>
+</div>
+<a id="aeb3ea555476fcd077c340f95978ff71b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb3ea555476fcd077c340f95978ff71b">&#9670;&nbsp;</a></span>getGreenhousePlants()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt; Game::getGreenhousePlants </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get greenhouse plants as vector. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector of <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> pointers in greenhouse </dd></dl>
+
+</div>
+</div>
+<a id="a63ee9877b99af8bb05d88acf964d8141"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63ee9877b99af8bb05d88acf964d8141">&#9670;&nbsp;</a></span>getGreenhousePlantsAsJson()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Game::getGreenhousePlantsAsJson </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get greenhouse plants as JSON string. </p>
+<dl class="section return"><dt>Returns</dt><dd>JSON string containing greenhouse plants data </dd></dl>
+
+</div>
+</div>
+<a id="ad7d7254abc3f22eb9e5040eaccaf2a4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7d7254abc3f22eb9e5040eaccaf2a4b">&#9670;&nbsp;</a></span>getManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classManager.html">Manager</a> * Game::getManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for manager. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to <a class="el" href="classManager.html" title="Coordinates plant sales, customer interactions, and financial transactions.">Manager</a> instance </dd></dl>
+
+</div>
+</div>
+<a id="a6c69a69e881357e294379c5f8af7d1fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c69a69e881357e294379c5f8af7d1fc">&#9670;&nbsp;</a></span>makeSale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::makeSale </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Make a sale of a plant. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td><a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> identifier to sell </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -377,10 +628,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearCustomers</b> ()
       </table>
 </div><div class="memdoc">
 
-<p>Setter for factories. </p>
+<p>Setter for plant factories. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">factories</td><td>Vector of <a class="el" href="classPlantCreator.html" title="Abstract base class responsible for creating and managing Plant objects.">PlantCreator</a> object references, these are the "factories" </td></tr>
+    <tr><td class="paramname">factories</td><td>Map of plant category to <a class="el" href="classPlantCreator.html" title="Abstract base class responsible for creating and managing Plant objects.">PlantCreator</a> factories </td></tr>
   </table>
   </dd>
 </dl>
@@ -406,7 +657,59 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearCustomers</b> ()
 <p>Setter for greenhouse attribute. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">greenhouse</td><td><a class="el" href="classGreenhouse.html">Greenhouse</a> reference </td></tr>
+    <tr><td class="paramname">greenhouse</td><td>Pointer to <a class="el" href="classGreenhouse.html" title="Central greenhouse management system coordinating plants, staff, and sales.">Greenhouse</a> instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2f6415bb2e0fa700fdf3ed9e472dcfb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f6415bb2e0fa700fdf3ed9e472dcfb0">&#9670;&nbsp;</a></span>setManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::setManager </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classManager.html">Manager</a> *&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setter for manager. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Pointer to <a class="el" href="classManager.html" title="Coordinates plant sales, customer interactions, and financial transactions.">Manager</a> instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa23b91bf250ac6425a4b70dc7f248736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa23b91bf250ac6425a4b70dc7f248736">&#9670;&nbsp;</a></span>setSocket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::setSocket </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGreenSock.html">GreenSock</a> *&#160;</td>
+          <td class="paramname"><em>socket</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setter for WebSocket connection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket</td><td>Pointer to <a class="el" href="classGreenSock.html">GreenSock</a> instance </td></tr>
   </table>
   </dd>
 </dl>

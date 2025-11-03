@@ -70,27 +70,30 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="Return_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef RETURN_H</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define RETURN_H</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="TransactionStrategy_8h.html">TransactionStrategy.h</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classReturn.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classReturn.html">Return</a>:<span class="keyword">public</span> <a class="code" href="classTransactionStrategy.html">TransactionStrategy</a>{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classReturn.html#a0ba39b3df0ffcc95addb2d376fcbedfa">   19</a></span>&#160;        <a class="code" href="classReturn.html#a0ba39b3df0ffcc95addb2d376fcbedfa">Return</a>()=<span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classReturn.html#a1fa990d5dc3edb438091bdb66089a54e">   23</a></span>&#160;        <a class="code" href="classReturn.html#a1fa990d5dc3edb438091bdb66089a54e">~Return</a>()=<span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="classReturn.html#a815adb4dde74a871bdb845d878a6e28d">execute</a>(<span class="keywordtype">double</span> v, <span class="keywordtype">double</span> b) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        std::string <a class="code" href="classReturn.html#ab78b663b2cbae9ba484fabb13bed61cf">getType</a>()<span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aTransactionStrategy_8h_html"><div class="ttname"><a href="TransactionStrategy_8h.html">TransactionStrategy.h</a></div></div>
-<div class="ttc" id="aclassReturn_html"><div class="ttname"><a href="classReturn.html">Return</a></div><div class="ttdoc">Will handle the transaction as a Return.</div><div class="ttdef"><b>Definition:</b> Return.h:14</div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef RETURN_H</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define RETURN_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="TransactionStrategy_8h.html">TransactionStrategy.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classReturn.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classReturn.html">Return</a> : <span class="keyword">public</span> <a class="code" href="classTransactionStrategy.html">TransactionStrategy</a>{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classReturn.html#a0ba39b3df0ffcc95addb2d376fcbedfa">   24</a></span>&#160;        <a class="code" href="classReturn.html#a0ba39b3df0ffcc95addb2d376fcbedfa">Return</a>()=<span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classReturn.html#a1fa990d5dc3edb438091bdb66089a54e">   29</a></span>&#160;        <a class="code" href="classReturn.html#a1fa990d5dc3edb438091bdb66089a54e">~Return</a>()=<span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="classReturn.html#a815adb4dde74a871bdb845d878a6e28d">execute</a>(<span class="keywordtype">double</span> v, <span class="keywordtype">double</span> b) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        std::string <a class="code" href="classReturn.html#ab78b663b2cbae9ba484fabb13bed61cf">getType</a>()<span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aTransactionStrategy_8h_html"><div class="ttname"><a href="TransactionStrategy_8h.html">TransactionStrategy.h</a></div><div class="ttdoc">Abstract base class for transaction strategies.</div></div>
+<div class="ttc" id="aclassReturn_html"><div class="ttname"><a href="classReturn.html">Return</a></div><div class="ttdoc">Handles financial transactions for customer returns.</div><div class="ttdef"><b>Definition:</b> Return.h:19</div></div>
 <div class="ttc" id="aclassReturn_html_a0ba39b3df0ffcc95addb2d376fcbedfa"><div class="ttname"><a href="classReturn.html#a0ba39b3df0ffcc95addb2d376fcbedfa">Return::Return</a></div><div class="ttdeci">Return()=default</div><div class="ttdoc">Default constructor.</div></div>
-<div class="ttc" id="aclassReturn_html_a1fa990d5dc3edb438091bdb66089a54e"><div class="ttname"><a href="classReturn.html#a1fa990d5dc3edb438091bdb66089a54e">Return::~Return</a></div><div class="ttdeci">~Return()=default</div><div class="ttdoc">Deconstructor.</div></div>
-<div class="ttc" id="aclassReturn_html_a815adb4dde74a871bdb845d878a6e28d"><div class="ttname"><a href="classReturn.html#a815adb4dde74a871bdb845d878a6e28d">Return::execute</a></div><div class="ttdeci">double execute(double v, double b) override</div><div class="ttdoc">Executes a transactions financial logic to update the balance.</div><div class="ttdef"><b>Definition:</b> Return.cpp:3</div></div>
-<div class="ttc" id="aclassReturn_html_ab78b663b2cbae9ba484fabb13bed61cf"><div class="ttname"><a href="classReturn.html#ab78b663b2cbae9ba484fabb13bed61cf">Return::getType</a></div><div class="ttdeci">std::string getType() const override</div><div class="ttdoc">Returns the Type of the transaction as a Return.</div><div class="ttdef"><b>Definition:</b> Return.cpp:7</div></div>
-<div class="ttc" id="aclassTransactionStrategy_html"><div class="ttname"><a href="classTransactionStrategy.html">TransactionStrategy</a></div><div class="ttdoc">The TransactionStrategy class an abstract class that will help define how transactions will be handel...</div><div class="ttdef"><b>Definition:</b> TransactionStrategy.h:13</div></div>
+<div class="ttc" id="aclassReturn_html_a1fa990d5dc3edb438091bdb66089a54e"><div class="ttname"><a href="classReturn.html#a1fa990d5dc3edb438091bdb66089a54e">Return::~Return</a></div><div class="ttdeci">~Return()=default</div><div class="ttdoc">Default destructor.</div></div>
+<div class="ttc" id="aclassReturn_html_a815adb4dde74a871bdb845d878a6e28d"><div class="ttname"><a href="classReturn.html#a815adb4dde74a871bdb845d878a6e28d">Return::execute</a></div><div class="ttdeci">double execute(double v, double b) override</div><div class="ttdoc">Executes return transaction logic.</div><div class="ttdef"><b>Definition:</b> Return.cpp:3</div></div>
+<div class="ttc" id="aclassReturn_html_ab78b663b2cbae9ba484fabb13bed61cf"><div class="ttname"><a href="classReturn.html#ab78b663b2cbae9ba484fabb13bed61cf">Return::getType</a></div><div class="ttdeci">std::string getType() const override</div><div class="ttdoc">Gets the transaction type identifier.</div><div class="ttdef"><b>Definition:</b> Return.cpp:7</div></div>
+<div class="ttc" id="aclassTransactionStrategy_html"><div class="ttname"><a href="classTransactionStrategy.html">TransactionStrategy</a></div><div class="ttdoc">Abstract base class for transaction handling strategies.</div><div class="ttdef"><b>Definition:</b> TransactionStrategy.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

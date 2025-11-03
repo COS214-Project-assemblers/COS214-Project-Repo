@@ -93,16 +93,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a660b360bf518be1fb204239aa0a1e9b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPIController.html#a660b360bf518be1fb204239aa0a1e9b9">APIController</a> (std::shared_ptr&lt; oatpp::web::mime::ContentMappers &gt; &amp;apiContentMappers, <a class="el" href="classAPI.html">API</a> &amp;inApi)</td></tr>
 <tr class="memdesc:a660b360bf518be1fb204239aa0a1e9b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with object mapper.  <a href="classAPIController.html#a660b360bf518be1fb204239aa0a1e9b9">More...</a><br /></td></tr>
 <tr class="separator:a660b360bf518be1fb204239aa0a1e9b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa408cff8a622ec27fbf18f5b15cb6883"><td class="memItemLeft" align="right" valign="top"><a id="aa408cff8a622ec27fbf18f5b15cb6883"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ENDPOINT</b> (&quot;GET&quot;, &quot;/&quot;, root)</td></tr>
+<tr class="memitem:aa408cff8a622ec27fbf18f5b15cb6883"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPIController.html#aa408cff8a622ec27fbf18f5b15cb6883">ENDPOINT</a> (&quot;GET&quot;, &quot;/&quot;, root)</td></tr>
+<tr class="memdesc:aa408cff8a622ec27fbf18f5b15cb6883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root endpoint returning hello message.  <a href="classAPIController.html#aa408cff8a622ec27fbf18f5b15cb6883">More...</a><br /></td></tr>
 <tr class="separator:aa408cff8a622ec27fbf18f5b15cb6883"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af014ae273ad1001ad6c0e0aaafc435f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPIController.html#af014ae273ad1001ad6c0e0aaafc435f4">ENDPOINT</a> (&quot;GET&quot;, &quot;/new-game&quot;, newGameEndp)</td></tr>
-<tr class="memdesc:af014ae273ad1001ad6c0e0aaafc435f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes <a class="el" href="classNewGameOption.html" title="Implements MenuOption interface. NewGameOption invokes and logs the operation to create a new Game.">NewGameOption</a> Command.  <a href="classAPIController.html#af014ae273ad1001ad6c0e0aaafc435f4">More...</a><br /></td></tr>
+<tr class="memdesc:af014ae273ad1001ad6c0e0aaafc435f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new game instance.  <a href="classAPIController.html#af014ae273ad1001ad6c0e0aaafc435f4">More...</a><br /></td></tr>
 <tr class="separator:af014ae273ad1001ad6c0e0aaafc435f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a943f1f94fede9e0521054a78f8a3f41e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPIController.html#a943f1f94fede9e0521054a78f8a3f41e">ENDPOINT</a> (&quot;GET&quot;, &quot;/exit-game&quot;, exitGameEndp)</td></tr>
+<tr class="memdesc:a943f1f94fede9e0521054a78f8a3f41e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exits the current game.  <a href="classAPIController.html#a943f1f94fede9e0521054a78f8a3f41e">More...</a><br /></td></tr>
 <tr class="separator:a943f1f94fede9e0521054a78f8a3f41e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d267af2c1991be25e0616f2fadc10ed"><td class="memItemLeft" align="right" valign="top"><a id="a2d267af2c1991be25e0616f2fadc10ed"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>if</b> (!body)</td></tr>
+<tr class="memitem:a2d267af2c1991be25e0616f2fadc10ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPIController.html#a2d267af2c1991be25e0616f2fadc10ed">if</a> (!body)</td></tr>
+<tr class="memdesc:a2d267af2c1991be25e0616f2fadc10ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Purchases plants for the game.  <a href="classAPIController.html#a2d267af2c1991be25e0616f2fadc10ed">More...</a><br /></td></tr>
 <tr class="separator:a2d267af2c1991be25e0616f2fadc10ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0be88a9023bed041c130c60f286007a"><td class="memItemLeft" align="right" valign="top"><a id="aa0be88a9023bed041c130c60f286007a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>if</b> (!body-&gt;plant||body-&gt;plant-&gt;empty())</td></tr>
@@ -119,8 +120,8 @@ return&#160;</td><td class="memItemRight" valign="bottom"><b>createDtoResponse</
 <tr class="memitem:aa042509384f87c6426097ed4d03226c7"><td class="memItemLeft" align="right" valign="top"><a id="aa042509384f87c6426097ed4d03226c7"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>catch</b> (const std::exception &amp;e)</td></tr>
 <tr class="separator:aa042509384f87c6426097ed4d03226c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d267af2c1991be25e0616f2fadc10ed"><td class="memItemLeft" align="right" valign="top"><a id="a2d267af2c1991be25e0616f2fadc10ed"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>if</b> (!body)</td></tr>
+<tr class="memitem:a2d267af2c1991be25e0616f2fadc10ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPIController.html#a2d267af2c1991be25e0616f2fadc10ed">if</a> (!body)</td></tr>
+<tr class="memdesc:a2d267af2c1991be25e0616f2fadc10ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds customers to the game.  <a href="classAPIController.html#a2d267af2c1991be25e0616f2fadc10ed">More...</a><br /></td></tr>
 <tr class="separator:a2d267af2c1991be25e0616f2fadc10ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad709cdd885f339511d6ab3f30fbb399"><td class="memItemLeft" align="right" valign="top"><a id="aad709cdd885f339511d6ab3f30fbb399"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>if</b> (!body-&gt;customerType||body-&gt;customerType-&gt;empty())</td></tr>
@@ -137,14 +138,14 @@ return&#160;</td><td class="memItemRight" valign="bottom"><b>createDtoResponse</
 <tr class="memitem:aa042509384f87c6426097ed4d03226c7"><td class="memItemLeft" align="right" valign="top"><a id="aa042509384f87c6426097ed4d03226c7"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>catch</b> (const std::exception &amp;e)</td></tr>
 <tr class="separator:aa042509384f87c6426097ed4d03226c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7808f32518c0b08fa1048bebc1f549ee"><td class="memItemLeft" align="right" valign="top"><a id="a7808f32518c0b08fa1048bebc1f549ee"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ENDPOINT</b> (&quot;GET&quot;, &quot;/customers&quot;, getCustomers)</td></tr>
+<tr class="memitem:a7808f32518c0b08fa1048bebc1f549ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPIController.html#a7808f32518c0b08fa1048bebc1f549ee">ENDPOINT</a> (&quot;GET&quot;, &quot;/customers&quot;, getCustomers)</td></tr>
+<tr class="memdesc:a7808f32518c0b08fa1048bebc1f549ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves current customers as JSON.  <a href="classAPIController.html#a7808f32518c0b08fa1048bebc1f549ee">More...</a><br /></td></tr>
 <tr class="separator:a7808f32518c0b08fa1048bebc1f549ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35d463ba88e1be7a02d1e0211f89e453"><td class="memItemLeft" align="right" valign="top"><a id="a35d463ba88e1be7a02d1e0211f89e453"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ENDPOINT</b> (&quot;GET&quot;, &quot;/balance&quot;, getBalance)</td></tr>
+<tr class="memitem:a35d463ba88e1be7a02d1e0211f89e453"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPIController.html#a35d463ba88e1be7a02d1e0211f89e453">ENDPOINT</a> (&quot;GET&quot;, &quot;/balance&quot;, getBalance)</td></tr>
+<tr class="memdesc:a35d463ba88e1be7a02d1e0211f89e453"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves current game balance.  <a href="classAPIController.html#a35d463ba88e1be7a02d1e0211f89e453">More...</a><br /></td></tr>
 <tr class="separator:a35d463ba88e1be7a02d1e0211f89e453"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25df81857f79a74885d7e213ac6114a7"><td class="memItemLeft" align="right" valign="top"><a id="a25df81857f79a74885d7e213ac6114a7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ENDPOINT</b> (&quot;GET&quot;, &quot;/greenhouse/plants&quot;, getGreenhousePlants)</td></tr>
+<tr class="memitem:a25df81857f79a74885d7e213ac6114a7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPIController.html#a25df81857f79a74885d7e213ac6114a7">ENDPOINT</a> (&quot;GET&quot;, &quot;/greenhouse/plants&quot;, getGreenhousePlants)</td></tr>
+<tr class="memdesc:a25df81857f79a74885d7e213ac6114a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves greenhouse plants as JSON.  <a href="classAPIController.html#a25df81857f79a74885d7e213ac6114a7">More...</a><br /></td></tr>
 <tr class="separator:a25df81857f79a74885d7e213ac6114a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7948a6aba873bee3bb37527e6298c21"><td class="memItemLeft" align="right" valign="top"><a id="ab7948a6aba873bee3bb37527e6298c21"></a>
 return&#160;</td><td class="memItemRight" valign="bottom"><b>createDtoResponse</b> (Status::CODE_200, dto)</td></tr>
@@ -158,19 +159,20 @@ return&#160;</td><td class="memItemRight" valign="bottom"><b>createDtoResponse</
 <tr class="memitem:aa042509384f87c6426097ed4d03226c7"><td class="memItemLeft" align="right" valign="top"><a id="aa042509384f87c6426097ed4d03226c7"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>catch</b> (const std::exception &amp;e)</td></tr>
 <tr class="separator:aa042509384f87c6426097ed4d03226c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7ef8db74f1681ce5789c1aef5fa0571"><td class="memItemLeft" align="right" valign="top"><a id="af7ef8db74f1681ce5789c1aef5fa0571"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ENDPOINT</b> (&quot;GET&quot;, &quot;/clear-customers&quot;, clearCust)</td></tr>
+<tr class="memitem:af7ef8db74f1681ce5789c1aef5fa0571"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPIController.html#af7ef8db74f1681ce5789c1aef5fa0571">ENDPOINT</a> (&quot;GET&quot;, &quot;/clear-customers&quot;, clearCust)</td></tr>
+<tr class="memdesc:af7ef8db74f1681ce5789c1aef5fa0571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all customers from the game.  <a href="classAPIController.html#af7ef8db74f1681ce5789c1aef5fa0571">More...</a><br /></td></tr>
 <tr class="separator:af7ef8db74f1681ce5789c1aef5fa0571"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a9039fd253d7534d719694c277bfe40f6"><td class="memItemLeft" align="right" valign="top"><a id="a9039fd253d7534d719694c277bfe40f6"></a>
-static std::shared_ptr&lt; <a class="el" href="classAPIController.html">APIController</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>createShared</b> (<a class="el" href="classAPI.html">API</a> &amp;inApi)</td></tr>
+<tr class="memitem:a9039fd253d7534d719694c277bfe40f6"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classAPIController.html">APIController</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPIController.html#a9039fd253d7534d719694c277bfe40f6">createShared</a> (<a class="el" href="classAPI.html">API</a> &amp;inApi)</td></tr>
+<tr class="memdesc:a9039fd253d7534d719694c277bfe40f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a shared instance of <a class="el" href="classAPIController.html" title="Sample Api Controller.">APIController</a>.  <a href="classAPIController.html#a9039fd253d7534d719694c277bfe40f6">More...</a><br /></td></tr>
 <tr class="separator:a9039fd253d7534d719694c277bfe40f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ab65faa321a7589397c1651e92dc6f638"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><b>try</b></td></tr>
+<tr class="memitem:ab65faa321a7589397c1651e92dc6f638"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPIController.html#ab65faa321a7589397c1651e92dc6f638">try</a></td></tr>
+<tr class="memdesc:ab65faa321a7589397c1651e92dc6f638"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs care actions on a specific plant.  <a href="classAPIController.html#ab65faa321a7589397c1651e92dc6f638">More...</a><br /></td></tr>
 <tr class="separator:ab65faa321a7589397c1651e92dc6f638"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f42fd00a12eb7bce0b2e22da1d5becf"><td class="memItemLeft" align="right" valign="top"><a id="a1f42fd00a12eb7bce0b2e22da1d5becf"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>numValue</b> = *body-&gt;numToBuy</td></tr>
@@ -190,7 +192,7 @@ dto&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> = {}</td></tr
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Sample Api Controller. </p>
-<dl class="section warning"><dt>Warning</dt><dd>see I might have might booboo with parent class being called ApiController </dd></dl>
+<p>Handles HTTP endpoints and routes requests to game functionality. Provides REST <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> endpoints for game operations including creating games, buying plants, managing customers, and checking game state. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a660b360bf518be1fb204239aa0a1e9b9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a660b360bf518be1fb204239aa0a1e9b9">&#9670;&nbsp;</a></span>APIController()</h2>
@@ -230,6 +232,7 @@ dto&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> = {}</td></tr
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">apiContentMappers</td><td>- mappers used to serialize/deserialize DTOs. </td></tr>
+    <tr><td class="paramname">inApi</td><td>- Reference to <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> instance for game state access </td></tr>
   </table>
   </dd>
 </dl>
@@ -237,8 +240,223 @@ dto&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> = {}</td></tr
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9039fd253d7534d719694c277bfe40f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9039fd253d7534d719694c277bfe40f6">&#9670;&nbsp;</a></span>createShared()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::shared_ptr&lt;<a class="el" href="classAPIController.html">APIController</a>&gt; APIController::createShared </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classAPI.html">API</a> &amp;&#160;</td>
+          <td class="paramname"><em>inApi</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a shared instance of <a class="el" href="classAPIController.html" title="Sample Api Controller.">APIController</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inApi</td><td>Reference to <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> instance </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::shared_ptr&lt;APIController&gt; Shared pointer to controller instance </dd></dl>
+
+</div>
+</div>
+<a id="aa408cff8a622ec27fbf18f5b15cb6883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa408cff8a622ec27fbf18f5b15cb6883">&#9670;&nbsp;</a></span>ENDPOINT() <span class="overload">[1/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">APIController::ENDPOINT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;GET&quot;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/&quot;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">root&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Root endpoint returning hello message. </p>
+<dl class="section return"><dt>Returns</dt><dd>Response with status 200 and hello message </dd></dl>
+
+</div>
+</div>
+<a id="a35d463ba88e1be7a02d1e0211f89e453"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35d463ba88e1be7a02d1e0211f89e453">&#9670;&nbsp;</a></span>ENDPOINT() <span class="overload">[2/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">APIController::ENDPOINT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;GET&quot;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/balance&quot;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">getBalance&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves current game balance. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classBalanceResponseDTO.html" title="Data Transfer Object for balance retrieval response.">BalanceResponseDTO</a> containing balance amount and status </dd></dl>
+
+</div>
+</div>
+<a id="af7ef8db74f1681ce5789c1aef5fa0571"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7ef8db74f1681ce5789c1aef5fa0571">&#9670;&nbsp;</a></span>ENDPOINT() <span class="overload">[3/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">APIController::ENDPOINT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;GET&quot;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/clear-customers&quot;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">clearCust&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clears all customers from the game. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classAPIDto.html">APIDto</a> with operation status </dd></dl>
+
+</div>
+</div>
+<a id="a7808f32518c0b08fa1048bebc1f549ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7808f32518c0b08fa1048bebc1f549ee">&#9670;&nbsp;</a></span>ENDPOINT() <span class="overload">[4/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">APIController::ENDPOINT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;GET&quot;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/customers&quot;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">getCustomers&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves current customers as JSON. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classCustomerResponseDTO.html" title="Data Transfer Object for customer retrieval response.">CustomerResponseDTO</a> containing customer data and status </dd></dl>
+
+</div>
+</div>
 <a id="a943f1f94fede9e0521054a78f8a3f41e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a943f1f94fede9e0521054a78f8a3f41e">&#9670;&nbsp;</a></span>ENDPOINT() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a943f1f94fede9e0521054a78f8a3f41e">&#9670;&nbsp;</a></span>ENDPOINT() <span class="overload">[5/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -276,13 +494,63 @@ dto&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> = {}</td></tr
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Response structure</p>
-<p>{ message: &lt;game-status&gt;, statusCode: &lt;HTTP status code, 200/500&gt; }</p>
+
+<p>Exits the current game. </p>
+<p>Response structure: </p><div class="fragment"><div class="line">{</div>
+<div class="line"> message: &lt;game-status&gt;,</div>
+<div class="line"> statusCode: &lt;HTTP status code, 200/500&gt;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>Response with game exit status </dd></dl>
+
+</div>
+</div>
+<a id="a25df81857f79a74885d7e213ac6114a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25df81857f79a74885d7e213ac6114a7">&#9670;&nbsp;</a></span>ENDPOINT() <span class="overload">[6/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">APIController::ENDPOINT </td>
+          <td>(</td>
+          <td class="paramtype">&quot;GET&quot;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;/greenhouse/plants&quot;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">getGreenhousePlants&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves greenhouse plants as JSON. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classAPIDto.html">APIDto</a> with plants data in data field </dd></dl>
 
 </div>
 </div>
 <a id="af014ae273ad1001ad6c0e0aaafc435f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af014ae273ad1001ad6c0e0aaafc435f4">&#9670;&nbsp;</a></span>ENDPOINT() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af014ae273ad1001ad6c0e0aaafc435f4">&#9670;&nbsp;</a></span>ENDPOINT() <span class="overload">[7/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -321,9 +589,90 @@ dto&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> = {}</td></tr
 </table>
 </div><div class="memdoc">
 
-<p>Executes <a class="el" href="classNewGameOption.html" title="Implements MenuOption interface. NewGameOption invokes and logs the operation to create a new Game.">NewGameOption</a> Command. </p>
-<p>Response structure</p>
-<p>{ message: &lt;game-status&gt;, statusCode: &lt;HTTP status code, 200/500&gt; }</p>
+<p>Creates a new game instance. </p>
+<p>Executes <a class="el" href="classNewGameOption.html" title="Command for creating a new game instance.">NewGameOption</a> Command. Initializes game using GAME_CONFIG_PATH environment variable. Response structure: </p><div class="fragment"><div class="line">{</div>
+<div class="line"> message: &lt;game-status&gt;,</div>
+<div class="line"> statusCode: &lt;HTTP status code, 200/500&gt;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>Response with game creation status </dd></dl>
+
+</div>
+</div>
+<a id="a2d267af2c1991be25e0616f2fadc10ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d267af2c1991be25e0616f2fadc10ed">&#9670;&nbsp;</a></span>if() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">APIController::if </td>
+          <td>(</td>
+          <td class="paramtype">!&#160;</td>
+          <td class="paramname"><em>body</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Purchases plants for the game. </p>
+<p>Response structure: </p><div class="fragment"><div class="line">{</div>
+<div class="line"> message: &lt;operation-status&gt;,</div>
+<div class="line"> statusCode: &lt;HTTP status code, 200/400/500&gt;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">body</td><td><a class="el" href="classBuyPlantDTO.html" title="Data Transfer Object for buying plants request Uses POST request body instead of query parameters for...">BuyPlantDTO</a> containing plant type and quantity </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Response with purchase operation status </dd></dl>
+
+</div>
+</div>
+<a id="a2d267af2c1991be25e0616f2fadc10ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d267af2c1991be25e0616f2fadc10ed">&#9670;&nbsp;</a></span>if() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">APIController::if </td>
+          <td>(</td>
+          <td class="paramtype">!&#160;</td>
+          <td class="paramname"><em>body</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds customers to the game. </p>
+<p>Expected request structure: </p><div class="fragment"><div class="line">{</div>
+<div class="line">  <span class="stringliteral">&quot;customerType&quot;</span>: <span class="stringliteral">&quot;ignorant&quot;</span>,</div>
+<div class="line">  <span class="stringliteral">&quot;numToAdd&quot;</span>: 5</div>
+<div class="line">}</div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">body</td><td><a class="el" href="classAddCustomerDTO.html">AddCustomerDTO</a> containing customer type and quantity </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Response with customer addition status </dd></dl>
 
 </div>
 </div>
@@ -343,6 +692,16 @@ dto&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> = {}</td></tr
 <div class="line">      </div>
 <div class="line">      std::string plantStr = body-&gt;plant-&gt;c_str()</div>
 </div><!-- fragment -->
+<p>Performs care actions on a specific plant. </p>
+<p>Makes a sale of a plant to customers.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plant</td><td><a class="el" href="classCareForPlantDTO.html" title="Data Transfer Object for plant care operations.">CareForPlantDTO</a> containing plant ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classAPIDto.html">APIDto</a> with operation status </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

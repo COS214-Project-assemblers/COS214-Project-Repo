@@ -1,6 +1,7 @@
 /**
  * @file GreenFingerCustomerBuilder.h
  * @brief Builder class for creating GreenFingerCustomer objects with randomized dialogues.
+ * @author Megan Norval
  */
 
 #ifndef GREENFINGERCUSTOMERBUILDER_H
@@ -31,8 +32,7 @@ class GreenFingerCustomerBuilder: public CustomerBuilder
 
         /**
          * @brief Random number generator for dialogue selection
-         * 
-         * Used to randomly select dialogue options from the available pools in the
+         * @details Used to randomly select dialogue options from the available pools in the
          * JSON configuration file for greenfinger customers.
          */
         mt19937 rng;
@@ -41,11 +41,13 @@ class GreenFingerCustomerBuilder: public CustomerBuilder
         /**
          * @brief Constructs a new GreenFingerCustomerBuilder object.
          * @param config Pointer to the game configuration containing customer data
+         * @details Initializes the random number generator with current time seed
          */
         GreenFingerCustomerBuilder(GameConfiguraton* config);
 
         /**
          * @brief Destroys the GreenFingerCustomerBuilder object.
+         * @details Cleans up resources. Note: Does not own the config pointer.
          */
         ~GreenFingerCustomerBuilder();
 
@@ -53,6 +55,7 @@ class GreenFingerCustomerBuilder: public CustomerBuilder
          * @brief Selects a random element from a string vector.
          * @param v Vector of strings to select from
          * @return Randomly selected string, or empty string if vector is empty
+         * @details Uses the internal RNG to select a random index
          */
         string getRandomElement(const vector<string>& v);
 
@@ -71,8 +74,7 @@ class GreenFingerCustomerBuilder: public CustomerBuilder
          * @brief Accepts a visitor to provide plant recommendations.
          * @param visitor Reference to the CustomerVisitor that will recommend plants
          * @return Vector of Plant pointers recommended by the visitor
-         * 
-         * Implements the Visitor pattern to allow different plant recommendation
+         * @details Implements the Visitor pattern to allow different plant recommendation
          * strategies to be applied to the greenfinger customer being built.
          */
         vector<Plant*> accept(CustomerVisitor& visitor);

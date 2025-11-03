@@ -1,0 +1,12 @@
+<map id="backend/greenhouse/PruningStaff.h" name="backend/greenhouse/PruningStaff.h">
+<area shape="rect" id="node1" title="Concrete observer for pruning staff in greenhouse." alt="" coords="103,5,259,47"/>
+<area shape="rect" id="node2" href="$Greenhouse_8h.html" title="Main greenhouse class managing plant inventory and staff." alt="" coords="103,95,259,136"/>
+<area shape="rect" id="node3" href="$Manager_8h.html" title="Manager class for coordinating plant sales and customer interactions." alt="" coords="103,184,259,225"/>
+<area shape="rect" id="node4" href="$Game_8h.html" title="Header file for Game class &#45; Main game facade." alt="" coords="95,273,267,300"/>
+<area shape="rect" id="node5" href="$API_8h.html" title="Bootstrapper for public facing API." alt="" coords="5,348,144,375"/>
+<area shape="rect" id="node6" href="$APIController_8h.html" title="Define endpoints." alt="" coords="159,497,361,524"/>
+<area shape="rect" id="node8" href="$MenuOption_8h.html" title="Base class for menu command options." alt="" coords="233,348,445,375"/>
+<area shape="rect" id="node7" href="$APIController_8cpp.html" title="Still need to see what going to do here." alt="" coords="152,572,368,599"/>
+<area shape="rect" id="node9" href="$ExitGameOption_8h.html" title="Command for exiting the game with logging capabilities." alt="" coords="219,423,459,449"/>
+<area shape="rect" id="node10" href="$NewGameOption_8h.html" title="Header file for NewGameOption class." alt="" coords="483,423,727,449"/>
+</map>

@@ -1,5 +1,6 @@
 /**
  * @file Sale.h
+ * @brief Transaction strategy for sales operations
  */
 #ifndef SALE_H
 #define SALE_H
@@ -9,28 +10,35 @@
 
 /**
  * @class Sale
- * @brief Will handle the transaction as a sale
+ * @brief Handles financial transactions for plant sales
+ * @details Implements TransactionStrategy for processing income from
+ * customer plant purchases.
+ * 
+ * @see TransactionStrategy
  */
-class Sale:public TransactionStrategy{
+class Sale : public TransactionStrategy{
     public:
         /**
          * @brief Default constructor
          */
         Sale()=default;
+
         /**
-         * @brief Deconstructor
+         * @brief Default destructor
          */
         ~Sale()=default;
+
         /**
-         * @brief Executes a transactions financial logic to update the balance.
-         * @param v Value of the transaction.
-         * @param b Value of the current balance
-         * @return THe new balance of b+v
+         * @brief Executes sale transaction logic
+         * @param v Sale price of the plant
+         * @param b Current balance before transaction
+         * @return New balance after sale (b + v)
          */
         double execute(double v, double b) override;
+
         /**
-         * @brief Returns the Type of the transaction as a Sale
-         * @return "Sale"
+         * @brief Gets the transaction type identifier
+         * @return "Sale" string
          */
         std::string getType()const override;
 };

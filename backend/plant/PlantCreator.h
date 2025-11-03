@@ -1,6 +1,7 @@
 /**
  * @file PlantCreator.h
  * @brief Defines the abstract PlantCreator class used in the Factory/Prototype creation process.
+ * @author Megan Norval
  *
  * This class provides a framework for creating and cloning Plant objects.
  * It serves as the base for concrete creators that produce specific categories of plants.

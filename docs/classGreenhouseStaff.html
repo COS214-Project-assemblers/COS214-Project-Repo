@@ -92,21 +92,51 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af3507a40813120088d4c3fd44c567b32"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouseStaff.html#af3507a40813120088d4c3fd44c567b32">update</a> (const string &amp;careType, <a class="el" href="classPlant.html">Plant</a> *plant)=0</td></tr>
 <tr class="memdesc:af3507a40813120088d4c3fd44c567b32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the staff member about a plant's care requirements.  <a href="classGreenhouseStaff.html#af3507a40813120088d4c3fd44c567b32">More...</a><br /></td></tr>
 <tr class="separator:af3507a40813120088d4c3fd44c567b32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18e508892ada07d8c7e6efe344e3da5d"><td class="memItemLeft" align="right" valign="top"><a id="a18e508892ada07d8c7e6efe344e3da5d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouseStaff.html#a18e508892ada07d8c7e6efe344e3da5d">setGreenhouse</a> (<a class="el" href="classGreenhouse.html">Greenhouse</a> *greenhouse)</td></tr>
-<tr class="memdesc:a18e508892ada07d8c7e6efe344e3da5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper cleanup of derived classes. <br /></td></tr>
+<tr class="memitem:ad5adff48a11a47a5de0747e9e30fe79d"><td class="memItemLeft" align="right" valign="top"><a id="ad5adff48a11a47a5de0747e9e30fe79d"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouseStaff.html#ad5adff48a11a47a5de0747e9e30fe79d">~GreenhouseStaff</a> ()=default</td></tr>
+<tr class="memdesc:ad5adff48a11a47a5de0747e9e30fe79d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper cleanup of derived classes. <br /></td></tr>
+<tr class="separator:ad5adff48a11a47a5de0747e9e30fe79d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18e508892ada07d8c7e6efe344e3da5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouseStaff.html#a18e508892ada07d8c7e6efe344e3da5d">setGreenhouse</a> (<a class="el" href="classGreenhouse.html">Greenhouse</a> *<a class="el" href="classGreenhouseStaff.html#abd6e0d1fb093e2ee616666cfb5311811">greenhouse</a>)</td></tr>
+<tr class="memdesc:a18e508892ada07d8c7e6efe344e3da5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the greenhouse reference for staff operations.  <a href="classGreenhouseStaff.html#a18e508892ada07d8c7e6efe344e3da5d">More...</a><br /></td></tr>
 <tr class="separator:a18e508892ada07d8c7e6efe344e3da5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:abd6e0d1fb093e2ee616666cfb5311811"><td class="memItemLeft" align="right" valign="top"><a id="abd6e0d1fb093e2ee616666cfb5311811"></a>
-<a class="el" href="classGreenhouse.html">Greenhouse</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>greenhouse</b></td></tr>
+<a class="el" href="classGreenhouse.html">Greenhouse</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouseStaff.html#abd6e0d1fb093e2ee616666cfb5311811">greenhouse</a></td></tr>
+<tr class="memdesc:abd6e0d1fb093e2ee616666cfb5311811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to greenhouse for plant operations. <br /></td></tr>
 <tr class="separator:abd6e0d1fb093e2ee616666cfb5311811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract base class for greenhouse staff observers. </p>
 <p>This class defines the interface for greenhouse staff members who need to be notified when plants require care. It follows the Observer pattern where staff members are observers of plant state changes. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a18e508892ada07d8c7e6efe344e3da5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18e508892ada07d8c7e6efe344e3da5d">&#9670;&nbsp;</a></span>setGreenhouse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GreenhouseStaff::setGreenhouse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGreenhouse.html">Greenhouse</a> *&#160;</td>
+          <td class="paramname"><em>greenhouse</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the greenhouse reference for staff operations. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">greenhouse</td><td>Pointer to <a class="el" href="classGreenhouse.html" title="Central greenhouse management system coordinating plants, staff, and sales.">Greenhouse</a> instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="af3507a40813120088d4c3fd44c567b32"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3507a40813120088d4c3fd44c567b32">&#9670;&nbsp;</a></span>update()</h2>
 

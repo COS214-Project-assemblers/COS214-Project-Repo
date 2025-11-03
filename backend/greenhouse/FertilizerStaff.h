@@ -1,3 +1,8 @@
+/**
+ * @file FertilizerStaff.h
+ * @brief Concrete observer for fertilizing staff in greenhouse
+ */
+
 #ifndef FERTILIZERSTAFF_H
 #define FERTILIZERSTAFF_H
 
@@ -12,6 +17,8 @@ using namespace std;
  * This class represents greenhouse staff members who are specifically responsible
  * for applying fertilizer to plants. It implements the GreenhouseStaff interface 
  * and responds to notifications when plants require fertilizing care (careType == "fertilizer").
+ * 
+ * @see GreenhouseStaff
  */
 class FertilizerStaff : public GreenhouseStaff {
     public:

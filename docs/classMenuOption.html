@@ -69,10 +69,15 @@ $(function() {
 <div class="title">MenuOption Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstract base class for menu command options.  
+ <a href="classMenuOption.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="MenuOption_8h_source.html">MenuOption.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MenuOption:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classMenuOption__inherit__graph.svg" width="486" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classMenuOption__inherit__graph.svg" width="299" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -85,24 +90,35 @@ Collaboration diagram for MenuOption:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a95de33bac57106d7bcfa71f7723a069e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenuOption.html#a95de33bac57106d7bcfa71f7723a069e">MenuOption</a> (<a class="el" href="classGame.html">Game</a> *<a class="el" href="classMenuOption.html#aab8e81ed33e23bea5245f6b63a702c2d">game</a>, <a class="el" href="classLogger.html">Logger</a> *<a class="el" href="classMenuOption.html#a1f22b70856b3fdc684d373b1d4f29e06">logger</a>=nullptr)</td></tr>
-<tr class="memdesc:a95de33bac57106d7bcfa71f7723a069e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor sets attributes.  <a href="classMenuOption.html#a95de33bac57106d7bcfa71f7723a069e">More...</a><br /></td></tr>
+<tr class="memdesc:a95de33bac57106d7bcfa71f7723a069e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor - initializes game and logger references.  <a href="classMenuOption.html#a95de33bac57106d7bcfa71f7723a069e">More...</a><br /></td></tr>
 <tr class="separator:a95de33bac57106d7bcfa71f7723a069e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96a521f7dbc45c2936d6240ce4e8c80c"><td class="memItemLeft" align="right" valign="top"><a id="a96a521f7dbc45c2936d6240ce4e8c80c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>execute</b> ()=0</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenuOption.html#a96a521f7dbc45c2936d6240ce4e8c80c">execute</a> ()=0</td></tr>
+<tr class="memdesc:a96a521f7dbc45c2936d6240ce4e8c80c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual execute method to be implemented by subclasses. <br /></td></tr>
 <tr class="separator:a96a521f7dbc45c2936d6240ce4e8c80c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32097813f0ebc7d1426465deff6bb8d1"><td class="memItemLeft" align="right" valign="top"><a id="a32097813f0ebc7d1426465deff6bb8d1"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenuOption.html#a32097813f0ebc7d1426465deff6bb8d1">~MenuOption</a> ()=default</td></tr>
+<tr class="memdesc:a32097813f0ebc7d1426465deff6bb8d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper cleanup. <br /></td></tr>
+<tr class="separator:a32097813f0ebc7d1426465deff6bb8d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:aab8e81ed33e23bea5245f6b63a702c2d"><td class="memItemLeft" align="right" valign="top"><a id="aab8e81ed33e23bea5245f6b63a702c2d"></a>
 <a class="el" href="classGame.html">Game</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenuOption.html#aab8e81ed33e23bea5245f6b63a702c2d">game</a></td></tr>
-<tr class="memdesc:aab8e81ed33e23bea5245f6b63a702c2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to <a class="el" href="classGame.html" title="The Game class represents the internal API of the system. It is modelled in terms of the Facade desig...">Game</a> object. Needed to invoke method according to option. <br /></td></tr>
+<tr class="memdesc:aab8e81ed33e23bea5245f6b63a702c2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to <a class="el" href="classGame.html" title="The main game class representing the internal API of the system.">Game</a> object for command execution. <br /></td></tr>
 <tr class="separator:aab8e81ed33e23bea5245f6b63a702c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f22b70856b3fdc684d373b1d4f29e06"><td class="memItemLeft" align="right" valign="top"><a id="a1f22b70856b3fdc684d373b1d4f29e06"></a>
 <a class="el" href="classLogger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenuOption.html#a1f22b70856b3fdc684d373b1d4f29e06">logger</a></td></tr>
-<tr class="memdesc:a1f22b70856b3fdc684d373b1d4f29e06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to <a class="el" href="classLogger.html" title="Interface for concrete Log strategies to implement.">Logger</a> object. Optional (can be unused). Reference used to create new Log entries. <br /></td></tr>
+<tr class="memdesc:a1f22b70856b3fdc684d373b1d4f29e06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional reference to <a class="el" href="classLogger.html" title="Interface for concrete logging strategies.">Logger</a> for command logging. <br /></td></tr>
 <tr class="separator:a1f22b70856b3fdc684d373b1d4f29e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract base class for menu command options. </p>
+<p>Implements the Command pattern to encapsulate game operations as executable commands with optional logging capabilities.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classNewGameOption.html" title="Command for creating a new game instance.">NewGameOption</a> </dd>
+<dd>
+<a class="el" href="classExitGameOption.html" title="Command participant for encapsulating the command of exiting the game.">ExitGameOption</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a95de33bac57106d7bcfa71f7723a069e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a95de33bac57106d7bcfa71f7723a069e">&#9670;&nbsp;</a></span>MenuOption()</h2>
 
@@ -129,11 +145,11 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor sets attributes. </p>
+<p>Constructor - initializes game and logger references. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">game</td><td><a class="el" href="classGame.html" title="The Game class represents the internal API of the system. It is modelled in terms of the Facade desig...">Game</a> object reference </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">logger</td><td>Optional reference to <a class="el" href="classLogger.html" title="Interface for concrete Log strategies to implement.">Logger</a> object, default is nullptr </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">game</td><td><a class="el" href="classGame.html" title="The main game class representing the internal API of the system.">Game</a> object reference </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">logger</td><td>Optional reference to <a class="el" href="classLogger.html" title="Interface for concrete logging strategies.">Logger</a> object, default is nullptr </td></tr>
   </table>
   </dd>
 </dl>

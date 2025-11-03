@@ -70,54 +70,55 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="CustomerBuilder_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef CUSTOMERBUILDER_H</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define CUSTOMERBUILDER_H</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Customer_8h.html">Customer.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;CustomerVisitor.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="JSONGameConfiguration_8h.html">JSONGameConfiguration.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;random&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classCustomerBuilder.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCustomerBuilder.html">CustomerBuilder</a></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classCustomerBuilder.html#ac2a20582973df0fc9b159cff2b1a2c2b">   38</a></span>&#160;        <a class="code" href="classCustomer.html">Customer</a>* <a class="code" href="classCustomerBuilder.html#ac2a20582973df0fc9b159cff2b1a2c2b">customer</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="classCustomerBuilder.html#a78a3f781a95364f0165d03863dd0cdc6">CustomerBuilder</a>();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classCustomerBuilder.html#a74d38266049aec64441bb4fb13b08623">~CustomerBuilder</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">// Builder interface methods</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildName(<span class="keywordtype">string</span> n) = 0;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildIntroDialogue(<span class="keywordtype">string</span> i) = 0;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildPreferencesDialogue(<span class="keywordtype">string</span> p) = 0;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildRecommendationsDialogue(<span class="keywordtype">string</span> r) = 0;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildAcceptDialogue(<span class="keywordtype">string</span> a) = 0;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildRejectDialogue(<span class="keywordtype">string</span> r) = 0;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildAcceptExitDialogue(<span class="keywordtype">string</span> a) = 0;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildRejectExitDialogue(<span class="keywordtype">string</span> r) = 0;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildPlantOptions(<span class="keyword">const</span> vector&lt;Plant*&gt;&amp; plants) = 0;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="classCustomer.html">Customer</a>* <a class="code" href="classCustomerBuilder.html#aba7ec8cc595be743ee18fe7185f749c8">getCustomer</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classCustomerBuilder.html#a66d3f47a67c295e8b161c7b2bac5da8f">   86</a></span>&#160;        <span class="keyword">virtual</span> vector&lt;Plant*&gt; <a class="code" href="classCustomerBuilder.html#a66d3f47a67c295e8b161c7b2bac5da8f">accept</a>(<a class="code" href="classCustomerVisitor.html">CustomerVisitor</a>&amp; visitor) = 0;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef CUSTOMERBUILDER_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define CUSTOMERBUILDER_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Customer_8h.html">Customer.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CustomerVisitor_8h.html">CustomerVisitor.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="JSONGameConfiguration_8h.html">JSONGameConfiguration.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classCustomerBuilder.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCustomerBuilder.html">CustomerBuilder</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classCustomerBuilder.html#ac2a20582973df0fc9b159cff2b1a2c2b">   39</a></span>&#160;        <a class="code" href="classCustomer.html">Customer</a>* <a class="code" href="classCustomerBuilder.html#ac2a20582973df0fc9b159cff2b1a2c2b">customer</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classCustomerBuilder.html#a78a3f781a95364f0165d03863dd0cdc6">CustomerBuilder</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classCustomerBuilder.html#a74d38266049aec64441bb4fb13b08623">~CustomerBuilder</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">// Builder interface methods</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildName(<span class="keywordtype">string</span> n) = 0;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildIntroDialogue(<span class="keywordtype">string</span> i) = 0;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildPreferencesDialogue(<span class="keywordtype">string</span> p) = 0;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildRecommendationsDialogue(<span class="keywordtype">string</span> r) = 0;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildAcceptDialogue(<span class="keywordtype">string</span> a) = 0;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildRejectDialogue(<span class="keywordtype">string</span> r) = 0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildAcceptExitDialogue(<span class="keywordtype">string</span> a) = 0;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildRejectExitDialogue(<span class="keywordtype">string</span> r) = 0;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> buildPlantOptions(<span class="keyword">const</span> vector&lt;Plant*&gt;&amp; plants) = 0;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="classCustomer.html">Customer</a>* <a class="code" href="classCustomerBuilder.html#aba7ec8cc595be743ee18fe7185f749c8">getCustomer</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classCustomerBuilder.html#a66d3f47a67c295e8b161c7b2bac5da8f">   87</a></span>&#160;        <span class="keyword">virtual</span> vector&lt;Plant*&gt; <a class="code" href="classCustomerBuilder.html#a66d3f47a67c295e8b161c7b2bac5da8f">accept</a>(<a class="code" href="classCustomerVisitor.html">CustomerVisitor</a>&amp; visitor) = 0;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;};</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aCustomerVisitor_8h_html"><div class="ttname"><a href="CustomerVisitor_8h.html">CustomerVisitor.h</a></div><div class="ttdoc">Abstract visitor class for plant recommendation strategies for different customer types.</div></div>
 <div class="ttc" id="aCustomer_8h_html"><div class="ttname"><a href="Customer_8h.html">Customer.h</a></div><div class="ttdoc">Abstract base class for all customer types in the plant shop game.</div></div>
-<div class="ttc" id="aJSONGameConfiguration_8h_html"><div class="ttname"><a href="JSONGameConfiguration_8h.html">JSONGameConfiguration.h</a></div></div>
-<div class="ttc" id="aclassCustomerBuilder_html"><div class="ttname"><a href="classCustomerBuilder.html">CustomerBuilder</a></div><div class="ttdoc">Abstract base class for building Customer objects step by step.</div><div class="ttdef"><b>Definition:</b> CustomerBuilder.h:33</div></div>
+<div class="ttc" id="aJSONGameConfiguration_8h_html"><div class="ttname"><a href="JSONGameConfiguration_8h.html">JSONGameConfiguration.h</a></div><div class="ttdoc">JSON-based game configuration implementation.</div></div>
+<div class="ttc" id="aclassCustomerBuilder_html"><div class="ttname"><a href="classCustomerBuilder.html">CustomerBuilder</a></div><div class="ttdoc">Abstract base class for building Customer objects step by step.</div><div class="ttdef"><b>Definition:</b> CustomerBuilder.h:34</div></div>
 <div class="ttc" id="aclassCustomerBuilder_html_a66d3f47a67c295e8b161c7b2bac5da8f"><div class="ttname"><a href="classCustomerBuilder.html#a66d3f47a67c295e8b161c7b2bac5da8f">CustomerBuilder::accept</a></div><div class="ttdeci">virtual vector&lt; Plant * &gt; accept(CustomerVisitor &amp;visitor)=0</div><div class="ttdoc">Accepts a visitor to provide plant recommendations.</div></div>
 <div class="ttc" id="aclassCustomerBuilder_html_a74d38266049aec64441bb4fb13b08623"><div class="ttname"><a href="classCustomerBuilder.html#a74d38266049aec64441bb4fb13b08623">CustomerBuilder::~CustomerBuilder</a></div><div class="ttdeci">virtual ~CustomerBuilder()</div><div class="ttdoc">Virtual destructor.</div><div class="ttdef"><b>Definition:</b> CustomerBuilder.cpp:13</div></div>
 <div class="ttc" id="aclassCustomerBuilder_html_a78a3f781a95364f0165d03863dd0cdc6"><div class="ttname"><a href="classCustomerBuilder.html#a78a3f781a95364f0165d03863dd0cdc6">CustomerBuilder::CustomerBuilder</a></div><div class="ttdeci">CustomerBuilder()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> CustomerBuilder.cpp:8</div></div>
 <div class="ttc" id="aclassCustomerBuilder_html_aba7ec8cc595be743ee18fe7185f749c8"><div class="ttname"><a href="classCustomerBuilder.html#aba7ec8cc595be743ee18fe7185f749c8">CustomerBuilder::getCustomer</a></div><div class="ttdeci">Customer * getCustomer()</div><div class="ttdoc">Returns the built customer object.</div><div class="ttdef"><b>Definition:</b> CustomerBuilder.cpp:18</div></div>
-<div class="ttc" id="aclassCustomerBuilder_html_ac2a20582973df0fc9b159cff2b1a2c2b"><div class="ttname"><a href="classCustomerBuilder.html#ac2a20582973df0fc9b159cff2b1a2c2b">CustomerBuilder::customer</a></div><div class="ttdeci">Customer * customer</div><div class="ttdoc">The customer object being built.</div><div class="ttdef"><b>Definition:</b> CustomerBuilder.h:38</div></div>
-<div class="ttc" id="aclassCustomerVisitor_html"><div class="ttname"><a href="classCustomerVisitor.html">CustomerVisitor</a></div><div class="ttdoc">This is the abstract base class for defining operations for the concreteVisitors.</div><div class="ttdef"><b>Definition:</b> CustomerVisitor.h:34</div></div>
-<div class="ttc" id="aclassCustomer_html"><div class="ttname"><a href="classCustomer.html">Customer</a></div><div class="ttdoc">Abstract base class defining the interface and shared behavior for all customer types.</div><div class="ttdef"><b>Definition:</b> Customer.h:39</div></div>
+<div class="ttc" id="aclassCustomerBuilder_html_ac2a20582973df0fc9b159cff2b1a2c2b"><div class="ttname"><a href="classCustomerBuilder.html#ac2a20582973df0fc9b159cff2b1a2c2b">CustomerBuilder::customer</a></div><div class="ttdeci">Customer * customer</div><div class="ttdoc">The customer object being built.</div><div class="ttdef"><b>Definition:</b> CustomerBuilder.h:39</div></div>
+<div class="ttc" id="aclassCustomerVisitor_html"><div class="ttname"><a href="classCustomerVisitor.html">CustomerVisitor</a></div><div class="ttdoc">Abstract base class for defining operations for the concrete visitors.</div><div class="ttdef"><b>Definition:</b> CustomerVisitor.h:36</div></div>
+<div class="ttc" id="aclassCustomer_html"><div class="ttname"><a href="classCustomer.html">Customer</a></div><div class="ttdoc">Abstract base class defining the interface and shared behavior for all customer types.</div><div class="ttdef"><b>Definition:</b> Customer.h:40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

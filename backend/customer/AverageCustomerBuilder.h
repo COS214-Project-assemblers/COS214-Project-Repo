@@ -1,6 +1,7 @@
 /**
  * @file AverageCustomerBuilder.h
  * @brief Builder class for creating AverageCustomer objects with randomized dialogues.
+ * @author Megan Norval
  */
 
 #ifndef AVERAGECUSTOMERBUILDER_H
@@ -68,12 +69,12 @@ class AverageCustomerBuilder : public CustomerBuilder
         void buildPlantOptions(const vector<Plant*>& plants);
 
         /**
-         * @brief Accepts a visitor to provide plant recommendations.
-         * @param visitor Reference to the CustomerVisitor that will recommend plants
+         * @brief Accepts a visitor to provide plant recommendations
+         * @param visitor Reference to the CustomerVisitor
          * @return Vector of Plant pointers recommended by the visitor
-         * 
-         * Implements the Visitor pattern to allow different plant recommendation
-         * strategies to be applied to the customer being built.
+         * @details Implements the Element side of the Visitor pattern, allowing
+         * different plant recommendation strategies to be applied during
+         * customer construction.
          */
         vector<Plant*> accept(CustomerVisitor& visitor);
 };

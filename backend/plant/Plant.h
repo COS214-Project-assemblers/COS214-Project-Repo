@@ -1,6 +1,7 @@
 /**
  * @file Plant.h
  * @brief Defines the abstract base class for all Plant objects used in the system.
+ * @author Megan Norval
  */
 
 #ifndef PLANT_H
@@ -21,7 +22,6 @@
 
 #include "GreenSock.h"
 #include "Logger.h"
-#include "ThreadSafeQueue.h"
 #include <iostream>
 #include <queue>
 #include <memory>
@@ -39,12 +39,17 @@ using namespace std;
  *
  * This class serves as the foundation for all specific plant types (e.g., Succulent, Flower, Tree).
  * It provides common attributes such as category, variety, pricing, and state management,
- * and defines an interface for cloning and observer interaction.
+ * and defines an interface for cloning and observer interaction. Implements multiple design
+ * patterns including Prototype, State, Observer, and Thread management.
  */
 class Plant
 {
     private:
+        /**
+         * @brief Care level requirement for the plant
+         */
         string careLevel;
+
         /**
          * @brief The broad category of the plant, such as "Succulent", "Flower", or "Tree".
          */
@@ -92,8 +97,19 @@ class Plant
          */
         vector<GreenhouseStaff*> observerList;
 
+        /**
+         * @brief Index for decay cycle management
+         */
         int decayIndex;
+
+        /**
+         * @brief Atomic flag for thread lifecycle management
+         */
         std::atomic<bool> alive;
+
+        /**
+         * @brief Thread for plant lifecycle
+         */
         std::thread thread;
 
         /**
@@ -107,23 +123,51 @@ class Plant
          */
         inline static Logger* logger = nullptr;
         
-        std::string difficulty;///< The difficulty level of caring for the plant.
-        bool acceptable = false;  // Initialize to false
+        /**
+         * @brief The difficulty level of caring for the plant
+         */
+        std::string difficulty;
+
+        /**
+         * @brief Whether plant meets customer preferences
+         */
+        bool acceptable = false;
+
+        /**
+         * @brief Whether plant can be returned by customers
+         */
         bool returnable = false;
 
-        SafeQueue safeQueue;
+        /**
+         * @brief Queue for care notification tasks
+         */
         std::queue<string> notifyQ;
+
+        /**
+         * @brief Queue for pruning operations
+         */
         std::queue<int> pruneQueue;
 
+        /**
+         * @brief Mutex for thread-safe socket operations
+         */
         std::mutex socketMtx;
 
+        /**
+         * @brief Whether plant is ready for sale
+         */
         bool sellable = false;
+
     protected:
         /**
          *  @brief Pointer to the Health component representing the plant’s overall well-being.
          * */
         std::unique_ptr<Health> health ;
-        GreenSock* socket = nullptr; // initalise it to null 
+
+        /**
+         * @brief WebSocket for real-time plant updates
+         */
+        GreenSock* socket = nullptr;
 
     public:
         /**
@@ -137,18 +181,27 @@ class Plant
          * because, the type of plant determines how much water/fertilizer/pruning is required
          */
         Plant(string category, string variety,string difficulty);
-        // Plant(string category, string variety);
 
         /**
-         * @brief Copy constructor used for the Prototype design pattern.
-         * @details Enables cloning of existing Plant objects.
-         * @param [in] original Reference to the Plant object being duplicated.
+         * @brief Copy constructor deleted to prevent unintended copying.
          */
-         Plant(const Plant&)            = delete;
-       Plant& operator=(const Plant&) = delete;
-        // Allow moves
+        Plant(const Plant&)            = delete;
+
+        /**
+         * @brief Copy assignment operator deleted.
+         */
+        Plant& operator=(const Plant&) = delete;
+        
+        /**
+         * @brief Move constructor enabled for efficient resource transfer.
+         */
         Plant(Plant&&)                 = default;
+
+         /**
+         * @brief Move assignment operator enabled.
+         */
         Plant& operator=(Plant&&)      = default;
+
         /**
          * @brief Virtual destructor to ensure proper cleanup in derived classes.
          * NOTE - Additional Clean Up functionality for Thread Behaviour:
@@ -164,7 +217,12 @@ class Plant
          */
         virtual Plant* clone() = 0;
 
+        /**
+         * @brief Gets the care level of the plant.
+         * @return Care level as string
+         */
         string getCareLevel();
+
         /**
          * @brief Retrieves the category of the plant.
          * @return The category name as a string.
@@ -207,6 +265,10 @@ class Plant
          */
         PlantState* getState();
 
+        /**
+         * @brief Gets the current state as a string.
+         * @return State name as string
+         */
         string getStateAsString();
 
         /**
@@ -233,6 +295,10 @@ class Plant
          */
         void notify(const string& careType);
 
+        /**
+         * @brief Gets the current care type requirement.
+         * @return Current care type as string
+         */
         string getCareType();
 
         /**
@@ -296,10 +362,23 @@ class Plant
          */
         float healthScore() ;
 
+        /**
+         * @brief Sets the WebSocket connection for real-time updates.
+         * @param sock Pointer to GreenSock instance
+         */
         void setSocket(GreenSock* sock) ; 
 
+        /**
+         * @brief Sends alert through WebSocket about care requirements.
+         * @param careType Type of care needed
+         * @param sock WebSocket connection
+         */
         void alert(string& careType, GreenSock* sock) ;
        
+        /**
+         * @brief Checks if plant is ready for sale.
+         * @return true if sellable, false otherwise
+         */
         bool isSellable() ; 
         
         /**
@@ -349,18 +428,46 @@ class Plant
          * @brief Adds specific plant log message, includes plant ID
          */
         void newPlantLog(string message);
+
+        /**
+         * @brief Sets whether plant meets customer preferences.
+         * @param acceptable Boolean indicating if plant is acceptable
+         */
         void setAcceptable(bool acceptable);
+
         /**
          * @brief Checks if the plant is acceptable to customers.
          * @return True if the plant is acceptable, false otherwise.
          */
         bool isAcceptable();
 
+        /**
+         * @brief Gets water level as formatted string.
+         * @return Water level string
+         */
         string getWaterLevel();
+        
+        /**
+         * @brief Gets fertilizer level as formatted string.
+         * @return Fertilizer level string
+         */
         string getFertilizerLevel();
+        
+        /**
+         * @brief Gets pruning level as formatted string.
+         * @return Pruning level string
+         */
         string getPruningLevel();
 
+        /**
+         * @brief Queues notification task for plant care.
+         * @param task Care task to queue
+         */
         void queueNotify(string task);
+        
+        /**
+         * @brief Queues pruning operation.
+         */
         void queuePrune();
 };
 #endif

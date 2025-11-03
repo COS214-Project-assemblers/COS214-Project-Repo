@@ -1,7 +1,7 @@
 <map id="TransactionStrategy" name="TransactionStrategy">
-<area shape="rect" id="node1" title="The TransactionStrategy class an abstract class that will help define how transactions will be handel..." alt="" coords="77,5,227,32"/>
-<area shape="rect" id="node2" href="$classPlantDied.html" title="Will handle the transaction as if a plant died after it was not cared for properly." alt="" coords="5,80,91,107"/>
-<area shape="rect" id="node3" href="$classRestock.html" title="Will handle the transaction as a refund." alt="" coords="115,80,189,107"/>
-<area shape="rect" id="node4" href="$classReturn.html" title="Will handle the transaction as a Return." alt="" coords="214,80,279,107"/>
-<area shape="rect" id="node5" href="$classSale.html" title="Will handle the transaction as a sale." alt="" coords="304,80,355,107"/>
+<area shape="rect" id="node1" title="Abstract base class for transaction handling strategies." alt="" coords="123,5,274,32"/>
+<area shape="rect" id="node2" href="$classPlantDied.html" title="Handles financial transactions when plants die due to poor care." alt="" coords="5,80,91,107"/>
+<area shape="rect" id="node3" href="$classRestock.html" title="Handles financial transactions for inventory restocking." alt="" coords="115,80,189,107"/>
+<area shape="rect" id="node4" href="$classReturn.html" title="Handles financial transactions for customer returns." alt="" coords="214,80,279,107"/>
+<area shape="rect" id="node5" href="$classSale.html" title="Handles financial transactions for plant sales." alt="" coords="304,80,355,107"/>
 </map>

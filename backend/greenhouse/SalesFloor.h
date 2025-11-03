@@ -1,11 +1,11 @@
 /**
  * @file SalesFloor.h
+ * @brief Sales floor management for customer interactions and plant sales
  */
 #ifndef SALESFLOOR_H
 #define SALESFLOOR_H
 
 #include "Inventory.h"
-// #include "Customer.h"
 #include "TransactionHistory.h"
 #include "Ledger.h"
 
@@ -18,86 +18,76 @@ class CustomerVisitor;
 
 /**
  * @class SalesFloor
- * @brief Manages Customer flow and provides access to the inventory for the Manager during sales interactions.
+ * @brief Manages customer flow and provides access to inventory for sales interactions
  * 
- * The SalesFloor class is for the enviroment in which the Customer can interact with the Manager. It maintains a current "queue" and history lists.
+ * The SalesFloor class provides the environment where customers interact with the manager
+ * during sales. It maintains inventory access, financial ledger, and transaction history
+ * for sales operations.
+ * 
+ * @see Inventory
+ * @see Ledger
+ * @see TransactionHistory
+ * @see Manager
  */
 class SalesFloor{
     private:
-        Inventory* inv;///<Pointer to Inventory object
-        std::vector<Customer*> customers;///<Vector of customers in the "queue"
-        std::vector<Customer*> custHist;///<Vector of customers that have moved out of the "queue" and is just a history
-        Ledger ledger;///<Ledger to keep track of balance
-        TransactionHistory* history;
+        Inventory* inv;              ///< Pointer to plant inventory
+        Ledger ledger;               ///< Financial ledger for sales transactions
+        TransactionHistory* history; ///< Transaction history recording
+
     public:
         /**
          * @brief Default constructor.
          */
         SalesFloor();
+
         /**
-         * @brief Default deconstructor.
+         * @brief Default destructor.
          */
         ~SalesFloor();
+        
         /**
-         * @brief Adds a Customer to the customers vector (queue).
-         * @param cust Reference to the customer being added to the "queue".
-         * 
-         * Will also move a customer to the back of the queue if it they decide to return their product at hte end of the transaction.
-         */
-        //ally - maybe and also add them back if we offer like would you like more options?
-        void add(Customer* cust);
-        /**
-         * @brief Will remove a costomer from the customers vector to the custHist vector to keep track of customers served.
-         * @param cust The customer who has made a desion(purchase a plant/or not) and is moving to history
-         */
-        void moveToCustHist(Customer* cust);
-        //name might change
-        // void accept(CustomerVisitor& v);
-        /**
-         * @brief checks if there are custoemrs in the queue.
-         * @return True if there are customers in the "queue", False if not.
-         */
-        //Ally -  will be used to help the manager see if it can move to the next customer or maybe if the game has ended or it goes to the greenhouse view?
-        bool hasCustomers();
-        /**
-         * @brief Tells you who the customer at the front of the "queue" is.
-         * @return pointer to the Customer
-         */
-        Customer* frontCust();
-        /**
-         * @brief Removes the customer at the front of the "queue" after they have been helped/or decided to return their plant
-         * @return pointer to the Customer
-         */
-        Customer* popCust();
-        /**
-         * @brief Provides read only access
-         * @return Constant reference to the Inventory object managed by the salesFloor.
+         * @brief Provides read-only access to inventory
+         * @return Constant pointer to the Inventory object
          */
         const Inventory* inventory()const;
+
         /**
-         * @brief non-const access for manager.
-         * @return returns mutateable ref to Inventory.
+         * @brief Provides mutable access to inventory for manager operations
+         * @return Mutable reference to the Inventory object
          */
         Inventory& inventoryMut();
+
         /**
          * @brief Mutable getter for the ledger
          * @return Reference to the ledger object
          */
         Ledger& getLedger();
+
         /**
          * @brief Read only getter for the ledger
          * @return Constant reference to the ledger object
          */
         const Ledger& getLedger()const;
-        /**
-         * @brief Simulates the process of returns based on a given probability.
-         * @param prob Probability that a customer decides to return a product.
-         * @param hist Reference to the TransactionHistory to process returns.
-         */
 
+        /**
+         * @brief Adds plant to sales floor inventory
+         * @param p Pointer to Plant to add
+         */
         void addPlant(Plant* p);
 
+        /**
+         * @brief Gets plant from sales floor by ID
+         * @param id Plant identifier
+         * @return Pointer to Plant if found, nullptr otherwise
+         */
         Plant* getPlantOnSalesFloor(string id);
+
+        /**
+         * @brief Removes plant from sales floor by ID
+         * @param id Plant identifier
+         * @return Pointer to removed Plant
+         */
         Plant* removePlantFromSalesFloor(string id);
 };
 

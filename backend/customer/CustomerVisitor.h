@@ -1,5 +1,6 @@
 /**
- * @file CustomerVisitor.hs
+ * @file CustomerVisitor.h
+ * @brief Abstract visitor class for plant recommendation strategies for different customer types.
  */
 #ifndef CUSTOMERVISITOR_H
 #define CUSTOMERVISITOR_H
@@ -7,28 +8,29 @@
 #include <vector>
 #include <algorithm>
 #include <cstddef>
-// #include <nlohmann/json.hpp>
-// using json=nlohmann::json;
 
 class SalesFloor;
-// class Plant;
 #include "SalesFloor.h"
 #include "Plant.h"
 
-//forward declarations of concrete builders
 class AverageCustomerBuilder;
 class IgnorantCustomerBuilder;
 class GreenFingerCustomerBuilder;
+
 /**
  * @class CustomerVisitor
- * @brief This is the abstract base class for defining operations for the concreteVisitors
+ * @brief Abstract base class for defining operations for the concrete visitors.
  * 
- * THis class provides a set of pure virtual functions for visiting each concrete customer type.
- * Concrete visitor iimplementation should define the plants that will be offered to the customer.
+ * This class provides a set of pure virtual functions for visiting each concrete customer type.
+ * Concrete visitor implementations should define the plants that will be offered to the customer
+ * based on their preferences and the available inventory.
  * 
  * @see IgnorantCustomer
  * @see AverageCustomer
  * @see GreenFingerCustomer
+ * @see VisitEasyCustomer
+ * @see VisitMediumCustomer
+ * @see VisitHighCustomer
  */
 class CustomerVisitor
 {
@@ -38,12 +40,21 @@ class CustomerVisitor
          */
         std::vector<Plant*> inventoryCopy;
         
-        std::vector<Plant*> offer;///<Filled by concreteVisitors
-        std::vector<Plant*> correct;///<subset of plants that are correct for the customer
+        /**
+         * @brief Plants to be offered to the customer
+         */
+        std::vector<Plant*> offer;
+
+        /**
+         * @brief Subset of plants that are correct for the customer's preferences
+         */
+        std::vector<Plant*> correct;
 
     public:
+
         /**
          * @brief Constructor.
+         * @param inv Reference to the salesfloor inventory to copy plants from
          */
         CustomerVisitor(const Inventory& inv);
 
@@ -52,6 +63,11 @@ class CustomerVisitor
          */
         virtual ~CustomerVisitor();
 
+        /**
+         * @brief Finds plants by difficulty level
+         * @param difficulty Difficulty level to filter by ("easy", "medium", "hard")
+         * @return Vector of plants matching the specified difficulty
+         */
         std::vector<Plant*> findByDifficulty(const std::string& difficulty) const;
     
         /**
@@ -77,18 +93,6 @@ class CustomerVisitor
         void finalizeOffer(std::size_t target=5);
 
         /**
-         * @brief retrieves the offer vector.
-         * @return The vector of Plant pointers being offered to the customer.
-         */
-        const std::vector<Plant*>& getOffer() const;
-
-        /**
-         * @brief retrieves the correct plant for the customer.
-         * @return Pointer to the correct Plant for the customer.
-         */
-        const std::vector<Plant*>& getCorrectPlant() const;
-
-        /**
          * @brief Marks the correct plant for the customer.
          * @param source Vector of Plant pointers containing the correct plants for the customer.
          * @param count Number of correct plants to mark.
@@ -97,14 +101,14 @@ class CustomerVisitor
         void markCorrectPlants(const std::vector<Plant*>& source, int count, bool returnable);
 
         /**
-         * @brief iscorrect plant
+         * @brief Checks if a plant is acceptable for the customer
          * @param p Plant to check
          * @return true if correct plant, false if not
          */
         bool isAcceptable(Plant* p);
 
         /**
-         * @brief isReturnable plant
+         * @brief Checks if a plant is returnable
          * @param p Plant to check
          * @return true if returnable, false if not
          */
@@ -113,18 +117,21 @@ class CustomerVisitor
         /**
          * @brief Visit an IgnorantCustomerBuilder object.
          * @param builder Reference to the IgnorantCustomerBuilder being visited.
+         * @return Vector of Plant pointers recommended for the ignorant customer
          */
         virtual vector<Plant*> visit(IgnorantCustomerBuilder& builder)=0;
 
         /**
          * @brief Visit an AverageCustomerBuilder object.
          * @param builder Reference to the AverageCustomerBuilder being visited.
+         * @return Vector of Plant pointers recommended for the average customer
          */
         virtual vector<Plant*> visit(AverageCustomerBuilder& builder)=0;
 
         /**
          * @brief Visit a GreenFingerCustomerBuilder object.
          * @param builder Reference to the GreenFingerCustomerBuilder being visited.
+         * @return Vector of Plant pointers recommended for the greenfinger customer
          */
         virtual vector<Plant*> visit(GreenFingerCustomerBuilder& builder)=0;
 };      

@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Allows user to add extended functionality to the log ConcreteStrategies, i.e. can add cout before log...">
+<g id="a_node1"><a xlink:title="Base decorator for extending logger functionality.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 82,-19.5 82,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="41" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">LogDecorator</text>
 </a>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classLogger.html" target="_top" xlink:title="Interface for concrete Log strategies to implement.">
+<g id="a_node2"><a xlink:href="classLogger.html" target="_top" xlink:title="Interface for concrete logging strategies.">
 <polygon fill="white" stroke="black" points="16,-67.5 16,-86.5 66,-86.5 66,-67.5 16,-67.5"/>
 <text text-anchor="middle" x="41" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Logger</text>
 </a>

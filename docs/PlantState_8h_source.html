@@ -69,27 +69,29 @@ $(function() {
 <div class="title">PlantState.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PLANTSTATE_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PLANTSTATE_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Plant_8h.html">Plant.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classPlantState.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPlantState.html">PlantState</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classPlantState.html#a8128942762c90e82177b153445e8c95d">   26</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classPlantState.html#a8128942762c90e82177b153445e8c95d">handle</a>(<a class="code" href="classPlant.html">Plant</a>* plant) = 0;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classPlantState.html#a9a5ce5b16d289b30690309bf4486a58f">   31</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classPlantState.html#a9a5ce5b16d289b30690309bf4486a58f">~PlantState</a>() = <span class="keywordflow">default</span>;</div>
+<a href="PlantState_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef PLANTSTATE_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define PLANTSTATE_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Plant_8h.html">Plant.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classPlantState.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPlantState.html">PlantState</a> {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classPlantState.html#a8128942762c90e82177b153445e8c95d">   31</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classPlantState.html#a8128942762c90e82177b153445e8c95d">handle</a>(<a class="code" href="classPlant.html">Plant</a>* plant) = 0;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">string</span> getState() = 0;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classPlantState.html#a9a5ce5b16d289b30690309bf4486a58f">   36</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classPlantState.html#a9a5ce5b16d289b30690309bf4486a58f">~PlantState</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classPlantState.html#ad714d9c35ad3f2ebcdc0b9089aed6034">   42</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">string</span> <a class="code" href="classPlantState.html#ad714d9c35ad3f2ebcdc0b9089aed6034">getState</a>() = 0;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aPlant_8h_html"><div class="ttname"><a href="Plant_8h.html">Plant.h</a></div><div class="ttdoc">Defines the abstract base class for all Plant objects used in the system.</div></div>
-<div class="ttc" id="aclassPlantState_html"><div class="ttname"><a href="classPlantState.html">PlantState</a></div><div class="ttdoc">Abstract base class representing different states of a plant.</div><div class="ttdef"><b>Definition:</b> PlantState.h:14</div></div>
+<div class="ttc" id="aclassPlantState_html"><div class="ttname"><a href="classPlantState.html">PlantState</a></div><div class="ttdoc">Abstract base class representing different states of a plant.</div><div class="ttdef"><b>Definition:</b> PlantState.h:19</div></div>
 <div class="ttc" id="aclassPlantState_html_a8128942762c90e82177b153445e8c95d"><div class="ttname"><a href="classPlantState.html#a8128942762c90e82177b153445e8c95d">PlantState::handle</a></div><div class="ttdeci">virtual void handle(Plant *plant)=0</div><div class="ttdoc">Handles the plant's behaviour in the current state.</div></div>
 <div class="ttc" id="aclassPlantState_html_a9a5ce5b16d289b30690309bf4486a58f"><div class="ttname"><a href="classPlantState.html#a9a5ce5b16d289b30690309bf4486a58f">PlantState::~PlantState</a></div><div class="ttdeci">virtual ~PlantState()=default</div><div class="ttdoc">Virtual destructor for proper cleanup of derived classes.</div></div>
-<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">Abstract base class representing a plant entity in the greenhouse simulation.</div><div class="ttdef"><b>Definition:</b> Plant.h:45</div></div>
+<div class="ttc" id="aclassPlantState_html_ad714d9c35ad3f2ebcdc0b9089aed6034"><div class="ttname"><a href="classPlantState.html#ad714d9c35ad3f2ebcdc0b9089aed6034">PlantState::getState</a></div><div class="ttdeci">virtual string getState()=0</div><div class="ttdoc">Gets the state name as a string.</div></div>
+<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">Abstract base class representing a plant entity in the greenhouse simulation.</div><div class="ttdef"><b>Definition:</b> Plant.h:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

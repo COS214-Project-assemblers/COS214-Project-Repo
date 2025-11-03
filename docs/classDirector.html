@@ -94,11 +94,11 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Coordinates the construction of <a class="el" href="classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types.">Customer</a> objects using builders and visitors. </p>
-<p>The <a class="el" href="classDirector.html" title="Coordinates the construction of Customer objects using builders and visitors.">Director</a> class implements the <a class="el" href="classDirector.html" title="Coordinates the construction of Customer objects using builders and visitors.">Director</a> role in the Builder pattern, orchestrating the step-by-step construction of <a class="el" href="classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types.">Customer</a> objects. It works with <a class="el" href="classCustomerBuilder.html" title="Abstract base class for building Customer objects step by step.">CustomerBuilder</a> implementations to build customer dialogues and uses <a class="el" href="classCustomerVisitor.html" title="This is the abstract base class for defining operations for the concreteVisitors.">CustomerVisitor</a> implementations to provide plant recommendations.</p>
+<p>The <a class="el" href="classDirector.html" title="Coordinates the construction of Customer objects using builders and visitors.">Director</a> class implements the <a class="el" href="classDirector.html" title="Coordinates the construction of Customer objects using builders and visitors.">Director</a> role in the Builder pattern, orchestrating the step-by-step construction of <a class="el" href="classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types.">Customer</a> objects. It works with <a class="el" href="classCustomerBuilder.html" title="Abstract base class for building Customer objects step by step.">CustomerBuilder</a> implementations to build customer dialogues and uses <a class="el" href="classCustomerVisitor.html" title="Abstract base class for defining operations for the concrete visitors.">CustomerVisitor</a> implementations to provide plant recommendations.</p>
 <p>This class separates the construction logic from the builder implementations, allowing different construction sequences or strategies to be implemented.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classCustomerBuilder.html" title="Abstract base class for building Customer objects step by step.">CustomerBuilder</a> </dd>
 <dd>
-<a class="el" href="classCustomerVisitor.html" title="This is the abstract base class for defining operations for the concreteVisitors.">CustomerVisitor</a> </dd></dl>
+<a class="el" href="classCustomerVisitor.html" title="Abstract base class for defining operations for the concrete visitors.">CustomerVisitor</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a607a41fe5c42dd9ca7e256a11942a6d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a607a41fe5c42dd9ca7e256a11942a6d7">&#9670;&nbsp;</a></span>Director()</h2>
@@ -160,7 +160,7 @@ Public Member Functions</h2></td></tr>
 <p>Constructs a complete customer using the current builder and visitor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v</td><td>Reference to the <a class="el" href="classCustomerVisitor.html" title="This is the abstract base class for defining operations for the concreteVisitors.">CustomerVisitor</a> for plant recommendations </td></tr>
+    <tr><td class="paramname">v</td><td>Reference to the <a class="el" href="classCustomerVisitor.html" title="Abstract base class for defining operations for the concrete visitors.">CustomerVisitor</a> for plant recommendations </td></tr>
   </table>
   </dd>
 </dl>
@@ -168,14 +168,14 @@ Public Member Functions</h2></td></tr>
 <p>Executes the complete customer construction process:</p><ol type="1">
 <li>Builds all dialogue parts using the builder</li>
 <li>Gets plant recommendations from the visitor</li>
-<li>Sets the plant options on the customer</li>
-</ol>
-<dl class="exception"><dt>Exceptions</dt><dd>
+<li>Sets the plant options on the customer <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::runtime_error</td><td>if no builder is set </td></tr>
   </table>
   </dd>
 </dl>
+</li>
+</ol>
 
 </div>
 </div>
@@ -195,7 +195,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the JSON structure of the currently built customer. </p>
-<dl class="section return"><dt>Returns</dt><dd>JSON string representation of the customer</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>JSON string representation of the customer </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::runtime_error</td><td>if no builder is set or no customer is built </td></tr>

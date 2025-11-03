@@ -15,9 +15,12 @@
 
 /**
  * @class APIComponent
- * @brief Holds API components, i.e. server, router, connection handlers etc
- *  registers components in oatpp::base::Environment
- *  All components created via Macros. For lower level implementation details visit the docs.
+ * @brief Holds API components for dependency injection
+ * @details Registers components in oatpp::base::Environment. Configures server, 
+ * router, connection handlers and JSON mappers. All components created via Macros. 
+ * For lower level implementation details visit the docs.
+ * 
+ * Oat++ flow: ConnectionProvider (TCP) -> Server -> HttpConnectionHandler -> HttpRouter
  */
 class APIComponent {
     public:
@@ -60,4 +63,4 @@ class APIComponent {
         }());
     };
 
-#endif // APICOMP
+#endif

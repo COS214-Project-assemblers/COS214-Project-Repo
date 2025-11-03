@@ -69,32 +69,44 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Stores a collections of plants, will return vectors of plants for the manager to choose from and then offer the client.  
+<p>Manages collection of plants for sale and greenhouse operations.  
  <a href="classInventory.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Inventory_8h_source.html">Inventory.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:aec17731a1277602e1df82135d3fcd76b"><td class="memItemLeft" align="right" valign="top"><a id="aec17731a1277602e1df82135d3fcd76b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInventory.html#aec17731a1277602e1df82135d3fcd76b">Inventory</a> ()=default</td></tr>
+<tr class="memdesc:aec17731a1277602e1df82135d3fcd76b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="separator:aec17731a1277602e1df82135d3fcd76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c6dfcb6d977c74a7abf46809e892e3d"><td class="memItemLeft" align="right" valign="top"><a id="a6c6dfcb6d977c74a7abf46809e892e3d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInventory.html#a6c6dfcb6d977c74a7abf46809e892e3d">~Inventory</a> ()</td></tr>
+<tr class="memdesc:a6c6dfcb6d977c74a7abf46809e892e3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor - cleans up plant resources. <br /></td></tr>
+<tr class="separator:a6c6dfcb6d977c74a7abf46809e892e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac940a4903c7284e0cb451ae49fd6beef"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInventory.html#ac940a4903c7284e0cb451ae49fd6beef">all</a> () const</td></tr>
 <tr class="memdesc:ac940a4903c7284e0cb451ae49fd6beef"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns all plants in the inventory  <a href="classInventory.html#ac940a4903c7284e0cb451ae49fd6beef">More...</a><br /></td></tr>
 <tr class="separator:ac940a4903c7284e0cb451ae49fd6beef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c7dfc2a11d8c2b851888f49f562cb7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInventory.html#a2c7dfc2a11d8c2b851888f49f562cb7f">restock</a> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
-<tr class="memdesc:a2c7dfc2a11d8c2b851888f49f562cb7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restocks a plantby adding it to the vector containing plants in the inventory.  <a href="classInventory.html#a2c7dfc2a11d8c2b851888f49f562cb7f">More...</a><br /></td></tr>
+<tr class="memdesc:a2c7dfc2a11d8c2b851888f49f562cb7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restocks a plant by adding it to the vector containing plants in the inventory.  <a href="classInventory.html#a2c7dfc2a11d8c2b851888f49f562cb7f">More...</a><br /></td></tr>
 <tr class="separator:a2c7dfc2a11d8c2b851888f49f562cb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a775d02edd78192a12ffa024994986182"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInventory.html#a775d02edd78192a12ffa024994986182">removePlant</a> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
 <tr class="memdesc:a775d02edd78192a12ffa024994986182"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes a plant from the inventory  <a href="classInventory.html#a775d02edd78192a12ffa024994986182">More...</a><br /></td></tr>
 <tr class="separator:a775d02edd78192a12ffa024994986182"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afda9ccb08b84d27b80c14dc5a782fd9d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInventory.html#afda9ccb08b84d27b80c14dc5a782fd9d">findByDifficulty</a> (std::string d) const</td></tr>
-<tr class="memdesc:afda9ccb08b84d27b80c14dc5a782fd9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds all plants in the inventory based on their level of care dificulty.  <a href="classInventory.html#afda9ccb08b84d27b80c14dc5a782fd9d">More...</a><br /></td></tr>
+<tr class="memdesc:afda9ccb08b84d27b80c14dc5a782fd9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds plants by care difficulty level.  <a href="classInventory.html#afda9ccb08b84d27b80c14dc5a782fd9d">More...</a><br /></td></tr>
 <tr class="separator:afda9ccb08b84d27b80c14dc5a782fd9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38ab7d9b8f37a8c0156c1a1c3635c513"><td class="memItemLeft" align="right" valign="top"><a id="a38ab7d9b8f37a8c0156c1a1c3635c513"></a>
-<a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getPlant</b> (string id)</td></tr>
+<tr class="memitem:a38ab7d9b8f37a8c0156c1a1c3635c513"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInventory.html#a38ab7d9b8f37a8c0156c1a1c3635c513">getPlant</a> (string id)</td></tr>
+<tr class="memdesc:a38ab7d9b8f37a8c0156c1a1c3635c513"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a specific plant by ID.  <a href="classInventory.html#a38ab7d9b8f37a8c0156c1a1c3635c513">More...</a><br /></td></tr>
 <tr class="separator:a38ab7d9b8f37a8c0156c1a1c3635c513"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Stores a collections of plants, will return vectors of plants for the manager to choose from and then offer the client. </p>
-<p>The <a class="el" href="classInventory.html" title="Stores a collections of plants, will return vectors of plants for the manager to choose from and then...">Inventory</a> class stores all available <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> objects that are availible for sale to clients, it allows for filtering based on a categoy or by a price range. </p>
+<div class="textblock"><p>Manages collection of plants for sale and greenhouse operations. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> </dd>
+<dd>
+<a class="el" href="classManager.html" title="Coordinates plant sales, customer interactions, and financial transactions.">Manager</a> </dd>
+<dd>
+<a class="el" href="classSalesFloor.html" title="Manages customer flow and provides access to inventory for sales interactions.">SalesFloor</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac940a4903c7284e0cb451ae49fd6beef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac940a4903c7284e0cb451ae49fd6beef">&#9670;&nbsp;</a></span>all()</h2>
@@ -132,14 +144,41 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Finds all plants in the inventory based on their level of care dificulty. </p>
+<p>Finds plants by care difficulty level. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">d</td><td>The level of dificulty you are looking for </td></tr>
+    <tr><td class="paramname">d</td><td>Difficulty level to filter by ("Easy", "Moderate", "Hard") </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Vector of all those plants </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of plants matching specified difficulty </dd></dl>
+
+</div>
+</div>
+<a id="a38ab7d9b8f37a8c0156c1a1c3635c513"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38ab7d9b8f37a8c0156c1a1c3635c513">&#9670;&nbsp;</a></span>getPlant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPlant.html">Plant</a> * Inventory::getPlant </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a specific plant by ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td><a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> identifier </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> if found, nullptr otherwise </dd></dl>
 
 </div>
 </div>
@@ -185,7 +224,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Restocks a plantby adding it to the vector containing plants in the inventory. </p>
+<p>Restocks a plant by adding it to the vector containing plants in the inventory. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">plant</td><td>Reference to the <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> being restocked </td></tr>

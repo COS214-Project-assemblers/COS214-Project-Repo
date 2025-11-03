@@ -9,19 +9,29 @@
 #include "CustomerVisitor.h"
 
 /**
- * @class VisitHighCustomer
- * @brief Visitor implementation for customers preferring challenging plants
+ * @class VisitMediumCustomer
+ * @brief Visitor implementation for balanced plant recommendations
  * 
- * This visitor creates plant recommendations with a focus on medium and hard
- * difficulty plants while including some easy plants based on customer type.
+ * This visitor creates plant recommendations with a balanced mix of easy,
+ * medium, and hard difficulty plants, adjusting proportions based on customer type.
+ * 
+ * @see CustomerVisitor
+ * @see IgnorantCustomerBuilder
+ * @see AverageCustomerBuilder
+ * @see GreenFingerCustomerBuilder
  */
 class VisitMediumCustomer:public CustomerVisitor{
     public:
         /**
          * @brief Constructor
          * @param inv Inventory reference
+         * @details Initializes with a copy of the salesfloor inventory
          */
         VisitMediumCustomer(const Inventory& inv);
+        
+        /**
+         * @brief Default destructor
+         */
         ~VisitMediumCustomer()=default;
 
         /**

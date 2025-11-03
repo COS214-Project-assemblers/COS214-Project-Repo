@@ -13,20 +13,22 @@
 #include <stdexcept>
 #include <map>
 
+/**
+ * @struct PlantStruct
+ * @brief Structure holding plant variety information
+ */
 struct PlantStruct {
-    std::string category;
-    std::string variety;
-    int costPrice;
-    int salePrice;
+    std::string category;    ///< Plant category name
+    std::string variety;     ///< Specific plant variety
+    int costPrice;           ///< Purchase cost of the plant
+    int salePrice;           ///< Selling price of the plant
 };
-
 /**
  * @class GameConfiguration
- * @brief Interface that provides unified interface to clients wanting to read
- *  game configurations. GameConfig is the Strategy participant in the Strategy design
- *  pattern used to model accessing the game configuration. The ConcreteStrategies
- *  that inherit from this interface can load the configuration in any necessary mode,
- *  thus ensuring extensibility (i.e. JSON file config, web config, interface remains the same)
+ * @brief Interface for game configuration providers
+ * @details Strategy participant in the Strategy design pattern used to model
+ * accessing game configuration. ConcreteStrategies can load configuration from
+ * various sources (JSON file, web service, etc.) while maintaining the same interface.
  */
 class GameConfiguraton {
     public:
@@ -43,7 +45,10 @@ class GameConfiguraton {
          */
         virtual std::map<std::string, std::map<std::string, std::vector<std::string>>> getCustomerTypes() = 0;
 
+        /**
+         * @brief Virtual destructor for proper polymorphic cleanup
+         */
         virtual ~GameConfiguraton() {}
 };
 
-#endif // GAMECONFIG
+#endif

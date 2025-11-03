@@ -1,5 +1,6 @@
 /**
  * @file LogDecorator.h
+ * @brief Base decorator class for extending logger functionality
  * @author Gerard Jordaan
  */
 
@@ -10,25 +11,43 @@
 
 /**
  * @class LogDecorator
- * @brief Allows user to add extended functionality to the log ConcreteStrategies, i.e.
- *  can add cout before log along with some colours/custom formatting
+ * @brief Base decorator for extending logger functionality
+ * @details Implements the Decorator pattern to allow adding extended
+ * functionality to logger ConcreteStrategies, such as console output,
+ * custom formatting, or colors.
+ * 
+ * @see Logger
+ * @see CoutAndLog
  */
 class LogDecorator : public Logger {
     protected:
-        Logger* logger = nullptr;
-    public:
         /**
-         * @brief placeholder for ConcreteDecorators to inherit from
+         * @brief Wrapped logger instance being decorated
+         */
+        Logger* logger = nullptr;
+
+    public:
+
+        /**
+         * @brief Default log implementation for decorators
+         * @param message The log message to process
+         * @details Can be overridden by concrete decorators
          */
         virtual void newLog(std::string message) override {
             std::cout << "Extending logger functionality for log message " << message << std::endl;
         }
+
         /**
-         * @throws invalid_argument when logger == nullptr
+         * @brief Sets the base logger to be decorated
+         * @param logger Pointer to Logger instance to wrap
+         * @throws std::invalid_argument if logger is nullptr
          */
         void setBaseLogger(Logger* logger);
 
+        /**
+         * @brief Virtual destructor for proper polymorphic cleanup
+         */
         virtual ~LogDecorator();
 };
 
-#endif // LOG_DEC
+#endif

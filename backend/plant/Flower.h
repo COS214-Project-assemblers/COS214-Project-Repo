@@ -1,6 +1,7 @@
 /**
  * @file Flower.h
  * @brief Defines the Flower subclass derived from the Plant base class.
+ * @author Megan Norval
  */
 
 #ifndef FLOWER_H
@@ -24,8 +25,6 @@ class Flower : public Plant
          * @param [in] difficulty The level of difficulty for care (Easy/Medium/Hard)
          */
         Flower(string variety,string difficulty);
-        // Flower(string variety);
-
 
         /**
          * @brief Destroys the Flower object.

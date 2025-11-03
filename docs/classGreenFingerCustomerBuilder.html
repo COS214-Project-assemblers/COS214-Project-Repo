@@ -91,9 +91,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a396fbc6832159031058b09dff38b6ecc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenFingerCustomerBuilder.html#a396fbc6832159031058b09dff38b6ecc">GreenFingerCustomerBuilder</a> (<a class="el" href="classGameConfiguraton.html">GameConfiguraton</a> *config)</td></tr>
 <tr class="memdesc:a396fbc6832159031058b09dff38b6ecc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="classGreenFingerCustomerBuilder.html" title="Concrete builder for constructing GreenFingerCustomer objects with random dialogue selection.">GreenFingerCustomerBuilder</a> object.  <a href="classGreenFingerCustomerBuilder.html#a396fbc6832159031058b09dff38b6ecc">More...</a><br /></td></tr>
 <tr class="separator:a396fbc6832159031058b09dff38b6ecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35e979a3910dd0befee9fc81ccb7c456"><td class="memItemLeft" align="right" valign="top"><a id="a35e979a3910dd0befee9fc81ccb7c456"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenFingerCustomerBuilder.html#a35e979a3910dd0befee9fc81ccb7c456">~GreenFingerCustomerBuilder</a> ()</td></tr>
-<tr class="memdesc:a35e979a3910dd0befee9fc81ccb7c456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the <a class="el" href="classGreenFingerCustomerBuilder.html" title="Concrete builder for constructing GreenFingerCustomer objects with random dialogue selection.">GreenFingerCustomerBuilder</a> object. <br /></td></tr>
+<tr class="memitem:a35e979a3910dd0befee9fc81ccb7c456"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenFingerCustomerBuilder.html#a35e979a3910dd0befee9fc81ccb7c456">~GreenFingerCustomerBuilder</a> ()</td></tr>
+<tr class="memdesc:a35e979a3910dd0befee9fc81ccb7c456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the <a class="el" href="classGreenFingerCustomerBuilder.html" title="Concrete builder for constructing GreenFingerCustomer objects with random dialogue selection.">GreenFingerCustomerBuilder</a> object.  <a href="classGreenFingerCustomerBuilder.html#a35e979a3910dd0befee9fc81ccb7c456">More...</a><br /></td></tr>
 <tr class="separator:a35e979a3910dd0befee9fc81ccb7c456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79c1b3834c41c78f41546899bb75f8aa"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenFingerCustomerBuilder.html#a79c1b3834c41c78f41546899bb75f8aa">getRandomElement</a> (const vector&lt; string &gt; &amp;v)</td></tr>
 <tr class="memdesc:a79c1b3834c41c78f41546899bb75f8aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects a random element from a string vector.  <a href="classGreenFingerCustomerBuilder.html#a79c1b3834c41c78f41546899bb75f8aa">More...</a><br /></td></tr>
@@ -175,10 +174,31 @@ Additional Inherited Members</h2></td></tr>
 <p>Constructs a new <a class="el" href="classGreenFingerCustomerBuilder.html" title="Concrete builder for constructing GreenFingerCustomer objects with random dialogue selection.">GreenFingerCustomerBuilder</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the game configuration containing customer data </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the game configuration containing customer data</td></tr>
   </table>
   </dd>
 </dl>
+<p>Initializes the random number generator with current time seed </p>
+
+</div>
+</div>
+<a id="a35e979a3910dd0befee9fc81ccb7c456"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35e979a3910dd0befee9fc81ccb7c456">&#9670;&nbsp;</a></span>~GreenFingerCustomerBuilder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GreenFingerCustomerBuilder::~GreenFingerCustomerBuilder </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destroys the <a class="el" href="classGreenFingerCustomerBuilder.html" title="Concrete builder for constructing GreenFingerCustomer objects with random dialogue selection.">GreenFingerCustomerBuilder</a> object. </p>
+<p>Cleans up resources. Note: Does not own the config pointer. </p>
 
 </div>
 </div>
@@ -210,7 +230,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Accepts a visitor to provide plant recommendations. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">visitor</td><td>Reference to the <a class="el" href="classCustomerVisitor.html" title="This is the abstract base class for defining operations for the concreteVisitors.">CustomerVisitor</a> that will recommend plants </td></tr>
+    <tr><td class="paramname">visitor</td><td>Reference to the <a class="el" href="classCustomerVisitor.html" title="Abstract base class for defining operations for the concrete visitors.">CustomerVisitor</a> that will recommend plants </td></tr>
   </table>
   </dd>
 </dl>
@@ -244,7 +264,8 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Randomly selected string, or empty string if vector is empty </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Randomly selected string, or empty string if vector is empty</dd></dl>
+<p>Uses the internal RNG to select a random index </p>
 
 </div>
 </div>

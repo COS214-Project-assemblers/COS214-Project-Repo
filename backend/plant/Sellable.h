@@ -1,3 +1,8 @@
+/**
+ * @file Sellable.h
+ * @brief Concrete state for plants ready for sale
+ */
+
 #ifndef SELLABLE_H
 #define SELLABLE_H
 
@@ -22,6 +27,10 @@ class Sellable : public PlantState {
          */
         void handle(Plant* plant);
 
+        /**
+         * @brief Gets the state name
+         * @return "Sellable" string
+         */
         string getState();
 };
 

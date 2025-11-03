@@ -1,0 +1,10 @@
+<map id="backend/greenhouse/Manager.h" name="backend/greenhouse/Manager.h">
+<area shape="rect" id="node1" title="Manager class for coordinating plant sales and customer interactions." alt="" coords="103,5,259,47"/>
+<area shape="rect" id="node2" href="$Game_8h.html" title="Header file for Game class &#45; Main game facade." alt="" coords="95,95,267,121"/>
+<area shape="rect" id="node3" href="$API_8h.html" title="Bootstrapper for public facing API." alt="" coords="5,169,144,196"/>
+<area shape="rect" id="node4" href="$APIController_8h.html" title="Define endpoints." alt="" coords="159,319,361,345"/>
+<area shape="rect" id="node6" href="$MenuOption_8h.html" title="Base class for menu command options." alt="" coords="233,169,445,196"/>
+<area shape="rect" id="node5" href="$APIController_8cpp.html" title="Still need to see what going to do here." alt="" coords="152,393,368,420"/>
+<area shape="rect" id="node7" href="$ExitGameOption_8h.html" title="Command for exiting the game with logging capabilities." alt="" coords="219,244,459,271"/>
+<area shape="rect" id="node8" href="$NewGameOption_8h.html" title="Header file for NewGameOption class." alt="" coords="483,244,727,271"/>
+</map>

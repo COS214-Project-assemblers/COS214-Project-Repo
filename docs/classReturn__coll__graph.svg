@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Will handle the transaction as a Return.">
+<g id="a_node1"><a xlink:title="Handles financial transactions for customer returns.">
 <polygon fill="#bfbfbf" stroke="black" points="32,-0.5 32,-19.5 81,-19.5 81,-0.5 32,-0.5"/>
 <text text-anchor="middle" x="56.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Return</text>
 </a>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classTransactionStrategy.html" target="_top" xlink:title="The TransactionStrategy class an abstract class that will help define how transactions will be handel...">
+<g id="a_node2"><a xlink:href="classTransactionStrategy.html" target="_top" xlink:title="Abstract base class for transaction handling strategies.">
 <polygon fill="white" stroke="black" points="0,-56.5 0,-75.5 113,-75.5 113,-56.5 0,-56.5"/>
 <text text-anchor="middle" x="56.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">TransactionStrategy</text>
 </a>

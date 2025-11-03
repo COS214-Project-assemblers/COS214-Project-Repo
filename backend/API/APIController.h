@@ -15,7 +15,6 @@
 #include "Game.h"
 #include "PlayerMenu.h"
 #include "NewGameOption.h"
-#include "ContinueGameOption.h"
 #include "BasicLogger.h"
 #include "API.h"
 #include "ExitGameOption.h"
@@ -28,58 +27,63 @@
 
 /**
  * @class APIController
- * @warning see I might have might booboo with parent class being called ApiController
  * @brief Sample Api Controller.
+ * @details Handles HTTP endpoints and routes requests to game functionality.
+ * Provides REST API endpoints for game operations including creating games,
+ * buying plants, managing customers, and checking game state.
  */
 class APIController : public oatpp::web::server::api::ApiController {
   private:
-  /**
-   * @brief Via this member variable, access to private members of the API class (such as "game" member var)
-   *  is obtained
-   */
+    /**
+     * @brief Reference to API instance for accessing game state
+     * @details Via this member variable, access to private members of the API class 
+     * (such as "game" member var) is obtained
+     */
     API& apiToControl;
 public:
   /**
    * @brief Constructor with object mapper.
    * @param apiContentMappers - mappers used to serialize/deserialize DTOs.
+   * @param inApi - Reference to API instance for game state access
    */
   APIController(std::shared_ptr<oatpp::web::mime::ContentMappers>& apiContentMappers, API& inApi)
     : oatpp::web::server::api::ApiController(apiContentMappers), apiToControl(inApi)
   {}
 
+  /**
+   * @brief Creates a shared instance of APIController
+   * @param inApi Reference to API instance
+   * @return std::shared_ptr<APIController> Shared pointer to controller instance
+   */
   static std::shared_ptr<APIController> createShared(API& inApi) {
     OATPP_COMPONENT(std::shared_ptr<oatpp::web::mime::ContentMappers>, apiContentMappers);
     return std::make_shared<APIController>(apiContentMappers, inApi);
   }
-public:
   
+  /**
+   * @brief Root endpoint returning hello message
+   * @return Response with status 200 and hello message
+   */
   ENDPOINT("GET", "/", root) {
     auto dto = APIDto::createShared();
     dto->statusCode = 200;
     dto->message = "Hello World!";
     return createDtoResponse(Status::CODE_200, dto);
   }
-
-  // ENDPOINT("GET", "/get-balance", root) {
-  //   auto dto = APIDto::createShared();
-  //   dto->statusCode = 200;
-  //   dto->message = "Hello World!";
-  //   return createDtoResponse(Status::CODE_200, dto);
-  // }
   
   /**
-   * @brief Executes NewGameOption Command
+   * @brief Creates a new game instance
+   * @details Executes NewGameOption Command. Initializes game using GAME_CONFIG_PATH environment variable.
+   * Response structure:
+   * @code
+   * {
+   *  message: <game-status>,
+   *  statusCode: <HTTP status code, 200/500>
+   * }
+   * @endcode
+   * @return Response with game creation status
    */
   ENDPOINT("GET", "/new-game", newGameEndp) {
-    /**
-     * Response structure
-     * 
-     * {
-     *  message: <game-status>,
-     *  statusCode: <HTTP status code, 200/500>
-     * }
-     */
-    
     if (apiToControl.game == nullptr)
     {
       char* gameConfigPath = getenv("GAME_CONFIG_PATH");
@@ -114,15 +118,18 @@ public:
     }   
   }
   
+  /**
+   * @brief Exits the current game
+   * @details Response structure:
+   * @code
+   * {
+   *  message: <game-status>,
+   *  statusCode: <HTTP status code, 200/500>
+   * }
+   * @endcode
+   * @return Response with game exit status
+   */
   ENDPOINT("GET", "/exit-game", exitGameEndp) {
-    /**
-     * Response structure
-     * 
-     * {
-     *  message: <game-status>,
-     *  statusCode: <HTTP status code, 200/500>
-     * }
-     */
     PlayerMenu* playerMenu = new PlayerMenu();
     BasicLogger* logger = new BasicLogger();
     ExitGameOption* exitGame = new ExitGameOption(apiToControl.game, logger);
@@ -146,18 +153,21 @@ public:
       return createDtoResponse(Status::CODE_500, dto);
     }   
   }
-  // Further Endpoints
 
+  /**
+   * @brief Purchases plants for the game
+   * @details Response structure:
+   * @code
+   * {
+   *  message: <operation-status>,
+   *  statusCode: <HTTP status code, 200/400/500>
+   * }
+   * @endcode
+   * @param body BuyPlantDTO containing plant type and quantity
+   * @return Response with purchase operation status
+   */
   ENDPOINT("POST", "/buy-plants", buyPlants, BODY_DTO(oatpp::Object<BuyPlantDTO>, body)) 
   {
-    /**
-     * Response structure
-     * 
-     * {
-     *  message: <operation-status>,
-     *  statusCode: <HTTP status code, 200/400/500>
-     * }
-     */
     auto dto = APIDto::createShared();
 
     // Input validation using the request body DTO
@@ -201,14 +211,20 @@ public:
     }
   }
 
+  /**
+   * @brief Adds customers to the game
+   * @details Expected request structure:
+   * @code
+   * {
+   *   "customerType": "ignorant",
+   *   "numToAdd": 5
+   * }
+   * @endcode
+   * @param body AddCustomerDTO containing customer type and quantity
+   * @return Response with customer addition status
+   */
   ENDPOINT("POST", "/add-customers", addCustomers, BODY_DTO(oatpp::Object<AddCustomerDTO>, body)) 
   { 
-    // Expected request structure:
-    // {
-    //   "customerType": "ignorant",
-    //   "numToAdd": 5
-    // }
-    
     auto dto = APIDto::createShared();
 
     if (!body) 
@@ -256,6 +272,10 @@ public:
     }
   }
 
+  /**
+   * @brief Retrieves current customers as JSON
+   * @return CustomerResponseDTO containing customer data and status
+   */
   ENDPOINT("GET", "/customers", getCustomers) 
   {
     auto dto = CustomerResponseDTO::createShared();
@@ -279,6 +299,10 @@ public:
     }
   }
 
+  /**
+   * @brief Retrieves current game balance
+   * @return BalanceResponseDTO containing balance amount and status
+   */
   ENDPOINT("GET", "/balance", getBalance)
   {
     auto dto = BalanceResponseDTO::createShared();
@@ -303,6 +327,10 @@ public:
     }
   }
 
+  /**
+   * @brief Retrieves greenhouse plants as JSON
+   * @return APIDto with plants data in data field
+   */
   ENDPOINT("GET", "/greenhouse/plants", getGreenhousePlants)
   {
     auto dto = APIDto::createShared();
@@ -327,6 +355,11 @@ public:
     }
   }
 
+  /**
+   * @brief Performs care actions on a specific plant
+   * @param plant CareForPlantDTO containing plant ID
+   * @return APIDto with operation status
+   */
   ENDPOINT("POST", "/greenhouse/plant-care", careForPlant, BODY_DTO(oatpp::Object<CareForPlantDTO>, plant))
   {
     auto dto = APIDto::createShared();
@@ -348,8 +381,12 @@ public:
     }
   }
 
-  // Reusing DTO for plant Id, will rename to something better later
-    ENDPOINT("POST", "/salesfloor/make-sale", makeSale, BODY_DTO(oatpp::Object<CareForPlantDTO>, plant))
+  /**
+   * @brief Makes a sale of a plant to customers
+   * @param plant CareForPlantDTO containing plant ID
+   * @return APIDto with operation status
+   */
+  ENDPOINT("POST", "/salesfloor/make-sale", makeSale, BODY_DTO(oatpp::Object<CareForPlantDTO>, plant))
   {
     auto dto = APIDto::createShared();
     
@@ -369,7 +406,11 @@ public:
     }
   }
 
-ENDPOINT("GET", "/clear-customers", clearCust)
+  /**
+   * @brief Clears all customers from the game
+   * @return APIDto with operation status
+   */
+  ENDPOINT("GET", "/clear-customers", clearCust)
   {
     auto dto = APIDto::createShared();
 
@@ -393,6 +434,7 @@ ENDPOINT("GET", "/clear-customers", clearCust)
     }
   }
 };
+
 #include OATPP_CODEGEN_END(ApiController) //<-- End Codegen
 
-#endif // API_CONTROLLERH
+#endif

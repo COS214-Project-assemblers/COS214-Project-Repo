@@ -1,3 +1,8 @@
+/**
+ * @file NotSellable.h
+ * @brief Concrete state for plants not ready for sale
+ */
+
 #ifndef NOTSELLABLE_H
 #define NOTSELLABLE_H
 
@@ -23,6 +28,10 @@ class NotSellable : public PlantState {
          */
         void handle(Plant* plant);
 
+        /**
+         * @brief Gets the state name
+         * @return "NotSellable" string
+         */
         string getState();
 };
 

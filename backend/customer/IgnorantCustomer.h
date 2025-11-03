@@ -1,6 +1,7 @@
 /**
  * @file IgnorantCustomer.h
  * @brief Concrete customer class representing inexperienced plant buyers.
+ * @author Megan Norval
  */
 
 #ifndef IGNORANTCUSTOMER_H
@@ -26,11 +27,13 @@ class IgnorantCustomer : public Customer
     public:
         /**
          * @brief Constructs a new IgnorantCustomer object.
+         * @details Initializes the customer type as "ignorant" and sets up base customer structure.
          */
         IgnorantCustomer();
 
         /**
          * @brief Destroys the IgnorantCustomer object.
+         * @details Cleans up resources through base class destructor.
          */
         ~IgnorantCustomer();
 };

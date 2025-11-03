@@ -68,39 +68,146 @@ $(function() {
 <div class="title">Greenhouse Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Central greenhouse management system coordinating plants, staff, and sales.  
+ <a href="classGreenhouse.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Greenhouse_8h_source.html">Greenhouse.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acaeb60786d01f311fa302edcea95a3bf"><td class="memItemLeft" align="right" valign="top"><a id="acaeb60786d01f311fa302edcea95a3bf"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Greenhouse</b> (<a class="el" href="classGreenSock.html">GreenSock</a> *socket)</td></tr>
+<tr class="memitem:acaeb60786d01f311fa302edcea95a3bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouse.html#acaeb60786d01f311fa302edcea95a3bf">Greenhouse</a> (<a class="el" href="classGreenSock.html">GreenSock</a> *socket)</td></tr>
+<tr class="memdesc:acaeb60786d01f311fa302edcea95a3bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor - initializes greenhouse with WebSocket connection.  <a href="classGreenhouse.html#acaeb60786d01f311fa302edcea95a3bf">More...</a><br /></td></tr>
 <tr class="separator:acaeb60786d01f311fa302edcea95a3bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67f734eb872fb733e81863e2075c0a33"><td class="memItemLeft" align="right" valign="top"><a id="a67f734eb872fb733e81863e2075c0a33"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouse.html#a67f734eb872fb733e81863e2075c0a33">addPlant</a> (<a class="el" href="classPlant.html">Plant</a> *p)</td></tr>
-<tr class="memdesc:a67f734eb872fb733e81863e2075c0a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function will be used to add a <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> into the inventory of the <a class="el" href="classGreenhouse.html">Greenhouse</a>. <br /></td></tr>
+<tr class="memitem:ac7f700007b476ae8b44e63e044d24397"><td class="memItemLeft" align="right" valign="top"><a id="ac7f700007b476ae8b44e63e044d24397"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouse.html#ac7f700007b476ae8b44e63e044d24397">~Greenhouse</a> ()</td></tr>
+<tr class="memdesc:ac7f700007b476ae8b44e63e044d24397"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor - cleans up greenhouse resources. <br /></td></tr>
+<tr class="separator:ac7f700007b476ae8b44e63e044d24397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67f734eb872fb733e81863e2075c0a33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouse.html#a67f734eb872fb733e81863e2075c0a33">addPlant</a> (<a class="el" href="classPlant.html">Plant</a> *p)</td></tr>
+<tr class="memdesc:a67f734eb872fb733e81863e2075c0a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a plant to the greenhouse inventory.  <a href="classGreenhouse.html#a67f734eb872fb733e81863e2075c0a33">More...</a><br /></td></tr>
 <tr class="separator:a67f734eb872fb733e81863e2075c0a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5df0637bb55bb2cbff67e906e30aa4aa"><td class="memItemLeft" align="right" valign="top"><a id="a5df0637bb55bb2cbff67e906e30aa4aa"></a>
-<a class="el" href="classInventory.html">Inventory</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getInventory</b> ()</td></tr>
+<tr class="memitem:a5df0637bb55bb2cbff67e906e30aa4aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classInventory.html">Inventory</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouse.html#a5df0637bb55bb2cbff67e906e30aa4aa">getInventory</a> ()</td></tr>
+<tr class="memdesc:a5df0637bb55bb2cbff67e906e30aa4aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get greenhouse inventory.  <a href="classGreenhouse.html#a5df0637bb55bb2cbff67e906e30aa4aa">More...</a><br /></td></tr>
 <tr class="separator:a5df0637bb55bb2cbff67e906e30aa4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f325b5c435ca2b39dc8b1775f67b3f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouse.html#a1f325b5c435ca2b39dc8b1775f67b3f4">removePlant</a> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
-<tr class="memdesc:a1f325b5c435ca2b39dc8b1775f67b3f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes a plant from the greenhouse inventory  <a href="classGreenhouse.html#a1f325b5c435ca2b39dc8b1775f67b3f4">More...</a><br /></td></tr>
+<tr class="memdesc:a1f325b5c435ca2b39dc8b1775f67b3f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a plant from the greenhouse inventory.  <a href="classGreenhouse.html#a1f325b5c435ca2b39dc8b1775f67b3f4">More...</a><br /></td></tr>
 <tr class="separator:a1f325b5c435ca2b39dc8b1775f67b3f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99ae8568b30e246ad6d03cd3c7fff6db"><td class="memItemLeft" align="right" valign="top"><a id="a99ae8568b30e246ad6d03cd3c7fff6db"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>takeCareOfPlant</b> (string id)</td></tr>
+<tr class="memitem:a99ae8568b30e246ad6d03cd3c7fff6db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouse.html#a99ae8568b30e246ad6d03cd3c7fff6db">takeCareOfPlant</a> (string id)</td></tr>
+<tr class="memdesc:a99ae8568b30e246ad6d03cd3c7fff6db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates care routine for a specific plant.  <a href="classGreenhouse.html#a99ae8568b30e246ad6d03cd3c7fff6db">More...</a><br /></td></tr>
 <tr class="separator:a99ae8568b30e246ad6d03cd3c7fff6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0f1a1d72175d8f488e60fe5141f7fe9"><td class="memItemLeft" align="right" valign="top"><a id="aa0f1a1d72175d8f488e60fe5141f7fe9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSalesFloor</b> (<a class="el" href="classSalesFloor.html">SalesFloor</a> *salesFloor)</td></tr>
+<tr class="memitem:aa0f1a1d72175d8f488e60fe5141f7fe9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouse.html#aa0f1a1d72175d8f488e60fe5141f7fe9">setSalesFloor</a> (<a class="el" href="classSalesFloor.html">SalesFloor</a> *salesFloor)</td></tr>
+<tr class="memdesc:aa0f1a1d72175d8f488e60fe5141f7fe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the sales floor interface.  <a href="classGreenhouse.html#aa0f1a1d72175d8f488e60fe5141f7fe9">More...</a><br /></td></tr>
 <tr class="separator:aa0f1a1d72175d8f488e60fe5141f7fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dee6df9abeebd42d522afbb35a93319"><td class="memItemLeft" align="right" valign="top"><a id="a8dee6df9abeebd42d522afbb35a93319"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>startThreads</b> ()</td></tr>
-<tr class="separator:a8dee6df9abeebd42d522afbb35a93319"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13d54a53dcc25b048aaec82f32720a59"><td class="memItemLeft" align="right" valign="top"><a id="a13d54a53dcc25b048aaec82f32720a59"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSocket</b> (<a class="el" href="classGreenSock.html">GreenSock</a> *greenSocket)</td></tr>
+<tr class="memitem:a13d54a53dcc25b048aaec82f32720a59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouse.html#a13d54a53dcc25b048aaec82f32720a59">setSocket</a> (<a class="el" href="classGreenSock.html">GreenSock</a> *greenSocket)</td></tr>
+<tr class="memdesc:a13d54a53dcc25b048aaec82f32720a59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets WebSocket connection.  <a href="classGreenhouse.html#a13d54a53dcc25b048aaec82f32720a59">More...</a><br /></td></tr>
 <tr class="separator:a13d54a53dcc25b048aaec82f32720a59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12bc8348a683ce3336e5e583c395bc2c"><td class="memItemLeft" align="right" valign="top"><a id="a12bc8348a683ce3336e5e583c395bc2c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>movePlant</b> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
+<tr class="memitem:a12bc8348a683ce3336e5e583c395bc2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGreenhouse.html#a12bc8348a683ce3336e5e583c395bc2c">movePlant</a> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
+<tr class="memdesc:a12bc8348a683ce3336e5e583c395bc2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves plant from greenhouse to sales floor.  <a href="classGreenhouse.html#a12bc8348a683ce3336e5e583c395bc2c">More...</a><br /></td></tr>
 <tr class="separator:a12bc8348a683ce3336e5e583c395bc2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Central greenhouse management system coordinating plants, staff, and sales. </p>
+<p>The <a class="el" href="classGreenhouse.html" title="Central greenhouse management system coordinating plants, staff, and sales.">Greenhouse</a> class serves as the main hub for plant management, maintaining inventory, coordinating staff activities, and interfacing with the sales floor. It follows the Facade pattern to provide a simplified interface to the complex greenhouse subsystem. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="acaeb60786d01f311fa302edcea95a3bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaeb60786d01f311fa302edcea95a3bf">&#9670;&nbsp;</a></span>Greenhouse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Greenhouse::Greenhouse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGreenSock.html">GreenSock</a> *&#160;</td>
+          <td class="paramname"><em>socket</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor - initializes greenhouse with WebSocket connection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket</td><td>WebSocket connection for real-time updates </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a67f734eb872fb733e81863e2075c0a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67f734eb872fb733e81863e2075c0a33">&#9670;&nbsp;</a></span>addPlant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Greenhouse::addPlant </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlant.html">Plant</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a plant to the greenhouse inventory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Pointer to <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> to add </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5df0637bb55bb2cbff67e906e30aa4aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5df0637bb55bb2cbff67e906e30aa4aa">&#9670;&nbsp;</a></span>getInventory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classInventory.html">Inventory</a> * Greenhouse::getInventory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get greenhouse inventory. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to <a class="el" href="classInventory.html" title="Manages collection of plants for sale and greenhouse operations.">Inventory</a> object </dd></dl>
+
+</div>
+</div>
+<a id="a12bc8348a683ce3336e5e583c395bc2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12bc8348a683ce3336e5e583c395bc2c">&#9670;&nbsp;</a></span>movePlant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Greenhouse::movePlant </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlant.html">Plant</a> *&#160;</td>
+          <td class="paramname"><em>plant</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves plant from greenhouse to sales floor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plant</td><td>Pointer to <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> to move </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a1f325b5c435ca2b39dc8b1775f67b3f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1f325b5c435ca2b39dc8b1775f67b3f4">&#9670;&nbsp;</a></span>removePlant()</h2>
 
@@ -117,10 +224,89 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>movePlant</b> (<a cla
       </table>
 </div><div class="memdoc">
 
-<p>removes a plant from the greenhouse inventory </p>
+<p>Removes a plant from the greenhouse inventory. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">plant</td><td>Reference to the <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> being removed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to removed <a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> </dd></dl>
+
+</div>
+</div>
+<a id="aa0f1a1d72175d8f488e60fe5141f7fe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0f1a1d72175d8f488e60fe5141f7fe9">&#9670;&nbsp;</a></span>setSalesFloor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Greenhouse::setSalesFloor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSalesFloor.html">SalesFloor</a> *&#160;</td>
+          <td class="paramname"><em>salesFloor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the sales floor interface. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">salesFloor</td><td>Pointer to <a class="el" href="classSalesFloor.html" title="Manages customer flow and provides access to inventory for sales interactions.">SalesFloor</a> instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a13d54a53dcc25b048aaec82f32720a59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13d54a53dcc25b048aaec82f32720a59">&#9670;&nbsp;</a></span>setSocket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Greenhouse::setSocket </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGreenSock.html">GreenSock</a> *&#160;</td>
+          <td class="paramname"><em>greenSocket</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets WebSocket connection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">greenSocket</td><td>Pointer to <a class="el" href="classGreenSock.html">GreenSock</a> instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a99ae8568b30e246ad6d03cd3c7fff6db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99ae8568b30e246ad6d03cd3c7fff6db">&#9670;&nbsp;</a></span>takeCareOfPlant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Greenhouse::takeCareOfPlant </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initiates care routine for a specific plant. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td><a class="el" href="classPlant.html" title="Abstract base class representing a plant entity in the greenhouse simulation.">Plant</a> identifier </td></tr>
   </table>
   </dd>
 </dl>

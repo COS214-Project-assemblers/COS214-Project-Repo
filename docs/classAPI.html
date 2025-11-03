@@ -70,42 +70,178 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Bootstraps (starts) public facing <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a>.  
+<p>Bootstraps (starts) and manages public facing <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> server.  
  <a href="classAPI.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="API_8h_source.html">API.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a84eaa6196f83bbfc69a9be4fc9665040"><td class="memItemLeft" align="right" valign="top"><a id="a84eaa6196f83bbfc69a9be4fc9665040"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPI.html#a84eaa6196f83bbfc69a9be4fc9665040">bootstrap</a> ()</td></tr>
-<tr class="memdesc:a84eaa6196f83bbfc69a9be4fc9665040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bootstrap (<a href="https://en.wikipedia.org/wiki/Bootstrapping">https://en.wikipedia.org/wiki/Bootstrapping</a>) <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a> server. <br /></td></tr>
+<tr class="memitem:a84eaa6196f83bbfc69a9be4fc9665040"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPI.html#a84eaa6196f83bbfc69a9be4fc9665040">bootstrap</a> ()</td></tr>
+<tr class="memdesc:a84eaa6196f83bbfc69a9be4fc9665040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bootstrap <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> server components and start server.  <a href="classAPI.html#a84eaa6196f83bbfc69a9be4fc9665040">More...</a><br /></td></tr>
 <tr class="separator:a84eaa6196f83bbfc69a9be4fc9665040"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65eaa62223b5f6944b34b760edb27bf2"><td class="memItemLeft" align="right" valign="top"><a id="a65eaa62223b5f6944b34b760edb27bf2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPI.html#a65eaa62223b5f6944b34b760edb27bf2">run</a> ()</td></tr>
-<tr class="memdesc:a65eaa62223b5f6944b34b760edb27bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows the client to start <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a> server, calls bootstrapper. <br /></td></tr>
+<tr class="memitem:a65eaa62223b5f6944b34b760edb27bf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPI.html#a65eaa62223b5f6944b34b760edb27bf2">run</a> ()</td></tr>
+<tr class="memdesc:a65eaa62223b5f6944b34b760edb27bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main entry point to run the <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> server.  <a href="classAPI.html#a65eaa62223b5f6944b34b760edb27bf2">More...</a><br /></td></tr>
 <tr class="separator:a65eaa62223b5f6944b34b760edb27bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a782b096bd60362b164f4f3adc516ae1a"><td class="memItemLeft" align="right" valign="top"><a id="a782b096bd60362b164f4f3adc516ae1a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPI.html#a782b096bd60362b164f4f3adc516ae1a">exitGame</a> ()</td></tr>
-<tr class="memdesc:a782b096bd60362b164f4f3adc516ae1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">deletes current game member <br /></td></tr>
+<tr class="memitem:a782b096bd60362b164f4f3adc516ae1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPI.html#a782b096bd60362b164f4f3adc516ae1a">exitGame</a> ()</td></tr>
+<tr class="memdesc:a782b096bd60362b164f4f3adc516ae1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans up and exits the current game.  <a href="classAPI.html#a782b096bd60362b164f4f3adc516ae1a">More...</a><br /></td></tr>
 <tr class="separator:a782b096bd60362b164f4f3adc516ae1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5185c25e8e7a9f24e59d173ad7d28e90"><td class="memItemLeft" align="right" valign="top"><a id="a5185c25e8e7a9f24e59d173ad7d28e90"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSocket</b> (<a class="el" href="classGreenSock.html">GreenSock</a> *socket)</td></tr>
+<tr class="memitem:a5185c25e8e7a9f24e59d173ad7d28e90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPI.html#a5185c25e8e7a9f24e59d173ad7d28e90">setSocket</a> (<a class="el" href="classGreenSock.html">GreenSock</a> *socket)</td></tr>
+<tr class="memdesc:a5185c25e8e7a9f24e59d173ad7d28e90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets WebSocket connection for real-time communication.  <a href="classAPI.html#a5185c25e8e7a9f24e59d173ad7d28e90">More...</a><br /></td></tr>
 <tr class="separator:a5185c25e8e7a9f24e59d173ad7d28e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56880e71419f5aed9231256a3d2468a2"><td class="memItemLeft" align="right" valign="top"><a id="a56880e71419f5aed9231256a3d2468a2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGame</b> (<a class="el" href="classGame.html">Game</a> *game)</td></tr>
+<tr class="memitem:a56880e71419f5aed9231256a3d2468a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPI.html#a56880e71419f5aed9231256a3d2468a2">setGame</a> (<a class="el" href="classGame.html">Game</a> *game)</td></tr>
+<tr class="memdesc:a56880e71419f5aed9231256a3d2468a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the game instance for <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> to manage.  <a href="classAPI.html#a56880e71419f5aed9231256a3d2468a2">More...</a><br /></td></tr>
 <tr class="separator:a56880e71419f5aed9231256a3d2468a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a5b46ef8a82b316165de7cf4c5cfcf627"><td class="memItemLeft" align="right" valign="top"><a id="a5b46ef8a82b316165de7cf4c5cfcf627"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPI.html#a5b46ef8a82b316165de7cf4c5cfcf627">APIController</a></td></tr>
-<tr class="memdesc:a5b46ef8a82b316165de7cf4c5cfcf627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declare <a class="el" href="classAPIController.html" title="Sample Api Controller.">APIController</a> as friend class of <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a> such that <a class="el" href="classAPIController.html" title="Sample Api Controller.">APIController</a> can have access to private member variables like the "game" member variable. This is done to ensure extensibility, client interacts with <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a>, <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a> with <a class="el" href="classAPIController.html" title="Sample Api Controller.">APIController</a>, if ever <a class="el" href="classAPIController.html" title="Sample Api Controller.">APIController</a> needs more context client can pass to <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a> to store in state, <a class="el" href="classAPIController.html" title="Sample Api Controller.">APIController</a> has access to <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a> state. <br /></td></tr>
+<tr class="memitem:a5b46ef8a82b316165de7cf4c5cfcf627"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAPI.html#a5b46ef8a82b316165de7cf4c5cfcf627">APIController</a></td></tr>
+<tr class="memdesc:a5b46ef8a82b316165de7cf4c5cfcf627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declare <a class="el" href="classAPIController.html" title="Sample Api Controller.">APIController</a> as friend class.  <a href="classAPI.html#a5b46ef8a82b316165de7cf4c5cfcf627">More...</a><br /></td></tr>
 <tr class="separator:a5b46ef8a82b316165de7cf4c5cfcf627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Bootstraps (starts) public facing <a class="el" href="classAPI.html" title="Bootstraps (starts) public facing API.">API</a>. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p>Bootstraps (starts) and manages public facing <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> server. </p>
+<p>Main application class that initializes Oat++ environment, configures components, and manages the game lifecycle. Provides access to game functionality for controllers through friend class relationship. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a84eaa6196f83bbfc69a9be4fc9665040"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84eaa6196f83bbfc69a9be4fc9665040">&#9670;&nbsp;</a></span>bootstrap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void API::bootstrap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bootstrap <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> server components and start server. </p>
+<p>Initializes Oat++ components, sets up HTTP router, registers controllers, and starts TCP server on port 8000 </p>
+
+</div>
+</div>
+<a id="a782b096bd60362b164f4f3adc516ae1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a782b096bd60362b164f4f3adc516ae1a">&#9670;&nbsp;</a></span>exitGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void API::exitGame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cleans up and exits the current game. </p>
+<p>Deletes the current game instance if it exists </p>
+
+</div>
+</div>
+<a id="a65eaa62223b5f6944b34b760edb27bf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65eaa62223b5f6944b34b760edb27bf2">&#9670;&nbsp;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void API::run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Main entry point to run the <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> server. </p>
+<p>Calls <a class="el" href="classAPI.html#a84eaa6196f83bbfc69a9be4fc9665040" title="Bootstrap API server components and start server.">bootstrap()</a> and handles Oat++ environment initialization and cleanup </p>
+
+</div>
+</div>
+<a id="a56880e71419f5aed9231256a3d2468a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56880e71419f5aed9231256a3d2468a2">&#9670;&nbsp;</a></span>setGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void API::setGame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGame.html">Game</a> *&#160;</td>
+          <td class="paramname"><em>game</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the game instance for <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> to manage. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>Pointer to <a class="el" href="classGame.html" title="The main game class representing the internal API of the system.">Game</a> instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5185c25e8e7a9f24e59d173ad7d28e90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5185c25e8e7a9f24e59d173ad7d28e90">&#9670;&nbsp;</a></span>setSocket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void API::setSocket </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGreenSock.html">GreenSock</a> *&#160;</td>
+          <td class="paramname"><em>socket</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets WebSocket connection for real-time communication. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sock</td><td>Pointer to <a class="el" href="classGreenSock.html">GreenSock</a> WebSocket instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a5b46ef8a82b316165de7cf4c5cfcf627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b46ef8a82b316165de7cf4c5cfcf627">&#9670;&nbsp;</a></span>APIController</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classAPIController.html">APIController</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Declare <a class="el" href="classAPIController.html" title="Sample Api Controller.">APIController</a> as friend class. </p>
+<p>Allows <a class="el" href="classAPIController.html" title="Sample Api Controller.">APIController</a> to access private member variables like the "game" member variable. This ensures extensibility - client interacts with <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a>, <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> with <a class="el" href="classAPIController.html" title="Sample Api Controller.">APIController</a>. If <a class="el" href="classAPIController.html" title="Sample Api Controller.">APIController</a> needs more context, client can pass to <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> to store in state, and <a class="el" href="classAPIController.html" title="Sample Api Controller.">APIController</a> has access to <a class="el" href="classAPI.html" title="Bootstraps (starts) and manages public facing API server.">API</a> state. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>backend/API/<a class="el" href="API_8h_source.html">API.h</a></li>
 <li>backend/API/API.cpp</li>
 </ul>

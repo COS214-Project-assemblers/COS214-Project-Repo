@@ -1,6 +1,7 @@
 /**
  * @file AverageCustomer.h
  * @brief Concrete customer class representing moderately experienced plant buyers.
+ * @author Megan Norval
  */
 
 #ifndef AVERAGECUSTOMER_H
@@ -12,12 +13,10 @@
  * @class AverageCustomer
  * @brief Represents a customer with some plant experience who can handle moderate care requirements.
  * 
- * This customer type prefers plants with "Moderate" care level but will accept "Easy" plants
- * as fallback. Inherits from Customer base class and implements the specific dialogue patterns and plant preferences.
+ * This customer type prefers plants with "Medium" care level.
  * 
  * @see Customer
  */
-
 class AverageCustomer : public Customer
 {
     public:

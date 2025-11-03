@@ -1,6 +1,7 @@
 /**
  * @file CustomerBuilder.h
  * @brief Abstract builder interface for creating Customer objects.
+ * @author Megan Norval
  */
 
 #ifndef CUSTOMERBUILDER_H

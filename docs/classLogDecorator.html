@@ -70,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Allows user to add extended functionality to the log ConcreteStrategies, i.e. can add cout before log along with some colours/custom formatting.  
+<p>Base decorator for extending logger functionality.  
  <a href="classLogDecorator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="LogDecorator_8h_source.html">LogDecorator.h</a>&gt;</code></p>
@@ -89,22 +89,75 @@ Collaboration diagram for LogDecorator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afc1a84d2e135ca58b89569d0faa1c4eb"><td class="memItemLeft" align="right" valign="top"><a id="afc1a84d2e135ca58b89569d0faa1c4eb"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogDecorator.html#afc1a84d2e135ca58b89569d0faa1c4eb">newLog</a> (std::string message) override</td></tr>
-<tr class="memdesc:afc1a84d2e135ca58b89569d0faa1c4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">placeholder for ConcreteDecorators to inherit from <br /></td></tr>
+<tr class="memitem:afc1a84d2e135ca58b89569d0faa1c4eb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogDecorator.html#afc1a84d2e135ca58b89569d0faa1c4eb">newLog</a> (std::string message) override</td></tr>
+<tr class="memdesc:afc1a84d2e135ca58b89569d0faa1c4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default log implementation for decorators.  <a href="classLogDecorator.html#afc1a84d2e135ca58b89569d0faa1c4eb">More...</a><br /></td></tr>
 <tr class="separator:afc1a84d2e135ca58b89569d0faa1c4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab52f53f761053a3b94fef3f48d972f1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogDecorator.html#ab52f53f761053a3b94fef3f48d972f1b">setBaseLogger</a> (<a class="el" href="classLogger.html">Logger</a> *logger)</td></tr>
+<tr class="memitem:ab52f53f761053a3b94fef3f48d972f1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogDecorator.html#ab52f53f761053a3b94fef3f48d972f1b">setBaseLogger</a> (<a class="el" href="classLogger.html">Logger</a> *<a class="el" href="classLogDecorator.html#acda9153df0ba0a5984a5f561653bc662">logger</a>)</td></tr>
+<tr class="memdesc:ab52f53f761053a3b94fef3f48d972f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the base logger to be decorated.  <a href="classLogDecorator.html#ab52f53f761053a3b94fef3f48d972f1b">More...</a><br /></td></tr>
 <tr class="separator:ab52f53f761053a3b94fef3f48d972f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6139466faa1716ed4cbfe0ab47c8d5ed"><td class="memItemLeft" align="right" valign="top"><a id="a6139466faa1716ed4cbfe0ab47c8d5ed"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogDecorator.html#a6139466faa1716ed4cbfe0ab47c8d5ed">~LogDecorator</a> ()</td></tr>
+<tr class="memdesc:a6139466faa1716ed4cbfe0ab47c8d5ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper polymorphic cleanup. <br /></td></tr>
+<tr class="separator:a6139466faa1716ed4cbfe0ab47c8d5ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classLogger"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classLogger')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classLogger.html">Logger</a></td></tr>
+<tr class="memitem:ae93f62ca3e47716b7120acb032a260f3 inherit pub_methods_classLogger"><td class="memItemLeft" align="right" valign="top"><a id="ae93f62ca3e47716b7120acb032a260f3"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#ae93f62ca3e47716b7120acb032a260f3">~Logger</a> ()</td></tr>
+<tr class="memdesc:ae93f62ca3e47716b7120acb032a260f3 inherit pub_methods_classLogger"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper polymorphic cleanup. <br /></td></tr>
+<tr class="separator:ae93f62ca3e47716b7120acb032a260f3 inherit pub_methods_classLogger"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:acda9153df0ba0a5984a5f561653bc662"><td class="memItemLeft" align="right" valign="top"><a id="acda9153df0ba0a5984a5f561653bc662"></a>
-<a class="el" href="classLogger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>logger</b> = nullptr</td></tr>
+<a class="el" href="classLogger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogDecorator.html#acda9153df0ba0a5984a5f561653bc662">logger</a> = nullptr</td></tr>
+<tr class="memdesc:acda9153df0ba0a5984a5f561653bc662"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapped logger instance being decorated. <br /></td></tr>
 <tr class="separator:acda9153df0ba0a5984a5f561653bc662"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Allows user to add extended functionality to the log ConcreteStrategies, i.e. can add cout before log along with some colours/custom formatting. </p>
+<div class="textblock"><p>Base decorator for extending logger functionality. </p>
+<p>Implements the Decorator pattern to allow adding extended functionality to logger ConcreteStrategies, such as console output, custom formatting, or colors.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classLogger.html" title="Interface for concrete logging strategies.">Logger</a> </dd>
+<dd>
+<a class="el" href="classCoutAndLog.html" title="Decorator that logs messages to both console and underlying logger.">CoutAndLog</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="afc1a84d2e135ca58b89569d0faa1c4eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc1a84d2e135ca58b89569d0faa1c4eb">&#9670;&nbsp;</a></span>newLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void LogDecorator::newLog </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default log implementation for decorators. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The log message to process</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Can be overridden by concrete decorators </p>
+
+<p>Implements <a class="el" href="classLogger.html#a4019994ae26c88dd9eed155a14344173">Logger</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classCoutAndLog.html#a15de08071ab3f685f1d74323e109a121">CoutAndLog</a>.</p>
+
+</div>
+</div>
 <a id="ab52f53f761053a3b94fef3f48d972f1b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab52f53f761053a3b94fef3f48d972f1b">&#9670;&nbsp;</a></span>setBaseLogger()</h2>
 
@@ -120,9 +173,17 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the base logger to be decorated. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>Pointer to <a class="el" href="classLogger.html" title="Interface for concrete logging strategies.">Logger</a> instance to wrap </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">invalid_argument</td><td>when logger == nullptr </td></tr>
+    <tr><td class="paramname">std::invalid_argument</td><td>if logger is nullptr </td></tr>
   </table>
   </dd>
 </dl>

@@ -69,7 +69,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Command participant for encapsulating the command of exiting the game allows for advanced logging and obvious error handling.  
+<p>Command participant for encapsulating the command of exiting the game.  
  <a href="classExitGameOption.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ExitGameOption_8h_source.html">ExitGameOption.h</a>&gt;</code></p>
@@ -88,34 +88,109 @@ Collaboration diagram for ExitGameOption:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a32d2d76e045bd7779cb8755ad1a620ce"><td class="memItemLeft" align="right" valign="top"><a id="a32d2d76e045bd7779cb8755ad1a620ce"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExitGameOption.html#a32d2d76e045bd7779cb8755ad1a620ce">ExitGameOption</a> (<a class="el" href="classGame.html">Game</a> *<a class="el" href="classMenuOption.html#aab8e81ed33e23bea5245f6b63a702c2d">game</a>, <a class="el" href="classLogger.html">Logger</a> *<a class="el" href="classMenuOption.html#a1f22b70856b3fdc684d373b1d4f29e06">logger</a>=nullptr)</td></tr>
-<tr class="memdesc:a32d2d76e045bd7779cb8755ad1a620ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls parent constructor with passed in params. <br /></td></tr>
+<tr class="memitem:a32d2d76e045bd7779cb8755ad1a620ce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExitGameOption.html#a32d2d76e045bd7779cb8755ad1a620ce">ExitGameOption</a> (<a class="el" href="classGame.html">Game</a> *<a class="el" href="classMenuOption.html#aab8e81ed33e23bea5245f6b63a702c2d">game</a>, <a class="el" href="classLogger.html">Logger</a> *<a class="el" href="classMenuOption.html#a1f22b70856b3fdc684d373b1d4f29e06">logger</a>=nullptr)</td></tr>
+<tr class="memdesc:a32d2d76e045bd7779cb8755ad1a620ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor - initializes with game and optional logger.  <a href="classExitGameOption.html#a32d2d76e045bd7779cb8755ad1a620ce">More...</a><br /></td></tr>
 <tr class="separator:a32d2d76e045bd7779cb8755ad1a620ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a51cdc9f2bc98f8a9bb99610aa35004"><td class="memItemLeft" align="right" valign="top"><a id="a6a51cdc9f2bc98f8a9bb99610aa35004"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExitGameOption.html#a6a51cdc9f2bc98f8a9bb99610aa35004">execute</a> () override</td></tr>
-<tr class="memdesc:a6a51cdc9f2bc98f8a9bb99610aa35004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs and executes game-&gt;exitGame() <br /></td></tr>
+<tr class="memitem:a6a51cdc9f2bc98f8a9bb99610aa35004"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExitGameOption.html#a6a51cdc9f2bc98f8a9bb99610aa35004">execute</a> () override</td></tr>
+<tr class="memdesc:a6a51cdc9f2bc98f8a9bb99610aa35004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the exit game command.  <a href="classExitGameOption.html#a6a51cdc9f2bc98f8a9bb99610aa35004">More...</a><br /></td></tr>
 <tr class="separator:a6a51cdc9f2bc98f8a9bb99610aa35004"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classMenuOption"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classMenuOption')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classMenuOption.html">MenuOption</a></td></tr>
 <tr class="memitem:a95de33bac57106d7bcfa71f7723a069e inherit pub_methods_classMenuOption"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenuOption.html#a95de33bac57106d7bcfa71f7723a069e">MenuOption</a> (<a class="el" href="classGame.html">Game</a> *<a class="el" href="classMenuOption.html#aab8e81ed33e23bea5245f6b63a702c2d">game</a>, <a class="el" href="classLogger.html">Logger</a> *<a class="el" href="classMenuOption.html#a1f22b70856b3fdc684d373b1d4f29e06">logger</a>=nullptr)</td></tr>
-<tr class="memdesc:a95de33bac57106d7bcfa71f7723a069e inherit pub_methods_classMenuOption"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor sets attributes.  <a href="classMenuOption.html#a95de33bac57106d7bcfa71f7723a069e">More...</a><br /></td></tr>
+<tr class="memdesc:a95de33bac57106d7bcfa71f7723a069e inherit pub_methods_classMenuOption"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor - initializes game and logger references.  <a href="classMenuOption.html#a95de33bac57106d7bcfa71f7723a069e">More...</a><br /></td></tr>
 <tr class="separator:a95de33bac57106d7bcfa71f7723a069e inherit pub_methods_classMenuOption"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32097813f0ebc7d1426465deff6bb8d1 inherit pub_methods_classMenuOption"><td class="memItemLeft" align="right" valign="top"><a id="a32097813f0ebc7d1426465deff6bb8d1"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenuOption.html#a32097813f0ebc7d1426465deff6bb8d1">~MenuOption</a> ()=default</td></tr>
+<tr class="memdesc:a32097813f0ebc7d1426465deff6bb8d1 inherit pub_methods_classMenuOption"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper cleanup. <br /></td></tr>
+<tr class="separator:a32097813f0ebc7d1426465deff6bb8d1 inherit pub_methods_classMenuOption"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classMenuOption"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classMenuOption')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classMenuOption.html">MenuOption</a></td></tr>
 <tr class="memitem:aab8e81ed33e23bea5245f6b63a702c2d inherit pro_attribs_classMenuOption"><td class="memItemLeft" align="right" valign="top"><a id="aab8e81ed33e23bea5245f6b63a702c2d"></a>
 <a class="el" href="classGame.html">Game</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenuOption.html#aab8e81ed33e23bea5245f6b63a702c2d">game</a></td></tr>
-<tr class="memdesc:aab8e81ed33e23bea5245f6b63a702c2d inherit pro_attribs_classMenuOption"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to <a class="el" href="classGame.html" title="The Game class represents the internal API of the system. It is modelled in terms of the Facade desig...">Game</a> object. Needed to invoke method according to option. <br /></td></tr>
+<tr class="memdesc:aab8e81ed33e23bea5245f6b63a702c2d inherit pro_attribs_classMenuOption"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to <a class="el" href="classGame.html" title="The main game class representing the internal API of the system.">Game</a> object for command execution. <br /></td></tr>
 <tr class="separator:aab8e81ed33e23bea5245f6b63a702c2d inherit pro_attribs_classMenuOption"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f22b70856b3fdc684d373b1d4f29e06 inherit pro_attribs_classMenuOption"><td class="memItemLeft" align="right" valign="top"><a id="a1f22b70856b3fdc684d373b1d4f29e06"></a>
 <a class="el" href="classLogger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenuOption.html#a1f22b70856b3fdc684d373b1d4f29e06">logger</a></td></tr>
-<tr class="memdesc:a1f22b70856b3fdc684d373b1d4f29e06 inherit pro_attribs_classMenuOption"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to <a class="el" href="classLogger.html" title="Interface for concrete Log strategies to implement.">Logger</a> object. Optional (can be unused). Reference used to create new Log entries. <br /></td></tr>
+<tr class="memdesc:a1f22b70856b3fdc684d373b1d4f29e06 inherit pro_attribs_classMenuOption"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional reference to <a class="el" href="classLogger.html" title="Interface for concrete logging strategies.">Logger</a> for command logging. <br /></td></tr>
 <tr class="separator:a1f22b70856b3fdc684d373b1d4f29e06 inherit pro_attribs_classMenuOption"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Command participant for encapsulating the command of exiting the game allows for advanced logging and obvious error handling. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p>Command participant for encapsulating the command of exiting the game. </p>
+<p>Allows for advanced logging and obvious error handling. Follows the Command pattern to encapsulate the exit game operation.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classMenuOption.html" title="Abstract base class for menu command options.">MenuOption</a> </dd>
+<dd>
+CommandPattern </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a32d2d76e045bd7779cb8755ad1a620ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32d2d76e045bd7779cb8755ad1a620ce">&#9670;&nbsp;</a></span>ExitGameOption()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ExitGameOption::ExitGameOption </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGame.html">Game</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLogger.html">Logger</a> *&#160;</td>
+          <td class="paramname"><em>logger</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor - initializes with game and optional logger. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>Pointer to the <a class="el" href="classGame.html" title="The main game class representing the internal API of the system.">Game</a> instance </td></tr>
+    <tr><td class="paramname">logger</td><td>Optional logger for command execution logging </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6a51cdc9f2bc98f8a9bb99610aa35004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a51cdc9f2bc98f8a9bb99610aa35004">&#9670;&nbsp;</a></span>execute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ExitGameOption::execute </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Executes the exit game command. </p>
+<p>Logs the operation and calls game-&gt;exitGame() </p>
+
+<p>Implements <a class="el" href="classMenuOption.html#a96a521f7dbc45c2936d6240ce4e8c80c">MenuOption</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>backend/game/<a class="el" href="ExitGameOption_8h_source.html">ExitGameOption.h</a></li>
 <li>backend/game/ExitGameOption.cpp</li>
 </ul>
