@@ -77,18 +77,6 @@ class CustomerVisitor
         void finalizeOffer(std::size_t target=5);
 
         /**
-         * @brief retrieves the offer vector.
-         * @return The vector of Plant pointers being offered to the customer.
-         */
-        const std::vector<Plant*>& getOffer() const;
-
-        /**
-         * @brief retrieves the correct plant for the customer.
-         * @return Pointer to the correct Plant for the customer.
-         */
-        const std::vector<Plant*>& getCorrectPlant() const;
-
-        /**
          * @brief Marks the correct plant for the customer.
          * @param source Vector of Plant pointers containing the correct plants for the customer.
          * @param count Number of correct plants to mark.
