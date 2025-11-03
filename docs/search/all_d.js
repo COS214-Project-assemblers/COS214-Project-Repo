@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['oatpp_5fcreate_5fcomponent_190',['OATPP_CREATE_COMPONENT',['../classAPIComponent.html#abe79e3b54f260ac0e8b86870883d5ee6',1,'APIComponent::OATPP_CREATE_COMPONENT(std::shared_ptr&lt; oatpp::network::ServerConnectionProvider &gt;, serverConnectionProvider)([]'],['../classAPIComponent.html#a736378da380da8f87852af5e55d0cce4',1,'APIComponent::OATPP_CREATE_COMPONENT(std::shared_ptr&lt; oatpp::web::server::HttpRouter &gt;, httpRouter)([]'],['../classAPIComponent.html#a82bb305f77a4ecc579625efa9d94025e',1,'APIComponent::OATPP_CREATE_COMPONENT(std::shared_ptr&lt; oatpp::network::ConnectionHandler &gt;, serverConnectionHandler)([]'],['../classAPIComponent.html#a05016732074b3c64e3560b21a60aedad',1,'APIComponent::OATPP_CREATE_COMPONENT(std::shared_ptr&lt; oatpp::web::mime::ContentMappers &gt;, apiContentMappers)([]']]],
+  ['offer_191',['offer',['../classCustomerVisitor.html#ae83d78f175474bf64fed1c90a9d70155',1,'CustomerVisitor']]],
+  ['offeredplants_192',['offeredPlants',['../classCustomer.html#a2eebcb6a34e75966f36fbf686787bec6',1,'Customer']]]
+];

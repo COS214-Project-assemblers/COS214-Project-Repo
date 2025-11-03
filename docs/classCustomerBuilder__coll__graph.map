@@ -1,0 +1,4 @@
+<map id="CustomerBuilder" name="CustomerBuilder">
+<area shape="rect" id="node1" title="Abstract base class for building Customer objects step by step." alt="" coords="5,95,136,121"/>
+<area shape="rect" id="node2" href="$classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types." alt="" coords="28,5,113,32"/>
+</map>

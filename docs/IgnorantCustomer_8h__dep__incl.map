@@ -1,0 +1,6 @@
+<map id="backend/customer/IgnorantCustomer.h" name="backend/customer/IgnorantCustomer.h">
+<area shape="rect" id="node1" title="Concrete customer class representing inexperienced plant buyers." alt="" coords="116,5,315,47"/>
+<area shape="rect" id="node2" href="$IgnorantCustomer_8cpp.html" title="Implements the functionality defined in the IgnorantCustomer class." alt="" coords="5,95,204,136"/>
+<area shape="rect" id="node3" href="$IgnorantCustomerBuilder_8h.html" title="Builder class for creating IgnorantCustomer objects with randomized dialogues." alt="" coords="228,95,427,136"/>
+<area shape="rect" id="node4" href="$IgnorantCustomerBuilder_8cpp.html" title="Implements the IgnorantCustomerBuilder class functionality." alt="" coords="228,184,427,225"/>
+</map>

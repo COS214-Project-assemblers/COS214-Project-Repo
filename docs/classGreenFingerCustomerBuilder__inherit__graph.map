@@ -1,0 +1,4 @@
+<map id="GreenFingerCustomerBuilder" name="GreenFingerCustomerBuilder">
+<area shape="rect" id="node1" title="Concrete builder for constructing GreenFingerCustomer objects with random dialogue selection." alt="" coords="5,80,216,107"/>
+<area shape="rect" id="node2" href="$classCustomerBuilder.html" title="Abstract base class for building Customer objects step by step." alt="" coords="45,5,176,32"/>
+</map>

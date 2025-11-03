@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classPlantCreator.html" title="Abstract base class responsible for creating and managing Plant objects." alt="" coords="5,56,108,83"/>
+<area shape="rect" id="node2" href="$classFlowerCreator.html" title="Concrete creator class responsible for creating Flower objects." alt="" coords="165,5,280,32"/>
+<area shape="rect" id="node3" href="$classSucculentCreator.html" title="Concrete creator class responsible for creating Succulent objects." alt="" coords="156,56,289,83"/>
+<area shape="rect" id="node4" href="$classTreeCreator.html" title="Concrete creator class responsible for creating Tree objects." alt="" coords="174,107,271,133"/>
+</map>

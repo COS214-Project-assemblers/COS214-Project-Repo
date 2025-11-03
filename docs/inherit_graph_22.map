@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classLogger.html" title="Interface for concrete Log strategies to implement." alt="" coords="5,31,72,57"/>
+<area shape="rect" id="node2" href="$classBasicLogger.html" title="Implements Logger interface. Reads LOG_FILE (log file path) environment variable, opens and appends l..." alt="" coords="124,5,225,32"/>
+<area shape="rect" id="node3" href="$classLogDecorator.html" title="Allows user to add extended functionality to the log ConcreteStrategies, i.e. can add cout before log..." alt="" coords="120,56,229,83"/>
+<area shape="rect" id="node4" href="$classCoutAndLog.html" title=" " alt="" coords="277,56,377,83"/>
+</map>

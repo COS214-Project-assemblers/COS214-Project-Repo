@@ -1,0 +1,4 @@
+<map id="PruningStaff" name="PruningStaff">
+<area shape="rect" id="node1" title="Concrete observer class for staff responsible for pruning plants." alt="" coords="20,80,121,107"/>
+<area shape="rect" id="node2" href="$classGreenhouseStaff.html" title="Abstract base class for greenhouse staff observers." alt="" coords="5,5,136,32"/>
+</map>

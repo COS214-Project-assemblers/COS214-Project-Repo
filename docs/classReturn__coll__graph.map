@@ -1,0 +1,4 @@
+<map id="Return" name="Return">
+<area shape="rect" id="node1" title="Will handle the transaction as a Return." alt="" coords="48,80,113,107"/>
+<area shape="rect" id="node2" href="$classTransactionStrategy.html" title="The TransactionStrategy class an abstract class that will help define how transactions will be handel..." alt="" coords="5,5,156,32"/>
+</map>

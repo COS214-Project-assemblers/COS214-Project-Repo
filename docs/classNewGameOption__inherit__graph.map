@@ -1,0 +1,4 @@
+<map id="NewGameOption" name="NewGameOption">
+<area shape="rect" id="node1" title="Implements MenuOption interface. NewGameOption invokes and logs the operation to create a new Game." alt="" coords="5,80,139,107"/>
+<area shape="rect" id="node2" href="$classMenuOption.html" title=" " alt="" coords="21,5,123,32"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="backend/game/Transaction.h" name="backend/game/Transaction.h">
+<area shape="rect" id="node1" title=" " alt="" coords="78,5,285,32"/>
+<area shape="rect" id="node2" href="$Manager_8h_source.html" title=" " alt="" coords="103,80,259,121"/>
+<area shape="rect" id="node3" href="$Game_8h.html" title="Header file for Game class." alt="" coords="95,169,267,196"/>
+<area shape="rect" id="node4" href="$API_8h.html" title="Bootstrapper for public facing API." alt="" coords="5,244,144,271"/>
+<area shape="rect" id="node5" href="$APIController_8h.html" title="Define endpoints." alt="" coords="227,408,429,435"/>
+<area shape="rect" id="node7" href="$MenuOption_8h_source.html" title=" " alt="" coords="349,244,561,271"/>
+<area shape="rect" id="node6" href="$APIController_8cpp.html" title="Still need to see what going to do here." alt="" coords="220,483,436,509"/>
+<area shape="rect" id="node8" href="$ContinueGameOption_8h.html" title="Header file for ContinueGameOption class." alt="" coords="219,319,437,360"/>
+<area shape="rect" id="node9" href="$ExitGameOption_8h.html" title=" " alt="" coords="461,326,701,353"/>
+<area shape="rect" id="node10" href="$NewGameOption_8h.html" title="Header file for NewGameOption class." alt="" coords="726,326,970,353"/>
+</map>

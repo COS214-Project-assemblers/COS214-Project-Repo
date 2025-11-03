@@ -1,0 +1,4 @@
+<map id="backend/customer/AverageCustomerBuilder.h" name="backend/customer/AverageCustomerBuilder.h">
+<area shape="rect" id="node1" title="Builder class for creating AverageCustomer objects with randomized dialogues." alt="" coords="5,5,204,47"/>
+<area shape="rect" id="node2" href="$AverageCustomerBuilder_8cpp.html" title="Implements the AverageCustomerBuilder class functionality." alt="" coords="5,95,204,136"/>
+</map>

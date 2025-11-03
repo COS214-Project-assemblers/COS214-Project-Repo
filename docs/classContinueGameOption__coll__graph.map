@@ -1,0 +1,6 @@
+<map id="ContinueGameOption" name="ContinueGameOption">
+<area shape="rect" id="node1" title="Inherits from MenuOption. Represents ConcreteCommand participant in the Command design pattern...." alt="" coords="5,171,168,197"/>
+<area shape="rect" id="node2" href="$classMenuOption.html" title=" " alt="" coords="36,95,137,121"/>
+<area shape="rect" id="node3" href="$classGame.html" title="The Game class represents the internal API of the system. It is modelled in terms of the Facade desig..." alt="" coords="12,5,73,32"/>
+<area shape="rect" id="node4" href="$classLogger.html" title="Interface for concrete Log strategies to implement." alt="" coords="97,5,164,32"/>
+</map>

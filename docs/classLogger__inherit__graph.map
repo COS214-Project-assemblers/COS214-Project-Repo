@@ -1,0 +1,6 @@
+<map id="Logger" name="Logger">
+<area shape="rect" id="node1" title="Interface for concrete Log strategies to implement." alt="" coords="87,5,153,32"/>
+<area shape="rect" id="node2" href="$classBasicLogger.html" title="Implements Logger interface. Reads LOG_FILE (log file path) environment variable, opens and appends l..." alt="" coords="5,80,107,107"/>
+<area shape="rect" id="node3" href="$classLogDecorator.html" title="Allows user to add extended functionality to the log ConcreteStrategies, i.e. can add cout before log..." alt="" coords="131,80,240,107"/>
+<area shape="rect" id="node4" href="$classCoutAndLog.html" title=" " alt="" coords="135,155,235,181"/>
+</map>

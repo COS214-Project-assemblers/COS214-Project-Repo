@@ -1,0 +1,4 @@
+<map id="IgnorantCustomer" name="IgnorantCustomer">
+<area shape="rect" id="node1" title="Represents a customer with minimal plant knowledge who needs easy&#45;care plants." alt="" coords="5,80,144,107"/>
+<area shape="rect" id="node2" href="$classCustomer.html" title="Abstract base class defining the interface and shared behavior for all customer types." alt="" coords="32,5,117,32"/>
+</map>
