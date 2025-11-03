@@ -25,7 +25,7 @@ const Salesfloor = () => {
     const imgForType = (type) => {
       switch (type) {
         case 'ignorant':
-          return { src: '/assets/images/ignorant.png', style: { width: '41em', marginLeft: '1em' } };
+          return { src: '/assets/images/ignorant.png', style: { width: '20em', marginLeft: '7em' } };
         case 'average':
           return { src: '/assets/images/medium-customer.png', style: { width: '24em', marginLeft: '6em' } };
         default: 
