@@ -8,8 +8,9 @@
 - Allyson Andre (u23525984)
 - Gerard Jordaan (u24568385)
 ## 🔗 Links
-- [Notion](https://www.notion.so/COS-214-Final-Project-27cd746b5e5f8007a722c42b0529a6e2?source=copy_link)
 - [Report](https://docs.google.com/document/d/1Phlq3BvhULa5o92I_TQlJdaRacmksK-wEytywCLnIkY/edit?usp=sharing)
+- [Doxygen](https://cos214-project-assemblers.github.io/COS214-Project-Repo/files.html)
+- [Notion](https://www.notion.so/COS-214-Final-Project-27cd746b5e5f8007a722c42b0529a6e2?source=copy_link)
 ## 🚀 How to Run
 
 ### **1. Clone the Repository**
