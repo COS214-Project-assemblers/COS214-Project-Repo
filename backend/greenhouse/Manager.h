@@ -1,9 +1,6 @@
 /**
- * @class Manager
- * @brief Declares manager class which is responsible for managing the creation of plant offers, and dealing with customers through the sales floor. 
- * 
- * The Manager class coordinates the interactions between the sales floor and customers.
- * It builds Plant offers for the customers, and processes the transactions (recorded/lost)
+ * @file Manager.h
+ * @brief Manager class for coordinating plant sales and customer interactions
  */
 
 #ifndef MANAGER_H
@@ -17,72 +14,107 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-// #include <nlohmann/json.hpp>
-// using json=nlohmann::json;
 
 class Plant;
 class Customer;
 
+/**
+ * @class Manager
+ * @brief Coordinates plant sales, customer interactions, and financial transactions
+ * 
+ * The Manager class is responsible for managing the creation of plant offers, 
+ * dealing with customers through the sales floor, and processing financial 
+ * transactions. It serves as the central coordinator between sales floor, 
+ * greenhouse, and financial systems.
+ * 
+ * @see SalesFloor
+ * @see Greenhouse
+ * @see Ledger
+ * @see TransactionHistory
+ */
 class Manager{
     private:
-        SalesFloor* floor;///<Reference to salesFloor object that is managed by the Manager.
-        Ledger ledger;///<Ledger to keep track of balance
-        TransactionStrategy* strat;
-        TransactionHistory hist;///<Transaction history to keep track of transactions
-        Greenhouse* greenhouse;
+        SalesFloor* floor;           ///< Reference to sales floor for customer interactions
+        Ledger ledger;               ///< Financial ledger for balance tracking
+        TransactionStrategy* strat;  ///< Current transaction strategy
+        TransactionHistory hist;     ///< Transaction history for reporting and refunds
+        Greenhouse* greenhouse;      ///< Reference to greenhouse for plant operations
+
     public:
         /**
-         * @brief Constructs a Manager associated with a given SalesFloor.
-         * @param f Reference to the SalesFloor instange the Manager overseads.
+         * @brief Constructs a Manager with default initialization
          */
         explicit Manager();
+
         /**
-         * @brief Deafult destructer
+         * @brief Destructor - cleans up manager resources
          */
         ~Manager();
+
         /**
          * @brief Records a successful sale.
          * @param p The plant that was sold.
          */
         void recordSale(string id);
+
         /**
-         * @brief Records if a sale was lost with the rason as to why.
-         * @param cust The Customer to which a sale was lost.
-         * @param p The plant that was offered but was declined
+         * @brief Records plant restocking transaction
+         * @param p Reference to the Plant being restocked
          */
         void recordRestock(Plant& p);
+
         /**
-         * @brief records if a plant died in the greenhouse
-         * @param p The plant that died
+         * @brief Records plant death in greenhouse
+         * @param p Reference to the Plant that died
          */
         void recordPlantDied(Plant& p);
+
         /**
-         * @brief record return of plant
-         * @param p The plant being returned
-         * @return true if return was executed, false if not
+         * @brief Processes customer plant returns
+         * @param p Reference to the Plant being returned
+         * @return true if return was processed successfully, false otherwise
          */
         bool processReturns(Plant& p);
+
         /**
-         * @brief Getter for inventory
-         * @return Reference to the inventory managed by the salesFloor
+         * @brief Get read-only access to inventory
+         * @return Constant pointer to the inventory managed by sales floor
          */
         const Inventory* inventory()const;
+
         /**
-         * @brief Mutable getter for inventory
-         * @return Mutable reference to the inventory managed by the salesFloor
+         * @brief Get mutable access to inventory
+         * @return Mutable reference to the inventory managed by sales floor
          */
         Inventory& inventoryMut();
-        /**
-         * @brief set transaction
-         * @param t transaction to set
-         */
 
+        /**
+         * @brief Get sales floor inventory
+         * @return Constant pointer to sales floor inventory
+         */
         const Inventory* getSaleInventory();
 
+        /**
+         * @brief Get current balance
+         * @return Current financial balance as float
+         */
         float getBalance();
+
+        /**
+         * @brief Resets balance to 500
+         */
         void resetBalance();
+
+        /**
+         * @brief Get transaction history
+         * @return TransactionHistory object containing transaction records
+         */
         TransactionHistory getTransactionHist()const;
 
+        /**
+         * @brief Sets greenhouse reference
+         * @param greenhouse Pointer to Greenhouse instance
+         */
         void setGreenhouse(Greenhouse* greenhouse);
 };
 

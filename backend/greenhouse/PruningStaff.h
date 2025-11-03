@@ -1,3 +1,7 @@
+/**
+ * @file PruningStaff.h
+ * @brief Concrete observer for pruning staff in greenhouse
+ */
 #ifndef PRUNINGSTAFF_H
 #define PRUNINGSTAFF_H
 
@@ -12,6 +16,9 @@ using namespace std;
  * This class represents greenhouse staff members who are specifically responsible
  * for pruning plants. It implements the GreenhouseStaff interface
  * and responds to notifications when plants require pruning care (careType == "pruning").
+ * 
+ * @see GreenhouseStaff
+ * @see ObserverPattern
  */
 class PruningStaff : public GreenhouseStaff {
     public:

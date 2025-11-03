@@ -1,11 +1,11 @@
 /**
  * @file SalesFloor.h
+ * @brief Sales floor management for customer interactions and plant sales
  */
 #ifndef SALESFLOOR_H
 #define SALESFLOOR_H
 
 #include "Inventory.h"
-// #include "Customer.h"
 #include "TransactionHistory.h"
 #include "Ledger.h"
 
@@ -18,54 +18,76 @@ class CustomerVisitor;
 
 /**
  * @class SalesFloor
- * @brief Manages Customer flow and provides access to the inventory for the Manager during sales interactions.
+ * @brief Manages customer flow and provides access to inventory for sales interactions
  * 
- * The SalesFloor class is for the enviroment in which the Customer can interact with the Manager. It maintains a current "queue" and history lists.
+ * The SalesFloor class provides the environment where customers interact with the manager
+ * during sales. It maintains inventory access, financial ledger, and transaction history
+ * for sales operations.
+ * 
+ * @see Inventory
+ * @see Ledger
+ * @see TransactionHistory
+ * @see Manager
  */
 class SalesFloor{
     private:
-        Inventory* inv;///<Pointer to Inventory object
-        Ledger ledger;///<Ledger to keep track of balance
-        TransactionHistory* history;
+        Inventory* inv;              ///< Pointer to plant inventory
+        Ledger ledger;               ///< Financial ledger for sales transactions
+        TransactionHistory* history; ///< Transaction history recording
+
     public:
         /**
          * @brief Default constructor.
          */
         SalesFloor();
+
         /**
-         * @brief Default deconstructor.
+         * @brief Default destructor.
          */
         ~SalesFloor();
         
         /**
-         * @brief Provides read only access
-         * @return Constant reference to the Inventory object managed by the salesFloor.
+         * @brief Provides read-only access to inventory
+         * @return Constant pointer to the Inventory object
          */
         const Inventory* inventory()const;
+
         /**
-         * @brief non-const access for manager.
-         * @return returns mutateable ref to Inventory.
+         * @brief Provides mutable access to inventory for manager operations
+         * @return Mutable reference to the Inventory object
          */
         Inventory& inventoryMut();
+
         /**
          * @brief Mutable getter for the ledger
          * @return Reference to the ledger object
          */
         Ledger& getLedger();
+
         /**
          * @brief Read only getter for the ledger
          * @return Constant reference to the ledger object
          */
         const Ledger& getLedger()const;
-        /**
-         * @brief Simulates the process of returns based on a given probability.
-         * @param prob Probability that a customer decides to return a product.
-         * @param hist Reference to the TransactionHistory to process returns.
-         */
 
+        /**
+         * @brief Adds plant to sales floor inventory
+         * @param p Pointer to Plant to add
+         */
         void addPlant(Plant* p);
 
+        /**
+         * @brief Gets plant from sales floor by ID
+         * @param id Plant identifier
+         * @return Pointer to Plant if found, nullptr otherwise
+         */
         Plant* getPlantOnSalesFloor(string id);
+
+        /**
+         * @brief Removes plant from sales floor by ID
+         * @param id Plant identifier
+         * @return Pointer to removed Plant
+         */
         Plant* removePlantFromSalesFloor(string id);
 };
 

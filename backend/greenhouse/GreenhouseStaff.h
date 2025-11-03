@@ -1,3 +1,7 @@
+/**
+ * @file GreenhouseStaff.h
+ * @brief Abstract base class for greenhouse staff observers
+ */
 #ifndef GREENHOUSESTAFF_H
 #define GREENHOUSESTAFF_H
 
@@ -19,7 +23,8 @@ using namespace std;
 
 class GreenhouseStaff {
     protected:
-        Greenhouse* greenhouse;
+        Greenhouse* greenhouse;  ///< Reference to greenhouse for plant operations
+
     public:
 
         /**
@@ -39,6 +44,10 @@ class GreenhouseStaff {
          */
         virtual ~GreenhouseStaff() = default;
 
+        /**
+         * @brief Sets the greenhouse reference for staff operations
+         * @param greenhouse Pointer to Greenhouse instance
+         */
         void setGreenhouse(Greenhouse* greenhouse);
 };
 

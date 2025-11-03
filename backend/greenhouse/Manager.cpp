@@ -58,10 +58,6 @@ void Manager::recordSale(string id){
 
     floor->removePlantFromSalesFloor(id);
     cout << "REMOVED PLANT" << endl;
-    // floor->inventoryMut().commitSale(&p);
-    // Transaction saleT(strat,p.getSalePrice());//creates new sale transaction
-
-    // strat=nullptr;
 }
 
 void Manager::recordRestock(Plant& p){
@@ -77,9 +73,7 @@ void Manager::recordRestock(Plant& p){
     strat=nullptr;
 }
 
-void Manager::recordPlantDied(Plant& p){ // This function needs to make sure the plant that died in the greenhouse, actually gets removed from the inventory of greenhouse
-    //needs to access the greenhouse inventory to remove plant
-    //Needs implimentation for thisssss!!!!
+void Manager::recordPlantDied(Plant& p){
     if(strat)
     {
         delete strat;
@@ -91,7 +85,7 @@ void Manager::recordPlantDied(Plant& p){ // This function needs to make sure the
     strat=nullptr;
 }
 
-bool Manager::processReturns(Plant& p){ // This function needs to make sure that the plant that is returned, needs to actually get added back to the salesfloor
+bool Manager::processReturns(Plant& p){
     int id=hist.FindTransactionIDFor(&p);
     if(id<0){
         return false;
