@@ -1,6 +1,6 @@
 /**
  * @file Logger.h
- * @brief Header for Strategy Logger
+ * @brief Header for Strategy Logger interface
  * @author Gerard Jordaan
  */
 
@@ -13,7 +13,13 @@
 
 /**
  * @class Logger
- * @brief Interface for concrete Log strategies to implement
+ * @brief Interface for concrete logging strategies
+ * @details Defines the common interface for all logging implementations
+ * following the Strategy pattern. Concrete strategies implement specific
+ * logging mechanisms (file, console, etc.).
+ * 
+ * @see BasicLogger
+ * @see LogDecorator
  */
 class Logger {
     public:
@@ -22,7 +28,11 @@ class Logger {
          * @param[in] message Content of log message
          */
         virtual void newLog(std::string message) = 0;
+        
+        /**
+         * @brief Virtual destructor for proper polymorphic cleanup
+         */
         virtual ~Logger() {};
 };
 
-#endif // LOGGER
+#endif

@@ -1,5 +1,6 @@
 /**
  * @file TransactionStrategy.h
+ * @brief Abstract base class for transaction strategies
  */
 #ifndef TRANSACTIONSTRATEGY_H
 #define TRANSACTIONSTRATEGY_H
@@ -8,28 +9,39 @@
 
 /**
  * @class TransactionStrategy
- * @brief The TransactionStrategy class an abstract class that will help define how transactions will be handeld based on the type of Transaction.
+ * @brief Abstract base class for transaction handling strategies
+ * @details Defines the interface for different transaction types using
+ * the Strategy pattern. Each concrete strategy implements specific
+ * financial logic for different transaction types (sale, return, etc.).
+ * 
+ * @see Sale
+ * @see Return
+ * @see Restock
+ * @see PlantDied
  */
 class TransactionStrategy{
     public:
         /**
-         * @brief default constructor.
+         * @brief Default constructor
          */
         TransactionStrategy();
+
         /**
-         * @brief Virtual Deconstructor.
+         * @brief Virtual destructor for proper polymorphic cleanup
          */
         virtual ~TransactionStrategy();
+
         /**
-         * @brief Executes a transactions financial logic to update the balance.
-         * @param v Value of the transaction.
-         * @param b Value of the current balance
-         * @return THe new balance after a transaction has been executed.
+         * @brief Executes transaction financial logic
+         * @param v Monetary value of the transaction
+         * @param b Current balance before transaction
+         * @return New balance after transaction processing
          */
         virtual double execute(double v, double b)=0;
+
         /**
-         * @brief Returns the Type of the transaction
-         * @return The Type of the transaction
+         * @brief Gets transaction type identifier
+         * @return Transaction type string
          */
         virtual std::string getType()const =0;
 };

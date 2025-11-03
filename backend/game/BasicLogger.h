@@ -19,39 +19,50 @@ using namespace std;
 
 /**
  * @class BasicLogger
- * @brief Implements Logger interface. Reads LOG_FILE (log file path) environment variable, opens
- *  and appends log message and timestamp to the file 
+ * @brief Implements Logger interface for file-based logging
+ * @details Reads LOG_FILE environment variable for log file path, opens
+ * and appends log messages with timestamps to the file. Follows the
+ * Strategy pattern as a ConcreteStrategy for logging.
+ * 
+ * @see Logger
  */
 class BasicLogger : public Logger {
     private:
         /**
-         * @brief Filename of Log File, read from environment, LOG_FILE
+         * @brief Filename of Log File, read from environment variable LOG_FILE
          */
         string fileName;
+
         /**
-         * @brief object representing file to append logs to
+         * @brief Object representing file to append logs to
          */
         ofstream file;
+
     public:
+
         /**
-         * @brief Loads and sets filename from environment variable LOG_FILE
-         *  Opens the file, loads into mem
+         * @brief Constructor - loads and sets filename from environment variable LOG_FILE
+         * @details Opens the file for appending log messages
          */
         BasicLogger();
+
         /**
-         * @brief Appends to the log file in the following format:
-         *  [timestamp] <message>
+         * @brief Appends a log message to the log file with timestamp
+         * @param message The log message to append
+         * @details Format: [timestamp] message
          */
         void newLog(string message) override;
+
         /**
-         * @brief Returns current timestamp <weekday month day hh:ss:mm year>
-         * @returns Tue Oct 21 16:37:50 2025
+         * @brief Generates current timestamp string
+         * @return Timestamp in format: "Tue Oct 21 16:37:50 2025"
          */
         string timestamp();
+
         /**
-         * @brief Closes file
+         * @brief Destructor - closes the log file
          */
         ~BasicLogger();
 };
 
-#endif // BASICLOGGER
+#endif

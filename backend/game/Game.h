@@ -1,6 +1,6 @@
 /**
  * @file Game.h
- * @brief Header file for Game class
+ * @brief Header file for Game class - Main game facade
  * @author Gerard Jordaan
  */
 #ifndef GAME_HDR
@@ -23,17 +23,15 @@
 
 using namespace std;
 
-// For now, and to be safe, I am forward declaring classes instead of including
-// their header files to avoid circular dependencies, i.e. the Greenhouse class 
-// can include Game.h in its header file and then we are fu..screwed (just checking
-// if you are actually reading comments)
 class Greenhouse;
 class PlantCreator;
 
 /**
  * @class Game
- * @brief The Game class represents the internal API of the system.
- *  It is modelled in terms of the Facade design pattern.
+ * @brief The main game class representing the internal API of the system
+ * @details Models the Facade design pattern to provide a simplified interface
+ * to the complex subsystem of game components including greenhouse, customers,
+ * inventory, and financial systems.
  */
 class Game {
     private:
@@ -41,59 +39,83 @@ class Game {
          * @brief attribute that maintains reference to the game's greenhouse object
          */
         Greenhouse* greenhouse = nullptr;
+
         /**
-         * @brief maintains reference to plant creators for the game
+         * @brief Map of plant creators (factories) for different plant categories
          */
         map<string, PlantCreator*> factories;
 
+        /**
+         * @brief Game configuration provider
+         */
         GameConfiguraton* config = nullptr;
 
         /**
-         * @brief Used to log all game events
+         * @brief Logger for game events
          */
         Logger* logger = nullptr;
+
         /** 
-         * @brief Maps plant varieties to their categories for easy lookup during plant purchases
-         * This enables the Factory Method pattern to find the correct creator for each plant type
+         * @brief Maps plant varieties to their categories for easy lookup
+         * @details Enables Factory Method pattern to find correct creator for plant types
          */
         map<string, string> varietyToCategory;
 
-        vector<Customer*> customers;
-        Manager* manager = nullptr;///<Maintains ref to the manager object
-        GreenSock* socket = nullptr;
-    public:
         /**
-         * @brief Game initialization tasks that are not creating/loading game.
-         *  Wil problably init DB connection etc here
+         * @brief Collection of active customers in the game
+         */
+        vector<Customer*> customers;
+
+        /**
+         * @brief Reference to the manager object handling game operations
+         */
+        Manager* manager = nullptr;
+
+        /**
+         * @brief WebSocket connection for real-time communication
+         */
+        GreenSock* socket = nullptr;
+
+    public:
+
+        /**
+         * @brief Constructor - initializes game with configuration
+         * @param configPath Path to game configuration file
          */
         Game(string configPath);
+
         /**
          * @brief Setter for greenhouse attribute
-         * @param[in] greenhouse Greenhouse reference
+         * @param greenhouse Pointer to Greenhouse instance
          */
         void setGreenhouse(Greenhouse* greenhouse);
+
         /**
-         * @brief Getter for testing purposes
+         * @brief Getter for greenhouse
+         * @return Pointer to Greenhouse instance
          */
         Greenhouse* getGreenhouse();
+
         /**
-         * @brief Setter for factories
-         * @param[in] factories Vector of PlantCreator object references, these are the "factories"
+         * @brief Setter for plant factories
+         * @param factories Map of plant category to PlantCreator factories
          */
         void setFactories(map<string, PlantCreator*> factories);
+
         /**
-         * @brief Getter for testing purposes
+         * @brief Getter for factories
+         * @return Map of plant factories
          */
         map<string, PlantCreator*> getFactories();
 
         /**
-         * @brief Operations associated with creating a new game, i.e. creating greenhouse and factories
+         * @brief Operations for creating a new game instance
+         * @details Creates greenhouse, initializes factories, and sets up game state
          */
         void createNewGame();
 
         /**
-         * @brief This is used by the user to be able to buy plants to add to the Greenhouse.
-         *  Uses Factory Method pattern to find correct plant creator and Prototype pattern to clone plants.
+         * @brief Buys plants and adds them to the Greenhouse
          * @param plant The specific plant variety to buy (e.g., "cactus", "rose", "lemon")
          * @param num The number of plants to buy
          * @throws runtime_error if plant variety not found or greenhouse not initialized
@@ -101,7 +123,8 @@ class Game {
         void buyPlants(string plant, int num);
 
         /**
-         * @brief Frees greenhouse, plant creators memory. Closes DB connection.
+         * @brief Destructor - cleans up game resources
+         * @details Frees greenhouse, plant creators memory, and other resources
          */
         ~Game();
 
@@ -139,28 +162,70 @@ class Game {
          */
         string getCustomersAsJson();
 
-        
+        /**
+         * @brief Get all customers as a JSON array string
+         * @return JSON string containing all customers
+         */
         vector<PlantStruct*> getAvailablePlantVarieties();
 
         /**
-         * @brief Exits game gracefully, atp it is just logging that the user opted to end the game,
-         * but if the game were to scale this would obviously contain crucial shutdown steps. No mem is
-         * freed since the destructor of the Game will be called when it is deleted in mem
+         * @brief Exits game gracefully
+         * @details Logs exit operation. Memory cleanup handled by destructor
          */
         void exitGame();
+
+        /**
+         * @brief Setter for manager
+         * @param m Pointer to Manager instance
+         */
         void setManager(Manager* m);
+
+        /**
+         * @brief Getter for manager
+         * @return Pointer to Manager instance
+         */
         Manager* getManager();
 
+        /**
+         * @brief Get current game balance
+         * @return Current balance as float
+         */
         float getGameBalance();
 
+        /**
+         * @brief Setter for WebSocket connection
+         * @param socket Pointer to GreenSock instance
+         */
         void setSocket(GreenSock* socket);
 
+        /**
+         * @brief Get greenhouse plants as vector
+         * @return Vector of Plant pointers in greenhouse
+         */
         vector<Plant*> getGreenhousePlants();
+
+        /**
+         * @brief Get greenhouse plants as JSON string
+         * @return JSON string containing greenhouse plants data
+         */
         string getGreenhousePlantsAsJson();
 
+        /**
+         * @brief Perform care action on a specific plant
+         * @param id Plant identifier
+         */
         void careForPlant(string id);
+
+        /**
+         * @brief Make a sale of a plant
+         * @param id Plant identifier to sell
+         */
         void makeSale(string id);
+
+        /**
+         * @brief Clear all customers from the game
+         */
         void clearCustomers();
 };
 
-#endif // GAME_HDR
+#endif

@@ -1,5 +1,6 @@
 /**
  * @file Transaction.h
+ * @brief Represents a financial transaction in the system
  */
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
@@ -15,24 +16,32 @@
 
 /**
  * @class Transaction
- * @brief Represensts a single transaction in the system and holds its value and the TransactionStrategy used.
+ * @brief Represents a single financial transaction with strategy and value
+ * @details Encapsulates transaction data and behavior, using TransactionStrategy
+ * to handle different transaction types (sale, return, restock, etc.).
+ * 
+ * @see TransactionStrategy
+ * @see TransactionMem
  */
 class Transaction{
     private:
-        TransactionStrategy* tS;///<Pointer to a Transaction Strategy object
-        double value{0.0};///<Value of transaction
-        int transID{0};///<Unique ID for transaction
+        TransactionStrategy* tS;  ///< Pointer to TransactionStrategy for this transaction
+        double value{0.0};        ///< Monetary value of the transaction
+        int transID{0};           ///< Unique identifier for the transaction
+
     public:
         /**
-         * @brief Constructor
-         * @param tS Pointer to a TransactionStrategy
-         * @param v Value of the current Transaction
+         * @brief Constructor - creates transaction with strategy and value
+         * @param tS Pointer to TransactionStrategy defining transaction behavior
+         * @param v Monetary value of the transaction
          */
         Transaction(TransactionStrategy* tS,double v);
+
         /**
-         * @brief Deconstructor
+         * @brief Default destructor
          */
         ~Transaction() = default;
+
         /**
          * @brief Applies the transaction to a ledger and returns a snapshot
          * @param ledger Reference to current Ledger
@@ -40,16 +49,19 @@ class Transaction{
          * @return A TransactionMem snapshot
          */
         TransactionMem createTransactionMem(Ledger& ledger,Plant* plant)const;
+
         /**
          * @brief Getter for Value
          * @return Value of transaction
          */
         double getValue() const;
+
         /**
          * @brief Getter for type of transaction
          * @return the type of transaction e.g "Sale"
          */
         std::string getType() const;
+        
         /**
          * @brief getter for transaction ID
          * @return transaction ID

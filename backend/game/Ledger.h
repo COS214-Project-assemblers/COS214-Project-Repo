@@ -1,6 +1,8 @@
 /**
- * @file ledger.h
+ * @file Ledger.h
+ * @brief Financial ledger for tracking game balance
  */
+
 #ifndef LEDGER_H
 #define LEDGER_H
 
@@ -9,33 +11,43 @@ using json=nlohmann::json;
 
 /**
  * @class Ledger
- * @brief Holds the balance
+ * @brief Maintains and manages the game's financial balance
+ * @details Provides balance tracking and JSON serialization capabilities
+ * for financial state management.
  */
 class Ledger{
     private:
-        double balance;///<Balance variable
+        /**
+         * @brief Current game balance
+         */
+        double balance;
+        
     public:
         /**
-         * @brief Construstor
+         * @brief Constructor - initializes balance to zero
          */
         Ledger();
+
         /**
-         * @brief default deconstructor
+         * @brief Default destructor
          */
         ~Ledger()=default;
+
         /**
-         * @brief Getter for Balance
-         * @return current balance
+         * @brief Get current balance
+         * @return Current balance as double
          */
         double getBalance();
+
         /**
-         * @brief Setter for balance
-         * @param newBal the updated balance based on the transactionStrategy Calc
+         * @brief Set new balance value
+         * @param newBal The updated balance value
          */
         void setBalance(double newBal);
+
         /**
-         * @brief converst balance to json
-         * @return json object containing balance info
+         * @brief Convert balance to JSON format
+         * @return JSON object containing balance information
          */
         json balToJSON()const;
 };

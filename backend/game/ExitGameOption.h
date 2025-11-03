@@ -1,5 +1,6 @@
 /**
  * @file ExitGameOption.h
+ * @brief Command for exiting the game with logging capabilities
  * @author Gerard Jordaan
  */
 
@@ -11,16 +12,25 @@
 /**
  * @class ExitGameOption
  * @brief Command participant for encapsulating the command of exiting the game
- *  allows for advanced logging and obvious error handling
+ * @details Allows for advanced logging and obvious error handling. Follows the
+ * Command pattern to encapsulate the exit game operation.
+ * 
+ * @see MenuOption
+ * @see CommandPattern
  */
 class ExitGameOption : public MenuOption {
     public:
+
         /**
-         * @brief Calls parent constructor with passed in params
+         * @brief Constructor - initializes with game and optional logger
+         * @param game Pointer to the Game instance
+         * @param logger Optional logger for command execution logging
          */
         ExitGameOption(Game* game, Logger* logger = nullptr);
+
         /**
-         * @brief Logs and executes game->exitGame()
+         * @brief Executes the exit game command
+         * @details Logs the operation and calls game->exitGame()
          */
         virtual void execute() override;
 };
